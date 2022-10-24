@@ -15,7 +15,7 @@ nav:
   - Intro: index.md
   - Page2: page-2.md
   - API:
-    - v1: '!include ./v1/mkdocs.yml'
+    - api-docs: '!include ./api-docs/mkdocs.yml'
   # - Services:
   #   - Replay: '!include ./replay/mkdocs.yml'
 
