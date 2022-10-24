@@ -10,7 +10,7 @@ copyright: >
 docs_dir: docs/
 repo_name: quixai/quix-docs
 repo_url: https://github.com/quixai/quix-docs
-edit_uri: tree/develop
+edit_uri: tree/develop/docs/
 nav:
   - Welcome: index.md
   - Page2: page-2.md
