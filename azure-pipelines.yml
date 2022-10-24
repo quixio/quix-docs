@@ -4,11 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+    - develop
+  tags:
+    include:
+    - '*'
 
 pool:
-  vmImage: 'windows-latest'
+  name: 'SpotScaleSet'
 
+#variables:
+#  isMaster: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+#  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
+  
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -27,3 +37,8 @@ steps:
    mkdocs build  
   displayName: Install MkDocs + build
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/site'
+    ArtifactName: 'Site'
+    publishLocation: 'Container'
