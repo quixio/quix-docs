@@ -16,14 +16,9 @@ nav:
   - Page2: page-2.md
   - API:
     - v1: '!include ./v1/mkdocs.yml'
-  # - Services:
-  #   - Replay: '!include ./replay/mkdocs.yml'
+  - Services:
+    - Replay: '!include ./replay/mkdocs.yml'
 
-plugins:
-  - search:
-      separator: '[\s\-\.]' 
-  - monorepo
-  
 theme:
   name: 'material'
   # TODO
@@ -152,6 +147,10 @@ extra:
         name: Google Analytics
         checked: true
 
+
+plugins:
+  - search:
+      separator: '[\s\-\.]' 
 
 # turn on for pretty cards when link shared on social etc.
 # see https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/#configuration
