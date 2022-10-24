@@ -13,7 +13,7 @@ trigger:
     - '*'
 
 pool:
-  name: 'SpotScaleSet'
+  name: 'windows-latest'
 
 #variables:
 #  isMaster: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
