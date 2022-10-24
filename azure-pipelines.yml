@@ -13,7 +13,7 @@ trigger:
     - '*'
 
 pool:
-  name: 'windows-latest'
+  vmImage: 'windows-latest'
 
 #variables:
 #  isMaster: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
