@@ -14,8 +14,8 @@ edit_uri: tree/develop/docs/
 nav:
   - Intro: index.md
   - Page2: page-2.md
-  - API:
-    - api-docs: '!include ./api-docs/mkdocs.yml'
+  - API's:
+    - API V1: '!include ./api-docs/mkdocs.yml'
   # - Services:
   #   - Replay: '!include ./replay/mkdocs.yml'
 
@@ -27,7 +27,7 @@ plugins:
 theme:
   name: 'material'
   # TODO
-  logo: assets/quix-logo.svg
+  logo: /assets/Quix-docs-logo-header.svg
   #custom_dir: 'theme'
   #favicon: 'assets/images/favicon.png'
   
@@ -108,7 +108,8 @@ theme:
   #    example: 'octicons/beaker-16'
   #    quote: 'octicons/quote-16'
 
-#extra_css:
+extra_css:
+  - stylesheets/extra.css
 #extra_javascript:
 extra:
   social:
@@ -122,7 +123,7 @@ extra:
       link: 'https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA'
   analytics:
     provider: google
-    property: G-XXXXXXXXXX #todo need docs ga code
+    property: G-xxx #UA-173360929-3 #todo need docs ga code
     feedback:
       title: Was this page helpful?
       ratings:
@@ -164,6 +165,9 @@ extra:
   
   #alternate:
 markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - admonition
   #- markdown.extensions.admonition:
   #- markdown.extensions.codehilite:
@@ -192,7 +196,7 @@ markdown_extensions:
   #- pymdownx.smartsymbols:
   #- pymdownx.snippets:
   #- pymdownx.striphtml:
-  - pymdownx.superfences
+  #- pymdownx.superfences
   #- pymdownx.tabbed:
   #- pymdownx.tasklist:
   #- pymdownx.tilde:
