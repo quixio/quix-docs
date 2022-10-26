@@ -13,9 +13,86 @@ repo_url: https://github.com/quixai/quix-docs
 edit_uri: tree/develop/docs/
 nav:
   - Intro: index.md
-  - Page2: page-2.md
-  - API's:
-    - API V1: '!include ./api-docs/mkdocs.yml'
+  - Platform:
+    - 'What is Quix?': 'platform/intro.md'
+    - 'Definitions': 'platform/definitions.md'
+    - 'How To':
+      - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
+      - 'Use SDK token': 'platform/how-to/use-sdk-token.md'
+      - 'Use Jupyter notebooks': 'platform/how-to/jupyter-nb.md'
+      - 'Develop web applications with Quix': 'platform/how-to/webapps.md'
+      - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
+      - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
+      - 'Train and deploy an ML model':
+        - 'How to train an ML model': 'platform/how-to/train-and-deploy-ml/train-ml-model.md'
+        - 'Run ML model in realtime environment': 'platform/how-to/train-and-deploy-ml/deploy-ml.md'
+      - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
+    - 'Tutorials':
+      - 'Quick Start': 'platform/tutorials/quick-start.md'
+      - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
+      - 'Sentiment analysis': 'platform/tutorials/sentimentAnalysis.md'
+      - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
+      - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
+      - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
+    - 'Code Samples': 'platform/samples/samples.md'
+    - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
+    - 'Security': 'platform/security/security.md'
+  - SDK:
+    - 'Introduction': 'sdk/introduction.md'
+    - 'Kafka and Quix SDK': 'sdk/kafka.md'
+    - 'Features overview':
+      - 'Streaming context': 'sdk/features/streaming-context.md'
+      - 'In-memory processing': 'sdk/features/in-memory-processing.md'
+      - 'Built-in buffers': 'sdk/features/builtin-buffers.md'
+      - 'Support for Data Frames': 'sdk/features/data-frames.md'
+      - 'Message splitting': 'sdk/features/message-splitting.md'
+      - 'Message compression': 'sdk/features/message-compression.md'
+      - 'Data serialization': 'sdk/features/data-serialization.md'
+      - 'Multiple data types': 'sdk/features/multiple-data-types.md'
+      - 'Broker configuration': 'sdk/features/broker-configuration.md'
+      - 'Checkpointing': 'sdk/features/checkpointing.md'
+      - 'Horizontal scaling': 'sdk/features/horizontal-scaling.md'
+      - 'Integrations': 'sdk/features/integrations.md'
+      - 'Portability': 'sdk/features/portability.md'
+    - 'Connect to Quix': 'sdk/connect.md'
+    - 'Writing data': 'sdk/write.md'
+    - 'Reading data': 'sdk/read.md'
+    - 'Processing data': 'sdk/process.md'
+    - 'State management': 'sdk/state-management.md'
+    - 'Local environment':
+      - 'Set up local environment': 'sdk/python-setup.md'
+      - 'Set up docker environment': 'sdk/docker-setup.md'
+  - API:
+    - 'Data Catalogue API':
+      - 'Introduction': 'apis/data-catalogue-api/intro.md'
+      - 'Authenticate': 'apis/data-catalogue-api/authenticate.md'
+      - 'Getting Swagger url': 'apis/data-catalogue-api/get-swagger.md'
+      - 'Forming a request': 'apis/data-catalogue-api/request.md'
+      - 'Paged streams': 'apis/data-catalogue-api/streams-paged.md'
+      - 'Filtered streams': 'apis/data-catalogue-api/streams-filtered.md'
+      - 'Streams with models': 'apis/data-catalogue-api/streams-models.md'
+      - 'Raw data': 'apis/data-catalogue-api/raw-data.md'
+      - 'Aggregate data by time': 'apis/data-catalogue-api/aggregate-time.md'
+      - 'Aggregate data by tags': 'apis/data-catalogue-api/aggregate-tags.md'
+      - 'Tag filtering': 'apis/data-catalogue-api/filter-tags.md'
+    - 'Streaming Writer API':
+      - 'Introduction': 'apis/streaming-writer-api/intro.md'
+      - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
+      - 'Getting Swagger url': 'apis/streaming-writer-api/get-swagger.md'
+      - 'Forming a request': 'apis/streaming-writer-api/request.md'
+      - 'Set up SignalR': 'apis/streaming-writer-api/signalr.md'
+      - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
+      - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
+      - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
+      - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
+    - 'Streaming Reader API':
+      - 'Introduction': 'apis/streaming-reader-api/intro.md'
+      - 'Authenticate': 'apis/streaming-reader-api/authenticate.md'
+      - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
+      - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
+      - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
+    - 'API Reference':
+      - 'API V1': '!include ./api-docs/mkdocs.yml'
   # - Services:
   #   - Replay: '!include ./replay/mkdocs.yml'
 

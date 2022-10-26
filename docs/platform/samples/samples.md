@@ -1,0 +1,15 @@
+The Quix Portal includes a Library of templates and sample projects that
+you can use to start working with the platform.
+
+Quix allows explore the samples and save them as a new Project and
+immidiatelly Run or Deploy them. If you don’t have a Quix account yet,
+go [sign-up to
+Quix,window=\_blank](https://portal.platform.quix.ai/self-sign-up?xlink=docs)
+and create one.
+
+The backend of the Quix Library is handled by a public [Open source
+repository](https://github.com/quixai/quix-library) on GitHub, so you
+can become a contributor of our Library generating new samples or
+updating existing ones.
+
+![Library.png](../images/Library.png)
