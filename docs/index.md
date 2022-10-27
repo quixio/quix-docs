@@ -1,41 +1,84 @@
 # Welcome to Quix Docs
 
-Here it is.
+## Tutorials
+
+Try our guides to help you build data-driven apps and integrate Quix with external systems.
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+-   __Sentiment Analysis__
+
+    ---
+    
+    Stream data from Twitter and build a Sentiment analysis pipeline
+
+    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/SentimentAnalysis/)
+    
+    
+-   __Image Processing__
+
+    ---
+    
+    Real time image processing using Londons 'Jam Cams'
+
+    [:octicons-arrow-right-24: Image Processing](/platform/tutorials/ImageProcessing/)
+
+</div>
+
+## Core resources
+
+Take a look under the hood and get to know our SDK and APIs
+
+<div class="grid cards" markdown>
+
+-  __Connect to Quix - SDK__
 
     ---
 
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
+    Discover how to connect Quix and your application using our SDK
 
-    [:octicons-arrow-right-24: Getting started](#)
+    [:octicons-arrow-right-24: Learn more](/sdk/connect/)
 
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
-
-    ---
-
-    Focus on your content and generate a responsive and searchable static site
-
-    [:octicons-arrow-right-24: Reference](#)
-
--   :material-format-font:{ .lg .middle } __Made to measure__
+-   __Writing data - SDK__
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    Read how to send real-time data to Kafka topics using the Quix SDK
 
-    [:octicons-arrow-right-24: Customization](#)
+    [:octicons-arrow-right-24: Learn more](/sdk/write/)
 
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
+-   __Reading data - SDK__
 
     ---
 
-    Material for MkDocs is licensed under MIT and available on [GitHub]
+    Learn how to receive real-time data in your application using the Quix SDK
 
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-arrow-right-24: Learn more](/sdk/read/)
+
+-   __Streaming Writer API__
+
+    ---
+
+    Stream data to Quix Kafka topics via HTTP with this API
+
+    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro//)
+
+-   __Streaming Reader API__
+
+    ---
+
+    Work with this API to receive live data in your Web applications from Quix Kafka topics via Websockets
+
+    [:octicons-arrow-right-24: Learn more](/apis/streaming-reader-api/intro/)
+
+-   __Data Catalogue API__
+
+    ---
+
+    Query historic time-series data in Quix using HTTP interface
+
+    [:octicons-arrow-right-24: Learn more](/apis/data-catalogue-api/intro/)
+
 
 </div>
 

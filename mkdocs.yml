@@ -103,6 +103,7 @@ plugins:
   
 theme:
   name: 'material'
+  custom_dir: overrides
   # TODO
   logo: /assets/Quix-docs-logo-header.svg
   #custom_dir: 'theme'
@@ -176,8 +177,8 @@ theme:
   #    example: 'octicons/beaker-16'
   #    quote: 'octicons/quote-16'
 
-#extra_css:
-#  - stylesheets/extra.css
+extra_css:
+  - stylesheets/extra.css
 #extra_javascript:
 extra:
   social:
