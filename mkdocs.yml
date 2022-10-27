@@ -99,7 +99,7 @@ nav:
 plugins:
   - search:
       separator: '[\s\-\.]' 
-  - monorepo
+  #- monorepo
   
 theme:
   name: 'material'
