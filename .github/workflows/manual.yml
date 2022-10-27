@@ -24,8 +24,6 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     steps:
     # Runs a single command using the runners shell
@@ -38,4 +36,6 @@ jobs:
         python-version: 3.x
     - run: python -m pip install --upgrade pip setuptools wheel
     - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
