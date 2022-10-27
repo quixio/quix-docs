@@ -32,7 +32,7 @@ steps:
 - script: python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install tools'
 
-- script: pip install git+https://${{variables.GitHubToken}}@github.com/squidfunk/mkdocs-material-insiders.git
+- script: pip install git+https://$(GitHubToken)@github.com/squidfunk/mkdocs-material-insiders.git
   displayName: Install MkDocs Material Theme (Insiders)
 
 #- script: pip install mkdocs-material
