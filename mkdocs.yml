@@ -91,8 +91,8 @@ nav:
       - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
-    - 'API Reference':
-      - 'API V1': '!include ./api-docs/mkdocs.yml'
+    #- 'API Reference':
+    #  - 'API V1': '!include ./api-docs/mkdocs.yml'
   # - Services:
   #   - Replay: '!include ./replay/mkdocs.yml'
 
@@ -191,7 +191,7 @@ extra:
       link: 'https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA'
   analytics:
     provider: google
-    property: G-xxx #UA-173360929-3 #todo need docs ga code
+    property: G-xxx #UA-173360929-3 #TODO enable when ready
     feedback:
       title: Was this page helpful?
       ratings:

@@ -1,8 +1,0 @@
-[submodule "api-docs"]
-	path = api-docs
-	url = https://github.com/quixai/temp-api-docs
-	branch = main
-[submodule "API V1"]
-	path = API V1
-	url = https://github.com/quixai/temp-api-docs
-	branch = main
