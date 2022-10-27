@@ -1,3 +1,22 @@
+ /* --md-default-fg-color--light: #fff;
+    --md-default-fg-color--dark: #44aa88; */
+/* :root > * {
+   
+    --md-primary-fg-color: #0a0b24;
+    --md-default-bg-color: #14174D;
+  } */
+
+  /* [data-md-color-scheme="slate"] {
+    --md-hue: 360; 
+  } */
+
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #0a0b24;
+    --md-primary-fg-color--light: #fff;
+    --md-primary-fg-color--dark:  #000000;
+    --md-default-bg-color: #14174D;
+  }
+
 .footer{
     font-family: Inter,sans-serif;
     word-wrap: anywhere;
@@ -113,5 +132,5 @@
 .community2 {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 10px;
+    margin-right: 0px;
 }
