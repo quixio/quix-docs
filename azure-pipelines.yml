@@ -32,6 +32,9 @@ steps:
 - script: pip install mkdocs-material
   displayName: Install MkDocs Material Theme
 
+- script: pip install mkdocs-monorepo-plugin
+  displayName: Install plugins
+  
 - script: |
    pip install mkdocs
    mkdocs build  
