@@ -20,8 +20,8 @@ pool:
 #  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
   
 steps:
-- checkout: self
-    submodules: true
+- script: git submodule update --init --recursive
+  displayName: Fetch Submodules
     
 - task: UsePythonVersion@0
   inputs:
