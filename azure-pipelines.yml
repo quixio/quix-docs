@@ -4,12 +4,26 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+    - develop
+  tags:
+    include:
+    - '*'
 
 pool:
   vmImage: 'windows-latest'
 
+variables:
+#  isMaster: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+#  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
+  GH_TOKEN: variables['GitHubToken']
+  
 steps:
+- script: git submodule update --init --recursive
+  displayName: Fetch Submodules
+    
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.7'
@@ -19,11 +33,22 @@ steps:
 - script: python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install tools'
 
-- script: pip install mkdocs-material
-  displayName: Install MkDocs Material Theme
+- script: pip install git+https://$(GitHubToken)@github.com/squidfunk/mkdocs-material-insiders.git
+  displayName: Install MkDocs Material Theme (Insiders)
 
+#- script: pip install mkdocs-material
+#  displayName: Install MkDocs Material Theme
+
+- script: pip install mkdocs-monorepo-plugin
+  displayName: Install plugins
+  
 - script: |
    pip install mkdocs
    mkdocs build  
   displayName: Install MkDocs + build
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/site'
+    ArtifactName: 'Site'
+    publishLocation: 'Container'
