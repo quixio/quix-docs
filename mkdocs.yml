@@ -126,19 +126,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-    #scheme: 'slate'
-    
-    #primary: 'indigo'
-    
-    #accent: 'indigo'
-    
-  #font:
-  #  text: 'Roboto'
-  #  code: 'Roboto Mono'
-  
-  #language: 'en'
-  
-  #direction: 'ltr'
   
   features:
   # Announce
@@ -246,10 +233,20 @@ extra:
   
   #alternate:
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   #- markdown.extensions.admonition:
   #- markdown.extensions.codehilite:
   #    guess_lang: false

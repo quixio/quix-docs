@@ -1,3 +1,5 @@
+# What is Quix
+
 Quix is a platform for developing and deploying applications with
 streaming data.
 
@@ -17,7 +19,7 @@ keeping your data in-memory, helping to achieve lower latencies and
 lower operating costs.
 
 From the top-down, our stack provides a Web UI,
-[API’s](../apis/index.md) and [SDK](../sdk/index.md) that abstract
+[API’s](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
 developers off our underlying infrastructure, including fully-managed
 Kafka topics, serverless compute environment and a metadata-driven data
 catalogue (time-series database with steroids).
@@ -90,14 +92,14 @@ but it is quite incompatible with streaming technologies (like
 [Kafka](../sdk/kafka.md)) which are predominantly written in Java and
 Scala.
 
-Our [Quix streaming SDK](../sdk/index.md) is a client library that
+Our [Quix streaming SDK](../sdk/introduction.md) is a client library that
 abstracts Python developers off streaming-centric complexities like
 learning Java or dealing with buffering, serialisation and encryption.
 
 Instead, SDK serves you streaming data in a data frame so you can write
 any simple or complex data processing logic and connect it directly to
 the broker. There are just a few key streaming concepts that you must
-learn. You can read about them [here](../sdk/index.md).
+learn. You can read about them [here](../sdk/introduction.md).
 
 # Serverless compute
 
@@ -195,7 +197,7 @@ your solution grows in data volume or complexity you can just add more
 topics without concern for the underlying infrastructure which is
 handled by us.
 
-Together with our [SDK](../sdk/index.md) and serverless compute, you
+Together with our [SDK](../sdk/introduction.md) and serverless compute, you
 can connect your models directly to our topics to read and write data
 using the pub/sub pattern. This keeps the data in-memory to deliver
 low-latency and cost effective stream processing capabilities.

@@ -173,7 +173,7 @@ etc).
 
 # SDK
 
-[Quix SDK](../sdk/index.md) is the main library we use to send and
+[Quix SDK](../sdk/introduction.md) is the main library we use to send and
 receive real-time data in our streaming applications.
 
 # API’s
@@ -183,7 +183,7 @@ receive real-time data in our streaming applications.
 A [HTTP API](../apis/streaming-writer-api/intro.md) used to send
 telemetry data from any source to a topic in the Quix platform. It
 should be used when it is not possible to use directly our
-[SDK](../sdk/index.md).
+[SDK](../sdk/introduction.md).
 
 ## Streaming Reader API
 

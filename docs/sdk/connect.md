@@ -34,7 +34,7 @@ OAuth2.0 bearer token. We have created a purpose made token for this,
 called [SDK token](platform::how-to/use-sdk-token.md). Once you have
 the token you will have to provide it as an argument to
 QuixStreamingClient or set
-`Quix{underscore}{underscore}Sdk{underscore}{underscore}Token`
+`Quix__Sdk__Token`
 environment variable.
 
 

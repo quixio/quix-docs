@@ -21,7 +21,7 @@ all broker credentials manually, they’ll be acquired when needed and set
 up automatically.
 
 When deploying or running an online IDE, among other environment
-variables `Quix{underscore}{underscore}Sdk{underscore}{underscore}Token`
+variables `Quix__Sdk__Token`
 is injected with value of `Token 1`.
 
 You should always use `Token 1`, unless you’re rotating.
@@ -43,7 +43,7 @@ You have two main options regarding how you rotate.
 The easiest way to rotate comes with some service downtime. This assumes
 you do not directly set the token for your QuixStreamingClient, instead
 you let the platform take care of it for you by using the default
-`Quix{underscore}{underscore}Sdk{underscore}{underscore}Token`
+`Quix__Sdk__Token`
 environment variable. In this scenario all you have to do is rotate
 keys, stop and start all your deployments. Until a service is restarted
 it’ll try to communicate with the platform using the deactivated token.
