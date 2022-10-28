@@ -10,6 +10,8 @@
     --md-hue: 360; 
   } */
 
+ 
+
   [data-md-color-scheme="slate"] {
     --md-primary-fg-color:        #0a0b24;
     --md-primary-fg-color--light: #fff;
@@ -134,3 +136,11 @@
     vertical-align: middle;
     margin-right: 0px;
 }
+
+@media only screen and (max-width: 670px){
+    .footer-links{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+  }
