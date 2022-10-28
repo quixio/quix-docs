@@ -142,5 +142,11 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    
+    .footer-right{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .footer-padding{
+        margin-top: 36px;
+    }
   }
