@@ -34,6 +34,7 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
+      - 'Telemetry data': 'platform/tutorials/telemetry-data.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
