@@ -1,4 +1,4 @@
-# Use SDK token
+# Using an SDK token
 
 SDK token is a type of bearer token that can be used to authenticate
 against some of our APIs to access functionality necessary for streaming
