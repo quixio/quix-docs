@@ -1,8 +1,10 @@
+# Raw data
+
 Access persisted raw data by specifyng the parameters you’re interested
 in. Add restrictions based on Stream or timings for finer-grained
 results.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -11,13 +13,13 @@ results.
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Using the /parameters/data endpoint
+## Using the /parameters/data endpoint
 
 Raw telemetry data is available via the `/parameters/data` endpoint.
 
-# Fetching specific parameters
+## Fetching specific parameters
 
-## Request
+### Request
 
 You can filter by a number of different factors but, at minimum, you’ll
 need to supply one or more parameters to fetch:
@@ -36,7 +38,7 @@ be `numericParameters`, `stringParameters` or `binaryParameters`.
 Parameters are returned in a union, so if you request several, you’ll
 get back all parameters that match.
 
-## Example
+### Example
 
 ``` bash
 curl "https://${domain}.platform.quix.ai/parameters/data" \
@@ -65,7 +67,7 @@ from the above call might look something like this:
 }
 ```
 
-## Restricting by Stream or time
+### Restricting by Stream or time
 
 In reality, you’ll have far more data in the catalogue, so you’ll want
 to filter it. Three remaining properties of the request object allow you

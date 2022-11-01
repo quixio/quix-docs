@@ -1,10 +1,12 @@
-# Stream and visualize real-time telemetry data with an Android app and Streamlit
+# Telemetry data
+
+## Stream and visualize real-time telemetry data with an Android app and Streamlit
 
 ![](../images/tutorials/telemetry-data/image2.png)
 
 Learn how to build an end-to-end telemetry data pipeline for IoT applications. Use our Android companion app to stream sensor data from your phone and visualize it in a Streamlit app.
 
-# Get Started
+## Get Started
 
 To get started make sure you have a Quix account, signup for a completely free account at [https://quix.io](https://quix.io)
 
@@ -12,11 +14,11 @@ You will need an Android mobile phone for this tutorial (we're working on the Ap
 
 If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g), our free Slack community.
 
-## Library
+### Library
 
 Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [Github](https://github.com/quixai/quix-library) repo. We'll be referring to the library often so make sure you know where it is.
 
-# Components
+## Components
 
 **Android App** - Our companion app for collecting real-time sensor data from your phone. It'spre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker).
 
@@ -24,11 +26,11 @@ Most of the code you'll need has already been written. It lives in our library, 
 
 **QR Settings Share** - A lightweight UI and API for sharing settings with the Android app.
 
-# Build It
+## Build It
 
 This guide will show you how to deploy each of the components, starting with QR Settings Share.
 
-### 1. QR Settings Share
+#### 1. QR Settings Share
 
 Follow these steps to deploy the QR Settings Share.
 
@@ -72,7 +74,7 @@ The QR shown on screen is a short-lived link to the longer lasting token.
 
 !!! info Scanning the token with the Android App will allow the app to receive its configuration information without you having to enter any long token strings by hand.
 
-### 2. Android App
+#### 2. Android App
 
 It's time to install the Android app!
 
@@ -132,7 +134,7 @@ It's time to install the Android app!
 
 !!! tip Leave the app running until you've completed the next step.
 
-### 3. Streamlit app
+#### 3. Streamlit app
 
 Explore the data inside Quix and then deploy a frontend app.
 
@@ -226,7 +228,7 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 
 !!! warning Be aware that there is no security on the dashboard.
 
-# Next Steps
+## Next Steps
 
 You've just connected your mobile device to Quix and deployed a Streamlit app to view the data in real time.
 
@@ -236,7 +238,7 @@ What will you build? Let us know. We'd love to feature your project or use case 
 
 If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g), our free Slack community.
 
-# Ciao for now!
+## Ciao for now!
 
 We hope you enjoyed this tutorial. If you have any questions or feedback please contact us on The Stream.
 

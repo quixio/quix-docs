@@ -1,7 +1,9 @@
+# Tag filtering
+
 If you supply Tags with your parameter data, they will act as indexes,
 so they can be used to efficiently filter data.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -10,7 +12,7 @@ so they can be used to efficiently filter data.
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Using tag filters
+## Using tag filters
 
 When calling the `/parameters/data` endpoint, you can include a
 `tagFilters` property in your payload. This property references an array
@@ -70,7 +72,7 @@ combination, so:
 
 Is useless because a LapNumber cannot be both "2.0" and "4.0".
 
-## Supported operators
+### Supported operators
 
 Each object in the `tagFilters` array can support the following
 `operator` values:

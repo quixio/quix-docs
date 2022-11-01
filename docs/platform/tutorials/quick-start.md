@@ -1,3 +1,5 @@
+# Quick Start
+
 This quick start gets you up and running with Quix. It shows how to set
 up a pipeline that ingests real-time Formula 1 data and sends an alert
 to your phone whenever a race car passes 300 kilometers per hour. It
@@ -38,13 +40,13 @@ something like this:
 
 5.  Run the pipeline
 
-# 1\. Set up a Quix workspace
+## 1\. Set up a Quix workspace
 
 [Sign up for Quix](https://quix.ai/). The free account provides enough
 resources to build a single streaming data project. You’ll arrive in a
 [workspace](../definitions.md#_workspace) when you sign up.
 
-# 2\. Add a data source to your project from the Quix library
+## 2\. Add a data source to your project from the Quix library
 
 The data sources in the Quix library are out-of-the-box code samples
 that you can plug and play or customize. It’s an open source library, so
@@ -74,7 +76,7 @@ data in the live preview visualization. The data source includes more
 data types than needed, so you can click the tick boxes next to *Speed*
 and *RPM* under *Select parameters or events*.
 
-# 3\. Set up a data transformation using the no-code method
+## 3\. Set up a data transformation using the no-code method
 
 You want your pipeline to look at the data and see when a vehicle goes
 faster than 300 kilometers per hour. This requires a threshold alert.
@@ -94,7 +96,7 @@ variables, network and state. For this project, you can choose
 remaining configuration as is. Click *Deploy*. A service is any
 application code that continuously runs in a serverless environment.
 
-# 4\. Deliver your data using the Twilio destination
+## 4\. Deliver your data using the Twilio destination
 
 Now that the data is ready to go, you need to tell it where to go. Click
 *Add new* next to “Destinations” on the workplace screen. This is where
@@ -111,7 +113,7 @@ It’s set at two by default, as some message charges may apply.
 Click *Save as project* once you have added the requested Twilio
 information.
 
-# 5\. Run the pipeline
+## 5\. Run the pipeline
 
 Here’s the fun part\! The three dots (one in the upper-right corner of
 each card) indicate that everything works correctly. All you need to do

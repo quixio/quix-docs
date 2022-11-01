@@ -1,12 +1,14 @@
+# Run ML model in realtime environment
+
 In this article, you will learn how to use pickle file trained on
 historic data in a realtime environment.
 
-# Why this is important
+## Why this is important
 
 With the Quix platform, you can run and deploy ML models to the leading
 edge reacting to data coming from the source with milliseconds latency.
 
-# End result
+## End result
 
 At the end of this article, we will end up with a **live model** using
 **pickle file** from [How to train ML
@@ -15,13 +17,13 @@ data on the edge.
 
 ![how-to/train-ml/live-model.png](../../images/how-to/train-ml/live-model.png)
 
-# Preparation
+## Preparation
 
 You’ll need to complete [How to train ML
 model](train-ml-model.md) article to get
 pickle file with trained model logic.
 
-## Set up topics
+### Set up topics
 
 You should already have a topic containing car engine data. You’ll use
 this as an input topic for the model. The model also needs an output
@@ -42,7 +44,7 @@ topic, to send the processed data.
 > At this point, you should have at least two topics: *cars* and
 > *brake-prediction*.
 
-## Creating Git project in workspace
+### Creating Git project in workspace
 
 You can use our sample model project as a template. You’ll get code
 assets for a basic model, customised to your specific environment. This
@@ -88,7 +90,7 @@ file view of your project, alongside the Quix web IDE.
 > In your new project you get security constants filled to work with
 > your workspace.
 
-## Clone Git project locally
+### Clone Git project locally
 
 To get information how to clone Git project, go to your project and
 click **CLONE**.
@@ -109,7 +111,7 @@ in Quix serverless environment.
 
 quixstreaming==0.2.2a202101281720 sklearn\</programlisting\>
 
-# Using Pickle file in realtime model
+## Using Pickle file in realtime model
 
 We have pickle file from [How to train ML
 model](train-ml-model.md). Create a
@@ -121,11 +123,11 @@ Than we load it to memory in code:
 ``` Python
 import pickle
 
-# Import ML model from file
+## Import ML model from file
 model = pickle.load(open('../model/decision_tree_5_depth.sav', 'rb'))
 ```
 
-# Full code example
+## Full code example
 
 Here is a full example. We will explain sections of code in more details
 bellow.
@@ -141,17 +143,17 @@ import traceback
 import math
 import pickle
 
-# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+## Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
 client = QuixStreamingClient()
 
 input_topic = client.open_input_topic('INPUT_TOPIC', 'brake-prediction')
 output_topic = client.open_output_topic('OUTPUT_TOPIC')
 
 
-# Import ML model from file
+## Import ML model from file
 model = pickle.load(open('../model/decision_tree_5_depth.sav', 'rb'))
 
-# To get the correct output, we preprocess data before we feed them to the trained model
+## To get the correct output, we preprocess data before we feed them to the trained model
 def preprocess(df):
     signal_limits = {
         "Throttle": (0, 1),
@@ -173,7 +175,7 @@ def preprocess(df):
 
     return df
 
-# Callback called for each incoming stream
+## Callback called for each incoming stream
 def read_stream(new_stream: StreamReader):
     print("New stream read:" + new_stream.stream_id)
 
@@ -228,17 +230,17 @@ def read_stream(new_stream: StreamReader):
     new_stream.properties.on_changed += stream_properties_changed
 
 
-# Hook up events before initiating read to avoid losing out on any data
+## Hook up events before initiating read to avoid losing out on any data
 input_topic.on_stream_received += read_stream
 
-# Hook up to termination signal (for docker image) and CTRL-C
+## Hook up to termination signal (for docker image) and CTRL-C
 print("Listening to streams. Press CTRL-C to exit.")
 
-# Handle graceful exit of the model.
+## Handle graceful exit of the model.
 App.run()
 ```
 
-# Pub & Sub
+## Pub & Sub
 
 We will use the same approach as any other Transformation model
 available in Quix Library. We will read from input topic, call trained
@@ -255,30 +257,30 @@ import pandas as pd
 import traceback
 import pickle
 
-# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+## Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
 client = QuixStreamingClient()
 
 input_topic = client.open_input_topic('INPUT_TOPIC', 'brake-prediction')
 output_topic = client.open_output_topic('OUTPUT_TOPIC')
 ```
 
-## Listen to new streams
+### Listen to new streams
 
 We will register a callback to handle each incoming stream from input
 topic:
 
 ``` python
-# Callback called for each incoming stream
+## Callback called for each incoming stream
 def read_stream(new_stream: StreamReader):
     # Here implement stream processing.
     ...
 
 
-# Hook up events before initiating read to avoid losing out on any data
+## Hook up events before initiating read to avoid losing out on any data
 input_topic.on_stream_received += read_stream
 input_topic.start_reading()  # initiate read
 
-# Hook up to termination signal (for docker image) and CTRL-C
+## Hook up to termination signal (for docker image) and CTRL-C
 print("Listening to streams. Press CTRL-C to exit.")
 
 event = threading.Event()
@@ -293,12 +295,12 @@ signal.signal(signal.SIGTERM, signal_handler)
 event.wait()
 ```
 
-## Stream processing
+### Stream processing
 
 In each individual stream, we will subscribe for parameter data.
 
 ``` python
-# Callback called for each incoming stream
+## Callback called for each incoming stream
 def read_stream(new_stream: StreamReader):
     print("New stream read:" + new_stream.stream_id)
 
@@ -317,14 +319,14 @@ def read_stream(new_stream: StreamReader):
         ....
 ```
 
-## Parameter data processing
+### Parameter data processing
 
 Now we get to the most important part of the model. We will feed
 incoming data to the trained model to get a result that we send to the
 output topic.
 
 ``` python
-# Each 100ms window of data callback.
+## Each 100ms window of data callback.
 def on_parameter_data_handler(data: ParameterData):
     brake_predictions = pd.DataFrame()  # Output data frame.
     df = data.to_panda_frame()  # Input data frame
@@ -342,7 +344,7 @@ def on_parameter_data_handler(data: ParameterData):
     stream_writer.parameters.write(brake_predictions)
 ```
 
-### Preprocessing
+#### Preprocessing
 
 To get the correct output, we preprocess data before we feed them to the
 trained model:
@@ -370,7 +372,7 @@ def preprocess(df):
     return df
 ```
 
-# Deployment
+## Deployment
 
 And that’s it\! Now is time to run the model, run the data generator and
 see it in action\!

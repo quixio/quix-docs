@@ -1,3 +1,5 @@
+# Introduction
+
 The Streaming Writer API allows you to stream data into the Quix
 platform via HTTP endpoints or SignalR. It’s an alternative to using our
 C\# and Python SDKs. You can use the Streaming Writer API from any
@@ -8,7 +10,7 @@ documentation](get-swagger.md). Read on for a
 guide to using the API, including real-world examples you can execute
 from your language of choice, or via the command line using curl.
 
-# Preparation
+## Preparation
 
 If you plan on using the HTTP endpoins, then you’ll need to know how to
 [authenticate your requests](authenticate.md)
@@ -18,7 +20,7 @@ API](request.md).
 If you would rather use the SignalR api, which is suggested for high
 frequency data streaming, then see [SignalR setup](../streaming-reader-api/signalr.md).
 
-# Topics covered
+## Topics covered
 
   - Stream
     

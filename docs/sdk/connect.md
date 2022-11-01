@@ -1,10 +1,12 @@
+# Connect to Quix
+
 The Quix SDK comes with a streaming client that enables you to connect
 to Quix easily, to read data from Quix, and to write data to Quix. The
 streaming client manages the connections between your application and
 Quix and makes sure that the data is delivered reliably to and from your
 application.
 
-# Using QuixStreamingClient
+## Using QuixStreamingClient
 
 Starting with 0.4.0, we’re offering QuixStreamingClient, which handles
 the cumbersome part of setting up your streaming credentials using the

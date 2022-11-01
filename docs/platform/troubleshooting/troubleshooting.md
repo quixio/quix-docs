@@ -1,7 +1,9 @@
+# Troubleshooting
+
 This section contains solutions, fixes, hints and tips to help you solve
 the most common issues encountered when using Quix.
 
-# Data is not being received into a Topic
+## Data is not being received into a Topic
 
   - Ensure the Topic Name or Id is correct in Topics option of Quix
     Portal.
@@ -17,7 +19,7 @@ the most common issues encountered when using Quix.
     somewhere and they are both using the same consumer group one of
     them may consume all of the data.
 
-# Topic Authentication Error
+## Topic Authentication Error
 
 If you see errors like these in your service or job logs then you may
 have used the wrong credentials or it could be that you have specified
@@ -39,7 +41,7 @@ The following must be correct:
 
 These can all be found in Topics option of Quix Portal.
 
-# Broker Transport Failure
+## Broker Transport Failure
 
 If you have deployed a service or job and the logs mention *broker
 transport failure* then check the workspace name and password in the
@@ -49,7 +51,7 @@ Also check the broker address list. You should have these by default:
 
 kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093\</programlisting\>
 
-# 401 Error
+## 401 Error
 
 When attempting to access the web API’s you may encounter a 401 error.
 Check that the bearer token is correct and has not expired. If necessary
@@ -75,7 +77,7 @@ The API’s that require a valid bearer token are:
 4.  Telemetry Query API
     
       - 
-# Error Handling in the SDK callbacks
+## Error Handling in the SDK callbacks
 
 Errors generated in the SDK callback can be swallowed or hard to read.
 To prevent this and make it easier to determine the root cause you
@@ -118,13 +120,13 @@ Traceback (most recent call last):
 IndexError: list index out of range
 ```
 
-# Service keeps failing and restarting
+## Service keeps failing and restarting
 
 If your service continually fails and restarts you will not be able to
 view the logs. Redeploy your service as a job instead. This will allow
 you to inspect the logs and get a better idea about what is happening.
 
-# Possible DNS Propagation Errors
+## Possible DNS Propagation Errors
 
 There are currently 2 scenarios in which you might encounter an issue
 caused by DNS propagation.
@@ -145,7 +147,7 @@ caused by DNS propagation.
 > In these scenarios simply wait while the DNS records propagate. It can
 > take up to 10 minutes for DNS to records to propagate fully.
 
-# Python Version
+## Python Version
 
 If you get strange errors when trying to compile your Python code
 locally please check that you are using Python version 3.8
@@ -160,7 +162,7 @@ For information on how to setup your IDE for working with Quix please
 check out this [section](../../sdk/python-setup.md) on the SDK
 documentation.
 
-# Jupyter Notebooks
+## Jupyter Notebooks
 
 If you are having trouble with Jupyter Notebooks or another consumer of
 Quix data try using aggregation to reduce the number of records
@@ -169,7 +171,7 @@ returned.
 For more info on aggregation check out this [short
 video](https://youtu.be/fnEPnIunyxA).
 
-# Process Killed or Out of memory
+## Process Killed or Out of memory
 
 If your deployment’s logs report "Killed" or "Out of memory" then you
 may need to increase the amount of memory assgned to the deployment.
@@ -181,7 +183,7 @@ You may experience this:
 
   - At runtime if you are storing large datasets in memory.
 
-# Missing Dependency in online IDE
+## Missing Dependency in online IDE
 
 Currently the [online IDE](../definitions.md#_online_ide) does
 not use the same docker image as the one used for deployment due to time

@@ -24,7 +24,7 @@ nonumy.
 
 [Learn More](intro.md)
 
-# Core resources
+## Core resources
 
 Take a look under the hood of Quix and get to know our SDK and APIs.
 
@@ -49,7 +49,7 @@ nonumy.
 
 [Learn More](intro.md)
 
-# Build your project
+## Build your project
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 nonumy.
@@ -96,7 +96,7 @@ nonumy.
 
 [Learn More](intro.md)
 
-# Learn from the community
+## Learn from the community
 
 Take a look at our community resources to learn how other developers and
 data teams are using Quix to solve their software engineering and data

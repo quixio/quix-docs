@@ -1,4 +1,6 @@
-# RSS processing pipeline
+# RSS Processing
+
+## RSS processing pipeline
 
 This tutorial explains how to build a pipeline that gathers and
 processes data from an RSS feed and alerts users when specific criteria
@@ -24,9 +26,9 @@ What you need
     guide,window=\_blank](https://api.slack.com/messaging/webhooks) can
     help you with this step.)
 
-## Sourcing data
+### Sourcing data
 
-### 1\. Get the “RSS Data Source” connector
+#### 1\. Get the “RSS Data Source” connector
 
 In your Quix account, go to the library and search for “RSS Data
 Source.” (Hint: you can watch Steve prepare this code in the video
@@ -37,7 +39,7 @@ has a blue line across its top that indicates it’s a source connector.)
 
 ![RSSTutorial/image1.png](../images/RSSTutorial/image1.png)
 
-### 2\. Configure the connector
+#### 2\. Configure the connector
 
 In the configuration panel, keep the default name and output topic.
 Enter the following URL into the rss\_url field:
@@ -50,14 +52,14 @@ You will then begin to receive data from the RSS feed. The data then
 goes into the configured output topic. Don’t worry, you won’t lose data.
 It’s cached in the topic until another deployment starts reading it.
 
-## Processing data
+### Processing data
 
 You can do anything you want in the processing phase of a pipeline. You
 might want to merge several input streams or make decisions on your
 data. In this tutorial, you’ll filter and augment data so that only
 questions with certain tags get delivered to you.
 
-### 1\. Get the “RSS Data Filtering” connector
+#### 1\. Get the “RSS Data Filtering” connector
 
 Return to the library tab in Quix and search for “RSS Data Filtering.”
 Click “Setup & deploy” on the card.
@@ -71,7 +73,7 @@ populated with a wide range of tags related to Python. This works well
 for this demo, because you’ll see a large return of interesting posts.
 But you can decrease or add tags.
 
-### 2\. Deploy “RSS Data Filtering” connector
+#### 2\. Deploy “RSS Data Filtering” connector
 
 Click “Deploy” on the “RSS Data Filtering” connector. Once deployed, the
 connector will begin processing the data that’s been building up in the
@@ -85,12 +87,12 @@ outlined) on the workspace home page.
 The transformation stage is now complete. Your project is now sending
 the filtered and enhanced data to the output topic.
 
-## Sending alerts
+### Sending alerts
 
 Last in our pipeline is the destination for our RSS data. This demo uses
 a Slack channel as its destination.
 
-### 1\. Get the “Slack Notification” connector
+#### 1\. Get the “Slack Notification” connector
 
 Return to the Quix library and search for the “Slack Notification.”
 Click “Preview code.” You’re going to modify the standard code before
@@ -113,7 +115,7 @@ as the input topic and provide a Slack “webhook\_url.”
 Warning: Use a dev or demo or unimportant Slack channel while you’re
 developing this. Trust me.
 
-### 2\. Modify and deploy the “Slack Notification” connector
+#### 2\. Modify and deploy the “Slack Notification” connector
 
 Enter your webhook into the webhook\_url field. Click “Save as project.”
 This will save the code to your workspace, which is a GitLab repository.
@@ -137,7 +139,7 @@ top right.
 Then deploy by clicking the “Deploy” button in the top right. On the
 dialogue, change the deployment type to “Service” and click “Deploy”.
 
-## Congratulations
+### Congratulations
 
 You have deployed all three stages of the pipeline and should be
 receiving thousands of Slack messages. You might be thinking that Quix
@@ -148,7 +150,7 @@ haven’t lost all those precious live messages.
 
 ![RSSTutorial/image4.png](../images/RSSTutorial/image4.png)
 
-## Help
+### Help
 
 If you run into trouble with the tutorial, want to chat with us about
 your project or anything else associated with streaming processing you

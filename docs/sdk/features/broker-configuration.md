@@ -1,3 +1,5 @@
+# Broker configuration
+
 Message Broker configurations are not an easy part of setting up a new
 streaming infrastructure. For instance, [Kafka
 configuration](https://kafka.apache.org/documentation/#configuration)

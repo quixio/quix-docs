@@ -1,3 +1,5 @@
+# In-memory processing
+
 Traditional architectures for applications that need to process data
 have always been very database-centric. This means that, when you needed
 to process data and get some value out of it, everything had to pass
