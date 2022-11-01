@@ -1,4 +1,4 @@
-name: ci
+name: Deploy Develop
 on:
   push:
     branches:
