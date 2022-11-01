@@ -13,8 +13,6 @@ IDE](../platform/definitions.md#_online_ide) or as a
 [deployment](../platform/definitions.md#_deployment), all you have to
 do is the following:
 
-
-
   - Python
     
     ``` python
