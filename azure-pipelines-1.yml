@@ -52,3 +52,9 @@
      PathtoPublish: '$(Build.SourcesDirectory)/site'
      ArtifactName: 'Site'
      publishLocation: 'Container'
+
+ - task: PublishBuildArtifacts@1
+   inputs:
+     PathtoPublish: '$(Build.SourcesDirectory)/Helm'
+     ArtifactName: 'Helm'
+     publishLocation: 'Container'
