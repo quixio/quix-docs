@@ -1,11 +1,13 @@
-# Before you begin
+# Set up SignalR
+
+## Before you begin
 
   - Get a PAT for
     [Authentication](authenticate.md)
 
   - Ensure you know your workspace ID
 
-# Installation
+## Installation
 
 If you are using a package manager like [npm](https://www.npmjs.com/),
 you can install SignalR using `npm install @microsoft/signalr`. For
@@ -13,7 +15,7 @@ other installation options that don’t depend on a platform like Node.js,
 such as consuming SignalR from a CDN, please refer to [SignalR
 documentation](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1).
 
-# Testing the connection
+## Testing the connection
 
 Once you’ve installed the SignalR library, you can test it’s set up
 correctly with the following code snippet. This opens a connection to

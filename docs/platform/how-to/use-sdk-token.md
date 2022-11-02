@@ -1,3 +1,5 @@
+# Using an SDK token
+
 SDK token is a type of bearer token that can be used to authenticate
 against some of our APIs to access functionality necessary for streaming
 actions. Think of SDK tokens like a token you use to access portal but
@@ -7,12 +9,12 @@ Each workspace comes with two of these tokens, limited in use for that
 specific workspace. We call them `Token 1` and `Token 2`, also known as
 `Current` and `Next` token.
 
-# How to find
+## How to find
 
 You can access these tokens by going to your topics and clicking on
 **broker settings**.
 
-# How to use
+## How to use
 
 These tokens can be used to authenticate against the API, but their
 primary intended use is to be used with the [SDK QuixStreamingClient](../../sdk/connect.md#_using_quixstreamingclient).
@@ -31,7 +33,7 @@ You should always use `Token 1`, unless you’re rotating.
 > Your tokens do not have an expiration date. Treat them as you would a
 > password. If you think they’re exposed, rotate them.
 
-# Rotating
+## Rotating
 
 Having two keys lets you update your services without interruption, as
 both `Token 1` and `Token 2` are always valid. Rotating deactivates

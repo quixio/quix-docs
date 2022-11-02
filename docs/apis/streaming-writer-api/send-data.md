@@ -1,9 +1,11 @@
+# Send Parameter data
+
 You can send telemetry data using the Streaming Writer API. Select a
 topic and a stream to send the data to. In your payload, you can include
 numeric, string, or binary parameter data, with nanosecond-level
 timestamps.
 
-# Before you begin
+## Before you begin
 
   - You should have a [Workspace set
     up](../../platform/definitions.md#_workspace) with at least [one
@@ -13,7 +15,7 @@ timestamps.
     Token](authenticate.md) to authenticate each
     request.
 
-# Sending structured data to the endpoint
+## Sending structured data to the endpoint
 
 Send a POST request together with a JSON payload representing the data
 you’re sending to:
@@ -32,7 +34,7 @@ to send data to. For example:
 > already exist. This avoids the need to call the [create stream
 > endpoint](create-stream.md) separately.
 
-## Example request
+### Example request
 
 Your payload should include an array of `timestamps` with one timestamp
 for each item of data you’re sending. Actual data values should be keyed
@@ -101,13 +103,13 @@ curl might look something like this:
 
 
 
-## Response
+### Response
 
 No payload is returned from this call. A 200 HTTP response code
 indicates success. If the call fails, you should see either a 4xx or 5xx
 response code indicating what went wrong.
 
-# Using SignalR
+## Using SignalR
 
 ``` javascript
 // Also available as JsFiddle at https://jsfiddle.net/QuixAI/a41b8x0t/

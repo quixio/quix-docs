@@ -1,8 +1,10 @@
+# Security
+
 This section describes the basic security features of Quix.
 
-# Data in flight
+## Data in flight
 
-## Authentication
+### Authentication
 
   - Our APIs are authenticated using
     [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) token. We
@@ -14,7 +16,7 @@ This section describes the basic security features of Quix.
     topics view. The client is authenticated using SASL (username,
     password).
 
-## Authorization
+### Authorization
 
   - The APIs is using RBAC. You are limited in what you can do based on
     your token and the role configured for your user.
@@ -23,11 +25,11 @@ This section describes the basic security features of Quix.
     or query consumer group information regarding topics owned by the
     organisation the client belongs to.
 
-## Encryption
+### Encryption
 
   - All our APIs communicate with TLS 1.2
 
-# Data at rest
+## Data at rest
 
   - Your data is encrypted at rest using cloud provider (Azure) managed
     keys.

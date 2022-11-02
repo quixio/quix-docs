@@ -1,3 +1,5 @@
+# Reading data
+
 Before you can read data from a stream, you need to subscribe to an
 event of the Streaming Reader service like ParameterData or EventData.
 
@@ -5,7 +7,7 @@ You can get a full list of [Subscriptions and
 Events](subscriptions.md) available in
 this of [section](subscriptions.md).
 
-# Example
+## Example
 
 The following code sample shows how to use the SignalR client library
 to:

@@ -1,3 +1,5 @@
+# Checkpointing
+
 The Quix SDK allows you to do manual checkpointing when you read data
 from a Topic. This gives you the ability to inform the Message Broker
 that you have already processed messages up to one point, usually called
@@ -21,7 +23,7 @@ checkpointing](#../read.adoc#_committing_checkpointing) section of this
 documentation to find out how to do Checkpointing when reading data with
 the Quix Sdk.
 
-# Checkpointing example
+## Checkpointing example
 
 Let’s explain the checkpointing concept and its benefits with an easy
 example.

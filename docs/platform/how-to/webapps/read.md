@@ -1,10 +1,12 @@
+# Read from Quix with NodeJs
+
 Quix supports real-time data streaming over WebSockets. JavaScript
 clients can receive updates on parameter and event definition updates,
 parameter data and event data as they happen. Following examples use
 [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1)
 client library to connect to Quix over WebSockets.
 
-# Setting up SignalR
+## Setting up SignalR
 
 If you are using a package manager like npm, you can install SignalR
 using `npm install @microsoft/signalr`. For other installation options
@@ -32,7 +34,7 @@ connection.start().then(() => console.log("SignalR connected."));
 If the connection is successful, you should see the console log "SignalR
 connected".
 
-# Reading data from a stream
+## Reading data from a stream
 
 Before you can read data from a stream, you need to subscribe to an
 event like parameter definition, event definition, parameter data or

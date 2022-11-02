@@ -1,8 +1,10 @@
-# Before you begin
+# Authenticate
+
+## Before you begin
 
   - Sign up on the Quix Portal
 
-# Get a Personal Access Token
+## Get a Personal Access Token
 
 You should authenticate requests to the Streaming Reader API using a
 Personal Access Token (PAT). This is a time-limited token which you can

@@ -1,10 +1,12 @@
+# Sentiment analysis
+
 ![image](../images/tutorials/sentiment-analysis-media/image1.png)
 
 Build a real time sentiment analysis pipeline. Use the power and ease of
 Quix to process high volume tweets or user sourced conversation
 messages.
 
-# Get Started
+## Get Started
 
 To get started make sure you have a Quix account, signup for a
 completely free account at <https://quix.io>
@@ -32,40 +34,40 @@ If you need any assistance, we’re here to help in [The
 Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g),
 our free Slack community.
 
-## Library
+### Library
 
 Most of the code you need has already been written for you and it’s
 located in our library. We’ll be referring to the library often so make
 sure you know where it is.
 
-# Pipeline Services
+## Pipeline Services
 
 There are 4 stages to the pipeline you will build in this tutorial.
 
-## Twitter Data Source
+### Twitter Data Source
 
 Our Twitter connector, pre-built to save you time.
 
-## Twitter to chat
+### Twitter to chat
 
 Convert Twitter text to chat messages, so they can be used alongside
 manually entered chat messages.
 
-## Sentiment analysis
+### Sentiment analysis
 
 Do the real work of analyzing chat and tweet sentiment.
 
-## Web UI
+### Web UI
 
 A web UI allowing you to enter and see messages as well as see the
 sentiment changes in real time.
 
-# Build It
+## Build It
 
 This guide will show you how to deploy each stage of the processing
 pipeline, starting with the Web UI.
 
-## 1\. Web UI
+### 1\. Web UI
 
 Follow these steps to deploy the Web UI.
 
@@ -76,7 +78,7 @@ Follow these steps to deploy the Web UI.
 3.  Click “Save as project” The code for this Angular UI is now saved to
     your workspace
 
-### Tag the code and deploy the UI
+#### Tag the code and deploy the UI
 
 1.  Click the +tag button at the top of any code file
 
@@ -110,7 +112,7 @@ Follow these steps to deploy the Web UI.
 
 ![image](../images/tutorials/sentiment-analysis-media/image3.png)
 
-## 2\. Sentiment analysis
+### 2\. Sentiment analysis
 
 Follow these steps to deploy the sentiment analysis stage.
 
@@ -140,7 +142,7 @@ Follow these steps to deploy the sentiment analysis stage.
     output_stream=output_topic.create_stream(input_stream.stream_id + "-output")
     ```
 
-### Tag the code and deploy the service
+#### Tag the code and deploy the service
 
 1.  Click the +tag button at the top of any code file
 
@@ -174,7 +176,7 @@ Follow these steps to deploy the sentiment analysis stage.
     > displayed both in the chart and next to the comment in the chat
     > window by colorizing the chat user’s name.
 
-## 3\. Tweet to chat conversion
+### 3\. Tweet to chat conversion
 
 Follow these steps to deploy the tweet-to-chat conversion stage.
 
@@ -240,7 +242,7 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
     > “chat-message” which the other stages of the pipeline will
     > recognize.
 
-### Now tag the code and deploy the service with these steps:
+#### Now tag the code and deploy the service with these steps:
 
 1.  Click the +tag button at the top of any code file
 
@@ -260,7 +262,7 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
     > You now have a service that is ready to receive tweets and pass
     > them onto the sentiment processing stage.
 
-## 4\. Twitter Data Source
+### 4\. Twitter Data Source
 
 Follow these steps to deploy the Web UI.
 
@@ -291,7 +293,7 @@ Follow these steps to deploy the Web UI.
 > Share the QR code with colleagues and friends to talk about anything
 > you like while Quix analyzes the sentiment in the room in real time.
 
-# Next Steps
+## Next Steps
 
 You’ve just made extensive use of the Quix library, our collection of
 open source connectors, samples and examples. Now you can build your own
@@ -306,7 +308,7 @@ If you need any assistance, we’re here to help in [The
 Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g),
 our free Slack community.
 
-# Goodbye, for now..
+## Goodbye, for now..
 
 We hope you enjoyed this tutorial on how to Build a real time chat and
 tweet sentiment analysis pipeline.

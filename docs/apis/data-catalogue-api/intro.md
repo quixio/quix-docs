@@ -1,3 +1,5 @@
+# Introduction
+
 The Data Catalogue HTTP API allows you to fetch data stored in the Quix
 platform. You can use it for exploring the platform, prototyping
 applications, or working with stored data in any language with HTTP
@@ -8,7 +10,7 @@ documentation](get-swagger.md). Read on for
 a guide to using the API, including real-world examples you can execute
 from your language of choice, or via the command line using `curl`.
 
-# Preparation
+## Preparation
 
 Before using any of the endpoints, you’ll need to know how to
 [authenticate your requests](authenticate.md) and
@@ -20,7 +22,7 @@ use to be meaningful. You can use any Source of our [Quix
 Library](../../platform/samples/samples.md) to do this using the Quix
 portal.
 
-# Topics covered
+## Topics covered
 
 |                                                                    |                    |                                           |
 | ------------------------------------------------------------------ | ------------------ | ----------------------------------------- |

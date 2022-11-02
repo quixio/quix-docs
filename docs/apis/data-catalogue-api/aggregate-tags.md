@@ -1,8 +1,10 @@
+# Aggregate data by tags
+
 If you need to compare data across different values for a given tag,
 you’ll want to group results by that tag. You can do so via the
 `/parameters/data` endpoint.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -11,7 +13,7 @@ you’ll want to group results by that tag. You can do so via the
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Using the groupBy property
+## Using the groupBy property
 
 You can supply a list of Tags in the `groupBy` array to aggregate
 results by. For example, you could group a set of Speed readings by the
@@ -56,7 +58,7 @@ e.g.
 }
 ```
 
-# Using aggregationType
+## Using aggregationType
 
 For meaningful aggregations, you should specify a type of aggregation
 function for each parameter. When specifying the parameters to receive,

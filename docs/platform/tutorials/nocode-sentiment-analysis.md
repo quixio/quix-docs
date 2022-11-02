@@ -1,3 +1,5 @@
+# No code sentiment analysis
+
 This tutorial shows how to build a data processing pipeline without
 code. You’ll analyze tweets that contain information about Bitcoin and
 stream both raw and transformed data into
@@ -10,7 +12,7 @@ I’ve made a video of this tutorial if you prefer watching to reading.
 
 video::aebIrP5iIEo\[youtube, width=600px,height=318px,align="center"\]
 
-# What you need for this tutorial
+## What you need for this tutorial
 
 1.  [Free Quix
     account^](https://portal.platform.quix.ai/self-sign-up?xlink=home&_ga=2.191326762.1842305134.1652702101-2083003567.1643907213)
@@ -23,12 +25,12 @@ video::aebIrP5iIEo\[youtube, width=600px,height=318px,align="center"\]
     (You can follow [this tutorial to set up a developer
     account\</superscript\>](https://developer.twitter.com/en/support/twitter-api/developer-account).)
 
-# Step one: create a database
+## Step one: create a database
 
 Sign in to your Snowflake account to create the Snowflake database which
 will receive your data. Call this "demodata" and click "Create."
 
-# Step two: get your data
+## Step two: get your data
 
 In Quix, click into the library and search for the Twitter source
 connector.
@@ -55,7 +57,7 @@ Click "Deploy"
 
 ![image](../images/tutorials/nocode-sentiment/image1.png)
 
-## Step three: transformation for sentiment analysis
+### Step three: transformation for sentiment analysis
 
   - Click the "Add transformation" button
 
@@ -80,7 +82,7 @@ Click "Deploy"
 
 ![image](../images/tutorials/nocode-sentiment/image4.png)
 
-## Step five: delivery to your Snowflake database
+### Step five: delivery to your Snowflake database
 
   - Click the "Add destination" button on the home screen
 

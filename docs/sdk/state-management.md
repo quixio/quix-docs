@@ -1,3 +1,5 @@
+# State management
+
 A Quix deployment and its underlying code can be restarted multiple
 times. This can happen because of either user intervention (manually
 stopping and starting the deployment) or because of a runtime error in

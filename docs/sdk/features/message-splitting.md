@@ -1,3 +1,5 @@
+# Message splitting
+
 Message Brokers always have some limitations, by design, with the
 maximum size of message they can handle. For example, Kafka has a 1MB
 limit by default, and it’s not recommended to increase this number, for

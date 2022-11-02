@@ -1,3 +1,5 @@
+# Message compression
+
 The Quix SDK uses efficient ParameterData transport objects to transmit
 messages through the message broker, reducing them by an average factor
 of 10 times compared with plain JSON conversion.

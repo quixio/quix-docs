@@ -1,4 +1,6 @@
-# Aim
+# Currency Alerting
+
+## Aim
 
 Quix allows you to create complex and efficient infrastructure in a
 quick and simple way. To show you how, this tutorial will guide you
@@ -19,7 +21,7 @@ By the end you will have:
 
 ![tutorials/currency-alerting/pipeline.png](../images/tutorials/currency-alerting/pipeline.png)
 
-# Prerequisites
+## Prerequisites
 
 We assume that all you have is a Quix account that you haven’t started
 using yet.
@@ -29,7 +31,7 @@ using yet.
 > If you don’t have a Quix account yet, go
 > [here,window=\_blank](https:quix.io/signup/) and create one.
 
-# Overview
+## Overview
 
 This walkthrough covers the following steps:
 
@@ -41,9 +43,9 @@ This walkthrough covers the following steps:
     
     2.  the Twilio sink or output
 
-# Create free third party accounts
+## Create free third party accounts
 
-## Create a free CoinApi account
+### Create a free CoinApi account
 
 > **Note**
 > 
@@ -62,7 +64,7 @@ Let’s create a free coinAPI account:
 3.  You will receive your API key on your provided email. **Keep it safe
     for later**.
 
-## Create a free Twilio account
+### Create a free Twilio account
 
 > **Note**
 > 
@@ -161,12 +163,12 @@ Let’s create a free Twilio account:
 
 
 
-# Quix Library
+## Quix Library
 
 Now let’s find and deploy the 2 connectors needed to make this project
 work.
 
-## Coin API
+### Coin API
 
 We’ll start with the Coin API. So head over to the Quix Library and
 search for "Coin API" and click "Setup and Deploy" on the Coin API tile.
@@ -188,7 +190,7 @@ Once you have entered your Coin API key just click Deploy.
 > the code to your workspace and removing the limit. (Let us know if you
 > want help with this)
 
-### Logs
+#### Logs
 
 Once the connector has deployed it will start automatically and you’ll
 be redirected to the workspace home page.
@@ -198,7 +200,7 @@ You can click on the Coin API card where you will see the logs.
 If you see an error you might have to wait a few minutes for your API
 key to propagate to all of the Coin API servers.
 
-## Twilio
+### Twilio
 
 Head back to the Quix Library and search for "Twilio" and click "Setup
 and Deploy" on the Twilio Sink tile.
@@ -223,7 +225,7 @@ required details.
 Click Deploy and wait for the pre-built connector to be depolyed to your
 workspace.
 
-### Logs
+#### Logs
 
 Once deployed you will again be redirected to the workspace home page.
 You can click on the Twilio Sink tile and view the logs if you wish.
@@ -237,12 +239,12 @@ You can click on the Twilio Sink tile and view the logs if you wish.
 
 ![tutorials/currency-alerting/logs1.png](../images/tutorials/currency-alerting/logs1.png)
 
-# Congratulations
+## Congratulations
 
 At this point you should be receiving messages to your mobile phone.
 Congratulations you’ve done it\!
 
-# Recap - What did you just do\!
+## Recap - What did you just do\!
 
   - \[x\] You created a realtime, always on solution on the Quix
     serverless compute environment. All for Free\!
@@ -254,7 +256,7 @@ Congratulations you’ve done it\!
   - \[x\] You gained some experience of navigating the Quix portal and
     how to deploy connectors. All without doing any coding\!
 
-# What’s Next
+## What’s Next
 
 What else can you use Quix for?
 

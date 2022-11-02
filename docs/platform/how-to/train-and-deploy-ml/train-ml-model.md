@@ -1,20 +1,22 @@
+# How to train an ML model
+
 In this article, you will learn how to manage ML model training with
 Quix. In this example, we will train a model to predict car braking on a
 racing circuit 5 seconds ahead of time.
 
-# Why this is important
+## Why this is important
 
 With the Quix platform, you can leverage historic data to train your
 model to react to data coming from source with milliseconds latency.
 
-# End result
+## End result
 
 At the end of this article, we will end up with a **pickle file**
 trained on historic data.
 
 ![how-to/train-ml/model-training.png](../../images/how-to/train-ml/model-training.png)
 
-# Preparation
+## Preparation
 
 You will need Python3 installed.
 
@@ -27,7 +29,7 @@ You’ll also need a Jupyter notebook environment to run your experiments
 and load data for training. Please use ["How to work with Jupyter
 notebook"](../jupyter-nb.md).
 
-## Install required libraries
+### Install required libraries
 
 ``` shell
 python3 -m pip install seaborn
@@ -46,7 +48,7 @@ python3 -m pip install matplotlib
 > python3 -m ipykernel install --user
 > ```
 
-## Necessary imports
+### Necessary imports
 
 To execute all code blocks below, you need to start with importing these
 libraries. Add this code to the top of you Jupyter notebook.
@@ -66,9 +68,9 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 ```
 
-# Training ML model
+## Training ML model
 
-## Getting training data
+### Getting training data
 
 Quix web application has a python code generator to help you connect
 your Jupyter notebook to Quix.
@@ -101,33 +103,33 @@ your Jupyter notebook to Quix.
 > for how to do
 > that.
 
-## Preprocessing of features
+### Preprocessing of features
 
 We will prepare data for training by applying some transformation on
 downloaded data.
 
 ``` python
-# Convert yaw angle to continuous values
+## Convert yaw angle to continuous values
 df["Motion_Yaw_sin"] = df["Motion_Yaw"].map(lambda x: math.sin(x))
 df["Motion_Yaw_cos"] = df["Motion_Yaw"].map(lambda x: math.cos(x))
 ```
 
-### Preprocessing of label
+#### Preprocessing of label
 
 Here we simplify breaking to boolean.
 
 ``` python
-# Conversion of label
+## Conversion of label
 df["Brake_bool"] = df["Brake"].map(lambda x: round(x))
 ```
 
-## Generate advanced brake signal for training
+### Generate advanced brake signal for training
 
 Now we need to shift breaking 5 seconds ahead to train model to predict
 breaking 5 seconds ahead.
 
 ``` python
-# Offset dataset and trim it
+## Offset dataset and trim it
 NUM_PERIODS = -round(5e9/53852065.77281786)
 
 df["Brake_shifted_5s"] = df["Brake_bool"].shift(periods=NUM_PERIODS)
@@ -145,7 +147,7 @@ plt.legend(['Shifted', 'Unshifted'])
 
 ![how-to/train-ml/brake-shifted.png](../../images/how-to/train-ml/brake-shifted.png)
 
-## Fit, predict and score a model
+### Fit, predict and score a model
 
 Calculate class weighting in case we gain any accuracy by performing
 class balancing.
@@ -160,7 +162,7 @@ for val in set(Y):
 print(cw)
 ```
 
-### Experiment
+#### Experiment
 
 In the following code snippet we are executing an experiment using
 **MLflow**. Notice in last 3 lines that each experiment is logging
@@ -237,7 +239,7 @@ model_accuracy
 
 Table with model accuracy preview
 
-### Prediction preview
+#### Prediction preview
 
 Let’s plot actual vs predicted braking using a trained model:
 
@@ -252,7 +254,7 @@ ax2.plot(X["Speed"]/X["Speed"].max())
 
 ![how-to/train-ml/prediction.png](../../images/how-to/train-ml/prediction.png)
 
-## Saving model
+### Saving model
 
 When you are confident with the results, save the model into a file and
 **commit it to GIT**.
@@ -266,7 +268,7 @@ pickle.dump(decision_tree, open('./decision_tree_5_depth.sav', 'wb'))
 > Pickle file will be located in folder where jupyter notebook command
 > was executed
 
-# MLflow
+## MLflow
 
 To help you with experiments management, you can review experiments in
 MLflow.
