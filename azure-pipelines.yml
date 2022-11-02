@@ -45,7 +45,7 @@
  - script: |
     pip install mkdocs
     mkdocs build  
-   displayName: Install MkDocs + build
+    displayName: Install MkDocs + build
 
  - task: PublishBuildArtifacts@1
    inputs:

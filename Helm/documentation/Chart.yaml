@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for Docs
+name: documentation
+version: 0.0.1
