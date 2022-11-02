@@ -19,10 +19,9 @@ The [`/streams`](#) endpoint provides read access to all streams within
 the workspace. Sending an empty JSON object in your request body will
 return all streams.
 
-> **Warning**
-> 
-> Even if you’re not supplying any parameters, you must still send a
-> valid empty object as JSON data in the body of your request.
+!!! warning
+
+	Even if you’re not supplying any parameters, you must still send a valid empty object as JSON data in the body of your request.
 
 ## Example request
 

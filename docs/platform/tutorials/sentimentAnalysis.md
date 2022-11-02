@@ -105,10 +105,11 @@ Follow these steps to deploy the Web UI.
 
 10. Click the “Public URL”
     
-    > This is the user interface for the demo. This screenshot shows the
-    > view you’ll see after creating a “room” to chat in.
+	!!! info
+	
+		This is the user interface for the demo. This screenshot shows the view you’ll see after creating a “room” to chat in.
 
-![image](../images/tutorials/sentiment-analysis-media/image3.png)
+		<img src="../../images/tutorials/sentiment-analysis-media/image3.png" width="550px" class="image-center">
 
 ## 2\. Sentiment analysis
 
@@ -163,16 +164,14 @@ Follow these steps to deploy the sentiment analysis stage.
     URL of the Web UI project you deployed in step one. . Enter values
     for “Room” and “Name” . Click connect.
     
-    ![image](../images/tutorials/sentiment-analysis-media/image5.png)
+	<img src="../../images/tutorials/sentiment-analysis-media/image5.png" width="400px" class="image-center">
     
     You can now enter “chat” messages.
     
-    ![image](../images/tutorials/sentiment-analysis-media/image2.png)
+    <img src="../../images/tutorials/sentiment-analysis-media/image2.png" width="250px" class="image-center">
     
-    > The messages will be passed to the sentiment analysis service you
-    > deployed in step two. The sentiment is returned to the Web UI and
-    > displayed both in the chart and next to the comment in the chat
-    > window by colorizing the chat user’s name.
+	!!! info
+		The messages will be passed to the sentiment analysis service you deployed in step two. The sentiment is returned to the Web UI and displayed both in the chart and next to the comment in the chat window by colorizing the chat user’s name.
 
 ## 3\. Tweet to chat conversion
 
@@ -235,10 +234,9 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
     .write()
     ```
     
-    > This will take “text” from incoming tweets and stream them to the
-    > output topics tweets stream as event values with a key of
-    > “chat-message” which the other stages of the pipeline will
-    > recognize.
+    !!! info 
+		
+		This will take “text” from incoming tweets and stream them to the output topics tweets stream as event values with a key of “chat-message” which the other stages of the pipeline will recognize.
 
 ### Now tag the code and deploy the service with these steps:
 
@@ -257,8 +255,9 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
     This service receives data from the “twitter-data” topic and streams
     data out to the “messages” topic.
     
-    > You now have a service that is ready to receive tweets and pass
-    > them onto the sentiment processing stage.
+    !!! success
+	
+		You now have a service that is ready to receive tweets and pass them onto the sentiment processing stage.
 
 ## 4\. Twitter Data Source
 
@@ -283,13 +282,12 @@ Follow these steps to deploy the Web UI.
     You will see Bitcoin tweets arriving in the chat along with the
     calculated average sentiment in a chart.
     
-    ![image](../images/tutorials/sentiment-analysis-media/image4.png)
+    <img src="../../images/tutorials/sentiment-analysis-media/image4.png" width="550px" class="image-center">
 
-> Your pipeline is now complete, you can send and view chat messages,
-> receive tweets and analyze the sentiment of all of the messages.
+!!! success
+	Your pipeline is now complete, you can send and view chat messages, receive tweets and analyze the sentiment of all of the messages.
 
-> Share the QR code with colleagues and friends to talk about anything
-> you like while Quix analyzes the sentiment in the room in real time.
+	Share the QR code with colleagues and friends to talk about anything you like while Quix analyzes the sentiment in the room in real time.
 
 # Next Steps
 

@@ -3,14 +3,9 @@ very easy. We provide high-performance technology, inherited from F1, in
 a way that anybody with basic development skills can understand and use
 it very quickly.
 
-> **Tip**
-> 
-> The [Quix Portal](https://portal.platform.quix.ai) offers you
-> easy-to-use, auto-generated examples for reading, writing, and
-> processing data. These examples work directly with your workspace
-> Topics. You can deploy these examples in our serverless environment
-> with just a few clicks. For a quick test of the capabilities of the
-> SDK, we recommend starting with those auto-generated examples.
+!!! tip
+
+	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
 Other streaming platforms are tied to a narrow set of functions,
 queries, or syntax to set up a data processor or Model. This limited
@@ -36,7 +31,7 @@ stream.
 
 
 
-  - Python - Data Frame
+=== "Python - Data Frame"
     
     ``` python
     # Callback triggered for each new data frame
@@ -53,7 +48,7 @@ stream.
         stream_output.parameters.write(output_df)  # Send data back to the stream
     ```
 
-  - Python - Plain
+=== "Python - Plain"
     
     ``` python
     # Callback triggered for each new data frame
@@ -70,7 +65,7 @@ stream.
                 .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     buffer.OnRead += (data) =>
@@ -86,8 +81,6 @@ stream.
         streamOutput.Parameters.Write(outputData);
     };
     ```
-
-
 
 So, because you are not tied to any narrow processing architecture, you
 can use any methods, classes or libraries that you are already familiar

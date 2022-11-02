@@ -193,7 +193,6 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
     !!! note "Below this is also the raw data showing all the values from the device"
 
 
-
 13. Close the dashboard
 
     !!! info "The dashboard you were just using was deployed to a temporary URL in the development area"

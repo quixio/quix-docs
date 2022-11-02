@@ -101,14 +101,9 @@ deploying this connector.
 Click “Next” on the dialog box. Ensure “filtered-rss-data” is selected
 as the input topic and provide a Slack “webhook\_url.”
 
-> **Note**
-> 
-> If you have your own slack, head over to the [Slack API
-> pages,window=\_blank](https://api.slack.com/messaging/webhooks) and
-> create a webhook following their guide “Getting started with Incoming
-> Webhooks.” If you don’t have your own Slack or don’t have the account
-> privileges to create the webhook, you can choose another destination
-> from the library, such as Twilio.
+!!! note
+
+	If you have your own slack, head over to the [Slack API pages,window=\_blank](https://api.slack.com/messaging/webhooks) and create a webhook following their guide “Getting started with Incoming Webhooks.” If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the library, such as Twilio.
 
 Warning: Use a dev or demo or unimportant Slack channel while you’re
 developing this. Trust me.

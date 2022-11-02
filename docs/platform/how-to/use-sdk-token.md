@@ -57,6 +57,6 @@ argument. Once you have that, set the value of this environment variable
 to `Token 2` and start your services. When you’re sure you replaced the
 tokens for all services, rotate your keys.
 
-> **Note**
-> 
-> Only users with Admin role can rotate.
+!!! note
+
+	Only users with Admin role can rotate.

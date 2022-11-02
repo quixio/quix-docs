@@ -25,13 +25,9 @@ to update. For example:
 
     /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c
 
-> **Tip**
-> 
-> You can create a new stream by supplying a `$\{streamId}` that doesn’t
-> already exist. It will be initialised with the data you provide in the
-> payload, and the id you use in the endpoint. This avoids the need to
-> call the [create stream
-> endpoint](create-stream.md) separately.
+!!! tip
+
+	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. It will be initialised with the data you provide in the payload, and the id you use in the endpoint. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 Your request should contain a payload consisting of JSON data containing
 the desired metadata.

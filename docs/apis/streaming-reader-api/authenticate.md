@@ -20,13 +20,10 @@ Follow these steps to generate a PAT:
 
 4.  Copy the token and store it in a secure place.
 
-> **Warning**
-> 
-> You won’t be able to retrieve your token from the Portal once you’ve
-> created it, so make sure to take a copy.
+!!! warning
 
-> **Warning**
-> 
-> Treat your tokens like passwords and keep them secret. When working
-> with the API, use tokens as environment variables instead of
-> hardcoding them into your programs.
+	You won’t be able to retrieve your token from the Portal once you’ve created it, so make sure to take a copy.
+
+!!! warning
+
+	Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.

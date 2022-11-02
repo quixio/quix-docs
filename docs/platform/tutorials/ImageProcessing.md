@@ -126,9 +126,9 @@ Follow these steps to deploy the webcam service.
 > This opens the deployed website which uses your webcam to stream
 > images to Quix
 
-> > **Note**
-> > 
-> > Your browser may prompt you to allow access to your webcam.
+!!! note
+
+	Your browser may prompt you to allow access to your webcam.
 
 ## 2\. Pre Processing
 

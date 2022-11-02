@@ -63,18 +63,15 @@ signalrcore.hub.errors.UnAuthorizedHubError\</programlisting\>
 The API’s that require a valid bearer token are:
 
 1.  Portal API
-    
       - <https://portal-api.platform.quix.ai/swagger/index.html>
 
 2.  Streaming Writer API
+	  - <https://writer-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
+        
+3.  Telemetry Query API
+
+	  - <https://telemetry-query-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
     
-      - 
-3.  Streaming Reader API
-    
-      - 
-4.  Telemetry Query API
-    
-      - 
 # Error Handling in the SDK callbacks
 
 Errors generated in the SDK callback can be swallowed or hard to read.
@@ -140,10 +137,9 @@ caused by DNS propagation.
 
 ![troubleshoot/sitecantbereached.jpg](../images/troubleshoot/sitecantbereached.jpg)
 
-> **Tip**
-> 
-> In these scenarios simply wait while the DNS records propagate. It can
-> take up to 10 minutes for DNS to records to propagate fully.
+!!! tip
+
+	In these scenarios simply wait while the DNS records propagate. It can take up to 10 minutes for DNS to records to propagate fully.
 
 # Python Version
 
@@ -194,8 +190,6 @@ below should give you guidance how to achieve this.
 In your `main.py` (or similar) file, add as the first line: `import
 preinstall`. Now create the file `preinstall.py` and add content based
 on example below:
-
-
 
   - TA-Lib  
     This script will check if TA-Lib is already installed (like from
