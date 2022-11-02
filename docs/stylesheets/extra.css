@@ -12,12 +12,12 @@
 
  
 
-  [data-md-color-scheme="slate"] {
-    --md-primary-fg-color:        #0a0b24;
-    --md-primary-fg-color--light: #fff;
-    --md-primary-fg-color--dark:  #000000;
-    --md-default-bg-color: #14174D;
-  }
+[data-md-color-scheme="slate"] {
+--md-primary-fg-color:        #0a0b24;
+--md-primary-fg-color--light: #fff;
+--md-primary-fg-color--dark:  #000000;
+--md-default-bg-color: #14174D;
+}
 
 .footer{
     font-family: Inter,sans-serif;
@@ -150,3 +150,8 @@
         margin-top: 36px;
     }
   }
+  
+.image-center {
+    display: block;
+    margin: 0 auto;
+}
