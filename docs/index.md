@@ -1,4 +1,4 @@
-# Welcome to Quix Docs
+# Welcome to Quix Docs (updated)
 
 ## Tutorials
 
