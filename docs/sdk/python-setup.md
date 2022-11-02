@@ -7,24 +7,19 @@ In such cases, Python development needs some setup before you can use
 our SDK. In this section are detailed instructions of how to set up your
 Python environment on Linux, Mac or Windows.
 
-> **Note**
-> 
-> This guide assumes you have already cloned a project of your own or
-> download a library sample provided within the platform. In addition
-> some stages may require files from
-> [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development).
+!!! note
 
-> **Warning**
-> 
-> Make sure you’re using Python version 3.7\>=, \<3.9
+	This guide assumes you have already cloned a project of your own or download a library sample provided within the platform. In addition some stages may require files from [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development).
+
+!!! warning
+
+	Make sure you’re using Python version 3.7\>=, \<3.9
 
 # Install Dependencies
 
 To get started, install the SDK dependencies.
 
-
-
-  - MacOS Intel  
+=== "MacOS Intel"
     You can install dependencies via a script or manually.
     
     **Install dependencies via script**
@@ -66,7 +61,7 @@ To get started, install the SDK dependencies.
         python3 -m pip install pycparser
         ```
 
-  - MacOS M1  
+=== "MacOS M1"
     You can install dependencies via a script or manually.
     
     **Install dependencies via script**
@@ -116,18 +111,15 @@ To get started, install the SDK dependencies.
         python3 -m pip install pycparser
         ```
 
-  - Windows  
+=== "Windows"  
     Install the latest .Net Core runtime
     (<https://dotnet.microsoft.com/download/dotnet-core/current/runtime>)
 
-  - Linux
+=== "Linux"
     
-    > **Note**
-    > 
-    > Because of the variability between linux distributions we highly
-    > recommend using a Docker environment ( see [Docker
-    > setup](docker-setup.md) ) in case you experience any issues
-    > during the installation.
+    !!! note
+    
+		Because of the variability between linux distributions we highly recommend using a Docker environment ( see [Docker setup](docker-setup.md) ) in case you experience any issues during the installation.
     
       - Install and configure PythonNet dependencies - Ubuntu 20.04
         
@@ -184,7 +176,7 @@ then a virtual environment is advised.
 
 
 
-  - MacOS  
+=== "MacOS"
     To create a new virtual environment, execute the following in a
     terminal at your desired location (such as the root folder of the
     downloaded sample):
@@ -200,7 +192,7 @@ then a virtual environment is advised.
     terminal line starts with (env). Future steps will assume you have
     the virtual environment activated or are happy to install globally.
 
-  - Windows  
+=== "Windows"
     To create a new virtual environment, execute the following in a
     terminal at your desired location (such as the root folder of the
     downloaded sample):
@@ -215,13 +207,11 @@ then a virtual environment is advised.
     command line starts with (env). Future steps will assume you have
     the virtual environment activated or are happy to install globally.
     
-    > **Note**
-    > 
-    > You might need to use a new command line after installing Python,
-    > because PATH isn’t refreshed for existing command lines when
-    > something is installed.
+    !!! note
+    
+		You might need to use a new command line after installing Python, because PATH isn’t refreshed for existing command lines when something is installed.
 
-  - Linux  
+=== "Linux"
     To create a new virtual environment, execute the following in a
     terminal at your desired location:
     
@@ -242,7 +232,7 @@ then a virtual environment is advised.
 
 
 
-  - MacOS  
+=== "MacOS"
     In the same terminal you activated the virtual environment, navigate
     to the folder where `requirements.txt` (in the sample you
     downloaded) is located and execute the following:
@@ -251,7 +241,7 @@ then a virtual environment is advised.
     python3 -m pip install -r requirements.txt --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
     ```
 
-  - Windows  
+=== "Windows"
     In the same console you activated the virtual enviornment, navigate
     to the folder where `requirements.txt` (in the sample you
     downloaded) is located and execute the following:
@@ -260,7 +250,7 @@ then a virtual environment is advised.
     pip install -r requirements.txt --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
     ```
 
-  - Linux  
+=== "Linux"
     In the same terminal you activated the virtual environment, navigate
     to the folder where `requirements.txt` (in the sample you
     downloaded) is located and execute the following:
@@ -275,19 +265,19 @@ Your environment should be ready to run the code\!
 
 
 
-  - MacOS
+=== "MacOS"
     
     ``` bash
     python3 main.py
     ```
 
-  - Windows
+=== "Windows"
     
     ``` bash
     python main.py
     ```
 
-  - Linux
+=== "Linux"
     
     ``` bash
     python3 main.py

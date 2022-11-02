@@ -45,18 +45,17 @@ need the subscriptions anymore to avoid receiving data unnecessarily:
   - `UnsubscribeFromStream(topicName, streamId)`: Unsubscribes from all
     subscriptions of the specified stream.
 
-> **Tip**
-> 
-> You should pass the method’s name as the first argument to `invoke`,
-> followed by the method-specific arguments. For example, to call:
-> 
-> `SubscribeToParameter(topicName, streamId, parameterId)`
-> 
-> Use the following:
-> 
-> ``` javascript
-> connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
-> ```
+!!! tip
+ 
+	You should pass the method’s name as the first argument to `invoke`, followed by the method-specific arguments. For example, to call:
+
+	`SubscribeToParameter(topicName, streamId, parameterId)`
+
+	Use the following:
+
+	``` javascript
+	connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
+	```
 
 # SignalR events
 
@@ -74,17 +73,15 @@ of a `HubConnection`. The following events are available:
 
   - `PackageReceived(package)`
 
-> **Tip**
-> 
-> You should pass the event’s name as the first argument to `on`,
-> followed by a function callback. For example, to react to the
-> `ParameterDataReceived` event, use the following:
-> 
-> ``` javascript
-> connection.on("ParameterDataReceived", data => {
->     // process payload data
-> });
-> ```
+!!! tip
+
+	You should pass the event’s name as the first argument to `on`,	followed by a function callback. For example, to react to the `ParameterDataReceived` event, use the following:
+
+	``` javascript
+	connection.on("ParameterDataReceived", data => {
+		// process payload data
+	});
+	```
 
 ## ParameterDataReceived
 

@@ -24,7 +24,7 @@ state as needed.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     from quixstreaming.state.localfilestorage import LocalFileStorage
@@ -50,7 +50,7 @@ state as needed.
     value = storage.get("KEY1")
     ```
 
-  - C\#  
+=== "C\#"
     C\# supports two ways to call the Storage API.
     
       - Synchronous

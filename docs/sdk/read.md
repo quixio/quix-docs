@@ -6,14 +6,9 @@ auto-generated when you create a project using the existing templates.
 In this section, we explain more in-depth how to read data using the
 Quix SDK.
 
-> **Tip**
-> 
-> The [Quix Portal](https://portal.platform.quix.ai) offers you
-> easy-to-use, auto-generated examples for reading, writing, and
-> processing data. These examples work directly with your workspace
-> Topics. You can deploy these examples in our serverless environment
-> with just a few clicks. For a quick test of the capabilities of the
-> SDK, we recommend starting with those auto-generated examples.
+!!! tip
+
+	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
 # Connect to Quix
 
@@ -26,19 +21,17 @@ constructor of the SDK.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     client = QuixStreamingClient()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var client = new Quix.Sdk.Streaming.QuixStreamingClient();
     ```
-
-
 
 You can find more advanced information on how to connect to Quix in the
 [Connect to Quix](connect.md) section.
@@ -55,13 +48,13 @@ the client’s `open_input_topic` method, passing the `TOPIC_ID` or the
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     input_topic = client.open_input_topic(TOPIC_ID)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var inputTopic = client.OpenInputTopic(TOPIC_ID);
@@ -78,13 +71,13 @@ connection to the topic for reading:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     input_topic = client.open_input_topic("{topic}","{your-consumer-group-id}")
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var inputTopic = client.OpenInputTopic("{topic}","{your-consumer-group-id}");
@@ -99,21 +92,15 @@ broker knows that all the replicas of your process want to share the
 load of the incoming streams between replicas. Each replica will receive
 only a subset of the streams incoming to the Input Topic.
 
-> **Warning**
-> 
-> If you want to consume data from the topic locally for debugging
-> purposes, and the model is also deployed in the Quix serverless
-> environment, make sure that you change the consumer group ID to
-> prevent clashing with the cloud deployment. If the clash happens, only
-> one instance will be able to read data of the Stream at a time, and
-> you will probably notice that your code is not receiving data at some
-> point, either locally or in the cloud environment.
+!!! warning
+
+	If you want to consume data from the topic locally for debugging purposes, and the model is also deployed in the Quix serverless environment, make sure that you change the consumer group ID to prevent clashing with the cloud deployment. If the clash happens, only one instance will be able to read data of the Stream at a time, and you will probably notice that your code is not receiving data at some point, either locally or in the cloud environment.
 
 # Reading Streams
 
 
 
-  - Python  
+=== "Python"  
     Once you have the `InputTopic` instance you can start reading
     streams. For each stream received to the specified topic,
     `InputTopic` will execute the event `on_stream_received`. You can
@@ -129,7 +116,7 @@ only a subset of the streams incoming to the Input Topic.
     input_topic.start_reading()
     ```
 
-  - C\#  
+=== "C\#"
     Once you have the `InputTopic` instance you can start reading
     streams. For each stream received to the specified topic,
     `InputTopic` will execute the event `OnStreamReceived`. You can
@@ -148,12 +135,9 @@ only a subset of the streams incoming to the Input Topic.
 
 
 
-> **Tip**
-> 
-> The `StartReading` method indicates to the SDK the moment to start
-> reading streams and data from your Topic. This should normally happen
-> after you’ve registered callbacks for all the events you want to
-> listen to.
+!!! tip
+
+	The `StartReading` method indicates to the SDK the moment to start reading streams and data from your Topic. This should normally happen after you’ve registered callbacks for all the events you want to listen to.
 
 # Reading Parameter Data
 
@@ -167,7 +151,7 @@ timestamp and value of the parameter `ParameterA` received in the
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_stream_received_handler(new_stream: StreamReader):
@@ -184,7 +168,7 @@ timestamp and value of the parameter `ParameterA` received in the
     input_topic.start_reading()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnStreamReceived += (s, streamReader) =>
@@ -207,13 +191,9 @@ from the stream. This class handles reading and writing of time series
 data. The Quix SDK provides multiple helpers for reading and writing
 data using [ParameterData](##_parameter_data_format).
 
-> **Tip**
-> 
-> If you’re using Python you can convert
-> [ParameterData](##_parameter_data_format) to a [Pandas
-> DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe)
-> or read them directly from the SDK. Refer to [Using Data
-> Frames](##_using_data_frames) for more information.
+!!! tip
+
+	If you’re using Python you can convert [ParameterData](##_parameter_data_format) to a [Pandas DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe) or read them directly from the SDK. Refer to [Using Data Frames](##_using_data_frames) for more information.
 
 ## Parameter Data format
 
@@ -246,7 +226,7 @@ use the proper property depending of the value type of your Parameter:
 
 
 
-  - Python
+=== "Python"
     
       - `numeric_value`: Returns the Numeric value of the Parameter,
         represented as a `float` type.
@@ -257,7 +237,7 @@ use the proper property depending of the value type of your Parameter:
       - `binary_value`: Returns the Binary value of the Parameter,
         represented as a `bytearray` type.
 
-  - C\#
+=== "C\#"
     
       - `NumericValue`: Returns the Numeric value of the Parameter,
         represented as a `double` type.
@@ -275,7 +255,7 @@ ParameterData used in the previous example:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     for ts in data.timestamps:
@@ -284,7 +264,7 @@ ParameterData used in the previous example:
         print("Speed - " + str(timestamp) ": " + str(numValue))
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     foreach (var timestamp in data.Timestamps)
@@ -319,13 +299,13 @@ of your `stream`, or create a separate instance of that buffer using the
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     buffer = newStream.parameters.create_buffer()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var buffer = newStream.Parameters.CreateBuffer();
@@ -340,13 +320,13 @@ timestamp inside the buffer reaches 100 milliseconds:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     buffer.time_span_in_milliseconds = 100
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     buffer.TimeSpanInMilliseconds = 100;
@@ -363,7 +343,7 @@ buffer:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_parameter_data_handler(data: ParameterData):
@@ -374,7 +354,7 @@ buffer:
     buffer.on_read += on_parameter_data_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     buffer.OnRead += (data) =>
@@ -393,7 +373,7 @@ release a new packet of data and that data is cleared from the buffer:
 
 
 
-  - Python
+=== "Python"
     
       - `buffer.buffer_timeout`: The maximum duration in milliseconds
         for which the buffer will be held before releasing the data. A
@@ -430,7 +410,7 @@ release a new packet of data and that data is cleared from the buffer:
         before adding it to the buffer. If it returns true, data is
         added, otherwise it isn’t.
 
-  - C\#
+=== "C\#"
     
       - `Buffer.BufferTimeout`: The maximum duration in milliseconds for
         which the buffer will be held before releasing the data. A
@@ -477,14 +457,14 @@ send the pending data anyway.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.packet_size = 100
     stream.parameters.buffer.buffer_timeout = 1000
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.PacketSize = 100;
@@ -498,14 +478,14 @@ critical data arrives.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     buffer.time_span_in_milliseconds = 100
     buffer.custom_trigger = lambda data: data.timestamps[0].tags["is_critical"] == 'True'
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.TimeSpanInMilliseconds = 100;
@@ -589,13 +569,9 @@ input_topic.on_stream_received += read_stream
 input_topic.start_reading()
 ```
 
-> **Tip**
-> 
-> The conversions from [ParameterData](##_parameter_data_format) to
-> Pandas DataFrames have an intrinsic cost overhead. For
-> high-performance models using Pandas DataFrames, you probably want to
-> use the `on_read_pandas` event provided by the SDK, which is optimized
-> for doing as few conversions as possible.
+!!! tip
+
+	The conversions from [ParameterData](##_parameter_data_format) to Pandas DataFrames have an intrinsic cost overhead. For high-performance models using Pandas DataFrames, you probably want to use the `on_read_pandas` event provided by the SDK, which is optimized for doing as few conversions as possible.
 
 # Reading Events
 
@@ -629,7 +605,7 @@ is identical.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_event_data_handler(data: EventData):
@@ -638,7 +614,7 @@ is identical.
     new_stream.events.on_read += on_event_data_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     newStream.Events.OnRead += (data) =>
@@ -671,20 +647,11 @@ Commits are done for each consumer group, so if you have several
 consumer groups in use, they do not affect each another when commiting
 to one of them.
 
-> **Tip**
-> 
-> Commits are done at a partition level when you use Kafka as a Message
-> Broker, which means that streams that belong to the same partition are
-> committed using the same position. The SDK currently does not expose
-> the option to subscribe to only specific partitions of a topic, but
-> commits will only ever affect partitions that are currently assigned
-> to your client.
-> 
-> Partitions and the Kafka rebalancing protocol are internal details of
-> the Kafka implementation of the Quix SDK. You mainly don’t even need
-> to worry about it because everything is abstracted within the
-> [Streaming Context](./features/streaming-context.md) feature of the
-> SDK.
+!!! tip
+
+	Commits are done at a partition level when you use Kafka as a Message Broker, which means that streams that belong to the same partition are committed using the same position. The SDK currently does not expose the option to subscribe to only specific partitions of a topic, but commits will only ever affect partitions that are currently assigned to your client.
+
+	Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the [Streaming Context](./features/streaming-context.md) feature of the SDK.
 
 ## Automatic committing
 
@@ -698,7 +665,7 @@ following code:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     from quixstreaming import CommitOptions
@@ -710,7 +677,7 @@ following code:
     input_topic = client.open_input_topic('yourtopic', commit_settings=commit_settings)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var inputTopic = client.OpenInputTopic(topic, consumerGroup, new CommitOptions()
@@ -735,7 +702,7 @@ commit for the topic:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     from quixstreaming import CommitMode
@@ -743,7 +710,7 @@ commit for the topic:
     input_topic = client.open_input_topic('yourtopic', commit_settings=CommitMode.Manual)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     client.OpenInputTopic(topic, consumerGroup, CommitMode.Manual);
@@ -755,13 +722,13 @@ Then, whenever your commit condition fulfils, call:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     input_topic.commit()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.Commit();
@@ -780,7 +747,7 @@ this event using the following code:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_committed_handler():
@@ -789,7 +756,7 @@ this event using the following code:
     input_topic.on_committed += on_committed_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnCommitted += (sender, args) =>
@@ -817,7 +784,7 @@ The possible options for AutoOffsetReset
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     input_topic = client.open_input_topic(test_topic, auto_offset_reset=AutoOffsetReset.Latest)
@@ -825,7 +792,7 @@ The possible options for AutoOffsetReset
     input_topic = client.open_input_topic(test_topic, auto_offset_reset=AutoOffsetReset.Earliest)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var inputTopic = client.OpenInputTopic("MyTopic", autoOffset: AutoOffsetReset.Latest);
@@ -844,17 +811,11 @@ client joining or leaving the consumer group, so your application should
 be prepared to handle these scenarios in order to avoid data loss and/or
 avoidable reprocessing of messages.
 
-> **Tip**
-> 
-> Kafka revokes entire partitions, but the SDK makes it easy to
-> determine which streams are affected by providing two events you can
-> listen to.
-> 
-> Partitions and the Kafka rebalancing protocol are internal details of
-> the Kafka implementation of the Quix SDK. You mainly don’t even need
-> to worry about it because everything is abstracted within the
-> [Streaming Context](./features/streaming-context.md) feature of the
-> SDK.
+!!! tip
+
+	Kafka revokes entire partitions, but the SDK makes it easy to determine which streams are affected by providing two events you can listen to.
+
+	Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the [Streaming Context](./features/streaming-context.md) feature of the SDK.
 
 ## Streams revoking
 
@@ -864,7 +825,7 @@ react to this and even commit to the broker:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_revoking_handler():
@@ -873,7 +834,7 @@ react to this and even commit to the broker:
     input_topic.on_revoking += on_revoking_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnRevoking += (sender, args) =>
@@ -892,7 +853,7 @@ client.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     from quixstreaming import StreamReader
@@ -904,7 +865,7 @@ client.
     input_topic.on_streams_revoked += on_streams_revoked_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnStreamsRevoked += (sender, revokedStreams) =>
@@ -923,7 +884,7 @@ required.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def on_stream_closed_handler(end_type: StreamEndType):
@@ -932,7 +893,7 @@ required.
     new_stream.on_stream_closed += on_stream_closed_handler
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnStreamReceived += (s, streamReader) =>
@@ -963,7 +924,7 @@ using the Quix SDK.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     from quixstreaming import *
@@ -1000,7 +961,7 @@ using the Quix SDK.
     App.run()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     using System;
@@ -1071,7 +1032,7 @@ as needed ( e.g. JSON, comma-separated rows ).
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     inp = client.open_raw_input_topic(TOPIC_ID)
@@ -1087,7 +1048,7 @@ as needed ( e.g. JSON, comma-separated rows ).
     inp.start_reading()
     ```
 
-  - Csharp
+=== "C\#"
     
     ``` cs
     var inp = client.OpenRawInputTopic(TOPIC_ID)
