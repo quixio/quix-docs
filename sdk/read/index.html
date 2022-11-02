@@ -1,0 +1,3544 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Quix Docs">
+      
+      
+        <meta name="author" content="Quix.io">
+      
+      
+        <link rel="canonical" href="https://quix.io/sdk/read/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7+insiders-4.26.1">
+    
+    
+      
+        <title>Reading data - Quix Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fa1d38d9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-xxx"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-xxx",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-xxx",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connect-to-quix" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Quix Docs" class="md-header__button md-logo" aria-label="Quix Docs" data-md-component="logo">
+      
+  <img src="../../assets/Quix-docs-logo-header.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Quix Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reading data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/quixai/quix-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    quixai/quix-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Quix Docs" class="md-nav__button md-logo" aria-label="Quix Docs" data-md-component="logo">
+      
+  <img src="../../assets/Quix-docs-logo-header.svg" alt="logo">
+
+    </a>
+    Quix Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/quixai/quix-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    quixai/quix-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        
+        
+          <label class="md-nav__link" for="__nav_2">
+            
+  
+  <span class="md-ellipsis">
+    Platform
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Platform" data-md-level="1">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is Quix?
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/definitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definitions
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_2_3">
+            
+  
+  <span class="md-ellipsis">
+    How To
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="How To" data-md-level="2">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            How To
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/get-workspace-id/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Workspace ID
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/use-sdk-token/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use SDK token
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/jupyter-nb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use Jupyter notebooks
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/webapps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Develop web applications with Quix
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/webapps/write/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write to Quix with NodeJs
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/webapps/read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read from Quix with NodeJs
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_7" type="checkbox" id="__nav_2_3_7" >
+        
+        
+          <label class="md-nav__link" for="__nav_2_3_7">
+            
+  
+  <span class="md-ellipsis">
+    Train and deploy an ML model
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Train and deploy an ML model" data-md-level="3">
+          <label class="md-nav__title" for="__nav_2_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Train and deploy an ML model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/train-and-deploy-ml/train-ml-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to train an ML model
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/train-and-deploy-ml/deploy-ml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run ML model in realtime environment
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/how-to/create-dlq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Dead Letter Queue
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+        
+        
+          <label class="md-nav__link" for="__nav_2_4">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Tutorials" data-md-level="2">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/ImageProcessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Processing
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/sentimentAnalysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sentiment analysis
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/nocode-sentiment-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    No code sentiment analysis
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/RSSProcessingPipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RSS Processing
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/currency-alerting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Currency Alerting
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/tutorials/telemetry-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/samples/samples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Samples
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/troubleshooting/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform/security/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        
+        
+          <label class="md-nav__link" for="__nav_3">
+            
+  
+  <span class="md-ellipsis">
+    SDK
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="SDK" data-md-level="1">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kafka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka and Quix SDK
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_3_3">
+            
+  
+  <span class="md-ellipsis">
+    Features overview
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Features overview" data-md-level="2">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/streaming-context/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming context
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/in-memory-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    In-memory processing
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/builtin-buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Built-in buffers
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/data-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support for Data Frames
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/message-splitting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Message splitting
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/message-compression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Message compression
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/data-serialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data serialization
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/multiple-data-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple data types
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/broker-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broker configuration
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/checkpointing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checkpointing
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/horizontal-scaling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Horizontal scaling
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrations
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/portability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portability
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Quix
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../write/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Writing data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reading data
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processing data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State management
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_9" type="checkbox" id="__nav_3_9" >
+        
+        
+          <label class="md-nav__link" for="__nav_3_9">
+            
+  
+  <span class="md-ellipsis">
+    Local environment
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Local environment" data-md-level="2">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Local environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set up local environment
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set up docker environment
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        
+        
+          <label class="md-nav__link" for="__nav_4">
+            
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="API" data-md-level="1">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+        
+        
+          <label class="md-nav__link" for="__nav_4_1">
+            
+  
+  <span class="md-ellipsis">
+    Data Catalogue API
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Data Catalogue API" data-md-level="2">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Catalogue API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/authenticate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authenticate
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/get-swagger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Swagger url
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/request/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forming a request
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/streams-paged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paged streams
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/streams-filtered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filtered streams
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/streams-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streams with models
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/raw-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raw data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/aggregate-time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aggregate data by time
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/aggregate-tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aggregate data by tags
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/data-catalogue-api/filter-tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tag filtering
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        
+        
+          <label class="md-nav__link" for="__nav_4_2">
+            
+  
+  <span class="md-ellipsis">
+    Streaming Writer API
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Streaming Writer API" data-md-level="2">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Streaming Writer API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/authenticate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authenticate
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/get-swagger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Swagger url
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/request/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forming a request
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/signalr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set up SignalR
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/create-stream/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a new Stream
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/stream-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add Stream metadata
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/send-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Send Parameter data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-writer-api/send-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Send an Event
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_4_3">
+            
+  
+  <span class="md-ellipsis">
+    Streaming Reader API
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Streaming Reader API" data-md-level="2">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Streaming Reader API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-reader-api/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-reader-api/authenticate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authenticate
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-reader-api/signalr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set up SignalR
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-reader-api/reading-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reading data
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apis/streaming-reader-api/subscriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subscription & Event reference
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/quixai/quix-docs/tree/develop/docs/sdk/read.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<p>The Quix SDK allows you to read data in real time from the existing
+streams of your Topics.</p>
+<p>All the necessary code to read data from your Quix Workspace is
+auto-generated when you create a project using the existing templates.
+In this section, we explain more in-depth how to read data using the
+Quix SDK.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <a href="https://portal.platform.quix.ai">Quix Portal</a> offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.</p>
+</div>
+<h1 id="connect-to-quix">Connect to Quix</h1>
+<p>In order to start reading data from Quix you need an instance of the
+Quix client, <code>QuixStreamingClient</code>. This is the central point where you
+interact with the main SDK operations.</p>
+<p>You can create an instance of <code>QuixStreamingClient</code> using the proper
+constructor of the SDK.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">client</span> <span class="o">=</span> <span class="n">QuixStreamingClient</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quix</span><span class="p">.</span><span class="n">Sdk</span><span class="p">.</span><span class="n">Streaming</span><span class="p">.</span><span class="n">QuixStreamingClient</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You can find more advanced information on how to connect to Quix in the
+<a href="../connect/">Connect to Quix</a> section.</p>
+<h1 id="open-a-topic-for-reading">Open a topic for reading</h1>
+<p>Topics are the default environment for input/output operations on Quix.</p>
+<p>In order to access that topic for reading you need an instance of
+<code>InputTopic</code>. This instance allow you to read all the incoming streams
+on the specified Topic. You can create an instance of <code>InputTopic</code> using
+the client’s <code>open_input_topic</code> method, passing the <code>TOPIC_ID</code> or the
+<code>TOPIC_NAME</code> as a parameter.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="consumer-group">Consumer group</h2>
+<p>The <strong>Consumer group</strong> is a concept used when you want to <a href="../features/horizontal-scaling/">scale
+horizontally</a>. Each consumer group is
+identified using an ID, which you set optionally when opening a
+connection to the topic for reading:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{topic}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;{your-consumer-group-id}&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="s">&quot;{topic}&quot;</span><span class="p">,</span><span class="s">&quot;{your-consumer-group-id}&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>When you want to enable <a href="../features/horizontal-scaling/">horizontal
+scalability</a>, all the replicas of
+your process should use the same <code>ConsumerId</code>. This is how the message
+broker knows that all the replicas of your process want to share the
+load of the incoming streams between replicas. Each replica will receive
+only a subset of the streams incoming to the Input Topic.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you want to consume data from the topic locally for debugging purposes, and the model is also deployed in the Quix serverless environment, make sure that you change the consumer group ID to prevent clashing with the cloud deployment. If the clash happens, only one instance will be able to read data of the Stream at a time, and you will probably notice that your code is not receiving data at some point, either locally or in the cloud environment.</p>
+</div>
+<h1 id="reading-streams">Reading Streams</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Once you have the <code>InputTopic</code> instance you can start reading
+streams. For each stream received to the specified topic,
+<code>InputTopic</code> will execute the event <code>on_stream_received</code>. You can
+attach a callback to this event to execute code that reacts when you
+receive a new Stream. For example, the following code prints the
+StreamId for each <code>newStream</code> received on that Topic:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">read_stream</span><span class="p">(</span><span class="n">new_stream</span><span class="p">:</span> <span class="n">StreamReader</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New stream read:&quot;</span> <span class="o">+</span> <span class="n">new_stream</span><span class="o">.</span><span class="n">stream_id</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_stream_received</span> <span class="o">+=</span> <span class="n">read_stream</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">start_reading</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Once you have the <code>InputTopic</code> instance you can start reading
+streams. For each stream received to the specified topic,
+<code>InputTopic</code> will execute the event <code>OnStreamReceived</code>. You can
+attach a callback to this event to execute code that reacts when you
+receive a new Stream. For example the following code prints the
+StreamId for each <code>newStream</code> received on that Topic:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnStreamReceived</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">newStream</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;New stream read: {newStream.StreamId}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">StartReading</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>StartReading</code> method indicates to the SDK the moment to start reading streams and data from your Topic. This should normally happen after you’ve registered callbacks for all the events you want to listen to.</p>
+</div>
+<h1 id="reading-parameter-data">Reading Parameter Data</h1>
+<p>You can read real-time data from Streams using the <code>on_read</code> event of
+the <code>StreamReader</code> instance received in the previous callback when you
+receive a new stream in your Topic.</p>
+<p>For instance, in the following example we read and print the first
+timestamp and value of the parameter <code>ParameterA</code> received in the
+<a href="##_parameter_data_format">ParameterData</a> packet:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">on_stream_received_handler</span><span class="p">(</span><span class="n">new_stream</span><span class="p">:</span> <span class="n">StreamReader</span><span class="p">):</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">def</span> <span class="nf">on_parameter_data_handler</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ParameterData</span><span class="p">):</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="n">num_value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;ParameterA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">numeric_value</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ParameterA - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_value</span><span class="p">))</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">new_stream</span><span class="o">.</span><span class="n">on_read</span> <span class="o">+=</span> <span class="n">on_parameter_data_handler</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_stream_received</span> <span class="o">+=</span> <span class="n">on_stream_received_handler</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">start_reading</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnStreamReceived</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">streamReader</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">streamReader</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">OnRead</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="n">parameterData</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parameterData</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Timestamp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">numValue</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parameterData</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;ParameterA&quot;</span><span class="p">].</span><span class="n">NumericValue</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;ParameterA - {timestamp}: {numValue}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">StartReading</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>We use <a href="##_parameter_data_format">ParameterData</a> packages to read data
+from the stream. This class handles reading and writing of time series
+data. The Quix SDK provides multiple helpers for reading and writing
+data using <a href="##_parameter_data_format">ParameterData</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re using Python you can convert <a href="##_parameter_data_format">ParameterData</a> to a <a href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">Pandas DataFrames</a> or read them directly from the SDK. Refer to <a href="##_using_data_frames">Using Data Frames</a> for more information.</p>
+</div>
+<h2 id="parameter-data-format">Parameter Data format</h2>
+<p><a href="##_parameter_data_format">ParameterData</a> is the formal class in the SDK
+which represents a time series data packet in memory.</p>
+<p><a href="##_parameter_data_format">ParameterData</a> consists of a list of
+Timestamps with their corresponding Parameter Names and Values for each
+timestamp.</p>
+<p>You should imagine a Parameter Data as a table where the Timestamp is
+the first column of that table and where the Parameters are the columns
+for the Values of that table.</p>
+<table>
+<thead>
+<tr>
+<th>Timestamp</th>
+<th>Speed</th>
+<th>Gear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>120</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>123</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>125</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>An example of ParameterData</p>
+<p>You can use the <code>timestamps</code> property of a ParameterData instance to
+access each row of that table, and the <code>parameters</code> property to access
+the values of that timestamp.</p>
+<p>The Quix SDK supports Numeric, String, and Binary values and you should
+use the proper property depending of the value type of your Parameter:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>numeric_value</code>: Returns the Numeric value of the Parameter,
+    represented as a <code>float</code> type.</p>
+</li>
+<li>
+<p><code>string_value</code>: Returns the String value of the Parameter,
+    represented as a <code>string</code> type.</p>
+</li>
+<li>
+<p><code>binary_value</code>: Returns the Binary value of the Parameter,
+    represented as a <code>bytearray</code> type.</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>NumericValue</code>: Returns the Numeric value of the Parameter,
+    represented as a <code>double</code> type.</p>
+</li>
+<li>
+<p><code>StringValue</code>: Returns the String value of the Parameter,
+    represented as a <code>string</code> type.</p>
+</li>
+<li>
+<p><code>BinaryValue</code>: Returns the Binary value of the Parameter,
+    represented as an array of <code>byte</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<p>This is a simple example showing how to read Speed values of the
+ParameterData used in the previous example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">timestamp_nanoseconds</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">numValue</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;Speed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">numeric_value</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Speed - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">numValue</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">       </span><span class="kt">var</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">timestamp</span><span class="p">.</span><span class="n">TimestampNanoseconds</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">       </span><span class="kt">var</span><span class="w"> </span><span class="n">numValue</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">timestamp</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;Speed&quot;</span><span class="p">].</span><span class="n">NumericValue</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Speed - {timestamp}: {numValue}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="go">Speed - 1: 120</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">Speed - 2: 123</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">Speed - 3: 125</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="go">Speed - 6: 110</span>
+</code></pre></div>
+<h2 id="buffer">Buffer</h2>
+<p>The Quix SDK provides you with a programmable buffer which you can
+tailor to your needs. Using buffers to read data enhances the throughput
+of your application. This helps you to develop Models with a high
+performance throughput.</p>
+<p>You can use the <code>buffer</code> property embedded in the <code>Parameters</code> property
+of your <code>stream</code>, or create a separate instance of that buffer using the
+<code>create_buffer</code> method:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">buffer</span> <span class="o">=</span> <span class="n">newStream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">create_buffer</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newStream</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">CreateBuffer</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You can configure a buffer’s input requirements using built-in
+properties. For example, the following configuration means that the
+Buffer will release a packet when the time span between first and last
+timestamp inside the buffer reaches 100 milliseconds:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">buffer</span><span class="o">.</span><span class="n">time_span_in_milliseconds</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">buffer</span><span class="p">.</span><span class="n">TimeSpanInMilliseconds</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">100</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Reading data from that buffer is as simple as using its <code>OnRead</code> event.
+For each <a href="##_parameter_data_format">ParameterData</a> packet released from
+the buffer, the SDK will execute the <code>OnRead</code> event with the parameter
+data as a given parameter. For example the following code prints the
+ParameterA value of the first timestamp of each packet released from the
+buffer:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Python</label><label for="__tabbed_10_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span> <span class="nf">on_parameter_data_handler</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ParameterData</span><span class="p">):</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">num_value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;ParameterA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">numeric_value</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ParameterA - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_value</span><span class="p">))</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">buffer</span><span class="o">.</span><span class="n">on_read</span> <span class="o">+=</span> <span class="n">on_parameter_data_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">buffer</span><span class="p">.</span><span class="n">OnRead</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Timestamp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">numValue</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;ParameterA&quot;</span><span class="p">].</span><span class="n">NumericValue</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;ParameterA - {timestamp}: {numValue}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You can configure multiple conditions to determine when the Buffer has
+to release data, if any of these conditions become true, the buffer will
+release a new packet of data and that data is cleared from the buffer:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Python</label><label for="__tabbed_11_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>buffer.buffer_timeout</code>: The maximum duration in milliseconds
+    for which the buffer will be held before releasing the data. A
+    packet of data is released when the configured timeout value has
+    elapsed from the last data received in the buffer.</p>
+</li>
+<li>
+<p><code>buffer.packet_size</code>: The maximum packet size in terms of number
+    of timestamps. Each time the buffer has this amount of
+    timestamps, the packet of data is released.</p>
+</li>
+<li>
+<p><code>buffer.time_span_in_nanoseconds</code>: The maximum time between
+    timestamps in nanoseconds. When the difference between the
+    earliest and latest buffered timestamp surpasses this number,
+    the packet of data is released.</p>
+</li>
+<li>
+<p><code>buffer.time_span_in_milliseconds</code>: The maximum time between
+    timestamps in milliseconds. When the difference between the
+    earliest and latest buffered timestamp surpasses this number,
+    the packet of data is released. Note: This is a millisecond
+    converter on top of <code>time_span_in_nanoseconds</code>. They both work
+    with the same underlying value.</p>
+</li>
+<li>
+<p><code>buffer.custom_trigger_before_enqueue</code>: A custom function which
+    is invoked <strong>before</strong> adding a new timestamp to the buffer. If
+    it returns true, the packet of data is released before adding
+    the timestamp to it.</p>
+</li>
+<li>
+<p><code>buffer.custom_trigger</code>: A custom function which is invoked
+    <strong>after</strong> adding a new timestamp to the buffer. If it returns
+    true, the packet of data is released with the entire buffer
+    content.</p>
+</li>
+<li>
+<p><code>buffer.filter</code>: A custom function to filter the incoming data
+    before adding it to the buffer. If it returns true, data is
+    added, otherwise it isn’t.</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>Buffer.BufferTimeout</code>: The maximum duration in milliseconds for
+    which the buffer will be held before releasing the data. A
+    packet of data is released when the configured timeout value has
+    elapsed from the last data received in the buffer.</p>
+</li>
+<li>
+<p><code>Buffer.PacketSize</code>: The maximum packet size in terms of number
+    of timestamps. Each time the buffer has this amount of
+    timestamps, the packet of data is released.</p>
+</li>
+<li>
+<p><code>Buffer.TimeSpanInNanoseconds</code>: The maximum time between
+    timestamps in nanoseconds. When the difference between the
+    earliest and latest buffered timestamp surpasses this number,
+    the packet of data is released.</p>
+</li>
+<li>
+<p><code>Buffer.TimeSpanInMilliseconds</code>: The maximum time between
+    timestamps in milliseconds. When the difference between the
+    earliest and latest buffered timestamp surpasses this number,
+    the packet of data is released. Note: This is a millisecond
+    converter on top of <code>time_span_in_nanoseconds</code>. They both work
+    with the same underlying value.</p>
+</li>
+<li>
+<p><code>Buffer.CustomTriggerBeforeEnqueue</code>: A custom function which is
+    invoked <strong>before</strong> adding a new timestamp to the buffer. If it
+    returns true, the packet of data is released before adding the
+    timestamp to it.</p>
+</li>
+<li>
+<p><code>Buffer.CustomTrigger</code>: A custom function which is invoked
+    <strong>after</strong> adding a new timestamp to the buffer. If it returns
+    true, the packet of data is released with the entire buffer
+    content.</p>
+</li>
+<li>
+<p><code>Buffer.Filter</code>: A custom function to filter the incoming data
+    before adding it to the buffer. If it returns true, data is
+    added, otherwise it isn’t.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="examples">Examples</h3>
+<p>This buffer configuration will send data every 100ms or, if no data is
+buffered in the 1 second timeout period, it will empty the buffer and
+send the pending data anyway.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Python</label><label for="__tabbed_12_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">stream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">packet_size</span> <span class="o">=</span> <span class="mi">100</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">stream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">buffer_timeout</span> <span class="o">=</span> <span class="mi">1000</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">stream</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Buffer</span><span class="p">.</span><span class="n">PacketSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">100</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">stream</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Buffer</span><span class="p">.</span><span class="n">BufferTimeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">1000</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>This buffer configuration will send data every 100ms window or if
+critical data arrives.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Python</label><label for="__tabbed_13_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">buffer</span><span class="o">.</span><span class="n">time_span_in_milliseconds</span> <span class="o">=</span> <span class="mi">100</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">buffer</span><span class="o">.</span><span class="n">custom_trigger</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="s2">&quot;is_critical&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">stream</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Buffer</span><span class="p">.</span><span class="n">TimeSpanInMilliseconds</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">100</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">stream</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Buffer</span><span class="p">.</span><span class="n">CustomTrigger</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Timestamps</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Tags</span><span class="w"></span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="na">[&quot;is_critical&quot;]</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="using-data-frames">Using Data Frames</h2>
+<p>If you use the Python version of the SDK you can use <a href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">Pandas
+DataFrames</a>
+for reading and writing ParameterData to Quix. The Pandas DataFrames
+format is just a representation of
+<a href="##_parameter_data_format">ParameterData</a> format, where the Timestamp is
+mapped to a column named <code>time</code> and the rest of the parameters are
+mapped as columns named as the ParameterId of the parameter. Tags are
+mapped as columns with the prefix <code>TAG__</code> and the TagId of the tag.</p>
+<p>For example, the following <a href="##_parameter_data_format">ParameterData</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Timestamp</th>
+<th>CarId (tag)</th>
+<th>Speed</th>
+<th>Gear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>car-1</td>
+<td>120</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>car-2</td>
+<td>123</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>car-1</td>
+<td>125</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>car-2</td>
+<td>110</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>An example of ParameterData</p>
+<p>Is represented as the following Pandas DataFrame:</p>
+<table>
+<thead>
+<tr>
+<th>time</th>
+<th>TAG__CarId</th>
+<th>Speed</th>
+<th>Gear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>car-1</td>
+<td>120</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>car-2</td>
+<td>123</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>car-1</td>
+<td>125</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>car-2</td>
+<td>110</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>A representation of ParameterData in a Pandas DataFrame</p>
+<p>One simple way to read data from Quix using <a href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">Pandas
+DataFrames</a>
+is using the event <code>on_read_pandas</code> instead of the common event
+<code>on_read</code> when reading from a <code>stream</code>, or when reading data from a
+buffer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span> <span class="nf">read_stream</span><span class="p">(</span><span class="n">new_stream</span><span class="p">:</span> <span class="n">StreamReader</span><span class="p">):</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">new_stream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">create_buffer</span><span class="p">()</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="k">def</span> <span class="nf">on_pandas_frame_handler</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">on_read_pandas</span> <span class="o">+=</span> <span class="n">on_pandas_frame_handler</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_stream_received</span> <span class="o">+=</span> <span class="n">read_stream</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">start_reading</span><span class="p">()</span>
+</code></pre></div>
+<p>Alternatively, you can always convert a
+<a href="##_parameter_data_format">ParameterData</a> to a Pandas DataFrame using
+the method <code>to_panda_frame</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span> <span class="nf">read_stream</span><span class="p">(</span><span class="n">new_stream</span><span class="p">:</span> <span class="n">StreamReader</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">new_stream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">create_buffer</span><span class="p">()</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="k">def</span> <span class="nf">on_parameter_data_handler</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ParameterData</span><span class="p">):</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="c1"># read from input stream</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_panda_frame</span><span class="p">()</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">on_read</span> <span class="o">+=</span> <span class="n">on_parameter_data_handler</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_stream_received</span> <span class="o">+=</span> <span class="n">read_stream</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">start_reading</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The conversions from <a href="##_parameter_data_format">ParameterData</a> to Pandas DataFrames have an intrinsic cost overhead. For high-performance models using Pandas DataFrames, you probably want to use the <code>on_read_pandas</code> event provided by the SDK, which is optimized for doing as few conversions as possible.</p>
+</div>
+<h1 id="reading-events">Reading Events</h1>
+<p>EventData is the formal class in the SDK which represents an Event data
+packet in memory. EventData is meant to be used for time series data
+coming from sources that generate data at irregular intervals or without
+a defined structure.</p>
+<h2 id="event-data-format">Event Data format</h2>
+<p>EventData consists of a record with a Timestamp, an EventId and an
+EventValue.</p>
+<p>You should imagine a list of Event Data instances as a simple table of
+three columns where the Timestamp is the first column of that table and
+the EventId and EventValue are the second and third columns.</p>
+<table>
+<thead>
+<tr>
+<th>Timestamp</th>
+<th>EventId</th>
+<th>EventValue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>failure23</td>
+<td>Gearbox has a failure</td>
+</tr>
+<tr>
+<td>2</td>
+<td>box-event2</td>
+<td>Car has entered to the box</td>
+</tr>
+<tr>
+<td>3</td>
+<td>motor-off</td>
+<td>Motor has stopped</td>
+</tr>
+<tr>
+<td>6</td>
+<td>race-event3</td>
+<td>Race has finished</td>
+</tr>
+</tbody>
+</table>
+<p>An example of a list of EventData</p>
+<p>Reading events from a stream is as easy as reading parameter data. In
+this case, the SDK does not use a Buffer because we don’t need high
+performance throughput, but the way we read Event Data from a <code>Stream</code>
+is identical.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Python</label><label for="__tabbed_14_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">def</span> <span class="nf">on_event_data_handler</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Event read for stream. Event Id: &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="n">new_stream</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">on_read</span> <span class="o">+=</span> <span class="n">on_event_data_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">newStream</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnRead</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Event read for stream. Event Id: {data.Id}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="go">Event read for stream. Event Id: failure23</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="go">Event read for stream. Event Id: box-event2</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="go">Event read for stream. Event Id: motor-off</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="go">Event read for stream. Event Id: race-event3</span>
+</code></pre></div>
+<h1 id="committing-checkpointing">Committing / checkpointing</h1>
+<p>It is important to be aware of the commit concept when working with a
+broker. Committing allows one to mark how far data has been processed,
+also known as creating a checkpoint. In the event of a restart or
+rebalance, the client only processes messages from the last commit
+position. In Kafka this is equivalent to commits for a <a href="./#_consumer_groups">consumer
+group</a>.</p>
+<p>Commits are done for each consumer group, so if you have several
+consumer groups in use, they do not affect each another when commiting
+to one of them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Commits are done at a partition level when you use Kafka as a Message Broker, which means that streams that belong to the same partition are committed using the same position. The SDK currently does not expose the option to subscribe to only specific partitions of a topic, but commits will only ever affect partitions that are currently assigned to your client.</p>
+<p>Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the <a href="../features/streaming-context/">Streaming Context</a> feature of the SDK.</p>
+</div>
+<h2 id="automatic-committing">Automatic committing</h2>
+<p>By default, the SDK automatically commits messages for which all
+handlers returned at a regular default interval, which is every 5
+seconds or 5,000 messages, whichever happens sooner. However this is
+subject to change.</p>
+<p>If you wish to use different automatic commit intervals, use the
+following code:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Python</label><label for="__tabbed_15_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">from</span> <span class="nn">quixstreaming</span> <span class="kn">import</span> <span class="n">CommitOptions</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">commit_settings</span> <span class="o">=</span> <span class="n">CommitOptions</span><span class="p">()</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="n">commit_settings</span><span class="o">.</span><span class="n">commit_every</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># note, you can set this to none</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="n">commit_settings</span><span class="o">.</span><span class="n">commit_interval</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># note, you can set this to none</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="n">commit_settings</span><span class="o">.</span><span class="n">auto_commit_enabled</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="s1">&#39;yourtopic&#39;</span><span class="p">,</span> <span class="n">commit_settings</span><span class="o">=</span><span class="n">commit_settings</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">consumerGroup</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CommitOptions</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">        </span><span class="n">CommitEvery</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">        </span><span class="n">CommitInterval</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">500</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="n">AutoCommitEnabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="c1">// optional, defaults to true</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The code above will commit every 100 processed messages or 500 ms,
+whichever is sooner.</p>
+<h2 id="manual-committing">Manual committing</h2>
+<p>Some use cases need manual committing to mark completion of work, for
+example when you wish to batch process data, so the frequency of commit
+depends on the data. This can be achieved by first enabling manual
+commit for the topic:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Python</label><label for="__tabbed_16_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kn">from</span> <span class="nn">quixstreaming</span> <span class="kn">import</span> <span class="n">CommitMode</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="s1">&#39;yourtopic&#39;</span><span class="p">,</span> <span class="n">commit_settings</span><span class="o">=</span><span class="n">CommitMode</span><span class="o">.</span><span class="n">Manual</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">consumerGroup</span><span class="p">,</span><span class="w"> </span><span class="n">CommitMode</span><span class="p">.</span><span class="n">Manual</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Then, whenever your commit condition fulfils, call:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Python</label><label for="__tabbed_17_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">Commit</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The piece of code above will commit anything – like parameter, event or
+metadata - read and served to you from the input topic up to this point.</p>
+<h2 id="commit-callback">Commit callback</h2>
+<p>Whenever a commit occurs, an event is raised to let you know. This event
+is raised for both manual and automatic commits. You can subscribe to
+this event using the following code:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Python</label><label for="__tabbed_18_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">def</span> <span class="nf">on_committed_handler</span><span class="p">():</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    <span class="c1"># your code doing something when committed to broker</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_committed</span> <span class="o">+=</span> <span class="n">on_committed_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnCommitted</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="c1">//... your code …</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="auto-offset-reset">Auto Offset Reset</h2>
+<p>You can control the offset that data is read from by optionally
+specifying AutoOffsetReset when you open the topic.</p>
+<p>When setting the AutoOffsetReset you can specify one of three options.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latest</td>
+<td>Read only the latest data as it arrives, dont include older data</td>
+</tr>
+<tr>
+<td>Earliest</td>
+<td>Read from the beginning, i.e. as much as possible</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>Throws exception if no previous offset is found</td>
+</tr>
+</tbody>
+</table>
+<p>The possible options for AutoOffsetReset</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:2"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Python</label><label for="__tabbed_19_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="n">test_topic</span><span class="p">,</span> <span class="n">auto_offset_reset</span><span class="o">=</span><span class="n">AutoOffsetReset</span><span class="o">.</span><span class="n">Latest</span><span class="p">)</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="ow">or</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="n">test_topic</span><span class="p">,</span> <span class="n">auto_offset_reset</span><span class="o">=</span><span class="n">AutoOffsetReset</span><span class="o">.</span><span class="n">Earliest</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="s">&quot;MyTopic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">autoOffset</span><span class="p">:</span><span class="w"> </span><span class="n">AutoOffsetReset</span><span class="p">.</span><span class="n">Latest</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="n">or</span><span class="w"></span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="s">&quot;MyTopic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">autoOffset</span><span class="p">:</span><span class="w"> </span><span class="n">AutoOffsetReset</span><span class="p">.</span><span class="n">Earliest</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h1 id="revocation">Revocation</h1>
+<p>When working with a broker, you have a certain number of topic streams
+assigned to your consumer. Over the course of the client’s lifetime,
+there may be several events causing a stream to be revoked, like another
+client joining or leaving the consumer group, so your application should
+be prepared to handle these scenarios in order to avoid data loss and/or
+avoidable reprocessing of messages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Kafka revokes entire partitions, but the SDK makes it easy to determine which streams are affected by providing two events you can listen to.</p>
+<p>Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the <a href="../features/streaming-context/">Streaming Context</a> feature of the SDK.</p>
+</div>
+<h2 id="streams-revoking">Streams revoking</h2>
+<p>One or more streams are about to be revoked from your client, but you
+have a limited time frame – according to your broker configuration – to
+react to this and even commit to the broker:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Python</label><label for="__tabbed_20_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">def</span> <span class="nf">on_revoking_handler</span><span class="p">():</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="c1"># your code</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_revoking</span> <span class="o">+=</span> <span class="n">on_revoking_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnRevoking</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">        </span><span class="c1">// ... your code ...</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="streams-revoked">Streams Revoked</h2>
+<p>One or more streams are revoked from your client. You can no longer
+commit to these streams, you can only handle the revocation in your
+client.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">Python</label><label for="__tabbed_21_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kn">from</span> <span class="nn">quixstreaming</span> <span class="kn">import</span> <span class="n">StreamReader</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="k">def</span> <span class="nf">on_streams_revoked_handler</span><span class="p">(</span><span class="n">readers</span><span class="p">:</span> <span class="p">[</span><span class="n">StreamReader</span><span class="p">]):</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    <span class="k">for</span> <span class="n">reader</span> <span class="ow">in</span> <span class="n">readers</span><span class="p">:</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stream &quot;</span> <span class="o">+</span> <span class="n">reader</span><span class="o">.</span><span class="n">stream_id</span> <span class="o">+</span> <span class="s2">&quot; got revoked&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_streams_revoked</span> <span class="o">+=</span> <span class="n">on_streams_revoked_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnStreamsRevoked</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">revokedStreams</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">        </span><span class="c1">// revoked streams are provided to the handler</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h1 id="stream-closure">Stream Closure</h1>
+<p>You can detect stream closure with the stream closed callback which
+receives the StreamEndType, to help determine the closure reason if
+required.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">Python</label><label for="__tabbed_22_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span> <span class="nf">on_stream_closed_handler</span><span class="p">(</span><span class="n">end_type</span><span class="p">:</span> <span class="n">StreamEndType</span><span class="p">):</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stream closed with </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_type</span><span class="p">))</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="n">new_stream</span><span class="o">.</span><span class="n">on_stream_closed</span> <span class="o">+=</span> <span class="n">on_stream_closed_handler</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnStreamReceived</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">streamReader</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">        </span><span class="n">streamReader</span><span class="p">.</span><span class="n">OnStreamClosed</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Stream closed with {0}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">        </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The StreamEndType can be one of:</p>
+<table>
+<thead>
+<tr>
+<th>StreamEndType</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Closed</td>
+<td>The stream was closed normally</td>
+</tr>
+<tr>
+<td>Aborted</td>
+<td>The stream was aborted by your code for your own reasons</td>
+</tr>
+<tr>
+<td>Terminated</td>
+<td>The stream was terminated unexpectedly while data was being written</td>
+</tr>
+</tbody>
+</table>
+<p>Possible end types</p>
+<h1 id="minimal-example">Minimal example</h1>
+<p>This is a minimal code example you can use to read data from a topic
+using the Quix SDK.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">Python</label><label for="__tabbed_23_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kn">from</span> <span class="nn">quixstreaming</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kn">from</span> <span class="nn">quixstreaming.app</span> <span class="kn">import</span> <span class="n">App</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="kn">from</span> <span class="nn">quixstreaming.models.parametersbufferconfiguration</span> <span class="kn">import</span> <span class="n">ParametersBufferConfiguration</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="kn">import</span> <span class="nn">signal</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="kn">import</span> <span class="nn">threading</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="c1"># Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="n">client</span> <span class="o">=</span> <span class="n">QuixStreamingClient</span><span class="p">()</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="n">input_topic</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_input_topic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">)</span>
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a>
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="c1"># read streams</span>
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="k">def</span> <span class="nf">read_stream</span><span class="p">(</span><span class="n">new_stream</span><span class="p">:</span> <span class="n">StreamReader</span><span class="p">):</span>
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">new_stream</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">create_buffer</span><span class="p">()</span>
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a>    <span class="k">def</span> <span class="nf">on_parameter_data_handler</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ParameterData</span><span class="p">):</span>
+<a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a>
+<a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_panda_frame</span><span class="p">()</span>
+<a id="__codelineno-44-21" name="__codelineno-44-21" href="#__codelineno-44-21"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<a id="__codelineno-44-22" name="__codelineno-44-22" href="#__codelineno-44-22"></a>
+<a id="__codelineno-44-23" name="__codelineno-44-23" href="#__codelineno-44-23"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">on_read</span> <span class="o">+=</span> <span class="n">on_parameter_data_handler</span>
+<a id="__codelineno-44-24" name="__codelineno-44-24" href="#__codelineno-44-24"></a>
+<a id="__codelineno-44-25" name="__codelineno-44-25" href="#__codelineno-44-25"></a><span class="c1"># Hook up events before initiating read to avoid losing out on any data</span>
+<a id="__codelineno-44-26" name="__codelineno-44-26" href="#__codelineno-44-26"></a><span class="n">input_topic</span><span class="o">.</span><span class="n">on_stream_received</span> <span class="o">+=</span> <span class="n">read_stream</span>
+<a id="__codelineno-44-27" name="__codelineno-44-27" href="#__codelineno-44-27"></a>
+<a id="__codelineno-44-28" name="__codelineno-44-28" href="#__codelineno-44-28"></a><span class="c1"># Hook up to termination signal (for docker image) and CTRL-C</span>
+<a id="__codelineno-44-29" name="__codelineno-44-29" href="#__codelineno-44-29"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening to streams. Press CTRL-C to exit.&quot;</span><span class="p">)</span>
+<a id="__codelineno-44-30" name="__codelineno-44-30" href="#__codelineno-44-30"></a>
+<a id="__codelineno-44-31" name="__codelineno-44-31" href="#__codelineno-44-31"></a><span class="c1"># Handle graceful exit</span>
+<a id="__codelineno-44-32" name="__codelineno-44-32" href="#__codelineno-44-32"></a><span class="n">App</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Threading</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Quix.Sdk.Streaming</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">Quix.Sdk.Streaming.Configuration</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">Quix.Sdk.Streaming.Models</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">ReadHelloWorld</span><span class="w"></span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"></span>
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a><span class="w">        </span><span class="c1">/// Main will be invoked when you run the application</span>
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="w">            </span><span class="c1">// Create a client which holds generic details for creating input and output topics</span>
+<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quix</span><span class="p">.</span><span class="n">Sdk</span><span class="p">.</span><span class="n">Streaming</span><span class="p">.</span><span class="n">QuixStreamingClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a>
+<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="w">            </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">inputTopic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenInputTopic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a>
+<a id="__codelineno-45-23" name="__codelineno-45-23" href="#__codelineno-45-23"></a><span class="w">            </span><span class="c1">// Hook up events before initiating read to avoid losing out on any data</span>
+<a id="__codelineno-45-24" name="__codelineno-45-24" href="#__codelineno-45-24"></a><span class="w">            </span><span class="n">inputTopic</span><span class="p">.</span><span class="n">OnStreamReceived</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">streamReader</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-45-25" name="__codelineno-45-25" href="#__codelineno-45-25"></a><span class="w">            </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-45-26" name="__codelineno-45-26" href="#__codelineno-45-26"></a><span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;New stream read: {streamReader.StreamId}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-45-27" name="__codelineno-45-27" href="#__codelineno-45-27"></a>
+<a id="__codelineno-45-28" name="__codelineno-45-28" href="#__codelineno-45-28"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">streamReader</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">CreateBuffer</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-45-29" name="__codelineno-45-29" href="#__codelineno-45-29"></a>
+<a id="__codelineno-45-30" name="__codelineno-45-30" href="#__codelineno-45-30"></a><span class="w">                </span><span class="n">buffer</span><span class="p">.</span><span class="n">OnRead</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="n">parameterData</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-45-31" name="__codelineno-45-31" href="#__codelineno-45-31"></a><span class="w">                </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-45-32" name="__codelineno-45-32" href="#__codelineno-45-32"></a><span class="w">                    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-45-33" name="__codelineno-45-33" href="#__codelineno-45-33"></a><span class="w">                        </span><span class="s">$&quot;ParameterA - {parameterData.Timestamps[0].Timestamp}: {parameterData.Timestamps.Average(a =&gt; a.Parameters[&quot;</span><span class="n">ParameterA</span><span class="s">&quot;].NumericValue)}&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-45-34" name="__codelineno-45-34" href="#__codelineno-45-34"></a><span class="w">                </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-45-35" name="__codelineno-45-35" href="#__codelineno-45-35"></a><span class="w">            </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-45-36" name="__codelineno-45-36" href="#__codelineno-45-36"></a>
+<a id="__codelineno-45-37" name="__codelineno-45-37" href="#__codelineno-45-37"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Listening for streams&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-45-38" name="__codelineno-45-38" href="#__codelineno-45-38"></a>
+<a id="__codelineno-45-39" name="__codelineno-45-39" href="#__codelineno-45-39"></a><span class="w">            </span><span class="c1">// Hook up to termination signal (for docker image) and CTRL-C and open streams</span>
+<a id="__codelineno-45-40" name="__codelineno-45-40" href="#__codelineno-45-40"></a><span class="w">            </span><span class="n">App</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-45-41" name="__codelineno-45-41" href="#__codelineno-45-41"></a>
+<a id="__codelineno-45-42" name="__codelineno-45-42" href="#__codelineno-45-42"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Exiting&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-45-43" name="__codelineno-45-43" href="#__codelineno-45-43"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-45-44" name="__codelineno-45-44" href="#__codelineno-45-44"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-45-45" name="__codelineno-45-45" href="#__codelineno-45-45"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h1 id="read-raw-kafka-messages">Read raw kafka messages</h1>
+<p>The Quix SDK uses the message brokers' internal protocol for data
+transmission. This protocol is both data and speed optimized so we do
+encourage you to use it. For that you need to use the SDK on both
+producer ( writer ) and consumer ( reader ) sides.</p>
+<p>However, in some cases, you simply do not have the ability to run the
+Quix SDK on both sides and you need to have the ability to connect to
+the data in different ways.</p>
+<p>To cater for these cases we added the ability to read the raw,
+unformatted, messages. Using this feature you have the ability to access
+the raw, unmodified content of each Kafka message from the topic. The
+data is a byte array, giving you the freedom to implement the protocol
+as needed ( e.g. JSON, comma-separated rows ).</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:2"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">Python</label><label for="__tabbed_24_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">inp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_raw_input_topic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">)</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="k">def</span> <span class="nf">on_raw_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>    <span class="c1">#bytearray containing bytes received from kafka</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">value</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>    <span class="c1">#broker metadata as dict</span>
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>    <span class="n">meta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">metadata</span>
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="n">inp</span><span class="o">.</span><span class="n">on_message_read</span> <span class="o">+=</span> <span class="n">on_raw_message</span>
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="n">inp</span><span class="o">.</span><span class="n">start_reading</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">inp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">OpenRawInputTopic</span><span class="p">(</span><span class="n">TOPIC_ID</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="n">inp</span><span class="p">.</span><span class="n">OnMessageRead</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="kt">byte</span><span class="p">[])</span><span class="n">message</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="n">inp</span><span class="p">.</span><span class="n">StartReading</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+                Thanks for your feedback!
+              
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+                Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+              
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+
+
+        <div class="footer">
+  <div class="footer-flex">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <a class="navbar-logo" href="https://quix.io">
+          <img src="assets/Quix-logo-docs-footer.svg" alt="Quix">
+        </a>
+      </div>
+      <div class="footer-links">© Quix 2021
+        <a href="https://quix.io/privacy">Privacy</a>
+        <a href="https://quix.io/terms">Terms</a>
+        <a href="https://quix.io/license-terms">License Terms</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-padding"></div>
+      <div class="footer-community">
+        <a href="https://quix.io/slack-invite">
+          <img src="assets/slack.svg" alt="Slack" class="community2 filter-green">
+        </a>
+        <a href="https://quix.io/slack-invite" class="title">Slack</a>
+      </div>
+      <div class="footer-community">
+        <a href="https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA">
+          <img src="assets/youtube.svg" alt="YouTube" class="community2">
+        </a>
+        <a href="https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA" class="title">YouTube</a>
+      </div>
+      <div class="footer-community">
+        <a href="https://github.com/quixai/">
+          <img src="assets/github.svg" alt="Github" class="community2">
+        </a>
+        <a href="https://github.com/quixai/">Github</a>
+      </div>
+    </div>
+  </div>
+</div>
+      
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+
+
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+          
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.939a4419.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.01b2e45f.min.js"></script>
+      
+    
+  </body>
+</html>
