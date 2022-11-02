@@ -39,10 +39,9 @@ topic, to send the processed data.
     is persisted to the [Data
     Catalogue](../../intro.md#_data_catalogue).
 
-> **Note**
-> 
-> At this point, you should have at least two topics: *cars* and
-> *brake-prediction*.
+!!! note
+
+	At this point, you should have at least two topics: *cars* and *brake-prediction*.
 
 ### Creating Git project in workspace
 
@@ -74,10 +73,9 @@ for your username, workspace, topics, etc.
 
 ![quick-start/sample-model-project.png](../../images/quick-start/sample-model-project.png)
 
-> **Tip**
-> 
-> In the code screenshot above, lines 30-40 (highlighted) contain code
-> that drives the model. We will call trained model in this section.
+!!! tip
+
+	In the code screenshot above, lines 30-40 (highlighted) contain code that drives the model. We will call trained model in this section.
 
 1.  Click **SAVE AS PROJECT** and name your project *brake-model*,
     then click **CREATE**.
@@ -85,10 +83,9 @@ for your username, workspace, topics, etc.
 You’ll now be taken to the Develop section, where you should see a full
 file view of your project, alongside the Quix web IDE.
 
-> **Tip**
-> 
-> In your new project you get security constants filled to work with
-> your workspace.
+!!! tip
+
+	In your new project you get security constants filled to work with your workspace.
 
 ### Clone Git project locally
 

@@ -3,12 +3,12 @@
 You can create a new stream by specifying a topic to create it in, and
 supplying any other additional properties required.
 
-> **Tip**
-> 
-> This method is optional. You can also create a stream implicitly by
-> sending data to a stream that doesn’t already exist. But creating a
-> stream using the method on this page avoids having to determine a
-> unique stream id yourself.
+!!! tip
+
+	This method is optional. You can also create a stream implicitly by
+	sending data to a stream that doesn’t already exist. But creating a
+	stream using the method on this page avoids having to determine a
+	unique stream id yourself.
 
 ## Before you begin
 
@@ -114,15 +114,15 @@ look something like this:
 }
 ```
 
-> **Tip**
-> 
-> If you’re following these guides in order, you’ll want to take note of
-> that stream id. For curl examples, it’s convenient to keep it in an
-> environment variable, e.g.
-> 
-> ``` bash
-> $ streamId=66fb0a2f-eb70-494e-9df7-c06d275aeb7c
-> ```
+!!! tip
+
+	If you’re following these guides in order, you’ll want to take note of
+	that stream id. For curl examples, it’s convenient to keep it in an
+	environment variable, e.g.
+
+	``` bash
+	$ streamId=66fb0a2f-eb70-494e-9df7-c06d275aeb7c
+	```
 
 ## Using SignalR
 

@@ -4,10 +4,9 @@ How you send requests to the Streaming Writer API will vary depending on
 the client or language you’re using. But the API still has behaviour and
 expectations that is common across all clients.
 
-> **Tip**
-> 
-> The examples in this section show how to use the popular
-> [`curl`](https://curl.se/) command line tool.
+!!! tip
+
+	The examples in this section show how to use the popular [`curl`](https://curl.se/) command line tool.
 
 ## Before you begin
 
@@ -52,11 +51,11 @@ payload you’re sending:
 curl -H "Content-Type: application/json" ...
 ```
 
-> **Warning**
-> 
-> You **must** specify the content type of your payload. Failing to
-> include this header will result in a `415 UNSUPPORTED MEDIA TYPE`
-> status code.
+!!! warning
+
+	You **must** specify the content type of your payload. Failing to
+	include this header will result in a `415 UNSUPPORTED MEDIA TYPE`
+	status code.
 
 You can send data using the `curl` flag `-d`. This should be followed by
 either a string of JSON data, or a string starting with the *@* symbol,
@@ -67,10 +66,9 @@ curl -d '{"key": "value"}' ...
 curl -d "@data.json" ...
 ```
 
-> **Tip**
-> 
-> By default, `-d` will send a `POST` request, so `-X POST` becomes
-> unnecessary.
+!!! tip
+
+	By default, `-d` will send a `POST` request, so `-X POST` becomes unnecessary.
 
 ## Complete curl example
 

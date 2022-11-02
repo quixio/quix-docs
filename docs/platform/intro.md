@@ -130,16 +130,13 @@ with a build request is sent to the build queue. The build service will
 build a docker image and save it in the docker registry. In the next
 step, this image is deployed to Kubernetes.
 
-> **Tip**
-> 
-> If there is any problem with the docker build process, you can check
-> the **build logs**.
+!!! tip
 
-> **Tip**
-> 
-> Hover over the deployment in the **deployments page** to download the
-> docker image of the deployed service for local testing or custom
-> deployment.
+	If there is any problem with the docker build process, you can check the **build logs**.
+
+!!! tip
+
+	Hover over the deployment in the **deployments page** to download the docker image of the deployed service for local testing or custom deployment.
 
 ### Kubernetes integration
 
@@ -165,11 +162,9 @@ We provide the following integrations with Kubernetes:
 
   - **Ingress** - Optional ingress mapped to port 80.
 
-> **Tip**
-> 
-> If a deployment reference is already built and deployed to a service,
-> the build process is skipped and the docker image from the container
-> registry is used instead.
+!!! tip
+
+	If a deployment reference is already built and deployed to a service, the build process is skipped and the docker image from the container registry is used instead.
 
 ### DNS integration
 
@@ -179,10 +174,9 @@ extra complexity. Load balancing is provided out of the box, just
 increase the replica count to provide resiliency to your deployed API or
 frontend.
 
-> **Warning**
-> 
-> A newly deployed service with DNS routing takes up to 10 minutes to
-> propagate to all DNS servers in the network.
+!!! warning
+
+	A newly deployed service with DNS routing takes up to 10 minutes to propagate to all DNS servers in the network.
 
 ## Managed Kafka topics
 
@@ -202,10 +196,9 @@ can connect your models directly to our topics to read and write data
 using the pub/sub pattern. This keeps the data in-memory to deliver
 low-latency and cost effective stream processing capabilities.
 
-> **Note**
-> 
-> Quix also provides the ability to connect external infrastructure
-> components like your own message broker infrastructure.
+!!! note
+
+	Quix also provides the ability to connect external infrastructure components like your own message broker infrastructure.
 
 ## Data Catalogue
 

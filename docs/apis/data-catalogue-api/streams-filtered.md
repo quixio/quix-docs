@@ -42,19 +42,13 @@ curl "https://${domain}.platform.quix.ai/streams" \
      -d '{"location": "/one"}'
 ```
 
-> **Warning**
-> 
-> Since this is just a basic prefix match, filtering on a location named
-> `/one` will also bring back matches for the location `/one111` as well
-> as the location `/one/111`. If you want to strictly filter on an exact
-> *directory* (and below), make sure to include a trailing slash, e.g.
-> `/one/`.
+!!! warning
 
-> **Note**
-> 
-> Filtering on topic uses a case insensitive *Equals* match. Filtering
-> on a topic named "MyTopic" will match "mytopic" but will not match
-> "MyTopic123"
+	Since this is just a basic prefix match, filtering on a location named `/one` will also bring back matches for the location `/one111` as well as the location `/one/111`. If you want to strictly filter on an exact *directory* (and below), make sure to 	include a trailing slash, e.g. `/one/`.
+
+!!! note
+
+	Filtering on topic uses a case insensitive *Equals* match. Filtering on a topic named "MyTopic" will match "mytopic" but will not match "MyTopic123"
 
 You can filter streams based on their use of a given **parameter** with
 the `parameterIds` property. For example, to find all streams that

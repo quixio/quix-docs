@@ -12,9 +12,7 @@ Take a look at the short example. It describes how to open topics,
 create streams and also send messages to a dedicated dead letter topic
 or queue.
 
-
-
-  - Python
+=== "Python"
     
     ``` python
     # open topics
@@ -58,7 +56,7 @@ or queue.
     input_topic.start_reading()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var inputTopic = client.OpenInputTopic("INPUT_DATA");

@@ -22,16 +22,13 @@ Follow these steps to generate a PAT:
 
 4.  Copy the token and store it in a secure place.
 
-> **Warning**
-> 
-> You won’t be able to retrieve your token from the Portal once you’ve
-> created it, so make sure to take a copy.
+!!! warning
+ 
+	You won’t be able to retrieve your token from the Portal once you’ve created it, so make sure to take a copy.
 
-> **Warning**
-> 
-> Treat your tokens like passwords and keep them secret. When working
-> with the API, use tokens as environment variables instead of
-> hardcoding them into your programs.
+!!! warning
+
+	Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
 ## Sign all your requests using this token
 
@@ -50,7 +47,6 @@ the `-H` flag:
 curl -H "Authorization: bearer <token>" ...
 ```
 
-> **Warning**
-> 
-> If you fail to send a valid Authorization header, the API will respond
-> with a `401 UNAUTHORIZED` status code.
+!!! warning
+
+	If you fail to send a valid Authorization header, the API will respond with a `401 UNAUTHORIZED` status code.

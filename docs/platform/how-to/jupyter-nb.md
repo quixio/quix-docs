@@ -69,11 +69,9 @@ Copy Python code to your Jupyter notebook and execute.
 
 ![how-to/jupyter-wb/jupyter-results.png](../images/how-to/jupyter-wb/jupyter-results.png)
 
-> **Tip**
-> 
-> If you want to use this generated code for a long time, replace the
-> temporary token with **PAT token**. See [authenticate your
-> requests](../../apis/data-catalogue-api/authenticate.md) how to do that.
+!!! tip
+
+	If you want to use this generated code for a long time, replace the temporary token with **PAT token**. See [authenticate your requests](../../apis/data-catalogue-api/authenticate.md) how to do that.
 
 ## Too much data
 

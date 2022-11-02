@@ -25,11 +25,9 @@ to send data to. For example:
 
 /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/events/data\</programlisting\>
 
-> **Tip**
-> 
-> You can create a new stream by supplying a `$\{streamId}` that doesn’t
-> already exist. This avoids the need to call the [create stream
-> endpoint](create-stream.md) separately.
+!!! tip
+	
+	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 Your payload should be an array of events. Each event is an object
 containing the following properties:

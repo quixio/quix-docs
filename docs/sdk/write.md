@@ -9,14 +9,9 @@ auto-generated when you create a project using the existing templates.
 In this section, we explain more in-depth how to write data using the
 Quix SDK.
 
-> **Tip**
-> 
-> The [Quix Portal](https://portal.platform.quix.ai) offers you
-> easy-to-use, auto-generated examples for reading, writing, and
-> processing data. These examples work directly with your workspace
-> Topics. You can deploy these examples in our serverless environment
-> with just a few clicks. For a quick test of the capabilities of the
-> SDK, we recommend starting with those auto-generated examples.
+!!! tip
+
+	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
 ## Connect to Quix
 
@@ -29,13 +24,13 @@ constructor of the SDK.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     client = QuixStreamingClient()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var client = new Quix.Sdk.Streaming.QuixStreamingClient();
@@ -58,13 +53,13 @@ client’s `open_output_topic` method, passing the `TOPIC_ID` or the
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     output_topic = client.open_output_topic(TOPIC_ID)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var outputTopic = client.OpenOutputTopic(TOPIC_ID);
@@ -86,13 +81,13 @@ method of your `OutputTopic` instance.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream = output_topic.create_stream()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var stream = outputTopic.CreateStream();
@@ -105,13 +100,13 @@ method to append or update data of an existing stream.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream = output_topic.create_stream("existing-stream-id")
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var stream = outputTopic.CreateStream("existing-stream-id");
@@ -129,7 +124,7 @@ the generated `stream` instance.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.properties.name = "Hello World Python stream"
@@ -138,7 +133,7 @@ the generated `stream` instance.
     stream.properties.metadata["working"] = "well"
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Properties.Name = "Hello World C# stream";
@@ -159,13 +154,13 @@ For example, the following name:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.properties.name = "Hello World my first stream"
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Properties.Name = "Hello World my first stream";
@@ -187,13 +182,13 @@ For example, the following location:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.properties.location = "/Game/Codemasters/F1-2019/{track}"
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Properties.Location = $"/Game/Codemasters/F1-2019/{track}"
@@ -223,7 +218,7 @@ StreamEndType.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.close()
@@ -232,7 +227,7 @@ StreamEndType.
     stream.close(StreamEndType.Terminated)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Close();
@@ -262,12 +257,9 @@ which represents a time-series data packet in memory.
 time-series data coming from sources that generate data at a regular
 time basis and with a fixed number of Parameters.
 
-> **Tip**
-> 
-> If your data source generates data at irregular time intervals and you
-> don’t have a defined list of regular Parameters, the
-> [EventData](##_event_data_format) format is probably a better fit for
-> your time-series data.
+!!! tip
+
+	If your data source generates data at irregular time intervals and you don’t have a defined list of regular Parameters, the [EventData](##_event_data_format) format is probably a better fit for your time-series data.
 
 ### Parameter Data format
 
@@ -291,11 +283,9 @@ for the Values of that table.
 
 An example of ParameterData
 
-> **Tip**
-> 
-> The Timestamp column plus the [Tags](@tags) assigned to it work as the
-> index of that table. If you add values for the same Timestamp and Tags
-> combination, only the last Values will be sent to the stream.
+!!! tip
+
+	The Timestamp column plus the [Tags](@tags) assigned to it work as the index of that table. If you add values for the same Timestamp and Tags combination, only the last Values will be sent to the stream.
 
 The Quix SDK provides several helpers to create and send ParameterData
 packets through the stream.
@@ -305,7 +295,7 @@ to the stream:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     data = ParameterData()
@@ -326,7 +316,7 @@ to the stream:
     stream.parameters.write(data)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var data = new ParameterData();
@@ -356,13 +346,13 @@ following code would send the same ParameterData through a buffer:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.write(data)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.Write(data);
@@ -379,7 +369,7 @@ one of each to the same timestamp:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     data = ParameterData()
@@ -390,7 +380,7 @@ one of each to the same timestamp:
         .add_value("ParameterC", bytearray("hello, Quix!", 'utf-8')) # use bytearray to write binary data to a stream.
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var data = new ParameterData();
@@ -416,7 +406,7 @@ These are all the common helper functions:
 
 
 
-  - Python
+=== "Python"
     
       - `add_timestamp(datetime: datetime)` : Add a new timestamp in
         `datetime` format. Default `epoch` will never be added to this.
@@ -433,7 +423,7 @@ These are all the common helper functions:
         timestamp in nanoseconds since the default `epoch` determined in
         the stream.
 
-  - C\#
+=== "C\#"
     
       - `AddTimestamp(DateTime dateTime)` : Add a new timestamp in
         `DateTime` format. Default `Epoch` will never be added to this.
@@ -464,13 +454,13 @@ each timestamp added to the stream.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.epoch = date.today()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Epoch = DateTime.Today;
@@ -482,7 +472,7 @@ Adding data without using Epoch property:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer \
@@ -492,7 +482,7 @@ Adding data without using Epoch property:
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer
@@ -508,7 +498,7 @@ Or we can add a timestamp 1000ms from the epoch *"Today"*:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.epoch = date.today()
@@ -520,7 +510,7 @@ Or we can add a timestamp 1000ms from the epoch *"Today"*:
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Epoch = DateTime.Today;
@@ -547,13 +537,13 @@ packet when the size of the buffer reaches 100 timestamps:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.packet_size = 100
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.PacketSize = 100;
@@ -567,13 +557,13 @@ the ParameterData to write:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.write(data)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.Write(data);
@@ -592,7 +582,7 @@ explicit `ParameterData` instance:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer \
@@ -603,7 +593,7 @@ explicit `ParameterData` instance:
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer
@@ -622,7 +612,7 @@ release a new packet of data and that data is cleared from the buffer:
 
 
 
-  - Python
+=== "Python"
     
       - `buffer.buffer_timeout`: The maximum duration in milliseconds
         for which the buffer will be held before releasing the data. A
@@ -659,7 +649,7 @@ release a new packet of data and that data is cleared from the buffer:
         before adding it to the buffer. If it returns true, data is
         added, otherwise it isn’t.
 
-  - C\#
+=== "C\#"
     
       - `Buffer.BufferTimeout`: The maximum duration in milliseconds for
         which the buffer will be held before releasing the data. A
@@ -706,14 +696,14 @@ buffer anyway.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.time_span_in_milliseconds = 100
     stream.parameters.buffer.buffer_timeout = 1000
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.TimeSpanInMilliseconds = 100;
@@ -727,14 +717,14 @@ critical data arrives.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer.time_span_in_milliseconds = 100
     stream.parameters.buffer.custom_trigger = lambda data: data.timestamps[0].tags["is_critical"] == 'True'
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer.TimeSpanInMilliseconds = 100;
@@ -753,7 +743,7 @@ also them in your own models, bridges or visualization implementations.
 
 
 
-  - Python  
+=== "Python"  
     We call this parameter metadata `ParameterDefinitions`, and all you
     need to do is to use the `add_definition` helper function of the
     `stream.parameters` property:
@@ -762,7 +752,7 @@ also them in your own models, bridges or visualization implementations.
     parameters.add_definition(parameter_id: str, name: str = None, description: str = None)
     ```
 
-  - C\#  
+=== "C\#"  
     We call this parameter metadata `ParameterDefinitions`, and all you
     need to do is to use the `AddDefinition` helper function of the
     `stream.Parameters` property:
@@ -779,7 +769,7 @@ metadata options you can attach to a `ParameterDefinition`:
 
 
 
-  - Python
+=== "Python"
     
       - `set_range(minimum_value: float, maximum_value: float)` : Set
         the minimum and maximum range of the parameter.
@@ -801,7 +791,7 @@ metadata options you can attach to a `ParameterDefinition`:
         .set_range(0, 400)
     ```
 
-  - C\#
+=== "C\#"
     
       - `SetRange(double minimumValue, double maximumValue)` : Set the
         minimum and maximum range of the parameter.
@@ -830,13 +820,13 @@ visualisation view. This definition:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     .add_definition("Speed").set_range(0, 400)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     .AddDefinition("Speed").SetRange(0, 400)
@@ -863,7 +853,7 @@ For example, setting this parameter location:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters \
@@ -873,7 +863,7 @@ For example, setting this parameter location:
         .add_definition("Yaw")
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters
@@ -943,13 +933,9 @@ data = ParameterData.from_panda_frame(df)
 stream.parameters.buffer.write(data)
 ```
 
-> **Tip**
-> 
-> The conversions from Pandas DataFrames to
-> [ParameterData](##_parameter_data_format) have an intrinsic cost
-> overhead. For high-performance models using Pandas DataFrames, you
-> probably want to directly use Pandas DataFrames methods provided by
-> the SDK that are optimized for doing as few conversions as possible.
+!!! tip
+
+	The conversions from Pandas DataFrames to [ParameterData](##_parameter_data_format) have an intrinsic cost overhead. For high-performance models using Pandas DataFrames, you probably want to directly use Pandas DataFrames methods provided by the SDK that are optimized for doing as few conversions as possible.
 
 ## Writing Events
 
@@ -958,12 +944,9 @@ packet in memory. EventData is meant to be used for time series data
 coming from sources that generate data at irregular intervals or without
 a defined structure.
 
-> **Tip**
-> 
-> If your data source generates data at regular time intervals, or the
-> information can be organized in a fixed list of Parameters, the
-> [ParameterData](##_parameter_data_format) format is probably a better
-> fit for your time-series data.
+!!! tip
+
+	If your data source generates data at regular time intervals, or the information can be organized in a fixed list of Parameters, the [ParameterData](##_parameter_data_format) format is probably a better fit for your time-series data.
 
 Writing Events to a stream is identical to writing
 [ParameterData](##_parameter_data_format) values, although you don’t
@@ -996,7 +979,7 @@ previous example and send it to the stream:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     events = []
@@ -1009,7 +992,7 @@ previous example and send it to the stream:
     stream.events.write(events)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var events = new List<EventData>();
@@ -1035,7 +1018,7 @@ explicit EventData instances:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.events \
@@ -1056,7 +1039,7 @@ explicit EventData instances:
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Events
@@ -1096,7 +1079,7 @@ Severity level for the `EventA`:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.events \
@@ -1104,7 +1087,7 @@ Severity level for the `EventA`:
         .set_level(EventLevel.Critical)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Events.AddDefinition("EventA", "The Event A").SetLevel(EventLevel.Critical);
@@ -1128,7 +1111,7 @@ For example, the following code:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     data = ParameterData()
@@ -1160,7 +1143,7 @@ For example, the following code:
         .add_value("Gear", 2)
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     var data = new ParameterData();
@@ -1207,18 +1190,16 @@ Will generate the following ParameterData packet:
 
 ParameterData with tagged data
 
-> **Warning**
-> 
-> Tags have to be chosen carefully as excessive cardinality leads to
-> performance degradation in the database. You should use tags only for
-> identifiers and not cardinal values.
+!!! warning
+
+	Tags have to be chosen carefully as excessive cardinality leads to performance degradation in the database. You should use tags only for identifiers and not cardinal values.
 
 Good tagging: This will allow you to query the maximum speed for driver
 identifier "Peter".
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer \
@@ -1230,7 +1211,7 @@ identifier "Peter".
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer
@@ -1249,7 +1230,7 @@ massive number of different values for the specified tag, Speed.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     stream.parameters.buffer \
@@ -1259,7 +1240,7 @@ massive number of different values for the specified tag, Speed.
         .write()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     stream.Parameters.Buffer
@@ -1278,7 +1259,7 @@ using the Quix SDK.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     import time
@@ -1307,7 +1288,7 @@ using the Quix SDK.
     stream.close()
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     using System;
@@ -1373,7 +1354,7 @@ one without.
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     inp = client.open_raw_output_topic(TOPIC_ID)
@@ -1389,7 +1370,7 @@ one without.
     out.write(data)
     ```
 
-  - Csharp
+=== "C\#"
     
     ``` cs
     var out = client.OpenRawOutputTopic(TOPIC_ID);

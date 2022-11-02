@@ -25,7 +25,7 @@ indicating that "stream 4" has been received:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def read_stream(new_stream: StreamReader):
@@ -34,7 +34,7 @@ indicating that "stream 4" has been received:
     input_topic.on_stream_received += read_stream
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnStreamReceived += (s, newStream) =>
@@ -42,8 +42,6 @@ indicating that "stream 4" has been received:
         Console.WriteLine($"New stream received: {newStream.StreamId}");
     };
     ```
-
-
 
 output on blue replica:
 
@@ -62,7 +60,7 @@ that "stream 4" has been assigned again:
 
 
 
-  - Python
+=== "Python"
     
     ``` python
     def read_stream(new_stream: StreamReader):
@@ -76,7 +74,7 @@ that "stream 4" has been assigned again:
     input_topic.on_streams_revoked += streams_revoked
     ```
 
-  - C\#
+=== "C\#"
     
     ``` cs
     inputTopic.OnStreamReceived += (s, newStream) =>
@@ -92,8 +90,6 @@ that "stream 4" has been assigned again:
         }
     };
     ```
-
-
 
 Output on the blue replica:
 
@@ -125,8 +121,6 @@ events described above will remain the same, even if the SDK uses
 another Message Broker technology or another rebalancing mechanism in
 the future.
 
-> **Warning**
-> 
-> Because of how the Kafka rebalancing mechanism works, you should
-> follow one golden rule: you cannot have more replicas than the number
-> of partitions the input Topic has.
+!!! warning
+
+	Because of how the Kafka rebalancing mechanism works, you should follow one golden rule: you cannot have more replicas than the number of partitions the input Topic has.

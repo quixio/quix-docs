@@ -10,20 +10,18 @@ connectors.
 
 I’ve made a video of this tutorial if you prefer watching to reading.
 
-video::aebIrP5iIEo\[youtube, width=600px,height=318px,align="center"\]
+<div class="video-wrapper">
+  <iframe width="400" height="300" src="https://www.youtube.com/embed/aebIrP5iIEo" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## What you need for this tutorial
 
-1.  [Free Quix
-    account^](https://portal.platform.quix.ai/self-sign-up?xlink=home&_ga=2.191326762.1842305134.1652702101-2083003567.1643907213)
+1.  [Free Quix account](https://portal.platform.quix.ai/self-sign-up?xlink=home&_ga=2.191326762.1842305134.1652702101-2083003567.1643907213){target=_blank}
 
-2.  [Snowflake
-    account^](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg)
+2.  [Snowflake account](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg){target=_blank}
 
-3.  [Twitter developer
-    account<sup></sup>](https://developer.twitter.com/en/portal/petition/essential/basic-info)
-    (You can follow [this tutorial to set up a developer
-    account\</superscript\>](https://developer.twitter.com/en/support/twitter-api/developer-account).)
+3.  [Twitter developer account](https://developer.twitter.com/en/portal/petition/essential/basic-info){target=_blank}
+    (You can follow [this tutorial to set up a developer account](https://developer.twitter.com/en/support/twitter-api/developer-account){target=_blank} )
 
 ## Step one: create a database
 
@@ -48,10 +46,9 @@ Fill in the necessary fields:
 
   - Twitter\_search\_paramaters: (\#BTC OR btc \#btc OR BTC)
 
-> **Tip**
-> 
-> Use search parameters to obtain Tweets on a subject that interests
-> you\! e.g. (\#dolphins OR dolphins)
+!!! tip
+
+	Use search parameters to obtain Tweets on a subject that interests you\! e.g. (\#dolphins OR dolphins)
 
 Click "Deploy"
 
@@ -74,11 +71,9 @@ Click "Deploy"
 
   - Click "Deploy"
 
-> **Note**
-> 
-> Find out more about the hugging face model and the other models you
-> could use at
-> [huggingface.co^](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)
+!!! note
+
+	Find out more about the hugging face model and the other models you could use at [huggingface.co^](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)
 
 ![image](../images/tutorials/nocode-sentiment/image4.png)
 
@@ -121,8 +116,6 @@ Expand the "demodata" database and then find the tables under "public".
 
 ![image](../images/tutorials/nocode-sentiment/snowflake.png)
 
-> **Tip**
-> 
-> If you need help with this tutorial or want to chat about anything
-> related to Quix or stream processing in general please come and say hi
-> on [The Stream^](https://quix.ai/slack-invite), our slack community.
+!!! tip
+
+	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream^](https://quix.ai/slack-invite), our slack community.

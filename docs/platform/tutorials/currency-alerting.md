@@ -7,11 +7,9 @@ quick and simple way. To show you how, this tutorial will guide you
 through the steps to build a real time streaming pipeline that sends
 alerts to your phone when the Bitcoin price reaches certain threshold.
 
-> **Note**
-> 
-> This guide will take you through the steps to start working with
-> Twilio (developer platform for communications) and the coinAPI
-> (platform that provides data APIs to cryptocurrency) using Quix.
+!!! note
+
+	This guide will take you through the steps to start working with Twilio (developer platform for communications) and the coinAPI (platform that provides data APIs to cryptocurrency) using Quix.
 
 By the end you will have:
 
@@ -26,10 +24,9 @@ By the end you will have:
 We assume that all you have is a Quix account that you haven’t started
 using yet.
 
-> **Tip**
-> 
-> If you don’t have a Quix account yet, go
-> [here,window=\_blank](https:quix.io/signup/) and create one.
+!!! tip
+
+	If you don’t have a Quix account yet, go [here,window=\_blank](https:quix.io/signup/) and create one.
 
 ## Overview
 
@@ -47,11 +44,9 @@ This walkthrough covers the following steps:
 
 ### Create a free CoinApi account
 
-> **Note**
-> 
-> CoinAPI is a platform that provides data APIs for many financial
-> instruments including cryptocurrency. We will be using it to get live
-> Bitcoin (BTC) data.
+!!! note
+
+	CoinAPI is a platform that provides data APIs for many financial instruments including cryptocurrency. We will be using it to get live Bitcoin (BTC) data.
 
 Let’s create a free coinAPI account:
 
@@ -66,10 +61,9 @@ Let’s create a free coinAPI account:
 
 ### Create a free Twilio account
 
-> **Note**
-> 
-> Twilio is a developer platform for communications. We can use Twilio,
-> for instance, to send SMS messages.
+!!! note
+
+	Twilio is a developer platform for communications. We can use Twilio, for instance, to send SMS messages.
 
 Let’s create a free Twilio account:
 
@@ -87,10 +81,9 @@ Let’s create a free Twilio account:
 
   - Step 3 video-instructions
     
-    > **Tip**
-    > 
-    > Complete step 3 following our short 2 min video [here,
-    > window=\_blank](https://youtu.be/VY8cR19dF5s).
+    !!! tip
+    
+		Complete step 3 following our short 2 min video [here, window=\_blank](https://youtu.be/VY8cR19dF5s).
     
     Remember to gather your IDS and keep them safe for later: the
     Messaging Service SID in the Properties section and the Account SID
@@ -145,12 +138,9 @@ Let’s create a free Twilio account:
             
               - Click "Add Phone Numbers"
 
-> **Note**
-> 
-> If you are in the Twilio wizard the next step is to "Setup
-> Integration". You don’t need to do this so just click the "Skip"
-> button towards the bottom of the screen. You’ll do the integration in
-> Quix.
+!!! note
+
+	If you are in the Twilio wizard the next step is to "Setup Integration". You don’t need to do this so just click the "Skip" button towards the bottom of the screen. You’ll do the integration in Quix.
 
 1.  Finally, gather your ID’s and **keep them safe for later**:
     
@@ -182,13 +172,9 @@ to Coin API.
 
 Once you have entered your Coin API key just click Deploy.
 
-> **Note**
-> 
-> This version of the Coin API connector is rate limited so that your
-> free trial account doesn’t exceed the quotas imposed by Coin API. It
-> will fetch data every 15 minutes. You can unlock this limit by saving
-> the code to your workspace and removing the limit. (Let us know if you
-> want help with this)
+!!! note
+
+	This version of the Coin API connector is rate limited so that your free trial account doesn’t exceed the quotas imposed by Coin API. It will fetch data every 15 minutes. You can unlock this limit by saving the code to your workspace and removing the limit. (Let us know if you want help with this)
 
 #### Logs
 
@@ -230,12 +216,9 @@ workspace.
 Once deployed you will again be redirected to the workspace home page.
 You can click on the Twilio Sink tile and view the logs if you wish.
 
-> **Note**
-> 
-> The logs may display a message similar to "skipped due to message
-> limit reached". It’s just an informational display. Not an error and
-> is due to the per minute message limit we configured for the Twilio
-> connector in the previous stage.
+!!! note
+
+	The logs may display a message similar to "skipped due to message limit reached". It’s just an informational display. Not an error and is due to the per minute message limit we configured for the Twilio connector in the previous stage.
 
 ![tutorials/currency-alerting/logs1.png](../images/tutorials/currency-alerting/logs1.png)
 
@@ -270,8 +253,6 @@ In fact, share it with your colleagues, friends and family. Blog, tweet
 and post about it and tell anyone who will listen about the
 possibilities.
 
-> **Tip**
-> 
-> If you run into trouble please reach out to us. We’ll be more than
-> happy to help. We hang out at [The Stream,
-> window=\_blank](https://quix.ai/slack-invite). Come and say hi.
+!!! tip
+
+If you run into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream, window=\_blank](https://quix.ai/slack-invite). Come and say hi.

@@ -18,10 +18,9 @@ resilience, so a failure of a node will not cause downtime of your
 processing pipeline. For example, if you set replica to 2, every message
 you send to the topic will be replicated twice in the cluster.
 
-> **Tip**
-> 
-> If you set replication to two, data streamed to the cluster is billed
-> twice.
+!!! tip
+
+	If you set replication to two, data streamed to the cluster is billed twice.
 
 #### Topic retention
 
@@ -46,12 +45,9 @@ Streams are redistributed over available partitions. With an increasing
 number of streams, each partition will end up with approximately the
 same number of streams.
 
-> **Warning**
-> 
-> The number of partitions sets the limit for how many parallel
-> instances of one model can process the topic. For example: A topic
-> with three partitions can be processed with up to 3 instances of a
-> model. The fourth instance will remain idle.
+!!! warning
+
+	The number of partitions sets the limit for how many parallel instances of one model can process the topic. For example: A topic with three partitions can be processed with up to 3 instances of a model. The fourth instance will remain idle.
 
 #### Consumer group
 
@@ -92,19 +88,13 @@ are associated with the consumer group ID. That means that if you
 connect to the same topic with a different consumer group ID, the model
 will start reading from the start of the Kafka queue.
 
-> **Tip**
-> 
-> If you want to consume data from the topic locally for debugging
-> purposes, and the model is deployed in the Quix serverless environment
-> at the same time, make sure that you change consumer group ID to
-> prevent clashing with the cloud deployment.
+!!! tip
 
-> **Note**
-> 
-> When you open a topic you can also choose where to start reading data
-> from. Either read all the data from the start or only read the new
-> data as it arrives. Read more
-> [here](read.md#_open_a_topic_for_reading)
+	If you want to consume data from the topic locally for debugging purposes, and the model is deployed in the Quix serverless environment at the same time, make sure that you change consumer group ID to prevent clashing with the cloud deployment.
+
+!!! note
+
+	When you open a topic you can also choose where to start reading data from. Either read all the data from the start or only read the new data as it arrives. Read more [here](read.md#_open_a_topic_for_reading)
 
 #### Data Grouping
 

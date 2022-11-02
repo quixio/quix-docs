@@ -40,9 +40,10 @@ Follow these steps to deploy the QR Settings Share.
 
 3.  Click "Deploy"
 
-!!! info The service will be deployed to your workspace
+!!! info 
+    The service will be deployed to your workspace
 
-Open the UI
+Open the UI with these steps
 
 4.  Once deployed, click the service tile
 
@@ -51,14 +52,14 @@ Open the UI
 6.  Append the following querystring to the url in the address bar
 
 > ?topic=phone-data&notificationsTopic=notifications-topic
->
-!!! info These are needed by the Android app and will be passed to it via the QR code you'll generate in a moment.
+
+!!! info "These are needed by the Android app and will be passed to it via the QR code you'll generate in a moment"
 
 7.  You can now enter a username and device name into the relevant inputs
 
-!!! Tip These can be anything! But sensible values will help understand which token belongs to which user
->
-![](../images/tutorials/telemetry-data/image1.png)
+<img src="../../images/tutorials/telemetry-data/image1.png" width="400px" class="image-center">
+
+!!! tip "These can be anything! But sensible values will help understand which token belongs to which user"
 
 8.  Click OK
 
@@ -72,7 +73,8 @@ The token was published to an API and a link to the token was generated.
 
 The QR shown on screen is a short-lived link to the longer lasting token.
 
-!!! info Scanning the token with the Android App will allow the app to receive its configuration information without you having to enter any long token strings by hand.
+!!! info 
+    Scanning the token with the Android App will allow the app to receive its configuration information without you having to enter any long token strings by hand.
 
 #### 2. Android App
 
@@ -94,7 +96,7 @@ It's time to install the Android app!
 
 7.  Scan the QR code with your device
 
-!!! info The Token, Workspace and topics should now be configured.
+    !!! info "The Token, Workspace and topics should now be configured"
 
 8.  Tap the menu hamburger once again
 
@@ -102,37 +104,27 @@ It's time to install the Android app!
 
 10. Tap START at the bottom of the screen
 
-!!! success Your device is now transmitting the following details to the Quix topic 'phone-data' in your workspace:
+    ???- success "Your device is now streaming to the topic called 'phone-data' in your workspace"
 
--   Accuracy
+        These parameters are being streamed from your phone:
 
--   Altitude
+        - Accuracy
+        - Altitude
+        - BatteryLevel
+        - BatteryPowerSource
+        - BatteryState
+        - EnergySaverStatus
+        - gForceX
+        - gForceY
+        - gForceZ
+        - Heading
+        - Latitude
+        - LogInfo
+        - Longitude
+        - Speed
 
--   BatteryLevel
-
--   BatteryPowerSource
-
--   BatteryState
-
--   EnergySaverStatus
-
--   gForceX
-
--   gForceY
-
--   gForceZ
-
--   Heading
-
--   Latitude
-
--   LogInfo
-
--   Longitude
-
--   Speed
-
-!!! tip Leave the app running until you've completed the next step.
+    !!! tip 
+        Leave the app running until you've completed the next step.
 
 #### 3. Streamlit app
 
@@ -164,7 +156,7 @@ Deploy an app:
 
 6.  Click Save as project
 
-    !!! info The code for the dashboard is now saved to your workspace. You can now edit it to ensure it works with the data coming from the device
+    !!! info "The code for the dashboard is now saved to your workspace. You can now edit it to ensure it works with the data coming from the device"
 
 7.  Locate the following line in streamlit_file.py
 
@@ -189,26 +181,25 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 11. Click Run near the top right corner of the code editor
 
 
-!!! info The dashboard will run right here in the development environment
+    !!! info "The dashboard will run right here in the development environment"
 
 
-!!! tip Click the icon that appears next to the project name (circled here in green)
+    !!! tip "Click the icon that appears next to the project name (circled here in green)"
 
-    ![](../images/tutorials/telemetry-data/image3.png)
+        <img src="../../images/tutorials/telemetry-data/image3.png" width="250px">
 
 12. Once the dashboard has loaded you will see sensor data from your device in real time
 
-    ![](../images/tutorials/telemetry-data/image2.png)
+    <img src="../../images/tutorials/telemetry-data/image2.png" class="image-center" width="450px">
     
-    !!! note Below this is also the raw data showing all the values from the device.
-
+    !!! note "Below this is also the raw data showing all the values from the device"
 
 
 13. Close the dashboard
 
-!!! info The dashboard you were just using was deployed to a temporary URL in the development area.
+    !!! info "The dashboard you were just using was deployed to a temporary URL in the development area"
 
-    You need to deploy it to its permanent home!
+        You need to deploy it to its permanent home!
 
 14. Click the Deploy button in the top right corner.
 
@@ -224,9 +215,9 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 
 19. Click the Public URL
 
-!!! success You are now looking at your dashboard in its permanent home.
+!!! success "You are now looking at your dashboard in its permanent home"
 
-!!! warning Be aware that there is no security on the dashboard.
+!!! warning "Be aware that there is no security on the dashboard"
 
 ## Next Steps
 

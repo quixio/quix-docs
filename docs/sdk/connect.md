@@ -15,19 +15,20 @@ IDE](../platform/definitions.md#_online_ide) or as a
 [deployment](../platform/definitions.md#_deployment), all you have to
 do is the following:
 
+
 ### Initialize the Client
 
-#### Python
-  
-  ``` python
-  client = QuixStreamingClient()
-  ```
+=== "Python"
+    
+    ``` python
+    client = QuixStreamingClient()
+    ```
 
-#### C\#
-  
-  ``` cs
-  var client = new Quix.Sdk.Streaming.QuixStreamingClient();
-  ```
+=== "C\#"
+    
+    ``` cs
+    var client = new Quix.Sdk.Streaming.QuixStreamingClient();
+    ```
 
 If you wish to run the same code locally, you’ll have to provide an
 OAuth2.0 bearer token. We have created a purpose made token for this,
@@ -39,17 +40,17 @@ environment variable.
 
 ### Initialize the Client with an SDK Token
 
-#### Python
+=== "Python"
+    
+    ``` python
+    client = QuixStreamingClient('your_token')
+    ```
 
-``` python
-client = QuixStreamingClient('your_token')
-```
-
-#### C\#
-
-``` cs
-var client = new Quix.Sdk.Streaming.QuixStreamingClient("your_token");
-```
+=== "C\#"
+    
+    ``` cs
+    var client = new Quix.Sdk.Streaming.QuixStreamingClient("your_token");
+    ```
 
 Using the streaming client is another way to talk with a broker. It
 is a Kafka specific client implementation that requires some
@@ -70,54 +71,46 @@ The following code shows you how to set up the `SecurityOptions` for
 your connection and how to create a `StreamingClient` instance to
 start [Reading](read.md) and [Writing](write.md) real-time
 time series data with Quix:
-
-### Set Up the Security Options for Your Connection
-
-#### Python
-
-``` python
-security = SecurityOptions(CERTIFICATES_FOLDER, QUIX_USER, QUIX_PASSWORD)
-client = StreamingClient('kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093', security)
-```
-
-#### C\#
-
-``` cs
-var security = new SecurityOptions(CERTIFICATES_FOLDER, QUIX_USER, QUIX_PASSWORD);
-var client = new Quix.Sdk.Streaming.StreamingClient("kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093", security);
-```
-
-#### Javascript  
-
-Quix web APIs are secured with OAuth2.0 bearer scheme.
-Therefore, all HTTP requests to Quix must contain a valid bearer
-token. You can generate a personal access token (PAT) for use as
-a bearer token from the portal by following the following steps.
-
-- Navigate to your profile by clicking on your avatar and
-selecting "Profile" from the drop-down menu.
-
-- Select "Personal Access Tokens" tab on the profile page.
-
-- Click on "Generate Token" button to open a dialog to set a
-name and an expiry date for the PAT and click on "Create" to
-generate the PAT.
-
-
-
-
-
-> **Tip**
-> 
-> For your convenience, when you create a new project on the Quix
-> platform, the credentials are generated and set in the code for
-> you. However, it is good practice to move them out of the code to
-> a more secure location like environment variables or a keystore,
-> depending on your development platform.
-
-When you deploy your application to Quix, you can store them on Quix
-as environment variables.
     
+### Set Up the Security Options for Your Connection
+    
+=== "Python"
+	
+	``` python
+	security = SecurityOptions(CERTIFICATES_FOLDER, QUIX_USER, QUIX_PASSWORD)
+	client = StreamingClient('kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093', security)
+	```
+
+=== "C\#"
+	
+	``` cs
+	var security = new SecurityOptions(CERTIFICATES_FOLDER, QUIX_USER, QUIX_PASSWORD);
+	var client = new Quix.Sdk.Streaming.StreamingClient("kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093", security);
+	```
+
+=== "Javascript"
+
+	Quix web APIs are secured with OAuth2.0 bearer scheme.
+	Therefore, all HTTP requests to Quix must contain a valid bearer
+	token. You can generate a personal access token (PAT) for use as
+	a bearer token from the portal by following the following steps.
+	
+	  - Navigate to your profile by clicking on your avatar and
+		selecting "Profile" from the drop-down menu.
+	
+	  - Select "Personal Access Tokens" tab on the profile page.
+	
+	  - Click on "Generate Token" button to open a dialog to set a
+		name and an expiry date for the PAT and click on "Create" to
+		generate the PAT.
+  
+   
+    !!! tip
+    
+		For your convenience, when you create a new project on the Quix platform, the credentials are generated and set in the code for you. However, it is good practice to move them out of the code to a more secure location like environment variables or a keystore, depending on your development platform.
+    
+    When you deploy your application to Quix, you can store them on Quix
+    as environment variables.
     
     
     

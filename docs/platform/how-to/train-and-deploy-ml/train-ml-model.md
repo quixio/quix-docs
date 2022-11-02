@@ -38,15 +38,13 @@ python3 -m pip install mlflow
 python3 -m pip install matplotlib
 ```
 
-> **Tip**
-> 
-> If you don’t see **Python3** kernel in your Jupyter notebook, execute
-> the following commands in your python environment:
-> 
-> ``` python
-> python3 -m pip install ipykernel
-> python3 -m ipykernel install --user
-> ```
+!!! tip
+
+	If you don’t see **Python3** kernel in your Jupyter notebook, execute the following commands in your python environment: 
+	``` python
+	python3 -m pip install ipykernel
+	python3 -m ipykernel install --user
+	```
 
 ### Necessary imports
 
@@ -96,12 +94,9 @@ your Jupyter notebook to Quix.
 
 ![how-to/jupyter-wb/jupyter-results.png](../../images/how-to/jupyter-wb/jupyter-results.png)
 
-> **Tip**
-> 
-> If you want to use this generated code for a long time, replace the
-> temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md)
-> for how to do
-> that.
+!!! tip
+
+	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
 
 ### Preprocessing of features
 
@@ -263,24 +258,22 @@ When you are confident with the results, save the model into a file and
 pickle.dump(decision_tree, open('./decision_tree_5_depth.sav', 'wb'))
 ```
 
-> **Tip**
-> 
-> Pickle file will be located in folder where jupyter notebook command
-> was executed
+!!! tip
+ 
+	Pickle file will be located in folder where jupyter notebook command was executed
 
 ## MLflow
 
 To help you with experiments management, you can review experiments in
 MLflow.
 
-> **Warning**
-> 
-> MLflow is working only in MacOS, Linux or Windows linux subsystem.
+!!! warning
 
-> **Tip**
-> 
-> To have some meaningful data, run the experiment with 3 different
-> `max_depth` parameter.
+	MLflow is working only in MacOS, Linux or Windows linux subsystem.
+
+!!! tip
+
+	To have some meaningful data, run the experiment with 3 different `max_depth` parameter.
 
 Let’s leave Jupyter notebook for now and go back to command line and run
 MLflow server:
