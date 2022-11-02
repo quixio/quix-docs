@@ -1,3 +1,5 @@
+# Write to Quix with NodeJs
+
 Clients write data to Quix using streams opened on existing
 [topics](../../definitions.md#_topics). Therefore, you need to
 first create a topic in the Portal to hold your data streams.
@@ -10,7 +12,7 @@ Once you have a topic, your clients can start writing data to Quix by
 
   - closing the stream
 
-# Creating a stream
+## Creating a stream
 
 To write data to Quix, you need to open a stream to your topic.
 Following is an example of creating a stream using JavaScript and
@@ -72,7 +74,7 @@ field.
 actual time the data was recorded. This field is useful if you are
 streaming data that was recorded in the past.
 
-# Writing parameter data to a stream
+## Writing parameter data to a stream
 
 After you have created the stream, you can start writing data to that
 stream using the following HTTP request.
@@ -129,7 +131,7 @@ you to add context to data points by means of tagging them. Index of the
 `Timestamps` array is used when matching the parameter data values as
 well as tag values. Therefore, the order of the arrays is important.
 
-# Defining parameters
+## Defining parameters
 
 In the above examples, parameters are created in Quix as you write data
 to the stream. However, what if you would like to add more information
@@ -180,7 +182,7 @@ like with the streams. If you have a custom parameter definition that is
 not covered by the primary fields of the request, you can use
 `CustomProperties` field to add your custom definition as a string.
 
-# Writing event data to a stream
+## Writing event data to a stream
 
 Writing event data to a stream is similar to writing parameter data
 using the web api. The main difference in the two requests is in the
@@ -239,7 +241,7 @@ Tags add context to your data points and help you to execute efficient
 queries over them on your data like using indexes in traditional
 databases.
 
-# Defining events
+## Defining events
 
 In the above examples, events are created in Quix as you write data to
 the stream. If you want to add more descriptions to your events, you can
@@ -288,7 +290,7 @@ string. You can also set an optional event `Level`. Accepted event
 levels are Trace, Debug, Information, Warning, Error and Critical. Event
 level defaults to Information if not specified.
 
-# Closing a stream
+## Closing a stream
 
 After finishing sending data, you can proceed to close the stream using
 the request below.

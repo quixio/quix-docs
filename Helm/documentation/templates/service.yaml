@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- if .Values.environment.testName }}
+  name: {{ .Chart.Name }}-{{ .Values.environment.testName | lower }}
+  {{- else }}
+  name: {{ .Chart.Name }}
+  {{- end }}
+spec:
+  selector:
+  {{- if .Values.environment.testName }}
+    app: {{ .Chart.Name }}-{{ .Values.environment.testName | lower }}
+  {{- else }}
+    app: {{ .Chart.Name }}
+  {{- end }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

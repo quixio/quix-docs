@@ -1,3 +1,5 @@
+# Horizontal scaling
+
 The Quix SDK provides horizontal scaling out of the box via the
 [streaming context](#features/streaming-context.md). This means a data
 scientist or data engineer does not have to implement parallel
@@ -106,7 +108,7 @@ or down, increasing or decreasing the number of replicas. Kafka will
 trigger the rebalacing mechanism internally and this will trigger the
 same events on the Quix SDK.
 
-# Rebalancing mechanism and Partitions
+## Rebalancing mechanism and Partitions
 
 Kafka uses partitions and the [RangeAssignor
 strategy](https://kafka.apache.org/23/javadoc/org/apache/kafka/clients/consumer/RangeAssignor.html)

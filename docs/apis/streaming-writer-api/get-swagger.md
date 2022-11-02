@@ -1,3 +1,5 @@
+# Getting Swagger url
+
 You can access documentation and a basic playground for the [Streaming
 Writer API](intro.md) via
 [Swagger](https://swagger.io/). The exact URL is workspace-specific, and

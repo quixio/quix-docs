@@ -1,9 +1,10 @@
 name: Build Develop
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - develop
 jobs:
   deploy:
     runs-on: ubuntu-latest

@@ -1,8 +1,10 @@
-# Before you begin
+# Authenticate
+
+## Before you begin
 
   - Sign up on the Quix Portal
 
-# Get a Personal Access Token
+## Get a Personal Access Token
 
 You should authenticate requests to the Catalogue API using a Personal
 Access Token (PAT). This is a time-limited token which you can revoke if
@@ -28,7 +30,7 @@ Follow these steps to generate a PAT:
 
 	Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
-# Sign all your requests using this token
+## Sign all your requests using this token
 
 Make sure you accompany each request to the API with an `Authorization`
 header using your PAT as a bearer token, as follows:

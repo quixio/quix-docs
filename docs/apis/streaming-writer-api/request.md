@@ -1,3 +1,5 @@
+# Forming a request
+
 How you send requests to the Streaming Writer API will vary depending on
 the client or language you’re using. But the API still has behaviour and
 expectations that is common across all clients.
@@ -6,14 +8,14 @@ expectations that is common across all clients.
 
 	The examples in this section show how to use the popular [`curl`](https://curl.se/) command line tool.
 
-# Before you begin
+## Before you begin
 
   - Sign up on the Quix Portal
 
   - Read about [Authenticating with the Streaming Writer
     API](authenticate.md)
 
-# Endpoint URLs
+## Endpoint URLs
 
 The Streaming Writer API is available on a per-workspace basis, so the
 subdomain is based on a combination of your organisation and workspace
@@ -27,7 +29,7 @@ So your final endpoint URL will look something like:
 
 https://writer-acme-weather.platform.quix.ai/\</programlisting\>
 
-# Method
+## Method
 
 Endpoints in this API use the `POST` and `PUT` methods. Ensure your HTTP
 client sends the correct request method.
@@ -39,7 +41,7 @@ Using `curl`, you can specify the request method with the `-X
 curl -X PUT ...
 ```
 
-# Payload
+## Payload
 
 For most methods, you’ll need to send a JSON object containing supported
 parameters. You’ll also need to set the appropriate content type for the
@@ -68,7 +70,7 @@ curl -d "@data.json" ...
 
 	By default, `-d` will send a `POST` request, so `-X POST` becomes unnecessary.
 
-# Complete curl example
+## Complete curl example
 
 You should structure most of your requests to the API around this
 pattern:

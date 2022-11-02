@@ -1,7 +1,9 @@
+# Filtered streams
+
 To fetch specific streams, you can include various filters with your
 request to the [`/streams`](#) endpoint.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -10,7 +12,7 @@ request to the [`/streams`](#) endpoint.
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Fetch a single stream via ID
+## Fetch a single stream via ID
 
 The most basic filter matches against a stream’s ID.
 
@@ -24,7 +26,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
 Note that you can supply multiple IDs in the `streamIds` array to match
 multiple streams.
 
-# Filtering streams on basic properties
+## Filtering streams on basic properties
 
 The **location** of a stream defines its position in a hierarchy. A
 stream location looks just like a filesystem path. You can filter
@@ -72,7 +74,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
      -d '{"excludeStatuses": [ "Interrupted", "Closed" ]}'
 ```
 
-# Filtering streams on metadata
+## Filtering streams on metadata
 
 You can associate metadata with your streams. This can be used, for
 example, to store the circuit a car has travelled around, or the player
@@ -120,7 +122,7 @@ As before, the response is an array of Stream objects:
 }]
 ```
 
-# Ordering results
+## Ordering results
 
 Calls to the `/streams` endpoint can include an `ordering` property in
 the payload. This references an array of properties to sort on, each one

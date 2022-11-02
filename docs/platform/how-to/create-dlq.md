@@ -1,10 +1,12 @@
+# Create a Dead Letter Queue
+
 When your code identifies a dead letter, or unprocessable message,
 simply send the message to the dead letter topic and continue processing
 other messages.
 
 What you do with messages in the dead letter topic is up to you.
 
-# Example
+## Example
 
 Take a look at the short example. It describes how to open topics,
 create streams and also send messages to a dedicated dead letter topic

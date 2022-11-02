@@ -1,3 +1,5 @@
+# Create a new Stream
+
 You can create a new stream by specifying a topic to create it in, and
 supplying any other additional properties required.
 
@@ -8,7 +10,7 @@ supplying any other additional properties required.
 	stream using the method on this page avoids having to determine a
 	unique stream id yourself.
 
-# Before you begin
+## Before you begin
 
   - You should have a [Workspace set
     up](../../platform/definitions.md#_workspace) with at least [one
@@ -18,7 +20,7 @@ supplying any other additional properties required.
     Token](authenticate.md) to authenticate each
     request.
 
-# Using the /streams endpoint
+## Using the /streams endpoint
 
 To create a new stream, send a `POST` request to:
 
@@ -29,7 +31,7 @@ the [Topic](../../platform/definitions.md#_topics) you wish to create the
 stream in. For example, if your topic is named “cars”, your endpoint url
 will be `/topics/cars/streams`.
 
-## Example request
+### Example request
 
 You can create a new Stream with an absolute minimum of effort by
 passing an empty JSON object in the payload:
@@ -100,7 +102,7 @@ For example, here’s a more useful payload:
 }
 ```
 
-## Example response
+### Example response
 
 The JSON returned is an object with a single property, `streamId`. This
 contains the unique identifier of your newly created stream, and will
@@ -122,7 +124,7 @@ look something like this:
 	$ streamId=66fb0a2f-eb70-494e-9df7-c06d275aeb7c
 	```
 
-# Using SignalR
+## Using SignalR
 
 ``` javascript
 // Also available as JsFiddle at https://jsfiddle.net/QuixAI/cLno68fs/

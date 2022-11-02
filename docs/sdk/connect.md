@@ -1,10 +1,12 @@
+# Connect to Quix
+
 The Quix SDK comes with a streaming client that enables you to connect
 to Quix easily, to read data from Quix, and to write data to Quix. The
 streaming client manages the connections between your application and
 Quix and makes sure that the data is delivered reliably to and from your
 application.
 
-# Using QuixStreamingClient
+## Using QuixStreamingClient
 
 Starting with 0.4.0, we’re offering QuixStreamingClient, which handles
 the cumbersome part of setting up your streaming credentials using the
@@ -12,6 +14,9 @@ Quix Api. When you’re running the app in the [online
 IDE](../platform/definitions.md#_online_ide) or as a
 [deployment](../platform/definitions.md#_deployment), all you have to
 do is the following:
+
+
+### Initialize the Client
 
 === "Python"
     
@@ -25,17 +30,15 @@ do is the following:
     var client = new Quix.Sdk.Streaming.QuixStreamingClient();
     ```
 
-
-
 If you wish to run the same code locally, you’ll have to provide an
 OAuth2.0 bearer token. We have created a purpose made token for this,
-called [SDK token](platform::how-to/use-sdk-token.md). Once you have
+called [SDK token](../platform/how-to/use-sdk-token.md). Once you have
 the token you will have to provide it as an argument to
 QuixStreamingClient or set
 `Quix__Sdk__Token`
 environment variable.
 
-
+### Initialize the Client with an SDK Token
 
 === "Python"
     
@@ -48,17 +51,15 @@ environment variable.
     ``` cs
     var client = new Quix.Sdk.Streaming.QuixStreamingClient("your_token");
     ```
-       
-    
+
 Using the streaming client is another way to talk with a broker. It
 is a Kafka specific client implementation that requires some
 explicit configuration but allows you to connect to any Kafka
 cluster even outside Quix platform. It involves the following steps:
 
-  - Obtain a client certificate and credentials (security context)
-	for your application.
+- Obtain a client certificate and credentials (security context) for your application.
 
-  - Create a streaming client.
+- Create a streaming client.
 
 A security context consists of a client certificate, username, and
 password. Quix generates these automatically for you when you create
@@ -71,7 +72,7 @@ your connection and how to create a `StreamingClient` instance to
 start [Reading](read.md) and [Writing](write.md) real-time
 time series data with Quix:
     
-    
+### Set Up the Security Options for Your Connection
     
 === "Python"
 	
@@ -110,7 +111,6 @@ time series data with Quix:
     
     When you deploy your application to Quix, you can store them on Quix
     as environment variables.
-    
     
     
     

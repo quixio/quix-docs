@@ -1,3 +1,5 @@
+# Streaming context
+
 Using a plain Broker SDK out of box only enables you to send messages
 independently, without any relationship between them.
 

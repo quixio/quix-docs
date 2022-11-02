@@ -1,7 +1,7 @@
 # Welcome to Quix Docs
 
 ## Tutorials
-
+ 
 Try our guides to help you build data-driven apps and integrate Quix with external systems.
 
 <div class="grid cards" markdown>

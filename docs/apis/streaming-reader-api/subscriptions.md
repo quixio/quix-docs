@@ -1,6 +1,8 @@
+# Subscription & Event reference
+
 The Quix SignalR hub provides the following subscriptions and events.
 
-# Subscriptions
+## Subscriptions
 
 You can subscribe to the following hub methods via [the `invoke`
 method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke)
@@ -57,7 +59,7 @@ need the subscriptions anymore to avoid receiving data unnecessarily:
 	connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
 	```
 
-# SignalR events
+## SignalR events
 
 You can register a handler for SignalR events using [the `on`
 method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#on)
@@ -83,7 +85,7 @@ of a `HubConnection`. The following events are available:
 	});
 	```
 
-## ParameterDataReceived
+### ParameterDataReceived
 
 Add a listener to `ParameterDataReceived` event to receive data from a
 `SubscribeToParameter` subscription.
@@ -105,7 +107,7 @@ Example payload:
 }
 ```
 
-## EventDataReceived
+### EventDataReceived
 
 Add a listener to `EventDataReceived` event to receive data from a
 `SubscribeToEvent` subscription.
@@ -128,7 +130,7 @@ Example payload:
 }
 ```
 
-## ActiveStreamChanged
+### ActiveStreamChanged
 
 This event is generated each time a change has been produced in the list
 of Active streams of a Topic.
@@ -232,7 +234,7 @@ Stream payload example:
 }
 ```
 
-## TopicMetricsUpdated
+### TopicMetricsUpdated
 
 This event is generated periodically by the service to provide basic
 metrics about a Topic, like "Bytes per Second" or "Number of Active
@@ -252,7 +254,7 @@ Topic Metrics payload example:
 }
 ```
 
-## PackageReceived
+### PackageReceived
 
 Add a listener to `PackageReceived` event to receive data from a
 `SubscribeToPackages` subscription.

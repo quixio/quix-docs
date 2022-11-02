@@ -1,4 +1,4 @@
-# What is Quix
+# What is Quix?
 
 Quix is a platform for developing and deploying applications with
 streaming data.
@@ -26,7 +26,7 @@ catalogue (time-series database with steroids).
 
 ![640](images/about/Product.png)
 
-# Web UI
+## Web UI
 
 With the **Quix Portal** we are striving to make a beautiful software
 experience that facilitates DevOps/MLOps best-practices for
@@ -63,7 +63,7 @@ To achieve these goals Quix Portal includes the following features:
   - **Data Explorer**: Explore Live and Historical data of your
     applications to test that your code is working as expected.
 
-# API’s
+## API’s
 
 We have provided four API’s to help you work with streaming data. These
 include:
@@ -85,7 +85,7 @@ build dashboards and export data to other systems.
 [**Portal API**](../apis/portal-api.md): lets you automate Portal tasks
 like creating workspaces, topics and deployments.
 
-# SDK
+## SDK
 
 Python is the dominant language for data science and machine learning,
 but it is quite incompatible with streaming technologies (like
@@ -101,18 +101,18 @@ any simple or complex data processing logic and connect it directly to
 the broker. There are just a few key streaming concepts that you must
 learn. You can read about them [here](../sdk/introduction.md).
 
-# Serverless compute
+## Serverless compute
 
 Quix provides an easy way to run code in an elastic serverless compute
 environment. It automatically builds code in GIT into a docker image and
 deploys containers to Kubernetes. This otherwise very complicated
 procedure is done by a couple of clicks in the Quix web portal.
 
-## Architecture
+### Architecture
 
 ![about/serverless-environment.png](images/about/serverless-environment.png)
 
-## Git integration
+### Git integration
 
 Source code for workspace projects (models, connectors and services) is
 hosted in GIT repositories. Developers can check out repositories and
@@ -120,7 +120,7 @@ develop locally and collaborate using GIT protocol. Code is deployed to
 the Quix serverless environment using tags in GIT. Quix builds service
 will build selected GIT commit into a docker image.
 
-## Docker integration
+### Docker integration
 
 Each code example generated using the **Quix library** is shipped with a
 `Dockerfile` that is designed to work in the **Quix serverless compute
@@ -138,7 +138,7 @@ step, this image is deployed to Kubernetes.
 
 	Hover over the deployment in the **deployments page** to download the docker image of the deployed service for local testing or custom deployment.
 
-## Kubernetes integration
+### Kubernetes integration
 
 Quix manages an elastic compute environment so you don’t need to worry
 about servers, nodes, memory, CPU, etc. Quix will make sure that your
@@ -166,7 +166,7 @@ We provide the following integrations with Kubernetes:
 
 	If a deployment reference is already built and deployed to a service, the build process is skipped and the docker image from the container registry is used instead.
 
-## DNS integration
+### DNS integration
 
 The Quix serverless environment offers DNS routing for services on port
 80. That means that any API or frontend can be hosted in Quix with no
@@ -178,7 +178,7 @@ frontend.
 
 	A newly deployed service with DNS routing takes up to 10 minutes to propagate to all DNS servers in the network.
 
-# Managed Kafka topics
+## Managed Kafka topics
 
 Quix provides fully managed Kafka topics which are used to stream data
 and build data processing pipelines by daisy-chaining models together.
@@ -200,7 +200,7 @@ low-latency and cost effective stream processing capabilities.
 
 	Quix also provides the ability to connect external infrastructure components like your own message broker infrastructure.
 
-# Data Catalogue
+## Data Catalogue
 
 We provide a data catalogue for long-term storage, analytics and data
 science activities.

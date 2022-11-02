@@ -1,10 +1,12 @@
+# Paged streams
+
 You can fetch all streams within a
 [workspace](../../platform/definitions.md#_workspace), across
 [topics](../../platform/definitions.md#_topics) and locations, with a
 single call. If you’re working with a large number of streams, you can
 use pagination parameters to group the results into smaller pages.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -13,7 +15,7 @@ use pagination parameters to group the results into smaller pages.
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Fetching all streams
+## Fetching all streams
 
 The [`/streams`](#) endpoint provides read access to all streams within
 the workspace. Sending an empty JSON object in your request body will
@@ -23,7 +25,7 @@ return all streams.
 
 	Even if you’re not supplying any parameters, you must still send a valid empty object as JSON data in the body of your request.
 
-## Example request
+### Example request
 
 ``` shell
 curl "https://${domain}.platform.quix.ai/streams" \
@@ -32,7 +34,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
      -d "{}"
 ```
 
-## Example response
+### Example response
 
 The JSON returned consists of an array of Stream objects:
 
@@ -52,7 +54,7 @@ The JSON returned consists of an array of Stream objects:
 }]
 ```
 
-# Fetching streams page by page
+## Fetching streams page by page
 
 To reduce the size of the response, you should page these results with
 the [`paging`](#) property. Include this in the JSON object you send in
@@ -75,7 +77,7 @@ page, use this value:
 }
 ```
 
-## Example request
+### Example request
 
 ``` shell
 curl "https://${domain}.platform.quix.ai/streams" \

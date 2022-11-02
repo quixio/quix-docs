@@ -1,8 +1,10 @@
+# Streams with models
+
 One stream can derive from another, for example, acting as a model in a
 pipeline. This relationship can be inspected using the `/streams/models`
 endpoint.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -11,7 +13,7 @@ endpoint.
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Fetching model data
+## Fetching model data
 
 The hierarchy is represented as a parent/child structure where a stream
 can have an optional parent and any number of children.

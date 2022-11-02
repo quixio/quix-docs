@@ -1,3 +1,5 @@
+# Set up docker environment
+
 Docker is an alternative to the classic environment setup for local
 development ( see [Set up your local IDE](python-setup.md) )
 
@@ -13,7 +15,7 @@ Isolation is achieved by creating a lightweight container (Docker
 Container) which behaves like a virtual machine (in our case Ubuntu
 Linux).
 
-# Install Prerequisities
+## Install Prerequisities
 
 In order to use the Quix SDK in Docker you need to have installed these
 prerequisities.
@@ -22,7 +24,7 @@ prerequisities.
 
   - Docker Compose (tested on version 1.29.2)
 
-## Install Docker ( step 1 )
+### Install Docker ( step 1 )
 
 To install the Docker on your environment you need to follow this guide
 [here
@@ -32,7 +34,7 @@ To install the Docker on your environment you need to follow this guide
 
 	On Windows we tested this setup using the WSL2 backend.
 
-## Install docker-compose ( step 2 )
+### Install docker-compose ( step 2 )
 
 We’ll be using the docker-compose tool which is designed for easy
 configuration of local Docker setups.
@@ -45,7 +47,7 @@ To install docker-compose, please follow the guide [here (
 
 	If you are on Windows then you can skip this step because the Docker installation package from the step 1 already contains the docker-compose tool.
 
-# Start with downloading a couple of things
+## Start with downloading a couple of things
 
   - Download the project then navigate to your solution’s root folder.
 
@@ -53,7 +55,7 @@ To install docker-compose, please follow the guide [here (
     [quix-library](https://github.com/quixai/quix-library/tree/main/python/local-development)
     and download `/docker/` folder content.
 
-# Build and run project
+## Build and run project
 
 Open a command line within your new `docker` folder.
 
@@ -90,7 +92,7 @@ your python application by executing `python3 main.py`
 
 	As your environment variables will greatly depend on what your application needs, make sure to update `docker/.env` as needed. By default all values are placeholder and this might be something you need to configure or add to before the application can correctly run. Several of these environment values could be considered "secrets", therefore be mindful of what you end up committing to your repository.
 
-## Additional documentation
+### Additional documentation
 
 To get the additional information on Docker and Docker compose commands
 please follow up with the documentation:

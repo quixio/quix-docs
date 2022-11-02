@@ -1,3 +1,5 @@
+# Reading data
+
 The Quix SDK allows you to read data in real time from the existing
 streams of your Topics.
 
@@ -10,7 +12,7 @@ Quix SDK.
 
 	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
-# Connect to Quix
+## Connect to Quix
 
 In order to start reading data from Quix you need an instance of the
 Quix client, `QuixStreamingClient`. This is the central point where you
@@ -36,7 +38,7 @@ constructor of the SDK.
 You can find more advanced information on how to connect to Quix in the
 [Connect to Quix](connect.md) section.
 
-# Open a topic for reading
+## Open a topic for reading
 
 Topics are the default environment for input/output operations on Quix.
 
@@ -62,7 +64,7 @@ the client’s `open_input_topic` method, passing the `TOPIC_ID` or the
 
 
 
-## Consumer group
+### Consumer group
 
 The **Consumer group** is a concept used when you want to [scale
 horizontally](features/horizontal-scaling.md). Each consumer group is
@@ -96,7 +98,7 @@ only a subset of the streams incoming to the Input Topic.
 
 	If you want to consume data from the topic locally for debugging purposes, and the model is also deployed in the Quix serverless environment, make sure that you change the consumer group ID to prevent clashing with the cloud deployment. If the clash happens, only one instance will be able to read data of the Stream at a time, and you will probably notice that your code is not receiving data at some point, either locally or in the cloud environment.
 
-# Reading Streams
+## Reading Streams
 
 
 
@@ -139,7 +141,7 @@ only a subset of the streams incoming to the Input Topic.
 
 	The `StartReading` method indicates to the SDK the moment to start reading streams and data from your Topic. This should normally happen after you’ve registered callbacks for all the events you want to listen to.
 
-# Reading Parameter Data
+## Reading Parameter Data
 
 You can read real-time data from Streams using the `on_read` event of
 the `StreamReader` instance received in the previous callback when you
@@ -195,7 +197,7 @@ data using [ParameterData](##_parameter_data_format).
 
 	If you’re using Python you can convert [ParameterData](##_parameter_data_format) to a [Pandas DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe) or read them directly from the SDK. Refer to [Using Data Frames](##_using_data_frames) for more information.
 
-## Parameter Data format
+### Parameter Data format
 
 [ParameterData](##_parameter_data_format) is the formal class in the SDK
 which represents a time series data packet in memory.
@@ -286,7 +288,7 @@ Speed - 3: 125
 Speed - 6: 110
 ```
 
-## Buffer
+### Buffer
 
 The Quix SDK provides you with a programmable buffer which you can
 tailor to your needs. Using buffers to read data enhances the throughput
@@ -449,7 +451,7 @@ release a new packet of data and that data is cleared from the buffer:
 
 
 
-### Examples
+#### Examples
 
 This buffer configuration will send data every 100ms or, if no data is
 buffered in the 1 second timeout period, it will empty the buffer and
@@ -495,7 +497,7 @@ critical data arrives.
 
 
 
-## Using Data Frames
+### Using Data Frames
 
 If you use the Python version of the SDK you can use [Pandas
 DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe)
@@ -573,14 +575,14 @@ input_topic.start_reading()
 
 	The conversions from [ParameterData](##_parameter_data_format) to Pandas DataFrames have an intrinsic cost overhead. For high-performance models using Pandas DataFrames, you probably want to use the `on_read_pandas` event provided by the SDK, which is optimized for doing as few conversions as possible.
 
-# Reading Events
+## Reading Events
 
 EventData is the formal class in the SDK which represents an Event data
 packet in memory. EventData is meant to be used for time series data
 coming from sources that generate data at irregular intervals or without
 a defined structure.
 
-## Event Data format
+### Event Data format
 
 EventData consists of a record with a Timestamp, an EventId and an
 EventValue.
@@ -634,7 +636,7 @@ Event read for stream. Event Id: motor-off
 Event read for stream. Event Id: race-event3
 ```
 
-# Committing / checkpointing
+## Committing / checkpointing
 
 It is important to be aware of the commit concept when working with a
 broker. Committing allows one to mark how far data has been processed,
@@ -653,7 +655,7 @@ to one of them.
 
 	Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the [Streaming Context](./features/streaming-context.md) feature of the SDK.
 
-## Automatic committing
+### Automatic committing
 
 By default, the SDK automatically commits messages for which all
 handlers returned at a regular default interval, which is every 5
@@ -693,7 +695,7 @@ following code:
 The code above will commit every 100 processed messages or 500 ms,
 whichever is sooner.
 
-## Manual committing
+### Manual committing
 
 Some use cases need manual committing to mark completion of work, for
 example when you wish to batch process data, so the frequency of commit
@@ -739,7 +741,7 @@ Then, whenever your commit condition fulfils, call:
 The piece of code above will commit anything – like parameter, event or
 metadata - read and served to you from the input topic up to this point.
 
-## Commit callback
+### Commit callback
 
 Whenever a commit occurs, an event is raised to let you know. This event
 is raised for both manual and automatic commits. You can subscribe to
@@ -767,7 +769,7 @@ this event using the following code:
 
 
 
-## Auto Offset Reset
+### Auto Offset Reset
 
 You can control the offset that data is read from by optionally
 specifying AutoOffsetReset when you open the topic.
@@ -802,7 +804,7 @@ The possible options for AutoOffsetReset
 
 
 
-# Revocation
+## Revocation
 
 When working with a broker, you have a certain number of topic streams
 assigned to your consumer. Over the course of the client’s lifetime,
@@ -817,7 +819,7 @@ avoidable reprocessing of messages.
 
 	Partitions and the Kafka rebalancing protocol are internal details of the Kafka implementation of the Quix SDK. You mainly don’t even need to worry about it because everything is abstracted within the [Streaming Context](./features/streaming-context.md) feature of the SDK.
 
-## Streams revoking
+### Streams revoking
 
 One or more streams are about to be revoked from your client, but you
 have a limited time frame – according to your broker configuration – to
@@ -845,7 +847,7 @@ react to this and even commit to the broker:
 
 
 
-## Streams Revoked
+### Streams Revoked
 
 One or more streams are revoked from your client. You can no longer
 commit to these streams, you can only handle the revocation in your
@@ -876,7 +878,7 @@ client.
 
 
 
-# Stream Closure
+## Stream Closure
 
 You can detect stream closure with the stream closed callback which
 receives the StreamEndType, to help determine the closure reason if
@@ -917,7 +919,7 @@ The StreamEndType can be one of:
 
 Possible end types
 
-# Minimal example
+## Minimal example
 
 This is a minimal code example you can use to read data from a topic
 using the Quix SDK.
@@ -1013,7 +1015,7 @@ using the Quix SDK.
 
 
 
-# Read raw kafka messages
+## Read raw kafka messages
 
 The Quix SDK uses the message brokers' internal protocol for data
 transmission. This protocol is both data and speed optimized so we do

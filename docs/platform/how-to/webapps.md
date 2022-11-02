@@ -1,3 +1,5 @@
+# Develop web applications with Quix
+
 Quix can bring real-time web functionality to you client applications.
 Following types of applications are good candidates to use Quix as their
 data plane.
@@ -11,7 +13,7 @@ data plane.
   - Social networking applications that require broadcasting updates to
     many users at high frequency like live sharing of Strava data.
 
-# NodeJs
+## NodeJs
 
 NodeJs applications can update parameter and event definitions and write
 data to streams using RESTful APIs. Quix supports WebSockets for clients

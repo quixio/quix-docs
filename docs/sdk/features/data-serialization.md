@@ -1,3 +1,5 @@
+# Data serialization
+
 Serialization can be painful, especially if it’s done with performance
 in mind. We serialize and deserialize native ParameterData transport
 objects, created specifically to be efficient with time series data. On

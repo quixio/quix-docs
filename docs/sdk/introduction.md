@@ -1,3 +1,5 @@
+# Introduction
+
 The Quix SDK makes it quick and easy to develop streaming applications.
 It’s designed to be used for high performance telemetry services where
 you need to process high volumes of data in a nanosecond response time.
@@ -17,7 +19,7 @@ To support these operations, the SDK provides several useful features
 out of the box, and solves all the common problems you should face when
 developing real-time streaming applications:
 
-# Streaming context
+## Streaming context
 
 The Quix SDK handles [stream contexts](features/streaming-context.md)
 for you, so all the data from one data source is bundled in the same
@@ -31,7 +33,7 @@ by other technologies.
 Refer to the [Streaming context](features/streaming-context.md)
 section of this documentation for more information.
 
-# In-memory data processing
+## In-memory data processing
 
 The Quix SDK is designed to make [in-memory data
 processing](features/in-memory-processing.md) extremely efficient. We
@@ -43,7 +45,7 @@ Refer to the [In-memory data
 processing](features/in-memory-processing.md) section of this
 documentation for more information.
 
-# Built-in buffers
+## Built-in buffers
 
 If you’re sending data at high frequency, processing each message can be
 costly. The SDK provides a built-in buffers features for reading and
@@ -53,7 +55,7 @@ cost.
 Refer to the [Built-in buffers](features/builtin-buffers.md) section
 of this documentation for more information.
 
-# Support for data frames
+## Support for data frames
 
 In many use cases, multiple parameters are emitted at the same time, so
 they share one timestamp. Handling this data independently is wasteful.
@@ -64,7 +66,7 @@ natively. Each row has a timestamp and user-defined tags as indexes.
 Refer to the [Support for Data Frames](features/data-frames.md)
 section of this documentation for more information.
 
-# Message splitting
+## Message splitting
 
 The SDK automatically handles large messages on the producer side,
 splitting them up if required. You no longer need to worry about Kafka
@@ -74,7 +76,7 @@ merged back.
 Refer to the [Message splitting](features/message-splitting.md)
 section of this documentation for more information.
 
-# Message compression
+## Message compression
 
 The Quix SDK automatically compresses your messages, reducing them by an
 average factor of 10 times. You save money via added efficiency.
@@ -87,7 +89,7 @@ compression ratio is even higher.
 Refer to the [Message compression](features/message-compression.md)
 section of this documentation for more information.
 
-# Data serialization and de-serialization
+## Data serialization and de-serialization
 
 The Quix SDK automatically serializes data from native types in your
 language. You can work with familiar data types, such as [Pandas
@@ -99,7 +101,7 @@ types using our codecs so you don’t have to worry about that.
 Refer to the [Data serialization](features/data-serialization.md)
 section of this documentation for more information.
 
-# Multiple data types
+## Multiple data types
 
 The SDK allows you to attach any type of data to your timestamps, like
 Numbers, Strings or even raw Binary data. This gives the SDK the ability
@@ -108,7 +110,7 @@ to adapt to any streaming application use case.
 Refer to the [Multiple data types](features/multiple-data-types.md)
 section of this documentation for more information.
 
-# Message Broker configuration including authentication and authorization
+## Message Broker configuration including authentication and authorization
 
 Quix handles Kafka configuration efficiently and reliably. Our templates
 come with pre-configured certificates and connection settings. Many
@@ -119,7 +121,7 @@ don’t have to.
 Refer to the [Broker configuration](features/broker-configuration.md)
 section of this documentation for more information.
 
-# Checkpointing
+## Checkpointing
 
 The SDK allows you to do manual checkpointing when you read data from a
 Topic. This provides the ability to inform the Message Broker that you
@@ -132,7 +134,7 @@ performance streaming applications.
 Refer to the [Checkpointing](features/checkpointing.md) section of
 this documentation for more information.
 
-# Horizontal scaling
+## Horizontal scaling
 
 The Quix SDK provides horizontal scale out of the box via the [streaming
 context](features/streaming-context.md) feature. This means a data
@@ -145,7 +147,7 @@ always shared between your model replicas.
 Refer to the [Horizontal scaling](features/horizontal-scaling.md)
 section of this documentation for more information.
 
-# Integrations
+## Integrations
 
 The SDK offers integrations out of the box, including data persistence
 and historic or real-time APIs with other systems. That means you don’t
@@ -154,7 +156,7 @@ have to implement them by yourself.
 Refer to the [Integrations](features/integrations.md) section of this
 documentation for more information.
 
-# Portability
+## Portability
 
 The Quix SDK is an abstraction layer over a concrete broker technology.
 You’re not locked into a specific broker and can innovate over time.
@@ -162,7 +164,7 @@ You’re not locked into a specific broker and can innovate over time.
 Refer to the [Portability](features/portability.md) section of this
 documentation for more information.
 
-# Raw messages
+## Raw messages
 
 The Quix SDK uses an internal protocol which is both data and speed
 optimized so we do encourage you to use it. For that you need to use the

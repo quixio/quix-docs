@@ -1,3 +1,5 @@
+# Integrations
+
 The Quix SDK offers very useful integrations with the Quix SaaS platform
 out of the box, some of them to persist and query historical data, and
 some of them to produce and consume data for uses cases where you cannot

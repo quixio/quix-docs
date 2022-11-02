@@ -1,3 +1,5 @@
+# Set up local environment
+
 The Quix Portal offers you an [online
 IDE](../platform/definitions.md#_online_ide), ready to use **without
 any additional setup** to develop or deploy your applications. However,
@@ -15,7 +17,7 @@ Python environment on Linux, Mac or Windows.
 
 	Make sure you’re using Python version 3.7\>=, \<3.9
 
-# Install Dependencies
+## Install Dependencies
 
 To get started, install the SDK dependencies.
 
@@ -165,7 +167,7 @@ To get started, install the SDK dependencies.
 
 
 
-# Create New Python Environment
+## Create New Python Environment
 
 It’s good practice to use a python virtual environment and it is doubly
 true when using the Quix streaming library. The library currently relies
@@ -228,7 +230,7 @@ then a virtual environment is advised.
 
 
 
-# Install code requirements
+## Install code requirements
 
 
 

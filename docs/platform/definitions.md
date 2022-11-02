@@ -1,7 +1,9 @@
+# Definitions
+
 The following is a list of definitions to aid understanding of how to
 work with Quix and streaming data.
 
-# Workspace
+## Workspace
 
 A Workspace is an instance of a complete streaming infrastructure
 isolated from the rest of your Organization in terms of performance and
@@ -16,7 +18,7 @@ stability of your application.
 You can also have different workspaces to separate different stages of
 your development process like Development, Staging, and Production.
 
-# Topics
+## Topics
 
 A Topic is a channel of real-time data. You can imagine a topic as the
 pipe we use to interconnect our streaming applications.
@@ -42,7 +44,7 @@ organise your data by:
 
   - Maintaining separate topics for raw, clean or processed data
 
-# Stream
+## Stream
 
 A stream is a collection of data (parameters, events, binary blobs and
 metadata) that belong to a single session of a single source. For
@@ -54,7 +56,7 @@ example:
 
   - One flight for one aeroplane
 
-## Timestamp
+### Timestamp
 
 A timestamp is the primary key for all data in a stream.
 
@@ -65,12 +67,12 @@ Nanosecond precision is at the bleeding edge of real-time computing and
 is primarily driven by innovation with hardware and networking
 technology; kudos to you if you have an application for it\!
 
-# Data Types
+## Data Types
 
 We currently support any parameter, event, metadata or blob that consist
 of numeric (double precision), string (UTF-8) and binary data (blobs).
 
-## Parameters
+### Parameters
 
 Parameters are values that develop over time. The Quix SDK supports
 numeric and string values.
@@ -90,7 +92,7 @@ For example:
     that each of these examples would be grouped into a single topic to
     maintain context.
 
-## Events
+### Events
 
 Events are a discrete occurrence of a thing that happens or takes place.
 
@@ -110,7 +112,7 @@ provide some context to what is happening.
 
 Start and stop events mark the beginning and end of data streams.
 
-## Metadata
+### Metadata
 
 Metadata describes additional information or context about a stream.
 
@@ -135,7 +137,7 @@ and transmission type won’t change.
 Metadata is key to data governance and becomes very useful in
 down-stream data processing and analytics.
 
-## Binary data
+### Binary data
 
 Quix also supports any binary blob data.
 
@@ -143,56 +145,56 @@ With this data you can stream, process and store any type of audio,
 image, video or lidar data, or anything that isn’t supported with our
 parameter, event or metadata types.
 
-# Project
+## Project
 
 A set of code which can be edited, compiled, executed and deployed as
 one Docker image.
 
-# Online IDE
+## Online IDE
 
 We provide an online integrated development environment for python
 projects. When you open any python project, you will see the **Run**
 button and a console during runtime in addition to the intellisense for
 python files.
 
-# Deployment
+## Deployment
 
 An instance of a Project running in the serverless environment.
 
-## Service
+### Service
 
 Any application code that is continuously running in the serverless
 environment. For example, a bridge, a function, a backend operation, or
 an integration to a third party service like Twilio.
 
-## Job
+### Job
 
 Any application code that is run once. For example, use a job to run a
 batch import of data from an existing data store (CSV, DB or DataLake
 etc).
 
-# SDK
+## SDK
 
 [Quix SDK](../sdk/introduction.md) is the main library we use to send and
 receive real-time data in our streaming applications.
 
-# API’s
+## API’s
 
-## Streaming Writer API
+### Streaming Writer API
 
 A [HTTP API](../apis/streaming-writer-api/intro.md) used to send
 telemetry data from any source to a topic in the Quix platform. It
 should be used when it is not possible to use directly our
 [SDK](../sdk/introduction.md).
 
-## Streaming Reader API
+### Streaming Reader API
 
 A [Websockets API](../apis/streaming-reader-api/intro.md) used to
 stream any data directly from a topic to an external application. Most
 commonly used to read the results of a model or service to a real-time
 web application.
 
-## Data Catalogue API
+### Data Catalogue API
 
 An [HTTP API](../apis/data-catalogue-api/intro.md) used to query
 historic data in the Data Catalogue. Most commonly used for
@@ -200,7 +202,7 @@ dashboarding, analytics and training ML models. Also useful to call
 historic data when running an ML model or to call historic data from an
 external application.
 
-## Portal API
+### Portal API
 
 An [HTTP API](../apis/portal-api.md) used to interact with most
 portal-related features such as creation of Workspaces, Users,

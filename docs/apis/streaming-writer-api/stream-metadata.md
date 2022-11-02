@@ -1,8 +1,10 @@
+# Add Stream metadata
+
 You can add arbitrary string metadata to any stream. You can also create
 a new stream by sending metadata using a stream id that does not already
 exist.
 
-# Before you begin
+## Before you begin
 
   - You should have a [Workspace set
     up](../../platform/definitions.md#_workspace) with at least [one
@@ -12,7 +14,7 @@ exist.
     Token](authenticate.md) to authenticate each
     request.
 
-# How to add metadata to a stream
+## How to add metadata to a stream
 
 Send a `PUT` request to the following endpoint to update a stream with
 the given properties:
@@ -32,7 +34,7 @@ to update. For example:
 Your request should contain a payload consisting of JSON data containing
 the desired metadata.
 
-## Example request
+### Example request
 
 Below is an example payload demonstrating how to set a single item of
 metadata. Note that the `metadata` property references an object which
@@ -89,14 +91,14 @@ in the payload alongside your metadata, e.g.
 }
 ```
 
-## Response
+### Response
 
 No payload is returned from this call. A 200 HTTP response code
 indicates success. If the call fails, you should see either a 4xx or 5xx
 response code indicating what went wrong. For example, you’ll see a 405
 code if you forget to specify the correct `PUT` method.
 
-# Using SignalR
+## Using SignalR
 
 ``` javascript
 // Also available as JsFiddle at https://jsfiddle.net/QuixAI/ruywnz28/

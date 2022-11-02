@@ -1,0 +1,29 @@
+## Configuration injected from Azure Pipelines (Task group)
+
+## Globals
+global:
+  environment:
+      name:
+      publicDomain:
+
+environment:
+  name:
+  publicDomain:
+
+## Configuration of the service
+
+replicaCount: 1
+
+resources:
+  requests:
+    memory: 100M
+    cpu: 25m
+  limits:
+    memory: 1000M
+    cpu: 1000m
+
+image:
+  containerRegistry: quixcontainerregistry.azurecr.io
+  service: docs
+  tag: latest
+  pullPolicy: IfNotPresent

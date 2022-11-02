@@ -1,7 +1,9 @@
+# Send an Event
+
 You can add Events to your stream data to record discrete actions for
 future reference.
 
-# Before you begin
+## Before you begin
 
   - [Get a Personal Access
     Token](authenticate.md) to authenticate each
@@ -10,7 +12,7 @@ future reference.
   - If you don’t already have a Stream in your workspace, [add one using
     the API](create-stream.md).
 
-# Sending event data
+## Sending event data
 
 To send event data to a stream, use the `POST` method with this
 endpoint:
@@ -42,7 +44,7 @@ containing the following properties:
   - value  
     a string value associated with the event
 
-## Example request
+### Example request
 
 This example call adds a single event to a stream. The event has an
 example value and demonstrates use of a tag to include additional
@@ -98,13 +100,13 @@ information.
 
 
 
-## Response
+### Response
 
 No payload is returned from this call. A 200 HTTP response code
 indicates success. If the call fails, you should see either a 4xx or 5xx
 response code indicating what went wrong.
 
-# Using SignalR
+## Using SignalR
 
 ``` javascript
 // Also available as JsFiddle at https://jsfiddle.net/QuixAI/h4fztrns/

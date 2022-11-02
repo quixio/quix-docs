@@ -1,7 +1,9 @@
+# Aggregate data by time
+
 You can downsample and upsample data from the catalogue using the
 `/parameters/data` endpoint.
 
-# Before you begin
+## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
@@ -10,7 +12,7 @@ You can downsample and upsample data from the catalogue using the
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
-# Aggregating and interpolating
+## Aggregating and interpolating
 
 The JSON payload can include a `groupByTime` property, an object with
 the following members:

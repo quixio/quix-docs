@@ -1,3 +1,5 @@
+# Multiple data types
+
 The Quix SDK lets you attach any type of data — Numbers, Strings, or raw
 Binary data — to your timestamps.
 

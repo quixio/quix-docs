@@ -1,3 +1,5 @@
+# Image Processing
+
 We show you how to build a video processing pipeline using the Transport
 for London (TfL) traffic cameras, known as Jam Cams, and a [YOLO
 v3](https://viso.ai/deep-learning/yolov3-overview/) model. We provide a
@@ -6,7 +8,7 @@ around London.
 
 ![image](../images/tutorials/imageProcessing/image1.png)
 
-# Get Started
+## Get Started
 
 To get started make sure you have a Quix account: signup for a
 completely free account at <https://quix.io/>
@@ -33,37 +35,37 @@ help in [The
 Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g),
 our free Slack community.
 
-## Library
+### Library
 
 Most of the code you need has already been written for you and it’s
 located in our library. We’ll be referring to the library often so make
 sure you know where it is: the left hand side menu bar.
 
-## Pipeline Services
+### Pipeline Services
 
 There are 5 stages to the processing pipeline you are about to build.
 
-### Video Feeds
+#### Video Feeds
 
   - TfL Camera feed or “Jam Cams”
 
   - Webcam image capture
 
-### Pre Processing
+#### Pre Processing
 
   - Frame extraction
 
   - Decoding
 
-### Object Detection
+#### Object Detection
 
   - Detect objects within images
 
-### Stream Merge
+#### Stream Merge
 
   - Merge images from all of the individual TfL cameras into one stream
 
-### Web UI
+#### Web UI
 
   - A simple UI showing:
     
@@ -71,12 +73,12 @@ There are 5 stages to the processing pipeline you are about to build.
     
       - Map with count of objects at each cameras location
 
-# Built It
+## Built It
 
 Now you know which components will be needed in the image processing
 pipeline, let’s create and deploy each service.
 
-## 1\. Video Feeds
+### 1\. Video Feeds
 
 Follow these steps to deploy the traffic camera feed service.
 
@@ -130,7 +132,7 @@ Follow these steps to deploy the webcam service.
 
 	Your browser may prompt you to allow access to your webcam.
 
-## 2\. Pre Processing
+### 2\. Pre Processing
 
 Follow these steps to deploy the frame extraction service.
 
@@ -155,7 +157,7 @@ Follow these steps to deploy the decoder service.
 > This service receives data from the “image-base64” topic and streams
 > data to the “image-raw” topic.
 
-## 3\. Computer Vision
+### 3\. Computer Vision
 
 Follow these steps to deploy the object detection service.
 
@@ -169,7 +171,7 @@ Follow these steps to deploy the object detection service.
 > This service receives data from the “image-raw” topic and streams data
 > to the “image-processed” topic.
 
-## 4\. Stream Merge
+### 4\. Stream Merge
 
 Follow these steps to deploy the object detection service.
 
@@ -182,7 +184,7 @@ Follow these steps to deploy the object detection service.
 > This service receives data from the “image-processed” topic and
 > streams data to the “image-processed-merged” topic.
 
-## 5\. Web UI
+### 5\. Web UI
 
 Follow these steps to deploy the object detection service.
 
@@ -258,7 +260,7 @@ This ensures the service runs continuously
 
 ![image](../images/tutorials/imageProcessing/image4.png)
 
-# Next Steps
+## Next Steps
 
 You’ve just made extensive use of the Quix library, our collection of
 open source connectors, samples and examples. Now you can build your own
@@ -273,7 +275,7 @@ If you need any assistance, we’re here to help in [The
 Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g),
 our free Slack community.
 
-# That’s all folks\!
+## That’s all folks\!
 
 We hope you enjoyed this tutorial on how to deploy a real time image
 processing pipeline in just a few minutes.

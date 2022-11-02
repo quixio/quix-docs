@@ -1,3 +1,5 @@
+# Writing data
+
 You write data to Quix using streams in your topic. The Quix SDK allows
 you to create new streams, append data to existing streams, organize
 streams in folders, and add context data to the streams.
@@ -11,7 +13,7 @@ Quix SDK.
 
 	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
-# Connect to Quix
+## Connect to Quix
 
 In order to start writing data to Quix you need an instance of the Quix
 client, `QuixStreamingClient`. This is the central point where you
@@ -39,7 +41,7 @@ constructor of the SDK.
 You can find more advanced information on how to connect to Quix in the
 [Connect to Quix](connect.md) section.
 
-# Open a topic
+## Open a topic
 
 Topics are the default environment for input/output real-time operations
 on Quix.
@@ -65,7 +67,7 @@ client’s `open_output_topic` method, passing the `TOPIC_ID` or the
 
 
 
-# Create / Attach to a Stream
+## Create / Attach to a Stream
 
 [Streams](./features/streaming-context.md) are the central context of
 data in Quix. Streams make easy to manage, discover, and work with your
@@ -112,7 +114,7 @@ method to append or update data of an existing stream.
 
 
 
-## Stream Properties
+### Stream Properties
 
 As an option, you can add context to your streams by adding a name, some
 metadata, or a default location.
@@ -142,7 +144,7 @@ the generated `stream` instance.
 
 
 
-## Stream Name
+### Stream Name
 
 The stream name is the display name of your stream in the platform. If
 you specify one, Quix will use it instead of the Stream Id to represent
@@ -171,7 +173,7 @@ workspace:
 
 ![hierarchy](images/NameProperty.png)
 
-## Stream Location
+### Stream Location
 
 The stream location property defines a default folder for the stream in
 the folder structure of your Persisted steams.
@@ -201,7 +203,7 @@ Would result in this hierarchy:
 Any streams sent without a location property will be located under the
 "Root" level by default.
 
-# Close a Stream
+## Close a Stream
 
 Streams can be left open 24/7 if you aren’t sure when the next data will
 arrive, but they can and should be closed when you know that you have
@@ -246,7 +248,7 @@ The StreamEndType can be one of:
 
 Possible end types
 
-# Writing Parameter Data
+## Writing Parameter Data
 
 You can now start writing data to your stream.
 [ParameterData](##_parameter_data_format) is the formal class in the SDK
@@ -259,7 +261,7 @@ time basis and with a fixed number of Parameters.
 
 	If your data source generates data at irregular time intervals and you don’t have a defined list of regular Parameters, the [EventData](##_event_data_format) format is probably a better fit for your time-series data.
 
-## Parameter Data format
+### Parameter Data format
 
 [ParameterData](##_parameter_data_format) is the formal class in the SDK
 which represents a time series data packet in memory.
@@ -391,7 +393,7 @@ one of each to the same timestamp:
 
 
 
-## Timestamps
+### Timestamps
 
 The Quix SDK supports common date and time formats for timestamps when
 adding data to a stream.
@@ -440,7 +442,7 @@ These are all the common helper functions:
 
 
 
-### Epoch
+#### Epoch
 
 There is a stream property called `Epoch` (set to 0 by default) that is
 added to every timestamp (except for datetime formats) when it’s added
@@ -522,7 +524,7 @@ Or we can add a timestamp 1000ms from the epoch *"Today"*:
 
 
 
-## Buffer
+### Buffer
 
 The Quix SDK provides a built in `Buffer` to help you achieve high
 performance data streaming without the complexity of managing underlying
@@ -686,7 +688,7 @@ release a new packet of data and that data is cleared from the buffer:
 
 
 
-### Examples
+#### Examples
 
 This buffer configuration will send data every 100ms or, if no data is
 buffered in the 1 second timout period, it will flush and empty the
@@ -731,7 +733,7 @@ critical data arrives.
 
 
 
-## Parameter Definitions
+### Parameter Definitions
 
 The Quix SDK allows you to define metadata for parameters and events, to
 describe them. You can define things like human readable names,
@@ -878,7 +880,7 @@ dialogue:
 
 ![parameterlocation](images/parameterlocationexample.png)
 
-## Using Data Frames
+### Using Data Frames
 
 If you use the Python version of the SDK you can use [Pandas
 DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe)
@@ -935,7 +937,7 @@ stream.parameters.buffer.write(data)
 
 	The conversions from Pandas DataFrames to [ParameterData](##_parameter_data_format) have an intrinsic cost overhead. For high-performance models using Pandas DataFrames, you probably want to directly use Pandas DataFrames methods provided by the SDK that are optimized for doing as few conversions as possible.
 
-# Writing Events
+## Writing Events
 
 EventData is the formal class in the SDK which represents an Event data
 packet in memory. EventData is meant to be used for time series data
@@ -951,7 +953,7 @@ Writing Events to a stream is identical to writing
 need to use buffering features because events don’t need high
 performance throughput.
 
-## Event Data format
+### Event Data format
 
 EventData consists of a record with a Timestamp, an EventId and an
 EventValue.
@@ -1060,7 +1062,7 @@ explicit EventData instances:
 
 
 
-## Event Definitions
+### Event Definitions
 
 As with parameters, you can attach `Definitions` to each event.
 
@@ -1093,7 +1095,7 @@ Severity level for the `EventA`:
 
 
 
-# Tags
+## Tags
 
 The Quix SDK allows you to tag data for ParameterData and EventData
 packets. Using tags alongside parameters and events helps when indexing
@@ -1250,7 +1252,7 @@ massive number of different values for the specified tag, Speed.
 
 
 
-# Minimal example
+## Minimal example
 
 This is a minimal code example you can use to write data to a topic
 using the Quix SDK.
@@ -1332,7 +1334,7 @@ using the Quix SDK.
 
 
 
-# Write raw kafka messages
+## Write raw kafka messages
 
 The Quix SDK uses the message brokers' internal protocol for data
 transmission. This protocol is both data and speed optimized so we do

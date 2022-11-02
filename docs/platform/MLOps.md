@@ -1,3 +1,5 @@
+## MLOPs
+
 There are a number of barriers that prevent companies from successfully
 implementing data and ML projects. It’s generally considered to be
 significantly harder than implementing software projects due to the
@@ -12,17 +14,17 @@ Solving these challenges is a new field of expertise called
 We are working to incorporate MLOps into Quix so that your data team has
 a seamless journey from concept to production. The key steps are:
 
-# Discover and access data
+## Discover and access data
 
 Any member of any team can quickly access data in the Catalogue without
 support from software or regulatory teams.
 
-# Develop features in historic data
+## Develop features in historic data
 
 Use Visualise to discover, segment, label and store significant features
 in the catalogue.
 
-# Build & train models on historic data
+## Build & train models on historic data
 
 Use Develop and Deploy to:
 
@@ -34,12 +36,12 @@ Use Develop and Deploy to:
 
   - Rapidly iterate models with GIT version control.
 
-# Test models on live data
+## Test models on live data
 
 Connect models to live input topics to test them against live data
 sources. Review the results in Visualise.
 
-# Build a production pipeline
+## Build a production pipeline
 
 Use Develop and Deploy to:
 
@@ -49,12 +51,12 @@ Use Develop and Deploy to:
 
   - Work seamlessly with engineers to hook-up software services.
 
-# Deploy production models
+## Deploy production models
 
 With one click, data engineers can deploy their Python models to
 production without support from software engineering or DevOps teams.
 
-# Monitor production models
+## Monitor production models
 
 Data teams can:
 

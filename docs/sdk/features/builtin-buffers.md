@@ -1,3 +1,5 @@
+# Built-in buffers
+
 If you’re sending data at a high frequency, processing time-series
 without any buffering involved can be very costly. With smaller
 messages, data compression cannot be implemented as efficiently. The
