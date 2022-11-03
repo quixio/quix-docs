@@ -73,7 +73,7 @@ Click "Deploy"
 
 !!! note
 
-	Find out more about the hugging face model and the other models you could use at [huggingface.co^](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)
+	Find out more about the hugging face model and the other models you could use at [huggingface.co](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english){target=_blank}
 
 ![image](../images/tutorials/nocode-sentiment/image4.png)
 
@@ -118,4 +118,4 @@ Expand the "demodata" database and then find the tables under "public".
 
 !!! tip
 
-	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream^](https://quix.ai/slack-invite), our slack community.
+	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream](https://quix.ai/slack-invite){target=_blank}, our slack community.

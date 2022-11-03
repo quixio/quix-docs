@@ -26,7 +26,7 @@ using yet.
 
 !!! tip
 
-	If you don’t have a Quix account yet, go [here,window=\_blank](https:quix.io/signup/) and create one.
+	If you don’t have a Quix account yet, go [here](https://quix.io/signup/){target=_blank} and create one.
 
 ## Overview
 
@@ -50,8 +50,7 @@ This walkthrough covers the following steps:
 
 Let’s create a free coinAPI account:
 
-1.  Go to [https://www.coinapi.io/,
-    window=\_blank](https://www.coinapi.io/).
+1.  Go to [https://www.coinapi.io/](https://www.coinapi.io/){target=_blank}.
 
 2.  Click the "Get a free API key" button and complete the dialog to
     create a free account.
@@ -67,8 +66,7 @@ Let’s create a free coinAPI account:
 
 Let’s create a free Twilio account:
 
-1.  Go to [https://www.twilio.com/,
-    window=\_blank](https://www.twilio.com/).
+1.  Go to [https://www.twilio.com/](https://www.twilio.com/){target=_blank}.
 
 2.  Click the "Sign Up" button and complete the dialog. Do the email and
     text message verifications.
@@ -83,7 +81,7 @@ Let’s create a free Twilio account:
     
     !!! tip
     
-		Complete step 3 following our short 2 min video [here, window=\_blank](https://youtu.be/VY8cR19dF5s).
+		Complete step 3 following our short 2 min video [here](https://youtu.be/VY8cR19dF5s){target=_blank}.
     
     Remember to gather your IDS and keep them safe for later: the
     Messaging Service SID in the Properties section and the Account SID
@@ -255,4 +253,4 @@ possibilities.
 
 !!! tip
 
-If you run into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream, window=\_blank](https://quix.ai/slack-invite). Come and say hi.
+If you run into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream](https://quix.ai/slack-invite){target=_blank}. Come and say hi.

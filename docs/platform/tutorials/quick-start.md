@@ -132,9 +132,8 @@ and use Quix in your own projects.
 
 **Additional resources**
 
-  - [The Stream community on Slack](https://quix.ai/slack-invite)
+  - [The Stream community on Slack](https://quix.ai/slack-invite){target=_blank}
 
-  - [Stream processing
-    glossary](https://quix.ai/stream-processing-glossary/)
+  - [Stream processing glossary](https://quix.ai/stream-processing-glossary/){target=_blank}
 
   - [Developer docs main navigation](../landing-page.md)

@@ -15,30 +15,20 @@ analysis so much easier.
 You’ll need some data stored in the Quix platform. You can use any of
 our Data Sources available in the samples Library, or just follow the
 onboarding process when you [sign-up to
-Quix,window=\_blank](https://portal.platform.quix.ai/self-sign-up?xlink=docs).
+Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank}.
 
 You will also need Python 3 environment set up in your local
 environment.
 
-### Install required libraries
-
-``` shell
-python3 -m pip install jupyter
-python3 -m pip install requests
-python3 -m pip install pandas
-```
-
-### Run Jupyter notebook server
-
-``` shell
-jupyter-notebook
-```
+Install Jupyter notebooks as directed [here](https://docs.jupyter.org/en/latest/install/notebook-classic.html){target=_blank}.
 
 ### Create a new notebook file
 
-Run jupyter with the following command:
+You can now run jupyter from the Windows start menu or with the following command in an Anaconda Powershell Prompt, or the equivalent for your operating system.
 
-\`\`\` jupyter notebook \`\`\`
+``` shell
+jupyter notebook
+```
 
 Then create a new Python3 notebook
 
@@ -46,26 +36,23 @@ Then create a new Python3 notebook
 
 ## Connecting Jupyter notebook to Data Catalogue
 
-The Quix web application has a python code generator to help you connect
-your Jupyter notebook with Quix.
+The Quix web application has a python code generator to help you connect your Jupyter notebook with Quix.
 
-1.  Go to the platform
+You need to be logged into the platform for this:
 
-2.  Select workspace
+1.  Select workspace (you likley only have one)
 
-3.  Go to the Data catalogue
+2.  Go to the Data Explorer
 
-4.  Select data to visualize
+3.  Add a query to visualize some data. Select parameters, events, aggregation and time range
 
-5.  Select parameters, events, aggregation and time range
+4.  Select the **Code** tab
 
-6.  Press **Connect** button
-
-7.  Select **Python** language
+5.  Ensure **Python** is the selected language
 
 ![how-to/jupyter-wb/connect-python.png](../images/how-to/jupyter-wb/connect-python.png)
 
-Copy Python code to your Jupyter notebook and execute.
+Copy the Python code to your Jupyter notebook and execute.
 
 ![how-to/jupyter-wb/jupyter-results.png](../images/how-to/jupyter-wb/jupyter-results.png)
 

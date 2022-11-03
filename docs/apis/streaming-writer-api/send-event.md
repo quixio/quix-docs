@@ -17,13 +17,17 @@ future reference.
 To send event data to a stream, use the `POST` method with this
 endpoint:
 
-    /topics/${topicName}/streams/${streamId}/events/data
+```
+/topics/${topicName}/streams/${streamId}/events/data
+```
 
-You should replace `$\{topicName}` with the name of the topic your
-stream belongs to, and `$\{streamId}` with the id of the stream you wish
+You should replace `${topicName}` with the name of the topic your
+stream belongs to, and `${streamId}` with the id of the stream you wish
 to send data to. For example:
 
-/topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/events/data\</programlisting\>
+```
+/topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/events/data
+```
 
 !!! tip
 	
@@ -52,7 +56,7 @@ information.
 
 
 
-  - curl
+=== "curl"
     
     ``` shell
     curl -i "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/events/data" \
@@ -68,7 +72,7 @@ information.
          }]'
     ```
 
-  - Node.js
+=== "Node.js"
     
     ``` javascript
     const https = require('https');
@@ -109,7 +113,6 @@ response code indicating what went wrong.
 ## Using SignalR
 
 ``` javascript
-// Also available as JsFiddle at https://jsfiddle.net/QuixAI/h4fztrns/
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
 const workspaceId = "YOUR_WORKSPACE_ID"
@@ -146,3 +149,5 @@ connection.start().then(async () => {
     console.log("Sent event data");
 });
 ```
+!!! tip 
+	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/h4fztrns/](https://jsfiddle.net/QuixAI/h4fztrns/){target=_blank}

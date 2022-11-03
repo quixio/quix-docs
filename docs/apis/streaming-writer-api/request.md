@@ -6,7 +6,7 @@ expectations that is common across all clients.
 
 !!! tip
 
-	The examples in this section show how to use the popular [`curl`](https://curl.se/) command line tool.
+	The examples in this section show how to use the popular [`curl`](https://curl.se/){target=_blank} command line tool.
 
 ## Before you begin
 
@@ -23,11 +23,11 @@ names. See the [Swagger
 documentation](get-swagger.md) to find out how
 to get the exact hostname required. It will be in this format:
 
-https://writer-${organisation}-${workspace}.platform.quix.ai/\</programlisting\>
+https://writer-${organisation}-${workspace}.platform.quix.ai
 
 So your final endpoint URL will look something like:
 
-https://writer-acme-weather.platform.quix.ai/\</programlisting\>
+https://writer-acme-weather.platform.quix.ai/
 
 ## Method
 

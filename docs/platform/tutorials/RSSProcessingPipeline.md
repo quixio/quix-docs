@@ -4,8 +4,7 @@
 
 This tutorial explains how to build a pipeline that gathers and
 processes data from an RSS feed and alerts users when specific criteria
-are met. It’s a companion to a [live coding
-session,window=\_blank](https://www.youtube.com/watch?v=X9swwr0Rjx4&t=1s)
+are met. It’s a companion to a [live coding session](https://www.youtube.com/watch?v=X9swwr0Rjx4&t=1s){target=_blank}
 on YouTube, where we sourced data from a StackOverflow RSS feed for use
 in a Python service.
 
@@ -19,12 +18,10 @@ This tutorial has three parts
 
 What you need
 
-  - A free [Quix account,window=\_blank](https://quix.io/signup). It
+  - A free [Quix account](https://quix.io/signup){target=_blank}. It
     comes with enough credits to create this project.
 
-  - A Slack account with access to create a webhook. ([This
-    guide,window=\_blank](https://api.slack.com/messaging/webhooks) can
-    help you with this step.)
+  - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
 
 ### Sourcing data
 
@@ -43,7 +40,7 @@ has a blue line across its top that indicates it’s a source connector.)
 
 In the configuration panel, keep the default name and output topic.
 Enter the following URL into the rss\_url field:
-[https://stackoverflow.com/feeds/tag/python,window=\_blank](https://stackoverflow.com/feeds/tag/python)
+[https://stackoverflow.com/feeds/tag/python](https://stackoverflow.com/feeds/tag/python){target=_blank}
 
 Click “Deploy” and wait a few seconds for the pre-built connector to be
 deployed to your workspace.
@@ -105,7 +102,7 @@ as the input topic and provide a Slack “webhook\_url.”
 
 !!! note
 
-	If you have your own slack, head over to the [Slack API pages,window=\_blank](https://api.slack.com/messaging/webhooks) and create a webhook following their guide “Getting started with Incoming Webhooks.” If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the library, such as Twilio.
+	If you have your own slack, head over to the [Slack API pages](https://api.slack.com/messaging/webhooks){target=_blank} and create a webhook following their guide “Getting started with Incoming Webhooks.” If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the library, such as Twilio.
 
 Warning: Use a dev or demo or unimportant Slack channel while you’re
 developing this. Trust me.
@@ -121,7 +118,7 @@ the parameter data and event data to the Slack channel. It’ll do to get
 you up and going, but we want something more refined. 😉
 
 Go to our GitHub library of tutorial code
-[here,window=\_blank](https://github.com/quixai/tutorial-code/blob/main/RSS/Slack-Notification-Destination/quix_function.py).
+[here](https://github.com/quixai/tutorial-code/blob/main/RSS/Slack-Notification-Destination/quix_function.py){target=_blank}.
 The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
@@ -149,5 +146,4 @@ haven’t lost all those precious live messages.
 
 If you run into trouble with the tutorial, want to chat with us about
 your project or anything else associated with streaming processing you
-can join our public Slack community called [The
-Stream,window=\_blank](https://quix.ai/slack-invite).
+can join our public Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank}.

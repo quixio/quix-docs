@@ -127,7 +127,6 @@ look something like this:
 ## Using SignalR
 
 ``` javascript
-// Also available as JsFiddle at https://jsfiddle.net/QuixAI/cLno68fs/
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
 const workspaceId = "YOUR_WORKSPACE_ID"
@@ -161,3 +160,6 @@ connection.start().then(async () => {
     console.log("Created stream " + streamId);
 });
 ```
+
+!!! tip 
+	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/cLno68fs/](https://jsfiddle.net/QuixAI/cLno68fs/){target=_blank}
