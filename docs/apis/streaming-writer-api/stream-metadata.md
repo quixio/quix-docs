@@ -101,7 +101,6 @@ code if you forget to specify the correct `PUT` method.
 ## Using SignalR
 
 ``` javascript
-// Also available as JsFiddle at https://jsfiddle.net/QuixAI/ruywnz28/
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
 const workspaceId = "YOUR_WORKSPACE_ID"
@@ -135,3 +134,5 @@ connection.start().then(async () => {
     console.log("Updated stream");
 });
 ```
+!!! tip 
+	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/ruywnz28/](https://jsfiddle.net/QuixAI/ruywnz28/){target=_blank}

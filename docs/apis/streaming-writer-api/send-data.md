@@ -20,13 +20,17 @@ timestamps.
 Send a POST request together with a JSON payload representing the data
 you’re sending to:
 
-/topics/${topicName}/streams/${streamId}/parameters/data\</programlisting\>
+```
+/topics/${topicName}/streams/${streamId}/parameters/data
+```
 
 You should replace `$\{topicName}` with the name of the topic your
 stream belongs to, and `$\{streamId}` with the id of the stream you wish
 to send data to. For example:
 
-/topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/parameters/data\</programlisting\>
+```
+/topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/parameters/data
+```
 
 !!! tip
 
@@ -55,7 +59,7 @@ curl might look something like this:
 
 
 
-  - curl
+=== "curl"
     
     ``` bash
     curl -X POST "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/parameters/data" \
@@ -70,7 +74,7 @@ curl might look something like this:
             }'
     ```
 
-  - Node.js
+=== "Node.js"
     
     ``` javascript
     const https = require('https');
@@ -110,7 +114,6 @@ response code indicating what went wrong.
 ## Using SignalR
 
 ``` javascript
-// Also available as JsFiddle at https://jsfiddle.net/QuixAI/a41b8x0t/
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
 const workspaceId = "YOUR_WORKSPACE_ID"
@@ -173,3 +176,5 @@ connection.start().then(async () => {
     console.log("Sent parameter data");
 });
 ```
+!!! tip 
+	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/a41b8x0t/](https://jsfiddle.net/QuixAI/a41b8x0t/){target=_blank}

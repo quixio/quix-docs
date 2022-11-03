@@ -5,7 +5,7 @@ The Quix SignalR hub provides the following subscriptions and events.
 ## Subscriptions
 
 You can subscribe to the following hub methods via [the `invoke`
-method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke)
+method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke){target=_blank}
 of a `HubConnection`:
 
   - `SubscribeToParameter(topicName, streamId, parameterId)`: Subscribe
@@ -61,9 +61,7 @@ need the subscriptions anymore to avoid receiving data unnecessarily:
 
 ## SignalR events
 
-You can register a handler for SignalR events using [the `on`
-method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#on)
-of a `HubConnection`. The following events are available:
+You can register a handler for SignalR events using [the `on` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#on){target=_blank} of a `HubConnection`. The following events are available:
 
   - `ParameterDataReceived(parameterData)`
 

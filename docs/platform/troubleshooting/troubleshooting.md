@@ -26,10 +26,10 @@ have used the wrong credentials or it could be that you have specified
 the wrong Topic Id.
 
 Authentication failed during authentication due to invalid credentials
-with SASL mechanism SCRAM-SHA-256\</programlisting\> Exception receiving
-package from Kafka\</programlisting\> 3/3 brokers are
-down\</programlisting\> Broker: Topic authorization
-failed\</programlisting\>
+with SASL mechanism SCRAM-SHA-256 Exception receiving
+package from Kafka 3/3 brokers are
+down Broker: Topic authorization
+failed
 
 Check very carefully each of the details.
 
@@ -49,7 +49,7 @@ SecurityOptions.
 
 Also check the broker address list. You should have these by default:
 
-kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093\</programlisting\>
+kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093
 
 ## 401 Error
 
@@ -60,7 +60,7 @@ generate a new bearer token.
 Example of the error received when trying to connect to the Streaming
 Reader API with an expired bearer token
 
-signalrcore.hub.errors.UnAuthorizedHubError\</programlisting\>
+signalrcore.hub.errors.UnAuthorizedHubError
 
 The API’s that require a valid bearer token are:
 

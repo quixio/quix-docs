@@ -9,7 +9,7 @@ companies give-up on their projects before they’ve begun to see the
 value of the technologies.
 
 Solving these challenges is a new field of expertise called
-[MLOps^](https://en.wikipedia.org/wiki/MLOps)
+[MLOps](https://en.wikipedia.org/wiki/MLOps){target=_blank}
 
 We are working to incorporate MLOps into Quix so that your data team has
 a seamless journey from concept to production. The key steps are:

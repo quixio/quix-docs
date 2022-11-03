@@ -2,7 +2,7 @@
 
 You can access documentation and a basic playground for the [Streaming
 Writer API](intro.md) via
-[Swagger](https://swagger.io/). The exact URL is workspace-specific, and
+[Swagger](https://swagger.io/){target=_blank}. The exact URL is workspace-specific, and
 follows this pattern:
 
     https://writer-${organisation}-${workspace}.platform.quix.ai/

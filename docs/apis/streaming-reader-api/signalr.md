@@ -13,7 +13,7 @@ If you are using a package manager like [npm](https://www.npmjs.com/),
 you can install SignalR using `npm install @microsoft/signalr`. For
 other installation options that don’t depend on a platform like Node.js,
 such as consuming SignalR from a CDN, please refer to [SignalR
-documentation](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1).
+documentation](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1){target=_blank}.
 
 ## Testing the connection
 
