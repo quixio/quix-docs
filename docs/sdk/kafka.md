@@ -133,7 +133,7 @@ by:
 
 Topics automatically scale. We have designed the underlying
 infrastructure to automatically stream any amount of data from any
-number of sources. With Quux you can connect one source - like a car,
+number of sources. With Quix you can connect one source - like a car,
 wearable or web app - to do R\&D, then scale your solution to millions
 of cars, wearables or apps in production, all on the same topic.
 
