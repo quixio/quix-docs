@@ -44,20 +44,20 @@ sure you know where it is.
 
 There are 4 stages to the pipeline you will build in this tutorial.
 
-### Twitter Data Source
+### 1. Twitter Data Source
 
 Our Twitter connector, pre-built to save you time.
 
-### Twitter to chat
+### 2. Twitter to chat
 
 Convert Twitter text to chat messages, so they can be used alongside
 manually entered chat messages.
 
-### Sentiment analysis
+### 3. Sentiment analysis
 
 Do the real work of analyzing chat and tweet sentiment.
 
-### Web UI
+### 4. Web UI
 
 A web UI allowing you to enter and see messages as well as see the
 sentiment changes in real time.
@@ -67,7 +67,7 @@ sentiment changes in real time.
 This guide will show you how to deploy each stage of the processing
 pipeline, starting with the Web UI.
 
-### 1\. Web UI
+### 1. Web UI
 
 Follow these steps to deploy the Web UI.
 
@@ -113,7 +113,7 @@ Follow these steps to deploy the Web UI.
 
 		<img src="../../images/tutorials/sentiment-analysis-media/image3.png" width="550px" class="image-center">
 
-### 2\. Sentiment analysis
+### 2. Sentiment analysis
 
 Follow these steps to deploy the sentiment analysis stage.
 
@@ -175,7 +175,7 @@ Follow these steps to deploy the sentiment analysis stage.
 	!!! info
 		The messages will be passed to the sentiment analysis service you deployed in step two. The sentiment is returned to the Web UI and displayed both in the chart and next to the comment in the chat window by colorizing the chat user’s name.
 
-### 3\. Tweet to chat conversion
+### 3. Tweet to chat conversion
 
 Follow these steps to deploy the tweet-to-chat conversion stage.
 
@@ -261,7 +261,7 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
 	
 		You now have a service that is ready to receive tweets and pass them onto the sentiment processing stage.
 
-### 4\. Twitter Data Source
+### 4. Twitter Data Source
 
 Follow these steps to deploy the Web UI.
 
