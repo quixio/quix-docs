@@ -22,7 +22,7 @@ You’ll need to complete the [How to train ML model](train-ml-model.md) article
 
 ## Run the model
 
-Now let's run th emodel you created in the previous article. If you have your own model and already know how to run the Python to execute it then these steps might also be useful for you.
+Now let's run the model you created in the previous article. If you have your own model and already know how to run the Python to execute it then these steps might also be useful for you.
 
 Ensure you are logged into the Quix Portal
 
@@ -132,11 +132,9 @@ Now you need to upload the ML model created in the previous article and edit thi
 
         # if no speed column, skip this record        
         if not "Speed" in df.columns:
-            print("No speed")
             return df
             
         output_df = pd.DataFrame()
-        output_df["time"] = df["time"]
 
         # Preprocessing
         df = self.preprocess(df)
@@ -147,6 +145,13 @@ Now you need to upload the ML model created in the previous article and edit thi
         # Lets shift data into the future by 5 seconds. (Note that time column is in nanoseconds).
         output_df["time"] = df["time"].apply(lambda x: int(x) + int((5 * 1000 * 1000 * 1000)))
         output_df["brake-prediction"] = self.model.predict(X)
+		
+        print("Prediction")
+        print(output_df["brake-prediction"])		
+
+		# Merge the original brake value into the output data frame
+        output_df = pd.concat([df[["time", "Brake"]], output_df]).sort_values("time", ascending=True)
+
 
         self.output_stream.parameters.buffer.write(output_df)  # Send filtered data to output topic
 	```
@@ -167,17 +172,17 @@ The fastest way to run the code is to click Run in the top right hand corner.
 
 This will install any dependencies into a sandboxed environment and then run the code.
 
-You won't see much in the console output, you can add more logging if you want to.
+In the output console you will see the result of the prediction.
 
 In the next few steps you will deploy the code and then see a visualization of the output.
 
 ## Deploy
 
-Click Stop if you haven't already done so.
+1. Click Stop if you haven't already done so.
 
-To deploy the code, click Deploy.
+2. To deploy the code, click Deploy.
 
-On the dialog that appears click Deploy.
+3. On the dialog that appears click Deploy.
 
 Once the code has been built, deployed it will be started automatically.
 
@@ -197,10 +202,18 @@ To see the output of your model in real time you will use the Data explorer.
 
 4. Select a stream (you should only have one)
 
-5. Select `brake-prediction` from the parameters list
+5. Select `brake-prediction` and `brake` from the parameters list
 
 !!! success 
 
-	You should now see a graphical output for the prediction being output by the model
+	You should now see a graphical output for the prediction being output by the model as well as the actual brake value
+
+	![](../../images/how-to/train-ml/visualize-result.png)
+
+!!! note
+
+	Don't forget this exercise was to deploy an ML model in the Quix platform. 
+	
+	We didn't promise to train a good model. So the prediciton may not always match the actual brake value.
 
 
