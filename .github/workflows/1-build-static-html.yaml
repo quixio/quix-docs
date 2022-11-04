@@ -10,12 +10,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'dev'
-    paths:
-      - '**.md'
-    # Only trigger automatically when certain tags are added
-    #tags:
-    #- v1.**
+      - 'main'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
