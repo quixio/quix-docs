@@ -1,2 +1,2 @@
 # quix-docs
-Quix Documentation
+Quix User Documentation
