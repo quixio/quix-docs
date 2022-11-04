@@ -8,14 +8,23 @@ around London.
 
 ![image](../images/tutorials/imageProcessing/image1.png)
 
+## Watch It
+
+If you'd rather watch our live stream, where we run through this tutorial, see it here:
+
+<div class="video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Wi-U0Wg3Jf0?start=188" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## Get Started
 
 To get started make sure you have a Quix account: signup for a
 completely free account at <https://quix.io/>
 
 You’ll also need a free TfL account which you can register for here:
-<https://api-portal.tfl.gov.uk/> A rough guide to finding your TfL API
-key is as follows:
+<https://api-portal.tfl.gov.uk/> 
+
+A rough guide to finding your TfL API key is as follows:
 
   - Register for an account.
 
