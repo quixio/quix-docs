@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Mkdocs site to GitHub Pages
-name: Deploy Mkdocs site to Pages
+name: Sync with Dev and Deploy Mkdocs site to Pages
 
 on:
   # Runs on pushes targeting the default branch
