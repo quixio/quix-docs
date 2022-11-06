@@ -11,6 +11,11 @@ on:
   push:
     branches:
       - 'dev'
+    paths:
+      - '**.md'
+    # Only trigger automatically when certain tags are added
+    #tags:
+    #- v1.**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
