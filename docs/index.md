@@ -1,4 +1,4 @@
-# Welcome to the Quix Documentation Portal
+# Quix Documentation Portal
 
 ## Tutorials
  
