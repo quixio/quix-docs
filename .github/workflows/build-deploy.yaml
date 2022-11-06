@@ -4,6 +4,9 @@ name: Build Mkdocs site and Deploy to GH Pages
 on:
   pull_request:
     types: [opened, reopened]
+  push:
+    branches:
+      - 'dev'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
