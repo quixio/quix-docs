@@ -1,3 +1,4 @@
+# Adding Workflow to Branch
 name: Sync with Quix Docs Dev
 on:
   workflow_dispatch:   # run manually
@@ -5,7 +6,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
       with:
         fetch-depth: 10  # greater than the number of commits you made
     - uses: imba-tjd/rebase-upstream-action@master
