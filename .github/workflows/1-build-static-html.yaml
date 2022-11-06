@@ -48,10 +48,14 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
     - run: pip install mkdocs-material
-    - run: mkdocs build --site-dir ./site/${{ env.SITE_DIR }}
+    - name: Build
+      uses: Tiryoh/actions-mkdocs@v0
+      with:
+        mkdocs_version: 'latest'
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site/19
+        destination_dir: ${{ env.SITE_DIR }}
+        publish_dir: ./site
         keep_files: true
