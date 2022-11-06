@@ -1,4 +1,4 @@
-name: Build Static Doc Files
+name: Build and Commit to Subdir
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
