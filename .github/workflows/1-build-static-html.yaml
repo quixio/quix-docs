@@ -5,7 +5,7 @@ name: Build Static Doc Files
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 env:
-  SITE_DIR: $GITHUB_REF_NAME
+  SITE_DIR: ${{ github.ref_name }}
 # on: push
 on:
   workflow_dispatch:
