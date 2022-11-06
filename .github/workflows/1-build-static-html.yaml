@@ -62,10 +62,11 @@ jobs:
       working-directory: ./dev
       run: mkdocs build --no-directory-urls
       
-    - name: Add NoJekyll file
-      run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
     - name: Copy the built docs to a subdir
       run: cp -R ./dev/site ./gh-pages-temp/${{ env.SITE_DIR }}
+      
+    - name: Add NoJekyll file
+      run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
     - name: fix asset references
       working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
       run: find ./ -type f -name "*.html" -exec sed -i -e 's;<head>;<head><base href="https://quixai.github.io/quix-docs-dev">;g' {} \;
