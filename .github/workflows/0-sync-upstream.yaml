@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
       with:
-        path: main
+        ref: main
         fetch-depth: 10  # greater than the number of commits you made
     - uses: imba-tjd/rebase-upstream-action@master
       with:  # all args are optional
