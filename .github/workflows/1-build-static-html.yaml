@@ -13,6 +13,8 @@ on:
       - 'dev'
     paths:
       - '**.md'
+  pull_request:
+    types: [opened, reopened]
     # Only trigger automatically when certain tags are added
     #tags:
     #- v1.**
@@ -45,4 +47,10 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
     - run: pip install mkdocs-material
-    - run: mkdocs gh-deploy --force --clean --verbose
+    - run: mkdocs build --site-dir ./site/$GITHUB_REF_NAME
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site/$GITHUB_REF_NAME
+        keep_files: true
