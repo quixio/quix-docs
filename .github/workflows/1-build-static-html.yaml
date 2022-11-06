@@ -65,7 +65,7 @@ jobs:
       run: mkdocs build
       
     - name: Add NoJekyll file
-      run: cp ./gh-pages-temp/ gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
+      run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
     - name: Copy the built docs to a subdir
       run: cp -R ./dev/site ./gh-pages-temp/${{ env.SITE_DIR }}
 
