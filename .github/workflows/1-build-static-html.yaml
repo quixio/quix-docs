@@ -39,7 +39,8 @@ jobs:
     # Needed when using more than one repo
     # add 'monorepo' to mkdocs.yml file under plugins
     - run: pip install mkdocs-monorepo-plugin
-    - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+    # Commenting out material insiders install until get proper token back.
+    #- run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
