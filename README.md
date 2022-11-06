@@ -1,2 +1,4 @@
 # quix-docs
-Quix User Documentation Test1
+Quix User Documentation
+
+This is an introduction.
