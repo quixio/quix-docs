@@ -59,15 +59,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Install Mkdocs
         run: pip install mkdocs
+        
       - name: Install Material theme
         run: pip install mkdocs-material
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
+        
       - name: Build with Mkdocs
         run: mkdocs build
       - name: Upload artifact
