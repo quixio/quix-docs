@@ -64,7 +64,7 @@ jobs:
       
     - name: Empty the subdir
       working-directory: ./gh-pages-temp/
-      run: rm -r ${{ env.SITE_DIR }}
+      run: git rm -r ${{ env.SITE_DIR }}
       
     - name: Copy the built docs to a subdir
       run: cp -R ./dev/site ./gh-pages-temp/${{ env.SITE_DIR }}
