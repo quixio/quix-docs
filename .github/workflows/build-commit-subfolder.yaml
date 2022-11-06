@@ -71,8 +71,15 @@ jobs:
       
     - name: Add NoJekyll file
       run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
+      
     - name: fix asset references
-    #  working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
+      uses: jacobtomlinson/gha-find-replace@v2
+      with:
+        find: "(..base.: .)/"
+        replace: "$1/mysubsite"
+        include: "./gh-pages-temp/${{ env.SITE_DIR }}/**"
+        regex: true
+        #  working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
     #  run: find ./ -type f -name "*.html" -exec sed -i -e 's;{"base": "/";{"base": "/mysubsite";g' {} \;
     #- name: fix stylesheet references
     #  run: find ./ -type f -name "*.html" -exec sed -i -e 's/="\/assets/="\.\.\/assets/g' {} \;
