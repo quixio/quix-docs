@@ -48,10 +48,10 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
     - run: pip install mkdocs-material
-    - run: mkdocs build --site-dir ./site/{{ env.SITE_DIR }}
+    - run: mkdocs build --site-dir ./site/${{ env.SITE_DIR }}
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site/{{ env.SITE_DIR }}
+        publish_dir: ./site/${{ env.SITE_DIR }}
         keep_files: true
