@@ -57,5 +57,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         destination_dir: ${{ env.SITE_DIR }}
-        publish_dir: ./site
+        publish_dir: /github/workspace/site
         keep_files: true
