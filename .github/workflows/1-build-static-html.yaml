@@ -34,7 +34,7 @@ jobs:
     #- name: Send greeting
     #  run: echo "Hello ${{ github.event.inputs.name }}"
       
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: actions/setup-python@v2
       with:
         python-version: 3.x
@@ -48,10 +48,16 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
     - run: pip install mkdocs-material
-    - name: Build
-      uses: Tiryoh/actions-mkdocs@v0
+    - run: mkdocs build
+    - uses: actions/upload-artifact@v3
       with:
-        mkdocs_version: 'latest'
+        name: docs-output
+        path: ./site
+    - uses: actions/download-artifact@v3
+      with:
+        name: docs-output
+    - name: Display structure of downloaded files
+      run: ls -R
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
