@@ -75,8 +75,8 @@ jobs:
     - name: fix asset references
       uses: jacobtomlinson/gha-find-replace@v2
       with:
-        find: "(..base.: .)/"
-        replace: "$1/mysubsite"
+        find: "assets/"
+        replace: "https://quixai.github.io/quix-docs-dev/mysubsite/assets/"
         include: "./gh-pages-temp/${{ env.SITE_DIR }}/**"
         regex: true
         #  working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
