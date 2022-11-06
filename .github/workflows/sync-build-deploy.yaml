@@ -30,6 +30,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out main branch of Docs Prod repo
+        uses: actions/checkout@v3
+        with:
+         ref: main
+         fetch-depth: 20
+         
+      - name: Rebase upstream dev branch on to main branch of Docs Prod
+        uses: imba-tjd/rebase-upstream-action@master
+        with:  # all args are optional
+         upstream: quixai/quix-docs-dev
+         branch:   dev
+         
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
