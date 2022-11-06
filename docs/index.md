@@ -2,7 +2,7 @@
 
 ## Tutorials
  
-Use these practical guides to help you build data-driven apps and integrate Quix with external systems.
+Use these guides to learn how to build data-driven apps and integrate Quix with external systems.
 
 <div class="grid cards" markdown>
 
