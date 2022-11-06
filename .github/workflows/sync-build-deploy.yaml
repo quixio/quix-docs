@@ -1,0 +1,16 @@
+# Adding Workflow to Branch
+name: Sync with Quix Docs Dev
+on:
+  workflow_dispatch:   # run manually
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+       ref: main
+       fetch-depth: 10
+    - uses: imba-tjd/rebase-upstream-action@master
+      with:  # all args are optional
+       upstream: quixai/quix-docs-dev
+       branch:   dev
