@@ -4,7 +4,7 @@ name: Build and Commit to Subdir
 # or API.
 env:
   #SITE_DIR: ${{ github.ref_name }}
-  SITE_DIR: mysubsite
+  SITE_DIR: subsite
 # on: push
 on:
   workflow_dispatch:
