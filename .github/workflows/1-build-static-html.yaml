@@ -62,12 +62,12 @@ jobs:
     - name: Build the Docs
       working-directory: ./dev
       run: mkdocs build
-    - name: Build the Docs
+    - name: Copy the built docs to a subdir
       run: cp -R ./dev/site ./gh-pages-temp/${{ env.SITE_DIR }}
     - name: Simple commit
       uses: zwaldowski/git-commit-action@v1
       with:
-        working-directory: ./gh-pages-temp
+        working_directory: ./gh-pages-temp
         commit_message: "Adding temporary docs build"
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
