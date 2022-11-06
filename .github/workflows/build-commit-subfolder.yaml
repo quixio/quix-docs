@@ -73,14 +73,14 @@ jobs:
       run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
       
     - name: fix asset references
-      uses: jacobtomlinson/gha-find-replace@v2
-      with:
-        find: "assets/"
-        replace: "https://quixai.github.io/quix-docs-dev/mysubsite/assets/"
-        include: "./gh-pages-temp/${{ env.SITE_DIR }}/**"
-        regex: true
-        #  working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
-    #  run: find ./ -type f -name "*.html" -exec sed -i -e 's;{"base": "/";{"base": "/mysubsite";g' {} \;
+      #uses: jacobtomlinson/gha-find-replace@v2
+      #with:
+      #  find: "assets/"
+      #  replace: "https://quixai.github.io/quix-docs-dev/mysubsite/assets/"
+      #  include: "./gh-pages-temp/${{ env.SITE_DIR }}/**"
+      #  regex: true
+      working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
+      run: find ./ -type f -name "*.html" -exec sed -i -e 's;assets/;https://quixai.github.io/quix-docs-dev/mysubsite/assets/";g' {} \;
     #- name: fix stylesheet references
     #  run: find ./ -type f -name "*.html" -exec sed -i -e 's/="\/assets/="\.\.\/assets/g' {} \;
     - name: Simple commit
