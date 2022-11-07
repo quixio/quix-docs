@@ -8,9 +8,16 @@ env:
 # on: push
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'main'
+  #push:
+  #  branches:
+  #    - 'dev'
+  #  paths:
+  #    - '**.md'
+  #pull_request:
+  #  types: [opened, reopened]
+    # Only trigger automatically when certain tags are added
+    #tags:
+    #- v1.**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
