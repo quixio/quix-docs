@@ -4,6 +4,10 @@ In this article, you will learn how to manage ML model training with
 Quix. In this example, we will train a model to predict car braking on a
 racing circuit 5 seconds ahead of time.
 
+## Watch
+If you prefer watching instead of reading, we've recorded a short video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8WMUfaMZtOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Why this is important
 
 With the Quix platform, you can leverage historic data to train your
