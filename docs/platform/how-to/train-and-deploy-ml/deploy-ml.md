@@ -5,6 +5,10 @@ historic data in a realtime environment.
 
 Ensure you have completed the previous stage first, if not find it [here](train-ml-model.md).
 
+## Watch
+If you prefer watching instead of reading, we've recorded a short video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8WMUfaMZtOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Why this is important
 
 With the Quix platform, you can run and deploy ML models to the leading
