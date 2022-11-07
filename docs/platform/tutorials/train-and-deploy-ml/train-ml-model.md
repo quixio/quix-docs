@@ -6,7 +6,7 @@ racing circuit 5 seconds ahead of time.
 
 ## Watch
 If you prefer watching instead of reading, we've recorded a short video:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8WMUfaMZtOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8h0jm0q_0PA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Why this is important
 
@@ -18,7 +18,7 @@ model to react to data coming from source with milliseconds latency.
 At the end of this article, we will end up with a **pickle file**
 trained on historic data.
 
-![how-to/train-ml/model-training.png](../../images/how-to/train-ml/model-training.png)
+![how-to/train-ml/model-training.png](../images/train.png)
 
 ## Preparation
 
@@ -151,7 +151,7 @@ plt.plot(df["Brake_bool"])
 plt.legend(['Shifted', 'Unshifted'])
 ```
 
-![how-to/train-ml/brake-shifted.png](../../images/how-to/train-ml/brake-shifted.png)
+![how-to/train-ml/brake-shifted.png](../images/brake-shifted.png)
 
 ### Fit, predict and score a model
 
@@ -258,7 +258,7 @@ ax2.plot(decision_tree.predict(X))
 ax2.plot(X["Speed"]/X["Speed"].max())
 ```
 
-![how-to/train-ml/prediction.png](../../images/how-to/train-ml/prediction.png)
+![how-to/train-ml/prediction.png](../images/prediction.png)
 
 ### Saving model
 
@@ -294,8 +294,8 @@ mlflow ui
 
 Select experiments to compare:
 
-![how-to/train-ml/experiments.png](../../images/how-to/train-ml/experiments.png)
+![how-to/train-ml/experiments.png](../images/experiments.png)
 
 Plot metrics from experiments:
 
-![how-to/train-ml/experiments-comparison.png](../../images/how-to/train-ml/experiments-comparison.png)
+![how-to/train-ml/experiments-comparison.png](../images/experiments-comparison.png)
