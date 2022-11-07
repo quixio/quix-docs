@@ -53,10 +53,12 @@ jobs:
       - name: Install Mkdocs Monorepo Plugin
         run: pip install mkdocs-monorepo-plugin
         
-      # Commenting out material insiders install until get proper token back.
+      # Install Material insiders theme
+      - name: Install Material insiders theme
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+        run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      
       - name: Install Mkdocs
         run: pip install mkdocs
         
