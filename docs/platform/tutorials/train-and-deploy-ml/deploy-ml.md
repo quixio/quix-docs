@@ -7,7 +7,7 @@ Ensure you have completed the previous stage first, if not find it [here](train-
 
 ## Watch
 If you prefer watching instead of reading, we've recorded a short video:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8WMUfaMZtOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8h0jm0q_0PA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Why this is important
 
@@ -18,7 +18,7 @@ edge reacting to data coming from the source with milliseconds latency.
 
 At the end of this article, we will end up with a **live model** using the **pickle file** from [How to train ML model](train-ml-model.md) to process live data on the edge.
 
-![how-to/train-ml/live-model.png](../../images/how-to/train-ml/live-model.png)
+![how-to/train-ml/live-model.png](../../images/how-to/train-ml/run-live.png)
 
 ## Preparation
 
