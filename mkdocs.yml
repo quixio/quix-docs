@@ -12,7 +12,8 @@ repo_name: quixai/quix-docs-dev
 repo_url: https://github.com/quixai/quix-docs
 edit_uri: tree/dev/docs/
 nav:
-  - Intro: index.md
+  - Intro: 'index.md'
+  - 'Quick Start': 'platform/tutorials/quick-start.md'
   - Platform:
     - 'What is Quix?': 'platform/intro.md'
     - 'Definitions': 'platform/definitions.md'
@@ -25,7 +26,6 @@ nav:
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
-      - 'Quick Start': 'platform/tutorials/quick-start.md'
       - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
       - 'Sentiment analysis': 'platform/tutorials/sentimentAnalysis.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
@@ -35,6 +35,7 @@ nav:
       - 'Train and deploy an ML model':
         - 'How to train an ML model': 'platform/tutorials/train-and-deploy-ml/train-ml-model.md'
         - 'Run ML model in realtime environment': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
+      - 'Data Science': 'platform/tutorials/data-science/data-science.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
