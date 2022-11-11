@@ -51,7 +51,6 @@ jobs:
     #- run: pip install mkdocs-material
     
     - name: Build the Docs
-      working-directory: ./dev
       run: mkdocs build --no-directory-urls
       
     - name: Copy the built docs to a subdir
