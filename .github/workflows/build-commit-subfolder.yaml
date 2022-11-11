@@ -57,16 +57,32 @@ jobs:
     - name: Copy the built docs to a subdir
       run: cp -R ./site ./branch/${{ env.SITE_DIR }}
       
-    - name: Authenticate on GCS
-      uses: google-github-actions/auth@v0
+    - uses: azure/login@v1
       with:
-       service_account: '${{ secrets.GCP_SA_EMAIL }}'
-       credentials_json: '${{ secrets.GCP_SA_KEY }}'
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+          
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            az storage blob upload-batch --account-name quixdocs --auth-mode key -d '$web' -s branch
 
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0 
+  # Azure logout
+    - name: logout
+      run: |
+            az logout
+      if: always()
+          
+    #- name: Authenticate on GCS
+    #  uses: google-github-actions/auth@v0
+    #  with:
+    #   service_account: '${{ secrets.GCP_SA_EMAIL }}'
+    #   credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    #- name: Set up Cloud SDK
+    #  uses: google-github-actions/setup-gcloud@v0 
       
-    - run: gsutil -m rsync -d -c -r branch gs://quix-docs-test
+    #- run: gsutil -m rsync -d -c -r branch gs://quix-docs-test
       
 
 
