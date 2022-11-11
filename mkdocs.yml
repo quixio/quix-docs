@@ -97,6 +97,8 @@ nav:
     #  - 'API V1': '!include ./api-docs/mkdocs.yml'
   # - Services:
   #   - Replay: '!include ./replay/mkdocs.yml'
+  - Contributing:
+      - 'Contributing to the docs': 'contributing.md'
 
 plugins:
   - search:
