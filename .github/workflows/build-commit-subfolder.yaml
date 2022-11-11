@@ -33,14 +33,6 @@ jobs:
       
     - name: Checkout Dev
       uses: actions/checkout@v3
-      with:
-        path: dev
-
-    - name: Checkout GH Pages
-      uses: actions/checkout@v3
-      with:
-        path: gh-pages-temp
-        ref: gh-pages
     
     - uses: actions/setup-python@v2
       with:
@@ -52,53 +44,29 @@ jobs:
     - run: pip install mkdocs-monorepo-plugin
     
     # Commenting out material insiders install until get proper token back.
-    #- run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+    - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
-    - run: pip install mkdocs-material
+    #- run: pip install mkdocs-material
     
     - name: Build the Docs
       working-directory: ./dev
       run: mkdocs build --no-directory-urls
       
-    #- name: Empty the subdir
-    #  working-directory: ./gh-pages-temp/
-    #  run: git rm -r ${{ env.SITE_DIR }}
-    #  
-    #- name: Copy the built docs to a subdir
-    # run: cp -R ./dev/site ./gh-pages-temp/${{ env.SITE_DIR }}
-    #  
-    #- name: Add NoJekyll file
-    #  run: cp ./gh-pages-temp/.nojekyll gh-pages-temp/${{ env.SITE_DIR }}/.nojekyll
-    #  
-    #- name: fix asset references
-      #uses: jacobtomlinson/gha-find-replace@v2
-      #with:
-      #  find: "assets/"
-      #  replace: "https://quixai.github.io/quix-docs-dev/mysubsite/assets/"
-      #  include: "./gh-pages-temp/${{ env.SITE_DIR }}/**"
-      #  regex: true
-     # working-directory: ./gh-pages-temp/${{ env.SITE_DIR }}
-     # run: find ./ -type f -name "*.html" -exec sed -i -e 's;assets/;https://quixai.github.io/quix-docs-dev/mysubsite/assets/;g' {} \;
-    #- name: fix stylesheet references
-    #  run: find ./ -type f -name "*.html" -exec sed -i -e 's/="\/assets/="\.\.\/assets/g' {} \;
-    #- name: Simple commit
-    #  uses: zwaldowski/git-commit-action@v1
-    #  with:
-    #    working_directory: ./gh-pages-temp
-    #    commit_message: "Adding temporary docs build"
-    #- name: GitHub Push
-    #  uses: ad-m/github-push-action@v0.6.0
-    #  with:
-    #    directory: ./gh-pages-temp
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    branch: gh-pages
-    #    force: true
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Copy the built docs to a subdir
+      run: cp -R ./site ./${{ env.SITE_DIR }}
+      
+    - name: Authenticate on GCS
+      uses: google-github-actions/auth@v0
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dev/site
-        destination_dir: ${{ env.SITE_DIR }}
+       service_account: '${{ secrets.GCP_SA_EMAIL }}'
+       credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0 
+      
+    - run: gsutil -m rsync -d -c -r ${{ env.SITE_DIR }} gs://quix-docs-test
+      
+
 
