@@ -65,7 +65,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name quixdocs --auth-mode login -d '$web' -s branch
+            az storage blob upload-batch --account-name quixdocs --auth-mode key -d '$web' -s branch
 
   # Azure logout
     - name: logout
