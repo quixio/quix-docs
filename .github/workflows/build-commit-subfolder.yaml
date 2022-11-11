@@ -23,13 +23,20 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   build-html:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    
+    env:
+      Greeting: Hello
     steps:
-    # Runs a single command using the runners shell
+    #- name: Update PR name
+    #  uses: mad9000/actions-find-and-replace-string@3
+    #  id: findandreplace
+    #  with:
+    #    source: ${{ github.ref }} 
+    #    find: 'ref/heads/'    
+    #    replace: ''           
+        
+    #- name: Get the above output
+    #  run: echo "The replaced value is ${{ steps.findandreplace.outputs.value }}"
       
     - name: Checkout Dev
       uses: actions/checkout@v3
