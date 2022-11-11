@@ -3,7 +3,7 @@ name: Build and Commit to Subdir
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 env:
-  #SITE_DIR: ${{ github.ref_name }}
+  #SITE_DIR: ${{ github.ref_name }}  gitub ref 'refs/remotes/pull/20/merge'
   SITE_DIR: subsite
 # on: push
 on:
