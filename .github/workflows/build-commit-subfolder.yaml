@@ -53,6 +53,7 @@ jobs:
     - name: Build the Docs
       run: mkdocs build --no-directory-urls
       
+    - run: mkdir branch  
     - name: Copy the built docs to a subdir
       run: cp -R ./site ./branch/${{ env.SITE_DIR }}
       
