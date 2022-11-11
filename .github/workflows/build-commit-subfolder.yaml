@@ -54,7 +54,7 @@ jobs:
       run: mkdocs build --no-directory-urls
       
     - name: Copy the built docs to a subdir
-      run: cp -R ./site ./${{ env.SITE_DIR }}
+      run: cp -R ./site ./branch/${{ env.SITE_DIR }}
       
     - name: Authenticate on GCS
       uses: google-github-actions/auth@v0
@@ -65,7 +65,7 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v0 
       
-    - run: gsutil -m rsync -d -c -r ${{ env.SITE_DIR }} gs://quix-docs-test
+    - run: gsutil -m rsync -d -c -r branch gs://quix-docs-test
       
 
 
