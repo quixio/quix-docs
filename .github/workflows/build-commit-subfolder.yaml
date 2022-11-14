@@ -1,18 +1,18 @@
-name: Build and Commit to Subdir
+name: On PR, Build and Publish to Azure Bucket
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 env:
   SITE_DIR: ${{ github.ref }}
   #SITE_DIR: subsite
-# on: push
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'dev'
-    paths:
-      - '**.md'
+  # We have another workflow for pushing directly to dev
+  #push:
+  #  branches:
+  #    - 'dev'
+  #  paths:
+  #    - '**.md'
   pull_request:
     types: [opened, reopened]
     # Only trigger automatically when certain tags are added
