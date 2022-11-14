@@ -8,11 +8,9 @@ env:
 on:
   workflow_dispatch:
   # We have another workflow for pushing directly to dev
-  #push:
-  #  branches:
-  #    - 'dev'
-  #  paths:
-  #    - '**.md'
+  push:
+    branches:
+      - 'dev'
   pull_request:
     types: [opened, reopened]
     # Only trigger automatically when certain tags are added
