@@ -98,13 +98,13 @@ Events are a discrete occurrence of a thing that happens or takes place.
 
 For example:
 
-  - Engine start, engine stop, warning light activated
+  - Engine start, engine stop, warning light activated.
 
   - Game started, match made, kill made, player won the race, lap
-    completed, track limits exceeded, task completed
+    completed, track limits exceeded, task completed.
 
   - Takeoff, landing, missile launched, fuel low, autopilot engaged,
-    pilot ejected
+    pilot ejected.
 
 Events are typically things that occur less frequently. They are
 streamed into the same topics as their respective parameters and act to
