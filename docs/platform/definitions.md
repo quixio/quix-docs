@@ -31,11 +31,11 @@ each file.
 
 For example:
 
-  - Car engine data
+  - Car engine data.
 
-  - Game data
+  - Game data.
 
-  - Telemetry from one ECU on a Boeing 737
+  - Telemetry from one ECU on a Boeing 737.
 
 Topics are key for scalability and good data governance. Use them to
 organise your data by:
