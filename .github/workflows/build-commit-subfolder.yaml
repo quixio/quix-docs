@@ -3,8 +3,8 @@ name: Build and Commit to Subdir
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 env:
-  #SITE_DIR: ${{ github.ref_name }}  gitub ref 'refs/remotes/pull/20/merge'
-  SITE_DIR: subsite
+  SITE_DIR: ${{ github.ref }}
+  #SITE_DIR: subsite
 # on: push
 on:
   workflow_dispatch:
@@ -27,16 +27,24 @@ jobs:
     env:
       Greeting: Hello
     steps:
-    #- name: Update PR name
-    #  uses: mad9000/actions-find-and-replace-string@3
-    #  id: findandreplace
-    #  with:
-    #    source: ${{ github.ref }} 
-    #    find: 'ref/heads/'    
-    #    replace: ''           
+    - name: Remove first part of PR ref
+      uses: mad9000/actions-find-and-replace-string@3
+      id: findandreplace1
+      with:
+        source: ${{ env.SITE_DIR }}
+        find: 'ref/heads/'    
+        replace: ''           
+
+    - name: Remove last part of PR ref
+      uses: mad9000/actions-find-and-replace-string@3
+      id: findandreplace2
+      with:
+        source: ${{ steps.findandreplace1.outputs.value }}
+        find: '/merge'    
+        replace: '' 
         
-    #- name: Get the above output
-    #  run: echo "The replaced value is ${{ steps.findandreplace.outputs.value }}"
+    - name: Get the above output
+      run: echo "The replaced value is ${{ steps.findandreplace2.outputs.value }}"
       
     - name: Checkout Dev
       uses: actions/checkout@v3
@@ -60,10 +68,6 @@ jobs:
     - name: Build the Docs
       run: mkdocs build --no-directory-urls
       
-    #- run: mkdir branch  
-    #- name: Copy the built docs to a subdir
-    # run: cp -R ./site ./branch/${{ env.SITE_DIR }}
-      
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
@@ -73,7 +77,7 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u e4c6c5fb-9968-4aac-bb7b-09adf7ae9ee7 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name ${{ env.SITE_DIR }} --public-access container --account-name quixdocs --auth-mode key
+            az storage container create --name pr_${{ steps.findandreplace2.outputs.value }} --public-access container --account-name quixdocs --auth-mode key
             az storage blob upload-batch --account-name quixdocs --auth-mode key -d '${{ env.SITE_DIR }}' -s site
 
   # Azure logout
@@ -82,16 +86,8 @@ jobs:
             az logout
       if: always()
           
-    #- name: Authenticate on GCS
-    #  uses: google-github-actions/auth@v0
-    #  with:
-    #   service_account: '${{ secrets.GCP_SA_EMAIL }}'
-    #   credentials_json: '${{ secrets.GCP_SA_KEY }}'
-
-    #- name: Set up Cloud SDK
-    #  uses: google-github-actions/setup-gcloud@v0 
-      
-    #- run: gsutil -m rsync -d -c -r branch gs://quix-docs-test
+    - name: Echo Site URL
+      run: echo "Docs preview site available at https://quixdocs.blob.core.windows.net/pr_${{ steps.findandreplace2.outputs.value }}/index.html"
       
 
 
