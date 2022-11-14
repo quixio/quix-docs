@@ -8,13 +8,13 @@ env:
 # on: push
 on:
   workflow_dispatch:
-  #push:
-  #  branches:
-  #    - 'dev'
-  #  paths:
-  #    - '**.md'
-  #pull_request:
-  #  types: [opened, reopened]
+  push:
+    branches:
+      - 'dev'
+    paths:
+      - '**.md'
+  pull_request:
+    types: [opened, reopened]
     # Only trigger automatically when certain tags are added
     #tags:
     #- v1.**
