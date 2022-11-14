@@ -50,11 +50,11 @@ A stream is a collection of data (parameters, events, binary blobs and
 metadata) that belong to a single session of a single source. For
 example:
 
-  - One journey for one car
+  - One journey for one car.
 
-  - One game session for one player
+  - One game session for one player.
 
-  - One flight for one aeroplane
+  - One flight for one aeroplane.
 
 ### Timestamp
 

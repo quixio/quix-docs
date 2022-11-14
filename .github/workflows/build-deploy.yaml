@@ -1,9 +1,9 @@
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Build Mkdocs site and Deploy to GH Pages
+name: On Push2Dev, Build, Deploy to GH Pages
 
 on:
-  pull_request:
-    types: [opened, reopened]
+  #pull_request:
+  #  types: [opened, reopened]
   push:
     branches:
       - 'dev'
@@ -83,3 +83,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Output site URL
+        run: echo "Dev version of docs available at https://quixai.github.io/quix-docs-dev/"
