@@ -90,7 +90,7 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocs.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
       
 
 
