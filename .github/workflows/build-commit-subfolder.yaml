@@ -19,11 +19,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
   build-html:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
+    permissions:
+      pull-requests: write
     steps:
     - name: Get branch name
       id: getbr
@@ -92,5 +91,12 @@ jobs:
     - name: Echo Site URL
       run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
       
-
+    - name: Comment Site URL    
+    - uses: mshick/add-pr-comment@v2
+      with:
+        if: always()
+        message: |
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html
+        message-failure: |
+            Build failed. URL was not updated.
 
