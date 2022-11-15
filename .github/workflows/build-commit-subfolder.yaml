@@ -92,7 +92,7 @@ jobs:
       run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
       
     - name: Comment Site URL    
-    - uses: mshick/add-pr-comment@v2
+      uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
