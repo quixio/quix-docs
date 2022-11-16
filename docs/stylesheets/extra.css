@@ -146,7 +146,7 @@ p {
     color: hsla(0,0%,100%,.6);
     padding-left: 30px;
 }
-.footer-community a img{
+.footer-community a :-webkit-any(img,svg){
     height: 30px;
     filter: invert(100%);
 }
