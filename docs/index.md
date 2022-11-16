@@ -1,6 +1,6 @@
 # Quix Documentation Portal
 
-New users are encouraged to try out the following resources first before diving into the docs head first.
+New users are encouraged to investigate the following resources first before diving into the docs head first.
 
 ## Tutorials
  
