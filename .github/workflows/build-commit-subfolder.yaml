@@ -14,8 +14,8 @@ on:
   pull_request:
     types: [opened, reopened]
     # Only trigger automatically when certain tags are added
-    #tags:
-    #- v1.**
+    tags:
+    - test-**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
