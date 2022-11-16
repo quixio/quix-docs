@@ -14,7 +14,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](./platform/tutorials/SentimentAnalysis.html)
+    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentimentAnalysis/)
     
     
 -   __Image Processing__
@@ -23,7 +23,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Real time image processing using Londons 'Jam Cams'
 
-    [:octicons-arrow-right-24: Image Processing](/platform/tutorials/ImageProcessing.html)
+    [:octicons-arrow-right-24: Image Processing](/platform/tutorials/ImageProcessing/)
 
 </div>
 
@@ -63,7 +63,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Stream data to Quix Kafka topics via HTTP with this API
 
-    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro//)
+    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro/)
 
 -   __Streaming Reader API__
 
