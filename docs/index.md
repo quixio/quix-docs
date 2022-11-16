@@ -1,5 +1,7 @@
 # Quix Documentation Portal
 
+New users are encouraged to try out the following resources first before diving into the docs head first.
+
 ## Tutorials
  
 By following these tutorials, you can learn how to build data-driven apps and integrate Quix with external systems.
@@ -12,7 +14,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/SentimentAnalysis/)
+    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentimentAnalysis/)
     
     
 -   __Image Processing__
@@ -61,7 +63,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Stream data to Quix Kafka topics via HTTP with this API
 
-    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro//)
+    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro/)
 
 -   __Streaming Reader API__
 
