@@ -178,3 +178,9 @@ p {
         flex-direction: column;
     }
 }
+
+/*center docs images*/
+.image-center {
+    display: block;
+    margin: 0 auto;
+}
