@@ -1,4 +1,4 @@
-name: On PR, Build, Publish to Azure Bucket
+name: Clean up on cron job
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -8,10 +8,10 @@ env:
 on:
   workflow_dispatch:
   # We have another workflow for pushing directly to dev
-  schedule:
+  #schedule:
     # * is a special character in YAML so you have to quote this string
     # 0300 every sunday
-    - cron:  '0 3 * * SUN'
+  #  - cron:  '0 3 * * SUN'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
