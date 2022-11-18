@@ -33,9 +33,10 @@ nav:
       - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
       - 'Telemetry data': 'platform/tutorials/telemetry-data.md'
       - 'Train and deploy an ML model':
-        - 'How to train an ML model': 'platform/tutorials/train-and-deploy-ml/train-ml-model.md'
-        - 'Run ML model in realtime environment': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
+        - 'How to train an ML model': 'platform/tutorials/train-ml-model.md'
+        - 'Run ML model in realtime environment': 'platform/tutorials/deploy-ml.md'
       - 'Data Science': 'platform/tutorials/data-science/data-science.md'
+      - 'Data Stream Processing': 'platform/tutorials/data-stream-processing.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
@@ -109,9 +110,9 @@ theme:
   name: 'material'
   custom_dir: overrides
   # TODO
-  logo: assets/Quix-docs-logo-header.svg
+  logo: assets/Quix-docs-logo-header03.svg
   #custom_dir: 'theme'
-  #favicon: 'assets/images/favicon.png'
+  favicon: 'assets/favicon.ico'
   
   palette: 
   # Palette toggle for light mode

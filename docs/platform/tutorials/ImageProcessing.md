@@ -119,7 +119,7 @@ data streaming into that topic.
 
 Follow these steps to deploy the webcam service.
 
-1.  Navigate to the Library and locate “Webcam image capture service”.
+1.  Navigate to the Library and locate “Image processing - Webcam input”.
 
 2.  Click “Setup & deploy”
 
