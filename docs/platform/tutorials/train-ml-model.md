@@ -18,7 +18,7 @@ model to react to data coming from source with milliseconds latency.
 At the end of this article, we will end up with a **pickle file**
 trained on historic data.
 
-![how-to/train-ml/model-training.png](../images/train.png)
+<img src="../../images/tutorials/train-and-deploy-ml/train.png" class="image-center">
 
 ## Preparation
 
@@ -99,11 +99,11 @@ You need to be logged into the platform for this:
 
 5.  Ensure **Python** is the selected language
 
-![how-to/jupyter-wb/connect-python.png](../../images/how-to/jupyter-wb/connect-python.png)
+<img src="../../images/tutorials/train-and-deploy-ml/connect-python.png" class="image-center">
 
 Copy the Python code to your Jupyter notebook and execute.
 
-![how-to/jupyter-wb/jupyter-results.png](../../images/how-to/jupyter-wb/jupyter-results.png)
+<img src="../../images/tutorials/train-and-deploy-ml/jupyter-results.png" class="image-center">
 
 !!! tip
 
@@ -151,7 +151,7 @@ plt.plot(df["Brake_bool"])
 plt.legend(['Shifted', 'Unshifted'])
 ```
 
-![how-to/train-ml/brake-shifted.png](../images/brake-shifted.png)
+<img src="../../images/tutorials/train-and-deploy-ml/brake-shifted.png" class="image-center">
 
 ### Fit, predict and score a model
 
@@ -258,7 +258,7 @@ ax2.plot(decision_tree.predict(X))
 ax2.plot(X["Speed"]/X["Speed"].max())
 ```
 
-![how-to/train-ml/prediction.png](../images/prediction.png)
+<img src="../../images/tutorials/train-and-deploy-ml/prediction.png" class="image-center">
 
 ### Saving model
 
@@ -294,8 +294,8 @@ mlflow ui
 
 Select experiments to compare:
 
-![how-to/train-ml/experiments.png](../images/experiments.png)
+<img src="../../images/tutorials/train-and-deploy-ml/experiments.png" class="image-center">
 
 Plot metrics from experiments:
 
-![how-to/train-ml/experiments-comparison.png](../images/experiments-comparison.png)
+<img src="../../images/tutorials/train-and-deploy-ml/experiments-comparison.png" class="image-center">
