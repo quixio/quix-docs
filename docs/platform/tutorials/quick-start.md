@@ -1,125 +1,336 @@
 # Quick Start
 
-This quick start gets you up and running with Quix. It shows how to set
-up a pipeline that ingests real-time Formula 1 data and sends an alert
-to your phone whenever a race car passes 300 kilometers per hour. It
-uses one source, one transformation and one destination from the Quix
-library along with a Twilio integration.
+This quick start gets you up and running with Quix in the shortest possible time.
 
-You’ll learn how to create a topic and how to connect, customize and
-write sources, transformations and destinations to set up a stream of
-real-time data. In the end, you’ll be more comfortable using the
-platform and able to apply it in your own projects.
+It shows you how to deploy a real-time app in the Quix platform and walk you through the relevant parts of the code.
 
-When you’re done with this quick start guide, your pipeline should look
-something like this:
+There are two parts to the guide:
 
-![tutorials/pipeline.png](../images/tutorials/pipeline.png)
+1. Get up and running
+  In this section you will deploy a real-time chat application and connect to it with your computer and phone.
 
-**Requirements**
+2. Add more features
+  In this section you will add an external feed to the pipeline and see messages delivered in real-time.
 
-  - [Free Quix account](https://quix.ai/signup/)
+!!! info "Don't get stuck"
 
-  - [GitHub account](https://github.com/)
+	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite)
 
-  - [Twilio account](https://www.twilio.com/)
+## 1. Get up and running
 
-**Installation**
+To get up and running as fast as possible you will use items from the Quix Library. These have been coded and tested. All you have to do is deploy them to your workspace.
 
-  - No installations are required for cloud deployment
+### Analyze Sentiment
 
-**In this guide**
+To compliment the chat UI you will deploy in the next step, you will first deploy a pre-built microservice designed to analyze the sentiment of messages in the chat.
 
-1.  Set up a Quix workspace
+1. Click <span class="border-violet-dash">`+ Add transformation`</span> on the home screen.
 
-2.  Add a data source to your project
+    ???- note "Not your first time?"
+        If this is not your first time deploying something to this workspace then navigate to the Library using the left hand navigation instead.
 
-3.  Set up data transformation
+2. Use the search box to find the `Sentiment analysis` library item. 
 
-4.  Deliver your data with Twilio
+3. Click `Edit code`
 
-5.  Run the pipeline
+    !!! note
+      
+        Ensure that the `input` is set to `messages` and the `output` is set to `sentiment`
 
-## 1\. Set up a Quix workspace
+4. Click `Save as project`
+    
+    The code for this transformation is now saved to your workspace
 
-[Sign up for Quix](https://quix.ai/). The free account provides enough
-resources to build a single streaming data project. You’ll arrive in a
-[workspace](../definitions.md#_workspace) when you sign up.
+5. Locate main.py
 
-## 2\. Add a data source to your project from the Quix library
+6. Locate the line of code that creates the output stream
+    
+    ``` python
+    output_stream=output_topic.create_stream(input_stream.stream_id)
+    ```
 
-The data sources in the Quix library are out-of-the-box code samples
-that you can plug and play or customize. It’s an open source library, so
-you can also contribute your own when you’re ready\!
+7. Append `-output` to the stream id.
+    
+    This will ensure the UI is able to locate the sentiment being output by this transformation service.
+    
+    ``` python
+    output_stream=output_topic.create_stream(input_stream.stream_id + "-output")
+    ```
 
-To add a data source to your pipeline, click *Add data source* . This
-takes you to the library, which you can also access via
-[GitHub](https://github.com/quixai/quix-library).
+8.  Click Deploy near the top right corner
 
-You’ll use Formula 1 Data for this example. This source includes the
-speed, acceleration, brake usage and other detailed data from a real F1
-car formatted into real-time data. Find the Formula 1 Data card in the
-Quix library and click *Set up connector*. Using the prepared data saves
-the time of importing or building data sets. Setting up a connector will
-simultaneously create a topic
-([topics](../definitions.md#_topics) are channels that carry
-real-time data, one per data source) and bring the Formula 1 data
-[stream](../definitions.md#_stream) into the topic.
+6.  Click `Deploy` on the deployment dialog
 
-You can use the topic name that automatically populates the field or
-re-name it.
+	!!! success
+	      
+        You located and deployed the sentiment analysis microservice to the Quix platform.
 
-Click *Connect*.
+        This microservice will subscribe to the `messages` topic and process data to determine the sentiment of any messages in real-time.
 
-Now the source is connected. You can go into the source and check the
-data in the live preview visualization. The data source includes more
-data types than needed, so you can click the tick boxes next to *Speed*
-and *RPM* under *Select parameters or events*.
 
-## 3\. Set up a data transformation using the no-code method
+### The UI
 
-You want your pipeline to look at the data and see when a vehicle goes
-faster than 300 kilometers per hour. This requires a threshold alert.
+You are going to locate and deploy a UI. It's written in Angular and connects to Quix. Allowing you to see messages on both your phone and computer in real-time.
 
-Click *Add transform service* to open the library. Find the *Threshold
-transformation* and click *Setup*. This transformation connector
-generates an alert when a certain numeric threshold is crossed.
+1. Navigate to the library using the left hand navigation.
+2. Use the search box to find the `Sentiment Demo UI` library item.
+3. Click `Edit code`.
+4. Click `Save as project`.
+5. Click `Deploy` near the top right hand corner of your browser window.
+6. Click the `Public Access` section of the dialog to expand it.
+7. Click the toggle switch to enable public access.
+8. Click `Deploy` on the dialog.
 
-The [Project](../definitions.md#_project) name, Input, Output,
-ParameterName and ThresholdValue will auto populate. Change
-ThresholdValue to 300 to receive an alert whenever the car passes the
-300 milometers per hour point. Save by clicking *Save as a project*.
+	!!! success
+	      
+        You located, saved and deployed the UI code to the Quix platform.
 
-Click *Deploy*. This brings up a dialog box with options to change
-variables, network and state. For this project, you can choose
-*[Service](../definitions.md#_service)* and leave the
-remaining configuration as is. Click *Deploy*. A service is any
-application code that continuously runs in a serverless environment.
+        The UI is comprised of a relatively simple Angular app that subscribes to Quix topics and streams chat messages and sentiment data in real-time.
 
-## 4\. Deliver your data using the Twilio destination
 
-Now that the data is ready to go, you need to tell it where to go. Click
-*Add new* next to “Destinations” on the workplace screen. This is where
-Twilio comes in to send speed alerts to your phone.
+	???- info "The Code"
 
-Click *Setup*. Choose your *threshold-alert-output* as the input. You
-can find the *numbers*, *account\_sid*, auth\_token', and
-messaging\_service\_sid in your free [Twilio
-account](https://www.twilio.com/).
+        If you want to dive into the code then please do. These are some of the interesting bits:
 
-*Message\_limit* refers to the total number of messages you’ll receive.
-It’s set at two by default, as some message charges may apply.
+        1. 
+        Expand the tree view and select the webchat.component.ts file.
+        <img src="../../images/tutorials/quick-start/file-tree-1.png" style="width: 250px" class="image-center">
+        
+        Locate the `connect()` method.
+        
+        Notice the `SubscribeToEvent` and `SubscribeToParameter` lines. These are used to tell Quix that the code should be notified as soon as data arrives. Specifically any data arriving for the specified topic, stream and event or parameter.
 
-Click *Save as project* once you have added the requested Twilio
-information.
+        2. 
+        Above the parameter and event subscriptions in the same file you will see the handlers. These will handle the data, doing whatever is needed for the app. In this case we add the messages to a list, which is then displayed in the UI.
 
-## 5\. Run the pipeline
+        ```nodejs
+        this.quixService.readerConnection.on('EventDataReceived', (payload) => {...}
 
-Here’s the fun part\! The three dots (one in the upper-right corner of
-each card) indicate that everything works correctly. All you need to do
-is click *Deploy* to start receiving notifications on your phone
-whenever the car you’re tracking goes faster than 300 kilometers per
-hour.
+        this.quixService.readerConnection.on('ParameterDataReceived', (payload) => {...}
+        ```
+    
+        For more on connecting to Quix with a web based UI take a look at how to [read](../how-to/webapps/read.md) and [write](../how-to/webapps/write.md) with NodeJS.
+
+### Testing it out
+
+#### In the browser
+
+Once the UI is built and deployed you can go ahead and click the <img src="../../images/general/open_in_new_window.svg" style="width: 20px" class="primary-fg vertical-align"> icon on the `Sentiment Demo UI` tile.
+
+You will see a form asking you to enter the name for a chat room and your own name. 
+
+1. Enter `Room1` for the room and anything for your name.
+
+  <img src="../../images/tutorials/quick-start/lobby.png" style="width: 250px" class="image-center">
+
+2. Click `Connect`
+
+  You will be redirected to the chat page.
+
+  The most notable features of this page are the chat area, the sentiment graph and the QR code.
+
+  <img src="../../images/tutorials/quick-start/chat.png" style="width: 250px" class="image-center">
+
+3. Enter some positive and negative messages in the chat window.
+
+4. You will see your messages and a short time later the sentiment of the message will be indicated by the name tag next to each message changing color.
+
+  <img src="../../images/tutorials/quick-start/sentiment-messages.png" style="width: 250px" class="image-center">
+
+#### On mobile
+
+Now join the chat with your mobile phone, chat messages will be displayed both on the phone and in the browser.
+
+1. With your mobile phone, scan the QR code.
+
+2. Use the same room name as before `Room1`
+
+3. Use a different name e.g. `Mobile`
+
+4. Type some messages
+
+
+	!!! success
+
+		You will see the message and it's sentiment on your phone
+
+		<img src="../../images/tutorials/quick-start/phone.jpg" style="width: 280px" class="image-center">
+
+		And the same messages and sentiment will appear in real-time on your computer's web browser
+
+		<img src="../../images/tutorials/quick-start/more-messages.png" style="width: 250px" class="image-center">
+
+
+## 2. Add more features
+
+Now that you have the basics of searching the library, selecting and saving a pre-made sample and deploying it to the Quix serverless infrastructure, we can add an additional services to the pipeline including sourcing data and pre-processing the data so it's compatible with the existing services.
+
+Your'e a pro now, so we'll move a little faster!
+
+### Create the data source
+
+1. Go to the library
+
+2. Search for the `Empty template - Source`. If should have a blue highlight.
+
+3. Click `Edit code`
+
+4. Change the name to `API Data`
+
+5. Change the topic to `api-data`
+
+6. Click `Save as project`
+
+7. Add `requests` on a new line to the requirements.txt file and save it
+
+8. Go back to the `main.py` file
+
+9. Add the following imports to the imports at the top of the file
+
+    ```python 
+    import requests
+    import time
+    ```
+
+10. Delete the code between the following print statements {start=10}
+
+    ```python
+    print("Sending values for 30 seconds.")
+    ```
+
+    ```python
+    print("Closing stream")
+    ```
+
+11. Add the following code between those print statements
+
+    ```python
+    while True:
+
+        # get a random beer from this free API
+        response = requests.get("https://random-data-api.com/api/v2/beers")
+
+        # print the response data
+        print(response.json())
+
+        # sleep for a bit
+        time.sleep(4)
+    ```
+
+12. Add the following code under the `print(response.json())` line and above the `sleep` line
+
+    ```python
+    # sink the beers 'style' to Quix as an event
+    stream.events.add_timestamp(datetime.datetime.utcnow()) \
+        .add_value("beer", response.json()["style"]) \
+        .write()
+    ```
+
+13. Lastly, delete the following lines
+
+    ```python
+    stream.parameters.add_definition("ParameterA").set_range(-1.2, 1.2)
+    stream.parameters.buffer.time_span_in_milliseconds = 100
+    ```
+
+14. Save and then run the code by clicking the `Run` button near the top right of the code editor window
+
+	!!! success
+
+		Every 4 seconds the random beer API will be called and a new style of beer will be transmitted to the Quix topic `api-data`
+
+		Click `Stop` (mouse over the `Running` button)
+
+#### Deploy
+
+Deploy the code so it will run continuously.
+
+1. Click `Deploy` in the top right
+2. Click `Deploy` on the dialog
+
+### Transformation
+
+Now that you have some data you need to transform it to make it compatible with the rest of your data processing pipeline.
+
+You will now locate a suitable transformation template and modify it to handle the incoming beer styles and output them as chat messages.
+
+1. Search the library for `Empty template - Transformation`
+
+2. Save the code to your workspace
+
+	!!! note
+
+		Ensure you change the `Name` to `Beer to chat`
+
+		Change the `input` to `api-data`. This is the topic you set as the output for the API data.
+
+		Change the `output` to `messages`
+
+3. You can click `Run` and look in the console output see that this code is handling the event data. Click stop when you have seen it running.
+
+4. Add the following import to the `quix_function.py` file
+
+	```python
+	import datetime
+	```
+
+4. Locate the `on_event_data_handler` method
+
+5. Replace the comment `# Here transform your data.` with the following code
+
+	```python
+	# stream chat-messages to the output topic
+	self.output_stream.events.add_timestamp(datetime.datetime.utcnow()) \
+		.add_value("chat-message", data.value) \
+		.add_tag("room", "Beer") \
+		.add_tag("name", "BeerAPI") \
+		.write()
+	```
+
+6. Delete the last line of the method
+
+	```python
+	self.output_stream.events.write(data)
+	```
+
+7. Save the file and open the `main.py` file
+
+8. Locate the following line
+
+	```python
+	output_stream = output_topic.create_stream(input_stream.stream_id)
+	```
+
+9. Replace `input_stream.stream_id` with `"beer"`
+
+10. Save and deploy this project!
+
+!!! success
+
+	You have built a transformation to take output from an API and turn it into messages that the existing parts of the pipeline can use!
+
+## See it working
+
+1. Navigate to the UI you deployed earlier. Ensure you are in the `lobby`
+
+2. Enter `beer` for the room name and provide any name for yourself
+
+3. You can now see the messages arriving from the API as well as the calculated sentiment for them.
+
+<img src="../../images/tutorials/quick-start/beer-chat.png" class="image-center">
+
+!!! success "Congratulations"
+
+	You made it into the Quix elite squad!
+
+	Your completed real-time data processing pipeline should look something like this
+
+	<img src="../../images/tutorials/quick-start/pipeline.png" class="image-center">
+
+	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite) and tell us how you did or if you had any issues.
+
+
+
 
 **Conclusion**
 
