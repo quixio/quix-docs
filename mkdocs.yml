@@ -176,8 +176,8 @@ extra:
     - icon: 'fontawesome/brands/youtube'
       link: 'https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA'
   analytics:
-    provider: google
-    property: G-xxx #UA-173360929-3 #TODO enable when ready
+    provider: google-tag-manager
+    property: GTM-55L66N3 #UA-173360929-3 ignored, using GTM instead of universal analytics
     feedback:
       title: Was this page helpful?
       ratings:
