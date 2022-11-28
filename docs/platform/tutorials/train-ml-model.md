@@ -35,7 +35,7 @@ onboarding process when you [sign-up to Quix](https://portal.platform.quix.ai/se
 	This will provide you with some real-time data for your experiments.
 
 You’ll also need a Jupyter notebook environment to run your experiments
-and load data for training. Please use ["How to work with Jupyter notebook"](../jupyter-nb.md).
+and load data for training. Please use ["How to work with Jupyter notebook"](../../how-to/jupyter-nb).
 
 ### Install required libraries
 
@@ -107,7 +107,7 @@ Copy the Python code to your Jupyter notebook and execute.
 
 !!! tip
 
-	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
+	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../apis/data-catalogue-api/authenticate.md) for how to do that.
 
 ### Preprocessing of features
 
