@@ -26,7 +26,7 @@ This will typically take several people (Data Engineers, Data Scientists) and we
 
 	???- example "Want to learn it?"
 
-		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/train-ml-model.md).
+		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../train-ml-model.md).
 
 		We walk you through the process of getting the code to access the data, running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
@@ -208,7 +208,7 @@ At this point, you are generating historic data and know how to query it. You ca
 
 !!! example "Need help?"
 
-	Follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/train-ml-model.md)
+	Follow our "How to train an ML model" tutorial [here](../train-ml-model.md)
 
 	We walk you through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 

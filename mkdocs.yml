@@ -67,6 +67,7 @@ nav:
       - 'Set up local environment': 'sdk/python-setup.md'
       - 'Set up docker environment': 'sdk/docker-setup.md'
   - API:
+    - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
       - 'Introduction': 'apis/data-catalogue-api/intro.md'
       - 'Authenticate': 'apis/data-catalogue-api/authenticate.md'
@@ -95,6 +96,7 @@ nav:
       - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
+    - 'Portal API': 'apis/portal-api.md'
     #- 'API Reference':
     #  - 'API V1': '!include ./api-docs/mkdocs.yml'
   # - Services:
