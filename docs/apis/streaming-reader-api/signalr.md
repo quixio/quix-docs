@@ -9,7 +9,7 @@
 
 ## Installation
 
-If you are using a package manager like [npm](https://www.npmjs.com/),
+If you are using a package manager like [npm](https://www.npmjs.com/){target=_blank},
 you can install SignalR using `npm install @microsoft/signalr`. For
 other installation options that don’t depend on a platform like Node.js,
 such as consuming SignalR from a CDN, please refer to [SignalR

@@ -16,11 +16,11 @@ If you need any assistance, we're here to help in [The Stream](https://join.slac
 
 ### Library
 
-Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [Github](https://github.com/quixai/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
+Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixai/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It'spre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker){target=_blank}.
+**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
@@ -57,7 +57,7 @@ Open the UI with these steps
 
 7.  You can now enter a username and device name into the relevant inputs
 
-<img src="../../images/tutorials/telemetry-data/image1.png" width="400px" class="image-center">
+![](../images/tutorials/telemetry-data/image1.png){width=400px}
 
 !!! tip "These can be anything! But sensible values will help understand which token belongs to which user"
 
@@ -186,11 +186,11 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 
     !!! tip "Click the icon that appears next to the project name (circled here in green)"
 
-        <img src="../../images/tutorials/telemetry-data/image3.png" width="250px">
+        ![](../images/tutorials/telemetry-data/image3.png){width=300px}
 
 12. Once the dashboard has loaded you will see sensor data from your device in real time
 
-    <img src="../../images/tutorials/telemetry-data/image2.png" class="image-center" width="450px">
+    ![](../images/tutorials/telemetry-data/image2.png){width=400px}
     
     !!! note "Below this is also the raw data showing all the values from the device"
 

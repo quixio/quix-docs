@@ -181,12 +181,6 @@ p {
     }
 }
 
-/*center docs images*/
-.image-center {
-    display: block;
-    margin: 0 auto;
-}
-
 /*dashed borders*/
 .border-blue-dash{
 	border: 2px dashed #0064FF;

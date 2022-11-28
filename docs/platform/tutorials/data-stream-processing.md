@@ -14,14 +14,14 @@ By the end you will have:
 
  - Created an experience you can share with friends and colleagues
 
-<img src="../../images/tutorials/data-stream-processing/CarDemoGif.gif" class="image-center">
+![A demo of the end result.](../images/tutorials/data-stream-processing/CarDemoGif.gif)
 
 !!! tip 
     If you need any help, get into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}. We're eager to hear from anyone working with real-time data and that includes people following our tutorials.
 
 ## Project Architecture
 
-<img src="../../images/tutorials/data-stream-processing/architecture.png" class="image-center">
+![The demo's architecture](../images/tutorials/data-stream-processing/architecture.png)
 
 The solution has 3 main elements:
 
@@ -62,7 +62,7 @@ The code you will need for this tutorial is located in the Quix Library.
 
 Open the library and search for `Streaming Demo`. You will see 3 results.
 
-<img src="../../images/tutorials/data-stream-processing/library-items.png" class="image-center">
+![Library search results](../images/tutorials/data-stream-processing/library-items.png)
 
 You will save the code for each of these to your workspace and deploy the two services and the UI.
 
@@ -250,11 +250,11 @@ With the microservices for control and input processing deployed along with the 
 6. DRIVE! 🏎️🏁
 
 ### Phone screen
-<img src="../../images/tutorials/data-stream-processing/phone.jpg" width="400px" class="image-center">
+![What you'll see on the phone](../images/tutorials/data-stream-processing/phone.jpg){width=400px}
 
 ### Game screen
 
-<img src="../../images/tutorials/data-stream-processing/track.png" width="400px" class="image-center">
+![What you'll see on your computer](../images/tutorials/data-stream-processing/track.png){width=400px}
 
 ## Thanks
 
