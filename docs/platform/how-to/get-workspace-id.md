@@ -10,7 +10,7 @@ The workspace ID is a combination of your organisation and workspace
 names, converted to URL friendly values. The easist way to get hold of
 it is as follows:
 
-1.  Go to the [Portal home](https://portal.platform.quix.ai/).
+1.  Go to the [Portal home](https://portal.platform.quix.ai/){target=_blank}.
 
 2.  Locate the workspace you’re interested in and click **OPEN**.
 

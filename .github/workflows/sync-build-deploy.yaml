@@ -51,8 +51,13 @@ jobs:
         
       # Needed when using more than one repo
       # add 'monorepo' to mkdocs.yml file under plugins
-      - name: Install Mkdocs Monorepo Plugin
+      - name: Install MKdocs Monorepo Plugin
         run: pip install mkdocs-monorepo-plugin
+
+      # add lightbox
+      # zoom images
+      - name: Install MkDocs Light Box
+        run: pip install mkdocs-glightbox
         
       # Install Material insiders theme
       - name: Install Material insiders theme

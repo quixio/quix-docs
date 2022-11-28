@@ -14,7 +14,7 @@ There are two parts to the guide:
 
 !!! info "Don't get stuck"
 
-	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite)
+	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite){target=_blank}
 
 ## 1. Get up and running
 
@@ -96,7 +96,7 @@ You are going to locate and deploy a UI. It's written in Angular and connects to
 
         1. 
         Expand the tree view and select the webchat.component.ts file.
-        <img src="../../images/tutorials/quick-start/file-tree-1.png" style="width: 250px" class="image-center">
+        ![The project's file list](../images/tutorials/quick-start/file-tree-1.png){width=250px}
         
         Locate the `connect()` method.
         
@@ -117,13 +117,13 @@ You are going to locate and deploy a UI. It's written in Angular and connects to
 
 #### In the browser
 
-Once the UI is built and deployed you can go ahead and click the <img src="../../images/general/open_in_new_window.svg" style="width: 20px" class="primary-fg vertical-align"> icon on the `Sentiment Demo UI` tile.
+Once the UI is built and deployed you can go ahead and click the ![open in new window icon](../images/general/open_in_new_window.png){width=20px} class="primary-fg vertical-align"> icon on the `Sentiment Demo UI` tile.
 
 You will see a form asking you to enter the name for a chat room and your own name. 
 
 1. Enter `Room1` for the room and anything for your name.
 
-  <img src="../../images/tutorials/quick-start/lobby.png" style="width: 250px" class="image-center">
+  ![The lobby](../images/tutorials/quick-start/lobby.png){width=250px}
 
 2. Click `Connect`
 
@@ -131,13 +131,13 @@ You will see a form asking you to enter the name for a chat room and your own na
 
   The most notable features of this page are the chat area, the sentiment graph and the QR code.
 
-  <img src="../../images/tutorials/quick-start/chat.png" style="width: 250px" class="image-center">
+  ![Opened chat room](../images/tutorials/quick-start/chat.png){width=250px}
 
 3. Enter some positive and negative messages in the chat window.
 
 4. You will see your messages and a short time later the sentiment of the message will be indicated by the name tag next to each message changing color.
 
-  <img src="../../images/tutorials/quick-start/sentiment-messages.png" style="width: 250px" class="image-center">
+  ![Some messages with their sentiment](../images/tutorials/quick-start/sentiment-messages.png){width=250px}
 
 #### On mobile
 
@@ -156,11 +156,11 @@ Now join the chat with your mobile phone, chat messages will be displayed both o
 
 		You will see the message and it's sentiment on your phone
 
-		<img src="../../images/tutorials/quick-start/phone.jpg" style="width: 280px" class="image-center">
+		![Mobile view](../images/tutorials/quick-start/phone.jpg){width=280px}
 
 		And the same messages and sentiment will appear in real-time on your computer's web browser
 
-		<img src="../../images/tutorials/quick-start/more-messages.png" style="width: 250px" class="image-center">
+		![Computer view](../images/tutorials/quick-start/more-messages.png){width=250px}
 
 
 ## 2. Add more features
@@ -319,7 +319,7 @@ You will now locate a suitable transformation template and modify it to handle t
 
 3. You can now see the messages arriving from the API as well as the calculated sentiment for them.
 
-<img src="../../images/tutorials/quick-start/beer-chat.png" class="image-center">
+![Sample messages from an external API](../images/tutorials/quick-start/beer-chat.png)
 
 !!! success "Congratulations"
 
@@ -327,9 +327,9 @@ You will now locate a suitable transformation template and modify it to handle t
 
 	Your completed real-time data processing pipeline should look something like this
 
-	<img src="../../images/tutorials/quick-start/pipeline.png" class="image-center">
+	![The completed pipeline](../images/tutorials/quick-start/pipeline.png)
 
-	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite) and tell us how you did or if you had any issues.
+	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank} and tell us how you did or if you had any issues.
 
 
 
