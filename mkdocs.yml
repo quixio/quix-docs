@@ -37,6 +37,7 @@ nav:
         - 'Run ML model in realtime environment': 'platform/tutorials/deploy-ml.md'
       - 'Data Science': 'platform/tutorials/data-science/data-science.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing.md'
+      - 'Slack Alerting': 'platform/tutorials/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
@@ -104,6 +105,7 @@ nav:
 plugins:
   - search:
       separator: '[\s\-\.]' 
+  - glightbox
   #- monorepo
   
 theme:
