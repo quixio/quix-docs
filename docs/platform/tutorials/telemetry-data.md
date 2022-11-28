@@ -57,7 +57,7 @@ Open the UI with these steps
 
 7.  You can now enter a username and device name into the relevant inputs
 
-![](../../images/tutorials/telemetry-data/image1.png){width=400px}
+![](../images/tutorials/telemetry-data/image1.png){width=400px}
 
 !!! tip "These can be anything! But sensible values will help understand which token belongs to which user"
 
@@ -186,11 +186,11 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 
     !!! tip "Click the icon that appears next to the project name (circled here in green)"
 
-        ![](../../images/tutorials/telemetry-data/image3.png){width=300px}
+        ![](../images/tutorials/telemetry-data/image3.png){width=300px}
 
 12. Once the dashboard has loaded you will see sensor data from your device in real time
 
-    ![](../../images/tutorials/telemetry-data/image2.png){width=400px}
+    ![](../images/tutorials/telemetry-data/image2.png){width=400px}
     
     !!! note "Below this is also the raw data showing all the values from the device"
 

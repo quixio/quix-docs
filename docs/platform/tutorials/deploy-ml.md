@@ -18,7 +18,7 @@ edge reacting to data coming from the source with milliseconds latency.
 
 At the end of this article, we will end up with a **live model** using the **pickle file** from [How to train ML model](train-ml-model.md) to process live data on the edge.
 
-![](../../images/tutorials/train-and-deploy-ml/run-live.png)
+![What you'll build](../images/tutorials/train-and-deploy-ml/run-live.png)
 
 ## Preparation
 
@@ -212,7 +212,7 @@ To see the output of your model in real time you will use the Data explorer.
 
 	You should now see a graphical output for the prediction being output by the model as well as the actual brake value
 
-	![](../../images/tutorials/train-and-deploy-ml/visualize-result.png)
+	![Data explorer](../images/tutorials/train-and-deploy-ml/visualize-result.png)
 
 
 !!! note

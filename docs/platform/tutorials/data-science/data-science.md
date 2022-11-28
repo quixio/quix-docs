@@ -76,7 +76,7 @@ Instead of writing a lot of code you will use the Library to deploy a pre-built 
 
 1. Search the library for `New York` and select the `New York Bikes - Source` tile.
 
-	![](../ny-bikes-library-tile.png){width=400px}
+	![NY Bikes library tile](ny-bikes-library-tile.png){width=400px}
 
 	!!! tip 
 		The Library is on the left hand menu
@@ -106,7 +106,7 @@ You now have a working real time stream of bike data. Now use the OpenWeather ac
 
 	c. Paste the key from your OpenWeather API keys page ([here](https://home.openweathermap.org/api_keys){target=_blank}){target=_blank}
 
-	![](../open-weather-api.png){width=600px}
+	![Open weather API page](open-weather-api.png){width=600px}
 
 3. Click `Deploy`
 
@@ -122,7 +122,7 @@ You now have a working real time stream of bike data. Now use the OpenWeather ac
 
 	At this stage you should have two services running
 
-	![](../early-success.png)
+	![Successfully deployed pipeline](early-success.png)
 
 	One service publishing New York CitiBike data to a topic and another publishing OpenWeather data.
 
@@ -196,7 +196,7 @@ You can leave the data consumption process running overnight or for a few days t
 
 	You should be looking at a visualization of the two selected parameters
 
-	![](../data-explorer.png){width=600px}
+	![Data explorer](data-explorer.png){width=600px}
 
 8. Switch off `aggregation` to see all of the data
 
