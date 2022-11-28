@@ -79,7 +79,7 @@ The API’s that require a valid bearer token are:
 Errors generated in the SDK callback can be swallowed or hard to read.
 To prevent this and make it easier to determine the root cause you
 should use a
-[traceback](https://docs.python.org/3/library/traceback.html)
+[traceback](https://docs.python.org/3/library/traceback.html){target=_blank}
 
 Begin by importing traceback
 

@@ -10,7 +10,7 @@ Quix SDK.
 
 !!! tip
 
-	The [Quix Portal](https://portal.platform.quix.ai) offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
+	The [Quix Portal](https://portal.platform.quix.ai){target=_blank} offers you easy-to-use, auto-generated examples for reading, writing, and processing data. These examples work directly with your workspace Topics. You can deploy these examples in our serverless environment with just a few clicks. For a quick test of the capabilities of the SDK, we recommend starting with those auto-generated examples.
 
 ## Connect to Quix
 
@@ -195,7 +195,7 @@ data using [ParameterData](##_parameter_data_format).
 
 !!! tip
 
-	If you’re using Python you can convert [ParameterData](##_parameter_data_format) to a [Pandas DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe) or read them directly from the SDK. Refer to [Using Data Frames](##_using_data_frames) for more information.
+	If you’re using Python you can convert [ParameterData](##_parameter_data_format) to a [Pandas DataFrames](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe) or read them directly from the SDK. Refer to [Using Data Frames](##_using_data_frames){target=_blank} for more information.
 
 ### Parameter Data format
 

@@ -104,7 +104,7 @@ You now have a working real time stream of bike data. Now use the OpenWeather ac
 	
 	b. Ensure the `output` is set to `weather-topic`
 
-	c. Paste the key from your OpenWeather API keys page ([here](https://home.openweathermap.org/api_keys){target=_blank})
+	c. Paste the key from your OpenWeather API keys page ([here](https://home.openweathermap.org/api_keys){target=_blank}){target=_blank}
 
 	<img src="../open-weather-api.png" width="600px" class="image-center">
 

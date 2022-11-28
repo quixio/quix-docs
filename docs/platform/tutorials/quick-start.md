@@ -14,7 +14,7 @@ There are two parts to the guide:
 
 !!! info "Don't get stuck"
 
-	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite)
+	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite){target=_blank}
 
 ## 1. Get up and running
 
@@ -329,7 +329,7 @@ You will now locate a suitable transformation template and modify it to handle t
 
 	<img src="../../images/tutorials/quick-start/pipeline.png" class="image-center">
 
-	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite) and tell us how you did or if you had any issues.
+	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank} and tell us how you did or if you had any issues.
 
 
 

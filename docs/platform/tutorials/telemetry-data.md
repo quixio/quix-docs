@@ -8,19 +8,19 @@ Learn how to build an end-to-end telemetry data pipeline for IoT applications. U
 
 ## Get Started
 
-To get started make sure you have a Quix account, signup for a completely free account at [https://quix.io](https://quix.io)
+To get started make sure you have a Quix account, signup for a completely free account at [https://quix.io](https://quix.io){target=_blank}
 
 You will need an Android mobile phone for this tutorial (we're working on the Apple app).
 
-If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g), our free Slack community.
+If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community.
 
 ### Library
 
-Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [Github](https://github.com/quixai/quix-library) repo. We'll be referring to the library often so make sure you know where it is.
+Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [Github](https://github.com/quixai/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It'spre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker).
+**Android App** - Our companion app for collecting real-time sensor data from your phone. It'spre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
@@ -227,7 +227,7 @@ Now try showing some different parameters in the app, or build a transformation 
 
 What will you build? Let us know. We'd love to feature your project or use case in our newsletter.
 
-If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g), our free Slack community.
+If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community.
 
 ## Ciao for now!
 

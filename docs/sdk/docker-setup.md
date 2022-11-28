@@ -52,7 +52,7 @@ To install docker-compose, please follow the guide [here (
   - Download the project then navigate to your solution’s root folder.
 
   - Navigate to
-    [quix-library](https://github.com/quixai/quix-library/tree/main/python/local-development)
+    [quix-library](https://github.com/quixai/quix-library/tree/main/python/local-development){target=_blank}
     and download `/docker/` folder content.
 
 ## Build and run project
