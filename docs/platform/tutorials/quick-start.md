@@ -57,9 +57,11 @@ To compliment the chat UI you will deploy in the next step, you will first deplo
     output_stream=output_topic.create_stream(input_stream.stream_id + "-output")
     ```
 
-8.  Click Deploy near the top right corner
+8. Click Deploy near the top right corner
 
-6.  Click `Deploy` on the deployment dialog
+9. Change the memory in deployment settings to at least 4GB
+
+10. Click `Deploy` on the deployment dialog
 
 	!!! success
 	      
