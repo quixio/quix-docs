@@ -21,7 +21,7 @@ What you need
   - A free [Quix account](https://quix.io/signup){target=_blank}. It
     comes with enough credits to create this project.
 
-  - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
+  - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.){target=_blank}
 
 ### Sourcing data
 
