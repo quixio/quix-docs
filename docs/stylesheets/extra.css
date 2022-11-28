@@ -8,6 +8,7 @@
     --md-code-fg-color: #414141;
     --md-code-bg-color: #e8e8e8;
     --md-default-fg-color--lightest: #cbcbcb;
+    --md-code-hl-comment-color: #858585;
 }
 
 [data-md-color-scheme="slate"] {
@@ -20,6 +21,7 @@
     --md-accent-fg-color: #409ed8;
     --p-color: rgb(255 255 255 / 70%);
     --md-code-bg-color: #393939;
+    --md-code-hl-comment-color: #858585;
 }
 
 .md-typeset code {
@@ -183,4 +185,21 @@ p {
 .image-center {
     display: block;
     margin: 0 auto;
+}
+
+/*dashed borders*/
+.border-blue-dash{
+	border: 2px dashed #0064FF;
+}
+.border-orange-dash{
+	border: 2px dashed #FF8536;
+}
+.border-violet-dash{
+	border: 2px dashed #BD2EFF;
+}
+.primary-fg{
+    filter: invert(40%) sepia(49%) saturate(4897%) hue-rotate(190deg) brightness(105%) contrast(103%);
+}
+.vertical-align{
+    vertical-align: text-bottom;
 }
