@@ -242,7 +242,7 @@ Follow these steps:
 
 1. Tag the code
 
-	!!! info "This is how you tag the code"
+	???- info "This is how you tag the code"
 
 		![How to tag your code](../images/tutorials/slack-bikes/tag.gif){width=350px}
 
