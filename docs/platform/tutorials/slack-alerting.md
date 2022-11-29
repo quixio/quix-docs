@@ -199,7 +199,7 @@ Now that you have the code saved and can edit it, you can customize the message 
 		print("{} has {} bikes available".format(bike_loc, num_bikes))
 	```
 
-4. You can now run the code her in the development environment by clicking the `Run` button near the top right of the code editor.
+4. You can now run the code here in the development environment by clicking the `Run` button near the top right of the code editor.
 
 	!!! success
 
@@ -209,7 +209,7 @@ Now that you have the code saved and can edit it, you can customize the message 
 
 5. Click the run button again to stop the code
 
-6. Now add the following code to the function named `on_pandas_frame_handler`
+6. Now add the following code to the function named `on_pandas_frame_handler` (Add this to the code you already added in the steps above)
 
 	```python 
 	message = ""
