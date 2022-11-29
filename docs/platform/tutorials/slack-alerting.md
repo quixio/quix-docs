@@ -4,6 +4,8 @@
 
 In this tutorial you will learn how to use Quix to create event driven notifications in real-time. In this example we’ll connect to the Transport for London BikePoint API and send availability alerts to Slack using Slacks Webhooks.
 
+We will start by sending the raw BikePoint data to Slack and then we'll show you how to alter the pre-built solution to refine the Slack message.
+
 By the end you will have:
 
  - Configured Slack to allow external services to send messages via WebHooks
@@ -70,7 +72,14 @@ This walk through covers the following steps:
 
 4. Publish messages to Slack from Quix
 
-## TFL BikePoint data
+5. Edit the code and send a custom Slack message
+
+## Part one
+
+In part one we will guide you through the process of selecting and deploying the TFL BikePoint connector and the Slack connector. 
+The end result will be Slack alerts containing data from the BikePoint API.
+
+### TFL BikePoint data
 
 Obtaining data from TFL's BikePoint API is fairly straight forward. You need to make a request to the relevant API endpoint, passing the correct parameters and API keys. When data is returned, you'll need to process it and ensure it's in the correct format to publish to a Quix topic.
 
@@ -92,11 +101,11 @@ However, there is a much easier way to achieve the same outcome.
 
 	You've deployed the TFL API microservice and it is publishing data to Quix
 
-## Configure Slack
+### Configure Slack
 
 You'll need to be an admin on Slack for this.
 
-### Slack App
+#### Slack App
 
 Ensure you’re logged into the [Slack web portal](https://api.slack.com/messaging/webhooks){target=_blank} here then create a new app.
 
@@ -108,7 +117,7 @@ Ensure you’re logged into the [Slack web portal](https://api.slack.com/messagi
 
 4. Click `Create App`
 
-### Webhooks
+#### Webhooks
 
 With the app created you'll now need to setup a webhook. This will give you a URL that you can use to publish messages to a Slack channel.
 
@@ -124,7 +133,7 @@ With the app created you'll now need to setup a webhook. This will give you a UR
 
 6. Copy the `Webhook URL` near the bottom of the page. Keep this safe you will need it soon
 
-## Integration
+### Integration
 
 The time has come to actually connect Quix and Slack. Once again, with the help of the Quix Library, this is a simple task.
 
@@ -146,10 +155,119 @@ The time has come to actually connect Quix and Slack. Once again, with the help 
 
 	![Data in Slack](../images/tutorials/slack-bikes/slack-data.png)
 
+## Part two
+
+In this part of the tutorial you will replace the current Slack connector with a new connector to send customized alerts. It's based on the existing connector, so most of the work has already been done.
+
+!!! note 
+	Begin by stopping the existing Slack connector from the home page.
+
+### Slack connector project
+
+Follow these steps to save the connector code to your workspace.
+
+1. Navigate to the library and search for `Slack`
+
+2. Click `Preview code` on the tile
+	You can preview the code here and read the readme. You can't edit the code right now
+
+3. Click `Edit code`
+
+4. Ensure that the `input` field is set to `tfl-bikepoint-data` and past your Slack WebHook URL into the appropriate field
+
+5. Click `Save as project`
+	The code is now saved to your workspace and you can now edit the code and make any modifications you need
+
+### Customize the message
+
+Now that you have the code saved and can edit it, you can customize the message that's sent to Slack.
+
+1. Ensure you are viewing the file called `quix_function.py`
+
+2. Locate the function named `on_pandas_frame_handler`
+
+3. Replace the code inside the function with the following code:
+
+	```python
+	# iterate the data frame
+	for i, row in df.iterrows():
+		# get the number of bikes
+		num_bikes = row["NbBikes"]
+		# get the location
+		bike_loc = row["Name"]
+		# print a message
+		print("{} has {} bikes available".format(bike_loc, num_bikes))
+	```
+
+4. You can now run the code here in the development environment by clicking the `Run` button near the top right of the code editor.
+
+	!!! success
+
+		You will see messages in the output window showing how many bikes there are at each location
+
+		![Output showing the number of bikes at each location](../images/tutorials/slack-bikes/console-output.png){width=350px}
+
+5. Click the run button again to stop the code
+
+6. Now add the following code to the function named `on_pandas_frame_handler` (Add this to the code you already added in the steps above)
+
+	```python 
+	message = ""
+	# check the number of remaining bikes
+	if num_bikes < 3: 
+		message = "Hurry! {} only has {} bike left".format(bike_loc, num_bikes)
+	else:
+		message = "{} has {} bikes available".format(bike_loc, num_bikes)
+
+	# compose and send your slack message
+	slack_message = {"text": message}
+	requests.post(self.webhook_url, json=slack_message)
+	```
+
+7. Repeat the process of running the code in the editor (see step 4 above)
+
+	!!! success
+
+		You now have customized messages in your Slack channel.
+
+		![Slack messages](../images/tutorials/slack-bikes/slack-messages.png){width=350px}
+
+		Don't forget to stop the service before proceeding
+
+### Deploy the service
+
+Now that you have verified that the code works it's time to deploy it as a microservice to the Quix serverless environment.
+
+Follow these steps:
+
+1. Tag the code
+
+	???- info "This is how you tag the code"
+
+		![How to tag your code](../images/tutorials/slack-bikes/tag.gif){width=350px}
+
+2. Click `Deploy` near the top right corner of the code editor window
+
+3. On the Deploy dialog select the version tag you just created
+
+4. Click `Deploy`
+
+	The service will be built, deployed and started
+
+!!! success
+
+	You modified an existing library item and deployed a microservice.
+
+	You should start seeing Slack messages as soon as the service starts.
+
+!!! note "Clean up"
+
+	You can delete the `Slack Notifications - Destination` you deployed in part one of this tutorial
+
 ## What’s Next
 
-There are many ways you can use this code, try enhancing it so it only alerts you about each location once, or once every 5 minutes or perhaps only if the number of bikes drops below 2 rather than just every time it is 2.
+There are many ways you can use this code, try enhancing it so it only alerts you about each location once, or once every 5 minutes.
 
 Using Quix, coupled with something like Slack, allows for automatic real-time alerting. Quix allows you to react in real-time to events or anomalies found either in raw data or generated by ML models.
 
-If you ran into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream](https://quix.ai/slack-invite){target=_blank}. Come and say hi.
+If you ran into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream](https://quix.ai/slack-invite){target=_blank}. Come and say hi!
