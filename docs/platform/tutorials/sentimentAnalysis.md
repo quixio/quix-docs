@@ -222,18 +222,12 @@ Follow these steps to deploy the tweet-to-chat conversion stage.
     
     ``` python
     def on_pandas_frame_handler(self, df: pd.DataFrame):
-    
-    for index, row in df.iterrows():
-    
-    text = row["text"]
-    
-    self.output_stream.events.add_timestamp_nanoseconds(row.time)\
-    
-    .add_tag("name", "Twitter") \
-    
-    .add_value("chat-message", text) \
-    
-    .write()
+		for index, row in df.iterrows():
+			text = row["text"]
+			self.output_stream.events.add_timestamp_nanoseconds(row.time)\
+			.add_tag("name", "Twitter") \
+			.add_value("chat-message", text) \
+			.write()
     ```
     
     !!! info 
