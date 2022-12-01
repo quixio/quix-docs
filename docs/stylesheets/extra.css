@@ -39,6 +39,10 @@ p {
     color: var(--p-color);
 }
 
+li {
+    color: var(--p-color);
+}
+
 .md-typeset h1{
     font-weight: var(--md-typeset-h1-font-weight);
 }
