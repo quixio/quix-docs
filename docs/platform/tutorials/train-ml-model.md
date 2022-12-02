@@ -18,7 +18,7 @@ model to react to data coming from source with milliseconds latency.
 At the end of this article, we will end up with a **pickle file**
 trained on historic data.
 
-<img src="../../images/tutorials/train-and-deploy-ml/train.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/train.png)
 
 ## Preparation
 
@@ -35,7 +35,7 @@ onboarding process when you [sign-up to Quix](https://portal.platform.quix.ai/se
 	This will provide you with some real-time data for your experiments.
 
 You’ll also need a Jupyter notebook environment to run your experiments
-and load data for training. Please use ["How to work with Jupyter notebook"](../jupyter-nb.md).
+and load data for training. Please use ["How to work with Jupyter notebook"](../../how-to/jupyter-nb).
 
 ### Install required libraries
 
@@ -99,15 +99,15 @@ You need to be logged into the platform for this:
 
 5.  Ensure **Python** is the selected language
 
-<img src="../../images/tutorials/train-and-deploy-ml/connect-python.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/connect-python.png)
 
 Copy the Python code to your Jupyter notebook and execute.
 
-<img src="../../images/tutorials/train-and-deploy-ml/jupyter-results.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/jupyter-results.png)
 
 !!! tip
 
-	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
+	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../apis/data-catalogue-api/authenticate.md) for how to do that.
 
 ### Preprocessing of features
 
@@ -151,7 +151,7 @@ plt.plot(df["Brake_bool"])
 plt.legend(['Shifted', 'Unshifted'])
 ```
 
-<img src="../../images/tutorials/train-and-deploy-ml/brake-shifted.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/brake-shifted.png)
 
 ### Fit, predict and score a model
 
@@ -258,7 +258,7 @@ ax2.plot(decision_tree.predict(X))
 ax2.plot(X["Speed"]/X["Speed"].max())
 ```
 
-<img src="../../images/tutorials/train-and-deploy-ml/prediction.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/prediction.png)
 
 ### Saving model
 
@@ -294,8 +294,8 @@ mlflow ui
 
 Select experiments to compare:
 
-<img src="../../images/tutorials/train-and-deploy-ml/experiments.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/experiments.png)
 
 Plot metrics from experiments:
 
-<img src="../../images/tutorials/train-and-deploy-ml/experiments-comparison.png" class="image-center">
+![](../images/tutorials/train-and-deploy-ml/experiments-comparison.png)

@@ -1,7 +1,4 @@
 
 site/
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/quix-docs.iml
+.idea/
+.vscode/

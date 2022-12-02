@@ -14,14 +14,14 @@ By the end you will have:
 
  - Created an experience you can share with friends and colleagues
 
-<img src="../../images/tutorials/data-stream-processing/CarDemoGif.gif" class="image-center">
+![A demo of the end result.](../images/tutorials/data-stream-processing/CarDemoGif.gif)
 
 !!! tip 
-    If you need any help, get into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365). We're eager to hear from anyone working with real-time data and that includes people following our tutorials.
+    If you need any help, get into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}. We're eager to hear from anyone working with real-time data and that includes people following our tutorials.
 
 ## Project Architecture
 
-<img src="../../images/tutorials/data-stream-processing/architecture.png" class="image-center">
+![The demo's architecture](../images/tutorials/data-stream-processing/architecture.png)
 
 The solution has 3 main elements:
 
@@ -40,7 +40,7 @@ You have to create and deploy 3 projects, we have: . Created an always on high p
 - A mobile device
 
 !!! tip 
-    If you don’t have a Quix account yet, go [here](https://quix.io/signup) to create one.
+    If you don’t have a Quix account yet, go [here](https://quix.io/signup){target=_blank} to create one.
 
 ## Overview
 
@@ -62,7 +62,7 @@ The code you will need for this tutorial is located in the Quix Library.
 
 Open the library and search for `Streaming Demo`. You will see 3 results.
 
-<img src="../../images/tutorials/data-stream-processing/library-items.png" class="image-center">
+![Library search results](../images/tutorials/data-stream-processing/library-items.png)
 
 You will save the code for each of these to your workspace and deploy the two services and the UI.
 
@@ -83,7 +83,7 @@ Follow these steps to get the code and deploy the project as a microservice.
 
         Leave the name, input and output as they are.
 
-        The input and output values are [Topics](../../definitions.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
+        The input and output values are [Topics](../definitions.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
 
 3. Click `Save as project`
 
@@ -199,7 +199,7 @@ You should be familiar with the process by now.
 ???- info "About the code"
     This UI code is Javascript and HTML, it displays the track and car and subscribes to data coming from the topics to keep the car where it's supposed to be or at least where you drive it!
 
-    The most relevant part of the code is where websockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr).
+    The most relevant part of the code is where websockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr){target=_blank}.
 
     For example these lines subscribe to various parameter values on the `car-game-control` topic.
 
@@ -220,7 +220,7 @@ You should be familiar with the process by now.
 
     Look for those lines in the `create-page.js` file and explore what they do.
 
-    For more about websockets see [this page](../apis/streaming-reader-api/intro.md).
+    For more about websockets see [this page](../../../apis/streaming-reader-api/intro).
 
 ## Fun
 
@@ -250,14 +250,14 @@ With the microservices for control and input processing deployed along with the 
 6. DRIVE! 🏎️🏁
 
 ### Phone screen
-<img src="../../images/tutorials/data-stream-processing/phone.jpg" width="400px" class="image-center">
+![What you'll see on the phone](../images/tutorials/data-stream-processing/phone.jpg){width=400px}
 
 ### Game screen
 
-<img src="../../images/tutorials/data-stream-processing/track.png" width="400px" class="image-center">
+![What you'll see on your computer](../images/tutorials/data-stream-processing/track.png){width=400px}
 
 ## Thanks
 
 Thanks for following the tutorial, hopefully you learnt something about Quix and had some fun doing it!
 
-If you need any help, got into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
+If you need any help, got into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}.

@@ -14,8 +14,7 @@ workspace names. For example, for an "acme" organisation with a
     https://telemetry-query-acme-weather.platform.quix.ai/
 
 To determine the final URL, you can [find out how to get a workspace
-id](../../platform/how-to/get-workspace-id.md), or follow these
-instructions:
+id](../../platform/how-to/get-workspace-id.md), or follow these instructions:
 
 1.  Click the Data Explorer icon **Data Explorer** in the main menu.
 

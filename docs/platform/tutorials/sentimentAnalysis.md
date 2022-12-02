@@ -1,6 +1,6 @@
 # Sentiment analysis
 
-![image](../images/tutorials/sentiment-analysis-media/image1.png)
+![The deployed pipeline](../images/tutorials/sentiment-analysis-media/image1.png)
 
 Build a real time sentiment analysis pipeline. Use the power and ease of
 Quix to process high volume tweets or user sourced conversation
@@ -111,7 +111,7 @@ Follow these steps to deploy the Web UI.
 	
 		This is the user interface for the demo. This screenshot shows the view you’ll see after creating a “room” to chat in.
 
-		<img src="../../images/tutorials/sentiment-analysis-media/image3.png" width="550px" class="image-center">
+		![The sentiment analysis demo page](../images/tutorials/sentiment-analysis-media/image3.png){width=550px}
 
 ### 2. Sentiment analysis
 
@@ -166,11 +166,11 @@ Follow these steps to deploy the sentiment analysis stage.
     URL of the Web UI project you deployed in step one. . Enter values
     for “Room” and “Name” . Click connect.
     
-	<img src="../../images/tutorials/sentiment-analysis-media/image5.png" width="400px" class="image-center">
+	![Lobby fields](../images/tutorials/sentiment-analysis-media/image5.png){width=400px}
     
     You can now enter “chat” messages.
     
-    <img src="../../images/tutorials/sentiment-analysis-media/image2.png" width="250px" class="image-center">
+    ![Positive and negative sentiment chats](../images/tutorials/sentiment-analysis-media/image2.png){width=250px}
     
 	!!! info
 		The messages will be passed to the sentiment analysis service you deployed in step two. The sentiment is returned to the Web UI and displayed both in the chart and next to the comment in the chat window by colorizing the chat user’s name.
@@ -284,7 +284,7 @@ Follow these steps to deploy the Web UI.
     You will see Bitcoin tweets arriving in the chat along with the
     calculated average sentiment in a chart.
     
-    <img src="../../images/tutorials/sentiment-analysis-media/image4.png" width="550px" class="image-center">
+    ![The end result. Chats on screen with sentiment and overall sentiment](../images/tutorials/sentiment-analysis-media/image4.png){width=550px}
 
 !!! success
 	Your pipeline is now complete, you can send and view chat messages, receive tweets and analyze the sentiment of all of the messages.
@@ -296,7 +296,7 @@ Follow these steps to deploy the Web UI.
 You’ve just made extensive use of the Quix library, our collection of
 open source connectors, samples and examples. Now you can build your own
 connectors and apps and contribute by going to our Github
-[here](https://github.com/quixai/quix-library), forking our library repo
+[here](https://github.com/quixai/quix-library){target=_blank}, forking our library repo
 and submitting your code, updates and ideas.
 
 What will you build, let us know. We’d love to feature your project or

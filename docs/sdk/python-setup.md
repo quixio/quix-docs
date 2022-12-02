@@ -11,7 +11,7 @@ Python environment on Linux, Mac or Windows.
 
 !!! note
 
-	This guide assumes you have already cloned a project of your own or download a library sample provided within the platform. In addition some stages may require files from [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development).
+	This guide assumes you have already cloned a project of your own or download a library sample provided within the platform. In addition some stages may require files from [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development){target=_blank}.
 
 !!! warning
 
@@ -27,7 +27,7 @@ To get started, install the SDK dependencies.
     **Install dependencies via script**
     
     Download the script named `quix-dependency-installer-mac.sh` from
-    [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development),
+    [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development){target=_blank},
     which installs all necessary requirements. Download the project then
     run the script by copy-pasting the following into a terminal from
     the project’s top directory.
@@ -41,7 +41,7 @@ To get started, install the SDK dependencies.
       - Install and configure PythonNet dependencies
         
           - Install the Brew package manager (from
-            [brew.sh](https://brew.sh/)). To add brew to your path:
+            [brew.sh](https://brew.sh/)){target=_blank}. To add brew to your path:
             
             ``` bash
             echo "export PATH=/usr/local/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile && echo "Worked" || echo "Failed"
@@ -69,7 +69,7 @@ To get started, install the SDK dependencies.
     **Install dependencies via script**
     
     Download the script named `quix-dependency-installer-mac.sh` from
-    [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development),
+    [GitHub](https://github.com/quixai/quix-library/tree/main/python/local-development){target=_blank},
     which installs all necessary requirements. Download the project then
     run the script by copy-pasting the following into a terminal from
     the project’s top directory.
@@ -83,7 +83,7 @@ To get started, install the SDK dependencies.
       - Install and configure PythonNet dependencies
         
           - Install the Brew package manager (from
-            [brew.sh](https://brew.sh/)). To add brew to your path:
+            [brew.sh](https://brew.sh/)){target=_blank}. To add brew to your path:
             
             ``` bash
             echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile && echo "Worked" || echo "Failed"
