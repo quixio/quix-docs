@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ config.extra.analytics.property }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+  {{ super() }}
+  <!-- Add scripts that need to run afterwards here -->
+{% endblock %}
+
 {% block footer %}
 
 {{ super() }}
