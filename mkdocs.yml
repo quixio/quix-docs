@@ -27,7 +27,13 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
-      - 'Sentiment analysis': 'platform/tutorials/sentiment-analysis.md'
+      - 'Sentiment analysis': 
+        - 'Introduction': 'platform/tutorials/sentiment-analysis/introduction.md'
+        - '1. Chat App': 'platform/tutorials/sentiment-analysis/chat-app.md'
+        - '2. Analyze': 'platform/tutorials/sentiment-analysis/sentiment.md'
+        - '3. Tweets': 'platform/tutorials/sentiment-analysis/tweets.md'
+        - '4. Transform': 'platform/tutorials/sentiment-analysis/transformation.md'
+        - 'Finale': 'platform/tutorials/sentiment-analysis/finale.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
