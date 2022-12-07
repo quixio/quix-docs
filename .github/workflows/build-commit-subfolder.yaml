@@ -69,8 +69,13 @@ jobs:
     - run: pip install mkdocs
     #- run: pip install mkdocs-material
     
-    - name: Build the Docs
+    - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
+      env:
+        AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
+        
+    #- name: Build the Docs
+    #  run: mkdocs build --no-directory-urls
       
     - uses: azure/login@v1
       with:
