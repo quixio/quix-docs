@@ -21,7 +21,7 @@ I’ve made a video of this tutorial if you prefer watching to reading.
 2.  [Snowflake account](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg){target=_blank}
 
 3.  [Twitter developer account](https://developer.twitter.com/en/portal/petition/essential/basic-info){target=_blank}
-    (You can follow [this tutorial to set up a developer account](https://developer.twitter.com/en/support/twitter-api/developer-account){target=_blank} ){target=_blank}
+    (You can follow [this tutorial to set up a developer account](https://developer.twitter.com/en/support/twitter-api/developer-account){target=_blank})
 
 ## Step one: create a database
 

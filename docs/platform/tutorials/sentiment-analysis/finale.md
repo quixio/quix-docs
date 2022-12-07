@@ -2,7 +2,7 @@
 
 You have deployed a UI and sentiment analysis service, subscribed to Tweets and built a transformation. Now see it all come together in the grand finale!
 
-![The end result. Chats on screen with sentiment and overall sentiment](../../images/tutorials/sentiment-analysis-media/image4.png){width=550px}
+![The end result. Chats on screen with sentiment and overall sentiment](../../images/tutorials/sentiment-analysis-media/end-result.gif){width=550px}
 
 
 1. Navigate to or reload the Chat App you deployed in the first part of this tutorial.

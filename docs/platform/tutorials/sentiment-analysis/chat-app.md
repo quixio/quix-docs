@@ -14,15 +14,15 @@ Follow these steps to deploy the Web UI.
 
 2. Click `Edit code`
 
-3. Ensure that the `sentiment` input contains `sentiment`
+3. Ensure that the `sentiment` input box contains `sentiment`
 
-    - This topic will be subscribed to and will contain the sentiment scores from the sentiment analysis service, you'll deploy this next.
+    - This topic will be subscribed to and will contain the sentiment scores from the sentiment analysis service, you'll deploy this in a later part of this tutorial.
 
 3. Ensure that the `messages` input contains `messages`
 
     - This topic will contain all the chat messages.
-    - The UI will subscribe to this topic, to display new Twitter messages, as well as publishing to the topic when a user sends a message using the send button in the UI.
-    - The sentiment analysis service will also subscribe to messages on this topic to produce sentiment scores.
+    - The UI will subscribe to this topic, to display new messages, as well as publishing to the topic when a user sends a message using the 'send' button in the UI.
+    - Later, the sentiment analysis service will also subscribe to messages on this topic to produce sentiment scores.
 
 3. Click `Save as project` 
 

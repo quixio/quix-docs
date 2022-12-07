@@ -32,7 +32,6 @@ nav:
         - '1. Chat App': 'platform/tutorials/sentiment-analysis/chat-app.md'
         - '2. Analyze': 'platform/tutorials/sentiment-analysis/sentiment.md'
         - '3. Tweets': 'platform/tutorials/sentiment-analysis/tweets.md'
-        - '4. Transform': 'platform/tutorials/sentiment-analysis/transformation.md'
         - 'Finale': 'platform/tutorials/sentiment-analysis/finale.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
