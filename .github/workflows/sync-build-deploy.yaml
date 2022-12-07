@@ -58,6 +58,10 @@ jobs:
       # zoom images
       - name: Install MkDocs Light Box
         run: pip install mkdocs-glightbox
+
+      # add multirepo to support pulling docs from other repos
+      - name: Install multirepo
+        run: pip install mkdocs-multirepo-plugin
         
       # Install Material insiders theme
       - name: Install Material insiders theme

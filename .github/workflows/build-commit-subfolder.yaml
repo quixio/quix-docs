@@ -57,6 +57,10 @@ jobs:
     # zoom images
     - name: Install MkDocs Light Box
       run: pip install mkdocs-glightbox
+
+    # add multirepo to support pulling docs from other repos
+    - name: Install multirepo
+      run: pip install mkdocs-multirepo-plugin
     
     # Commenting out material insiders install until get proper token back.
     - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
