@@ -57,6 +57,10 @@ jobs:
     # zoom images
     - name: Install MkDocs Light Box
       run: pip install mkdocs-glightbox
+
+    # add multirepo to support pulling docs from other repos
+    - name: Install multirepo
+      run: pip install mkdocs-multirepo-plugin
     
     # Commenting out material insiders install until get proper token back.
     - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
@@ -65,8 +69,13 @@ jobs:
     - run: pip install mkdocs
     #- run: pip install mkdocs-material
     
-    - name: Build the Docs
+    - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
+      env:
+        AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
+        
+    #- name: Build the Docs
+    #  run: mkdocs build --no-directory-urls
       
     - uses: azure/login@v1
       with:

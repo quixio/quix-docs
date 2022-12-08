@@ -41,31 +41,7 @@ nav:
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - SDK:
-    - 'Introduction': 'sdk/introduction.md'
-    - 'Kafka and Quix SDK': 'sdk/kafka.md'
-    - 'Features overview':
-      - 'Streaming context': 'sdk/features/streaming-context.md'
-      - 'In-memory processing': 'sdk/features/in-memory-processing.md'
-      - 'Built-in buffers': 'sdk/features/builtin-buffers.md'
-      - 'Support for Data Frames': 'sdk/features/data-frames.md'
-      - 'Message splitting': 'sdk/features/message-splitting.md'
-      - 'Message compression': 'sdk/features/message-compression.md'
-      - 'Data serialization': 'sdk/features/data-serialization.md'
-      - 'Multiple data types': 'sdk/features/multiple-data-types.md'
-      - 'Broker configuration': 'sdk/features/broker-configuration.md'
-      - 'Checkpointing': 'sdk/features/checkpointing.md'
-      - 'Horizontal scaling': 'sdk/features/horizontal-scaling.md'
-      - 'Integrations': 'sdk/features/integrations.md'
-      - 'Portability': 'sdk/features/portability.md'
-    - 'Connect to Quix': 'sdk/connect.md'
-    - 'Writing data': 'sdk/write.md'
-    - 'Reading data': 'sdk/read.md'
-    - 'Processing data': 'sdk/process.md'
-    - 'State management': 'sdk/state-management.md'
-    - 'Local environment':
-      - 'Set up local environment': 'sdk/python-setup.md'
-      - 'Set up docker environment': 'sdk/docker-setup.md'
+  - 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
@@ -97,10 +73,6 @@ nav:
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 'apis/portal-api.md'
-    #- 'API Reference':
-    #  - 'API V1': '!include ./api-docs/mkdocs.yml'
-  # - Services:
-  #   - Replay: '!include ./replay/mkdocs.yml'
   - Contributing:
       - 'Contributing to the docs': 'contributing.md'
 
@@ -108,7 +80,7 @@ plugins:
   - search:
       separator: '[\s\-\.]' 
   - glightbox
-  #- monorepo
+  - multirepo
   
 theme:
   name: 'material'
