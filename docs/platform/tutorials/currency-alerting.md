@@ -1,256 +1,205 @@
 # Currency Alerting
 
+<!-- Output copied to clipboard! -->
+
+<!-- You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see inline alerts.
+* ERRORs: 0
+* WARNINGs: 0
+* ALERTS: 6 -->
+
+
 ## Aim
 
-Quix allows you to create complex and efficient infrastructure in a
-quick and simple way. To show you how, this tutorial will guide you
-through the steps to build a real time streaming pipeline that sends
-alerts to your phone when the Bitcoin price reaches certain threshold.
+Build a real time streaming pipeline that sends alerts to your phone when the Bitcoin price reaches a certain threshold.
 
-!!! note
+**_Note: This guide will take you through the steps to start working with Twilio (developer platform for communications) and the CoinAPI (platform that provides data APIs to cryptocurrency) using Quix._**
 
-	This guide will take you through the steps to start working with Twilio (developer platform for communications) and the coinAPI (platform that provides data APIs to cryptocurrency) using Quix.
+We’ll be using [CoinAPI](http://coinapi.io) to fetch some trading data from various crypto exchanges, and [Pushover](https://pushover.net/) to send notifications to your phone.
 
-By the end you will have:
+By the end you will have learned how to:
 
-  - Deployed a currency exchange rate capture connector
+1. **Ingest external data into Quix** 
+<br>Use an input connector that receives a stream of trading data from CoinAPI.
+<br>
 
-  - Deployed Twilio connector to send alerts to your mobile phone
+1. **Analyze and Transform the data**
+<br>Use a simple algorithm that checks to see if a value has crossed a threshold in either direction.
+<br>
 
-![tutorials/currency-alerting/pipeline.png](../images/tutorials/currency-alerting/pipeline.png)
+1. **Output the data to an external source**
+<br>Use an output connector that sends push notifications to a simple test app on your mobile phone.
 
 ## Prerequisites
 
-We assume that all you have is a Quix account that you haven’t started
-using yet.
+To complete this tutorial, you’ll need to sign up for a couple of different services which hopefully shouldn’t take too long. Each service has a simple signup process. 
 
-!!! tip
+* **A Quix account**
+    * Hopefully you have this already; otherwise, you can visit the [Quix sign-up page](https://portal.platform.quix.ai/self-sign-up) and sign up with an existing Google, Github, or Microsoft account.
+    <br>
 
-	If you don’t have a Quix account yet, go [here](https://quix.io/signup/){target=_blank} and create one.
-
-## Overview
-
-This walkthrough covers the following steps:
-
-1.  Create third party accounts: Twilio and CoinApi
-
-2.  Deploy connectors from the Quix Library for:
+* **A CoinAPI API Key**
+    * To get a free API key, open the [CoinAPI key application form](https://www.coinapi.io/pricing?apikey), enter your email, name, job title, and company size—you’ll get a key sent to your email address.
+    <br>
     
-    1.  the Coin API data source
-    
-    2.  the Twilio sink or output
+* **A Pushover User key and API token**
+    * To get a user token and API token; open the [Pushover sign-up page](https://pushover.net/signup), enter your email, define a password, then verify your email address.
 
-## Create free third party accounts
+## How Our Final Pipeline Will Look
+The goal of this tutorial is to end up with a simple pipeline that resembles the following example:
+![Alt text](../images/tutorials/currency-alerting/currency-pipeline.png)
+What do those colors mean? They describe the role of the function that is being deployed. The possible roles are as follows:
 
-### Create a free CoinApi account
+* **Blue**: an input function (AKA source function)—these are responsible for ingesting data into Quix from any outside source, such as an API or websocket.
+* **Purple**: a transformation function—these are responsible for processing data in some way.
+* **Orange**: an output function (AKA destination function)—these are responsible for outputting some kind of processed data to an outside destination, such as a database.
 
-!!! note
+Before we get going, lets take a closer look at the input, transformation, and output functions that we'll be using in this example.
 
-	CoinAPI is a platform that provides data APIs for many financial instruments including cryptocurrency. We will be using it to get live Bitcoin (BTC) data.
+### The Input Function
+**Purpose:**  _Ingest BTC/USD Exchange Rate Data_
 
-Let’s create a free coinAPI account:
+This function connects reads a live stream of updates for the currency pair: `BTC/USD`. We get this data by connecting to the [CoinAPI](https://www.coinapi.io/) [Websocket](https://en.wikipedia.org/wiki/WebSocket) (the free [sandbox version](https://docs.coinapi.io/#endpoints-2)). 
 
-1.  Go to [https://www.coinapi.io/](https://www.coinapi.io/){target=_blank}.
+* The function streams the exchange rate data to a topic called `currency-exchange-rates`. 
+* Downstream functions can then read fom this topic and process it in different ways. 
+* In this case, we're going to check the price against a threshold.
 
-2.  Click the "Get a free API key" button and complete the dialog to
-    create a free account.
+### The Transformation Function
+**Purpose:** _Monitor the BTC/USD exchange rate against a specific price threshold_
 
-3.  You will receive your API key on your provided email. **Keep it safe
-    for later**.
+This function contains a simple algorithm that checks to see if a value has crossed a threshold in either direction.
 
-### Create a free Twilio account
+What's being transformed here? In this case, we're filtering signals from the noise. The raw data is being transformed into 'insights' (in the form of price movement alerts). 
 
-!!! note
+* When the threshold criteria are met, the function writes an alert message to a topic called `currency-rate-alerts`. 
+* Downstream functions can then read fom this topic and send alerts and notifications whevever they detect a new message.
 
-	Twilio is a developer platform for communications. We can use Twilio, for instance, to send SMS messages.
+### The Output Function
+**Purpose:** _Send a push notification when certain conditions are met_
 
-Let’s create a free Twilio account:
+This function reads from the `currency-rate-alerts` topic and whenever a new message arrives, it sends a push notification to the Pushover app on your mobile phone.
 
-1.  Go to [https://www.twilio.com/](https://www.twilio.com/){target=_blank}.
+It also reads the contents of the message and enriches the notification with details on how the threshold was crossed (specifically, if the price is moving up or down).
 
-2.  Click the "Sign Up" button and complete the dialog. Do the email and
-    text message verifications.
-
-3.  Then, we will need to setup the Twilio account and create a
-    messaging service. It’s not too hard but there are a couple of
-    sticky points, so we’ll take you through it.
-
-
-
-  - Step 3 video-instructions
-    
-    !!! tip
-    
-		Complete step 3 following our short 2 min video [here](https://youtu.be/VY8cR19dF5s){target=_blank}.
-    
-    Remember to gather your IDS and keep them safe for later: the
-    Messaging Service SID in the Properties section and the Account SID
-    and Auth Token in the Dashboard.
-
-  - Step 3 written-instructions
-    
-    1.  On your first login, tell Twilio:
-        
-          - Which product to use: SMS
-        
-          - What to build: Alerts & Notifications
-        
-          - How to build it: With no code at all
-        
-          - What is your goal: Build something myself
-    
-    2.  Click "Get Started with Twilio".
-    
-    3.  Once in the Dashboard menu, get a phone number for sending
-        messages:
-        
-          - Click "Get Trial Number"
-        
-          - You will be assigned a unique phone number
-        
-          - That’s the number Twilio is going to be sending SMSs from
-            (and you can receive SMSs there too)
-    
-    4.  In the menu on the left hand side expand "Messaging".
-        
-          - Click Services section
-        
-          - Click the "Create Messaging Service" button
-            
-              - Name: Something like "QuixAlerting"
-            
-              - Use Case: Notify my users
-            
-              - Click "Create Messaging Service"
-        
-          - On the next page you’ll assign the "Sender", i.e. your new
-            phone number:
-            
-              - Click "Add Senders" button
-            
-              - In the dialog: check that Sender Type is on "Phone
-                Number" and click "Continue"
-            
-              - Select or Tick the phone number (it is the one created
-                for you earlier)
-            
-              - Click "Add Phone Numbers"
-
-!!! note
-
-	If you are in the Twilio wizard the next step is to "Setup Integration". You don’t need to do this so just click the "Skip" button towards the bottom of the screen. You’ll do the integration in Quix.
-
-1.  Finally, gather your ID’s and **keep them safe for later**:
-    
-      - Find the Messaging Service SID in the "Messaging" then
-        "Services" menus on the left hand side. The SID is listed next
-        to the "QuixAlerting" messaging service
-    
-      - Find the Account SID and Auth Token in the "Account" menu under
-        "API keys & tokens"
+## Setting Up The Functions
+Now let’s deploy the functions we need to build the pipeline.  Luckily, we don’t have to write any of these functions from scratch. We can import them from the Quix library and adapt a few variables for this tutorial.
 
 
+!!! note "What is the Quix Library?"
 
-## Quix Library
+	The Quix library is a repository of useful functions in Python (and other supported languages) categorized by each of the three roles. The library includes connector functions that ingest data or output data. It also includes transformation functions that can process and transform the data in different ways.
 
-Now let’s find and deploy the 2 connectors needed to make this project
-work.
+Let’s set up each function one by one, starting with our input function.
 
-### Coin API
 
-We’ll start with the Coin API. So head over to the Quix Library and
-search for "Coin API" and click "Setup and Deploy" on the Coin API tile.
+### Setting Up The CoinAPI Input Function
 
-![tutorials/currency-alerting/coinapi.png](../images/tutorials/currency-alerting/coinapi.png)
 
-The connector needs some values for it to work, some of these have
-default values which you can change now or later if you want to. The
-only thing you have to provide is the API key you got when you signed up
-to Coin API.
+1. Poll the CoinAPI market data endpoint for the current Bitcoin price (no less than every 15 mins if you’re on the free plan
 
+There’s a CoinAPI ingestion function in the Quix library. You just need to copy it to your workspace and give it the environment variables that it expects. 
+
+Search for "CoinAPI" and click "Setup and Deploy" on the CoinAPI tile.
+
+![CoinAPI library item](../images/tutorials/currency-alerting/coinapi.png "CoinAPI library item")
+
+Fill out the following environment variables:
+
+ * The API key that you use to access CoinAPI.
+ * The short code for the base currency that you want to track (e.g. BTC), 
+ * The short code for the currency in which prices will be quoted (e.g. USD)
 Once you have entered your Coin API key just click Deploy.
 
-!!! note
 
-	This version of the Coin API connector is rate limited so that your free trial account doesn’t exceed the quotas imposed by Coin API. It will fetch data every 15 minutes. You can unlock this limit by saving the code to your workspace and removing the limit. (Let us know if you want help with this)
+**Logs**
 
-#### Logs
-
-Once the connector has deployed it will start automatically and you’ll
-be redirected to the workspace home page.
-
+Once the connector has deployed it will start automatically and you’ll be redirected to the workspace home page.
 You can click on the Coin API card where you will see the logs.
+If you see an error you might have to wait a few minutes for your API key to propagate to all of the Coin API servers.
 
-If you see an error you might have to wait a few minutes for your API
-key to propagate to all of the Coin API servers.
 
-### Twilio
+### Setting Up The Threshold Checking Function
 
-Head back to the Quix Library and search for "Twilio" and click "Setup
-and Deploy" on the Twilio Sink tile.
 
-![tutorials/currency-alerting/twilio.png](../images/tutorials/currency-alerting/twilio.png)
 
-Just like the Coin API connector, this one also needs some values for it
-to work. Use the guidance in the connectors setup guide to fill in the
-required details.
+1. See if the Bitcoin price has moved beyond the target price threshold in either direction. \
 
-1.  Ensure the input topic is "coin-data".
 
-2.  "Numbers" should be the command separated list of phone numbers to
-    send SMS alerts to.
+You can click on this
 
-3.  The account\_sid, auth\_token and messaging\_service\_sid can be
-    populated using the values you saved while setting up your Twilio
-    account.
 
-4.  message\_limit can be left at 2 or changed to suit your needs.
+![alt_text](images/image3.png "image_tooltip")
 
-Click Deploy and wait for the pre-built connector to be depolyed to your
-workspace.
 
-#### Logs
+xxx
 
-Once deployed you will again be redirected to the workspace home page.
-You can click on the Twilio Sink tile and view the logs if you wish.
 
-!!! note
+![alt_text](images/image4.png "image_tooltip")
 
-	The logs may display a message similar to "skipped due to message limit reached". It’s just an informational display. Not an error and is due to the per minute message limit we configured for the Twilio connector in the previous stage.
 
-![tutorials/currency-alerting/logs1.png](../images/tutorials/currency-alerting/logs1.png)
 
-## Congratulations
+### Setting Up The Pushover Function
 
-At this point you should be receiving messages to your mobile phone.
-Congratulations you’ve done it\!
 
-## Recap - What did you just do\!
+1. Send a message to let you know that the threshold has been met (for example, using an SMS API like Twilio).
 
-  - \[x\] You created a realtime, always on solution on the Quix
-    serverless compute environment. All for Free\!
+Head back to the Quix Library and search for "Twilio" and click "Setup and Deploy" on the Twilio Sink tile.
 
-  - \[x\] You deployed two connectors. One to read data from another
-    platform and one to make decisions based on that data and send
-    notifications via SMS. In real time.
 
-  - \[x\] You gained some experience of navigating the Quix portal and
-    how to deploy connectors. All without doing any coding\!
+![alt_text](images/image5.png "image_tooltip")
+
+
+Just like the Coin API connector, this one also needs some values for it to work. Use the guidance in the connectors setup guide to fill in the required details.
+
+
+1. 
+Ensure the input topic is "coin-data".
+
+
+2. 
+"Numbers" should be the command separated list of phone numbers to send SMS alerts to.
+
+
+3. 
+The account_sid, auth_token and messaging_service_sid can be populated using the values you saved while setting up your Twilio account.
+
+
+4. 
+message_limit can be left at 2 or changed to suit your needs.
+Click Deploy and wait for the pre-built connector to be depolyed to your workspace.
+
+**Logs**
+
+Once deployed you will again be redirected to the workspace home page. You can click on the Twilio Sink tile and view the logs if you wish.
+
+**Note**
+
+The logs may display a message similar to "skipped due to message limit reached". It’s just an informational display. Not an error and is due to the per minute message limit we configured for the Twilio connector in the previous stage.
+
+
+![alt_text](images/image6.png "image_tooltip")
+
+
+Congratulations-At this point you should be receiving messages to your mobile phone. Congratulations you’ve done it!
+
+
+## Recap - What did you just do!
+
+* 
+[x] You created a real time, always on solution on the Quix serverless compute environment. All for Free!
+
+* 
+[x] You deployed two connectors. One to read data from another platform and one to make decisions based on that data and send notifications via SMS. In real time.
+
+* 
+[x] You gained some experience of navigating the Quix portal and how to deploy connectors. All without doing any coding!
 
 ## What’s Next
 
 What else can you use Quix for?
 
-You can stream any kind of data into the Quix platform, from other apps,
-websites and services. From hardware, machinery or wearables or from
-anything you can think of that outputs data. You can then process that
-data in any imaginable way.
+You can stream any kind of data into the Quix platform, from other apps, websites and services. From hardware, machinery or wearables or from anything you can think of that outputs data. You can then process that data in any imaginable way.
 
-See what you can do with it and please share your experiences with us.
-In fact, share it with your colleagues, friends and family. Blog, tweet
-and post about it and tell anyone who will listen about the
-possibilities.
+See what you can do with it and please share your experiences with us. In fact, share it with your colleagues, friends and family. Blog, tweet and post about it and tell anyone who will listen about the possibilities.
 
-!!! tip
-
-    If you run into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream](https://quix.ai/slack-invite){target=_blank}. Come and say hi.
+**Tip **If you run into trouble please reach out to us. We’ll be more than happy to help. We hang out at [The Stream](https://quix.ai/slack-invite). Come and say hi.
