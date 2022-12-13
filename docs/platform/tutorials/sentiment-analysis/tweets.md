@@ -2,7 +2,9 @@
 
 In the [previous part](sentiment.md) of this tutorial you deployed a microservice to analyze the sentiment of messages in the chat. 
 
-In this section you will deploy a data source subscribing to Twitter messages and publishing them to the same chat app you have already deployed. The sentiment of all the messages will be determined in real-time.
+In this section you will deploy a data source subscribing to Twitter messages and a new service to normalize the messages, making them compatible with the sentiment analysis service and UI you have already deployed. The sentiment of all the messages will be determined in real-time.
+
+![Twitter branch of the sentiment analysis pipeline](../../images/tutorials/sentiment-analysis-media/pipeline-view-twitter-branch.png){width=450px}
 
 If you're asking "Why Twitter?" it's a good question. We have a great Twitter connector and want to show it off! Plus it allows you to source real world data at volume (if you choose the right search parameters).
 
@@ -36,7 +38,9 @@ Follow these steps to deploy the Twitter data source:
 	You'll need to complete the next page of the tutorial before you see the tweets displayed in the UI.
 
 !!! note 
-    The default Twitter search criteria is looking for Bitcoin  tweets, it’s a high traffic subject and great for the demo. Feel free to change this once you’ve got the demo working. 
+    The default Twitter search criteria is looking for Bitcoin  tweets, it’s a high traffic subject and great for the demo. However, because of the volume of Bitcoin tweets it will use up your Twitter Developer Account credits in a matter of days. So stop the Twitter feed when you're finished with it.
+    
+    Feel free to change the search criteria once you’ve got the demo working. 
     
 
 ## Transformation
@@ -53,11 +57,11 @@ Follow these steps to code and deploy the tweet-to-chat conversion stage:
 
 1. Navigate to the Library and apply the following filters
     
-    1. Languages = Python
+    1. Languages = `Python`
     
-    2. Pipeline Stage = Transformation
+    2. Pipeline Stage = `Transformation`
     
-    3. Type = Basic templates
+    3. Type = `Basic templates`
 
 2. Select `Empty template - Transformation`.
 

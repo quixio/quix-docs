@@ -28,6 +28,5 @@ There are several stages to this tutorial and we'll guide you every step of the 
 
 4. [Test](finale.md) it all out
 
-## Get started
 
 [So get started! Deploy the first part of the solution by following step 1 :material-arrow-right-circle:{ align=right }](chat-app.md)

@@ -2,16 +2,22 @@
 
 In [Part 1](chat-app.md) you deployed a Chat App UI, sent some messages and maybe used your phone or sent the link to a friend or colleague and you saw messages being displayed in the Chat UI in real-time.
 
-Now it's time to analyze the sentiment of the conversation by adding a new node to the processing pipeline.
+Now it's time to analyze the sentiment of the conversation by adding a new node to the processing pipeline. This will utilize a pre-built model from [huggingface.co](https://huggingface.co/){target=_blank}.
 
 !!! warning 
 
-    The code you're about to build gets the job done and meets the needs of this tutorial, it is by no means production ready.
+    The code you're about to build gets the job done and meets the needs of this tutorial. However, it is by no means production ready.
 
 
-## 2. Evaluating sentiment
+## Evaluating sentiment
+
+The sentiment of each message will be evaluated by this new stage of your message processing pipeline. Using a pre-built [huggingface.co](https://huggingface.co/){target=_blank} model.
+
+Follow the steps below to code, test and deploy the new service to your workspace.
 
 ???- info "Deploy the pre-built service"
+
+    ### Pre-built the service (optional)
 
     We recommend that you follow the tutorial and build your own sentiment analysis code!
 
@@ -27,7 +33,7 @@ Now it's time to analyze the sentiment of the conversation by adding a new node 
 
     4. Locate main.py
 
-    ## Deploy the service
+    #### Deploy the service
 
     1. Click the `+tag` button at the top of any code file
 
@@ -63,7 +69,7 @@ Now it's time to analyze the sentiment of the conversation by adding a new node 
         If you took the easy path and deployed the pre-built service then [skip to the next page :material-arrow-right-circle:](tweets.md)
        
 
-### Template
+### Select the template
 
 Now you will code your own sentiment analysis microservice. Follow these steps:
 
@@ -97,11 +103,13 @@ Now you will code your own sentiment analysis microservice. Follow these steps:
 
     The code is now saved to your workspace, you can edit and run it as needed before deploying it into a production ready, serverless and scalable environment.
 
-### Red, Green, Refactor
+### Development lifecycle
 
-You're now looking at the Quix online development environment.
+You're now looking at the Quix online development environment where you will develop the code to analyze the sentiment of each message passing through the pipeline.
 
 #### Run
+
+Begin by running the code as it is and then update it to analyze the message sentiment.
 
 1. To get started with this code click the `run` button near the top right of the code window.
 
@@ -139,7 +147,7 @@ You're now looking at the Quix online development environment.
 
 #### Simple transformation
 
-Now that you know the code can subscribe to messages you need to transform the messages and publish them to an output topic.
+Now that you know the code can subscribe to messages, you need to transform the messages and publish them to an output topic.
 
 1. If your code is still running stop by clicking the same button you used to run it.
 
@@ -156,11 +164,11 @@ Now that you know the code can subscribe to messages you need to transform the m
 
 5. The message in the UI are now all in uppercase as a result of your transformation
 
-Don't forget to stop the code again
+Don't forget to stop the code again.
 
 #### Sentiment analysis
 
-In this step you will modify the code to perform the sentiment analysis
+Now it's time to update the code to perform the sentiment analysis.
 
 ##### requirements.txt
 
@@ -172,9 +180,100 @@ In this step you will modify the code to perform the sentiment analysis
     transformers[torch]
     ```
 
+##### main.py
+
+Follow these steps to make the necessary changes:
+
+1. Locate the file `main.py`
+
+2. Import `pipeline` from `transformers`
+
+    ```python
+    from transformers import pipeline
+    ```
+
+3. Create the `classifier` property and set it to a new pipeline
+
+    ```python
+    classifier = pipeline('sentiment-analysis')
+    ```
+
+    ???- info "What's this `pipeline` thing?"
+
+        The pipeline object comes from the transformers library. It's a library used to integrate [huggingface.co](https://huggingface.co/){target=_blank} models.
+        
+        The pipeline object contains several transformations in series, including cleaning and transforming to using the prediction model, hence the term `pipeline`.
+        
+        When you initialize the pipeline object you specify the model you want to use for predictions.
+        
+        You specified `sentiment-analysis` which directs huggingface to provide their standard one for sentiment analysis.
+
+4. Locate the `read_stream` method and pass the `classifier` property into the `QuixFunction` initializer as the last parameter
+
+    The `QuixFunction` initialization should look like this:
+    ```python
+    # handle the data in a function to simplify the example
+    quix_function = QuixFunction(input_stream, output_stream, classifier)
+    ```
+
+???- info "The completed `main.py` should look like this"
+
+    ```python
+    from quixstreaming import QuixStreamingClient, StreamEndType, StreamReader, AutoOffsetReset
+    from quixstreaming.app import App
+    from quix_function import QuixFunction
+    import os
+    from transformers import pipeline
+
+    classifier = pipeline('sentiment-analysis')
+
+
+    # Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+    client = QuixStreamingClient()
+
+    # Change consumer group to a different constant if you want to run model locally.
+    print("Opening input and output topics")
+
+    input_topic = client.open_input_topic(os.environ["input"], auto_offset_reset=AutoOffsetReset.Latest)
+    output_topic = client.open_output_topic(os.environ["output"])
+
+
+    # Callback called for each incoming stream
+    def read_stream(input_stream: StreamReader):
+
+        # Create a new stream to output data
+        output_stream = output_topic.create_stream(input_stream.stream_id)
+        output_stream.properties.parents.append(input_stream.stream_id)
+
+        # handle the data in a function to simplify the example
+        quix_function = QuixFunction(input_stream, output_stream, classifier)
+            
+        # React to new data received from input topic.
+        input_stream.events.on_read += quix_function.on_event_data_handler
+        input_stream.parameters.on_read_pandas += quix_function.on_pandas_frame_handler
+
+        # When input stream closes, we close output stream as well. 
+        def on_stream_close(endType: StreamEndType):
+            output_stream.close()
+            print("Stream closed:" + output_stream.stream_id)
+
+        input_stream.on_stream_closed += on_stream_close
+
+    # Hook up events before initiating read to avoid losing out on any data
+    input_topic.on_stream_received += read_stream
+
+    # Hook up to termination signal (for docker image) and CTRL-C
+    print("Listening to streams. Press CTRL-C to exit.")
+
+    # Handle graceful exit of the model.
+    App.run()
+    ```
+
 ##### quix_function.py
 
-###### init function
+You have completed the changes needed in `main.py`, now you need to update `quix_function.py`.
+
+###### imports
 
 1. Select the `quix_function.py` file
 
@@ -184,7 +283,9 @@ In this step you will modify the code to perform the sentiment analysis
     from transformers import Pipeline
     ```
 
-3. Add the following parameter to the `__init__` function
+###### init function
+
+1. Add the following parameter to the `__init__` function
 
     ```python
     classifier: Pipeline
@@ -192,13 +293,13 @@ In this step you will modify the code to perform the sentiment analysis
 
     You will pass this in from the `main.py` file in a moment
 
-4. Initialize the `classifier` property with the passed in parameter
+2. Initialize the `classifier` property with the passed in parameter
 
     ```python
     self.classifier = classifier
     ```
 
-5. Initialize `sum` and `count` properties
+3. Initialize `sum` and `count` properties
 
     ```python
     self.sum = 0
@@ -308,108 +409,13 @@ Now, following these steps, edit the code to calculate the sentiment of each cha
             self.output_stream.parameters.write(df)
     ```
 
-##### main.py
-
-You have completed the changes needed in `quix_function.py`, now you need a few small changes in `main.py`.
-
-Follow these steps to make the necessary changes:
-
-1. Locate the file `main.py`
-
-2. Import `pipeline` from `transformers`
-
-    ```python
-    from transformers import pipeline
-    ```
-
-3. Create the `classifier` property and set it to a new pipeline
-
-    ```python
-    classifier = pipeline('sentiment-analysis')
-    ```
-
-    ???- info "What's this `pipeline` thing?"
-
-        The pipeline object comes from the transformers library. It's a library used to integrate [huggingface.co](https://huggingface.co/){target=_blank} models.
-        
-        The pipeline object contains several transformations in series, including cleaning and transforming to using the prediction model, hence the term `pipeline`.
-        
-        When you initialize the pipeline object you specify the model you want to use for predictions.
-        
-        You specified `sentiment-analysis` which directs huggingface to provide their standard one for sentiment analysis.
-
-4. Locate the `read_stream` method and pass the `classifier` property into the `QuixFunction` initializer as the last parameter
-
-    The `QuixFunction` initialization should look like this:
-    ```python
-    # handle the data in a function to simplify the example
-    quix_function = QuixFunction(input_stream, output_stream, classifier)
-    ```
-
-5. Locate the line that creates the stream and ensure that `-output` is **not** being appended to the stream name.
-
-    The call to `create_stream` should look like this:
-    ```python
-    # Create a new stream to output data
-    output_stream = output_topic.create_stream(input_stream.stream_id)
-    ```
-
-???- info "The completed `main.py` should look like this"
-
-    ```python
-    from quixstreaming import QuixStreamingClient, StreamEndType, StreamReader, AutoOffsetReset
-    from quixstreaming.app import App
-    from quix_function import QuixFunction
-    import os
-    from transformers import pipeline
-
-    classifier = pipeline('sentiment-analysis')
-
-
-    # Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
-    client = QuixStreamingClient()
-
-    # Change consumer group to a different constant if you want to run model locally.
-    print("Opening input and output topics")
-
-    input_topic = client.open_input_topic(os.environ["input"], auto_offset_reset=AutoOffsetReset.Latest)
-    output_topic = client.open_output_topic(os.environ["output"])
-
-
-    # Callback called for each incoming stream
-    def read_stream(input_stream: StreamReader):
-
-        # Create a new stream to output data
-        output_stream = output_topic.create_stream(input_stream.stream_id)
-        output_stream.properties.parents.append(input_stream.stream_id)
-
-        # handle the data in a function to simplify the example
-        quix_function = QuixFunction(input_stream, output_stream, classifier)
-            
-        # React to new data received from input topic.
-        input_stream.events.on_read += quix_function.on_event_data_handler
-        input_stream.parameters.on_read_pandas += quix_function.on_pandas_frame_handler
-
-        # When input stream closes, we close output stream as well. 
-        def on_stream_close(endType: StreamEndType):
-            output_stream.close()
-            print("Stream closed:" + output_stream.stream_id)
-
-        input_stream.on_stream_closed += on_stream_close
-
-    # Hook up events before initiating read to avoid losing out on any data
-    input_topic.on_stream_received += read_stream
-
-    # Hook up to termination signal (for docker image) and CTRL-C
-    print("Listening to streams. Press CTRL-C to exit.")
-
-    # Handle graceful exit of the model.
-    App.run()
-    ```
-
-#### Run again
+#### Final run
 
 Now that the code is complete you can `Run` it one more time, just to be certain it's doing what you expect.
+
+!!! note
+
+    This time, when you run the code, it will start-up and then immediately download the `sentiment-analysis` model from [huggingface.co](https://huggingface.co/){target=_blank} 
 
 1. Click `Run`
 

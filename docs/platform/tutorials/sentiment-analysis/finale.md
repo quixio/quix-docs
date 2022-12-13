@@ -7,13 +7,6 @@ You have deployed a UI and sentiment analysis service, subscribed to Tweets and 
 
 1. Navigate to or reload the Chat App you deployed in the first part of this tutorial.
 
-	???- info "Find the URL"
-
-		To find the URL to the UI go to the homepage and locate the tile representing the deployed service
-
-		![Deployed UI tile](../../images/tutorials/sentiment-analysis-media/ui-tile.png){width=200px}
-
-		Click the 'open in new window' icon ![Open in new window icon](../../images/general/open_in_new_window.png){width=18px}
 
 2. Enter the chat room called `tweets`. You can use whatever name you want.
 
