@@ -195,6 +195,31 @@ li {
 .border-violet-dash{
 	border: 2px dashed #BD2EFF;
 }
+
+.sq span {
+    display: grid;
+    /* place-content: center; */
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    border-radius: 8px;
+    margin-right: 5px;
+
+  }
+.sq {
+    display: flex;
+}
+.sq.sq-blue span{
+    background-color: #0064FF;
+}
+.sq.sq-orange span{
+    background-color: #FF8536;
+}
+.sq.sq-violet span{
+    background-color: #BD2EFF;
+}
+
+
 .primary-fg{
     filter: invert(40%) sepia(49%) saturate(4897%) hue-rotate(190deg) brightness(105%) contrast(103%);
 }
