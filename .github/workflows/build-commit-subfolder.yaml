@@ -70,7 +70,7 @@ jobs:
     #- run: pip install mkdocs-material
     
     - name: Build MkDocs Site
-      run: mkdocs build
+      run: mkdocs build --use-directory-urls
       env:
         AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
         
