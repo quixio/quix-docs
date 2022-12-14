@@ -28,11 +28,13 @@ nav:
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
       - 'Sentiment analysis': 
-        - 'Introduction': 'platform/tutorials/sentiment-analysis/introduction.md'
+        - platform/tutorials/sentiment-analysis/index.md
         - '1. Chat App': 'platform/tutorials/sentiment-analysis/chat-app.md'
-        - '2. Analyze': 'platform/tutorials/sentiment-analysis/sentiment.md'
-        - '3. Tweets': 'platform/tutorials/sentiment-analysis/tweets.md'
-        - 'Finale': 'platform/tutorials/sentiment-analysis/finale.md'
+        - '2. Analyze': 'platform/tutorials/sentiment-analysis/analyze.md'
+        - '3. Twitter data': 'platform/tutorials/sentiment-analysis/twitter-data.md'
+        - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
+        - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
+        - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
@@ -119,9 +121,10 @@ theme:
   - navigation.sections    # Render top sections as groups.
   - navigation.top         # Adds a "Back to top" that is shown when scrolling up.
   - navigation.tracking    # Updates the url with highlighted section anchor.
-  - search.highlight # Search will highlight the searched word(s) on the page.*
-  - search.share     # Adds an option to share a search query link.*
-  - search.suggest   # Search will suggest the likeliest completion for a word.*
+  - navigation.indexes     # Documents can be directly attached to sections
+  - search.highlight       # Search will highlight the searched word(s) on the page.*
+  - search.share           # Adds an option to share a search query link.*
+  - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
   
   icon:

@@ -44,7 +44,7 @@ Fill in the necessary fields:
 
   - Twitter bearer token: paste your Twitter Dev token here
 
-  - Twitter\_search\_paramaters: (\#BTC OR btc \#btc OR BTC)
+  - Twitter_search_paramaters: (\#BTC OR btc \#btc OR BTC)
 
 !!! tip
 
@@ -89,7 +89,7 @@ Click "Deploy"
 
   - Choose the hugging-face-output output topic
 
-  - The "Broker\_\_TopicName" field should be set to
+  - The "Broker__TopicName" field should be set to
     "hugging-face-output". This means it will receive the data being
     output by the sentiment analysis model.
 

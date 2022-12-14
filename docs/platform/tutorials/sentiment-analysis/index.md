@@ -13,20 +13,20 @@ The end result will be sentiment analysis of high volume tweets or your own chat
 !!! tip 
     If you need any assistance, we’re here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community. Introduce yourself and then ask any questions in `quix-help`.
 
-## The tutorial
+## The steps
 
 There are several stages to this tutorial and we'll guide you every step of the way.
 
 1. Deploy the [Chat App](chat-app.md)
     This `Chat App` is the UI for the tutorial, it allows the user to see messages from all of the users of the app and, in later parts of the tutorial series, will allow the users to see the sentiment of the chat messages.
 
-2. [Analyze](sentiment.md) the sentiment of the messages
+2. [Analyze](analyze.md) the sentiment of the messages
     Analyze the sentiment of the conversation by adding a new node to the processing pipeline.
 
-3. Increase the volume of messages with the [Twitter integration](tweets.md)
+3. Increase the volume of messages with the [Twitter integration](twitter-data.md)
     Deploy a data source, subscribing to Twitter messages and publishing them to the `Chat App`. Sentiment will be determined in real-time.
 
-4. [Test](finale.md) it all out
+4. [Test](conclusion.md) it all out
 
 
 [So get started! Deploy the first part of the solution by following step 1 :material-arrow-right-circle:{ align=right }](chat-app.md)

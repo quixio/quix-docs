@@ -1,77 +1,18 @@
-# 2. Sentiment Analysis
+# Sentiment analysis microservice
 
-In [Part 1](chat-app.md) you deployed a Chat App UI, sent some messages and maybe used your phone or sent the link to a friend or colleague and you saw messages being displayed in the Chat UI in real-time.
+Code a sentiment analysis microservice starting with a template from the Quix Library.
 
-Now it's time to analyze the sentiment of the conversation by adding a new node to the processing pipeline. This will utilize a pre-built model from [huggingface.co](https://huggingface.co/){target=_blank}.
+The code you're about to build gets the job done and meets the needs of this tutorial. However, it is by no means production ready.
 
-!!! warning 
+## Prerequisites
 
-    The code you're about to build gets the job done and meets the needs of this tutorial. However, it is by no means production ready.
+We assume that you have a data source such as the Chat App used in the [Sentiment Analysis tutorial](chat-app.md). It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
 
+Follow the steps below to code, test and deploy a new microservice to your workspace.
 
-## Evaluating sentiment
+## Select the template
 
-The sentiment of each message will be evaluated by this new stage of your message processing pipeline. Using a pre-built [huggingface.co](https://huggingface.co/){target=_blank} model.
-
-Follow the steps below to code, test and deploy the new service to your workspace.
-
-???- info "Deploy the pre-built service"
-
-    ### Pre-built the service (optional)
-
-    We recommend that you follow the tutorial and build your own sentiment analysis code!
-
-    However, if you want to take the easy path then follow these steps to deploy the sentiment analysis pipeline stage using a pre-built library item.
-
-    1. Navigate to the Library and locate `Sentiment analysis` transformation.
-
-    2. Click `Edit code`
-
-    3. Click `Save as project`
-        
-        - The code for this transformation is now saved to your workspace
-
-    4. Locate main.py
-
-    #### Deploy the service
-
-    1. Click the `+tag` button at the top of any code file
-
-    2. Enter `v1` and press enter
-
-    3. Click `Deploy` near the top right corner
-
-    4. In the deployment dialog, select `v1` under the `Version Tag`
-        
-        - This is the tag you just created
-
-    5. Click `Service` in `Deployment Settings`
-        
-        - This ensures the service runs continuously
-
-    6. Click `Deploy`
-        
-        - This service subscribes to data from the `messages` topic and publishes to the `sentiment` topic.
-        
-        - You can now once again go to the Web UI project you deployed in [Part 1](chat-app.md). 
-        
-        - Enter values for `Room` and `Name` and click `CONNECT`.
-            
-        - You can now enter chat messages and see the sentiment being updated in real-time each time a message is posted.
-        
-            ![Positive and negative sentiment chats](../../images/tutorials/sentiment-analysis-media/image2.png){width=200px}
-        
-            !!! info
-                The sentiment analysis service you just deployed will subscribe to the `messages` topic. The sentiment is returned to the Web UI via the `sentiment` topic and displayed both in the chart and next to the comment in the chat window by colorizing the chat user’s name.
-
-    !!! note
-
-        If you took the easy path and deployed the pre-built service then [skip to the next page :material-arrow-right-circle:](tweets.md)
-       
-
-### Select the template
-
-Now you will code your own sentiment analysis microservice. Follow these steps:
+Follow these steps to locate and save the code to your workspace:
 
 1. Navigate to the Library and apply the following filters
     
@@ -103,11 +44,11 @@ Now you will code your own sentiment analysis microservice. Follow these steps:
 
     The code is now saved to your workspace, you can edit and run it as needed before deploying it into a production ready, serverless and scalable environment.
 
-### Development lifecycle
+## Development lifecycle
 
 You're now looking at the Quix online development environment where you will develop the code to analyze the sentiment of each message passing through the pipeline.
 
-#### Run
+### Run
 
 Begin by running the code as it is and then update it to analyze the message sentiment.
 
@@ -145,7 +86,7 @@ Begin by running the code as it is and then update it to analyze the message sen
 
     ![Expanded message](../../images/tutorials/sentiment-analysis-media/sentiment-message-expanded.png){width=250px}
 
-#### Simple transformation
+### Simple transformation
 
 Now that you know the code can subscribe to messages, you need to transform the messages and publish them to an output topic.
 
@@ -166,11 +107,11 @@ Now that you know the code can subscribe to messages, you need to transform the 
 
 Don't forget to stop the code again.
 
-#### Sentiment analysis
+### Sentiment analysis
 
 Now it's time to update the code to perform the sentiment analysis.
 
-##### requirements.txt
+#### requirements.txt
 
 1. Select the `requirements.txt` file
 
@@ -180,7 +121,7 @@ Now it's time to update the code to perform the sentiment analysis.
     transformers[torch]
     ```
 
-##### main.py
+#### main.py
 
 Follow these steps to make the necessary changes:
 
@@ -269,11 +210,11 @@ Follow these steps to make the necessary changes:
     App.run()
     ```
 
-##### quix_function.py
+#### quix_function.py
 
 You have completed the changes needed in `main.py`, now you need to update `quix_function.py`.
 
-###### imports
+##### imports
 
 1. Select the `quix_function.py` file
 
@@ -283,7 +224,7 @@ You have completed the changes needed in `main.py`, now you need to update `quix
     from transformers import Pipeline
     ```
 
-###### init function
+##### init function
 
 1. Add the following parameter to the `__init__` function
 
@@ -320,7 +261,7 @@ You have completed the changes needed in `main.py`, now you need to update `quix
             self.count = 0
         ```
 
-###### on_pandas_frame_handler function
+##### on_pandas_frame_handler function
 
 Now, following these steps, edit the code to calculate the sentiment of each chat message using the classifier property you set in the init function.
 
@@ -409,7 +350,7 @@ Now, following these steps, edit the code to calculate the sentiment of each cha
             self.output_stream.parameters.write(df)
     ```
 
-#### Final run
+### Final run
 
 Now that the code is complete you can `Run` it one more time, just to be certain it's doing what you expect.
 
@@ -433,7 +374,7 @@ Now that the code is complete you can `Run` it one more time, just to be certain
 
     ![Final UI showing sentiment](../../images/tutorials/sentiment-analysis-media/end-result.gif){width=450px}
 
-### Deploy
+## Deploy
 
 Now that the sentiment analysis stage is working as expected you can deploy it to the Quix serverless environment.
 
@@ -453,7 +394,7 @@ Tag the code and deploy the service
 
 4. Select `v1` under the `Version Tag`
 
-   This is the same tag you created in step 2 above
+This is the same tag you created in step 2 above
 
 5. In `Deployment settings` change the CPU to 1 and the Memory to 1
     This ensures the service has enough resources to download and store the hugging face model and to efficiently process the messages
@@ -465,9 +406,3 @@ Tag the code and deploy the service
     The first thing it will do is download the hugging face model for `sentiment-analysis`.
 
     Then the input and output topics will be opened and the service will begin listening for messages to process.
-
-!!! success 
-
-	You have added to the pipeline by building and deploying a microservice to analyze the chat messages in real-time
-
-[Subscribe to Tweets from Twitter by following Part 3 of this tutorial :material-arrow-right-circle:{ align=right }](tweets.md)
