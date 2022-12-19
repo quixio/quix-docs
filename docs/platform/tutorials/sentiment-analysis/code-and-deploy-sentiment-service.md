@@ -1,20 +1,21 @@
 # Sentiment analysis microservice
 
-Code a sentiment analysis microservice starting with a template from the Quix Library.
+In this optional tutorial part, you learn how to code a sentiment analysis microservice, starting with a template from the Quix Library. Templates are useful building blocks the Quix platform provides, and which give you a great starting point from which to build your own microservices.
 
-The code you're about to build gets the job done and meets the needs of this tutorial. However, it is by no means production ready.
+!!! note
+    The code shown here is kept as simple as possible for learning purposes. Production code would require more robust error handling code.
 
 ## Prerequisites
 
-We assume that you have a data source such as the Chat App used in the [Sentiment Analysis tutorial](chat-app.md). It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
+It is assumed that you have a data source such as the [Sentiment Demo UI](sentiment-demo-ui.d.md) used in the Sentiment Analysis tutorial. It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
 
-Follow the steps below to code, test and deploy a new microservice to your workspace.
+Follow the steps below to code, test, and deploy a new microservice to your workspace.
 
 ## Select the template
 
 Follow these steps to locate and save the code to your workspace:
 
-1. Navigate to the Library and apply the following filters
+1. Navigate to the Library and apply the following filters:
     
     1. Languages = `Python`
     
@@ -22,39 +23,38 @@ Follow these steps to locate and save the code to your workspace:
     
     3. Type = `Basic templates`
 
-2. Select `Empty template - Transformation`
+2. Select `Empty template - Transformation`.
 
-    This is a simple example of how to subscribe and publish messages to Quix.
+    - This is a simple example of how to subscribe and publish messages to Quix.
+    - You can't edit anything here, this is a read-only view so you can explore the files in the template and see what each one does.
 
-    You can't edit anything here, this is a read-only view so you can explore the files in the template and see what each one does.
+3. Click `Preview code` then `Edit code`.
 
-3. Click `Preview code` then `Edit code`
+4. Change the name to `Sentiment analysis`.
 
-4. Change the name to `Sentiment analysis`
+5. Ensure the "input" is set to `messages`.
 
-5. Ensure the "input" is set to `messages`
+    This is the topic that is subscribed to for messages to analyze.
 
-    This is the topic that is subscribed to for messages to analyze
+6. Ensure the "output" is set to `sentiment`.
 
-6. Ensure the "output" is set to `sentiment`
+    This is the topic that sentiment results are published to.
 
-    This is the topic that sentiment results are published to
+7. Click `Save as project`.
 
-7. Click `Save as project`
-
-    The code is now saved to your workspace, you can edit and run it as needed before deploying it into a production ready, serverless and scalable environment.
+    The code is now saved to your workspace, you can edit and run it as needed before deploying it into a production ready, serverless, and scalable environment.
 
 ## Development lifecycle
 
 You're now looking at the Quix online development environment where you will develop the code to analyze the sentiment of each message passing through the pipeline.
 
-### Run
+### Running the code
 
-Begin by running the code as it is and then update it to analyze the message sentiment.
+Begin by running the code as it is, and then update it to analyze the message sentiment.
 
 1. To get started with this code click the `run` button near the top right of the code window.
 
-    You'll see the message below in the console output.
+    You'll see the message below in the console output:
 
     ```sh
     Opening input and output topics
@@ -63,7 +63,7 @@ Begin by running the code as it is and then update it to analyze the message sen
 
 2. Open the Chat App UI you deployed in part 1 of this tutorial and send some messages.
 
-    You will see output similar to this
+    You will see output similar to this:
 
     ``` sh
     Opening input and output topics
@@ -82,28 +82,28 @@ Begin by running the code as it is and then update it to analyze the message sen
 
     ![Messages tab](../../images/tutorials/sentiment-analysis-media/sentiment-messages.png){width=250px}
 
-    Now click one of the messages. You will see the [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} formatted message showing the various parts of the message payload. e.g. the "chat-message" and "room":
+    Now click one of the messages. You will see the [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} formatted message showing the various parts of the message payload, for example, the "chat-message" and "room":
 
     ![Expanded message](../../images/tutorials/sentiment-analysis-media/sentiment-message-expanded.png){width=250px}
 
-### Simple transformation
+### Creating a simple transformation
 
 Now that you know the code can subscribe to messages, you need to transform the messages and publish them to an output topic.
 
-1. If your code is still running stop by clicking the same button you used to run it.
+1. If your code is still running, stop by clicking the same button you used to run it.
 
-2. Locate the `on_pandas_frame_handler` in `quix_function.py`
+2. Locate the `on_pandas_frame_handler` in `quix_function.py`.
 
-3. Replace the comment `# Here transform your data.` with the code below
+3. Replace the comment `# Here transform your data.` with the code below:
 
     ```python
     # transform "chat-message" column to uppercase
     df["chat-message"] = df["chat-message"].str.upper()
     ```
 
-4. Run the code again and send some more chat messages from the UI
+4. Run the code again, and send some more chat messages from the UI.
 
-5. The message in the UI are now all in uppercase as a result of your transformation
+5. The messages in the UI are now all in uppercase as a result of your transformation.
 
 Don't forget to stop the code again.
 
@@ -113,9 +113,9 @@ Now it's time to update the code to perform the sentiment analysis.
 
 #### requirements.txt
 
-1. Select the `requirements.txt` file
+1. Select the `requirements.txt` file.
 
-2. Add a new line, insert the following text and save the file
+2. Add a new line, insert the following text and save the file:
 
     ```sh
     transformers[torch]
@@ -125,15 +125,15 @@ Now it's time to update the code to perform the sentiment analysis.
 
 Follow these steps to make the necessary changes:
 
-1. Locate the file `main.py`
+1. Locate the file `main.py`.
 
-2. Import `pipeline` from `transformers`
+2. Import `pipeline` from `transformers`:
 
     ```python
     from transformers import pipeline
     ```
 
-3. Create the `classifier` property and set it to a new pipeline
+3. Create the `classifier` property and set it to a new pipeline:
 
     ```python
     classifier = pipeline('sentiment-analysis')
@@ -149,7 +149,7 @@ Follow these steps to make the necessary changes:
         
         You specified `sentiment-analysis` which directs huggingface to provide their standard one for sentiment analysis.
 
-4. Locate the `read_stream` method and pass the `classifier` property into the `QuixFunction` initializer as the last parameter
+4. Locate the `read_stream` method and pass the `classifier` property into the `QuixFunction` initializer as the last parameter:
 
     The `QuixFunction` initialization should look like this:
     ```python
@@ -216,9 +216,9 @@ You have completed the changes needed in `main.py`, now you need to update `quix
 
 ##### imports
 
-1. Select the `quix_function.py` file
+1. Select the `quix_function.py` file.
 
-2. Add the following to the top of the file under the existing imports
+2. Add the following to the top of the file under the existing imports:
 
     ```python
     from transformers import Pipeline
@@ -226,21 +226,21 @@ You have completed the changes needed in `main.py`, now you need to update `quix
 
 ##### init function
 
-1. Add the following parameter to the `__init__` function
+1. Add the following parameter to the `__init__` function:
 
     ```python
     classifier: Pipeline
     ```
 
-    You will pass this in from the `main.py` file in a moment
+    You will pass this in from the `main.py` file in a moment.
 
-2. Initialize the `classifier` property with the passed in parameter
+2. Initialize the `classifier` property with the passed in parameter:
 
     ```python
     self.classifier = classifier
     ```
 
-3. Initialize `sum` and `count` properties
+3. Initialize `sum` and `count` properties:
 
     ```python
     self.sum = 0
@@ -269,7 +269,7 @@ Now, following these steps, edit the code to calculate the sentiment of each cha
 
 2. Remove the code that is converting the messages to uppercase.
 
-3. Add the following code in it's place (we will go through this line by line)
+3. Add the following code in it's place (we will go through this line by line):
 
     ```python
     # Use the model to predict sentiment label and confidence score on received messages
@@ -350,7 +350,7 @@ Now, following these steps, edit the code to calculate the sentiment of each cha
             self.output_stream.parameters.write(df)
     ```
 
-### Final run
+### Running the completed code
 
 Now that the code is complete you can `Run` it one more time, just to be certain it's doing what you expect.
 
@@ -358,51 +358,50 @@ Now that the code is complete you can `Run` it one more time, just to be certain
 
     This time, when you run the code, it will start-up and then immediately download the `sentiment-analysis` model from [huggingface.co](https://huggingface.co/){target=_blank} 
 
-1. Click `Run`
+1. Click `Run`.
 
-2. Click the `Messages` tab and select the `output` topic called `sentiment`
+2. Click the `Messages` tab and select the `output` topic called `sentiment`.
 
-3. Send some "Chat" messages from the Chat App UI
+3. Send some "Chat" messages from the Chat App UI.
 
-4. Now select a row in the `Messages` tab and inspect the JSON message
+4. Now select a row in the `Messages` tab and inspect the JSON message.
 
-    You will see the `sentiment` and `average_sentiment` in the `NumericValues` section and the `chat-message` and `label` in the `StringValues` section.
+    You will see the `sentiment` and `average_sentiment` in the `NumericValues` section and the `chat-message` and `label` in the `StringValues` section:
 
     ![Message JSON value](../../images/tutorials/sentiment-analysis-media/final-message-json.png){width=350px}
 
-5. You can also verify that the Web Chat UI shows an indication of the sentiment for each message as well as showing the average sentiment in the graph.
+5. You can also verify that the Web Chat UI shows an indication of the sentiment for each message as well as showing the average sentiment in the graph:
 
     ![Final UI showing sentiment](../../images/tutorials/sentiment-analysis-media/end-result.gif){width=450px}
 
-## Deploy
+## Deploying your sentiment analysis code
 
 Now that the sentiment analysis stage is working as expected you can deploy it to the Quix serverless environment.
 
 !!! info 
 
-    If you're thinking that it's already running so why do you need to bother with this extra step you should know that the code is currently running in a development sandbox environment. This is separate from the production environment and is not scalable or resilient. It's main purpose is to allow you to iterate on the development cycle of your Python code.
+    If you're thinking that it's already running, so why do you need to bother with this extra step, you should know that the code is currently running in a development sandbox environment. This is separate from the production environment, and is not scalable or resilient. Its main purpose is to allow you to iterate on the development cycle of your Python code, and make sure it runs without error, before deployment.
 
-Tag the code and deploy the service
+Tag the code and deploy the service:
 
-1. Click the `+tag` button at the top of the code file
+1. Click the `+tag` button at the top of the code file.
 
-2. Enter `v1` and press enter
+2. Enter `v1` and press ++enter++.
     
-    This tags the code with a specific identifier and allows you to know exactly which version of the code you are deploying
+    This tags the code with a specific identifier and allows you to know exactly which version of the code you are deploying.
 
-3. Click `Deploy` near the top right corner
+3. Click `Deploy` near the top right corner.
 
-4. Select `v1` under the `Version Tag`
+4. Select `v1` under the `Version Tag`.
 
-This is the same tag you created in step 2 above
+    This is the same tag you created in step 2.
 
-5. In `Deployment settings` change the CPU to 1 and the Memory to 1
+5. In `Deployment settings` change the CPU to 1 and the Memory to 1.
+    
     This ensures the service has enough resources to download and store the hugging face model and to efficiently process the messages
 
-5. Click `Deploy`
+5. Click `Deploy`.
 
-    Once the service has been built and deployed it will be started. 
-
-    The first thing it will do is download the hugging face model for `sentiment-analysis`.
-
-    Then the input and output topics will be opened and the service will begin listening for messages to process.
+    - Once the service has been built and deployed it will be started. 
+    - The first thing it will do is download the hugging face model for `sentiment-analysis`.
+    - Then the input and output topics will be opened and the service will begin listening for messages to process.
