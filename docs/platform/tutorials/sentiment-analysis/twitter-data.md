@@ -38,7 +38,7 @@ Follow these steps to deploy the Twitter data source:
 
 4. Click `Deploy`.
     
-    This service receives data from Twitter and streams it to the `twitter-data` topic. You can verify this by clicking the `Twitter Data - Source` service in the pipeline and then viewing the `Logs` or `Messages` tab.
+    This service receives data from Twitter and streams it to the `twitter-data` topic. You can verify this by clicking the `Twitter Data - Source` service in the pipeline and then viewing the `Logs` or `Messages` tab.    
     
 !!! note 
     The default Twitter search criteria is looking for Bitcoin tweets, it's a high traffic subject and great for the demo. However, because of the volume of Bitcoin tweets it will use up your Twitter Developer Account credits in a matter of days. So stop the Twitter feed when you're finished with it.
@@ -135,9 +135,9 @@ Follow these steps to create the tweet-to-chat service.
     }
     ```
 
-8. Select the "output" messages. These are messages being published from the code.
+8. Select the "output" messages from the messages dropdown list. These are messages being published from the code.
 
-    Select a message and you will see that the output messages have a different structure.
+    Select a message, and you will see that the output messages have a different structure.
 
     The string values section of the JSON message now contains "chat-message" instead of "text":
 
