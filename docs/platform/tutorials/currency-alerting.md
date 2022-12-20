@@ -8,7 +8,7 @@ In this tutorial you will learn:
 
 * How to use an existing library item to interface Quix to a real-time event stream. In this tutorial this is a stream of trading data from CoinAPI.
 * How to create a transformation. 
-* How to use an existing library item to interface Quix to a mobile device
+* How to use an existing library item to interface Quix to a mobile device.
 
 ## Prerequisites
 
@@ -49,12 +49,11 @@ To set up the CoinAPI source, follow these steps:
    
    You will see the Coin API library item appear in the search results: ![CoinAPI library item](../images/tutorials/currency-alerting/coinapi.png "CoinAPI library item")
 
-
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a library item, Quix prompts you to create a copy of it as a project, as library items are read-only.
 
       Optionally, you could have clicked the `Setup & deploy` button, which would have deployed the microservice directly. However, in this tutorial, you are given the opportunity to first look at the code, and modify it if necessary.
 
-4. In the `Setup project` form, configure the following project variables:
+4. In the `Setup project` form, configure the following environment variables:
 
     | Field | Value |
     | --- | --- |
@@ -104,7 +103,7 @@ To set up the Threshold Alert item, follow these steps:
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
-4. In the `Setup project` form, set the following project variables:
+4. In the `Setup project` form, set the following environment variables:
       
     | Field | Value |
     | --- | --- |
@@ -173,7 +172,7 @@ Depending on your threshold value and the price fluctuations, it might take a fe
 
 * Don't worry if the logs only show "_Listening to Stream_" initially—remember that the Threshold service only writes a message to the `currency-rate-alerts` topic when the threshold has been crossed.
 * This means that the `currency-rate-alerts` stream might be empty for a short while.
-* Depending on your threshold, it might take a couple of minutes for messages to start coming through (depending on you threshold)
+* Depending on your threshold, it might take a couple of minutes for messages to start coming through.
 
 You've now completed the tutorial. 
 
