@@ -38,7 +38,7 @@ Follow these steps to deploy the Twitter data source:
 
 4. Click `Deploy`.
     
-    This service receives data from Twitter and streams it to the `twitter-data` topic. You can verify this by clicking the `Twitter Data - Source` service in the pipeline and then viewing the `Logs` or `Messages` tab. It's recommended once you've verified the service is working, you stop the service, and continue with the tutorial.
+    This service receives data from Twitter and streams it to the `twitter-data` topic. You can verify this by clicking the `Twitter Data - Source` service in the pipeline and then viewing the `Logs` or `Messages` tab.
     
 !!! note 
     The default Twitter search criteria is looking for Bitcoin tweets, it's a high traffic subject and great for the demo. However, because of the volume of Bitcoin tweets it will use up your Twitter Developer Account credits in a matter of days. So stop the Twitter feed when you're finished with it.
