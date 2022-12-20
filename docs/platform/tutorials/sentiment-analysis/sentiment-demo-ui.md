@@ -24,13 +24,17 @@ Follow these steps to create the messages and sentiment web gateways:
 
 4. Select or enter `messages` in the `output` field.
 
-5. Navigate to the Library and locate `External Destination`.
+5. Click `Add external Source` to create the external source.
 
-6. Click `Add external destination`.
+6. Navigate to the Library and locate `External Destination`.
 
-7. In the `name` field enter `Chat sentiment WebGateway`. 
+7. Click `Add external destination`.
 
-8. Select or enter `sentiment` in the `input` field.
+8. In the `name` field enter `Chat sentiment WebGateway`. 
+
+9. Select or enter `sentiment` in the `input` field.
+
+10. Click `Add external Destination` to create the external destination.
 
 You've now created the gateways needed for this tutorial.
 
