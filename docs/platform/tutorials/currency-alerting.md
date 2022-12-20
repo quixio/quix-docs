@@ -164,7 +164,7 @@ To set up the push nofication function, follow these steps:
 
 You will now start receiving Pushover notifications on your phone, as shown here:
 
-![Pushover Notification Example](../images/tutorials/currency-alerting/pushover_notification.png)
+![Pushover Notification Example](../images/tutorials/currency-alerting/pushover_notification.png){width=60%}
 
 Depending on your threshold value and the price fluctuations, it might take a few minutes for you to get a notification. In the meantime, you can inspect the logs as we've been doing previously.
 
