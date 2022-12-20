@@ -38,7 +38,7 @@ Follow these steps to deploy the Twitter data source:
 
 4. Click `Deploy`.
     
-    This service receives data from Twitter and streams it to the `twitter-data` topic. 
+    This service receives data from Twitter and streams it to the `twitter-data` topic. You can verify this by clicking the `Twitter Data - Source` service in the pipeline and then viewing the `Logs` or `Messages` tab. It's recommended once you've verified the service is working, you stop the service, and continue with the tutorial.
     
 !!! note 
     The default Twitter search criteria is looking for Bitcoin tweets, it's a high traffic subject and great for the demo. However, because of the volume of Bitcoin tweets it will use up your Twitter Developer Account credits in a matter of days. So stop the Twitter feed when you're finished with it.
@@ -108,17 +108,17 @@ Follow these steps to create the tweet-to-chat service.
     
     Alter `on_pandas_frame_handler` to match the code below:
     
-        ``` python
-        def on_pandas_frame_handler(self, df: pd.DataFrame):
-            
-            df = df.rename(columns={'text': 'chat-message'})
-            df["TAG__name"] = "Twitter"
-            df["TAG__role"] = "Customer"
+    ``` python
+    def on_pandas_frame_handler(self, df: pd.DataFrame):
+        
+        df = df.rename(columns={'text': 'chat-message'})
+        df["TAG__name"] = "Twitter"
+        df["TAG__role"] = "Customer"
 
-            self.output_stream.parameters.write(df)
-        ```
-          
-        This will take `text` from incoming `twitter-data` and stream it to the output topics `tweets` stream, as parameter or table values, with a column name of `chat-message`, which the other stages of the pipeline will recognize.
+        self.output_stream.parameters.write(df)
+    ```
+        
+    This will take `text` from incoming `twitter-data` and stream it to the output topics `tweets` stream, as parameter or table values, with a column name of `chat-message`, which the other stages of the pipeline will recognize.
 
 6. Click `Run` near the top right of the code window.
 
