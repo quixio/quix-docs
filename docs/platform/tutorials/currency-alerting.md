@@ -10,6 +10,10 @@ In this tutorial you will learn:
 * How to create a transformation. 
 * How to use an existing library item to interface Quix to a mobile device.
 
+## Getting help
+
+If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+
 ## Prerequisites
 
 To complete this tutorial you will need the following accounts:
@@ -198,5 +202,5 @@ To learn more, try one of these tutorials:
 
 !!! tip "Getting Help"
 
-	If you need help please reach out to Quix. We’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+      If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
 
