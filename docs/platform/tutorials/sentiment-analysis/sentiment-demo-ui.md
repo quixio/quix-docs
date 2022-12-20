@@ -50,7 +50,7 @@ Follow these steps to deploy the prebuilt UI:
 
 3. Ensure that the `sentiment` input box contains `sentiment`.
 
-	- This topic will be subscribed to and will contain the sentiment scores from the sentiment analysis service, you'll deploy this in a later part of this tutorial.
+	This topic will be subscribed to and will contain the sentiment scores from the sentiment analysis service, you'll deploy this in a later part of this tutorial.
 
 4. Ensure that the `messages` input contains `messages`.
 
@@ -60,7 +60,7 @@ Follow these steps to deploy the prebuilt UI:
 
 5. Click `Deploy`.
 
-You've now Deployed the sentiment Demo UI.
+You've now Deployed the Sentiment Demo UI.
 
 ## Trying out the UI
 
