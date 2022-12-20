@@ -12,7 +12,7 @@ In this tutorial you will learn:
 
 ## Getting help
 
-If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite){target=_blank}. Please sign up, and introduce yourself!
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ To complete this tutorial you will need the following accounts:
 
 * [Quix](https://quix.io){target=_blank} - You can signup for a free account [here](https://portal.platform.quix.ai/self-sign-up){target=_blank}. This enables you to create the real-time stream processing pipeline.
 * [CoinAPI](https://coinapi.io){target=_blank} - You can signup for a free API key [here](https://www.coinapi.io/Pricing){target=_blank}. This enables you to access a stream of constantly updated BTC/USD exchange rate data.
-* [Pushover](https://pushover.net){target=_blank} - You can signup for a free account [here](https://pushover.net/signup){target=_blank}. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175) or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en).
+* [Pushover](https://pushover.net){target=_blank} - You can signup for a free account [here](https://pushover.net/signup){target=_blank}. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
 
 ## The pipeline you will create
 
@@ -38,7 +38,7 @@ The colors describe the role of the microservice that is being deployed. The pos
 
 In this section you will learn how to set up the source library item and deploy it in your pipeline as a microservice.
 
-This library item, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/) through its [Websocket](https://en.wikipedia.org/wiki/WebSocket) interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2) is used for the purposes of this tutorial. 
+This library item, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/){target=_blank} through its [Websocket](https://en.wikipedia.org/wiki/WebSocket){target=_blank} interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2){target=_blank} is used for the purposes of this tutorial. 
 
 To summarize this functionality:
 
@@ -47,7 +47,7 @@ To summarize this functionality:
 
 To set up the CoinAPI source, follow these steps:
 
-1. In the [Quix Portal](https://portal.platform.quix.ai/), click the `Library` icon in the main left-hand navigation.
+1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Library` icon in the main left-hand navigation.
 
 2. In the search box on the library page, enter "CoinAPI - Exchange Rate Feed".
    
@@ -114,7 +114,7 @@ To set up the Threshold Alert item, follow these steps:
     | `Name` | As usual, enter a project name or keep the default suggestion. |
     | `Input` | Select the input topic—in this case, select `currency-exchange-rates` from the list. |
     | `output` | Select the output topic—in this case, select `currency-rate-alerts` from the list.|
-    | `parameterName` | Leave the default value, `https://api.pushover.net/1/messages.json?'` (if you decide to use another push notification app, your can always update this value). |
+    | `parameterName` | Leave the default value, `https://api.pushover.net/1/messages.json?` (if you decide to use another push notification app, your can always update this value). |
     | `thresholdValue` | The price in (in USD) that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `$16,300`. This increased the likelhood that we'd get some alerts soon after deploying (otherwise it's hard to tell if it's working). |
     | `msecs_before_recheck` | Enter the minimum delay in milliseconds between alerts—we've set the default to 300 milliseconds (5 minutes) because otherwise, our phones were constantly buzzing with alerts when the price was hovering exactlty around the threshold. |
 
@@ -170,7 +170,7 @@ You will now start receiving Pushover notifications on your phone, as shown here
 
 ![Pushover Notification Example](../images/tutorials/currency-alerting/pushover_notification.png){width=60%}
 
-Depending on your threshold value and the price fluctuations, it might take a few minutes for you to get a notification. In the meantime, you can inspect the logs as we've been doing previously.
+Depending on your threshold value and the price fluctuations, it might take a few minutes for you to get a notification. While you are waiting to receive a notification, you can inspect the logs, as shown previously.
 
 ![Pushover Logs](../images/tutorials/currency-alerting/success-pushover.png)
 
@@ -202,5 +202,4 @@ To learn more, try one of these tutorials:
 
 !!! tip "Getting Help"
 
-      If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
-
+      If you need assistance with this tutorial, or have any general questions, please reach out to Quix, we’ll be more than happy to help. We can be found on our public Slack channel, [The Stream](https://quix.ai/slack-invite){target=_blank}. Please sign up, and introduce yourself!
