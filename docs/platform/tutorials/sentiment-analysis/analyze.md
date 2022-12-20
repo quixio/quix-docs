@@ -30,7 +30,7 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
 6. Navigate to the web page for the UI project you deployed in [Part 1](sentiment-demo-ui.md). 
 
-7. Enter values for `Room` and `Name` and click `CONNECT`.
+7. Enter values for `Room` and `Name` and click `CONNECT`, or re-enter the room.
 
 8. Now enter chat messages and see the sentiment being updated in real time each time a message is posted. An example of this is shown in the following screenshot:
     
