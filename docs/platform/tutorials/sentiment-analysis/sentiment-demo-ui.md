@@ -16,25 +16,29 @@ In this scenario, the Sentiment Demo UI is the external app since it is using th
 
 Follow these steps to create the messages and sentiment web gateways:
 
-1. Navigate to the Library and locate `External Source`.
+1. Make sure the `sentiment` topic is available. Click `Topics` on the main left-hand navigation, and click `+ Create topic`, enter `sentiment`, and then click `Create`. 
 
-2. Click `Add external source`.
+	This topic needs to be available so you can select it in a later step.
 
-3. In the `name` field enter `Chat messages WebGateway`. 
+2. Navigate to the Library and locate `External Source`.
 
-4. Select or enter `messages` in the `output` field.
+3. Click `Add external source`.
 
-5. Click `Add external Source` to create the external source.
+4. In the `name` field enter `Chat messages WebGateway`. 
 
-6. Navigate to the Library and locate `External Destination`.
+5. Select or enter `messages` in the `output` field.
 
-7. Click `Add external destination`.
+6. Click `Add external Source` to create the external source.
 
-8. In the `name` field enter `Chat sentiment WebGateway`. 
+7. Navigate to the Library and locate `External Destination`.
 
-9. Select or enter `sentiment` in the `input` field.
+8. Click `Add external destination`.
 
-10. Click `Add external Destination` to create the external destination.
+9. In the `name` field enter `Chat sentiment WebGateway`. 
+
+10. Select `sentiment` in the `input` field.
+
+11. Click `Add external Destination` to create the external destination.
 
 You've now created the gateways needed for this tutorial.
 
