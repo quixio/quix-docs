@@ -3,11 +3,11 @@
 In this optional tutorial part, you learn how to code a sentiment analysis microservice, starting with a template from the Quix Library. Templates are useful building blocks the Quix platform provides, and which give you a great starting point from which to build your own microservices.
 
 !!! note
-    The code shown here is kept as simple as possible for learning purposes. Production code would require more robust error handling code.
+    The code shown here is kept as simple as possible for learning purposes. Production code would require more robust error handling.
 
 ## Prerequisites
 
-It is assumed that you have a data source such as the [Sentiment Demo UI](sentiment-demo-ui.d.md) used in the Sentiment Analysis tutorial. It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
+It is assumed that you have a data source such as the [Sentiment Demo UI](sentiment-demo-ui.md) used in the Sentiment Analysis tutorial. It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
 
 Follow the steps below to code, test, and deploy a new microservice to your workspace.
 
@@ -42,17 +42,22 @@ Follow these steps to locate and save the code to your workspace:
 
 7. Click `Save as project`.
 
-    The code is now saved to your workspace, you can edit and run it as needed before deploying it into a production ready, serverless, and scalable environment.
+    The code is now saved to your workspace, you can edit and run it as needed before deploying it into the Quix production-ready, serverless, and scalable environment.
 
 ## Development lifecycle
 
-You're now looking at the Quix online development environment where you will develop the code to analyze the sentiment of each message passing through the pipeline.
+You're now located in the Quix online development environment, where you will develop the code to analyze the sentiment of each message passing through the pipeline. The following sections step through the development process for this tutorial:
+
+1. Running the unedited code
+2. Creating a simple transformation to test your code
+3. Implementing the sentiment analysis code
+4. Running the sentoment analysis code
 
 ### Running the code
 
-Begin by running the code as it is, and then update it to analyze the message sentiment.
+Begin by running the code as it is, using the following steps:
 
-1. To get started with this code click the `run` button near the top right of the code window.
+1. To get started with this code, click the `run` button near the top right of the code window.
 
     You'll see the message below in the console output:
 
@@ -267,30 +272,34 @@ Now, following these steps, edit the code to calculate the sentiment of each cha
 
 1. Locate the `on_pandas_frame_handler` function you added code to earlier.
 
-2. Remove the code that is converting the messages to uppercase.
-
-3. Add the following code in it's place (we will go through this line by line):
+2. Change the `on_pandas_frame_handler` function to the following code:
 
     ```python
-    # Use the model to predict sentiment label and confidence score on received messages
-    model_response = self.classifier(list(df_all_messages["chat-message"]))
+    # Callback triggered for each new parameter data.
+    def on_pandas_frame_handler(self, df_all_messages: pd.DataFrame):
 
-    # Add the model response ("label" and "score") to the pandas dataframe
-    df = pd.concat([df_all_messages, pd.DataFrame(model_response)], axis=1)
+        # Use the model to predict sentiment label and confidence score on received messages
+        model_response = self.classifier(list(df_all_messages["chat-message"]))
 
-    # Iterate over the df to work on each message
-    for i, row in df.iterrows():
+        # Add the model response ("label" and "score") to the pandas dataframe
+        df = pd.concat([df_all_messages, pd.DataFrame(model_response)], axis=1)
 
-        # Calculate "sentiment" feature using label for sign and score for magnitude
-        df.loc[i, "sentiment"] = row["score"] if row["label"] == "POSITIVE" else - row["score"]
-        
-        # Add average sentiment (and update memory)
-        self.count = self.count + 1
-        self.sum = self.sum + df.loc[i, "sentiment"]
-        df.loc[i, "average_sentiment"] = self.sum/self.count
+        # Iterate over the df to work on each message
+        for i, row in df.iterrows():
+
+            # Calculate "sentiment" feature using label for sign and score for magnitude
+            df.loc[i, "sentiment"] = row["score"] if row["label"] == "POSITIVE" else - row["score"]
+            
+            # Add average sentiment (and update memory)
+            self.count = self.count + 1
+            self.sum = self.sum + df.loc[i, "sentiment"]
+            df.loc[i, "average_sentiment"] = self.sum/self.count
+
+        # Output data with new features
+        self.output_stream.parameters.write(df)
     ```
 
-    This is the heart of the sentiment analysis processing code. It analyzes the sentiment of each message and tracks the average sentiment of the whole conversation.
+    This is the heart of the sentiment analysis processing code. It analyzes the sentiment of each message and tracks the average sentiment of the whole conversation. The code works as follows:
 
     1. Pass a list of all of the "chat messages" in the data frame to the classifier (the sentiment analysis model) and store the result in memory.
 
@@ -396,12 +405,16 @@ Tag the code and deploy the service:
 
     This is the same tag you created in step 2.
 
-5. In `Deployment settings` change the CPU to 1 and the Memory to 1.
+5. In `Deployment settings` change the CPU to 1 and the Memory to 1. 
     
-    This ensures the service has enough resources to download and store the hugging face model and to efficiently process the messages
+    This ensures the service has enough resources to download and store the hugging face model and to efficiently process the messages. If you are on the free tier, you can try things out with your settings on the maximum for CPU and Memory.
 
-5. Click `Deploy`.
+6. Click `Deploy`.
 
     - Once the service has been built and deployed it will be started. 
     - The first thing it will do is download the hugging face model for `sentiment-analysis`.
     - Then the input and output topics will be opened and the service will begin listening for messages to process.
+
+7. Go back to the UI, and make sure everything is working as expected. Your messages will have a color-coded sentiment, and the sentiment will displayed on the graph.
+
+You have now completed this optional tutorial part. You have learned how to create your own sentiment analysis microservice from the library template.
