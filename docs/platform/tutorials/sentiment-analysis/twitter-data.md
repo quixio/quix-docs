@@ -26,7 +26,7 @@ You can follow [this tutorial to set up a developer account](https://developer.t
 
 ## Fetching the tweets
 
-You are going to be using a prebuilt library item for fetching the tweets. The default search parameters for the library item search for anything to do with Bitcoin. It's a high-traffic subject and great for this demo.
+You are going to be using a prebuilt library item for fetching the tweets. The default search parameters for the library item search for anything to do with Bitcoin, using the search term `(#BTC OR btc OR #btc OR BTC)`. It's a high-traffic subject and great for this demo. However, if you are on the Quix free tier, you might find it better to use a lower-traffic subject, as less CPU and Memory resource can be allocated to a deployment on this tier. To do this, you can edit the `twitter_search_params` field in the library item to contain a different search term, such as `(#rail OR railway)`. This will create less load on the sentiment analysis microservice.
 
 Follow these steps to deploy the Twitter data source:
 
