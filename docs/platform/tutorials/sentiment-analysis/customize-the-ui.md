@@ -12,7 +12,7 @@ If you want to customize the Sentiment Demo UI, you would follow three main step
 
 1. Navigate to the Library and locate `Sentiment Demo UI`.
 
-2. Click `Edit code`.
+2. Click `Preview code` and then `Edit code`.
 
 3. Ensure that the `sentiment` input box contains `sentiment`.
 
@@ -59,4 +59,4 @@ At this stage if you want to customize the code you can do so. You can also depl
 	- The UI will stream data from the `sentiment` and `messages` topics as well as send messages to the `messages` topic.
 	- The `sentiment` topic will be used later for sentiment analysis.
 
-In this tutorial you've seen how you can modified the Sentiment Demo UI.
+In this tutorial you've learned how you can modify the Sentiment Demo UI.
