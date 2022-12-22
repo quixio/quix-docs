@@ -39,7 +39,7 @@ has a blue line across its top that indicates it’s a source connector.)
 #### 2\. Configure the connector
 
 In the configuration panel, keep the default name and output topic.
-Enter the following URL into the rss\_url field:
+Enter the following URL into the rss_url field:
 [https://stackoverflow.com/feeds/tag/python](https://stackoverflow.com/feeds/tag/python){target=_blank}
 
 Click “Deploy” and wait a few seconds for the pre-built connector to be
@@ -65,7 +65,7 @@ If you created a new workspace for this project, the fields
 automatically populate. If you’re using the workspace for other
 projects, you may need to specify the input topic as “rss-data.”
 
-You might also want to customize the tag\_filter. It is automatically
+You might also want to customize the tag_filter. It is automatically
 populated with a wide range of tags related to Python. This works well
 for this demo, because you’ll see a large return of interesting posts.
 But you can decrease or add tags.
@@ -98,7 +98,7 @@ deploying this connector.
 ![RSSTutorial/image3.png](../images/RSSTutorial/image3.png)
 
 Click “Next” on the dialog box. Ensure “filtered-rss-data” is selected
-as the input topic and provide a Slack “webhook\_url.”
+as the input topic and provide a Slack “webhook_url.”
 
 !!! note
 
@@ -109,10 +109,10 @@ developing this. Trust me.
 
 #### 2\. Modify and deploy the “Slack Notification” connector
 
-Enter your webhook into the webhook\_url field. Click “Save as project.”
+Enter your webhook into the webhook_url field. Click “Save as project.”
 This will save the code to your workspace, which is a GitLab repository.
 
-Once saved, you’ll see the code again. The quix\_function.py file should
+Once saved, you’ll see the code again. The quix_function.py file should
 be open. This is what you’ll alter. The default code dumps everything in
 the parameter data and event data to the Slack channel. It’ll do to get
 you up and going, but we want something more refined. 😉
@@ -122,7 +122,7 @@ Go to our GitHub library of tutorial code
 The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
-Copy the code and paste it over the quix\_function.py file in your
+Copy the code and paste it over the quix_function.py file in your
 project in the Quix portal.
 
 Save it by clicking “CTRL+S” or “Command + S” or click the tick in the

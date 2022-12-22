@@ -200,11 +200,11 @@ required details.
 2.  "Numbers" should be the command separated list of phone numbers to
     send SMS alerts to.
 
-3.  The account\_sid, auth\_token and messaging\_service\_sid can be
+3.  The account_sid, auth_token and messaging_service_sid can be
     populated using the values you saved while setting up your Twilio
     account.
 
-4.  message\_limit can be left at 2 or changed to suit your needs.
+4.  message_limit can be left at 2 or changed to suit your needs.
 
 Click Deploy and wait for the pre-built connector to be depolyed to your
 workspace.
