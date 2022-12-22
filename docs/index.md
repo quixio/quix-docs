@@ -14,7 +14,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentimentAnalysis/)
+    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentiment-analysis/)
     
     
 -   __Image Processing__

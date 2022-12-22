@@ -241,7 +241,7 @@ With the microservices for control and input processing deployed along with the 
     !!! note 
         You might need to allow notifications (this is just for the buzzer/vibrate to work)
 
-    !!! xxx
+    !!! note
         Notice that the page on your computer has also changed to the racing track. 
         
         You can now use your phone as a steering wheel to drive the car around the track.

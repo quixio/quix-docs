@@ -21,7 +21,7 @@ I’ve made a video of this tutorial if you prefer watching to reading.
 2.  [Snowflake account](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg){target=_blank}
 
 3.  [Twitter developer account](https://developer.twitter.com/en/portal/petition/essential/basic-info){target=_blank}
-    (You can follow [this tutorial to set up a developer account](https://developer.twitter.com/en/support/twitter-api/developer-account){target=_blank} ){target=_blank}
+    (You can follow [this tutorial to set up a developer account](https://developer.twitter.com/en/support/twitter-api/developer-account){target=_blank})
 
 ## Step one: create a database
 
@@ -44,7 +44,7 @@ Fill in the necessary fields:
 
   - Twitter bearer token: paste your Twitter Dev token here
 
-  - Twitter\_search\_paramaters: (\#BTC OR btc \#btc OR BTC)
+  - Twitter_search_paramaters: (\#BTC OR btc \#btc OR BTC)
 
 !!! tip
 
@@ -89,7 +89,7 @@ Click "Deploy"
 
   - Choose the hugging-face-output output topic
 
-  - The "Broker\_\_TopicName" field should be set to
+  - The "Broker__TopicName" field should be set to
     "hugging-face-output". This means it will receive the data being
     output by the sentiment analysis model.
 
