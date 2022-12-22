@@ -18,9 +18,9 @@ If you need assistance with this tutorial, or have any general questions, please
 
 To complete this tutorial you will need the following accounts:
 
-* [Quix](https://quix.io){target=_blank} - You can signup for a free account [here](https://portal.platform.quix.ai/self-sign-up){target=_blank}. This enables you to create the real-time stream processing pipeline.
-* [CoinAPI](https://coinapi.io){target=_blank} - You can signup for a free API key [here](https://www.coinapi.io/Pricing){target=_blank}. This enables you to access a stream of constantly updated BTC/USD exchange rate data.
-* [Pushover](https://pushover.net){target=_blank} - You can signup for a free account [here](https://pushover.net/signup){target=_blank}. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
+* [Quix](https://quix.io){target=_blank} - You can sign up for a free account [here](https://portal.platform.quix.ai/self-sign-up){target=_blank}. This enables you to create the real-time stream processing pipeline.
+* [CoinAPI](https://coinapi.io){target=_blank} - You can sign up for a free API key [here](https://www.coinapi.io/Pricing){target=_blank}. On the free tier, click the `GET A FREE API KEY` button, enter the requested information, and you will receive an email containing your API key. This enables you to access a stream of constantly updated BTC/USD exchange rate data.
+* [Pushover](https://pushover.net){target=_blank} - You can sign up for a free account [here](https://pushover.net/signup){target=_blank}. Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and API key information. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
 
 ## The pipeline you will create
 
