@@ -26,7 +26,9 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
     This is the topic that sentiment results are published to.
 
-5. Click the `Deploy` button.
+5. Click the `Deploy` button. 
+
+   This deploys the service using the default settings. If you later find that this microservice is not performing as expected, then you can subsequently edit the deployment, and increase the resources allocated.  
 
 6. Navigate to the web page for the UI project you deployed in [Part 1](sentiment-demo-ui.md). 
 
