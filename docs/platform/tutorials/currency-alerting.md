@@ -20,7 +20,7 @@ To complete this tutorial you will need the following accounts:
 
 * [Quix](https://quix.io){target=_blank} - You can sign up for a free account [here](https://portal.platform.quix.ai/self-sign-up){target=_blank}. This enables you to create the real-time stream processing pipeline.
 * [CoinAPI](https://coinapi.io){target=_blank} - You can sign up for a free API key [here](https://www.coinapi.io/Pricing){target=_blank}. On the free tier, click the `GET A FREE API KEY` button, enter the requested information, and you will receive an email containing your API key. This enables you to access a stream of constantly updated BTC/USD exchange rate data.
-* [Pushover](https://pushover.net){target=_blank} - You can sign up for a free account [here](https://pushover.net/signup){target=_blank}. Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and API key information. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
+* [Pushover](https://pushover.net){target=_blank} - You can sign up for a free account [here](https://pushover.net/signup){target=_blank}. Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and generate an API token. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
 
 ## The pipeline you will create
 
@@ -144,7 +144,7 @@ This microservice reads from the `currency-rate-alerts` topic and whenever a new
 
 It also reads the contents of the message and enriches the notification with details on how the threshold was crossed, that is, whether the price is moving up or down.
 
-To set up the push nofication function, follow these steps:
+To set up the push nofication microservice, follow these steps:
 
 1. Click on the Library icon in the left-hand navigation.
 
@@ -156,17 +156,17 @@ To set up the push nofication function, follow these steps:
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
-4. On the 'Project Creation' page, fill out the following fields:
+4. On the `Project Creation` page, complete the following fields:
    
     | Field | Value |
     | --- | --- |
-    | `Name` | As usual, enter a project name or keep the default suggestion. |
-    | `Input` | Select the input topic—in this case, select `currency-rate-alerts` from the list.<br>We're going to be reading every message from this topic and turning it into a push notification. |
-    | `base_url` | Leave the default value, `https://api.pushover.net/1/messages.json?` (if you decide to use another push notification app, your can always update this value). |
-    | `api_token` | Enter the API token that you received when you signed up with Pushover (for example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`) |
-    | `user_key` | Enter the user key that you received when you signed up with Pushover (for example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e`) |
+    | `Name` | Enter a project name or keep the default suggestion. |
+    | `Input` | Select the input topic. In this case, select `currency-rate-alerts` from the list.Every message will be read from this topic, and turned into a push notification. |
+    | `base_url` | Leave the default value, `https://api.pushover.net/1/messages.json?`. If you decide to use another push notification app, your can always update this value. |
+    | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
+    | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e`) |
 
-5. Click the `Save as project`. You now have a copy of the boilerplate Pushover notification function in your workspace
+5. Click the `Save as project`. You now have a copy of the Pushover notification library item in your workspace
 
 6. Click the `Deploy` button.
 
@@ -178,9 +178,9 @@ Depending on your threshold value and the price fluctuations, it might take a fe
 
 ![Pushover Logs](../images/tutorials/currency-alerting/success-pushover.png)
 
-* Don't worry if the logs only show "_Listening to Stream_" initially—remember that the Threshold service only writes a message to the `currency-rate-alerts` topic when the threshold has been crossed.
+* Don't worry if the logs only show "_Listening to Stream_" initially — remember that the Threshold service only writes a message to the `currency-rate-alerts` topic when the threshold has been crossed.
 * This means that the `currency-rate-alerts` stream might be empty for a short while.
-* Depending on your threshold, it might take a couple of minutes for messages to start coming through.
+* Depending on your threshold, it might take a couple of minutes for messages to start arriving.
 
 You've now completed the tutorial. 
 
