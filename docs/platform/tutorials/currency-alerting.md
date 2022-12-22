@@ -62,12 +62,12 @@ To set up the CoinAPI source, follow these steps:
     | Field | Value |
     | --- | --- |
     | `Name` | Enter a project name or keep the default suggestion. |
-    | `output` | Select the output topic. In this case, select `currency exchange rates` from the list. |
+    | `output` | Select the output topic. In this case, select `currency-exchange-rates` from the list. |
     | `coin_api_key` | The API key that you use to access CoinAPI. |
     | `asset_id_base` | The short code for the _base_ currency that you want to track, for example BTC. |
     | `asset_id_quote`  | The short code for the _target_ currency in which prices will be quoted, for example, USD. |
 
-5. Click `Save as project`. You now have a copy of the boilerplate CoinAPI library item in your workspace.
+5. Click `Save as project`. You now have a copy of the CoinAPI library item in your workspace.
 
 6. Click the `Deploy` button. The library item is deployed as a service and automatically started.
 
@@ -112,25 +112,29 @@ To set up the Threshold Alert item, follow these steps:
     | Field | Value |
     | --- | --- |
     | `Name` | As usual, enter a project name or keep the default suggestion. |
-    | `Input` | Select the input topic—in this case, select `currency-exchange-rates` from the list. |
-    | `output` | Select the output topic—in this case, select `currency-rate-alerts` from the list.|
-    | `parameterName` | Leave the default value, `https://api.pushover.net/1/messages.json?` (if you decide to use another push notification app, your can always update this value). |
-    | `thresholdValue` | The price in (in USD) that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `$16,300`. This increased the likelhood that we'd get some alerts soon after deploying (otherwise it's hard to tell if it's working). |
-    | `msecs_before_recheck` | Enter the minimum delay in milliseconds between alerts—we've set the default to 300 milliseconds (5 minutes) because otherwise, our phones were constantly buzzing with alerts when the price was hovering exactlty around the threshold. |
+    | `input` | Select the input topic. In this case, select `currency-exchange-rates` from the list. |
+    | `output` | Select the output topic. In this case, select `currency-rate-alerts` from the list. |
+    | `parameterName` | Set this to `PRICE`. |
+    | `thresholdValue` | The price in USD that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `16300`. This increases the likelhood that some alerts are generated soon after deploying (otherwise it's hard to tell if it's working). |
+    | `msecs_before_recheck` | Enter the minimum delay in milliseconds between alerts. The default is 300 milliseconds (5 minutes), as this prevents numerous alerts when the price hovers around the threshold. |
 
-5. Click `Save as project`. You now have a copy of the boilerplate Threshold Alert library item in your workspace.
+5. Click `Save as project`. 
 
-6. Click the `Deploy` button. The library item is deployed as a service and automatically started. Once the function has deployed, you'll be redirected to the pipeline view. 
+      You now have a copy of the Threshold Alert library item in your workspace.
+
+6. Click the `Deploy` button. 
+
+      The library item is deployed as a service and automatically started. Once the microservice has been deployed, you'll be redirected to the pipeline view. 
 
 7. Click the Threshold Alert service card to inspect the logs.
 
-A successful deployment will resemble the following example:
+A successful deployment will resemble the following screenshot:
 
 ![CoinAPI Step](../images/tutorials/currency-alerting/success-threshold.png)
 
-In the `Lineage` panel, you might notice that the two services are connected by a line which indicates that they're both using the same topic, `currency-exchange-rates`. The CoinAPI service is _writing_ to `currency-exchange-rates`, and the Threshold Alert service is _reading_ from it.
+In the `Lineage` panel, you will notice that the two services are connected by a line, which indicates that they're both using the same topic, `currency-exchange-rates`. The CoinAPI service is _writing_ to `currency-exchange-rates`, and the Threshold Alert service is _reading_ from it.
 
-If there is an issue with the service, you can also inspect the `build logs` in the `Lineage` panel to check for any traces of a syntax error or other build issues.
+If there is an issue with the service, you can inspect the `build logs` in the `Lineage` panel, to check for any traces of a syntax error or other build issues.
 
 ## Setting up the Pushover destination
 
