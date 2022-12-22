@@ -166,7 +166,7 @@ To set up the push nofication microservice, follow these steps:
     | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
     | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e`) |
 
-5. Click the `Save as project`. You now have a copy of the Pushover notification library item in your workspace
+5. Click the `Save as project`. You now have a copy of the Pushover notification library item in your workspace.
 
 6. Click the `Deploy` button.
 

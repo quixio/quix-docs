@@ -51,8 +51,17 @@ jobs:
         
       # Needed when using more than one repo
       # add 'monorepo' to mkdocs.yml file under plugins
-      - name: Install Mkdocs Monorepo Plugin
+      - name: Install MKdocs Monorepo Plugin
         run: pip install mkdocs-monorepo-plugin
+
+      # add lightbox
+      # zoom images
+      - name: Install MkDocs Light Box
+        run: pip install mkdocs-glightbox
+
+      # add multirepo to support pulling docs from other repos
+      - name: Install multirepo
+        run: pip install mkdocs-multirepo-plugin
         
       # Install Material insiders theme
       - name: Install Material insiders theme
@@ -69,9 +78,12 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
-        
-      - name: Build with Mkdocs
+
+      - name: Build MkDocs Site
         run: mkdocs build
+        env:
+          AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

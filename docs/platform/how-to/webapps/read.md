@@ -3,7 +3,7 @@
 Quix supports real-time data streaming over WebSockets. JavaScript
 clients can receive updates on parameter and event definition updates,
 parameter data and event data as they happen. Following examples use
-[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1)
+[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1){target=_blank}
 client library to connect to Quix over WebSockets.
 
 ## Setting up SignalR
@@ -12,7 +12,7 @@ If you are using a package manager like npm, you can install SignalR
 using `npm install @microsoft/signalr`. For other installation options
 that don’t depend on a platform like Node.js such as consuming SignalR
 from a CDN please refer to [SignalR
-documentation](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1).
+documentation](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1){target=_blank}.
 
 Following code snippet shows how you can connect to Quix after SignalR
 has been setup.

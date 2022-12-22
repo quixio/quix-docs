@@ -6,7 +6,7 @@ expectations that is common across all clients.
 
 !!! tip
 
-	The examples in this section show how to use the popular [`curl`](https://curl.se/) command line tool.
+	The examples in this section show how to use the popular [`curl`](https://curl.se/){target=_blank} command line tool.
 
 ## Before you begin
 

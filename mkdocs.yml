@@ -4,7 +4,7 @@ site_author: 'Quix.io'
 site_url: 'https://docs.quix.io'
 
 copyright: >
-  Copyright &copy; 2020 - 2022 Quix –
+  Copyright &copy; 2020 - 2022 Quix Analytics, Ltd. –
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
@@ -27,7 +27,14 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
-      - 'Sentiment analysis': 'platform/tutorials/sentimentAnalysis.md'
+      - 'Sentiment analysis': 
+        - platform/tutorials/sentiment-analysis/index.md
+        - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
+        - '2. Analyzing sentiment': 'platform/tutorials/sentiment-analysis/analyze.md'
+        - '3. Twitter data': 'platform/tutorials/sentiment-analysis/twitter-data.md'
+        - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
+        - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
+        - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
@@ -37,35 +44,13 @@ nav:
         - 'Run ML model in realtime environment': 'platform/tutorials/deploy-ml.md'
       - 'Data Science': 'platform/tutorials/data-science/data-science.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing.md'
+      - 'Slack Alerting': 'platform/tutorials/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - SDK:
-    - 'Introduction': 'sdk/introduction.md'
-    - 'Kafka and Quix SDK': 'sdk/kafka.md'
-    - 'Features overview':
-      - 'Streaming context': 'sdk/features/streaming-context.md'
-      - 'In-memory processing': 'sdk/features/in-memory-processing.md'
-      - 'Built-in buffers': 'sdk/features/builtin-buffers.md'
-      - 'Support for Data Frames': 'sdk/features/data-frames.md'
-      - 'Message splitting': 'sdk/features/message-splitting.md'
-      - 'Message compression': 'sdk/features/message-compression.md'
-      - 'Data serialization': 'sdk/features/data-serialization.md'
-      - 'Multiple data types': 'sdk/features/multiple-data-types.md'
-      - 'Broker configuration': 'sdk/features/broker-configuration.md'
-      - 'Checkpointing': 'sdk/features/checkpointing.md'
-      - 'Horizontal scaling': 'sdk/features/horizontal-scaling.md'
-      - 'Integrations': 'sdk/features/integrations.md'
-      - 'Portability': 'sdk/features/portability.md'
-    - 'Connect to Quix': 'sdk/connect.md'
-    - 'Writing data': 'sdk/write.md'
-    - 'Reading data': 'sdk/read.md'
-    - 'Processing data': 'sdk/process.md'
-    - 'State management': 'sdk/state-management.md'
-    - 'Local environment':
-      - 'Set up local environment': 'sdk/python-setup.md'
-      - 'Set up docker environment': 'sdk/docker-setup.md'
+  - 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
   - API:
+    - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
       - 'Introduction': 'apis/data-catalogue-api/intro.md'
       - 'Authenticate': 'apis/data-catalogue-api/authenticate.md'
@@ -94,17 +79,15 @@ nav:
       - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
-    #- 'API Reference':
-    #  - 'API V1': '!include ./api-docs/mkdocs.yml'
-  # - Services:
-  #   - Replay: '!include ./replay/mkdocs.yml'
+    - 'Portal API': 'apis/portal-api.md'
   - Contributing:
       - 'Contributing to the docs': 'contributing.md'
 
 plugins:
   - search:
       separator: '[\s\-\.]' 
-  #- monorepo
+  - glightbox
+  - multirepo
   
 theme:
   name: 'material'
@@ -138,33 +121,19 @@ theme:
   - navigation.sections    # Render top sections as groups.
   - navigation.top         # Adds a "Back to top" that is shown when scrolling up.
   - navigation.tracking    # Updates the url with highlighted section anchor.
-  - search.highlight # Search will highlight the searched word(s) on the page.*
-  - search.share     # Adds an option to share a search query link.*
-  - search.suggest   # Search will suggest the likeliest completion for a word.*
+  - navigation.indexes     # Documents can be directly attached to sections
+  - search.highlight       # Search will highlight the searched word(s) on the page.*
+  - search.share           # Adds an option to share a search query link.*
+  - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
   
   icon:
     logo: 'material/library'
     repo: 'material/library'
   
-  # paid for option
-  #admonition:
-  #    note: 'octicons/tag-16'
-  #    abstract: 'octicons/checklist-16'
-  #    info: 'octicons/info-16'
-  #    tip: 'octicons/squirrel-16'
-  #    success: 'octicons/check-16'
-  #    question: 'octicons/question-16'
-  #    warning: 'octicons/alert-16'
-  #    failure: 'octicons/x-circle-16'
-  #    danger: 'octicons/zap-16'
-  #    bug: 'octicons/bug-16'
-  #    example: 'octicons/beaker-16'
-  #    quote: 'octicons/quote-16'
 
 extra_css:
   - stylesheets/extra.css
-#extra_javascript:
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -176,24 +145,8 @@ extra:
     - icon: 'fontawesome/brands/youtube'
       link: 'https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA'
   analytics:
-    provider: google
-    property: G-xxx #UA-173360929-3 #TODO enable when ready
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
-          #https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#was-this-page-helpful
-          #submitted ratings collected on GA
+    provider: google-tag-manager
+    property: GTM-55L66N3 #UA-173360929-3 ignored, using GTM instead of universal analytics
 
   consent:
     title: Cookie consent
@@ -206,16 +159,6 @@ extra:
       analytics:
         name: Google Analytics
         checked: true
-
-
-# turn on for pretty cards when link shared on social etc.
-# see https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/#configuration
-#  - social:
-#      cards: true
-#      cards_dir: assets/images/social
-  #generator: true
-  
-  #manifest: manifest.webmanifest
   
   #alternate:
 markdown_extensions:
@@ -233,34 +176,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  #- markdown.extensions.admonition:
-  #- markdown.extensions.codehilite:
-  #    guess_lang: false
-  #- markdown.extensions.toc:
-  #    permalink: true
-  #- pymdownx.arithmex:
-  #- pymdownx.b64:
-  #- pymdownx.betterem:
-  #- pymdownx.caret:
-  #- pymdownx.critic:
   - pymdownx.details:
-  #- pymdownx.emoji:
-  #- pymdownx.escapeall:
-  #- pymdownx.extra:
-  #- pymdownx.extrarawhtml:
   - pymdownx.highlight:
       anchor_linenums: true
-
-  #- pymdownx.inlinehilite:
-  #- pymdownx.keys:
-  #- pymdownx.magiclink:
-  #- pymdownx.mark:
-  #- pymdownx.pathconverter:
-  #- pymdownx.progressbar:
-  #- pymdownx.smartsymbols:
-  #- pymdownx.snippets:
-  #- pymdownx.striphtml:
-  #- pymdownx.superfences
-  #- pymdownx.tabbed:
-  #- pymdownx.tasklist:
-  #- pymdownx.tilde:

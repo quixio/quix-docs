@@ -7,8 +7,8 @@ This section describes the basic security features of Quix.
 ### Authentication
 
   - Our APIs are authenticated using
-    [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) token. We
-    are using [Auth0](https://auth0.com/docs/protocols/protocol-oauth2)
+    [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){target=_blank} token. We
+    are using [Auth0](https://auth0.com/docs/protocols/protocol-oauth2){target=_blank}
     as our provider.
 
   - Each Kafka server is authenticated using certificate, which is
