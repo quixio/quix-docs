@@ -94,7 +94,7 @@ The data stream is transformed from a series of real-time price points into a se
 To summarize this functionality:
 
 * When the threshold criteria are met, the microservice writes an alert message to a topic called `currency-rate-alerts`. 
-* Downstream functions can then read fom this topic and send alerts and notifications whevever they detect a new message.
+* Downstream functions can then read fom this topic and send alerts and notifications whenever they detect a new message.
 
 To set up the Threshold Alert item, follow these steps:
 
