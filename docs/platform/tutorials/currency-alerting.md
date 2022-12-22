@@ -71,7 +71,7 @@ To set up the CoinAPI source, follow these steps:
 
 6. Click the `Deploy` button. The library item is deployed as a service and automatically started.
 
-      Once the function has deployed, you’ll be redirected to the workspace home page where you can see the service in the pipeline context that we illustrated previously.
+      Once the library item has been deployed, you’ll be redirected to the workspace home page, where you can see the service in the pipeline context, as was illustrated previously.
 
 7. Click the CoinAPI service card to inspect the logs:
 
@@ -94,7 +94,7 @@ The data stream is transformed from a series of real-time price points into a se
 To summarize this functionality:
 
 * When the threshold criteria are met, the microservice writes an alert message to a topic called `currency-rate-alerts`. 
-* Downstream functions can then read fom this topic and send alerts and notifications whenever they detect a new message.
+* Downstream services can then read fom this topic and send alerts and notifications whenever they detect a new message.
 
 To set up the Threshold Alert item, follow these steps:
 
