@@ -40,4 +40,8 @@ You can read more about Quix Streams [here](https://github.com/quixai/quix-strea
 
 If you would like to contribute to these docs, see the [contribution guide](./CONTRIBUTING.md).
 
+## Getting in touch
+
+The best way to contact us is through our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+
 Thanks!
