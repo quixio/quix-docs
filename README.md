@@ -28,6 +28,12 @@ To view the docs locally:
 4. Run `mkdocs serve`.
 5. Navigate your browser to `localhost:8000` to view the docs.
 
+## Linked repositories
+
+This repo uses the `multirepo` plugin to pull in content from the [Quix Streams repo](https://github.com/quixai/quix-streams). 
+
+You can read more about Quix Streams [here](https://github.com/quixai/quix-streams/blob/main/README.md). 
+
 ## Contributing
 
 If you would like to contribute to these docs, see the [contribution guide](./CONTRIBUTING.md).
