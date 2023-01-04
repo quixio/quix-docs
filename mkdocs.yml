@@ -63,7 +63,7 @@ nav:
       - 'Aggregate data by time': 'apis/data-catalogue-api/aggregate-time.md'
       - 'Aggregate data by tags': 'apis/data-catalogue-api/aggregate-tags.md'
       - 'Tag filtering': 'apis/data-catalogue-api/filter-tags.md'
-    - 'Streaming Writer API': 
+    - 'Streaming Writer API':
       - 'Introduction': 'apis/streaming-writer-api/intro.md'
       - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
       - 'Getting Swagger url': 'apis/streaming-writer-api/get-swagger.md'
