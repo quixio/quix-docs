@@ -34,7 +34,7 @@ tutorial if you’re like to learn more about it.)
 Click “Setup & deploy” on the “RSS Data Source” library item. (The card
 has a blue line across its top that indicates it’s a source connector.)
 
-![RSSTutorial/image1.png](../images/RSSTutorial/image1.png)
+![RSSTutorial/image1.png](/platform/images/RSSTutorial/image1.png)
 
 #### 2\. Configure the connector
 
@@ -79,7 +79,7 @@ rss-data topic.
 Have a look in the logs by clicking the Data Filtering Model tile (pink
 outlined) on the workspace home page.
 
-![RSSTutorial/image2.png](../images/RSSTutorial/image2.png)
+![RSSTutorial/image2.png](/platform/images/RSSTutorial/image2.png)
 
 The transformation stage is now complete. Your project is now sending
 the filtered and enhanced data to the output topic.
@@ -95,7 +95,7 @@ Return to the Quix library and search for the “Slack Notification.”
 Click “Preview code.” You’re going to modify the standard code before
 deploying this connector.
 
-![RSSTutorial/image3.png](../images/RSSTutorial/image3.png)
+![RSSTutorial/image3.png](/platform/images/RSSTutorial/image3.png)
 
 Click “Next” on the dialog box. Ensure “filtered-rss-data” is selected
 as the input topic and provide a Slack “webhook_url.”
@@ -140,7 +140,7 @@ has led you on the path to destroying your Slack server. But don’t worry
 honest. If this were a production pipeline, you’d be very happy you
 haven’t lost all those precious live messages.
 
-![RSSTutorial/image4.png](../images/RSSTutorial/image4.png)
+![RSSTutorial/image4.png](/platform/images/RSSTutorial/image4.png)
 
 ### Help
 

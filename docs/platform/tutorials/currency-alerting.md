@@ -26,12 +26,12 @@ To complete this tutorial you will need the following accounts:
 
 The objective of this tutorial is to create a pipeline that resembles the following example:
 
-![Alt text](../images/tutorials/currency-alerting/currency-pipeline.png)
+![Alt text](/platform/images/tutorials/currency-alerting/currency-pipeline.png)
 
 The colors describe the role of the microservice that is being deployed. The possible roles are as follows:
 
 * :blue_square: Source — enables streaming of data into the Quix platform from any external source, such as an API or websocket.
-* :purple_square: Transformation — implements the processing of data, for example, cleaning data or implemeting a Machine Learning (ML) model.
+* :purple_square: Transformation — implements the processing of data, for example, cleaning data or implementing a Machine Learning (ML) model.
 * :orange_square: Destination — enables streaming of processed data to an external destination, such as a database or dashboard.
 
 ## Setting up the CoinAPI source
@@ -51,7 +51,7 @@ To set up the CoinAPI source, follow these steps:
 
 2. In the search box on the library page, enter "CoinAPI - Exchange Rate Feed".
    
-   You will see the Coin API library item appear in the search results: ![CoinAPI library item](../images/tutorials/currency-alerting/coinapi.png "CoinAPI library item")
+   You will see the Coin API library item appear in the search results: ![CoinAPI library item](/platform/images/tutorials/currency-alerting/coinapi.png "CoinAPI library item")
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a library item, Quix prompts you to create a copy of it as a project, as library items are read-only.
 
@@ -75,11 +75,11 @@ To set up the CoinAPI source, follow these steps:
 
 7. Click the CoinAPI service card to inspect the logs:
 
-   ![CoinAPI Step](../images/tutorials/currency-alerting/pipeline-coinstep.png)
+   ![CoinAPI Step](/platform/images/tutorials/currency-alerting/pipeline-coinstep.png)
 
 A successful deployment will resemble the following example:
 
-![CoinAPI Step](../images/tutorials/currency-alerting/success-coinapi.png)
+![CoinAPI Step](/platform/images/tutorials/currency-alerting/success-coinapi.png)
 
 If there is an issue with the service, you can also inspect the `build logs` in the `Lineage` panel to check for any traces of a syntax error or other build issues.
 
@@ -103,7 +103,7 @@ To set up the Threshold Alert item, follow these steps:
    
       You will see the `Threshold Alert` library item appear in the search results: 
       
-      ![Threshold Alert](../images/tutorials/currency-alerting/threshold-alerts.png "Threshold Alert")
+      ![Threshold Alert](/platform/images/tutorials/currency-alerting/threshold-alerts.png "Threshold Alert")
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
@@ -115,7 +115,7 @@ To set up the Threshold Alert item, follow these steps:
     | `input` | Select the input topic. In this case, select `currency-exchange-rates` from the list. |
     | `output` | Select the output topic. In this case, select `currency-rate-alerts` from the list. |
     | `parameterName` | Set this to `PRICE`. |
-    | `thresholdValue` | The price in USD that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `16300`. This increases the likelhood that some alerts are generated soon after deploying (otherwise it's hard to tell if it's working). |
+    | `thresholdValue` | The price in USD that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `16300`. This increases the likelihood that some alerts are generated soon after deploying (otherwise it's hard to tell if it's working). |
     | `msecs_before_recheck` | Enter the minimum delay in milliseconds between alerts. The default is 300 milliseconds (5 minutes), as this prevents numerous alerts when the price hovers around the threshold. |
 
 5. Click `Save as project`. 
@@ -130,7 +130,7 @@ To set up the Threshold Alert item, follow these steps:
 
 A successful deployment will resemble the following screenshot:
 
-![CoinAPI Step](../images/tutorials/currency-alerting/success-threshold.png)
+![CoinAPI Step](/platform/images/tutorials/currency-alerting/success-threshold.png)
 
 In the `Lineage` panel, you will notice that the two services are connected by a line, which indicates that they're both using the same topic, `currency-exchange-rates`. The CoinAPI service is _writing_ to `currency-exchange-rates`, and the Threshold Alert service is _reading_ from it.
 
@@ -144,7 +144,7 @@ This microservice reads from the `currency-rate-alerts` topic and whenever a new
 
 It also reads the contents of the message and enriches the notification with details on how the threshold was crossed, that is, whether the price is moving up or down.
 
-To set up the push nofication microservice, follow these steps:
+To set up the push nonfiction microservice, follow these steps:
 
 1. Click on the Library icon in the left-hand navigation.
 
@@ -152,7 +152,7 @@ To set up the push nofication microservice, follow these steps:
    
       You will see the `Threshold Alert` library item appear in the search results: 
       
-      ![Pushover Notifications](../images/tutorials/currency-alerting/library-pushover.png "Pushover Notifications")
+      ![Pushover Notifications](/platform/images/tutorials/currency-alerting/library-pushover.png "Pushover Notifications")
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
@@ -172,11 +172,11 @@ To set up the push nofication microservice, follow these steps:
 
 You will now start receiving Pushover notifications on your phone, as shown here:
 
-![Pushover Notification Example](../images/tutorials/currency-alerting/pushover_notification.png){width=60%}
+![Pushover Notification Example](/platform/images/tutorials/currency-alerting/pushover_notification.png){width=60%}
 
 Depending on your threshold value and the price fluctuations, it might take a few minutes for you to get a notification. While you are waiting to receive a notification, you can inspect the logs, as shown previously.
 
-![Pushover Logs](../images/tutorials/currency-alerting/success-pushover.png)
+![Pushover Logs](/platform/images/tutorials/currency-alerting/success-pushover.png)
 
 * Don't worry if the logs only show "_Listening to Stream_" initially — remember that the Threshold service only writes a message to the `currency-rate-alerts` topic when the threshold has been crossed.
 * This means that the `currency-rate-alerts` stream might be empty for a short while.
@@ -199,7 +199,7 @@ Here's what you accomplished in this tutorial:
 To learn more, try one of these tutorials:
 
 * [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](ImageProcessing.md)
-* [Perform sentiment analysis on a stream of Tweets about a given subject](sentimentAnalysis.md)
+* [Perform sentiment analysis on a stream of Tweets about a given subject](/platform/tutorials/sentiment-analysis)
 * [Gather and processes data from an RSS feed and get an alert when specific criteria are met](RSSProcessingPipeline.md)
 * [Stream and visualize real-time telemetry data with an Android app and Streamlit](telemetry-data.md)
 

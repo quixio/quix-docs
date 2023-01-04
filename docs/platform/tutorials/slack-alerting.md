@@ -19,7 +19,7 @@ By the end you will have:
 
 ## Project Architecture
 
-![project architecture](../images/tutorials/slack-bikes/architecture.png)
+![project architecture](/platform/images/tutorials/slack-bikes/architecture.png)
 
 The solution has 2 main elements:
 
@@ -89,7 +89,7 @@ However, there is a much easier way to achieve the same outcome.
 
 2. Search for `TFL Bikepoint` and click the tile
 
-	![TFL BikePoint library tile](../images/tutorials/slack-bikes/tfl-bikepoint-library-tile.png){width=300px}
+	![TFL BikePoint library tile](/platform/images/tutorials/slack-bikes/tfl-bikepoint-library-tile.png){width=300px}
 
 3. Click `Setup & deploy`
 
@@ -153,7 +153,7 @@ The time has come to actually connect Quix and Slack. Once again, with the help 
 
 	You will see messages arriving in your chosen slack channel
 
-	![Data in Slack](../images/tutorials/slack-bikes/slack-data.png)
+	![Data in Slack](/platform/images/tutorials/slack-bikes/slack-data.png)
 
 ## Part two
 
@@ -205,7 +205,7 @@ Now that you have the code saved and can edit it, you can customize the message 
 
 		You will see messages in the output window showing how many bikes there are at each location
 
-		![Output showing the number of bikes at each location](../images/tutorials/slack-bikes/console-output.png){width=350px}
+		![Output showing the number of bikes at each location](/platform/images/tutorials/slack-bikes/console-output.png){width=350px}
 
 5. Click the run button again to stop the code
 
@@ -230,7 +230,7 @@ Now that you have the code saved and can edit it, you can customize the message 
 
 		You now have customized messages in your Slack channel.
 
-		![Slack messages](../images/tutorials/slack-bikes/slack-messages.png){width=350px}
+		![Slack messages](/platform/images/tutorials/slack-bikes/slack-messages.png){width=350px}
 
 		Don't forget to stop the service before proceeding
 

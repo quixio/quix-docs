@@ -6,7 +6,7 @@ v3](https://viso.ai/deep-learning/yolov3-overview/) model. We provide a
 fully functional UI to show you where the recognized objects are located
 around London.
 
-![image](../images/tutorials/imageProcessing/image1.png)
+![image](/platform/images/tutorials/imageProcessing/image1.png)
 
 ## Watch It
 
@@ -130,7 +130,7 @@ Follow these steps to deploy the webcam service.
 
 1.  Click the service tile
 
-![image](../images/tutorials/imageProcessing/image2.png)
+![image](/platform/images/tutorials/imageProcessing/image2.png)
 
 1.  Click the “Public URL”
 
@@ -207,7 +207,7 @@ Follow these steps to deploy the object detection service.
 
 1.  Find and select the `environment-variables.service.ts` file.
 
-> ![image](../images/tutorials/imageProcessing/image3.png)
+> ![image](/platform/images/tutorials/imageProcessing/image3.png)
 
 You need to provide the “Token” that this website will need to
 communicate with Quix.
@@ -267,7 +267,7 @@ This ensures the service runs continuously
 > the map with a count of all the cars seen so far and where they were
 > seen.
 
-![image](../images/tutorials/imageProcessing/image4.png)
+![image](/platform/images/tutorials/imageProcessing/image4.png)
 
 ## Next Steps
 

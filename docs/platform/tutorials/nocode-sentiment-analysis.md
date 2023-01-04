@@ -52,7 +52,7 @@ Fill in the necessary fields:
 
 Click "Deploy"
 
-![image](../images/tutorials/nocode-sentiment/image1.png)
+![image](/platform/images/tutorials/nocode-sentiment/image1.png)
 
 ### Step three: transformation for sentiment analysis
 
@@ -75,7 +75,7 @@ Click "Deploy"
 
 	Find out more about the hugging face model and the other models you could use at [huggingface.co](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english){target=_blank}
 
-![image](../images/tutorials/nocode-sentiment/image4.png)
+![image](/platform/images/tutorials/nocode-sentiment/image4.png)
 
 ### Step five: delivery to your Snowflake database
 
@@ -99,13 +99,13 @@ account. Copy the locator and region from the URL and paste them into
 the corresponding fields in the connector setup in Quix. Lastly, input
 your username and password.
 
-![image](../images/tutorials/nocode-sentiment/image2.png)
+![image](/platform/images/tutorials/nocode-sentiment/image2.png)
 
 Click "Deploy" on the Snowflake connector. If the credentials and
 connection details are correct, you’ll see the "Connected" status in the
 log and will be redirected to your workspace.
 
-![image](../images/tutorials/nocode-sentiment/image3.png)
+![image](/platform/images/tutorials/nocode-sentiment/image3.png)
 
 Congratulations\! You built a no-code pipeline that filters and collects
 data from Twitter, transforms it with a HuggingFace model and delivers
@@ -114,7 +114,7 @@ it to a Snowflake database.
 You can now go back over to Snowflake and find the "Databases" menu.
 Expand the "demodata" database and then find the tables under "public".
 
-![image](../images/tutorials/nocode-sentiment/snowflake.png)
+![image](/platform/images/tutorials/nocode-sentiment/snowflake.png)
 
 !!! tip
 

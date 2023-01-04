@@ -5,16 +5,16 @@ Catalogue API](intro.md) via
 [Swagger](https://swagger.io/){target=_blank}. The exact URL is workspace-specific, and
 follows this pattern:
 
-    https://telemetry-query-${organisation}-${workspace}.platform.quix.ai/
+    https://telemetry-query-${organization}-${workspace}.platform.quix.ai/
 
-The workspace ID is a combination based on your organisation and
-workspace names. For example, for an "acme" organisation with a
+The workspace ID is a combination based on your organization and
+workspace names. For example, for an "acme" organization with a
 "weather" workspace, the final URL might look something like:
 
     https://telemetry-query-acme-weather.platform.quix.ai/
 
 To determine the final URL, you can [find out how to get a workspace
-id](../../platform/how-to/get-workspace-id.md), or follow these instructions:
+id](/platform/how-to/get-workspace-id), or follow these instructions:
 
 1.  Click the Data Explorer icon **Data Explorer** in the main menu.
 
@@ -23,6 +23,6 @@ id](../../platform/how-to/get-workspace-id.md), or follow these instructions:
 3.  Using the "Select code language" drop down on the right of this
     page, choose "Swagger".
 
-![code-lang-swagger.png](../images/code-lang-swagger.png)
+![code-lang-swagger.png](/apis/images/code-lang-swagger.png)
 
 1.  Click the link to access the Swagger documentation.

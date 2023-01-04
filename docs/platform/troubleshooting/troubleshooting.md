@@ -68,11 +68,11 @@ The API’s that require a valid bearer token are:
       - <https://portal-api.platform.quix.ai/swagger/index.html>
 
 2.  Streaming Writer API
-	  - <https://writer-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
+	  - <https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
         
 3.  Telemetry Query API
 
-	  - <https://telemetry-query-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
+	  - <https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
     
 ## Error Handling in the SDK callbacks
 
@@ -132,12 +132,12 @@ caused by DNS propagation.
     propagated. In this scenario you might see a banner when accessing
     the data catalogue.
 
-![troubleshoot/datacataloguewarning.jpg](../images/troubleshoot/datacataloguewarning.jpg)
+![troubleshoot/datacataloguewarning.jpg](/platform/images/troubleshoot/datacataloguewarning.jpg)
 
   - 2\. A dashboard or other publicly visible deployment is not yet
     accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](../images/troubleshoot/sitecantbereached.jpg)
+![troubleshoot/sitecantbereached.jpg](/platform/images/troubleshoot/sitecantbereached.jpg)
 
 !!! tip
 
@@ -155,7 +155,7 @@ ModuleNotFoundError: No module named 'quixstreaming'
 ```
 
 For information on how to setup your IDE for working with Quix please
-check out this [section](../../sdk/python-setup.md) on the SDK
+check out this [section](/sdk/python-setup) on the SDK
 documentation.
 
 ## Jupyter Notebooks
@@ -170,7 +170,7 @@ video](https://youtu.be/fnEPnIunyxA).
 ## Process Killed or Out of memory
 
 If your deployment’s logs report "Killed" or "Out of memory" then you
-may need to increase the amount of memory assgned to the deployment.
+may need to increase the amount of memory assigned to the deployment.
 
 You may experience this:
 
@@ -181,7 +181,7 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](../definitions.md#_online_ide) does
+Currently the [online IDE](/platform/definitions#online-ide) does
 not use the same docker image as the one used for deployment due to time
 it would take to build it and make it available to you. (Likely feature
 for future however) Because of this you might have some OS level

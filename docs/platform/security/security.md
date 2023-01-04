@@ -23,7 +23,7 @@ This section describes the basic security features of Quix.
 
   - Each kafka client is authrozied to only read and write to the topics
     or query consumer group information regarding topics owned by the
-    organisation the client belongs to.
+    organization the client belongs to.
 
 ### Encryption
 
