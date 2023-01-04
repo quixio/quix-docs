@@ -1,6 +1,8 @@
 # Quix Developer Documentation
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/quixai/quix-docs/actions/workflows/sync-build-deploy.yaml/badge.svg)](https://github.com/quixai/quix-docs)
+
 
 This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. 
 
