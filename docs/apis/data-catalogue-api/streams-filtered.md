@@ -17,7 +17,7 @@ request to the [`/streams`](#) endpoint.
 The most basic filter matches against a stream’s ID.
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"streamIds": ["302b1de3-2338-43cb-8148-3f0d6e8c0b8a"]}'
@@ -36,7 +36,7 @@ will find streams with a location of `/one` but it will also find
 streams with a `/one/two` location:
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"location": "/one"}'
@@ -55,7 +55,7 @@ the `parameterIds` property. For example, to find all streams that
 contain at least one single occurence of `Gear` data:
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"parameterIds": [ "Gear"] }'
@@ -68,7 +68,7 @@ array of values to act on. So to get all streams that aren’t Interrupted
 or Closed, use this query:
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"excludeStatuses": [ "Interrupted", "Closed" ]}'
@@ -137,7 +137,7 @@ an object with the following properties:
 For example, to sort all streams in ascending order by topic:
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"ordering": [{ "by": "topic", "direction": "asc" }]}'

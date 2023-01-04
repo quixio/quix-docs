@@ -41,7 +41,7 @@ passing an empty JSON object in the payload:
   - curl
     
     ``` shell
-    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams" \
+    curl "https://${domain}.platform.quix.io/topics/${topicName}/streams" \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
          -d '{}'
@@ -55,7 +55,7 @@ passing an empty JSON object in the payload:
     const data = "{}";
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams',
         method: 'POST',
         headers: {
@@ -137,7 +137,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + workspaceId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

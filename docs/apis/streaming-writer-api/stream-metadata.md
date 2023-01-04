@@ -45,7 +45,7 @@ contains key/value string-based metadata.
   - curl
     
     ``` shell
-    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}" \
+    curl "https://${domain}.platform.quix.io/topics/${topicName}/streams/${streamId}" \
          -X PUT \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
@@ -60,7 +60,7 @@ contains key/value string-based metadata.
     const data = JSON.stringify({ metadata: { fruit: "apple" }});
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams/' + streamId,
         method: 'PUT',
         headers: {
@@ -112,7 +112,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + workspaceId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

@@ -93,7 +93,7 @@ with a LapNumber which is either 2 or 4, you can use the expression
 "^\[24\]\\." to match values 2.0 and 4.0:
 
 ``` bash
-curl "https://telemetry-query-testing-quickstart.platform.quix.ai/parameters/data" \
+curl "https://telemetry-query-testing-quickstart.platform.quix.io/parameters/data" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{

@@ -23,11 +23,11 @@ names. See [How to get a workspace
 ID](../../platform/how-to/get-workspace-id.md) to find out how to get the
 exact hostname required. It will be in this format:
 
-    https://telemetry-query-${organisation}-${workspace}.platform.quix.ai/
+    https://telemetry-query-${organisation}-${workspace}.platform.quix.io/
 
 So your final endpoint URL will look something like:
 
-    https://telemetry-query-acme-weather.platform.quix.ai/
+    https://telemetry-query-acme-weather.platform.quix.io/
 
 ## Method
 
@@ -74,5 +74,5 @@ pattern:
 curl -H "Authorization: ${token}" \
      -H "Content-Type: application/json" \
      -d "@data.json" \
-     https://${domain}.platform.quix.ai/${endpoint}
+     https://${domain}.platform.quix.io/${endpoint}
 ```

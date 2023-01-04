@@ -57,7 +57,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + workspaceId + ".platform.quix.io/hub", options)
     .build();
 
 connection.start().then(() => console.log("SignalR connected."));

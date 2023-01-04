@@ -25,7 +25,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://reader-your-workspace-id.portal.quix.ai/hub", options)
+    .withUrl("https://reader-your-workspace-id.portal.quix.io/hub", options)
     .build();
 
 connection.start().then(() => console.log("SignalR connected."));
@@ -52,7 +52,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://reader-your-workspace-id.portal.quix.ai/hub", options)
+    .withUrl("https://reader-your-workspace-id.portal.quix.io/hub", options)
     .build();
 
 // Establish connection

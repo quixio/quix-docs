@@ -27,7 +27,7 @@ The payload requirements are the same as those for `/streams`. You can
 fetch model information across all streams with an empty payload:
 
 ``` shell
-curl "https://${domain}.platform.quix.ai/streams/models" \
+curl "https://${domain}.platform.quix.io/streams/models" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "{}"

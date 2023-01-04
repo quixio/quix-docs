@@ -16,7 +16,7 @@ I’ve made a video of this tutorial if you prefer watching to reading.
 
 ## What you need for this tutorial
 
-1.  [Free Quix account](https://portal.platform.quix.ai/self-sign-up?xlink=home&_ga=2.191326762.1842305134.1652702101-2083003567.1643907213){target=_blank}
+1.  [Free Quix account](https://portal.platform.quix.io/self-sign-up?xlink=home&_ga=2.191326762.1842305134.1652702101-2083003567.1643907213){target=_blank}
 
 2.  [Snowflake account](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg){target=_blank}
 
@@ -118,4 +118,4 @@ Expand the "demodata" database and then find the tables under "public".
 
 !!! tip
 
-	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream](https://quix.ai/slack-invite){target=_blank}, our slack community.
+	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream](https://quix.io/slack-invite){target=_blank}, our slack community.

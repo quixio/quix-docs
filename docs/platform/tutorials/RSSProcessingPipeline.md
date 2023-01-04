@@ -146,4 +146,4 @@ haven’t lost all those precious live messages.
 
 If you run into trouble with the tutorial, want to chat with us about
 your project or anything else associated with streaming processing you
-can join our public Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank}.
+can join our public Slack community called [The Stream](https://quix.io/slack-invite){target=_blank}.

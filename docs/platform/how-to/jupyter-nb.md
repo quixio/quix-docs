@@ -15,7 +15,7 @@ analysis so much easier.
 You’ll need some data stored in the Quix platform. You can use any of
 our Data Sources available in the samples Library, or just follow the
 onboarding process when you [sign-up to
-Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank}.
+Quix](https://portal.platform.quix.io/self-sign-up?xlink=docs){target=_blank}.
 
 You will also need Python 3 environment set up in your local
 environment.

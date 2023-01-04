@@ -41,7 +41,7 @@ get back all parameters that match.
 ### Example
 
 ``` bash
-curl "https://${domain}.platform.quix.ai/parameters/data" \
+curl "https://${domain}.platform.quix.io/parameters/data" \
     -H "accept: text/plain" \
     -H "Authorization: bearer <token>" \
     -H "Content-Type: application/json" \

@@ -30,7 +30,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://reader-YOUR_WORKSPACE_ID.platform.quix.ai/hub", options)
+    .withUrl("https://reader-YOUR_WORKSPACE_ID.platform.quix.io/hub", options)
     .build();
 
 // Establish connection

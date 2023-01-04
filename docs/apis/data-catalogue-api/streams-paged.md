@@ -28,7 +28,7 @@ return all streams.
 ### Example request
 
 ``` shell
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "{}"
@@ -80,7 +80,7 @@ page, use this value:
 ### Example request
 
 ``` shell
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"paging":{"index": 1,"length": 10}}'

@@ -33,7 +33,7 @@ const data = JSON.stringify({
 });
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams',
     method: 'POST',
     headers: {
@@ -104,7 +104,7 @@ const data = JSON.stringify({
 });
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams/your-stream-id/parameters/data',
     method: 'POST',
     headers: {
@@ -156,7 +156,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams/your-stream-id/parameters',
     method: 'PUT',
     headers: {
@@ -219,7 +219,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams/your-stream-id/events/data',
     method: 'POST',
     headers: {
@@ -263,7 +263,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams/your-stream-id/events',
     method: 'PUT',
     headers: {
@@ -299,7 +299,7 @@ the request below.
 const https = require(https);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-workspace-id.portal.quix.io',
     path: '/topics/your-topic-name/streams/your-stream-id/close',
     method: 'POST',
     headers: {

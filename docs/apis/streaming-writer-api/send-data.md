@@ -62,7 +62,7 @@ curl might look something like this:
 === "curl"
     
     ``` bash
-    curl -X POST "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/parameters/data" \
+    curl -X POST "https://${domain}.platform.quix.io/topics/${topicName}/streams/${streamId}/parameters/data" \
          -H "Authorization: Bearer ${token}" \
          -H "Content-Type: application/json" \
          -d '{
@@ -88,7 +88,7 @@ curl might look something like this:
     });
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams/' + streamId + '/parameters/data',
         method: 'POST',
         headers: {
@@ -125,7 +125,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + workspaceId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

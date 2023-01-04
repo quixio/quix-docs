@@ -14,7 +14,7 @@ There are two parts to the guide:
 
 !!! info "Don't get stuck"
 
-	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.ai/slack-invite){target=_blank}
+	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.io/slack-invite){target=_blank}
 
 ## 1. Get up and running
 
@@ -329,7 +329,7 @@ You will now locate a suitable transformation template and modify it to handle t
 
 	![The completed pipeline](../images/tutorials/quick-start/pipeline.png)
 
-	Come on over to our Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank} and tell us how you did or if you had any issues.
+	Come on over to our Slack community called [The Stream](https://quix.io/slack-invite){target=_blank} and tell us how you did or if you had any issues.
 
 
 
@@ -345,8 +345,8 @@ and use Quix in your own projects.
 
 **Additional resources**
 
-  - [The Stream community on Slack](https://quix.ai/slack-invite){target=_blank}
+  - [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
 
-  - [Stream processing glossary](https://quix.ai/stream-processing-glossary/){target=_blank}
+  - [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
 
   - [Developer docs main navigation](../landing-page.md)
