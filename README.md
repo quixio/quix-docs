@@ -42,6 +42,6 @@ If you would like to contribute to these docs, see the [contribution guide](./CO
 
 ## Getting in touch
 
-The best way to contact us is through our public Slack channel, [The Stream](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+The best way to contact us is through our public Slack channel, [The Stream community](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
 
 Thanks!
