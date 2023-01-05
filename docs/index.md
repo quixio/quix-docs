@@ -10,13 +10,15 @@ New users are encouraged to try out the following resources first before diving 
 
 [../pr45/](../pr45/platform/tutorials/sentiment-analysis/)
 
-[../pr45/platform/tutorials/sentiment-analysis.html](../pr45/platform/tutorials/sentiment-analysis/index.html)
+[../pr45/platform/tutorials/sentiment-analysis/index.html](../pr45/platform/tutorials/sentiment-analysis/index.html)
 
-[/pr45/platform/tutorials/sentiment-analysis.html](/pr45/platform/tutorials/sentiment-analysis/index.html)
+[/pr45/platform/tutorials/sentiment-analysis/index.html](./pr45/platform/tutorials/sentiment-analysis/index.html)
 
-[./pr45/platform/tutorials/sentiment-analysis.html](./pr45/platform/tutorials/sentiment-analysis/index.html)
+[/platform/tutorials/sentiment-analysis/index.html](./platform/tutorials/sentiment-analysis/index.html)
 
-[/](/platform/tutorials/sentiment-analysis/)
+[./platform/tutorials/sentiment-analysis/index.html](./platform/tutorials/sentiment-analysis/index.html)
+
+[/](./platform/tutorials/sentiment-analysis/)
 
 
 
@@ -32,7 +34,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentiment-analysis/)
+    [:octicons-arrow-right-24: Sentiment Analysis](./platform/tutorials/sentiment-analysis/)
     
     
 -   __Image Processing__
@@ -41,7 +43,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Real time image processing using Londons 'Jam Cams'
 
-    [:octicons-arrow-right-24: Image Processing](/platform/tutorials/ImageProcessing/)
+    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/ImageProcessing/)
 
 </div>
 
@@ -57,7 +59,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Discover how to connect Quix and your application using our SDK
 
-    [:octicons-arrow-right-24: Learn more](/sdk/connect/)
+    [:octicons-arrow-right-24: Learn more](./sdk/connect/)
 
 -   __Writing data - SDK__
 
@@ -65,7 +67,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Read how to send real-time data to Kafka topics using the Quix SDK
 
-    [:octicons-arrow-right-24: Learn more](/sdk/write/)
+    [:octicons-arrow-right-24: Learn more](./sdk/write/)
 
 -   __Reading data - SDK__
 
@@ -73,7 +75,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Learn how to receive real-time data in your application using the Quix SDK
 
-    [:octicons-arrow-right-24: Learn more](/sdk/read/)
+    [:octicons-arrow-right-24: Learn more](./sdk/read/)
 
 -   __Streaming Writer API__
 
@@ -81,7 +83,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Stream data to Quix Kafka topics via HTTP with this API
 
-    [:octicons-arrow-right-24: Learn more](/apis/streaming-writer-api/intro/)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/intro/)
 
 -   __Streaming Reader API__
 
@@ -89,7 +91,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Work with this API to receive live data in your Web applications from Quix Kafka topics via Websockets
 
-    [:octicons-arrow-right-24: Learn more](/apis/streaming-reader-api/intro/)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro/)
 
 -   __Data Catalogue API__
 
@@ -97,7 +99,7 @@ Take a look under the hood and get to know our SDK and APIs
 
     Query historic time-series data in Quix using HTTP interface
 
-    [:octicons-arrow-right-24: Learn more](/apis/data-catalogue-api/intro/)
+    [:octicons-arrow-right-24: Learn more](./apis/data-catalogue-api/intro/)
 
 
 </div>

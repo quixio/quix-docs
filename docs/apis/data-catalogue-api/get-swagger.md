@@ -14,7 +14,7 @@ workspace names. For example, for an "acme" organization with a
     https://telemetry-query-acme-weather.platform.quix.ai/
 
 To determine the final URL, you can [find out how to get a workspace
-id](/platform/how-to/get-workspace-id), or follow these instructions:
+id](./platform/how-to/get-workspace-id), or follow these instructions:
 
 1.  Click the Data Explorer icon **Data Explorer** in the main menu.
 
@@ -23,6 +23,6 @@ id](/platform/how-to/get-workspace-id), or follow these instructions:
 3.  Using the "Select code language" drop down on the right of this
     page, choose "Swagger".
 
-![code-lang-swagger.png](/apis/images/code-lang-swagger.png)
+![code-lang-swagger.png](./apis/images/code-lang-swagger.png)
 
 1.  Click the link to access the Swagger documentation.

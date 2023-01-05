@@ -13,25 +13,25 @@ from your language of choice, or via the command line using curl.
 ## Preparation
 
 If you plan on using the HTTP endpoints, then you’ll need to know how to
-[authenticate your requests](/apis/streaming-writer-api/authenticate)
+[authenticate your requests](./apis/streaming-writer-api/authenticate)
 and how to [form a typical request to the
 API](request.md).
 
 If you would rather use the SignalR api, which is suggested for high
-frequency data streaming, then see [SignalR setup](/apis/streaming-reader-api/signalr).
+frequency data streaming, then see [SignalR setup](./apis/streaming-reader-api/signalr).
 
 ## Topics covered
 
   - Stream
     
-      - [Create a new Stream](/apis/streaming-writer-api/create-stream)
+      - [Create a new Stream](./apis/streaming-writer-api/create-stream)
     
-      - [Add Stream metadata](/apis/streaming-writer-api/stream-metadata)
+      - [Add Stream metadata](./apis/streaming-writer-api/stream-metadata)
 
   - Parameters
     
-      - [Send Parameter data](/apis/streaming-writer-api/send-data)
+      - [Send Parameter data](./apis/streaming-writer-api/send-data)
 
   - Events
     
-      - [Send an Event](/apis/streaming-writer-api/send-event)
+      - [Send an Event](./apis/streaming-writer-api/send-event)

@@ -8,8 +8,8 @@ timestamps.
 ## Before you begin
 
   - You should have a [Workspace set
-    up](/platform/definitions.md#workspace) with at least [one
-    Topic](/platform/definitions.md#topics).
+    up](./platform/definitions.md#workspace) with at least [one
+    Topic](./platform/definitions.md#topics).
 
   - [Get a Personal Access
     Token](authenticate.md) to authenticate each

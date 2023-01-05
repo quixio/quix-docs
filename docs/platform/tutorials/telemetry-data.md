@@ -2,7 +2,7 @@
 
 ## Stream and visualize real-time telemetry data with an Android app and Streamlit
 
-![](/platform/images/tutorials/telemetry-data/image2.png)
+![](./platform/images/tutorials/telemetry-data/image2.png)
 
 Learn how to build an end-to-end telemetry data pipeline for IoT applications. Use our Android companion app to stream sensor data from your phone and visualize it in a Streamlit app.
 
@@ -57,7 +57,7 @@ Open the UI with these steps
 
 7.  You can now enter a username and device name into the relevant inputs
 
-![](/platform/images/tutorials/telemetry-data/image1.png){width=400px}
+![](./platform/images/tutorials/telemetry-data/image1.png){width=400px}
 
 !!! tip "These can be anything! But sensible values will help understand which token belongs to which user"
 
@@ -186,11 +186,11 @@ st.line_chart(local_df[["datetime", 'Gear', 'Brake']].set_index("datetime"))
 
     !!! tip "Click the icon that appears next to the project name (circled here in green)"
 
-        ![](/platform/images/tutorials/telemetry-data/image3.png){width=300px}
+        ![](./platform/images/tutorials/telemetry-data/image3.png){width=300px}
 
 12. Once the dashboard has loaded you will see sensor data from your device in real time
 
-    ![](/platform/images/tutorials/telemetry-data/image2.png){width=400px}
+    ![](./platform/images/tutorials/telemetry-data/image2.png){width=400px}
     
     !!! note "Below this is also the raw data showing all the values from the device"
 

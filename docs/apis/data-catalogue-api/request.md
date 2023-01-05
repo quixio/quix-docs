@@ -20,7 +20,7 @@ expectations that is common across all clients.
 The Data Catalogue API is available on a per-workspace basis, so the
 subdomain is based on a combination of your organization and workspace
 names. See [How to get a workspace
-ID](/platform/how-to/get-workspace-id) to find out how to get the
+ID](./platform/how-to/get-workspace-id) to find out how to get the
 exact hostname required. It will be in this format:
 
     https://telemetry-query-${organization}-${workspace}.platform.quix.ai/

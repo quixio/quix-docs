@@ -7,4 +7,4 @@ Quix allows explore the samples and save them as a new Project and immediately R
 
 The backend of the Quix Library is handled by a public [Open source repository](https://github.com/quixai/quix-library){target=_blank} on GitHub, so you can become a contributor of our Library generating new samples or updating existing ones.
 
-![Library.png](/platform/images/Library.png)
+![Library.png](./platform/images/Library.png)

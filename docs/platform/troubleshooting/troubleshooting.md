@@ -132,12 +132,12 @@ caused by DNS propagation.
     propagated. In this scenario you might see a banner when accessing
     the data catalogue.
 
-![troubleshoot/datacataloguewarning.jpg](/platform/images/troubleshoot/datacataloguewarning.jpg)
+![troubleshoot/datacataloguewarning.jpg](./platform/images/troubleshoot/datacataloguewarning.jpg)
 
   - 2\. A dashboard or other publicly visible deployment is not yet
     accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](/platform/images/troubleshoot/sitecantbereached.jpg)
+![troubleshoot/sitecantbereached.jpg](./platform/images/troubleshoot/sitecantbereached.jpg)
 
 !!! tip
 
@@ -155,7 +155,7 @@ ModuleNotFoundError: No module named 'quixstreaming'
 ```
 
 For information on how to setup your IDE for working with Quix please
-check out this [section](/sdk/python-setup) on the SDK
+check out this [section](./sdk/python-setup) on the SDK
 documentation.
 
 ## Jupyter Notebooks
@@ -181,7 +181,7 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](/platform/definitions#online-ide) does
+Currently the [online IDE](./platform/definitions#online-ide) does
 not use the same docker image as the one used for deployment due to time
 it would take to build it and make it available to you. (Likely feature
 for future however) Because of this you might have some OS level

@@ -17,7 +17,7 @@ You can access these tokens by going to your topics and clicking on
 ## How to use
 
 These tokens can be used to authenticate against the API, but their
-primary intended use is to be used with the [SDK QuixStreamingClient](/sdk/connect#using-quixstreamingclient).
+primary intended use is to be used with the [SDK QuixStreamingClient](./sdk/connect#using-quixstreamingclient).
 When using it with QuixStreamingClient, you no longer need to provide
 all broker credentials manually, they’ll be acquired when needed and set
 up automatically.

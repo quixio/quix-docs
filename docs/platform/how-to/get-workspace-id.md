@@ -1,7 +1,7 @@
 # Get Workspace ID
 
 Occasionally, you’ll need to obtain an ID based on a specific workspace.
-For example, endpoints for the [Data Catalogue API](/apis/data-catalogue-api/intro) use a domain with the
+For example, endpoints for the [Data Catalogue API](./apis/data-catalogue-api/intro) use a domain with the
 following pattern:
 
     https://telemetry-query-${workspace-id}.platform.quix.ai/

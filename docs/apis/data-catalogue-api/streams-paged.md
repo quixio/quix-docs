@@ -1,8 +1,8 @@
 # Paged streams
 
 You can fetch all streams within a
-[workspace](/platform/definitions#workspace), across
-[topics](/platform/definitions#topics) and locations, with a
+[workspace](./platform/definitions#workspace), across
+[topics](./platform/definitions#topics) and locations, with a
 single call. If you’re working with a large number of streams, you can
 use pagination parameters to group the results into smaller pages.
 
@@ -10,7 +10,7 @@ use pagination parameters to group the results into smaller pages.
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
-    Library](/platform/samples/samples) to set some up.
+    Library](./platform/samples/samples) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
