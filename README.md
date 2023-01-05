@@ -1,46 +1,47 @@
-# Contributing to the Quix Documentation
+# Quix Developer Documentation
 
-You want to help improve our documentation? Fantastic! Here are a few guidelines to help you get started.
-
-## Reporting Bugs and Requesting Enhancements
-
-If you spot a mistake or see room for improvement in any of the Quix docs, please let us know! To create an issue, follow these steps:
-
-1. Open the [Github issues](https://github.com/quixai/quix-docs/issues) page for the Quix documentation repository.
-2. Click **New Issue** and enter a descriptive title that references affected page.
-   For example, '_Sentiment Analysis tutorial references a button that doesnt exist_'.
-3. Click **Submit Issue** and wait for one of our team to respond.
-We'll try to respond within a couple of working days.
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/quixai/quix-docs/actions/workflows/sync-build-deploy.yaml/badge.svg)](https://github.com/quixai/quix-docs)
 
 
-## How Do I Submit a Good Docs Issue?
+This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. 
 
-Make sure your title is clear and descriptive. For any problem or enhancement, describe it in full, including any expected results and how they differ from the real results. The more descriptive your issue is, the quicker we'll be able to resolve your issue.
+To get a free Quix account, [sign up][https://portal.platform.quix.ai/self-sign-up].
 
-## Contributing Changes
+## Prerequisites
 
-If you want to fix an issue yourself, go ahead! We welcome edits. For small changes, like typos and minor clarification, you can do an online edits in the GitHub Editor. 
+To run these docs locally you'll need:
 
-If you want to do more, or if you prefer to work offline, you can fork this repo, add your changes locally and then push to your fork. After that, you can create a pull request to merge your changes into the original docs repository.
+* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* Sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/), if you want to see all features rendered locally.
+* A Git client (the command line is fine).
 
-`Please create forks or branches from the 'dev' branch.`
+## Running the docs locally
 
-## Online Edits in the GitHub Editor
+To view the docs locally:
 
-If you want to make a change, you can do it right on GitHub. Just follow these steps:
+1. Follow the install guide for Material [here](https://squidfunk.github.io/mkdocs-material/getting-started/).
+2. Clone the repo as follows:
 
-1. Open the page you want to change click the edit button edit button.
-This will open the relevant page in GitHub
-2. To edit the page in GithubType, `E` or click the edit icon and make your changes.
-3. When you've finished, scroll dowb and write a short description of the changes you made in the commit message, and click **Propose Changes**.
-4. On the page that appears, click **Create Pull Request**, fill out the details and submit it.
+   ```
+   git clone https://github.com/quixai/quix-docs.git
+   ```
+3. Change into the docs directory you cloned (there will be a `mkdocs.yml` file there). 
+4. Run `mkdocs serve`.
+5. Navigate your browser to `localhost:8000` to view the docs.
 
-`Remember to create forks or branches from the 'dev' branch.`
+## Linked repositories
 
-## PR Reviews
+This repo uses the `multirepo` plugin to pull in content from the [Quix Streams repo](https://github.com/quixai/quix-streams). 
 
-A member of our team will review your pull request. We might give feedback and suggestions for how you could improve the pull request, which is the same process we use when reviewing each others work internally. We'll try to respond within a couple of working days, but feedback can sometimes take longer. We appreciate all your feedback and contributions.
+You can read more about Quix Streams [here](https://github.com/quixai/quix-streams/blob/main/README.md). 
 
-## Contact
+## Contributing
 
-If you want to discuss a change with us or let us know about a PR please join our [Slack Community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
+If you would like to contribute to these docs, see the [contribution guide](./CONTRIBUTING.md).
+
+## Getting in touch
+
+The best way to contact us is through our public Slack channel, [The Stream community](https://quix.ai/slack-invite). Please sign up, and introduce yourself!
+
+Thanks!
