@@ -10,6 +10,12 @@ New users are encouraged to try out the following resources first before diving 
 
 [../pr45/](../pr45/platform/tutorials/sentiment-analysis/)
 
+[../pr45/platform/tutorials/sentiment-analysis.html](../pr45/platform/tutorials/sentiment-analysis.html)
+
+[/pr45/platform/tutorials/sentiment-analysis.html](/pr45/platform/tutorials/sentiment-analysis.html)
+
+[./pr45/platform/tutorials/sentiment-analysis.html](./pr45/platform/tutorials/sentiment-analysis.html)
+
 [/](/platform/tutorials/sentiment-analysis/)
 
 
