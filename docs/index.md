@@ -2,6 +2,18 @@
 
 New users are encouraged to try out the following resources first before diving into the docs head first.
 
+[./](./platform/tutorials/sentiment-analysis/)
+
+[../](../platform/tutorials/sentiment-analysis/)
+
+[../docs/](../docs/platform/tutorials/sentiment-analysis/)
+
+[../pr45/](../pr45/platform/tutorials/sentiment-analysis/)
+
+[/](/platform/tutorials/sentiment-analysis/)
+
+
+
 ## Tutorials
  
 By following these tutorials, you can learn how to build data-driven apps and integrate Quix with external systems.
