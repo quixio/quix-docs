@@ -43,4 +43,4 @@ A member of our team will review your pull request. We might give feedback and s
 
 ## Contact
 
-If you want to discuss a change with us or let us know about a PR please join our [Slack Community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
+If you want to discuss a change with us or let us know about a PR please join [The Stream community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
