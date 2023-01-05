@@ -74,7 +74,7 @@ Now try out the UI you just deployed.
 
 	![Deployed UI tile](./sentiment-analysis-media/ui-tile.png){width=250px}
 
-2. Click the `open in new window` icon ![Open in new window icon](./platform/images/general/open_in_new_window.png){width=18px}.
+2. Click the `open in new window` icon ![Open in new window icon](../../../platform/images/general/open_in_new_window.png){width=18px}.
 
 	This is the user interface for the demo. The view you’ll see after creating a `room` to chat in is shown in the following screenshot:
 
