@@ -132,12 +132,12 @@ caused by DNS propagation.
     propagated. In this scenario you might see a banner when accessing
     the data catalogue.
 
-![troubleshoot/datacataloguewarning.jpg](./platform/images/troubleshoot/datacataloguewarning.jpg)
+![troubleshoot/datacataloguewarning.jpg](datacataloguewarning.jpg)
 
   - 2\. A dashboard or other publicly visible deployment is not yet
     accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](./platform/images/troubleshoot/sitecantbereached.jpg)
+![troubleshoot/sitecantbereached.jpg](sitecantbereached.jpg)
 
 !!! tip
 

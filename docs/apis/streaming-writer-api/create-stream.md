@@ -13,11 +13,11 @@ supplying any other additional properties required.
 ## Before you begin
 
   - You should have a [Workspace set
-    up](./platform/definitions.md#workspace) with at least [one
-    Topic](./platform/definitions.md#topics).
+    up](../../../platform/definitions#workspace) with at least [one
+    Topic](/platform/definitions#topics).
 
   - [Get a Personal Access
-    Token](authenticate.md) to authenticate each
+    Token](authenticate) to authenticate each
     request.
 
 ## Using the /streams endpoint
@@ -27,7 +27,7 @@ To create a new stream, send a `POST` request to:
     /topics/${topicName}/streams
 
 You should replace `$\{topicName}` in the endpoint URL with the name of
-the [Topic](./platform/definitions.md#topics) you wish to create the
+the [Topic](/platform/definitions#topics) you wish to create the
 stream in. For example, if your topic is named “cars”, your endpoint url
 will be `/topics/cars/streams`.
 

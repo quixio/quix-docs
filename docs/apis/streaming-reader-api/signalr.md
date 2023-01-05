@@ -37,9 +37,9 @@ This can be located in one of the following ways:
 - Topics Page  
   In the Portal, inside the Workspace you want to work with, click the
   Topics menu
-  ![/platform/images/icons/topics.png](./platform/images/icons/topics.png) and then
+  ![Topics icon](../images/icons/topics.png) and then
   click the expand icon
-  ![/platform/images/icons/expand.jpg](./platform/images/icons/expand.jpg) on any
+  ![Expand icon](../images/icons/expand.jpg) on any
   topic. Here you will see a *Username* under the Broker Settings.
     This Username is also the Workspace Id.
 

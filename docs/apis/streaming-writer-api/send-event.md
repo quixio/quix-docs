@@ -5,8 +5,7 @@ future reference.
 
 ## Before you begin
 
-  - [Get a Personal Access
-    Token](authenticate.md) to authenticate each
+  - [Get a Personal Access Token](authenticate.md) to authenticate each
     request.
 
   - If you don’t already have a Stream in your workspace, [add one using
