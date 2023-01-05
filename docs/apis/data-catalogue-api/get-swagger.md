@@ -23,6 +23,6 @@ id](./platform/how-to/get-workspace-id), or follow these instructions:
 3.  Using the "Select code language" drop down on the right of this
     page, choose "Swagger".
 
-![code-lang-swagger.png](./apis/images/code-lang-swagger.png)
+![code-lang-swagger.png](code-lang-swagger.png)
 
 1.  Click the link to access the Swagger documentation.
