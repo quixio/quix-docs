@@ -6,7 +6,7 @@
 
 This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. 
 
-To get a free Quix account, [sign up][https://portal.platform.quix.ai/self-sign-up].
+To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).
 
 ## Prerequisites
 
