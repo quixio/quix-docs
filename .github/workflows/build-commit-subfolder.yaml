@@ -74,9 +74,6 @@ jobs:
       env:
         AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
         
-    #- name: Build the Docs
-    #  run: mkdocs build --no-directory-urls
-      
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
