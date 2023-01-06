@@ -117,7 +117,7 @@ You are going to locate and deploy a UI. It's written in Angular and connects to
 
 #### In the browser
 
-Once the UI is built and deployed you can go ahead and click the ![open in new window icon](./platform/images/general/open_in_new_window.png){width=20px} icon on the `Sentiment Demo UI` tile.
+Once the UI is built and deployed you can go ahead and click the ![open in new window icon](../../../platform/images/general/open_in_new_window.png){width=20px} icon on the `Sentiment Demo UI` tile.
 
 You will see a form asking you to enter the name for a chat room and your own name. 
 

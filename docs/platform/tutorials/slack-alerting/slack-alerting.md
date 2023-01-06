@@ -33,7 +33,7 @@ A Quix Service receives data from the Transport For London BikePoint API and str
 
 To proceed with this tutorial you need:
 
- - Quix portal login. (you'll need an account for this, go [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one)
+ - Quix portal login. (You'll need an account for this, go to [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one)
 
  - Access to Slack, you’ll need to be an admin.
 
@@ -244,7 +244,7 @@ Follow these steps:
 
 	???- info "This is how you tag the code"
 
-		![How to tag your code](../images/tutorials/slack-bikes/tag.gif){width=350px}
+		![How to tag your code](tag.gif){width=350px}
 
 2. Click `Deploy` near the top right corner of the code editor window
 

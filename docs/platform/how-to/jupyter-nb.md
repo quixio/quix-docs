@@ -32,7 +32,7 @@ jupyter notebook
 
 Then create a new Python3 notebook
 
-![how-to/jupyter-wb/new-file.png](./platform/images/how-to/jupyter-wb/new-file.png)
+![how-to/jupyter-wb/new-file.png](../../platform/images/how-to/jupyter-wb/new-file.png)
 
 ## Connecting Jupyter notebook to Data Catalogue
 
@@ -50,11 +50,11 @@ You need to be logged into the platform for this:
 
 5.  Ensure **Python** is the selected language
 
-![how-to/jupyter-wb/connect-python.png](./platform/images/how-to/jupyter-wb/connect-python.png)
+![how-to/jupyter-wb/connect-python.png](../../platform/images/how-to/jupyter-wb/connect-python.png)
 
 Copy the Python code to your Jupyter notebook and execute.
 
-![how-to/jupyter-wb/jupyter-results.png](./platform/images/how-to/jupyter-wb/jupyter-results.png)
+![how-to/jupyter-wb/jupyter-results.png](../../platform/images/how-to/jupyter-wb/jupyter-results.png)
 
 !!! tip
 
