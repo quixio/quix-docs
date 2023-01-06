@@ -381,7 +381,7 @@ Now that the code is complete you can `Run` it one more time, just to be certain
 
 5. You can also verify that the Web Chat UI shows an indication of the sentiment for each message as well as showing the average sentiment in the graph:
 
-    ![Final UI showing sentiment](../../images/tutorials/sentiment-analysis-media/end-result.gif){width=450px}
+    ![Final UI showing sentiment](./sentiment-analysis-media/end-result.gif){width=450px}
 
 ## Deploying your sentiment analysis code
 

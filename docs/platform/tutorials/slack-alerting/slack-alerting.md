@@ -33,7 +33,7 @@ A Quix Service receives data from the Transport For London BikePoint API and str
 
 To proceed with this tutorial you need:
 
- - Quix portal login. (you'll need an account for this, go [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one){target=_blank}
+ - Quix portal login. (you'll need an account for this, go [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one)
 
  - Access to Slack, you’ll need to be an admin.
 

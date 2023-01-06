@@ -21,11 +21,11 @@ What you need
   - A free [Quix account](https://quix.io/signup){target=_blank}. It
     comes with enough credits to create this project.
 
-  - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.){target=_blank}
+  - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
 
 ### Sourcing data
 
-#### 1\. Get the “RSS Data Source” connector
+#### 1. Get the “RSS Data Source” connector
 
 In your Quix account, go to the library and search for “RSS Data
 Source.” (Hint: you can watch Steve prepare this code in the video
