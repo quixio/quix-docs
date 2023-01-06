@@ -13,8 +13,7 @@ workspace names. For example, for an "acme" organization with a
 
     https://writer-acme-weather.platform.quix.ai/
 
-To determine the final URL, you can [find out how to get a workspace
-id](../../../platform/how-to/get-workspace-id), or follow these
+To determine the final URL, you can [find out how to get a workspace id](../../../platform/how-to/get-workspace-id.html), or follow these
 instructions:
 
 1.  Click the Library icon **Library** in the main menu.

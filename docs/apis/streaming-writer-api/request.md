@@ -1,7 +1,7 @@
 # Forming a request
 
 How you send requests to the Streaming Writer API will vary depending on
-the client or language you’re using. But the API still has behaviour and
+the client or language you’re using. But the API still has behavior and
 expectations that is common across all clients.
 
 !!! tip

@@ -4,8 +4,7 @@ The Quix SignalR hub provides the following subscriptions and events.
 
 ## Subscriptions
 
-You can subscribe to the following hub methods via [the `invoke`
-method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke){target=_blank}
+You can subscribe to the following hub methods via [the `invoke` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke){target=_blank}
 of a `HubConnection`:
 
   - `SubscribeToParameter(topicName, streamId, parameterId)`: Subscribe
@@ -29,7 +28,7 @@ of a `HubConnection`:
 Each Subscribe method has its own Unsubscribe. Use them once you don’t
 need the subscriptions anymore to avoid receiving data unnecessarily:
 
-  - `UnsubscribeFromParameter(topicname, streamId, parameterId)`:
+  - `UnsubscribeFromParameter(topicName, streamId, parameterId)`:
     Unsubscribe from a parameter data stream.
 
   - `UnsubscribeFromEvent(topicName, streamId, eventId)` Unsubscribe
