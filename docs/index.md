@@ -2,25 +2,6 @@
 
 New users are encouraged to try out the following resources first before diving into the docs head first.
 
-[./](./platform/tutorials/sentiment-analysis/)
-
-[../](../platform/tutorials/sentiment-analysis/)
-
-[../docs/](../docs/platform/tutorials/sentiment-analysis/)
-
-[../pr45/](../pr45/platform/tutorials/sentiment-analysis/)
-
-[../pr45/platform/tutorials/sentiment-analysis/index.html](../pr45/platform/tutorials/sentiment-analysis/index.html)
-
-[/pr45/platform/tutorials/sentiment-analysis/index.html](./pr45/platform/tutorials/sentiment-analysis/index.html)
-
-[/platform/tutorials/sentiment-analysis/index.html](./platform/tutorials/sentiment-analysis/index.html)
-
-[./platform/tutorials/sentiment-analysis/index.html](./platform/tutorials/sentiment-analysis/index.html)
-
-[/](./platform/tutorials/sentiment-analysis/)
-
-
 
 ## Tutorials
  
