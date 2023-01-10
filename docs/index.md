@@ -16,6 +16,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
 *    [platform/tutorials/sentiment-analysis/](platform/tutorials/sentiment-analysis/)
 *    [/platform/tutorials/sentiment-analysis/index.html](/platform/tutorials/sentiment-analysis/index.html)
 *    [platform/tutorials/sentiment-analysis/index.html](platform/tutorials/sentiment-analysis/index.html)
+*    [./platform/tutorials/sentiment-analysis/index.html](./platform/tutorials/sentiment-analysis/index.html)
     
     
 -   __Image Processing__
