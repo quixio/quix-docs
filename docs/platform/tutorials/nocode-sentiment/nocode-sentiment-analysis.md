@@ -3,9 +3,9 @@
 This tutorial shows how to build a data processing pipeline without
 code. You’ll analyze tweets that contain information about Bitcoin and
 stream both raw and transformed data into
-[Snowflake<sup></sup>](https://www.snowflake.com/){target=_blank}, a storage platform,
+[Snowflake](https://www.snowflake.com/){target=_blank}, a storage platform,
 using the Twitter,
-[HuggingFace\</superscript\>](https://huggingface.co/){target=_blank} and Snowflake
+[HuggingFace](https://huggingface.co/){target=_blank} and Snowflake
 connectors.
 
 I’ve made a video of this tutorial if you prefer watching to reading.

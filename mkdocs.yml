@@ -26,7 +26,7 @@ nav:
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
-      - 'Image Processing': 'platform/tutorials/imageProcessing/'
+      - 'Image Processing': '/platform/tutorials/imageProcessing/index.html'
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
@@ -81,7 +81,7 @@ nav:
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 'apis/portal-api.md'
   - Contributing:
-      - 'Contributing to the docs': 'contributing.md'
+      - 'Contributing to the docs': 'contributing.html'
 
 plugins:
   - search:

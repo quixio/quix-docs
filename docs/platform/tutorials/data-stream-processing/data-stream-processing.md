@@ -83,7 +83,7 @@ Follow these steps to get the code and deploy the project as a microservice.
 
         Leave the name, input and output as they are.
 
-        The input and output values are [Topics](../../../definitions.html#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
+        The input and output values are [Topics](../../definitions.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
 
 3. Click `Save as project`
 

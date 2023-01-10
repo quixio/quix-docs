@@ -19,7 +19,7 @@ keeping your data in-memory, helping to achieve lower latencies and
 lower operating costs.
 
 From the top-down, our stack provides a Web UI,
-[API’s](../apis/) and [SDK](../sdk/introduction.md) that abstract
+[API’s](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
 developers off our underlying infrastructure, including fully-managed
 Kafka topics, serverless compute environment and a metadata-driven data
 catalogue (time-series database with steroids).

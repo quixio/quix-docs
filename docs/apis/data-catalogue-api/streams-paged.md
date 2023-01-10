@@ -1,8 +1,8 @@
 # Paged streams
 
 You can fetch all streams within a
-[workspace](../../../platform/definitions.html#workspace), across
-[topics](../../../platform/definitions.html#topics) and locations, with a
+[workspace](../../platform/definitions.md#workspace), across
+[topics](../../platform/definitions.md#topics) and locations, with a
 single call. If you’re working with a large number of streams, you can
 use pagination parameters to group the results into smaller pages.
 
