@@ -6,15 +6,16 @@ New users are encouraged to try out the following resources first before diving 
  
 By following these tutorials, you can learn how to build data-driven apps and integrate Quix with external systems.
 
-<div class="grid cards" markdown>
-
 -   __Sentiment Analysis__
 
     ---
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](/platform/tutorials/sentiment-analysis/)
+*    [/platform/tutorials/sentiment-analysis/](/platform/tutorials/sentiment-analysis/)
+*    [platform/tutorials/sentiment-analysis/](platform/tutorials/sentiment-analysis/)
+*    [/platform/tutorials/sentiment-analysis/index.html](/platform/tutorials/sentiment-analysis/index.html)
+*    [platform/tutorials/sentiment-analysis/index.html](platform/tutorials/sentiment-analysis/index.html)
     
     
 -   __Image Processing__
@@ -25,7 +26,6 @@ By following these tutorials, you can learn how to build data-driven apps and in
 
     [:octicons-arrow-right-24: Image Processing](/platform/tutorials/ImageProcessing/)
 
-</div>
 
 ## Core resources
 
