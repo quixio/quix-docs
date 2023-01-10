@@ -17,7 +17,7 @@ There are also optional parts of the tutorial where you can learn how to build y
 
 ## The parts of the tutorial
 
-This tutorial is divided up into several parts, to make it a more manageable learning experirnce. The parts are summarized here:
+This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
 1. **Build your UI**.You deploy the [Sentiment Demo UI](sentiment-demo-ui.md). This is the UI for the tutorial, it allows the user to see messages from all of the users of the app and, in later parts of the tutorial, allow the users to see the sentiment of the chat messages.
 
