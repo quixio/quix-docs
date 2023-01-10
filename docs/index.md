@@ -15,7 +15,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Stream data from Twitter and build a Sentiment analysis pipeline
 
-    [:octicons-arrow-right-24: Sentiment Analysis](./platform/tutorials/sentiment-analysis/index.html)
+    [:octicons-arrow-right-24: Sentiment Analysis](./platform/tutorials/sentiment-analysis/)
     
     
 -   __Image Processing__
@@ -24,7 +24,7 @@ By following these tutorials, you can learn how to build data-driven apps and in
     
     Real time image processing using London's 'Jam Cams'
 
-    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/imageProcessing/imageProcessing.html)
+    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/imageProcessing/)
 
 </div>
 

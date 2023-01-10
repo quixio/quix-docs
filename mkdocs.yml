@@ -26,7 +26,7 @@ nav:
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
-      - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
+      - 'Image Processing': 'platform/tutorials/imageProcessing/'
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'

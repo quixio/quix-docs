@@ -62,7 +62,7 @@ Ensure you are logged into the Quix Portal
 	
 	You can edit and run the code from here or clone it to your computer and work locally.
 	
-	See more about setting up your local environment [here](./sdk/python-setup).
+	See more about setting up your local environment [here](../../../sdk/python-setup.md).
 
 ### Upload the model
 

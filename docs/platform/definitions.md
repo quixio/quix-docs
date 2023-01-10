@@ -38,7 +38,7 @@ For example:
   - Telemetry from one ECU on a Boeing 737
 
 Topics are key for scalability and good data governance. Use them to
-organise your data by:
+organize your data by:
 
   - Grouping incoming data by type or source
 

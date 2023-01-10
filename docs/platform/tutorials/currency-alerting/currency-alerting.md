@@ -198,7 +198,7 @@ Here's what you accomplished in this tutorial:
 
 To learn more, try one of these tutorials:
 
-* [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](../imageProcessing/imageProcessing.md)
+* [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](../imageProcessing/)
 * [Perform sentiment analysis on a stream of Tweets about a given subject](../sentiment-analysis/index.md)
 * [Gather and processes data from an RSS feed and get an alert when specific criteria are met](../rss-tutorial/rss-processing-pipeline.md)
 * [Stream and visualize real-time telemetry data with an Android app and Streamlit](../telemetry-data/telemetry-data.md)

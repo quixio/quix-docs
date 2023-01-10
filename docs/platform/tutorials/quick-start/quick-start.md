@@ -111,7 +111,7 @@ You are going to locate and deploy a UI. It's written in Angular and connects to
         this.quixService.readerConnection.on('ParameterDataReceived', (payload) => {...}
         ```
     
-        For more on connecting to Quix with a web based UI take a look at how to [read](./platform/how-to/webapps/read) and [write](./platform/how-to/webapps/write) with NodeJS.
+        For more on connecting to Quix with a web based UI take a look at how to [read](../../../platform/how-to/webapps/read.md) and [write](../../../platform/how-to/webapps/write.md) with NodeJS.
 
 ### Testing it out
 

@@ -220,7 +220,7 @@ You should be familiar with the process by now.
 
     Look for those lines in the `create-page.js` file and explore what they do.
 
-    For more about WebSockets see [this page](./apis/streaming-reader-api/intro).
+    For more about WebSockets see [this page](../../../apis/streaming-reader-api/intro.md).
 
 ## Fun
 
