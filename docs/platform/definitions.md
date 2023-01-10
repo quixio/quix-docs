@@ -175,28 +175,28 @@ etc).
 
 ## SDK
 
-[Quix SDK](../sdk/introduction.md) is the main library we use to send and
+[Quix SDK](../sdk/introduction) is the main library we use to send and
 receive real-time data in our streaming applications.
 
 ## API’s
 
 ### Streaming Writer API
 
-A [HTTP API](../apis/streaming-writer-api/intro.md) used to send
+A [HTTP API](../apis/streaming-writer-api/intro) used to send
 telemetry data from any source to a topic in the Quix platform. It
 should be used when it is not possible to use directly our
 [SDK](../sdk/introduction.md).
 
 ### Streaming Reader API
 
-A [Websockets API](../apis/streaming-reader-api/intro.md) used to
+A [Websockets API](../apis/streaming-reader-api/intro) used to
 stream any data directly from a topic to an external application. Most
 commonly used to read the results of a model or service to a real-time
 web application.
 
 ### Data Catalogue API
 
-An [HTTP API](../apis/data-catalogue-api/intro.md) used to query
+An [HTTP API](../apis/data-catalogue-api/intro) used to query
 historic data in the Data Catalogue. Most commonly used for
 dashboarding, analytics and training ML models. Also useful to call
 historic data when running an ML model or to call historic data from an
@@ -204,6 +204,6 @@ external application.
 
 ### Portal API
 
-An [HTTP API](../apis/portal-api.md) used to interact with most
+An [HTTP API](../apis/portal-api) used to interact with most
 portal-related features such as creation of Workspaces, Users,
 Deployments, etc.
