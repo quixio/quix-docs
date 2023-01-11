@@ -48,7 +48,7 @@ nav:
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  #- 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
+  - 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
