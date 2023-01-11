@@ -80,8 +80,6 @@ nav:
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 'apis/portal-api.md'
-  - Contributing:
-      - 'Contributing to the docs': 'contributing.html'
 
 plugins:
   - search:
