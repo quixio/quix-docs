@@ -30,9 +30,9 @@ The objective of this tutorial is to create a pipeline that resembles the follow
 
 The colors describe the role of the microservice that is being deployed. The possible roles are as follows:
 
-* :blue_square: Source — enables streaming of data into the Quix platform from any external source, such as an API or websocket.
-* :purple_square: Transformation — implements the processing of data, for example, cleaning data or implementing a Machine Learning (ML) model.
-* :orange_square: Destination — enables streaming of processed data to an external destination, such as a database or dashboard.
+<div class="sq sq-blue"><span></span>Source — enables streaming of data into the Quix platform from any external source, such as an API or websocket.</div>
+<div class="sq sq-violet"><span></span>Transformation — implements the processing of data, for example, cleaning data or implementing a Machine Learning (ML) model.</div>
+<div class="sq sq-orange"><span></span> Destination — enables streaming of processed data to an external destination, such as a database or dashboard.</div>
 
 ## Setting up the CoinAPI source
 
