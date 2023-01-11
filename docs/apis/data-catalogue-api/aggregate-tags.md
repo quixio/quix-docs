@@ -8,7 +8,7 @@ you’ll want to group results by that tag. You can do so via the
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
-    Library](../../platform/samples/samples.md) to set some up.
+    Library](../../platform/samples/samples.html) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.

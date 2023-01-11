@@ -74,9 +74,6 @@ jobs:
       env:
         AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
         
-    #- name: Build the Docs
-    #  run: mkdocs build --no-directory-urls
-      
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
@@ -112,17 +109,6 @@ jobs:
           Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html
         message-failure: |
             Build failed. URL was not updated.
-    
-#     - name: Slack Notification
-#       uses: rtCamp/action-slack-notify@v2
-#       env:
-#         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-#         SLACK_CHANNEL: devrel
-#         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-#         SLACK_ICON: https://github.com/rtCamp.png?size=48
-#         SLACK_MESSAGE: ':rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html'
-#         SLACK_TITLE: Docs Build & Deploy
-#         SLACK_USERNAME: GitHubBuildBot
       
     - name: Send Slack notification
       id: slack

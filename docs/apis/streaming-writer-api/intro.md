@@ -12,10 +12,9 @@ from your language of choice, or via the command line using curl.
 
 ## Preparation
 
-If you plan on using the HTTP endpoins, then you’ll need to know how to
+If you plan on using the HTTP endpoints, then you’ll need to know how to
 [authenticate your requests](authenticate.md)
-and how to [form a typical request to the
-API](request.md).
+and how to [form a typical request to the API](request.md).
 
 If you would rather use the SignalR api, which is suggested for high
 frequency data streaming, then see [SignalR setup](../streaming-reader-api/signalr.md).
@@ -26,8 +25,7 @@ frequency data streaming, then see [SignalR setup](../streaming-reader-api/signa
     
       - [Create a new Stream](create-stream.md)
     
-      - [Add Stream
-        metadata](stream-metadata.md)
+      - [Add Stream metadata](stream-metadata.md)
 
   - Parameters
     

@@ -18,4 +18,4 @@ data plane.
 NodeJs applications can update parameter and event definitions and write
 data to streams using RESTful APIs. Quix supports WebSockets for clients
 that want to receive telemetry data and parameters/events updates in
-real-time. NodeJs clients must authenticate with Quix using [personal access tokens](../../apis/streaming-reader-api/authenticate.md#_get_a_personal_access_token).
+real-time. NodeJs clients must authenticate with Quix using [personal access tokens](../../apis/streaming-reader-api/authenticate.md#get-a-personal-access-token).

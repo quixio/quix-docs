@@ -71,16 +71,13 @@ jobs:
       
       - name: Install Mkdocs
         run: pip install mkdocs
-        
-      #- name: Install Material theme
-      #  run: pip install mkdocs-material
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
 
       - name: Build MkDocs Site
-        run: mkdocs build
+        run: mkdocs build --no-directory-urls
         env:
           AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
       

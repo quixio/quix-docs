@@ -199,13 +199,13 @@ li {
 .sq span {
     display: grid;
     /* place-content: center; */
-    width: 22px;
+    min-width: 22px;
     height: 22px;
     background-color: red;
     border-radius: 8px;
     margin-right: 5px;
-
-  }
+    margin-top: 2px;
+}
 .sq {
     display: flex;
 }

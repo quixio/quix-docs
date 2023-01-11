@@ -36,7 +36,7 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
 8. Now enter chat messages and see the sentiment being updated in real time each time a message is posted. An example of this is shown in the following screenshot:
     
-    ![Positive and negative sentiment chats](../../images/tutorials/sentiment-analysis-media/image2.png){width=200px}
+    ![Positive and negative sentiment chats](./sentiment-analysis-media/image2.png){width=200px}
 
 The sentiment analysis service you just deployed subscribes to the `messages` topic. The sentiment is returned to the UI through the `sentiment` topic, and displayed both in the chart and next to the comment in the chat window by colorizing the chat user's name.
 

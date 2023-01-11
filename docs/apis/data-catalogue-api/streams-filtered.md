@@ -1,13 +1,13 @@
 # Filtered streams
 
 To fetch specific streams, you can include various filters with your
-request to the [`/streams`](#) endpoint.
+request to the `/streams` endpoint.
 
 ## Before you begin
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
-    Library](../../platform/samples/samples.md) to set some up.
+    Library](../../platform/samples/samples.html) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.

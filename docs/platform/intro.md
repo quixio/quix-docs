@@ -70,7 +70,7 @@ include:
 
 [**Stream Writer API**](../apis/streaming-writer-api/intro.md): helps
 you send any data to a Kafka topic in Quix using HTTP. This API handles
-encryption, serialisation and conversion to the Quix SDK format ensuring
+encryption, serialization and conversion to the Quix SDK format ensuring
 efficiency and performance of down-stream processing regardless of the
 data source.
 
@@ -94,7 +94,7 @@ Scala.
 
 Our [Quix streaming SDK](../sdk/introduction.md) is a client library that
 abstracts Python developers off streaming-centric complexities like
-learning Java or dealing with buffering, serialisation and encryption.
+learning Java or dealing with buffering, serialization and encryption.
 
 Instead, SDK serves you streaming data in a data frame so you can write
 any simple or complex data processing logic and connect it directly to
@@ -217,5 +217,5 @@ Our data catalogue technology has two advantages:
     reduces operating costs.
 
 2.  It uses your metadata to record your context. This makes your data
-    more usable for more people across your organisation who only need
+    more usable for more people across your organization who only need
     to know your business context to navigate vast quantities of data.

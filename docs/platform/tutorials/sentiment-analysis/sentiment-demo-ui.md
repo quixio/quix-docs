@@ -4,13 +4,13 @@ The Sentiment Demo UI is the UI for the tutorial and enables the user to see mes
 
 The UI you will build in this part of the tutorial is shown in the following screenshot:
 
-![The sentiment analysis demo page](../../images/tutorials/sentiment-analysis-media/image3.png){width=550px}
+![The sentiment analysis demo page](./sentiment-analysis-media/image3.png){width=550px}
 
 ## Creating the gateways
 
 Gateways provide a way for external apps to subscribe and publish to topics, and help visualize those connections in the pipeline view of the Quix platform. An example of their use is shown in the following screenshot:
 
-![Chat messages webgateway](../../images/tutorials/sentiment-analysis-media/web-gateway.png){width=550px}
+![Chat messages webgateway](./sentiment-analysis-media/web-gateway.png){width=550px}
 
 In this scenario, the Sentiment Demo UI is the external app since it is using the [Quix websockets API](../../how-to/webapps/read.md).
 
@@ -72,13 +72,13 @@ Now try out the UI you just deployed.
 
 1. Find the URL for the deployed UI by navigating to the homepage and locating the tile representing the deployed UI, as shown in the following screenshot:
 
-	![Deployed UI tile](../../images/tutorials/sentiment-analysis-media/ui-tile.png){width=250px}
+	![Deployed UI tile](./sentiment-analysis-media/ui-tile.png){width=250px}
 
-2. Click the `open in new window` icon ![Open in new window icon](../../images/general/open_in_new_window.png){width=18px}.
+2. Click the `open in new window` icon ![Open in new window icon](../../../platform/images/general/open_in_new_window.png){width=18px}.
 
 	This is the user interface for the demo. The view you’ll see after creating a `room` to chat in is shown in the following screenshot:
 
-	![The sentiment analysis demo page](../../images/tutorials/sentiment-analysis-media/image3.png){width=550px}
+	![The sentiment analysis demo page](./sentiment-analysis-media/image3.png){width=550px}
 
 3. Now enter some messages. They will be displayed in the chat list.
 

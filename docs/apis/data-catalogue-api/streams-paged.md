@@ -1,8 +1,8 @@
 # Paged streams
 
 You can fetch all streams within a
-[workspace](../../platform/definitions.md#_workspace), across
-[topics](../../platform/definitions.md#_topics) and locations, with a
+[workspace](../../platform/definitions.md#workspace), across
+[topics](../../platform/definitions.md#topics) and locations, with a
 single call. If you’re working with a large number of streams, you can
 use pagination parameters to group the results into smaller pages.
 
@@ -10,14 +10,14 @@ use pagination parameters to group the results into smaller pages.
 
   - If you don’t already have any Stream data in your workspace, you can
     use any Source of our [Quix
-    Library](../../platform/samples/samples.md) to set some up.
+    Library](../../platform/samples/samples.html) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
 
 ## Fetching all streams
 
-The [`/streams`](#) endpoint provides read access to all streams within
+The `/streams` endpoint provides read access to all streams within
 the workspace. Sending an empty JSON object in your request body will
 return all streams.
 
@@ -57,7 +57,7 @@ The JSON returned consists of an array of Stream objects:
 ## Fetching streams page by page
 
 To reduce the size of the response, you should page these results with
-the [`paging`](#) property. Include this in the JSON object you send in
+the `paging` property. Include this in the JSON object you send in
 the body of your request. The value of this property is an object with
 two members, `index` and `length`:
 

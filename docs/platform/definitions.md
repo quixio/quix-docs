@@ -38,7 +38,7 @@ For example:
   - Telemetry from one ECU on a Boeing 737
 
 Topics are key for scalability and good data governance. Use them to
-organise your data by:
+organize your data by:
 
   - Grouping incoming data by type or source
 
@@ -189,7 +189,7 @@ should be used when it is not possible to use directly our
 
 ### Streaming Reader API
 
-A [Websockets API](../apis/streaming-reader-api/intro.md) used to
+A [WebSockets API](../apis/streaming-reader-api/intro.md) used to
 stream any data directly from a topic to an external application. Most
 commonly used to read the results of a model or service to a real-time
 web application.
@@ -198,7 +198,7 @@ web application.
 
 An [HTTP API](../apis/data-catalogue-api/intro.md) used to query
 historic data in the Data Catalogue. Most commonly used for
-dashboarding, analytics and training ML models. Also useful to call
+dashboards, analytics and training ML models. Also useful to call
 historic data when running an ML model or to call historic data from an
 external application.
 

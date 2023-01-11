@@ -85,11 +85,11 @@ Begin by running the code as it is, using the following steps:
 
     You will see messages arriving in the messages tab:
 
-    ![Messages tab](../../images/tutorials/sentiment-analysis-media/sentiment-messages.png){width=250px}
+    ![Messages tab](./sentiment-analysis-media/sentiment-messages.png){width=250px}
 
     Now click one of the messages. You will see the [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} formatted message showing the various parts of the message payload, for example, the "chat-message" and "room":
 
-    ![Expanded message](../../images/tutorials/sentiment-analysis-media/sentiment-message-expanded.png){width=250px}
+    ![Expanded message](./sentiment-analysis-media/sentiment-message-expanded.png){width=250px}
 
 ### Creating a simple transformation
 
@@ -377,11 +377,11 @@ Now that the code is complete you can `Run` it one more time, just to be certain
 
     You will see the `sentiment` and `average_sentiment` in the `NumericValues` section and the `chat-message` and `label` in the `StringValues` section:
 
-    ![Message JSON value](../../images/tutorials/sentiment-analysis-media/final-message-json.png){width=350px}
+    ![Message JSON value](./sentiment-analysis-media/final-message-json.png){width=350px}
 
 5. You can also verify that the Web Chat UI shows an indication of the sentiment for each message as well as showing the average sentiment in the graph:
 
-    ![Final UI showing sentiment](../../images/tutorials/sentiment-analysis-media/end-result.gif){width=450px}
+    ![Final UI showing sentiment](./sentiment-analysis-media/end-result.gif){width=450px}
 
 ## Deploying your sentiment analysis code
 

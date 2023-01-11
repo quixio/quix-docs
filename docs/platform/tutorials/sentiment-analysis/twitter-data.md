@@ -9,7 +9,7 @@ In this part of the tutorial you will learn how to:
 
 The objective is to show you how to integrate with an external system, and demonstrate the sentiment analysis service processing a higher volume of messages.
 
-![Twitter branch of the sentiment analysis pipeline](../../images/tutorials/sentiment-analysis-media/pipeline-view-twitter-branch.png){width=450px}
+![Twitter branch of the sentiment analysis pipeline](./sentiment-analysis-media/pipeline-view-twitter-branch.png){width=450px}
 
 If you're asking "Why Twitter?" it's a good question. Quix has a great Twitter connector and want to show it off! Plus it allows you to source real-world data at volume (if you choose the right search parameters).
 
@@ -170,11 +170,11 @@ You'll now tag the code and deploy the service with these steps:
 
 7. Enter the chat room called `tweets`. Using `tweets` for the chat room name will ensure you are seeing the messages coming from Twitter. For `Name`, you can use any name you want. The dialog is show here:
 
-	![Entering the chat room](../../images/tutorials/sentiment-analysis-media/finale-enter-chat-room.png){width=350px}
+	![Entering the chat room](./sentiment-analysis-media/finale-enter-chat-room.png){width=350px}
 	
 8. You can now see messages arriving from Twitter and their sentiment being analyzed in real-time.
 
-    ![Chats on screen with sentiment and overall sentiment](../../images/tutorials/sentiment-analysis-media/end-result.png){width=550px}
+    ![Chats on screen with sentiment and overall sentiment](./sentiment-analysis-media/end-result.png){width=550px}
         
 
 !!! success

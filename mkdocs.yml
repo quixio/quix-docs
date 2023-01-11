@@ -13,7 +13,7 @@ repo_url: https://github.com/quixai/quix-docs
 edit_uri: tree/dev/docs/
 nav:
   - Intro: 'index.md'
-  - 'Quick Start': 'platform/tutorials/quick-start.md'
+  - 'Quick Start': 'platform/tutorials/quick-start/quick-start.md'
   - Platform:
     - 'What is Quix?': 'platform/intro.md'
     - 'Definitions': 'platform/definitions.md'
@@ -26,7 +26,7 @@ nav:
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Tutorials':
-      - 'Image Processing': 'platform/tutorials/ImageProcessing.md'
+      - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
@@ -35,16 +35,16 @@ nav:
         - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
         - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
         - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
-      - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment-analysis.md'
-      - 'RSS Processing': 'platform/tutorials/RSSProcessingPipeline.md'
-      - 'Currency Alerting': 'platform/tutorials/currency-alerting.md'
-      - 'Telemetry data': 'platform/tutorials/telemetry-data.md'
+      - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
+      - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
+      - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
+      - 'Telemetry data': 'platform/tutorials/telemetry-data/telemetry-data.md'
       - 'Train and deploy an ML model':
-        - 'How to train an ML model': 'platform/tutorials/train-ml-model.md'
-        - 'Run ML model in realtime environment': 'platform/tutorials/deploy-ml.md'
+        - 'How to train an ML model': 'platform/tutorials/train-and-deploy-ml/train-ml-model.md'
+        - 'Run ML model in realtime environment': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
       - 'Data Science': 'platform/tutorials/data-science/data-science.md'
-      - 'Data Stream Processing': 'platform/tutorials/data-stream-processing.md'
-      - 'Slack Alerting': 'platform/tutorials/slack-alerting.md'
+      - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
+      - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
@@ -81,7 +81,7 @@ nav:
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 'apis/portal-api.md'
   - Contributing:
-      - 'Contributing to the docs': 'contributing.md'
+      - 'Contributing to the docs': 'contributing.html'
 
 plugins:
   - search:

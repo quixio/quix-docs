@@ -1,7 +1,7 @@
 # Write to Quix with NodeJs
 
 Clients write data to Quix using streams opened on existing
-[topics](../../definitions.md#_topics). Therefore, you need to
+[topics](../../../platform/definitions.md#topics). Therefore, you need to
 first create a topic in the Portal to hold your data streams.
 
 Once you have a topic, your clients can start writing data to Quix by
@@ -58,7 +58,7 @@ in the response body. You are going to need this stream id when you are
 writing data to the stream.
 
 In the request data, `Location` is also an optional, but an important
-property. Location allows you to organise your streams under directories
+property. Location allows you to organize your streams under directories
 in the Data Catalogue.
 
 When you are creating the stream, you can add optional metadata about
@@ -177,7 +177,7 @@ In the preceding request, the `Id` must match the parameter id you set
 when writing data to the stream. `Name` allows you to set a more
 readable name for the parameter. You can also add a description, minimum
 and maximum values, unit of measurement to your parameter. `Location`
-allows you to organise/group your parameters in a hierarchical manner
+allows you to organize/group your parameters in a hierarchical manner
 like with the streams. If you have a custom parameter definition that is
 not covered by the primary fields of the request, you can use
 `CustomProperties` field to add your custom definition as a string.
@@ -282,7 +282,7 @@ req.end();
 
 In the preceding request, the `Id` must match the event id you set when
 writing events to the stream. `Name` allows you to set a more readable
-name for the event. `Location` allows you to organise/group your events
+name for the event. `Location` allows you to organize/group your events
 in a hierarchy like with the parameters. If you have a custom event
 definition that is not covered by the primary fields of the request, you
 can use `CustomProperties` field to add your custom definition as a
