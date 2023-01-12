@@ -31,7 +31,7 @@ The solution has 3 main elements:
 
 However, this is all running with the Quix Serverless environment.
 
-You have to create and deploy 3 projects, we have: . Created an always on high performance back-end . Created API’s and Services focused on performance . Opened firewall ports and optimized DNS propagation
+You have to create and deploy 3 projects, we have: . Created an always on high performance back-end . Created APIs and Services focused on performance . Opened firewall ports and optimized DNS propagation
 
 ## Prerequisites
 
