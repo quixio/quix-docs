@@ -178,7 +178,7 @@ etc).
 [Quix SDK](../sdk/introduction.md) is the main library we use to send and
 receive real-time data in our streaming applications.
 
-## API’s
+## APIs
 
 ### Streaming Writer API
 

@@ -53,7 +53,7 @@ kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093
 
 ## 401 Error
 
-When attempting to access the web API’s you may encounter a 401 error.
+When attempting to access the web APIs you may encounter a 401 error.
 Check that the bearer token is correct and has not expired. If necessary
 generate a new bearer token.
 
@@ -62,7 +62,7 @@ Reader API with an expired bearer token
 
 signalrcore.hub.errors.UnAuthorizedHubError
 
-The API’s that require a valid bearer token are:
+The APIs that require a valid bearer token are:
 
 1.  Portal API
       - <https://portal-api.platform.quix.ai/swagger/index.html>

@@ -1,4 +1,6 @@
-# The Quix Platform provides the following APIs.
+# Quix APIs
+
+The Quix Platform provides the following APIs:
 
 ## Data Catalogue
 

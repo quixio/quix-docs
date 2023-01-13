@@ -19,7 +19,7 @@ keeping your data in-memory, helping to achieve lower latencies and
 lower operating costs.
 
 From the top-down, our stack provides a Web UI,
-[API’s](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
+[APIs](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
 developers off our underlying infrastructure, including fully-managed
 Kafka topics, serverless compute environment and a metadata-driven data
 catalogue (time-series database with steroids).
@@ -63,9 +63,9 @@ To achieve these goals Quix Portal includes the following features:
   - **Data Explorer**: Explore Live and Historical data of your
     applications to test that your code is working as expected.
 
-## API’s
+## APIs
 
-We have provided four API’s to help you work with streaming data. These
+We have provided four APIs to help you work with streaming data. These
 include:
 
 [**Stream Writer API**](../apis/streaming-writer-api/intro.md): helps
