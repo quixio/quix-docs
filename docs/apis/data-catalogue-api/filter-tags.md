@@ -5,9 +5,7 @@ so they can be used to efficiently filter data.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can
-    use any Source of our [Quix
-    Library](../../platform/samples/samples.html) to set some up.
+  - If you don’t already have any Stream data in your workspace, you can use any Source of our [Quix Library](../../platform/samples/samples.md) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
