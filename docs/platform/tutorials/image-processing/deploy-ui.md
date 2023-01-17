@@ -1,4 +1,4 @@
-## 5. Deploy the web UI
+# 5. Deploy the web UI
 
 Follow these steps to deploy the **web UI service**:
 
