@@ -28,7 +28,7 @@ Follow these steps to deploy the **webcam service**:
 
 4.  Click the service tile:
 
-    ![webcam image capture service tile](image2.png)
+    ![webcam image capture service tile](./images/image2.png)
 
 5.  Click the `Public URL`.
 

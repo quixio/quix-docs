@@ -6,7 +6,7 @@ You'll use prebuilt Quix library items to build the pipeline. A prebuilt UI is a
 
 The following screenshot shows the pipeline you build in this tutorial:
 
-![pipeline overview](image1.png)
+![pipeline overview](./images/image1.png)
 
 ## Getting help
 
