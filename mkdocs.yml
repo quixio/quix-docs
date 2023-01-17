@@ -35,6 +35,11 @@ nav:
         - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
+        - '1. Connect video': platform/tutorials/image-processing/connect-video.md
+        - '2. Frame extraction': platform/tutorials/image-processing/frame-extraction.md
+        - '3. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '4. Merge streams': platform/tutorials/image-processing/merge-streams.md
+        - '5. Deploy the UI': platform/tutorials/image-processing/deploy-ui.md
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
