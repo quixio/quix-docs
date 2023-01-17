@@ -40,7 +40,7 @@ nav:
         - '3. Object detection': platform/tutorials/image-processing/object-detection.md
         - '4. Merge streams': platform/tutorials/image-processing/merge-streams.md
         - '5. Deploy the UI': platform/tutorials/image-processing/deploy-ui.md
-        - '6. Conclusion': platform/tutorials/image-processing/conclusion.md        
+        - '6. Conclusion': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
