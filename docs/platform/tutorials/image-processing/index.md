@@ -93,6 +93,6 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 5. **Deploy the web UI**. You the deploy a prebuilt web UI. This UI enables you to select an object type to detect across all of your input video feeds.
 
-6. **Summary**. In this [concluding](conclusion.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+6. **Summary**. In this [concluding](summary.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
 [Part 1 - Connect the video feeds :material-arrow-right-circle:{ align=right }](connect-video.md)

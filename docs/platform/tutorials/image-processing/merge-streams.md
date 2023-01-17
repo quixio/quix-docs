@@ -9,3 +9,5 @@ Follow these steps to deploy the **merge streams service**.
 3.  Click `Deploy`.
 
     This service receives data from the `image-processed` topic and streams data to the `image-processed-merged` topic.
+
+[Part 5 - Deploy the UI :material-arrow-right-circle:{ align=right }](deploy-ui.md)

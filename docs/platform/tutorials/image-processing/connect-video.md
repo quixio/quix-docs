@@ -38,3 +38,4 @@ Follow these steps to deploy the **webcam service**:
 
   Your browser may prompt you to allow access to your webcam.
 
+[Part 2 - Frame extraction :material-arrow-right-circle:{ align=right }](frame-extraction.md)

@@ -9,3 +9,5 @@ Follow these steps to deploy the **object detection service**.
 3.  Click `Deploy`.
 
     This service receives data from the `image-raw` topic and streams data to the `image-processed` topic.
+
+[Part 4 - Merge streams :material-arrow-right-circle:{ align=right }](merge-streams.md)
