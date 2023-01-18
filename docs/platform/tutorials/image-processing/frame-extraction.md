@@ -22,4 +22,4 @@ Follow these steps to deploy the **Base64 decoder service**:
 
     This service receives data from the `image-base64` topic and streams data to the `image-raw` topic.
 
-[Part 3 - Object detection :material-arrow-right-circle:{ align=right }](objection-detection.md)
+[Part 3 - Object detection :material-arrow-right-circle:{ align=right }](object-detection.md)
