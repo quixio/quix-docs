@@ -1,5 +1,7 @@
 # 2. Frame extraction
 
+In this part of the tutorial you add a frame extraction service and a Base64 decoder service to your pipeline. The frame extraction service grabs single frames from the TfL video feeds, so that object detection can be performed in the next stage of the pipeline. The Base64 decoder service decodes the output of the webcam into a raw image feed, suitable for input into the object detection service.
+
 Follow these steps to deploy the **frame extraction service**:
 
 1.  Navigate to the Library and locate `TfL traffic camera frame grabber`.

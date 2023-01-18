@@ -1,5 +1,7 @@
 # 1. Connect the video feeds
 
+In this part of the tutorial you connect your pipeline to the TfL traffic cam video feeds, and also your webcam video feed.
+
 Follow these steps to deploy the **traffic camera feed service**:
 
 1.  Navigate to the Library and locate `TfL Camera Feed`.
@@ -26,16 +28,14 @@ Follow these steps to deploy the **webcam service**:
 
     This service will stream data from your webcam to the `image-base64` topic.
 
-4.  Click the service tile:
+4.  Click the `Public URL` icon, in the webcam service tile.
 
-    ![webcam image capture service tile](./images/image2.png)
-
-5.  Click the `Public URL`.
+    ![image processing web UI](./images/webcam-public-url.png)
 
     This opens the deployed website which uses your webcam to stream images to Quix.
 
-!!! note
+    !!! note
 
-  Your browser may prompt you to allow access to your webcam.
+        Your browser may prompt you to allow access to your webcam. You can allow access.
 
 [Part 2 - Frame extraction :material-arrow-right-circle:{ align=right }](frame-extraction.md)

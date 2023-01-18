@@ -1,6 +1,8 @@
 # 4. Merge streams
 
-Follow these steps to deploy the **merge streams service**.
+In this part of the tutorial you add a service to merge multiple Quix streams into a single Quix stream, before feeding into the UI service. TfL traffic cams generate a stream per camera, and then there is the additional stream from your webcam, and other video streams you may decide to add. These streams can be combined to provide the UI with a single input stream.
+
+Follow these steps to deploy the **merge streams service**:
 
 1.  Navigate to the Library and locate `Stream merge`.
 

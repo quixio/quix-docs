@@ -1,12 +1,12 @@
 # Real-time image processing
 
-In this tutorial you learn how to build a real-time image processing pipeline in Quix, using the Transport for London (TfL) traffic cameras, known as Jam Cams, and a [YOLO v3](https://viso.ai/deep-learning/yolov3-overview/) machine learning model. 
+In this tutorial you learn how to build a real-time image processing pipeline in Quix, using the Transport for London (TfL) traffic cameras, known as Jam Cams, the webcam on your laptop or phone,  and a [YOLO v3](https://viso.ai/deep-learning/yolov3-overview/) machine learning model. 
 
 You'll use prebuilt Quix library items to build the pipeline. A prebuilt UI is also provided that shows you where the recognized objects are located around London.
 
 The following screenshot shows the pipeline you build in this tutorial:
 
-![pipeline overview](./images/image1.png)
+![pipeline overview](./images/pipeline-overview.png)
 
 ## Getting help
 
