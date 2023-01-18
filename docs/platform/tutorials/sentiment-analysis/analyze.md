@@ -8,6 +8,10 @@ This sentiment analysis microservice utilizes a prebuilt model from [huggingface
 
 The microservice subscribes to data from the `messages` topic and publishes sentiment results to the `sentiment` topic.
 
+!!! tip
+
+    While this tutorial uses a prebuilt sentiment analysis library item, it is also possible to build one from a basic template available in the Quix library. If you are interested in building your own service, you can refer to an optional part of this tutorial, where you learn how to [code a sentiment analysis service](./code-and-deploy-sentiment-service.md) from the basic template.
+
 ## Deploying the sentiment analysis service
 
 The sentiment of each message will be evaluated by this new microservice in your message processing pipeline.
