@@ -54,7 +54,7 @@ nav:
     - 'Data Catalogue API':
       - 'Introduction': 'apis/data-catalogue-api/intro.md'
       - 'Authenticate': 'apis/data-catalogue-api/authenticate.md'
-      - 'Getting Swagger url': 'apis/data-catalogue-api/get-swagger.md'
+      - 'Getting Swagger URL': 'apis/data-catalogue-api/get-swagger.md'
       - 'Forming a request': 'apis/data-catalogue-api/request.md'
       - 'Paged streams': 'apis/data-catalogue-api/streams-paged.md'
       - 'Filtered streams': 'apis/data-catalogue-api/streams-filtered.md'
@@ -66,7 +66,7 @@ nav:
     - 'Streaming Writer API':
       - 'Introduction': 'apis/streaming-writer-api/intro.md'
       - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
-      - 'Getting Swagger url': 'apis/streaming-writer-api/get-swagger.md'
+      - 'Getting Swagger URL': 'apis/streaming-writer-api/get-swagger.md'
       - 'Forming a request': 'apis/streaming-writer-api/request.md'
       - 'Set up SignalR': 'apis/streaming-writer-api/signalr.md'
       - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
