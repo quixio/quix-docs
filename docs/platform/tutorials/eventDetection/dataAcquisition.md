@@ -1,0 +1,245 @@
+# 1. Data acquisition
+
+You’ll start this tutorial by streaming data into a topic. Starting with the data feed allows you to verify that the code and services you’ll build and deploy are working properly.
+
+You have two options for this stage:
+
+1. Stream data from your Android phone with the [Quix Tracker app](#quix-tracker-app)
+
+2. Stream pre recorded [CSV data](#csv-data)
+
+You will only need to set up one of these data sources but if you with to do both you can do that too!
+
+
+## Quix tracker App
+
+To stream data from your phone you’ll need to install the Quix Tracker app on your Android phone and deploy the QR Settings Share app to your Quix workspace.
+
+Follow these steps:
+
+1. Install the `Quix Tracker` from the Google Play Store.  Click (here)[https://play.google.com/store/apps/details?id=com.quix.quixtracker&gl=GB] to go there directly
+
+2. Open the app and navigate to the `Settings` page via the menu
+
+3. Click the `SCAN QR CODE` button at the top of the settings page. Follow the rest of the steps in the Quix Portal and when directed you can scan the QR code with the Quix Tracker app (step XXX)
+
+4. In the Quix Portal, click the user icon in the top right of the browser
+
+	![Portal token menu](./tokenmenu.png){width=150px}
+
+5. Click `Tokens`
+
+6. Generate a token with any name and allow at least a few days before it expires
+
+7. Copy the token to your clipboard or somewhere safe
+
+8. In the Quix Library, search for `QR Settings Share`
+
+9. Click `Setup & deploy`
+
+10. Paste the token into the `token` field
+
+11. Click `Deploy`
+
+12. Open the QR Settings Share by clicking the "open in new window" icon
+
+	![QR Settings Share Service](./qrsettingsshareservice.png){width=300px}
+
+13. Enter a name and a device identifier into the input fields
+
+14. These can be any value such as your name and CAR-001
+
+15. Click `Generate Token`
+
+16. A QR code will be generated and presented to you in the UI
+
+	![QR Settings Share UI](./qrsettingshareui.png){width=600px}
+
+The app has now been configured with the required token allowing the app to communicate with Quix.
+
+17. Ensure the rest of the fields are configured as follows:
+
+	a. Topic field is set to `phone-data`
+	
+	b. `Notifications Topic` field is set to `events`
+
+	c. DeviceId field is set to your chosen device identifier
+
+	d. Rider is set to your name
+
+	e. Team has a value e.g. `Quix`
+
+18. Click the menu and select `Dashboard`
+
+19. Click the `START` button
+
+	This will open a connection to your Quix workspace and start streaming data from your phone.
+
+### Verify the live data
+
+Follow these steps to ensure that everything is working as expected:
+
+1. In the Quix Portal, navigate to `Data Explorer`
+
+2. Ensure you are on the `Live data` tab
+
+3. Under `Select a topic` select `phone-data`
+
+4. Under `select streams` select the active stream. This should be the only stream that exists
+
+5. Under `select parameters or events` select gForceX, gForceY and gForceZ
+
+6. The waveform view should display the live g-force data from your phone.
+
+7. Move or gently shake your phone and notice that the waveform reflects whatever movement your phone is experiencing
+
+!!! success
+	You have connected the Quix Tracker app to your workspace and verified the connection using the Live Data Explorer.
+
+## CSV data
+
+If you don’t have an Android device or you’d rather just stream some data we’ve provided then this is the data source for you! 
+
+Follow these instructions to deploy the data source:
+
+1. In the Quix Library, search for `Empty template - Source`
+
+2. Click `Edit code`
+
+3. Change the output field to `phone-data`
+
+4. Click `Save as project`
+
+5. Open the `main.py` file and replace the code with the following code.
+
+```py
+from quixstreaming import QuixStreamingClient
+from quixstreaming.app import App
+import time
+import pandas as pd
+import os
+
+# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+client = QuixStreamingClient()
+
+# Open the output topic
+print("Opening output topic")
+output_topic = client.open_output_topic(os.environ["output"])
+
+output_stream = output_topic.create_stream()
+
+df = pd.read_csv("data.csv")
+
+for col_i in ['device_id','rider','streamId','team','version']:
+    df = df.rename(columns={col_i: "TAG__" + col_i})
+    
+print("Writing data")
+seconds_to_wait = float(os.environ["seconds_to_wait"])
+
+while True:
+    for i in range(len(df)):
+        start_loop = time.time()
+
+        df_i = df.iloc[[i]]
+
+        output_stream.parameters.write(df_i)
+        print("Sending " + str(i) + "/" + str(len(df)))
+        end_loop = time.time()
+        time.sleep(max(0.0, seconds_to_wait - (end_loop - start_loop)))
+
+App.run()
+```
+
+!!! info 
+	The code:
+
+	- Connects to Quix
+
+	- Opens the CSV file using Pandas
+
+	- Renames some columns so the Quix SDK teams them as tags
+
+	- Then streams each row to the `phone-data` topic
+
+	- It does this continuously so stop the service when you have completed the tutorial
+
+6. Download [this](link needed) CSV file and upload it to the project 
+
+	Ensure the file is called `data.csv` once uploaded
+
+7. Test the code by clicking `run` near the top right corner of the code window
+
+	With the code running you will see messages in the `Console` tab
+
+	```sh
+	Opening output topic
+	Writing data
+	Sending 0/18188
+	Sending 1/18188
+	Sending 2/18188
+	```
+
+8. Click the `Messages` tab and you’ll see the raw messages being streamed to the `phone-data` topic.
+
+9. Click one of the messages and you’ll see the raw data in [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} format
+
+	???- info "Your data should look like this"
+
+		```
+		"Epoch": 0,
+		"Timestamps": [
+			1673966764000000000
+		],
+		"NumericValues": {
+			"Longitude": [
+			0.52202169
+			],
+			"Latitude": [
+			51.73491702
+			],
+			"Speed": [
+			98.0639991760254
+			],
+			"Heading": [
+			347.5
+			],
+			"BatteryLevel": [
+			0.27
+			],
+			"Altitude": [
+			59.63983154296875
+			],
+			"Accuracy": [
+			3.790092468261719
+			]
+		},
+		"StringValues": {
+			"EnergySaverStatus": [
+			"Off"
+			],
+			"BatteryState": [
+			"Discharging"
+			],
+			"BatteryPowerSource": [
+			"Battery"
+			]
+		},
+		"BinaryValues": {},
+		"TagValues": {}
+		}
+
+		```
+
+7. Stop the code by clicking the same button you click to run it
+
+8. You'll now deploy the code as a service, so it stays running when you navigate around the platform.
+
+9. Click `Deploy`
+
+10. On the dialog, click `Deploy`
+
+	Once deployed the service will be started and data will be streamed to the `phone-data` topic
+
+In the next part, detect crash events with the [Crash event detection service](crashDetection.md)
+
+
