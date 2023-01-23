@@ -1,15 +1,15 @@
 site_name: 'Quix Docs'
 site_description: 'Quix Docs'
 site_author: 'Quix.io'
-site_url: 'https://docs.quix.ai'
+site_url: 'https://docs.quix.io'
 
 copyright: >
   Copyright &copy; 2020 - 2022 Quix Analytics, Ltd. –
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
-repo_name: quixai/quix-docs-dev
-repo_url: https://github.com/quixai/quix-docs
+repo_name: quixio/quix-docs-dev
+repo_url: https://github.com/quixio/quix-docs
 edit_uri: tree/dev/docs/
 nav:
   - Intro: 'index.md'
@@ -48,7 +48,7 @@ nav:
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
+  - 'SDK': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
