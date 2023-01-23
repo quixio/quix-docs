@@ -133,6 +133,6 @@ Read more about the Quix SDK and APIs.
 
     We welcome contributions to the docs.
 
-    [:octicons-arrow-right-24: Contribution guide](https://github.com/quixai/quix-docs/blob/dev/CONTRIBUTING.md){target=_blank}
+    [:octicons-arrow-right-24: Contribution guide](https://github.com/quixio/quix-docs/blob/dev/CONTRIBUTING.md){target=_blank}
 
 </div>

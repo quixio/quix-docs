@@ -118,7 +118,7 @@ the parameter data and event data to the Slack channel. It’ll do to get
 you up and going, but we want something more refined. 😉
 
 Go to our GitHub library of tutorial code
-[here](https://github.com/quixai/tutorial-code/blob/main/RSS/Slack-Notification-Destination/quix_function.py){target=_blank}.
+[here](https://github.com/quixio/tutorial-code/blob/main/RSS/Slack-Notification-Destination/quix_function.py){target=_blank}.
 The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
@@ -146,4 +146,4 @@ haven’t lost all those precious live messages.
 
 If you run into trouble with the tutorial, want to chat with us about
 your project or anything else associated with streaming processing you
-can join our public Slack community called [The Stream](https://quix.ai/slack-invite){target=_blank}.
+can join our public Slack community called [The Stream](https://quix.io/slack-invite){target=_blank}.
