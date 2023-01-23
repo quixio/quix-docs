@@ -6,7 +6,7 @@ You want to help improve our documentation? Fantastic! Here are a few guidelines
 
 If you spot a mistake or see room for improvement in any of the Quix docs, please let us know! To create an issue, follow these steps:
 
-1. Open the [Github issues](https://github.com/quixai/quix-docs/issues) page for the Quix documentation repository.
+1. Open the [Github issues](https://github.com/quixio/quix-docs/issues) page for the Quix documentation repository.
 2. Click **New Issue** and enter a descriptive title that references affected page.
    For example, '_Sentiment Analysis tutorial references a button that doesnt exist_'.
 3. Click **Submit Issue** and wait for one of our team to respond.

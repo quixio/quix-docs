@@ -9,7 +9,7 @@ copyright: >
 
 docs_dir: docs/
 repo_name: quixai/quix-docs-dev
-repo_url: https://github.com/quixai/quix-docs
+repo_url: https://github.com/quixio/quix-docs
 edit_uri: tree/dev/docs/
 nav:
   - Intro: 'index.md'
@@ -48,7 +48,7 @@ nav:
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'SDK': '!import https://github.com/quixai/quix-streams?branch=main'
+  - 'SDK': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
@@ -135,7 +135,7 @@ extra_css:
 extra:
   social:
     - icon: 'fontawesome/brands/github'
-      link: 'https://github.com/quixai/quix-docs'
+      link: 'https://github.com/quixio/quix-docs'
     - icon: 'fontawesome/brands/slack'
       link: 'https://quix.io/community'
     - icon: 'fontawesome/brands/twitter'

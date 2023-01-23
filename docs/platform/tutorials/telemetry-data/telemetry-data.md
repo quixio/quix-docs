@@ -16,11 +16,11 @@ If you need any assistance, we're here to help in [The Stream](https://join.slac
 
 ### Library
 
-Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixai/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
+Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixai/quix-tracker){target=_blank}.
+**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixio/quix-tracker){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
