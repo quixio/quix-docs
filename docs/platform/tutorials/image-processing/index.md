@@ -16,6 +16,7 @@ If you need any assistance while following the tutorial, we're here to help in [
 
 If you'd rather watch a live stream, where one of our developers steps through this tutorial, you can view it here:
 
+<!-- Now out of date -->
 <div class="video-wrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Wi-U0Wg3Jf0?start=188" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
@@ -50,27 +51,22 @@ When you are logged into the Quix Portal, click on the Library icon in the left-
 
 ## The pipeline you will create
 
-There are five stages to the processing pipeline you build in this tutorial:
+There are four stages to the processing pipeline you build in this tutorial:
 
 1. Video feeds
   
-    - TfL Camera feed or "Jam Cams"
     - Webcam image capture 
+    - TfL Camera feed or "Jam Cams"
 
-2. Frame extraction
+2. Frame grabber
   
-    - Frame extraction
-    - Decoding
+    - Grab frames from TfL video feed
 
 3. Object detection
 
     - Detect objects within images
 
-4. Merge streams
-
-    - Merge images from all of the individual TfL cameras into one stream
-
-5. Web UI configuration
+4. Web UI configuration
 
     - A simple UI showing:
 
@@ -83,16 +79,16 @@ Now that you know which components will be needed in the image processing pipeli
 
 This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
-1. **Connect the video feeds**. You learn how to quickly connect to two video feeds: one from your webcam and one from the TfL traffic cam feeds. You can perform object detection across these multiple feeds, as they are all sent into the objection detection service in this tutorial.
+1. **Connect the webcam video feed**. You learn how to quickly connect a video feed from your webcam, using a prebuilt library item.
 
-2. **Frame extraction**. You use a standard library item to grab frames from the TfL video feed. For the laptop webcam you feed the images to a Base64 decoder library item.
+2. **Object detection**. You use a computer vision library item to detect a chosen type of object. You'll preview these events in the live preview. The object type to detect can be selected through a web UI, which is described later.
 
-3. **Object detection**. You use a computer vision library item to detect a chosen type of object. The object type to detect is selected through a web UI, which is described later.
+3. **Connect the TfL video feed**. You learn how to quickly connect the TfL traffic cam feeds, using a prebuilt library item. You can perform object detection across these feeds, as they are all sent into the objection detection service in this tutorial.
 
-4. **Merge streams**. You merge multiple Quix streams (there is a stream for each of the TfL camera feeds and one for your webcam) into a single Quix stream. This single stream is then fed to the web UI. 
+4. **Frame grabber**. You use a standard library item to grab frames from the TfL video feed.
 
-5. **Deploy the web UI**. You the deploy a prebuilt web UI. This UI enables you to select an object type to detect across all of your input video feeds.
+5. **Deploy the web UI**. You the deploy a prebuilt web UI. This UI enables you to select an object type to detect across all of your input video feeds. It displays the location pof object detection and object detection count on a map.
 
 6. **Summary**. In this [concluding](summary.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
-[Part 1 - Connect the video feeds :material-arrow-right-circle:{ align=right }](connect-video.md)
+[Part 1 - Connect the webcam feed :material-arrow-right-circle:{ align=right }](connect-video-webcam.md)

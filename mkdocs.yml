@@ -35,11 +35,11 @@ nav:
         - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
-        - '1. Connect video': platform/tutorials/image-processing/connect-video.md
-        - '2. Frame extraction': platform/tutorials/image-processing/frame-extraction.md
-        - '3. Object detection': platform/tutorials/image-processing/object-detection.md
-        - '4. Merge streams': platform/tutorials/image-processing/merge-streams.md
-        - '5. Deploy the UI': platform/tutorials/image-processing/deploy-ui.md
+        - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
+        - '2. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '3. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
+        - '4. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
+        - '5. Deploy the UI': platform/tutorials/image-processing/web-ui.md
         - '6. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
