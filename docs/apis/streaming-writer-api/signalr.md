@@ -26,7 +26,7 @@ from [Authenticating with the Streaming Writer
 API](authenticate.md).
 
 You should also replace `YOUR_WORKSPACE_ID` with the appropriate
-identifier, a combination of your organistation and workspace names.
+identifier, a combination of your organization and workspace names.
 This can be located in one of the following ways:
 
 
@@ -39,9 +39,9 @@ This can be located in one of the following ways:
   - Topics Page  
     In the Portal, inside the Workspace you want to work with, click the
     Topics menu
-    ![../../platform/images/icons/topics.png](../../platform/images/icons/topics.png) and then
+    ![Topic icon](../images/icons/topics.png) and then
     click the expand icon
-    ![../../platform/images/icons/expand.jpg](../../platform/images/icons/expand.jpg) on any
+    ![Expand icon](../images/icons/expand.jpg) on any
     topic. Here you will see a *Username* under the Broker Settings.
     This Username is also the Workspace Id.
 

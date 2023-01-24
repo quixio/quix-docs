@@ -1,26 +1,17 @@
-# Getting Swagger url
+# Getting the Swagger documentation URL
 
-You can access documentation and a basic playground for the [Streaming
-Writer API](intro.md) via
-[Swagger](https://swagger.io/){target=_blank}. The exact URL is workspace-specific, and
-follows this pattern:
+You can access [Swagger documentation](https://swagger.io/){target=_blank} and then use it to try out the [Streaming Writer API](intro.md). 
 
-    https://writer-${organisation}-${workspace}.platform.quix.ai/
+The URL is workspace-specific, and follows this pattern:
 
-The workspace ID is a combination based on your organisation and
-workspace names. For example, for an "acme" organisation with a
-"weather" workspace, the final URL might look something like:
+    https://writer-${organization}-${workspace}.platform.quix.ai
 
-    https://writer-acme-weather.platform.quix.ai/
+The workspace ID is a combination based on your organization and workspace names. For example, for an `acme` organization with a `weather` workspace, the URL would have the following format:
 
-To determine the final URL, you can [find out how to get a workspace
-id](../../platform/how-to/get-workspace-id.md), or follow these
-instructions:
+    https://writer-acme-weather.platform.quix.ai
 
-1.  Click the Library icon **Library** in the main menu.
+To help determine the URL, you can [find out how to get your workspace id](../../platform/how-to/get-workspace-id.md).
 
-2.  Search for "HTTP API - Shell Script" item in the search bar and
-    select the item.
+!!! tip
 
-3.  Find in the Code Preview the Url on any of the POST methods of the
-    sample.
+    Once you access the Swagger documentation, you can select the version of the API you require from the `Select a definition` dropdown list.

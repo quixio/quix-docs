@@ -6,9 +6,7 @@ exist.
 
 ## Before you begin
 
-  - You should have a [Workspace set
-    up](../../platform/definitions.md#_workspace) with at least [one
-    Topic](../../platform/definitions.md#_topics).
+  - You should have a [Workspace set up](../../platform/definitions.md#workspace) with at least one [Topic](../../platform/definitions.md#topics).
 
   - [Get a Personal Access
     Token](authenticate.md) to authenticate each
@@ -29,7 +27,7 @@ to update. For example:
 
 !!! tip
 
-	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. It will be initialised with the data you provide in the payload, and the id you use in the endpoint. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
+	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. It will be initialized with the data you provide in the payload, and the id you use in the endpoint. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 Your request should contain a payload consisting of JSON data containing
 the desired metadata.

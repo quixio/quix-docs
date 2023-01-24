@@ -17,7 +17,7 @@ You can access these tokens by going to your topics and clicking on
 ## How to use
 
 These tokens can be used to authenticate against the API, but their
-primary intended use is to be used with the [SDK QuixStreamingClient](../../sdk/connect.md#_using_quixstreamingclient).
+primary intended use is to be used with the [SDK QuixStreamingClient](../../sdk/connect.html#using-quixstreamingclient).
 When using it with QuixStreamingClient, you no longer need to provide
 all broker credentials manually, they’ll be acquired when needed and set
 up automatically.
@@ -49,7 +49,7 @@ you let the platform take care of it for you by using the default
 environment variable. In this scenario all you have to do is rotate
 keys, stop and start all your deployments. Until a service is restarted
 it’ll try to communicate with the platform using the deactivated token.
-If you’re using local envinroments, those need updating manually.
+If you’re using local environments, those need updating manually.
 
 The alternative option is a bit more labour intense, but you can achieve
 no downtime. This requires you to set a new environment variable you

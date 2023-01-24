@@ -12,7 +12,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * If you want to customize the Sentiment Demo UI, you can learn how in the optional tutorial part [how to customize the UI](customize-the-ui.md).
 
-* If you decide to build your own connectors and apps, you can contribute something to the Quix Library. Visit the [Quix GitHub](https://github.com/quixai/quix-library){target=_blank}. Fork our library repo and submit your code, updates, and ideas.
+* If you decide to build your own connectors and apps, you can contribute something to the Quix Library. Visit the [Quix GitHub](https://github.com/quixio/quix-library){target=_blank}. Fork our library repo and submit your code, updates, and ideas.
 
 What will you build? Let us know! We’d love to feature your project or use case in our [newsletter](https://www.quix.io/community/).
 

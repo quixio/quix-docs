@@ -1,7 +1,7 @@
 # Forming a request
 
 How you send requests to the Streaming Writer API will vary depending on
-the client or language you’re using. But the API still has behaviour and
+the client or language you’re using. But the API still has behavior and
 expectations that is common across all clients.
 
 !!! tip
@@ -18,12 +18,12 @@ expectations that is common across all clients.
 ## Endpoint URLs
 
 The Streaming Writer API is available on a per-workspace basis, so the
-subdomain is based on a combination of your organisation and workspace
+subdomain is based on a combination of your organization and workspace
 names. See the [Swagger
 documentation](get-swagger.md) to find out how
 to get the exact hostname required. It will be in this format:
 
-https://writer-${organisation}-${workspace}.platform.quix.ai
+https://writer-${organization}-${workspace}.platform.quix.ai
 
 So your final endpoint URL will look something like:
 

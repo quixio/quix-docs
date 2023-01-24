@@ -8,6 +8,10 @@ This sentiment analysis microservice utilizes a prebuilt model from [huggingface
 
 The microservice subscribes to data from the `messages` topic and publishes sentiment results to the `sentiment` topic.
 
+!!! tip
+
+    While this tutorial uses a prebuilt sentiment analysis library item, it is also possible to build one from a basic template available in the Quix library. If you are interested in building your own service, you can refer to an optional part of this tutorial, where you learn how to [code a sentiment analysis service](./code-and-deploy-sentiment-service.md) from the basic template.
+
 ## Deploying the sentiment analysis service
 
 The sentiment of each message will be evaluated by this new microservice in your message processing pipeline.
@@ -36,7 +40,7 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
 8. Now enter chat messages and see the sentiment being updated in real time each time a message is posted. An example of this is shown in the following screenshot:
     
-    ![Positive and negative sentiment chats](../../images/tutorials/sentiment-analysis-media/image2.png){width=200px}
+    ![Positive and negative sentiment chats](./sentiment-analysis-media/image2.png){width=200px}
 
 The sentiment analysis service you just deployed subscribes to the `messages` topic. The sentiment is returned to the UI through the `sentiment` topic, and displayed both in the chart and next to the comment in the chat window by colorizing the chat user's name.
 

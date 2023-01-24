@@ -53,7 +53,7 @@ kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093
 
 ## 401 Error
 
-When attempting to access the web API’s you may encounter a 401 error.
+When attempting to access the web APIs you may encounter a 401 error.
 Check that the bearer token is correct and has not expired. If necessary
 generate a new bearer token.
 
@@ -62,17 +62,17 @@ Reader API with an expired bearer token
 
 signalrcore.hub.errors.UnAuthorizedHubError
 
-The API’s that require a valid bearer token are:
+The APIs that require a valid bearer token are:
 
 1.  Portal API
       - <https://portal-api.platform.quix.ai/swagger/index.html>
 
 2.  Streaming Writer API
-	  - <https://writer-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
+	  - <https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
         
 3.  Telemetry Query API
 
-	  - <https://telemetry-query-[YOUR_ORGANISATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
+	  - <https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
     
 ## Error Handling in the SDK callbacks
 
@@ -132,12 +132,12 @@ caused by DNS propagation.
     propagated. In this scenario you might see a banner when accessing
     the data catalogue.
 
-![troubleshoot/datacataloguewarning.jpg](../images/troubleshoot/datacataloguewarning.jpg)
+![troubleshoot/datacataloguewarning.jpg](datacataloguewarning.jpg)
 
   - 2\. A dashboard or other publicly visible deployment is not yet
     accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](../images/troubleshoot/sitecantbereached.jpg)
+![troubleshoot/sitecantbereached.jpg](sitecantbereached.jpg)
 
 !!! tip
 
@@ -170,7 +170,7 @@ video](https://youtu.be/fnEPnIunyxA).
 ## Process Killed or Out of memory
 
 If your deployment’s logs report "Killed" or "Out of memory" then you
-may need to increase the amount of memory assgned to the deployment.
+may need to increase the amount of memory assigned to the deployment.
 
 You may experience this:
 
@@ -181,7 +181,7 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](../definitions.md#_online_ide) does
+Currently the [online IDE](../../platform/definitions.md#online-ide) does
 not use the same docker image as the one used for deployment due to time
 it would take to build it and make it available to you. (Likely feature
 for future however) Because of this you might have some OS level

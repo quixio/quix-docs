@@ -18,8 +18,7 @@ how to [form a typical request to the
 API](request.md).
 
 You’ll also need to have some data stored in the Quix platform for API
-use to be meaningful. You can use any Source of our [Quix
-Library](../../platform/samples/samples.md) to do this using the Quix
+use to be meaningful. You can use any Source of our [Quix Library](../../platform/samples/samples.html) to do this using the Quix
 portal.
 
 ## Topics covered

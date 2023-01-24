@@ -1,6 +1,6 @@
 # Introduction
 
-As an alternative to [the SDK](/sdk/read), the Quix platform
+As an alternative to [the SDK](../../sdk/read.html), the Quix platform
 supports real-time data streaming over WebSockets. Clients can receive
 updates on data and definitions for parameters and events, as they
 happen. The examples shown use the Microsoft

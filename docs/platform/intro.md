@@ -19,7 +19,7 @@ keeping your data in-memory, helping to achieve lower latencies and
 lower operating costs.
 
 From the top-down, our stack provides a Web UI,
-[API’s](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
+[APIs](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
 developers off our underlying infrastructure, including fully-managed
 Kafka topics, serverless compute environment and a metadata-driven data
 catalogue (time-series database with steroids).
@@ -63,14 +63,14 @@ To achieve these goals Quix Portal includes the following features:
   - **Data Explorer**: Explore Live and Historical data of your
     applications to test that your code is working as expected.
 
-## API’s
+## APIs
 
-We have provided four API’s to help you work with streaming data. These
+We have provided four APIs to help you work with streaming data. These
 include:
 
 [**Stream Writer API**](../apis/streaming-writer-api/intro.md): helps
 you send any data to a Kafka topic in Quix using HTTP. This API handles
-encryption, serialisation and conversion to the Quix SDK format ensuring
+encryption, serialization and conversion to the Quix SDK format ensuring
 efficiency and performance of down-stream processing regardless of the
 data source.
 
@@ -94,7 +94,7 @@ Scala.
 
 Our [Quix streaming SDK](../sdk/introduction.md) is a client library that
 abstracts Python developers off streaming-centric complexities like
-learning Java or dealing with buffering, serialisation and encryption.
+learning Java or dealing with buffering, serialization and encryption.
 
 Instead, SDK serves you streaming data in a data frame so you can write
 any simple or complex data processing logic and connect it directly to
@@ -217,5 +217,17 @@ Our data catalogue technology has two advantages:
     reduces operating costs.
 
 2.  It uses your metadata to record your context. This makes your data
-    more usable for more people across your organisation who only need
+    more usable for more people across your organization who only need
     to know your business context to navigate vast quantities of data.
+
+## In-memory processing
+
+Traditional architectures for applications that need to process data have always been very database-centric. This means that, when you needed to process data and get some value out of it, everything had to pass through a database several times. This approach worked when the amount of data to process was relatively low, and the latency needed was on the scale of "days". But with a world changing to more real-time use cases where you need results on the scale of seconds or nanoseconds, and where you can get millions of IoT devices sending data to process at the same time, traditional database-centric architectures don't scale.
+
+![Traditional architecture for data processing](./images/in-memory-processing-legacy.png)
+
+Quix uses a message broker and it puts it at the very center of the application, enabling a new approach for processing data without the need to save and pass all the information through a database. By using in-memory processing, you can persist only the data you're really interested in keeping.
+
+![Quix approach for data processing](./images/in-memory-processing-quix.png)
+
+This approach lowers the complexity and cost of real-time data processing by several orders of magnitude and, in fact, it is the only possible approach when you need to process a huge amount of data per second with low latency requirements.
