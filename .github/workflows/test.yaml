@@ -90,7 +90,9 @@ jobs:
     # copy sdk readme to sdk intro.md
     - name: Copy and rename sdk's intro.md
       shell: bash
-      run: ls sdk | "cp /sdk/README.md /docs/intro.md"
+      run: |
+        ls sdk
+        "cp /sdk/README.md /docs/intro.md"
 
     - name: List docs files
       run: ls docs
