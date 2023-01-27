@@ -87,7 +87,7 @@ jobs:
     # copy sdk readme to sdk intro.md
     - name: Copy and rename sdk's intro.md
       shell: bash
-      run: "cp $GITHUB_WORKSPACE/sdk/readme.md $GITHUB_WORKSPACE/docs/intro.md"
+      run: "cp /sdk/readme.md /docs/intro.md"
 
     # change the contents of the new file
     # sed -i 's/old-text/new-text/g' input.txt
