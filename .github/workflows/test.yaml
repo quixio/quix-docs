@@ -84,17 +84,17 @@ jobs:
         path: 'sdk'
         #ref: '{{ steps.extract_branch.outputs.branch }}'
 
-    - name: List docs files
-      run: ls docs
-
     - name: List sdk files
       run: ls sdk
 
     # copy sdk readme to sdk intro.md
     - name: Copy and rename sdk's intro.md
       shell: bash
-      run: "cp /sdk/readme.md /docs/intro.md"
+      run: "cp /sdk/README.md /docs/intro.md"
 
+    - name: List docs files
+      run: ls docs
+      
     # change the contents of the new file
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
