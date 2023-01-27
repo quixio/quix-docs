@@ -68,7 +68,27 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: pip install mkdocs
     #- run: pip install mkdocs-material
-    
+
+    # enable when there is an SDK dev branch 
+    # - name: Extract branch name
+    #   shell: bash
+    #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    #   id: extract_branch
+      
+    # checkout sdk files
+    - name: Checkout SDK
+      uses: actions/checkout@v3
+      with:
+        repository: 'quixio/quix-streams'
+        ref: 'main' # when a dev branch exists we can get the dev content
+        #ref: '{{ steps.extract_branch.outputs.branch }}'
+        path: 'sdk'
+
+    # copy sdk readme to sdk intro.md
+    - name: Copy and rename sdk's intro.md
+      shell: bash
+      run: cp sdk/README.md docs/sdk-intro.md
+
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
       env:
