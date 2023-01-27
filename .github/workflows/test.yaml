@@ -81,18 +81,19 @@ jobs:
       with:
         repository: 'quixio/quix-streams'
         ref: 'main'
+        path: 'sdk'
         #ref: '{{ steps.extract_branch.outputs.branch }}'
 
     # copy sdk readme to sdk intro.md
     - name: Copy and rename sdk's intro.md
       shell: bash
-      run: "cp readme.md docs/intro.md"
+      run: "cp $GITHUB_WORKSPACE/sdk/readme.md $GITHUB_WORKSPACE/docs/intro.md"
 
     # change the contents of the new file
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's/## What is Quix Streams?/FOO/g' docs/intro.md"
+      run: "sed -i 's/## What is Quix Streams?/FOO/g' $GITHUB_WORKSPACE/docs/intro.md"
 
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
