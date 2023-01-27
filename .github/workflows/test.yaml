@@ -92,7 +92,7 @@ jobs:
       shell: bash
       run: |
         ls sdk
-        "cp /sdk/README.md /docs/intro.md"
+        "cp sdk/README.md docs/intro.md"
 
     - name: List docs files
       run: ls docs
