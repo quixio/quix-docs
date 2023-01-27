@@ -84,8 +84,11 @@ jobs:
         path: 'sdk'
         #ref: '{{ steps.extract_branch.outputs.branch }}'
 
-    - name: List files
-      run: ls
+    - name: List docs files
+      run: ls docs
+
+    - name: List sdk files
+      run: ls sdk
 
     # copy sdk readme to sdk intro.md
     - name: Copy and rename sdk's intro.md
