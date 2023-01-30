@@ -15,7 +15,6 @@ nav:
   - Intro: 'index.md'
   - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
   - Platform:
-    - 'abc': 'sdk-intro.md'
     - 'What is Quix?': 'platform/intro.md'
     - 'Definitions': 'platform/definitions.md'
     - 'How To':
