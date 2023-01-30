@@ -47,9 +47,9 @@ To compliment the chat UI, you will first deploy a prebuilt microservice designe
 
 5. Click the `Deploy` button in the top right.
 
-9. In the `Deploy` dialog, in deployment settings panel, increase the CPU and memory to your maximum.
+6. In the `Deploy` dialog, in deployment settings panel, increase the CPU and memory to your maximum.
 
-10. Click `Deploy`.
+7. Click `Deploy`.
 
 !!! success
         
@@ -228,9 +228,54 @@ Every 4 seconds the random beer API is called, and a new style of beer is publis
 
 8. Click `Stop` to stop the code running (mouse over the `Running` button).
 
-!!! example "Understand the code"
+??? example "Understand the code"
 
-    The code...
+    The complete code for `main.py` is shown here:
+
+    ```python
+    from quixstreaming import QuixStreamingClient
+    import time
+    import datetime
+    import os
+    import requests  # (1)
+
+
+    # Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+    client = QuixStreamingClient()
+
+    # Open the output topic where to write data out
+    output_topic = client.open_output_topic(os.environ["output"])
+
+    stream = output_topic.create_stream()
+    stream.properties.name = "Hello World python stream"
+
+    print("Sending values for 30 seconds.")
+
+    while True:
+
+        # get a random beer from this free API
+        response = requests.get("https://random-data-api.com/api/v2/beers") # (2)
+
+        # print the response data
+        print(response.json()) # (3)
+
+        # sink the beer's `style` to Quix as an event (4)
+        stream.events.add_timestamp(datetime.datetime.utcnow()) \  
+        .add_value("beer", response.json()["style"]) \
+        .write()
+
+        # sleep for a bit
+        time.sleep(4) # (5)
+
+    print("Closing stream")
+    stream.close()
+    ```
+
+    1. Import the `requests` library. You use this to make a `GET` request on the beer REST API.
+    2. Make the request to the beer API endpoint. This is a blocking call.
+    3. Print the response received from the API endpoint.
+    4. Adds a timestamp and a value to the event data. This is then written to the output stream.
+    5. Sleep for four seconds before looping back to make another request. 
 
 ### Tag and deploy the API Data service
 
@@ -286,6 +331,8 @@ You have now saved the template to your workspace. In the next section you'll mo
 	import datetime
 	```
 
+    You'll need to include this module to use the `datetime` function to add a timestamp to your event data.
+
 2. Locate the `on_event_data_handler` method.
 
 3. Replace the comment `# Here transform your data.` with the following code
@@ -299,11 +346,15 @@ You have now saved the template to your workspace. In the next section you'll mo
 		.write()
 	```
 
-4. Delete the last line of the method
+    This writes data to the output stream in the parameter data format.
+
+4. Delete the last line of the method:
 
 	```python
 	self.output_stream.events.write(data)
 	```
+
+    This is not longer required as the previous method writes out the data in the parameter format.
 
 5. Save the file.
 
@@ -321,13 +372,13 @@ You have now saved the template to your workspace. In the next section you'll mo
     output_stream = output_topic.get_or_create_stream("beer")
     ```
 
+    This code creates the output stream if it does not exist. The chat UI will write messages from this stream into the chat room with the same name.
+
 10. Save, tag, and deploy this project!
 
 !!! success
 
 	You have built a transformation to take output from an API and turn it into messages that the existing parts of the pipeline can use.
-
-!!! example "Understand the code"
 
 ## Try it out
 
@@ -341,10 +392,26 @@ You have now saved the template to your workspace. In the next section you'll mo
 
 ## Summary
 
-In this guide you....
+This quickstart guide aimed to give you a tour of some important Quix features. You have learned:
 
-## Additional resources
+1. Quix enables you to build complex data processing pipelines, using prebuilt items from the Quix library.
 
-  - [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
+2. You can get data into and out of Quix using a variety of methods, including polling data, and using a websockets-based API such as the [Streaming Reader API](../../../apis/streaming-reader-api/intro.md). Webhooks are also supported.
 
-  - [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
+3. You can use templates to help rapidly develop new library items. You built a new source and a new transformation from templates.
+
+4. Quix uses [topics](../../definitions.md#topics) and [streams](../../definitions.md#stream) to route data between services in a pipeline.
+
+5. You can build part of a Quix data processing pipeline, test it, and then extend the pipeline as required.
+
+## Next steps
+
+Try one of the following resources to continue your Quix learning journey:
+
+* [Quix definitions](../../definitions.md)
+
+* [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
+
+* [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
+
+* [Sentiment analysis tutorial](../sentiment-analysis/index.md)
