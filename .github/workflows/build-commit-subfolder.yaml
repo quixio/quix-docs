@@ -103,12 +103,12 @@ jobs:
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' $GITHUB_WORKSPACE/docs/intro.md"
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/sdk-intro.md"
     
     # Change image URL in the copied file to new location 
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,./images,./assets,g' $GITHUB_WORKSPACE/docs/intro.md"
+      run: "sed -i 's,./images,./assets,g' docs/sdk-intro.md"
 
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
