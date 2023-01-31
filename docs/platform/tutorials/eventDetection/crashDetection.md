@@ -20,7 +20,7 @@ Follow these steps to create the skeleton for the `crash detection service`:
 
 6. Enter `phone-data` into the input field
 
-7. Enter `events` into the output field
+7. Enter `phone-out` into the output field
 
 8. Click `Save as project`
 

@@ -10,18 +10,41 @@ You have two options for this stage:
 
 You will only need to set up one of these data sources but if you with to do both you can do that too!
 
-
 ## Quix tracker App
+
+### External source
+
+To get started with these steps you first need to add a Topic and pipeline placeholder called an external source.
+
+An external source is a representation of a data source that is external to Quix, e.g. an IoT device or a service that is pushing data to a Quix topic via one of our API's.
+
+To add an external source:
+
+1. Navigate to the Library
+
+2. Under `Pipeline Stage` click `Source`
+
+3. Locate the `External Source` library item and click `Add external source`
+
+4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop down
+
+5. Enter `Quix Tracker web gateway` in the `Name` field
+
+6. Click `Add external Source`
+
+### Install and configure the apps
 
 To stream data from your phone you’ll need to install the Quix Tracker app on your Android phone and deploy the QR Settings Share app to your Quix workspace.
 
 Follow these steps:
 
-1. Install the `Quix Tracker` from the Google Play Store.  Click (here)[https://play.google.com/store/apps/details?id=com.quix.quixtracker&gl=GB] to go there directly
+1. Install the `Quix Tracker` from the Google Play Store. 
+
+	[![Quix Play store image](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png){width=200px}](https://play.google.com/store/apps/details?id=com.quix.quixtracker&gl=GB){target=_blank}
 
 2. Open the app and navigate to the `Settings` page via the menu
 
-3. Click the `SCAN QR CODE` button at the top of the settings page. Follow the rest of the steps in the Quix Portal and when directed you can scan the QR code with the Quix Tracker app (step XXX)
+3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Tracker app
 
 4. In the Quix Portal, click the user icon in the top right of the browser
 
@@ -55,23 +78,25 @@ Follow these steps:
 
 	![QR Settings Share UI](./qrsettingshareui.png){width=600px}
 
-The app has now been configured with the required token allowing the app to communicate with Quix.
+17. Scan the QR code using the Quix Tracker app
 
-17. Ensure the rest of the fields are configured as follows:
+	The app has now been configured with the access token, allowing it to communicate with Quix.
+
+18. Ensure the rest of the fields are configured as follows:
 
 	a. Topic field is set to `phone-data`
 	
-	b. `Notifications Topic` field is set to `events`
+	b. `Notifications Topic` field is set to `phone-out`
 
-	c. DeviceId field is set to your chosen device identifier
+	c. `DeviceId` field is set to your chosen device identifier
 
-	d. Rider is set to your name
+	d. `Rider` is set to your name
 
-	e. Team has a value e.g. `Quix`
+	e. `Team` has a value e.g. `Quix`
 
-18. Click the menu and select `Dashboard`
+19. Select `Dashboard` from the menu
 
-19. Click the `START` button
+20. Click the `START` button
 
 	This will open a connection to your Quix workspace and start streaming data from your phone.
 
@@ -104,13 +129,17 @@ Follow these instructions to deploy the data source:
 
 1. In the Quix Library, search for `Empty template - Source`
 
-2. Click `Edit code`
+2. Locate the `Python` example
 
-3. Change the output field to `phone-data`
+3. Click `Edit code`
 
-4. Click `Save as project`
+4. Change the `Name` field to `CSV data source`
 
-5. Open the `main.py` file and replace the code with the following code.
+5. Change the `output` field to `phone-data`
+
+6. Click `Save as project`
+
+7. Open the `main.py` file and replace the code with the following code.
 
 ```py
 from quixstreaming import QuixStreamingClient
@@ -134,7 +163,7 @@ for col_i in ['device_id','rider','streamId','team','version']:
     df = df.rename(columns={col_i: "TAG__" + col_i})
     
 print("Writing data")
-seconds_to_wait = float(os.environ["seconds_to_wait"])
+seconds_to_wait = 0.5
 
 while True:
     for i in range(len(df)):
@@ -163,9 +192,11 @@ App.run()
 
 	- It does this continuously so stop the service when you have completed the tutorial
 
-6. Download [this](link needed) CSV file and upload it to the project 
+6. Download the [data.csv](./data.csv) file and upload it to the project using the Quix Dev environment
 
 	Ensure the file is called `data.csv` once uploaded
+
+	![csv file upload](./file_upload.png){width=500px}
 
 7. Test the code by clicking `run` near the top right corner of the code window
 
