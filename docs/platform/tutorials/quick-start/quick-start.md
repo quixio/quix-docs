@@ -1,109 +1,100 @@
-# Quick Start
+# Quickstart
 
-This quick start gets you up and running with Quix in the shortest possible time.
+This quickstart guide endeavours to get you using with Quix effectively in the shortest possible time.
 
-It shows you how to deploy a real-time app in the Quix platform and walk you through the relevant parts of the code.
+It shows you how to deploy a real-time app in the Quix platform and highlights important aspects of the code. It also shows you how to create your own source and transformation, using Quix templates.
 
-There are two parts to the guide:
+For convenience this guide is divided into two parts:
 
-1. Get up and running
-  In this section you will deploy a real-time chat application and connect to it with your computer and phone.
+1. **Deploy a chat UI with sentiment analysis** - in this part you deploy a real-time chat application and connect to it with your computer and phone. You also perform sentiment analysis on the messages in a chat room. 
 
-2. Add more features
-  In this section you will add an external feed to the pipeline and see messages delivered in real-time.
+    This part does not require any coding, as it uses prebuilt library items for services, so is suitable for those who'd like to get an understanding of how Quix works, without needing to write code. 
+    
+    The pipeline you create in this part is shown in the following screenshot:
 
-!!! info "Don't get stuck"
+    ![The sentiment pipeline](./images/sentiment-pipeline.png)
 
-	If you run into trouble or need any help of any kind with this guide, then please drop into our Slack community [`The Stream`](https://quix.io/slack-invite){target=_blank}
+2. **Connect an external service** - in this part you add an external data feed to the pipeline using library items that you will create from templates, and see data delivered in real time to your chat app.
 
-## 1. Get up and running
+    This part requires some basic Python coding skills. However, as all code you need is provided for you, this is suitable for beginners.
 
-To get up and running as fast as possible you will use items from the Quix Library. These have been coded and tested. All you have to do is deploy them to your workspace.
+    The completed pipeline you create is shown in the following screenshot:
 
-### Analyze Sentiment
+    ![The API data pipeline](./images/pipeline.png)
 
-To compliment the chat UI you will deploy in the next step, you will first deploy a pre-built microservice designed to analyze the sentiment of messages in the chat.
+## Getting help
+
+If you need help with this guide, then please join our public Slack community [`The Stream`](https://quix.io/slack-invite){target=_blank} and ask any questions you have there.
+
+## Part 1. Deploy a chat UI with sentiment analysis
+
+To use Quix effectively in the shortest possible time, you will initially use prebuilt library items from the [Quix Library](https://github.com/quixio/quix-library){target=_blank}. These open source library items have already been coded and tested by Quix engineers, and other contributors. All you have to do is configure them (if required) and deploy them to your workspace.
+
+### Deploy sentiment analysis
+
+To compliment the chat UI, you will first deploy a prebuilt microservice designed to analyze the sentiment of messages in the chat.
 
 1. Click <span class="border-violet-dash">`+ Add transformation`</span> on the home screen.
 
     ???- note "Not your first time?"
-        If this is not your first time deploying something to this workspace then navigate to the Library using the left hand navigation instead.
+        If this is not your first time deploying a service to this workspace then navigate to the Library using the left-hand navigation instead.
 
 2. Use the search box to find the `Sentiment analysis` library item. 
 
-3. Click `Edit code`
+3. Click `Setup & deploy`.
 
-    !!! note
-      
-        Ensure that the `input` is set to `messages` and the `output` is set to `sentiment`
+4. Set `input` to the `messages` topic and `output` to the `sentiment` topic. You may need to create the required topics using the `new topic` dropdown.
 
-4. Click `Save as project`
-    
-    The code for this transformation is now saved to your workspace
+5. Click the `Deploy` button in the top right.
 
-5. Locate main.py
+6. In the `Deploy` dialog, in deployment settings panel, increase the CPU and memory to your maximum.
 
-6. Locate the line of code that creates the output stream
-    
-    ``` python
-    output_stream=output_topic.create_stream(input_stream.stream_id)
-    ```
+7. Click `Deploy`.
 
-7. Append `-output` to the stream id.
-    
-    This will ensure the UI is able to locate the sentiment being output by this transformation service.
-    
-    ``` python
-    output_stream=output_topic.create_stream(input_stream.stream_id + "-output")
-    ```
+!!! success
+        
+    You located and deployed the sentiment analysis microservice to the Quix platform.
 
-8. Click Deploy near the top right corner
+    This microservice will subscribe to the `messages` topic and process data to determine the sentiment of any messages in real time. This sentiment value is published to the `sentiment` topic.
 
-9. Change the memory in deployment settings to at least 4GB
+### Deploy the chat UI
 
-10. Click `Deploy` on the deployment dialog
+You are going to locate and deploy a chat UI. The chat UI is written in Angular and connects to Quix using the [Streaming Reader API](../../../apis/streaming-reader-api/intro.md). The chat UI enables you to see messages on both your phone and computer in real-time. The sentiment of each message is also displayed.
 
-	!!! success
-	      
-        You located and deployed the sentiment analysis microservice to the Quix platform.
+1. Navigate to the Quix Library using the left-hand navigation.
 
-        This microservice will subscribe to the `messages` topic and process data to determine the sentiment of any messages in real-time.
-
-
-### The UI
-
-You are going to locate and deploy a UI. It's written in Angular and connects to Quix. Allowing you to see messages on both your phone and computer in real-time.
-
-1. Navigate to the library using the left hand navigation.
 2. Use the search box to find the `Sentiment Demo UI` library item.
-3. Click `Edit code`.
-4. Click `Save as project`.
-5. Click `Deploy` near the top right hand corner of your browser window.
-6. Click the `Public Access` section of the dialog to expand it.
-7. Click the toggle switch to enable public access.
-8. Click `Deploy` on the dialog.
 
-	!!! success
-	      
-        You located, saved and deployed the UI code to the Quix platform.
+3. Click `Setup & deploy`. Notice that this service will read from both the `messages` topic and the `sentiment` topic.
 
-        The UI is comprised of a relatively simple Angular app that subscribes to Quix topics and streams chat messages and sentiment data in real-time.
+4. Click `Deploy`. The `Deploy` dialog is displayed.
 
+5. Click the `Public Access` section of the `Deploy` dialog to expand it.
 
-	???- info "The Code"
+6. Click the toggle switch to enable public access.
 
-        If you want to dive into the code then please do. These are some of the interesting bits:
+7. Click `Deploy` on the dialog.
 
-        1. 
-        Expand the tree view and select the webchat.component.ts file.
-        ![The project's file list](file-tree-1.png){width=250px}
+!!! success
         
-        Locate the `connect()` method.
-        
+    You located, and deployed the chat UI code to the Quix platform.
+
+    The UI is comprised of a relatively simple Angular app that subscribes to Quix topics and streams chat messages and sentiment data in real time.
+
+
+??? example "Understand the code"
+
+    1. Locate the `Sentiment Demo UI` item in the library again, and then click `Preview code`. This is just one way to access the code.
+
+    2. Expand the tree view and select the `webchat.component.ts` file.
+    
+        ![The project's file list](./images/file-tree-1.png){width=250px}
+    
+    3. Locate the `connect()` method.
+    
         Notice the `SubscribeToEvent` and `SubscribeToParameter` lines. These are used to tell Quix that the code should be notified as soon as data arrives. Specifically any data arriving for the specified topic, stream and event or parameter.
 
-        2. 
-        Above the parameter and event subscriptions in the same file you will see the handlers. These will handle the data, doing whatever is needed for the app. In this case we add the messages to a list, which is then displayed in the UI.
+    4. Above the parameter and event subscriptions in the same file you will see the handlers. These will handle the data, doing whatever is needed for the app. In this case we add the messages to a list, which is then displayed in the UI.
 
         ```nodejs
         this.quixService.readerConnection.on('EventDataReceived', (payload) => {...}
@@ -111,100 +102,97 @@ You are going to locate and deploy a UI. It's written in Angular and connects to
         this.quixService.readerConnection.on('ParameterDataReceived', (payload) => {...}
         ```
     
-        For more on connecting to Quix with a web based UI take a look at how to [read](../../../platform/how-to/webapps/read.md) and [write](../../../platform/how-to/webapps/write.md) with NodeJS.
+    For more on connecting to Quix with a web-based UI, take a look at how to [read](../../../platform/how-to/webapps/read.md) and [write](../../../platform/how-to/webapps/write.md) with Node.js.
 
-### Testing it out
+### Try it out
 
 #### In the browser
 
-Once the UI is built and deployed you can go ahead and click the ![open in new window icon](../../../platform/images/general/open_in_new_window.png){width=20px} icon on the `Sentiment Demo UI` tile.
+Once the UI is built and deployed you can go ahead and click the ![open in new window icon](../../../platform/images/general/open_in_new_window.png){width=20px} icon on the `Sentiment Demo UI` service tile.
 
 You will see a form asking you to enter the name for a chat room and your own name. 
 
-1. Enter `Room1` for the room and anything for your name.
+1. Enter `MyRoom` for the room name (although it can be anything) and your name.
 
-  ![The lobby](lobby.png){width=250px}
+  ![The lobby](./images/lobby.png){width=350px}
 
-2. Click `Connect`
+2. Click `Connect`.
 
   You will be redirected to the chat page.
 
-  The most notable features of this page are the chat area, the sentiment graph and the QR code.
-
-  ![Opened chat room](chat.png){width=250px}
+  The most notable features of this page are the chat area, the sentiment graph, and the QR code.
 
 3. Enter some positive and negative messages in the chat window.
 
 4. You will see your messages and a short time later the sentiment of the message will be indicated by the name tag next to each message changing color.
 
-  ![Some messages with their sentiment](sentiment-messages.png){width=250px}
+  ![Some messages with their sentiment](./images/sentiment-messages.png){width=350px}
 
-#### On mobile
+#### On your mobile
 
 Now join the chat with your mobile phone, chat messages will be displayed both on the phone and in the browser.
 
 1. With your mobile phone, scan the QR code.
 
-2. Use the same room name as before `Room1`
+2. Use the same room name as before `Room1`.
 
-3. Use a different name e.g. `Mobile`
+3. Use a different name, such as `Mobile`.
 
-4. Type some messages
+4. Type some messages.
 
+You will see the message and its sentiment on your phone:
 
-	!!! success
+![Mobile view](./images/phone.png){width=280px}
 
-		You will see the message and it's sentiment on your phone
+And the same messages and sentiment will appear in real time in your computer's web browser.
 
-		![Mobile view](phone.jpg){width=280px}
+## Part 2. Connect an external service
 
-		And the same messages and sentiment will appear in real-time on your computer's web browser
-
-		![Computer view](more-messages.png){width=250px}
-
-
-## 2. Add more features
-
-Now that you have the basics of searching the library, selecting and saving a pre-made sample and deploying it to the Quix serverless infrastructure, we can add an additional services to the pipeline including sourcing data and pre-processing the data so it's compatible with the existing services.
-
-Your'e a pro now, so we'll move a little faster!
+Now that you have the basics of searching the library for a library item, selecting and deploying it to the Quix serverless infrastructure, you can learn how to add additional services to the pipeline. In this guide you'll connect to a web service to receive data, and then transform it so it's compatible with the chat UI.
 
 ### Create the data source
 
-1. Go to the library
+In this section you will learn how to use a template to help quickly build a Quix source.
 
-2. Search for the `Empty template - Source`. If should have a blue highlight.
+1. Go to the Quix Library.
 
-3. Click `Edit code`
+2. Search for the `Empty template - Source`. If should have a blue highlight (blue is used to indicate a source).
 
-4. Change the name to `API Data`
+3. Click `Preview code`.
 
-5. Change the topic to `api-data`
+4. Click `Edit code`.
 
-6. Click `Save as project`
+5. Change the name to `API Data`.
 
-7. Add `requests` on a new line to the requirements.txt file and save it
+6. In the `output` field, click `new topic` to create a new topic called `api-data`.
 
-8. Go back to the `main.py` file
+7. Click `Save as project`.
 
-9. Add the following imports to the imports at the top of the file
+You now have a project for a Quix source you can modify to suit your own requirements. In this case the code will pull data periodically from an external REST API, using the `requests` library. To modify the template code:
+
+1. Add `requests` on a new line to the `requirements.txt` file and save it. 
+
+    You use the `requests` library to fetch data from the web service. Any libraries included in the requirements file will automatically be included in the project build.
+
+2. Open the `main.py` file.
+
+3. Add the following import statement at the top of the file:
 
     ```python 
     import requests
-    import time
     ```
 
-10. Delete the code between the following print statements {start=10}
+4. Delete the for-loop code between the following print statements:
 
     ```python
     print("Sending values for 30 seconds.")
-    ```
 
-    ```python
+    # delete code here
+
     print("Closing stream")
     ```
 
-11. Add the following code between those print statements
+5. Add the following code between those print statements:
 
     ```python
     while True:
@@ -215,136 +203,215 @@ Your'e a pro now, so we'll move a little faster!
         # print the response data
         print(response.json())
 
+        # sink the beer's `style` to Quix as an event
+        stream.events.add_timestamp(datetime.datetime.utcnow()) \
+        .add_value("beer", response.json()["style"]) \
+        .write()
+
         # sleep for a bit
         time.sleep(4)
     ```
 
-12. Add the following code under the `print(response.json())` line and above the `sleep` line
+    This code performs a `GET` request to retrieve beer information from the REST API.
 
-    ```python
-    # sink the beers 'style' to Quix as an event
-    stream.events.add_timestamp(datetime.datetime.utcnow()) \
-        .add_value("beer", response.json()["style"]) \
-        .write()
-    ```
-
-13. Lastly, delete the following lines
+6. Lastly, delete the following lines:
 
     ```python
     stream.parameters.add_definition("ParameterA").set_range(-1.2, 1.2)
     stream.parameters.buffer.time_span_in_milliseconds = 100
     ```
 
-14. Save and then run the code by clicking the `Run` button near the top right of the code editor window
 
-	!!! success
+7. Save and then run the code by clicking the `Run` button near the top right of the code editor window.
 
-		Every 4 seconds the random beer API will be called and a new style of beer will be transmitted to the Quix topic `api-data`
+Every 4 seconds the random beer API is called, and a new style of beer is published to the Quix topic `api-data`.
 
-		Click `Stop` (mouse over the `Running` button)
+8. Click `Stop` to stop the code running (mouse over the `Running` button).
 
-#### Deploy
+??? example "Understand the code"
 
-Deploy the code so it will run continuously.
+    The complete code for `main.py` is shown here:
 
-1. Click `Deploy` in the top right
-2. Click `Deploy` on the dialog
+    ```python
+    from quixstreaming import QuixStreamingClient
+    import time
+    import datetime
+    import os
+    import requests  # (1)
 
-### Transformation
 
-Now that you have some data you need to transform it to make it compatible with the rest of your data processing pipeline.
+    # Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+    client = QuixStreamingClient()
+
+    # Open the output topic where to write data out
+    output_topic = client.open_output_topic(os.environ["output"])
+
+    stream = output_topic.create_stream()
+    stream.properties.name = "Hello World python stream"
+
+    print("Sending values for 30 seconds.")
+
+    while True:
+
+        # get a random beer from this free API
+        response = requests.get("https://random-data-api.com/api/v2/beers") # (2)
+
+        # print the response data
+        print(response.json()) # (3)
+
+        # sink the beer's `style` to Quix as an event (4)
+        stream.events.add_timestamp(datetime.datetime.utcnow()) \  
+        .add_value("beer", response.json()["style"]) \
+        .write()
+
+        # sleep for a bit
+        time.sleep(4) # (5)
+
+    print("Closing stream")
+    stream.close()
+    ```
+
+    1. Import the `requests` library. You use this to make a `GET` request on the beer REST API.
+    2. Make the request to the beer API endpoint. This is a blocking call.
+    3. Print the response received from the API endpoint.
+    4. Adds a timestamp and a value to the event data. This is then written to the output stream.
+    5. Sleep for four seconds before looping back to make another request. 
+
+### Tag and deploy the API Data service
+
+To create a tagged version of your code:
+
+1. Click the add tag button:
+
+    ![Add tag](./images/add-tag.png)
+
+2. Enter `v1` and press ++enter++.
+
+You have now create the `v1` tag. You'll select to deploy this version in the next section.
+
+Deploy the `v1` code so it will run continuously:
+
+1. Click `Deploy` in the top right.
+
+2. In the `Version tag` drop-down, select `v1`.
+
+3. In the `Deployment Settings` panel, make sure the `Service` radio button is selected.
+
+4. Click `Deploy` on the dialog.
+
+!!! success
+
+    You have now created your own Quix source by modifying a standard source template, and deployed it.
+
+### Transformation of API Data 
+
+Now that you have some data, you need to transform it to make it compatible with the rest of your data processing pipeline, in this case the chat UI and the sentiment analysis service.
 
 You will now locate a suitable transformation template and modify it to handle the incoming beer styles and output them as chat messages.
 
-1. Search the library for `Empty template - Transformation`
+1. Search the library for `Empty template - Transformation`.
 
-2. Save the code to your workspace
+2. Click `Preview code`.
 
-	!!! note
+3. Click `Edit code`.
 
-		Ensure you change the `Name` to `Beer to chat`
+4. Change the value of the `Name` field to `Beer to chat`.
 
-		Change the `input` to `api-data`. This is the topic you set as the output for the API data.
+5. Change the `input` field to `api-data`. This is the topic you set as the output for the API data.
 
-		Change the `output` to `messages`
+6. In the `output` field, click `new topic` and create the `messages` topic.
 
-3. You can click `Run` and look in the console output see that this code is handling the event data. Click stop when you have seen it running.
+7. Click `Save as project`.
 
-4. Add the following import to the `quix_function.py` file
+You have now saved the template to your workspace. In the next section you'll modify your code to suit your requirements.
+
+1. Add the following import to the `quix_function.py` file:
 
 	```python
 	import datetime
 	```
 
-4. Locate the `on_event_data_handler` method
+    You'll need to include this module to use the `datetime` function to add a timestamp to your event data.
 
-5. Replace the comment `# Here transform your data.` with the following code
+2. Locate the `on_event_data_handler` method.
+
+3. Replace the comment `# Here transform your data.` with the following code
 
 	```python
 	# stream chat-messages to the output topic
-	self.output_stream.events.add_timestamp(datetime.datetime.utcnow()) \
+    self.output_stream.parameters.buffer.add_timestamp(datetime.datetime.utcnow()) \
 		.add_value("chat-message", data.value) \
 		.add_tag("room", "Beer") \
 		.add_tag("name", "BeerAPI") \
 		.write()
 	```
 
-6. Delete the last line of the method
+    This writes data to the output stream in the parameter data format.
+
+4. Delete the last line of the method:
 
 	```python
 	self.output_stream.events.write(data)
 	```
 
-7. Save the file and open the `main.py` file
+    This is not longer required as the previous method writes out the data in the parameter format.
 
-8. Locate the following line
+5. Save the file.
+
+6. Open the `main.py` file.
+
+8. Locate the following line:
 
 	```python
 	output_stream = output_topic.create_stream(input_stream.stream_id)
 	```
 
-9. Replace `input_stream.stream_id` with `"beer"`
+9. Replace it with:
 
-10. Save and deploy this project!
+    ```python
+    output_stream = output_topic.get_or_create_stream("beer")
+    ```
+
+    This code creates the output stream if it does not exist. The chat UI will write messages from this stream into the chat room with the same name.
+
+10. Save, tag, and deploy this project!
 
 !!! success
 
-	You have built a transformation to take output from an API and turn it into messages that the existing parts of the pipeline can use!
+	You have built a transformation to take output from an API and turn it into messages that the existing parts of the pipeline can use.
 
-## See it working
+## Try it out
 
-1. Navigate to the UI you deployed earlier. Ensure you are in the `lobby`
+1. Navigate to the UI you deployed earlier. Ensure you are in the `lobby`.
 
-2. Enter `beer` for the room name and provide any name for yourself
+2. Enter `beer` for the room name and provide any name for yourself.
 
-3. You can now see the messages arriving from the API as well as the calculated sentiment for them.
+3. You can now see the messages arriving from the API as well as the calculated sentiment for them:
 
-![Sample messages from an external API](beer-chat.png)
+    ![Sample messages from an external API](./images/beer-chat.png){width=300px}
 
-!!! success "Congratulations"
+## Summary
 
-	You made it into the Quix elite squad!
+This quickstart guide aimed to give you a tour of some important Quix features. You have learned:
 
-	Your completed real-time data processing pipeline should look something like this
+1. Quix enables you to build complex data processing pipelines, using prebuilt items from the Quix library.
 
-	![The completed pipeline](pipeline.png)
+2. You can get data into and out of Quix using a variety of methods, including polling data, and using a websockets-based API such as the [Streaming Reader API](../../../apis/streaming-reader-api/intro.md). Webhooks are also supported.
 
-	Come on over to our Slack community called [The Stream](https://quix.io/slack-invite){target=_blank} and tell us how you did or if you had any issues.
+3. You can use templates to help rapidly develop new library items. You built a new source and a new transformation from templates.
 
+4. Quix uses [topics](../../definitions.md#topics) and [streams](../../definitions.md#stream) to route data between services in a pipeline.
 
+5. You can build part of a Quix data processing pipeline, test it, and then extend the pipeline as required.
 
+## Next steps
 
-**Conclusion**
+Try one of the following resources to continue your Quix learning journey:
 
-You’ve successfully built a data pipeline that transforms one stream of
-data, which is just the beginning\!
+* [Quix definitions](../../definitions.md)
 
-[Speak with a technical
-expert](https://calendly.com/mike-quix/quix-demo?) about how to set up
-and use Quix in your own projects.
+* [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
 
-**Additional resources**
+* [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
 
-  - [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
-
-  - [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
+* [Sentiment analysis tutorial](../sentiment-analysis/index.md)
