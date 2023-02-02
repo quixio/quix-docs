@@ -25,6 +25,8 @@ nav:
       - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
+    - 'Connectors':
+      - 'ConnectorsGetInsertedHere': ''
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Sentiment analysis': 
