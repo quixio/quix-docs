@@ -110,6 +110,17 @@ jobs:
       shell: bash
       run: "sed -i 's,./images,./assets/sdk/,g' docs/sdk-intro.md"
 
+    # use our own GitHub Action to bring in library readme files
+
+    - name: Quix Library readme importer
+      uses: SteveRosam/QuixReadmeAction@Quix
+      with:
+        GIT_URL: "https://github.com/quixio/quix-library"
+        REPO_PATH: "./repo"
+        DOCS_PATH: "./docs"
+        REPLACEMENT_PLACEHOLDER: "      - 'ConnectorsGetInsertedHere': ''"
+        README_DEST: "docs/docs/library_readmes/connectors"
+
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
       env:
