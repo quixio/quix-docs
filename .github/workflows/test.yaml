@@ -1,0 +1,28 @@
+name: On PR, Build, Publish to Azure Bucket
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+env:
+  SITE_DIR: ${{ github.ref }}
+  #SITE_DIR: subsite
+on:
+  workflow_dispatch:
+  # We have another workflow for pushing directly to dev
+  push:
+    branches:
+      - 'dev'
+    tags:
+    - test-foo
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-html:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Python Container Action Test
+        uses: SteveRosam/test_action@2
+        # Put an example of your mandatory inputs here
+        with:
+          myInput: foo
