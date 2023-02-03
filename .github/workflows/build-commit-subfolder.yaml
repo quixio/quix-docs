@@ -121,14 +121,19 @@ jobs:
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Library readme importer
-      uses: SteveRosam/QuixReadmeAction@v1.4
+      id: readme_importer
+      uses: SteveRosam/QuixReadmeAction@v1.5
       with:
         REPO_PATH: "library"
         DOCS_PATH: "docs/docs"
         REPLACEMENT_PLACEHOLDER: "      - 'ConnectorsGetInsertedHere': ''"
         README_DEST: "docs/docs/library_readmes/connectors"
 
-    - run: echo ${{ env.MESSAGES }}
+    - name: Output Importer Logs
+      run: |
+        for i in ${{ steps.readme_importer.outputs.logs }}; do
+        echo $i
+        done
 
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
