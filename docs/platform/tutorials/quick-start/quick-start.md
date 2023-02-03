@@ -4,7 +4,7 @@ This quickstart guide aims to get you using Quix effectively in the shortest pos
 
 It shows you how to deploy a real-time app in the Quix platform and highlights important aspects of the code. It also shows you how to create your own source and transformation, using Quix templates.
 
-Sign up for a free account [here](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
+Sign up for a free [Quix account](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
 
 For convenience this guide is divided into two parts:
 
