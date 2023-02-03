@@ -125,9 +125,9 @@ jobs:
       uses: SteveRosam/QuixReadmeAction@v1.8
       with:
         REPO_PATH: "library"
-        DOCS_PATH: "docs"
+        DOCS_PATH: ""
         REPLACEMENT_PLACEHOLDER: "      - 'ConnectorsGetInsertedHere': ''"
-        README_DEST: "docs/library_readmes/connectors"
+        README_DEST: "library_readmes/connectors"
 
     - name: Output Importer Logs
       run: |
