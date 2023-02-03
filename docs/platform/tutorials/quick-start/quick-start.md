@@ -1,6 +1,6 @@
 # Quickstart
 
-This quickstart guide endeavours to get you using with Quix effectively in the shortest possible time.
+This quickstart guide aims to get you using Quix effectively in the shortest possible time.
 
 It shows you how to deploy a real-time app in the Quix platform and highlights important aspects of the code. It also shows you how to create your own source and transformation, using Quix templates.
 
