@@ -121,7 +121,7 @@ jobs:
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Library readme importer
-      uses: SteveRosam/QuixReadmeAction@v1.1
+      uses: SteveRosam/QuixReadmeAction@v1.2
       with:
         REPO_PATH: "library"
         DOCS_PATH: "docs"
