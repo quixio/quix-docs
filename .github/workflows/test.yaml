@@ -29,4 +29,4 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "print this: ${{ env.GITHUB_OUTPUT }}"
+          echo "print this: ${{ env.FOO }}"
