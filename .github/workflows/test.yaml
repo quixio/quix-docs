@@ -22,7 +22,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Python Container Action Test
-        uses: SteveRosam/test_action@11
+        uses: SteveRosam/test_action@12
         # Put an example of your mandatory inputs here
         with:
           myInput: foo
