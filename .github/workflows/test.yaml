@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Python Container Action Test
         id: foo11
-        uses: SteveRosam/test_action@14
+        uses: SteveRosam/test_action@15
         # Put an example of your mandatory inputs here
         with:
           myInput: foo
@@ -37,3 +37,9 @@ jobs:
       - name: Output Results
         run: |
           echo "Found ${{ steps.foo11.outputs.files }} files"
+
+      - name: Output x list
+        run: |
+          for i in ${{ steps.foo11.outputs.x }}; do
+          echo $i
+          done
