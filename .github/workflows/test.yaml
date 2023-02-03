@@ -22,12 +22,18 @@ jobs:
       pull-requests: write
     steps:
       - name: Python Container Action Test
-        uses: SteveRosam/test_action@13
+        id: foo11
+        uses: SteveRosam/test_action@14
         # Put an example of your mandatory inputs here
         with:
           myInput: foo
 
+      - run: echo "files=${{ env.files }}"
       - run: echo "FILES=${{ env.FILES_LISTING_1 }}"
       - run: echo "foo1=${{ env.MY_VAR1 }}"
       - run: echo "foo2=${{ env.MY_VAR2 }}"
       - run: echo "foo3=${{ env.MY_VAR3 }}"
+
+      - name: Output Results
+        run: |
+          echo "Found ${{ steps.foo11.outputs.files }} files"
