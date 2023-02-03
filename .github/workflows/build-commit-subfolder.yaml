@@ -122,7 +122,7 @@ jobs:
     # use our own GitHub Action to bring in library readme files
     - name: Quix Library readme importer
       id: readme_importer
-      uses: SteveRosam/QuixReadmeAction@v1.6
+      uses: SteveRosam/QuixReadmeAction@v1.7
       with:
         REPO_PATH: "library"
         DOCS_PATH: "docs/docs"
@@ -133,7 +133,6 @@ jobs:
       run: |
         for i in ${{ steps.readme_importer.outputs.logs }}; do
         echo $i
-        echo '\n'
         done
 
     - name: Build MkDocs Site
