@@ -22,7 +22,11 @@ jobs:
       pull-requests: write
     steps:
       - name: Python Container Action Test
-        uses: SteveRosam/test_action@2
+        uses: SteveRosam/test_action@3
         # Put an example of your mandatory inputs here
         with:
           myInput: foo
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "print this: ${{ env.GITHUB_OUTPUT }}"
