@@ -25,8 +25,6 @@ nav:
       - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
-    - 'Connectors':
-      - platform/connectors/index.md
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Sentiment analysis': 
@@ -48,6 +46,8 @@ nav:
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
+    - 'Connectors':
+      - platform/connectors/index.md
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
