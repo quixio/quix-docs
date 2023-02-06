@@ -27,7 +27,6 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
     - 'Connectors':
       - platform/connectors/index.md
-#ConnectorsGetInsertedHere
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Sentiment analysis': 
@@ -49,6 +48,7 @@ nav:
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
+#ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
   - 'SDK': '!import https://github.com/quixio/quix-streams?branch=main'
