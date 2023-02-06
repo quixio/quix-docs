@@ -122,11 +122,11 @@ jobs:
     # use our own GitHub Action to bring in library readme files
     - name: Quix Library readme importer
       id: readme_importer
-      uses: SteveRosam/QuixReadmeAction@v1.12
+      uses: SteveRosam/QuixReadmeAction@v1.13
       with:
         LIBRARY_REPO_PATH: "library"
         DOCS_PATH: ""
-        REPLACEMENT_PLACEHOLDER: "      - 'ConnectorsGetInsertedHere': ''"
+        REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         README_DEST: "library_readmes/connectors"
 
     - name: Output Importer Logs
