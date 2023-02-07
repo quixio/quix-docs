@@ -120,9 +120,9 @@ jobs:
         path: 'library'
 
     # use our own GitHub Action to bring in library readme files
-    - name: Quix Library readme importer
+    - name: Quix Library readme.md importer
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v1.0
       id: readme_importer
-      uses: SteveRosam/QuixReadmeAction@v1.14
       with:
         LIBRARY_REPO_PATH: "library"
         DOCS_PATH: ""
