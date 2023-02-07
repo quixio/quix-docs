@@ -1,4 +1,4 @@
-site_name: 'Quix Docs'
+site_name: ''
 site_description: 'Quix Docs'
 site_author: 'Quix.io'
 site_url: 'https://docs.quix.io'
@@ -124,6 +124,7 @@ theme:
   - search.share           # Adds an option to share a search query link.*
   - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
+  - content.code.annotate  # code annotations
   
   icon:
     logo: 'material/library'
