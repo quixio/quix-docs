@@ -1,4 +1,4 @@
-# Quickstart
+# Quick Start
 
 This quickstart guide aims to get you using Quix effectively in the shortest possible time.
 
@@ -394,7 +394,7 @@ You have now saved the template to your workspace. In the next section you'll mo
 
 ## Summary
 
-This quickstart guide aimed to give you a tour of some important Quix features. You have learned:
+This quick start guide aimed to give you a tour of some important Quix features. You have learned:
 
 1. Quix enables you to build complex data processing pipelines, using prebuilt items from the Quix library.
 

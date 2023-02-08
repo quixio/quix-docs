@@ -24,13 +24,13 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     [:octicons-arrow-right-24: Definitions](./platform/definitions.md)
 
-- __Quickstart__
+- __Quick Start__
 
     ---
 
     Start working with Quix Platform, the simple-to-use GUI for building real-time streaming applications.
 
-    [:octicons-arrow-right-24: Quickstart](./platform/tutorials/quick-start/quick-start.md)
+    [:octicons-arrow-right-24: Quick Start](./platform/tutorials/quick-start/quick-start.md)
 
 -   __Help__
 
