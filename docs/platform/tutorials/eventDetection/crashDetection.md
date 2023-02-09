@@ -16,13 +16,11 @@ Follow these steps to create the skeleton for the `crash detection service`:
 
 4. Change the name to `Crash event detection`
 
-5. Click `Edit code`
+5. Enter `phone-data` into the input field
 
-6. Enter `phone-data` into the input field
+6. Enter `phone-out` into the output field
 
-7. Enter `phone-out` into the output field
-
-8. Click `Save as project`
+7. Click `Save as project`
 
 You now have the basic template for the service saved to your workspace.
 
@@ -47,28 +45,29 @@ Follow these steps:
 1. Open the `requirements.txt` file and add the following lines to ensure all the packages are installed
 
 	```py
-	azure-storage-blob
+	urllib3
 	xgboost==0.90
 	scikit-learn 
 
 	```
 2. Save the file
 
-3. Open `main.py` and add these lines
+3. Open `main.py` and add these lines to the existing imports
 
 	```py
-	from azure.storage.blob import BlobClient
 	import pickle
+	from urllib import request
+	```
+
 	Next add these lines which will download the pkl file (the pre trained model) from our storage account and load the model into memory.
-	blob = BlobClient.from_connection_string(
-		"xxxxx",
-		"xxxxx",
-		"XGB_model.pkl")
 
-	with open("XGB_model.pkl", "wb+") as my_blob:
-		blob_data = blob.download_blob()
-		blob_data.readinto(my_blob)
+	```py
+	# download the model with urllib
+	f = request.urlopen("https://quixtutorials.blob.core.windows.net/tutorials/event-detection/XGB_model.pkl")
+	with open("XGB_model.pkl", "wb") as model_file:
+		model_file.write(f.read())
 
+	# load it with pickle
 	loaded_model = pickle.load(open("XGB_model.pkl", 'rb'))
 	```
 
@@ -76,11 +75,11 @@ Follow these steps:
 
 	This line:
 	```py
-	client.open_input_topic(os.environ["input"], auto_offset_reset=AutoOffsetReset.Latest)
+	input_topic = client.open_input_topic(os.environ["input"], auto_offset_reset=AutoOffsetReset.Latest)
 	```
 	Should be changed to this:
 	```py
-	client.open_input_topic(os.environ["input"], None, auto_offset_reset=AutoOffsetReset.Latest)
+	input_topic = client.open_input_topic(os.environ["input"], None, auto_offset_reset=AutoOffsetReset.Latest)
 	```
 
 5. Locate the line that instantiates the `QuixFunction` and pass the `loaded_model` as the last parameter. 	The QuixFunction class will use this to predict crash events.
@@ -92,26 +91,94 @@ Follow these steps:
 
 6. Save `main.py` 
 
+	???- info "The completed `main.py` should look like this"
+
+		```py
+		from quixstreaming import QuixStreamingClient, StreamEndType, StreamReader, AutoOffsetReset
+		from quixstreaming.app import App
+		from quix_function import QuixFunction
+		import os
+		import pickle
+		from urllib import request
+
+		# download the model
+		f = request.urlopen("https://quixtutorials.blob.core.windows.net/tutorials/event-detection/XGB_model.pkl")
+		with open("XGB_model.pkl", "wb") as model_file:
+			model_file.write(f.read())
+
+		# load it with pickle
+		loaded_model = pickle.load(open("XGB_model.pkl", 'rb'))
+
+		# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+		client = QuixStreamingClient()
+
+		# Change consumer group to a different constant if you want to run model locally.
+		print("Opening input and output topics")
+
+		input_topic = client.open_input_topic(os.environ["input"], None, auto_offset_reset=AutoOffsetReset.Latest)
+		output_topic = client.open_output_topic(os.environ["output"])
+
+
+		# Callback called for each incoming stream
+		def read_stream(input_stream: StreamReader):
+
+			# Create a new stream to output data
+			output_stream = output_topic.create_stream(input_stream.stream_id)
+			output_stream.properties.parents.append(input_stream.stream_id)
+
+			# handle the data in a function to simplify the example
+			quix_function = QuixFunction(input_stream, output_stream, loaded_model)
+				
+			# React to new data received from input topic.
+			input_stream.events.on_read += quix_function.on_event_data_handler
+			input_stream.parameters.on_read_pandas += quix_function.on_pandas_frame_handler
+
+			# When input stream closes, we close output stream as well. 
+			def on_stream_close(endType: StreamEndType):
+				output_stream.close()
+				print("Stream closed:" + output_stream.stream_id)
+
+			input_stream.on_stream_closed += on_stream_close
+
+		# Hook up events before initiating read to avoid losing out on any data
+		input_topic.on_stream_received += read_stream
+
+		# Hook up to termination signal (for docker image) and CTRL-C
+		print("Listening to streams. Press CTRL-C to exit.")
+
+		# Handle graceful exit of the model.
+		App.run()
+
+		```
+
 7. Open `quix_function.py`
 	This file contains handlers for tabular data and event data. You will add code to the `on_pandas_frame_handler` function to handle the input streams tabular data
 
-8. Start by adding `loaded_model` as the last parameter to the `__init__` function definition, this will receive the loaded model from `main.py`
+8. Start by locating the `__init__` function definition.
+
+9. Add `loaded_model` as the last parameter to the `__init__` function, this will receive the loaded model from `main.py`
+
+10. Store the `loaded_model` in a class property by adding the following line to the the `__init__` function
+
+	```py
+	self.loaded_model = loaded_model
+	```
 
 9. Now replace the current `on_pandas_frame_handler` with this code:
-   
+
 	```py
-    def on_pandas_frame_handler(self, df: pd.DataFrame):
-        
-        if "gForceX" in df:
-            df["gForceTotal"] = df["gForceX"].abs() +  df["gForceY"].abs() + df["gForceZ"].abs()
-            df["shaking"] = self.loaded_model.predict(df[["gForceZ", "gForceY", "gForceX", "gForceTotal"]])
+		def on_pandas_frame_handler(self, df: pd.DataFrame):
+			
+			if "gForceX" in df:
+				df["gForceTotal"] = df["gForceX"].abs() +  df["gForceY"].abs() + df["gForceZ"].abs()
+				df["shaking"] = self.loaded_model.predict(df[["gForceZ", "gForceY", "gForceX", "gForceTotal"]])
 
-            if df["shaking"].max() == 1: 
-                print("Crash detected.")
+				if df["shaking"].max() == 1: 
+					print("Crash detected.")
 
-                self.output_stream.events.add_timestamp_nanoseconds(df.iloc[0]["time"]) \
-                    .add_value("crash", "Crash detected.") \
-                    .write()
+					self.output_stream.events.add_timestamp_nanoseconds(df.iloc[0]["time"]) \
+						.add_value("crash", "Crash detected.") \
+						.write()
 	```
 
 	This code first checks that the required data is in the dataframe then uses the ML model with the g-force data to determine when shaking is occurring.
@@ -164,11 +231,15 @@ You can once again run the code in the development environment to test the funct
 
 2. Click `Run` in the top right of the browser to run the event detection code
 
-3. Gently shake your phone and observe the `Console` tab. You should see a message saying "Crash detected"
+3. If you chose to stream live data then gently shake your phone 
 
-4. On the `Messages` tab select `output : events` from the first drop down
+4. If you went for the CSV data then wait for a crash event to be streamed from the data set or stop and start the service in another browser tab
 
-5. Gently shake your phone and observe that crash events are streamed to the output topic. You can click these rows to investigate the event data e.g. 
+5. Observe the `Console` tab. You should see a message saying "Crash detected"
+
+4. On the `Messages` tab select `output : phone-out` from the first drop down
+
+5. Gently shake your phone, or wait for another crash event from the CSV data, and observe that crash events are streamed to the output topic. You can click these rows to investigate the event data e.g. 
 
 	```
 	[{

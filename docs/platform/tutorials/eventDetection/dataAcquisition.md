@@ -8,7 +8,7 @@ You have two options for this stage:
 
 2. Stream pre recorded [CSV data](#csv-data)
 
-You will only need to set up one of these data sources but if you with to do both you can do that too!
+You will only need to set up one of these data sources but if you want to do both you can do that too!
 
 ## Quix tracker App
 
@@ -127,11 +127,11 @@ If you don’t have an Android device or you’d rather just stream some data we
 
 Follow these instructions to deploy the data source:
 
-1. In the Quix Library, search for `Empty template - Source`
+1. In the Quix Library, select `Python` under languages and `Source` under pipeline stage
 
-2. Locate the `Python` example
+2. In the search box enter `Empty template`
 
-3. Click `Edit code`
+3. On `Empty template - Source`, click `Preview code` then `Edit code`
 
 4. Change the `Name` field to `CSV data source`
 
@@ -139,70 +139,77 @@ Follow these instructions to deploy the data source:
 
 6. Click `Save as project`
 
-7. Open the `main.py` file and replace the code with the following code.
+7. Open the requirements.txt file and add `urllib3` to a new line
 
-```py
-from quixstreaming import QuixStreamingClient
-from quixstreaming.app import App
-import time
-import pandas as pd
-import os
+8. Open the `main.py` file and replace the code with the following code:
 
-# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
-client = QuixStreamingClient()
+	```py
+	from quixstreaming import QuixStreamingClient
+	from quixstreaming.app import App
+	import time
+	import pandas as pd
+	import os
+	from urllib import request
 
-# Open the output topic
-print("Opening output topic")
-output_topic = client.open_output_topic(os.environ["output"])
 
-output_stream = output_topic.create_stream()
+	# download data.csv
+	# if you want to use your own data file just comment these lines
+	# and place your data.csv file in the same folder as main.py
+	f = request.urlopen("https://quixtutorials.blob.core.windows.net/tutorials/event-detection/data.csv")
+	with open("data.csv", "wb") as data_file:
+		data_file.write(f.read())
 
-df = pd.read_csv("data.csv")
+	# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
+	client = QuixStreamingClient()
 
-for col_i in ['device_id','rider','streamId','team','version']:
-    df = df.rename(columns={col_i: "TAG__" + col_i})
-    
-print("Writing data")
-seconds_to_wait = 0.5
+	# Open the output topic
+	print("Opening output topic")
+	output_topic = client.open_output_topic(os.environ["output"])
 
-while True:
-    for i in range(len(df)):
-        start_loop = time.time()
+	output_stream = output_topic.create_stream()
 
-        df_i = df.iloc[[i]]
+	df = pd.read_csv("data.csv")
 
-        output_stream.parameters.write(df_i)
-        print("Sending " + str(i) + "/" + str(len(df)))
-        end_loop = time.time()
-        time.sleep(max(0.0, seconds_to_wait - (end_loop - start_loop)))
+	for col_i in ['device_id','rider','streamId','team','version']:
+		df = df.rename(columns={col_i: "TAG__" + col_i})
+		
+	print("Writing data")
+	seconds_to_wait = 0.5
 
-App.run()
-```
+	while True:
+		for i in range(len(df)):
+			start_loop = time.time()
 
-!!! info 
-	The code:
+			df_i = df.iloc[[i]]
 
-	- Connects to Quix
+			output_stream.parameters.write(df_i)
+			print("Sending " + str(i) + "/" + str(len(df)))
+			end_loop = time.time()
+			time.sleep(max(0.0, seconds_to_wait - (end_loop - start_loop)))
 
-	- Opens the CSV file using Pandas
+	App.run()
 
-	- Renames some columns so the Quix SDK teams them as tags
+	```
 
-	- Then streams each row to the `phone-data` topic
+	!!! info 
+		The code:
 
-	- It does this continuously so stop the service when you have completed the tutorial
+		- Connects to Quix
 
-6. Download the [data.csv](./data.csv) file and upload it to the project using the Quix Dev environment
+		- Opens the CSV file using Pandas
 
-	Ensure the file is called `data.csv` once uploaded
+		- Renames some columns so the Quix SDK teams them as tags
 
-	![csv file upload](./file_upload.png){width=500px}
+		- Then streams each row to the `phone-data` topic
+
+		- It does this continuously so stop the service when you have completed the tutorial
 
 7. Test the code by clicking `run` near the top right corner of the code window
 
 	With the code running you will see messages in the `Console` tab
 
 	```sh
+	[xx-xx-xx xx:xx:xx.xxx (8) INF] Topic phone-data is still creating
 	Opening output topic
 	Writing data
 	Sending 0/18188
@@ -261,7 +268,7 @@ App.run()
 
 		```
 
-7. Stop the code by clicking the same button you click to run it
+7. Stop the code by clicking the same button you clicked to run it
 
 8. You'll now deploy the code as a service, so it stays running when you navigate around the platform.
 
