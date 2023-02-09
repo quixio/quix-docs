@@ -41,6 +41,20 @@ This will open the relevant page in GitHub
 
 A member of our team will review your pull request. We might give feedback and suggestions for how you could improve the pull request, which is the same process we use when reviewing each others work internally. We'll try to respond within a couple of working days, but feedback can sometimes take longer. We appreciate all your feedback and contributions.
 
+## Dealing with large files
+
+Where you contribute tutorials or other content that needs to reference very large files, you should avoid checking those files into GitHub. Instead you can use code to download the required file at run time. Some Python code to download a model file is shown here:
+
+```python
+# pip install or add urllib3 to requirements.txt
+from urllib import request
+f = request.urlopen("https://quixtutorials.blob.core.windows.net/tutorials/event-detection/XGB_model.pkl")
+with open("model_file.pkl", "wb") as model_file:
+    model_file.write(f.read())
+```
+
+In this case the model file is stored in the cloud, and simply downloaded prior to use.
+
 ## Contact
 
 If you want to discuss a change with us or let us know about a PR please join [The Stream community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
