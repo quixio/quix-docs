@@ -110,6 +110,31 @@ jobs:
       shell: bash
       run: "sed -i 's,./images,./assets/sdk/,g' docs/sdk-intro.md"
 
+    # clone the library repo
+    - name: Checkout Library
+      uses: actions/checkout@v3
+      with:
+        repository: 'quixio/quix-library'
+        ref: 'develop' # when a dev branch exists we can get the dev content
+        #ref: '{{ steps.extract_branch.outputs.branch }}'
+        path: 'library'
+
+    # use our own GitHub Action to bring in library readme files
+    - name: Quix Library readme.md importer
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v1.3
+      id: readme_importer
+      with:
+        LIBRARY_REPO_PATH: "library"
+        DOCS_PATH: ""
+        REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
+        README_DEST: "docs/library_readmes/connectors"
+
+    - name: Output Importer Logs
+      run: |
+        for i in ${{ steps.readme_importer.outputs.logs }}; do
+        echo $i
+        done
+
     - name: Build MkDocs Site
       run: mkdocs build --no-directory-urls
       env:
