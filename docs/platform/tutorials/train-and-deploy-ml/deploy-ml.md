@@ -32,17 +32,17 @@ Ensure you are logged into the Quix Portal
 
 1. Navigate to the Library
 
-2. Filter the library by selecting Python under languages and Transformation under pipeline stage
+2. Filter the library by selecting `Python` under languages and `Transformation` under pipeline stage
 
-3. Select the Data Filtering Model
+3. Select the `Event Detection` item
 
 	!!! tip
 
-		If you can't see Data Filtering Model you can also use search to find it
+		If you can't see `Event Detection` you can also use search to find it
 		
 	!!! info
 
-		Usually, after clicking on the Data Filtering Model you can look at the code and the readme to ensure it's the correct sample for your needs.
+		Usually, after clicking on the `Event Detection` you can look at the code and the readme to ensure it's the correct sample for your needs.
 
 4. Now click Edit code
 
