@@ -81,7 +81,7 @@ Read more about the Quix SDK and APIs.
 
     [:octicons-arrow-right-24: Learn more](./sdk/connect.html)
 
--   __Writing data - SDK__
+-   __Publish data - SDK__
 
     ---
 
@@ -89,7 +89,7 @@ Read more about the Quix SDK and APIs.
 
     [:octicons-arrow-right-24: Learn more](./sdk/publish.html)
 
--   __Reading data - SDK__
+-   __Subscribe to data - SDK__
 
     ---
 
