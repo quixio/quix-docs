@@ -51,7 +51,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'SDK': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'SDK': '!import https://github.com/quixio/quix-streams?branch=task/31677-streams-quickstart'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
