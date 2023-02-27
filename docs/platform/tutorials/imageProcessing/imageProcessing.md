@@ -273,7 +273,7 @@ This ensures the service runs continuously
 
 You’ve just made extensive use of the Quix library, our collection of
 open source connectors, samples and examples. Now you can build your own
-connectors and apps and contribute by going to our Github
+connectors and apps and contribute by going to our GitHub
 [here](https://github.com/quixio/quix-library){target=_blank}, forking our library repo
 and submitting your code, updates and ideas.
 
