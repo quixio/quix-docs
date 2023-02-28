@@ -6,10 +6,11 @@ You want to help improve our documentation? Fantastic! Here are a few guidelines
 
 If you spot a mistake or see room for improvement in any of the Quix docs, please let us know! To create an issue, follow these steps:
 
-1. Open the [Github issues](https://github.com/quixio/quix-docs/issues) page for the Quix documentation repository.
+1. Open the [GitHub issues](https://github.com/quixio/quix-docs/issues) page for the Quix documentation repository.
 2. Click **New Issue** and enter a descriptive title that references affected page.
    For example, '_Sentiment Analysis tutorial references a button that doesnt exist_'.
 3. Click **Submit Issue** and wait for one of our team to respond.
+
 We'll try to respond within a couple of working days.
 
 
@@ -31,8 +32,8 @@ If you want to make a change, you can do it right on GitHub. Just follow these s
 
 1. Open the page you want to change click the edit button edit button.
 This will open the relevant page in GitHub
-2. To edit the page in GithubType, `E` or click the edit icon and make your changes.
-3. When you've finished, scroll dowb and write a short description of the changes you made in the commit message, and click **Propose Changes**.
+2. To edit the page in GitHub, type `E`, or click the edit icon and make your changes.
+3. When you've finished, scroll down and write a short description of the changes you made in the commit message, and click **Propose Changes**.
 4. On the page that appears, click **Create Pull Request**, fill out the details and submit it.
 
 **Note:** Remember to create forks or branches from the 'dev' branch.
