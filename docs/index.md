@@ -81,21 +81,21 @@ Read more about the Quix SDK and APIs.
 
     [:octicons-arrow-right-24: Learn more](./sdk/connect.html)
 
--   __Writing data - SDK__
+-   __Publish data - SDK__
 
     ---
 
-    Read how to send real-time data to Kafka topics using the Quix SDK.
+    Read how to publish real-time data to Kafka topics using the Quix SDK.
 
-    [:octicons-arrow-right-24: Learn more](./sdk/write.html)
+    [:octicons-arrow-right-24: Learn more](./sdk/publish.html)
 
--   __Reading data - SDK__
+-   __Subscribe to data - SDK__
 
     ---
 
-    Learn how to receive real-time data in your application using the Quix SDK.
+    Learn how to subscribe to real-time data in your application using the Quix SDK.
 
-    [:octicons-arrow-right-24: Learn more](./sdk/read.html)
+    [:octicons-arrow-right-24: Learn more](./sdk/subscribe.html)
 
 -   __Streaming Writer API__
 
