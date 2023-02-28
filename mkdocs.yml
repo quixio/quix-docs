@@ -25,7 +25,7 @@ nav:
       - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
       - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
-      - 'Public services': 'platform/how-to/deploy-public-page.md'
+      - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Sentiment analysis': 
