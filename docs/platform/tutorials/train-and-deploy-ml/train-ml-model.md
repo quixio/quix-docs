@@ -247,7 +247,7 @@ Table with model accuracy preview
 
 #### Prediction preview
 
-Let’s plot actual vs predicted braking using a trained model:
+Let’s plot actual versus predicted braking using a trained model:
 
 ``` python
 f, (ax1, ax2) = plt.subplots(2, 1, sharey=True, figsize=(50,8))

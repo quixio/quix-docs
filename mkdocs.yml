@@ -30,9 +30,9 @@ nav:
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Event detection':
         - 'platform/tutorials/eventDetection/index.md'
-        - '1. Data acquisition': 'platform/tutorials/eventDetection/dataAcquisition.md'
-        - '2. Event detection': 'platform/tutorials/eventDetection/crashDetection.md'
-        - '3. Demo UI': 'platform/tutorials/eventDetection/crashDetectionUI.md'
+        - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
+        - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
+        - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
         - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md

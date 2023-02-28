@@ -240,7 +240,7 @@ Latin abbreviations can occasionally cause confusion if not used correctly. For 
 
 Examples:
 
-* Use ‘for example', instead of 'e.g.'
+* Use 'for example', instead of 'e.g.'
 * Use 'that is' rather than 'i.e.'
 * Use 'and so on' instead of 'etc.'.
 

@@ -4,9 +4,9 @@ You’ll start this tutorial by streaming data into a topic. Starting with the d
 
 You have two options for this stage:
 
-1. Stream data from your Android phone with the [Quix Tracker app](#quix-tracker-app)
+1. Stream data from your Android phone with the [Quix Tracker app](#quix-tracker-app).
 
-2. Stream pre recorded [CSV data](#csv-data)
+2. Stream prerecorded [CSV data](#csv-data).
 
 You will only need to set up one of these data sources but if you want to do both you can do that too!
 
@@ -16,21 +16,21 @@ You will only need to set up one of these data sources but if you want to do bot
 
 To get started with these steps you first need to add a Topic and pipeline placeholder called an external source.
 
-An external source is a representation of a data source that is external to Quix, e.g. an IoT device or a service that is pushing data to a Quix topic via one of our API's.
+An external source is a representation of a data source that is external to Quix, for example an IoT device or a service that is pushing data to a Quix topic using one of our API's.
 
 To add an external source:
 
 1. Navigate to the Library
 
-2. Under `Pipeline Stage` click `Source`
+2. Under `Pipeline Stage` click `Source`.
 
-3. Locate the `External Source` library item and click `Add external source`
+3. Locate the `External Source` library item and click `Add external source`.
 
-4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop down
+4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop-down.
 
-5. Enter `Quix Tracker web gateway` in the `Name` field
+5. Enter `Quix Tracker web gateway` in the `Name` field.
 
-6. Click `Add external Source`
+6. Click `Add external Source`.
 
 ### Install and configure the apps
 
@@ -42,61 +42,61 @@ Follow these steps:
 
 	[![Quix Play store image](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png){width=200px}](https://play.google.com/store/apps/details?id=com.quix.quixtracker&gl=GB){target=_blank}
 
-2. Open the app and navigate to the `Settings` page via the menu
+2. Open the app and navigate to the `Settings` page via the menu.
 
-3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Tracker app
+3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Tracker app.
 
-4. In the Quix Portal, click the user icon in the top right of the browser
+4. In the Quix Portal, click the user icon in the top right of the browser.
 
-	![Portal token menu](./tokenmenu.png){width=150px}
+	![Portal token menu](./token-menu.png){width=150px}
 
-5. Click `Tokens`
+5. Click `Tokens`.
 
-6. Generate a token with any name and allow at least a few days before it expires
+6. Generate a token with any name and allow at least a few days before it expires.
 
-7. Copy the token to your clipboard or somewhere safe
+7. Copy the token to your clipboard or somewhere safe.
 
-8. In the Quix Library, search for `QR Settings Share`
+8. In the Quix Library, search for `QR Settings Share`.
 
-9. Click `Setup & deploy`
+9. Click `Setup & deploy`.
 
-10. Paste the token into the `token` field
+10. Paste the token into the `token` field.
 
-11. Click `Deploy`
+11. Click `Deploy`.
 
-12. Open the QR Settings Share by clicking the "open in new window" icon
+12. Open the QR Settings Share by clicking the "open in new window" icon.
 
-	![QR Settings Share Service](./qrsettingsshareservice.png){width=300px}
+	![QR Settings Share Service](./qr-settings-share-service.png){width=300px}
 
-13. Enter a name and a device identifier into the input fields
+13. Enter a name and a device identifier into the input fields.
 
-14. These can be any value such as your name and CAR-001
+14. These can be any value such as your name and CAR-001.
 
-15. Click `Generate Token`
+15. Click `Generate Token`.
 
-16. A QR code will be generated and presented to you in the UI
+16. A QR code will be generated and presented to you in the UI.
 
-	![QR Settings Share UI](./qrsettingshareui.png){width=600px}
+	![QR Settings Share UI](./qr-setting-share-ui.png){width=600px}
 
-17. Scan the QR code using the Quix Tracker app
+17. Scan the QR code using the Quix Tracker app.
 
 	The app has now been configured with the access token, allowing it to communicate with Quix.
 
 18. Ensure the rest of the fields are configured as follows:
 
-	a. Topic field is set to `phone-data`
+	a. Topic field is set to `phone-data`.
 	
-	b. `Notifications Topic` field is set to `phone-out`
+	b. `Notifications Topic` field is set to `phone-out`.
 
-	c. `DeviceId` field is set to your chosen device identifier
+	c. `DeviceId` field is set to your chosen device identifier.
 
-	d. `Rider` is set to your name
+	d. `Rider` is set to your name.
 
-	e. `Team` has a value e.g. `Quix`
+	e. `Team` has a value. For example `Quix`.
 
-19. Select `Dashboard` from the menu
+19. Select `Dashboard` from the menu.
 
-20. Click the `START` button
+20. Click the `START` button.
 
 	This will open a connection to your Quix workspace and start streaming data from your phone.
 
@@ -104,42 +104,42 @@ Follow these steps:
 
 Follow these steps to ensure that everything is working as expected:
 
-1. In the Quix Portal, navigate to `Data Explorer`
+1. In the Quix Portal, navigate to `Data Explorer`.
 
-2. Ensure you are on the `Live data` tab
+2. Ensure you are on the `Live data` tab.
 
-3. Under `Select a topic` select `phone-data`
+3. Under `Select a topic` select `phone-data`.
 
-4. Under `select streams` select the active stream. This should be the only stream that exists
+4. Under `select streams` select the active stream. This should be the only stream that exists.
 
-5. Under `select parameters or events` select gForceX, gForceY and gForceZ
+5. Under `select parameters or events` select `gForceX`, `gForceY` and `gForceZ`.
 
 6. The waveform view should display the live g-force data from your phone.
 
-7. Move or gently shake your phone and notice that the waveform reflects whatever movement your phone is experiencing
+7. Move or gently shake your phone and notice that the waveform reflects whatever movement your phone is experiencing.
 
 !!! success
 	You have connected the Quix Tracker app to your workspace and verified the connection using the Live Data Explorer.
 
 ## CSV data
 
-If you don’t have an Android device or you’d rather just stream some data we’ve provided then this is the data source for you! 
+If you don’t have an Android device, or you’d rather stream some data provided for you, then use this data source.
 
 Follow these instructions to deploy the data source:
 
-1. In the Quix Library, select `Python` under languages and `Source` under pipeline stage
+1. In the Quix Library, select `Python` under languages and `Source` under pipeline stage.
 
-2. In the search box enter `Empty template`
+2. In the search box enter `Empty template`.
 
-3. On `Empty template - Source`, click `Preview code` then `Edit code`
+3. On `Empty template`, click `Preview code` then `Edit code`.
 
-4. Change the `Name` field to `CSV data source`
+4. Change the `Name` field to `CSV data source`.
 
-5. Change the `output` field to `phone-data`
+5. Change the `output` field to `phone-data`.
 
-6. Click `Save as project`
+6. Click `Save as project`.
 
-7. Open the requirements.txt file and add `urllib3` to a new line
+7. Open the `requirements.txt` file and add `urllib3` to a new line.
 
 8. Open the `main.py` file and replace the code with the following code:
 
@@ -194,17 +194,17 @@ Follow these instructions to deploy the data source:
 	!!! info 
 		The code:
 
-		- Connects to Quix
+		- Connects to Quix.
 
-		- Opens the CSV file using Pandas
+		- Opens the CSV file using Pandas.
 
-		- Renames some columns so the Quix SDK teams them as tags
+		- Renames some columns so the Quix SDK teams them as tags.
 
-		- Then streams each row to the `phone-data` topic
+		- Then streams each row to the `phone-data` topic.
 
-		- It does this continuously so stop the service when you have completed the tutorial
+		- It does this continuously so stop the service when you have completed the tutorial.
 
-7. Test the code by clicking `run` near the top right corner of the code window
+7. Test the code by clicking `run` near the top right corner of the code window.
 
 	With the code running you will see messages in the `Console` tab
 
@@ -219,9 +219,11 @@ Follow these instructions to deploy the data source:
 
 8. Click the `Messages` tab and you’ll see the raw messages being streamed to the `phone-data` topic.
 
-9. Click one of the messages and you’ll see the raw data in [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} format
+9. Click one of the messages and you’ll see the raw data in [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} format.
 
-	???- info "Your data should look like this"
+	???- info "Your data should look like JSON"
+
+		Note! Depending on which row you click you may see slightly different results. Only some rows contain location data.
 
 		```
 		"Epoch": 0,
@@ -268,16 +270,16 @@ Follow these instructions to deploy the data source:
 
 		```
 
-7. Stop the code by clicking the same button you clicked to run it
+7. Stop the code by clicking the same button you clicked to run it.
 
 8. You'll now deploy the code as a service, so it stays running when you navigate around the platform.
 
-9. Click `Deploy`
+9. Click `Deploy`.
 
-10. On the dialog, click `Deploy`
+10. On the dialog, click `Deploy`.
 
-	Once deployed the service will be started and data will be streamed to the `phone-data` topic
+	Once deployed the service will be started and data will be streamed to the `phone-data` topic.
 
-In the next part, detect crash events with the [Crash event detection service](crashDetection.md)
+[Detect crash events by following step 2 :material-arrow-right-circle:{ align=right }](crash-detection.md)
 
 
