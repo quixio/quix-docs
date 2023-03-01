@@ -20,7 +20,7 @@ Most of the code you'll need has already been written. It lives in our library, 
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [Github repo](https://github.com/quixio/quix-tracker){target=_blank}.
+**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [GitHub repo](https://github.com/quixio/quix-tracker){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
