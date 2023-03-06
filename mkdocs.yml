@@ -28,6 +28,12 @@ nav:
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':
       - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
+      - 'Event detection':
+        - 'platform/tutorials/eventDetection/index.md'
+        - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
+        - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
+        - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
+        - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
