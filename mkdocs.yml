@@ -27,13 +27,20 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':
-      - 'Image Processing': 'platform/tutorials/imageProcessing/imageProcessing.md'
       - 'Event detection':
         - 'platform/tutorials/eventDetection/index.md'
         - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
         - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
         - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
         - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
+      - 'Real-time image processing': 
+        - platform/tutorials/image-processing/index.md
+        - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
+        - '2. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '3. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
+        - '4. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
+        - '5. Deploy the UI': platform/tutorials/image-processing/web-ui.md
+        - '6. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
