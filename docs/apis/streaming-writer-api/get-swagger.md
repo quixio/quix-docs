@@ -4,11 +4,11 @@ You can access [Swagger documentation](https://swagger.io/){target=_blank} and t
 
 The URL is workspace-specific, and follows this pattern:
 
-    https://writer-${organization}-${workspace}.platform.quix.ai
+    https://writer-${organization}-${workspace}.platform.quix.ai/swagger
 
 The workspace ID is a combination based on your organization and workspace names. For example, for an `acme` organization with a `weather` workspace, the URL would have the following format:
 
-    https://writer-acme-weather.platform.quix.ai
+    https://writer-acme-weather.platform.quix.ai/swagger
 
 To help determine the URL, you can [find out how to get your workspace id](../../platform/how-to/get-workspace-id.md).
 

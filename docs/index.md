@@ -63,7 +63,7 @@ By following these tutorials, you can learn how to build data-driven apps, and i
     
     Real time image processing using London's 'Jam Cams'.
 
-    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/imageProcessing/imageProcessing.md)
+    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/image-processing/index.md)
 
 </div>
 
@@ -79,7 +79,7 @@ Read more about the Quix SDK and APIs.
 
     Discover how to connect Quix and your application using our SDK.
 
-    [:octicons-arrow-right-24: Learn more](./sdk/connect.html)
+    [:octicons-arrow-right-24: Learn more](./sdk/connect.md)
 
 -   __Publish data - SDK__
 
@@ -103,7 +103,7 @@ Read more about the Quix SDK and APIs.
 
     Stream data to Quix Kafka topics via HTTP with this API.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/intro.html)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/intro.md)
 
 -   __Streaming Reader API__
 
@@ -111,7 +111,7 @@ Read more about the Quix SDK and APIs.
 
     Work with this API to receive live data in your Web applications from Quix Kafka topics via Websockets.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.html)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.md)
 
 -   __Data Catalogue API__
 
@@ -119,7 +119,7 @@ Read more about the Quix SDK and APIs.
 
     Query historic time-series data in Quix using HTTP interface.
 
-    [:octicons-arrow-right-24: Learn more](./apis/data-catalogue-api/intro.html)
+    [:octicons-arrow-right-24: Learn more](./apis/data-catalogue-api/intro.md)
 
 </div>
 
