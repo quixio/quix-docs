@@ -64,4 +64,4 @@ Follow these steps to deploy the **object detection service**:
     7. Add the class ID (object type detected) and the count for that object type. 
     8. The row is written out. The row includes the image binary, geolocation, and delta as a measure of performance for object detection.
 
-[Part 3 - TfL video :material-arrow-right-circle:{ align=right }](connect-video-tfl.md)
+[Part 4 - TfL video :material-arrow-right-circle:{ align=right }](connect-video-tfl.md)

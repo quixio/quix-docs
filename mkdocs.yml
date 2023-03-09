@@ -36,11 +36,12 @@ nav:
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
         - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
-        - '2. Object detection': platform/tutorials/image-processing/object-detection.md
-        - '3. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
-        - '4. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
-        - '5. Deploy the UI': platform/tutorials/image-processing/web-ui.md
-        - '6. Summary': platform/tutorials/image-processing/summary.md        
+        - '2. Decode images': platform/tutorials/image-processing/decode.md
+        - '3. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '4. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
+        - '5. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
+        - '6. Deploy the UI': platform/tutorials/image-processing/web-ui.md
+        - '7. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
