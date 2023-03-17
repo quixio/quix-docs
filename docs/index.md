@@ -69,33 +69,33 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
 ## Core resources
 
-Read more about the Quix SDK and APIs.
+Read more about the Quix Streams Client Library and APIs.
 
 <div class="grid cards" markdown>
 
--  __Connect to Quix - SDK__
+-  __Connect to Quix - Client Library__
 
     ---
 
-    Discover how to connect Quix and your application using our SDK.
+    Discover how to connect Quix and your application using Quix Streams.
 
-    [:octicons-arrow-right-24: Learn more](./sdk/connect.md)
+    [:octicons-arrow-right-24: Learn more](./client-library/connect.md)
 
--   __Publish data - SDK__
-
-    ---
-
-    Read how to publish real-time data to Kafka topics using the Quix SDK.
-
-    [:octicons-arrow-right-24: Learn more](./sdk/publish.html)
-
--   __Subscribe to data - SDK__
+-   __Publish data - Client Library__
 
     ---
 
-    Learn how to subscribe to real-time data in your application using the Quix SDK.
+    Read how to publish real-time data to Kafka topics using Quix Streams.
 
-    [:octicons-arrow-right-24: Learn more](./sdk/subscribe.html)
+    [:octicons-arrow-right-24: Learn more](./client-library/publish.html)
+
+-   __Subscribe to data - Client Library__
+
+    ---
+
+    Learn how to subscribe to real-time data in your application using Quix Streams.
+
+    [:octicons-arrow-right-24: Learn more](./client-library/subscribe.html)
 
 -   __Streaming Writer API__
 

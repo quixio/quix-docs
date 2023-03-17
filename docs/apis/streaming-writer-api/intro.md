@@ -2,7 +2,7 @@
 
 The Streaming Writer API allows you to stream data into the Quix
 platform via HTTP endpoints or SignalR. It’s an alternative to using our
-C\# and Python SDKs. You can use the Streaming Writer API from any
+C\# and Python client libraries. You can use the Streaming Writer API from any
 HTTP-capable language.
 
 The API is fully documented in our [Swagger

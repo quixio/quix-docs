@@ -1,1 +1,1 @@
-This file is replaced with the SDK Docs README.md file during the build
+This file is replaced with the Quix Streams README.md file during the build

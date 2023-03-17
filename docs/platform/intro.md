@@ -4,7 +4,7 @@ Quix is a platform for developing and deploying applications with
 streaming data.
 
 We architected Quix natively around a message broker (specifically
-[Kafka](../sdk/kafka.md)) because we know databases are in the way of
+[Kafka](../client-library/kafka.md)) because we know databases are in the way of
 building low-latency applications that scale cost-effectively. Instead
 of working with data on a disk, developers could work with live data
 in-memory, if broker technologies were easier to use.
@@ -19,7 +19,7 @@ keeping your data in-memory, helping to achieve lower latencies and
 lower operating costs.
 
 From the top-down, our stack provides a Web UI,
-[APIs](../apis/index.md) and [SDK](../sdk/introduction.md) that abstract
+[APIs](../apis/index.md) and [Quix Streams](../client-library/introduction.md) that abstract
 developers off our underlying infrastructure, including fully-managed
 Kafka topics, serverless compute environment and a metadata-driven data
 catalogue (time-series database with steroids).
@@ -70,7 +70,7 @@ include:
 
 [**Stream Writer API**](../apis/streaming-writer-api/intro.md): helps
 you send any data to a Kafka topic in Quix using HTTP. This API handles
-encryption, serialization and conversion to the Quix SDK format ensuring
+encryption, serialization and conversion to the Quix Streams format ensuring
 efficiency and performance of down-stream processing regardless of the
 data source.
 
@@ -85,21 +85,21 @@ build dashboards and export data to other systems.
 [**Portal API**](../apis/portal-api.md): lets you automate Portal tasks
 like creating workspaces, topics and deployments.
 
-## SDK
+## Quix Streams
 
 Python is the dominant language for data science and machine learning,
 but it is quite incompatible with streaming technologies (like
-[Kafka](../sdk/kafka.md)) which are predominantly written in Java and
+[Kafka](../client-library/kafka.md)) which are predominantly written in Java and
 Scala.
 
-Our [Quix streaming SDK](../sdk/introduction.md) is a client library that
+Our [Quix Streams](../client-library/introduction.md) is a client library that
 abstracts Python developers off streaming-centric complexities like
 learning Java or dealing with buffering, serialization and encryption.
 
-Instead, SDK serves you streaming data in a data frame so you can write
+Instead, Quix Streams serves you streaming data in a data frame so you can write
 any simple or complex data processing logic and connect it directly to
 the broker. There are just a few key streaming concepts that you must
-learn. You can read about them [here](../sdk/introduction.md).
+learn. You can read about them [here](../client-library/introduction.md).
 
 ## Serverless compute
 
@@ -191,7 +191,7 @@ your solution grows in data volume or complexity you can just add more
 topics without concern for the underlying infrastructure which is
 handled by us.
 
-Together with our [SDK](../sdk/introduction.md) and serverless compute, you
+Together with our [client library](../client-library/client-library-intro.md) and serverless compute, you
 can connect your models directly to our topics to read and write data
 using the pub/sub pattern. This keeps the data in-memory to deliver
 low-latency and cost effective stream processing capabilities.
