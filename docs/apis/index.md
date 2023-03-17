@@ -13,12 +13,12 @@ any language with HTTP capabilities.
 
 The [Streaming Writer API](streaming-writer-api/intro.md) allows you
 to stream data into the Quix platform via HTTP. It’s an alternative to
-using our C\# and Python SDKs. You can use the Streaming Writer API from
+using our C\# and Python client libraries. You can use the Streaming Writer API from
 any HTTP-capable language.
 
 ## Streaming Reader
 
-As an alternative to the SDK, the Quix platform supports real-time data
+As an alternative to the client library, the Quix platform supports real-time data
 streaming over WebSockets, via the [Streaming Reader
 API](streaming-reader-api/intro.md). Clients can receive updates on
 data and definitions for parameters and events, as they happen. The

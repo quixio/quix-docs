@@ -76,7 +76,7 @@ Using the following steps, update the default code so it decodes the web cam ima
     def on_stream_received_handler(stream_consumer: qx.StreamConsumer):
         # subscribe to new DataFrames being received
         # if you aren't familiar with DataFrames there are other callbacks available
-        # refer to the docs here: https://docs.quix.io/sdk/subscribe.html
+        # refer to the docs here: https://docs.quix.io/client-library/subscribe.html
         stream_consumer.events.on_data_received = on_event_data_received_handler # register the event data callback
         stream_consumer.timeseries.on_dataframe_received = on_dataframe_received_handler
 

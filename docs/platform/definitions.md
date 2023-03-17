@@ -74,7 +74,7 @@ of numeric (double precision), string (UTF-8) and binary data (blobs).
 
 ### Parameters
 
-Parameters are values that develop over time. The Quix SDK supports
+Parameters are values that develop over time. Quix Streams supports
 numeric and string values.
 
 For example:
@@ -173,10 +173,9 @@ Any application code that is run once. For example, use a job to run a
 batch import of data from an existing data store (CSV, DB or DataLake
 etc).
 
-## SDK
+## Quix Streams
 
-[Quix SDK](../sdk/introduction.md) is the main library we use to send and
-receive real-time data in our streaming applications.
+[Quix Streams](../client-library/introduction.md) is the main client library we use to send and receive real-time data in our streaming applications.
 
 ## APIs
 
@@ -185,7 +184,7 @@ receive real-time data in our streaming applications.
 A [HTTP API](../apis/streaming-writer-api/intro.md) used to send
 telemetry data from any source to a topic in the Quix platform. It
 should be used when it is not possible to use directly our
-[SDK](../sdk/introduction.md).
+[client library](../client-library/client-library-intro.md).
 
 ### Streaming Reader API
 

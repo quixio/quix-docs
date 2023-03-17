@@ -198,7 +198,7 @@ Follow these instructions to deploy the data source:
 
 		- Opens the CSV file using Pandas.
 
-		- Renames some columns so the Quix SDK teams them as tags.
+		- Renames some columns so Quix Streams teams them as tags.
 
 		- Then streams each row to the `phone-data` topic.
 
