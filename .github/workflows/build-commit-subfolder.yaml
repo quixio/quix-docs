@@ -26,18 +26,10 @@ jobs:
     - name: Get branch name
       id: getbr
       uses: tj-actions/branch-names@v6
-
+    
     - name: Get the branch output
       run: echo "The output of get-branch is ${{ steps.getbr.outputs.ref_branch }}"
-
-    - name: Get tag
-      id: gettag
-      run: |
-         echo "${{env.GITHUB_REF_NAME}}"
-
-    - name: Get the above output
-      run: echo "The output of get-tag is ${{ steps.gettag.outputs.value }}"
-
+      
     - name: Remove last part of PR ref
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
@@ -157,14 +149,14 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name pr${{ steps.findandreplace.outputs.value }}${{ steps.gettag.outputs.value }} --public-access container --account-name quixdocsdev --auth-mode key
+            az storage container create --name pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }} --public-access container --account-name quixdocsdev --auth-mode key
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d 'pr${{ steps.findandreplace.outputs.value }}${{ steps.gettag.outputs.value }}' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d 'pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}' -s site
 
   # Azure logout
     - name: logout
@@ -173,14 +165,14 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{ steps.gettag.outputs.value }}/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}/index.html"
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
-          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{ steps.gettag.outputs.value }}/index.html
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}/index.html
         message-failure: |
             Build failed. URL was not updated.
       
