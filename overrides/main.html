@@ -1,28 +1,50 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+{% block analytics %} 
+{{ super }}
+<!-- Google Tag Manager (noscript) -->
+<noscript
+  ><iframe
+    src="https://www.googletagmanager.com/ns.html?id={{ config.extra.analytics.property }}"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden"
+  ></iframe
+></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Add scripts that need to run afterwards here -->
+{% endblock %}
 
+<!-- add CTA -->
 {% block header %}
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ config.extra.analytics.property }}"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
- <!-- End Google Tag Manager (noscript) -->
-  {{ super() }}
-  <!-- Add scripts that need to run afterwards here -->
-  <!-- Hotjar Tracking Code for https://documentation.platform.quix.ai/ -->
-  <script>
-    let hj_id = "{{ config.extra.hotjar.id }}";
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:hj_id,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-{% endblock %}
+<div class="title-bar" style="display: inline-flex; flex-direction: row">
+  <div
+    class="btn-class"
+    style="
+      background-color: var(--md-primary-fg-color);
+      color: red;
+      border: 1px solid white;
+      width: 100px;
+    "
+  ></div>
+  <div style="flex: 1; width: 80%">{{ super() }}</div>
+  <div
+    class="btn-class"
+    style="
+      background-color: var(--md-primary-fg-color);
+      color: red;
+      border: 1px solid white;
+      width: 100px;
+    "
+  >
+    <button
+      style="padding: 10px; margin: 5px; background: red"
+      onclick="location.href='https://portal.platform.quix.ai/self-sign-up'"
+      type="button"
+    >
+      Signup Now!
+    </button>
+  </div>
+</div>
+{% endblock %} 
 
-{% block footer %}
-
-{{ super() }}
-  
-{% endblock %}
+{% block footer %} {{ super() }} {% endblock %}
