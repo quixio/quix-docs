@@ -14,7 +14,13 @@
 <!-- Add scripts that need to run afterwards here -->
 {% endblock %}
 
-<!-- add CTA -->
+{% block outdated %}
+  You're not viewing the latest version.
+  <a href="{{ '../' ~ base_url }}"> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+{% endblock %}
+
 {% block header %}
 <header class="md-header md-header--shadow" data-md-component="header">
   <div class="header-wrapper md-grid"><nav aria-label="Header" class="md-header__inner">

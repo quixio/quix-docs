@@ -188,6 +188,8 @@ extra:
     property: GTM-55L66N3 #UA-173360929-3 ignored, using GTM instead of universal analytics
   hotjar:
     id: 2437577
+  version:
+    provider: mike
 
   consent:
     title: Cookie consent
