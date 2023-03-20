@@ -26,18 +26,18 @@ jobs:
     - name: Get branch name
       id: getbr
       uses: tj-actions/branch-names@v6
-    
+
+    - name: Get the branch output
+      run: echo "The output of get-branch is ${{ steps.getbr.outputs.ref_branch }}"
+
     - name: Get tag
       id: gettag
       run: |
-         echo "${{  github.ref_name }}"
+         echo "${{env.GITHUB_REF_NAME}}"
 
     - name: Get the above output
       run: echo "The output of get-tag is ${{ steps.gettag.outputs.value }}"
 
-    - name: Get the branch output
-      run: echo "The output of get-branch is ${{ steps.getbr.outputs.ref_branch }}"
-      
     - name: Remove last part of PR ref
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
