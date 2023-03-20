@@ -66,7 +66,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=task/33358-add-tomas-feedback'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
