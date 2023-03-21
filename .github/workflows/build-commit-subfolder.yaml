@@ -58,6 +58,11 @@ jobs:
       run: |
           echo HEllo
 
+    - name: HasTagNoHello
+      if: "${{ github.ref_type }} != tag"
+      run: |
+          echo No Hello
+
     - name: blob
       run: echo $Deployment_Dir
 
