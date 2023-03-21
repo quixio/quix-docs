@@ -180,14 +180,14 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/$Deployment_Dir/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ Deployment_Dir }}/index.html"
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
-          Docs preview site available at https://quixdocsdev.blob.core.windows.net/$Deployment_Dir/index.html
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ Deployment_Dir }}/index.html
         message-failure: |
             Build failed. URL was not updated.
       
@@ -204,7 +204,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/$Deployment_Dir/index.html"
+                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/${{ Deployment_Dir }}/index.html"
                 }
               }
             ]
