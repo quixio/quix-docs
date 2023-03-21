@@ -2,8 +2,8 @@ name: On PR, Build, Publish to Azure Bucket
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-env:
-  SITE_DIR: ${{ github.ref }}
+#env:
+  #SITE_DIR: ${{ github.ref }}
   #SITE_DIR: subsite
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
     branches:
       - 'dev'
     tags:
-    - test-*
+      - test-*
   pull_request:
     types: [opened, reopened]
 
@@ -34,12 +34,27 @@ jobs:
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
       with:
-        source: ${{ steps.getbr.outputs.ref_branch }}
+        source: 'pr${{ steps.getbr.outputs.ref_branch }}'
         find: '/merge'    
         replace: '' 
         
     - name: Get the above output
-      run: echo "The output of findandreplace is ${{ steps.findandreplace.outputs.value }}"
+      run: echo "The output of findandreplace is $Deployment_Dir"
+
+    - name: BuildHasTag
+      if: ${{ github.ref_type=='tag' }}
+      run:  |
+          echo "Setting Deployment_Dir to tag-${{ github.ref_name }} -- ${{ github.ref_type }}"
+          echo "Deployment_Dir=tag-${{ github.ref_name }}" >> $GITHUB_ENV
+
+    - name: BuildHasNoTag
+      if: ${{ github.ref_type!='tag' }}
+      run: |
+          echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
+          echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+
+    - name: blob
+      run: echo $Deployment_Dir
 
     - name: Checkout Dev
       uses: actions/checkout@v3
@@ -149,14 +164,14 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name pr${{ steps.findandreplace.outputs.value }} --public-access container --account-name quixdocsdev --auth-mode key
+            az storage container create --name ${{ env.Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d 'pr${{ steps.findandreplace.outputs.value }}' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
 
   # Azure logout
     - name: logout
@@ -165,14 +180,14 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
-          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html
         message-failure: |
             Build failed. URL was not updated.
       
@@ -189,7 +204,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
                 }
               }
             ]
