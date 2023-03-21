@@ -34,13 +34,28 @@ jobs:
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
       with:
-        source: ${{ steps.getbr.outputs.ref_branch }}
+        source: 'PR${{ steps.getbr.outputs.ref_branch }}'
         find: '/merge'    
         replace: '' 
         
     - name: Get the above output
       run: echo "The output of findandreplace is ${{ steps.findandreplace.outputs.value }}"
-  
+
+    - name: BuildHasTag
+      if: "${{ github.ref_type }} == 'tag'"
+      run: echo "Setting Deployment_Dir to 'TAG-${{ github.ref_name }}'"
+      env:
+          Deployment_Dir: 'TAG-${{ github.ref_name }}'
+
+    - name: BuildHasNoTag
+      if: "${{ github.ref_type }} != 'tag'"
+      run: echo "Setting Deployment_Dir to 'PR-${{ steps.findandreplace.outputs.value }}'"
+      env:
+          Deployment_Dir: 'PR-${{ steps.findandreplace.outputs.value }}'
+
+    - name: blob
+      run: echo $Deployment_Dir
+
     - name: Checkout Dev
       uses: actions/checkout@v3
     
@@ -149,14 +164,14 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }} --public-access container --account-name quixdocsdev --auth-mode key
+            az storage container create --name ${{ Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d 'pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ steps.findandreplace.outputs.value }}' -s site
 
   # Azure logout
     - name: logout
@@ -165,14 +180,14 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ steps.findandreplace.outputs.value }}/index.html"
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
-          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}${{  github.ref_name }}/index.html
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ steps.findandreplace.outputs.value }}/index.html
         message-failure: |
             Build failed. URL was not updated.
       
@@ -189,7 +204,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/${{ steps.findandreplace.outputs.value }}/index.html"
                 }
               }
             ]
