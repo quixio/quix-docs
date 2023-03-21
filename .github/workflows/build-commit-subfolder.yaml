@@ -54,7 +54,7 @@ jobs:
           Deployment_Dir: 'PR-${{ steps.findandreplace.outputs.value }}'
 
     - name: blob
-      run: echo $Deployment_Dir
+      run: echo ${{Deployment_Dir}}
 
     - name: Checkout Dev
       uses: actions/checkout@v3
