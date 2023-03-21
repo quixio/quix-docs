@@ -3,7 +3,7 @@ name: On PR, Build, Publish to Azure Bucket
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 env:
-  SITE_DIR: ${{ github.ref }}
+  #SITE_DIR: ${{ github.ref }}
   #SITE_DIR: subsite
 on:
   workflow_dispatch:
@@ -50,8 +50,13 @@ jobs:
     - name: BuildHasNoTag
       if: "${{ github.ref_type }} != 'tag'"
       run: |
-          echo "Setting Deployment_Dir to PR$Deployment_Dir"
-          echo "Deployment_Dir=PR${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
+          echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+
+    - name: HasTagHello
+      if: "${{ github.ref_type }} == tag"
+      run: |
+          echo HEllo
 
     - name: blob
       run: echo $Deployment_Dir
