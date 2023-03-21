@@ -12,7 +12,7 @@ on:
     branches:
       - 'dev'
     tags:
-    - test*
+      - test-*
   pull_request:
     types: [opened, reopened]
 
@@ -44,8 +44,8 @@ jobs:
     - name: BuildHasTag
       if: ${{ github.ref_type=='tag' }}
       run:  |
-          echo "Setting Deployment_Dir to tag${{ github.ref_name }} -- ${{ github.ref_type }}"
-          echo "Deployment_Dir=tag${{ github.ref_name }}" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to tag-${{ github.ref_name }} -- ${{ github.ref_type }}"
+          echo "Deployment_Dir=tag-${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
       if: ${{ github.ref_type!='tag' }}
