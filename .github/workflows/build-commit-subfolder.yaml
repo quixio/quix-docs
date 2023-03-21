@@ -2,7 +2,7 @@ name: On PR, Build, Publish to Azure Bucket
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-env:
+#env:
   #SITE_DIR: ${{ github.ref }}
   #SITE_DIR: subsite
 on:
