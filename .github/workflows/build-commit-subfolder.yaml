@@ -164,7 +164,7 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name $Deployment_Dir --public-access container --account-name quixdocsdev --auth-mode key
+            az storage container create --name ${{ env.Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
