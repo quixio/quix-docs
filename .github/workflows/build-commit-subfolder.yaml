@@ -34,7 +34,7 @@ jobs:
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
       with:
-        source: 'PR${{ steps.getbr.outputs.ref_branch }}'
+        source: 'pr${{ steps.getbr.outputs.ref_branch }}'
         find: '/merge'    
         replace: '' 
         
@@ -44,8 +44,8 @@ jobs:
     - name: BuildHasTag
       if: ${{ github.ref_type=='tag' }}
       run:  |
-          echo "Setting Deployment_Dir to TAG${{ github.ref_name }} -- ${{ github.ref_type }}"
-          echo "Deployment_Dir=TAG${{ github.ref_name }}" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to tag${{ github.ref_name }} -- ${{ github.ref_type }}"
+          echo "Deployment_Dir=tag${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
       if: ${{ github.ref_type!='tag' }}
