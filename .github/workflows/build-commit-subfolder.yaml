@@ -43,18 +43,18 @@ jobs:
 
     - name: BuildHasTag
       if: "${{ github.ref_type }} == 'tag'"
-      run: echo "Setting Deployment_Dir to 'TAG-${{ github.ref_name }}'"
-      env:
-          Deployment_Dir: 'TAG-${{ github.ref_name }}'
+      run:  |
+          echo "Setting Deployment_Dir to 'TAG-${{ github.ref_name }}'"
+          echo "Deployment_Dir='TAG-${{ github.ref_name }}'" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
       if: "${{ github.ref_type }} != 'tag'"
-      run: echo "Setting Deployment_Dir to 'PR-${{ steps.findandreplace.outputs.value }}'"
-      env:
-          Deployment_Dir: 'PR-${{ steps.findandreplace.outputs.value }}'
+      run: |
+          echo "Setting Deployment_Dir to 'PR-${{ steps.findandreplace.outputs.value }}'"
+          echo "Deployment_Dir='PR-${{ steps.findandreplace.outputs.value }}'" >> $GITHUB_ENV
 
     - name: blob
-      run: echo ${{Deployment_Dir}}
+      run: echo $Deployment_Dir
 
     - name: Checkout Dev
       uses: actions/checkout@v3
