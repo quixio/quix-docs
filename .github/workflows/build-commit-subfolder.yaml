@@ -44,13 +44,13 @@ jobs:
     - name: BuildHasTag
       if: "${{ github.ref_type }} == 'tag'"
       run:  |
-          echo "Setting Deployment_Dir to TAG-${{ github.ref_name }}"
+          echo "Setting Deployment_Dir to TAG${{ github.ref_name }}"
           echo "Deployment_Dir=TAG-${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
       if: "${{ github.ref_type }} != 'tag'"
       run: |
-          echo "Setting Deployment_Dir to PR-$Deployment_Dir"
+          echo "Setting Deployment_Dir to PR$Deployment_Dir"
           echo "Deployment_Dir=PR-$Deployment_Dir" >> $GITHUB_ENV
 
     - name: blob
@@ -171,7 +171,7 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '$Deployment_Dir' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
 
   # Azure logout
     - name: logout
