@@ -54,12 +54,12 @@ jobs:
           echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
 
     - name: HasTagHello
-      if: "${{ github.ref_type }} == tag"
+      if: ${{ github.ref_type }} == 'tag'
       run: |
           echo HEllo
 
     - name: HasTagNoHello
-      if: "${{ github.ref_type }} != tag"
+      if: ${{ github.ref_type }} != 'tag'
       run: |
           echo No Hello
 
