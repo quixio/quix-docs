@@ -62,6 +62,7 @@ jobs:
       if: ${{ github.ref_type }} != 'tag'
       run: |
           echo No Hello
+          echo 1tag 2'tag' 3${{ github.ref_type }} 4${{ github.ref_type }}=='tag' 5${{ github.ref_type }}==tag
 
     - name: blob
       run: echo $Deployment_Dir
