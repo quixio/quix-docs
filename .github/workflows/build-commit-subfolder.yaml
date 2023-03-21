@@ -44,14 +44,14 @@ jobs:
     - name: BuildHasTag
       if: "${{ github.ref_type }} == 'tag'"
       run:  |
-          echo "Setting Deployment_Dir to 'TAG-${{ github.ref_name }}'"
-          echo "Deployment_Dir='TAG-${{ github.ref_name }}'" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to TAG-${{ github.ref_name }}"
+          echo "Deployment_Dir=TAG-${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
       if: "${{ github.ref_type }} != 'tag'"
       run: |
-          echo "Setting Deployment_Dir to 'PR-$Deployment_Dir'"
-          echo "Deployment_Dir='PR-$Deployment_Dir'" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to PR-$Deployment_Dir"
+          echo "Deployment_Dir=PR-$Deployment_Dir" >> $GITHUB_ENV
 
     - name: blob
       run: echo $Deployment_Dir
