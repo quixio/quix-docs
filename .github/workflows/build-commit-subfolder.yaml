@@ -42,27 +42,16 @@ jobs:
       run: echo "The output of findandreplace is $Deployment_Dir"
 
     - name: BuildHasTag
-      if: "${{ github.ref_type }} == 'tag'"
+      if: ${{ github.ref_type=='tag' }}
       run:  |
           echo "Setting Deployment_Dir to TAG${{ github.ref_name }} -- ${{ github.ref_type }}"
           echo "Deployment_Dir=TAG${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: BuildHasNoTag
-      if: "${{ github.ref_type }} != 'tag'"
+      if: ${{ github.ref_type!='tag' }}
       run: |
           echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
           echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
-
-    - name: HasTagHello
-      if: ${{ github.ref_type }} == 'tag'
-      run: |
-          echo HEllo
-
-    - name: HasTagNoHello
-      if: ${{ github.ref_type }} != 'tag'
-      run: |
-          echo No Hello
-          echo 1tag 2'tag' 3${{ github.ref_type }} 4${{ github.ref_type }}=='tag' 5${{ github.ref_type }}==tag 6${{ github.ref_type=='tag' }}
 
     - name: blob
       run: echo $Deployment_Dir
