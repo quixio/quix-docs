@@ -54,6 +54,11 @@ jobs:
       - name: Install MKdocs Monorepo Plugin
         run: pip install mkdocs-monorepo-plugin
 
+      # add mkdocs-redirects
+      # zoom images
+      - name: Install mkdocs-redirects
+        run: pip install mkdocs-redirects
+        
       # add lightbox
       # zoom images
       - name: Install MkDocs Light Box

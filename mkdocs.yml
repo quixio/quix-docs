@@ -104,7 +104,28 @@ plugins:
       separator: '[\s\-\.]' 
   - glightbox
   - multirepo
-  
+  - redirects:
+      redirect_maps:
+        'sdk-intro.md': 'client-library-intro.md'
+        'sdk/quickstart.md': 'client-library/quickstart.md'
+        'sdk/kafka.md': 'client-library/kafka.md'
+        'sdk/features/streaming-context.md': 'client-library/streaming-context.md'
+        'sdk/features/builtin-buffers.md': 'client-library/builtin-buffers.md'
+        'sdk/features/data-frames.md': 'client-library/data-frames.md'
+        'sdk/features/message-splitting.md': 'client-library/message-splitting.md'
+        'sdk/features/data-serialization.md': 'client-library/data-serialization.md'
+        'sdk/features/multiple-data-types.md': 'client-library/multiple-data-types.md'
+        'sdk/features/checkpointing.md': 'client-library/checkpointing.md'
+        'sdk/features/horizontal-scaling.md': 'client-library/horizontal-scaling.md'
+        'sdk/connect.md': 'client-library/connect.md'
+        'sdk/app-management.md': 'client-library/app-management.md'
+        'sdk/publish.md': 'client-library/publish.md'
+        'sdk/subscribe.md': 'client-library/subscribe.md'
+        'sdk/process.md': 'client-library/process.md'
+        'sdk/state-management.md': 'client-library/tate-management.md'
+        'sdk/versionmigration.md': 'client-library/versionmigration.md'
+        'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
+
 theme:
   name: 'material'
   custom_dir: overrides
