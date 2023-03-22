@@ -299,3 +299,10 @@ button.header-btn-inner:hover {
         display:none !important;
     }
 }
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    fill: currentcolor;
+    display: block;
+    height: 2.4rem;
+    width: auto;
+}
