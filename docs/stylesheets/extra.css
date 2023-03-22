@@ -250,6 +250,7 @@ li {
 .header-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header-btns {
@@ -270,6 +271,7 @@ button.header-btn-inner {
     cursor: pointer;
     width: max-content;
     transition: background-color .25s;
+    max-height: 2rem;
 }
 
 button.header-btn-inner:hover {
