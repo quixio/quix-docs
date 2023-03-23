@@ -125,6 +125,7 @@ plugins:
         'sdk/state-management.md': 'client-library/state-management.md'
         'sdk/versionmigration.md': 'client-library/versionmigration.md'
         'sdk/using.md': 'client-library/using.md'
+        'sdk/introduction.md': 'client-library-intro.md'
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
 
 theme:
