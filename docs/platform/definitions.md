@@ -30,7 +30,7 @@ An instance of a project running in the serverless environment. When you deploy 
 
 ### Service
 
-Any application code that runs continuously in the serverless environment. For example, a bridge, a function, a backend operation, or an integration to a third-party service like Twilio.
+Any application code that runs continuously in the serverless environment. For example, a connector, a function, a backend operation, or an integration to a third-party service like Twilio.
 
 ### Job
 
