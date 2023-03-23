@@ -137,7 +137,7 @@ With this data you can stream, process and store any type of audio, image, video
 
 ## Quix Streams
 
-[Quix Streams](../client-library/client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
+[Quix Streams](../client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## APIs
 
@@ -145,7 +145,7 @@ In addition to the Quix Streams client library, there are several APIs that you 
 
 ### Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library/client-library-intro.md). You application **writes** data into Quix Platform.
+An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). You application **writes** data into Quix Platform.
 
 ### Streaming Reader API
 

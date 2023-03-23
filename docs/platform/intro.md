@@ -191,7 +191,7 @@ your solution grows in data volume or complexity you can just add more
 topics without concern for the underlying infrastructure which is
 handled by us.
 
-Together with our [client library](../client-library/client-library-intro.md) and serverless compute, you
+Together with our [client library](../client-library-intro.md) and serverless compute, you
 can connect your models directly to our topics to read and write data
 using the pub/sub pattern. This keeps the data in-memory to deliver
 low-latency and cost effective stream processing capabilities.
