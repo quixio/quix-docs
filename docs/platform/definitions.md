@@ -2,6 +2,10 @@
 
 The following is a list of definitions to aid understanding of how to work with Quix and streaming data.
 
+## Online IDE (Quix Platform)
+
+Quix provides an online integrated development environment for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+
 ## Workspace
 
 In Quix Platform, a workspace is an instance of a complete streaming infrastructure isolated from the rest of your Organization in terms of performance and security. It contains its own dedicated API instances and Quix internal services.
@@ -16,7 +20,23 @@ Part of a typical workspace is shown here:
 
 Workspaces are collaborative. Multiple users, including developers, data scientitsts, and machine learning engineers, can all work together in the same workspace. You can invite other users into a workspace you created.
 
-## Topics
+## Project
+
+A set of code in Quix Platform that can be edited, compiled, executed, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
+
+## Deployment
+
+An instance of a project running in the serverless environment. When you deploy your project, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+
+### Service
+
+Any application code that runs continuously in the serverless environment. For example, a bridge, a function, a backend operation, or an integration to a third-party service like Twilio.
+
+### Job
+
+Any application code that is run once. For example, use a job to run a batch import of data from an existing data store, such as a CSV file, database, or data lake.
+
+## Topic
 
 A topic is a channel of real-time data. You can imagine a topic as the pipe used to interconnect the services that make up your stream processing pipeline.
 
@@ -47,9 +67,9 @@ A stream is a collection of data (time-series data, events, binary blobs and met
 
 Read more about [streams](../client-library/features/streaming-context.md).
 
-### Timestamp
+## Timestamp
 
-A timestamp is the primary key for all data in a stream.
+A timestamp is the primary key for all data in a [stream](#stream).
 
 Quix supports nanosecond precision. Nanosecond precision is at the leading edge of real-time computing, and is primarily driven by innovation with hardware and networking technology.
 
@@ -65,7 +85,7 @@ Quix supports time-series data, events, metadata, and blobs with the following d
 
 Read more about [data types](../client-library-intro.md#multiple-data-types).
 
-### Time-series data
+## Time-series data
 
 Tine-series data consists of values that change over time. Quix Streams supports numeric and string values.
 
@@ -77,9 +97,9 @@ For example:
 
 Referring back to topics as a grouping context: Quix recommends that each of these examples would be grouped into a single topic to maintain context.
 
-Read more about [time-series data](../client-library/publish.md#timeseriesdata-format)
+Read more about [time-series data](../client-library/publish.md#timeseriesdata-format).
 
-### Events
+## Events
 
 Events are a discrete occurrence of a thing that happens or takes place in time.
 
@@ -93,7 +113,7 @@ Events are typically things that occur less frequently. They are streamed into t
 
 Read more about [event data](../client-library/publish.md#eventdata-format).
 
-### Metadata
+## Metadata
 
 Metadata describes additional information or context about a stream.
 
@@ -107,37 +127,17 @@ Metadata typically has no time context, rather it exists as a constant throughou
 
 Metadata is key to data governance and becomes very useful in down-stream data processing and analytics.
 
-Read more about [Metadata](../client-library/publish.md#parameter-definitions)
+Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
-### Binary data
+## Binary data
 
 Quix also supports any binary blob data.
 
 With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time-series, event, or metadata types.
 
-## Project
-
-A set of code in Quix Platform that can be edited, compiled, executed, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
-
-## Online IDE (Quix Platform)
-
-Quix provides an online integrated development environment for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
-
-## Deployment
-
-An instance of a project running in the serverless environment. When you deploy your project, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
-
-### Service
-
-Any application code that runs continuously in the serverless environment. For example, a bridge, a function, a backend operation, or an integration to a third-party service like Twilio.
-
-### Job
-
-Any application code that is run once. For example, use a job to run a batch import of data from an existing data store, such as a CSV file, database, or data lake.
-
 ## Quix Streams
 
-[Quix Streams](../client-library/client-library-intro.md) is the main client library used to send and receive real-time data in your streaming applications.
+[Quix Streams](../client-library/client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## APIs
 
