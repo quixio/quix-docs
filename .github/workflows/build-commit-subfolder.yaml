@@ -2,8 +2,8 @@ name: On PR, Build, Publish to Azure Bucket
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-env:
-  SITE_DIR: ${{ github.ref }}
+#env:
+  #SITE_DIR: ${{ github.ref }}
   #SITE_DIR: subsite
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
     branches:
       - 'dev'
     tags:
-    - test-*
+      - test-*
   pull_request:
     types: [opened, reopened]
 
@@ -34,12 +34,27 @@ jobs:
       uses: mad9000/actions-find-and-replace-string@3
       id: findandreplace
       with:
-        source: ${{ steps.getbr.outputs.ref_branch }}
+        source: 'pr${{ steps.getbr.outputs.ref_branch }}'
         find: '/merge'    
         replace: '' 
         
     - name: Get the above output
-      run: echo "The output of findandreplace is ${{ steps.findandreplace.outputs.value }}"
+      run: echo "The output of findandreplace is $Deployment_Dir"
+
+    - name: BuildHasTag
+      if: ${{ github.ref_type=='tag' }}
+      run:  |
+          echo "Setting Deployment_Dir to tag-${{ github.ref_name }} -- ${{ github.ref_type }}"
+          echo "Deployment_Dir=tag-${{ github.ref_name }}" >> $GITHUB_ENV
+
+    - name: BuildHasNoTag
+      if: ${{ github.ref_type!='tag' }}
+      run: |
+          echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
+          echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+
+    - name: blob
+      run: echo $Deployment_Dir
 
     - name: Checkout Dev
       uses: actions/checkout@v3
@@ -53,6 +68,11 @@ jobs:
     # add 'monorepo' to mkdocs.yml file under plugins
     - run: pip install mkdocs-monorepo-plugin
 
+    # add mkdocs-redirects
+    # zoom images
+    - name: Install mkdocs-redirects
+      run: pip install mkdocs-redirects
+      
     # add lightbox
     # zoom images
     - name: Install MkDocs Light Box
@@ -69,46 +89,46 @@ jobs:
     - run: pip install mkdocs
     #- run: pip install mkdocs-material
 
-    # enable when there is an SDK dev branch 
+    # enable when there is an Client Library dev branch 
     # - name: Extract branch name
     #   shell: bash
     #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
     #   id: extract_branch
       
-    # checkout sdk files
-    - name: Checkout SDK
+    # checkout client library files
+    - name: Checkout Client Library
       uses: actions/checkout@v3
       with:
         repository: 'quixio/quix-streams'
         ref: 'main' # when a dev branch exists we can get the dev content
         #ref: '{{ steps.extract_branch.outputs.branch }}'
-        path: 'sdk'
+        path: 'client-library'
 
-    # copy sdk readme to sdk intro.md
-    - name: Copy and rename sdk's intro.md
+    # copy client-library readme to client-library intro.md
+    - name: Copy and rename client library intro.md
       shell: bash
-      run: cp sdk/README.md docs/sdk-intro.md
+      run: cp client-library/README.md docs/client-library-intro.md
 
-    # copy sdk images to sdk intro.md
-    - name: Copy SDK Quix image
+    # copy client library images to client library intro.md
+    - name: Copy Client Library Quix image
       shell: bash
-      run: cp sdk/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
+      run: cp client-library/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
 
-    # copy sdk images to docs/assets/sdk/
-    - name: Copy SDK waveform image
+    # copy client library images to docs/assets/client-library/
+    - name: Copy client library waveform image
       shell: bash
-      run: cp -r sdk/images/. docs/assets/sdk/
+      run: cp -r client-library/images/. docs/assets/client-library/
 
     # Change image URL in the copied file to new location 
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/sdk-intro.md"
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/client-library-intro.md"
     
-    # Change image paths from ./images to ./assets/sdk
+    # Change image paths from ./images to ./assets/client-library
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,./images,./assets/sdk/,g' docs/sdk-intro.md"
+      run: "sed -i 's,./images,./assets/client-library/,g' docs/client-library-intro.md"
 
     # clone the library repo
     - name: Checkout Library
@@ -149,14 +169,14 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage container create --name pr${{ steps.findandreplace.outputs.value }} --public-access container --account-name quixdocsdev --auth-mode key
+            az storage container create --name ${{ env.Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d 'pr${{ steps.findandreplace.outputs.value }}' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
 
   # Azure logout
     - name: logout
@@ -165,14 +185,14 @@ jobs:
       if: always()
           
     - name: Echo Site URL
-      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
       with:
         if: always()
         message: |
-          Docs preview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html
         message-failure: |
             Build failed. URL was not updated.
       
@@ -189,7 +209,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/pr${{ steps.findandreplace.outputs.value }}/index.html"
+                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
                 }
               }
             ]

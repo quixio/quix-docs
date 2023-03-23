@@ -22,4 +22,4 @@ Follow these steps to deploy the **webcam service**:
 
         Your browser may prompt you to allow access to your webcam. You can allow access.
 
-[Part 2 - Object detection :material-arrow-right-circle:{ align=right }](object-detection.md)
+[Part 2 - Decode images :material-arrow-right-circle:{ align=right }](decode.md)

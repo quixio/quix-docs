@@ -1,1 +1,0 @@
-This file is replaced with the SDK Docs README.md file during the build

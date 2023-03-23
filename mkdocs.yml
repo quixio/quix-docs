@@ -36,11 +36,12 @@ nav:
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
         - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
-        - '2. Object detection': platform/tutorials/image-processing/object-detection.md
-        - '3. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
-        - '4. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
-        - '5. Deploy the UI': platform/tutorials/image-processing/web-ui.md
-        - '6. Summary': platform/tutorials/image-processing/summary.md        
+        - '2. Decode images': platform/tutorials/image-processing/decode.md
+        - '3. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '4. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
+        - '5. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
+        - '6. Deploy the UI': platform/tutorials/image-processing/web-ui.md
+        - '7. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
@@ -65,7 +66,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'SDK': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
@@ -103,7 +104,29 @@ plugins:
       separator: '[\s\-\.]' 
   - glightbox
   - multirepo
-  
+  - redirects:
+      redirect_maps:
+        'sdk-intro.md': 'client-library-intro.md'
+        'sdk/quickstart.md': 'client-library/quickstart.md'
+        'sdk/kafka.md': 'client-library/kafka.md'
+        'sdk/features/streaming-context.md': 'client-library/features/streaming-context.md'
+        'sdk/features/builtin-buffers.md': 'client-library/features/builtin-buffers.md'
+        'sdk/features/data-frames.md': 'client-library/features/data-frames.md'
+        'sdk/features/message-splitting.md': 'client-library/features/message-splitting.md'
+        'sdk/features/data-serialization.md': 'client-library/features/data-serialization.md'
+        'sdk/features/multiple-data-types.md': 'client-library/features/multiple-data-types.md'
+        'sdk/features/checkpointing.md': 'client-library/features/checkpointing.md'
+        'sdk/features/horizontal-scaling.md': 'client-library/features/horizontal-scaling.md'
+        'sdk/connect.md': 'client-library/connect.md'
+        'sdk/app-management.md': 'client-library/app-management.md'
+        'sdk/publish.md': 'client-library/publish.md'
+        'sdk/subscribe.md': 'client-library/subscribe.md'
+        'sdk/process.md': 'client-library/process.md'
+        'sdk/state-management.md': 'client-library/state-management.md'
+        'sdk/versionmigration.md': 'client-library/versionmigration.md'
+        'sdk/using.md': 'client-library/using.md'
+        'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
+
 theme:
   name: 'material'
   custom_dir: overrides
@@ -163,6 +186,8 @@ extra:
   analytics:
     provider: google-tag-manager
     property: GTM-55L66N3 #UA-173360929-3 ignored, using GTM instead of universal analytics
+  hotjar:
+    id: 2437577
 
   consent:
     title: Cookie consent

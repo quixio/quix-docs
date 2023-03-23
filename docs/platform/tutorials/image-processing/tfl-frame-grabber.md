@@ -14,4 +14,4 @@ Follow these steps to deploy the **frame extraction service**:
 
     This service receives data from the `tfl-cameras` topic and streams data to the `image-raw` topic.
 
-[Part 5 - Web UI :material-arrow-right-circle:{ align=right }](web-ui.md)
+[Part 6 - Web UI :material-arrow-right-circle:{ align=right }](web-ui.md)

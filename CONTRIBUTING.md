@@ -24,6 +24,8 @@ If you want to fix an issue yourself, go ahead! We welcome edits. For small chan
 
 If you want to do more, or if you prefer to work offline, you can fork this repo, add your changes locally and then push to your fork. After that, you can create a pull request to merge your changes into the original docs repository.
 
+For more information on writing docs see the [Quix Writing Style Guide](GUIDE.md).
+
 **Note:** Please create forks or branches from the 'dev' branch.
 
 ## Online Edits in the GitHub Editor

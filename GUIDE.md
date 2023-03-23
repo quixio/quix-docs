@@ -37,10 +37,10 @@ Use the following guidelines regarding the company's name:
         * Managed Kafka
         * Serverless compute
         * Data catalogue
-        * SDK and APIs
-    * Quix Streams is our SDK:
-        * An SDK is a collection of code specific to one programming language. Data scientists refer to SDKs as client libraries.
-        * Quix currently offers Python and C# SDKs.
+        * APIs
+    * Quix Streams is our client library:
+        * A client library is a collection of code specific to one programming language.
+        * Quix currently offers Python and C# client libraries.
 
 ### Industry and Quix terms
 
@@ -157,8 +157,8 @@ Examples:
 * *Passive voice:* The apple was eaten by the man.
 * *Active voice:* The client creates the connection.
 * *Passive voice:* The connection is created by the client.
-* *Active voice:* Quix provides a Python SDK.
-* *Passive voice:* A Python SDK is provided by Quix.
+* *Active voice:* Quix provides a Python client library.
+* *Passive voice:* A Python client library is provided by Quix.
 
 Active voice is simpler, more direct, and easier to translate.
 
@@ -180,17 +180,17 @@ You can break out the bracketed text into a new sentence or rewrite the text to 
 
 *Avoid:*
 
-    You can implement this in JavaScript (or Python using the Python SDK (otherwise know as the library)), or C# (with the .NET runtime).
+    You can implement this in JavaScript (or Python using the Python client library (otherwise known as the SDK)), or C# (with the .NET runtime).
 
 *Better:*
 
     You can implement your widget with:
 
     * JavaScript
-    * Python using the Python SDK
+    * Python using the Python client library
     * C# .NET
 
-    **Note:** SDKs are sometimes referred to as libraries.
+    **Note:** Libraries are sometimes referred to as SDKs.
 
 The general rule is avoid parentheses.
 
@@ -231,8 +231,8 @@ Use Quix, rather than 'we', when referring to the company.
 
 Example:
 
-* *Avoid:* We also provide a Python SDK.
-* *Better:* Quix also provides a Python SDK.
+* *Avoid:* We also provide a Python client library.
+* *Better:* Quix also provides a Python client library.
 
 ## Avoid Latin phrases and abbreviations
 
@@ -346,7 +346,7 @@ Some additional points to bear in mind:
 
 * Explain the *why* to the developer. Rather than simply state what a feature or function does, also explain why it is needed.
 * Avoid statements that predict the future, for example, "the next version will have feature X". There are good legal reasons for avoiding predicting the future.
-* Avoid time-sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change. Sometimes though you do want to use the terms 'current version' or 'latest version', for example: "The latest version of the Python SDK can always be downloaded from its GitHub repository".
+* Avoid time-sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change. Sometimes though you do want to use the terms 'current version' or 'latest version', for example: "The latest version of the Python client library can always be downloaded from its GitHub repository".
 * Avoid using ampersand ('&') instead of 'and', unless you are specifying a programming language operator or similar.
 * Avoid pricing information in *technical documentation* as it is subject to change, hard to maintain, and could lead to legal issues if wrong. Instead, direct developers to sales for the latest pricing information.
 

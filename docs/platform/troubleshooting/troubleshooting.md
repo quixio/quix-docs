@@ -74,9 +74,9 @@ The APIs that require a valid bearer token are:
 
 	  - <https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
     
-## Error Handling in the SDK callbacks
+## Error Handling in the client library callbacks
 
-Errors generated in the SDK callback can be swallowed or hard to read.
+Errors generated in the client library callback can be swallowed or hard to read.
 To prevent this and make it easier to determine the root cause you
 should use a
 [traceback](https://docs.python.org/3/library/traceback.html){target=_blank}
@@ -87,7 +87,7 @@ Begin by importing traceback
 import traceback
 ```
 
-Then, inside the SDK callback where you might have an issue place code
+Then, inside the client library callback where you might have an issue place code
 similar to this:
 
 ``` python
@@ -155,7 +155,7 @@ ModuleNotFoundError: No module named 'quixstreaming'
 ```
 
 For information on how to setup your IDE for working with Quix please
-check out this [section](../../sdk/python-setup.md) on the SDK
+check out this [section](../../client-library/python-setup.md) in the client library
 documentation.
 
 ## Jupyter Notebooks
@@ -164,8 +164,7 @@ If you are having trouble with Jupyter Notebooks or another consumer of
 Quix data try using aggregation to reduce the number of records
 returned.
 
-For more info on aggregation check out this [short
-video](https://youtu.be/fnEPnIunyxA).
+For more info on aggregation check out this [short video](https://youtu.be/fnEPnIunyxA).
 
 ## Process Killed or Out of memory
 

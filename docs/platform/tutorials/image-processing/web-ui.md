@@ -28,4 +28,4 @@ You have now deployed the web UI.
 
 You can select the type of object you want to detect, and the locations at which that object are detected are displayed on the map. The number of occurrences of detection at that location are also displayed in the map pin.
 
-[Part 6 - Summary :material-arrow-right-circle:{ align=right }](summary.md)
+[Part 7 - Summary :material-arrow-right-circle:{ align=right }](summary.md)
