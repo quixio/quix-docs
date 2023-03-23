@@ -14,6 +14,8 @@ Part of a typical workspace is shown here:
 
 ![Workspace](./images/workspace.png)
 
+Workspaces are collaborative. Multiple users, including developers, data scientitsts, and machine learning engineers, can all work together in the same workspace. You can invite other users into a workspace you created.
+
 ## Topics
 
 A topic is a channel of real-time data. You can imagine a topic as the pipe used to interconnect the services that make up your stream processing pipeline.
@@ -143,11 +145,11 @@ In addition to the Quix Streams client library, there are several APIs that you 
 
 ### Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library/client-library-intro.md).
+An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library/client-library-intro.md). You application **writes** data into Quix Platform.
 
 ### Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application.
+A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. You application **reads** data from Quix Platform.
 
 ### Data Catalogue API
 
@@ -155,4 +157,4 @@ An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historic data i
 
 ### Portal API
 
-An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of Workspaces, Users, and Deployments.
+An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [workspaces](#workspace), [users](#workspace), and [deployments](#deployment).
