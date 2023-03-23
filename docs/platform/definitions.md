@@ -1,208 +1,160 @@
 # Definitions
 
-The following is a list of definitions to aid understanding of how to
-work with Quix and streaming data.
+The following is a list of definitions to aid understanding of how to work with Quix and streaming data.
+
+## Online IDE (Quix Platform)
+
+Quix provides an online integrated development environment for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
 
 ## Workspace
 
-A Workspace is an instance of a complete streaming infrastructure
-isolated from the rest of your Organization in terms of performance and
-security. It contains his own dedicated API instances and Quix internal
-services.
+In Quix Platform, a workspace is an instance of a complete streaming infrastructure isolated from the rest of your Organization in terms of performance and security. It contains its own dedicated API instances and Quix internal services.
 
-You can imagine a Workspace as the streaming infrastructure of your
-company or your team, where you don’t want other operations except the
-ones being developed in that workspace affecting the performance or the
-stability of your application.
+You can imagine a workspace as the streaming infrastructure of your company or your team. As each workspace has its own allocated infrastructure, development work in one workspace will not affect the performance and reliability of another workspace.
 
-You can also have different workspaces to separate different stages of
-your development process like Development, Staging, and Production.
+You can also have different workspaces to separate different stages of your development process like Development, Staging, and Production.
 
-## Topics
+Part of a typical workspace is shown here:
 
-A Topic is a channel of real-time data. You can imagine a topic as the
-pipe we use to interconnect our streaming applications.
+![Workspace](./images/workspace.png)
 
-It is highly recommended to organize the data of a topic with some kind
-of grouping context for the telemetry data coming from a single source.
-Very simplified, a topic is similar to a folder in a filesystem, the
-streams are the files in that folder, and your data is the contents of
-each file.
+Workspaces are collaborative. Multiple users, including developers, data scientitsts, and machine learning engineers, can all work together in the same workspace. You can invite other users into a workspace you created.
 
-For example:
+## Project
 
-  - Car engine data
+A set of code in Quix Platform that can be edited, compiled, executed, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
 
-  - Game data
+## Deployment
 
-  - Telemetry from one ECU on a Boeing 737
+An instance of a project running in the serverless environment. When you deploy your project, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
 
-Topics are key for scalability and good data governance. Use them to
-organize your data by:
+### Service
 
-  - Grouping incoming data by type or source
+Any application code that runs continuously in the serverless environment. For example, a connector, a function, a backend operation, or an integration to a third-party service like Twilio.
 
-  - Maintaining separate topics for raw, clean or processed data
+### Job
+
+Any application code that is run once. For example, use a job to run a batch import of data from an existing data store, such as a CSV file, database, or data lake.
+
+## Topic
+
+A topic is a channel of real-time data. You can imagine a topic as the pipe used to interconnect the services that make up your stream processing pipeline.
+
+It is highly recommended you organize the data of a topic with some kind of grouping context for the data coming from a single source. 
+
+A topic can be thought of as analogous to a multi-lane highway, the [streams](#stream) are the lanes in that highway, and your data is comparable to the cars in the lanes.
+
+Example topics might include:
+
+* Car engine data
+* Game data
+* Telemetry from one ECU on a Boeing 737
+
+Topics are key for scalability and good data governance. Use them to organize your data by:
+
+* Grouping incoming data by type or source
+* Maintaining separate topics for raw, clean, or processed data
+
+Read more about [topics](../client-library/publish.md#create-a-topic-producer).
 
 ## Stream
 
-A stream is a collection of data (parameters, events, binary blobs and
-metadata) that belong to a single session of a single source. For
-example:
+A stream is a collection of data (time-series data, events, binary blobs and metadata) that belong to a single session of a single source. For example:
 
-  - One journey for one car.
+* One journey for one car
+* One game session for one player
+* One flight for one aeroplane
 
-  - One game session for one player.
+Read more about [streams](../client-library/features/streaming-context.md).
 
-  - One flight for one aeroplane.
+## Timestamp
 
-### Timestamp
+A timestamp is the primary key for all data in a [stream](#stream).
 
-A timestamp is the primary key for all data in a stream.
+Quix supports nanosecond precision. Nanosecond precision is at the leading edge of real-time computing, and is primarily driven by innovation with hardware and networking technology.
 
-We support nanosecond precision; that’s 1 x 10-9 seconds or
-one-billionth of a second\!
-
-Nanosecond precision is at the bleeding edge of real-time computing and
-is primarily driven by innovation with hardware and networking
-technology; kudos to you if you have an application for it\!
+Read more about [timestamps](../client-library/publish.md#timestamps).
 
 ## Data Types
 
-We currently support any parameter, event, metadata or blob that consist
-of numeric (double precision), string (UTF-8) and binary data (blobs).
+Quix supports time-series data, events, metadata, and blobs with the following data types: 
 
-### Parameters
+* Numeric (double precision)
+* String (UTF-8)
+* Binary data (blobs)
 
-Parameters are values that develop over time. Quix Streams supports
-numeric and string values.
+Read more about [data types](../client-library-intro.md#multiple-data-types).
 
-For example:
+## Time-series data
 
-  - Crank revolution and oil temperature are two discrete engine
-    parameters that begin to define the engine system.
-
-  - Player position in X, Y and Z are three discreet parameters that
-    begin to define the player location in a game.
-
-  - Altitude, GPS LAT, GPS LONG and Speed are four parameters that begin
-    to define the location and velocity of a plane in the sky.
-
-  - Referring back to topics as a grouping context: we would recommend
-    that each of these examples would be grouped into a single topic to
-    maintain context.
-
-### Events
-
-Events are a discrete occurrence of a thing that happens or takes place.
+Tine-series data consists of values that change over time. Quix Streams supports numeric and string values.
 
 For example:
 
-  - Engine start, engine stop, warning light activated.
+* Crank revolution and oil temperature are two engine time-series variables that define the engine system.
+* Player position in X, Y and Z are three time-series variables that define the player location in a game.
+* Altitude, GPS LAT, GPS LONG and Speed are four time-series variables that define the location and velocity of a plane in the sky.
 
-  - Game started, match made, kill made, player won the race, lap
-    completed, track limits exceeded, task completed.
+Referring back to topics as a grouping context: Quix recommends that each of these examples would be grouped into a single topic to maintain context.
 
-  - Takeoff, landing, missile launched, fuel low, autopilot engaged,
-    pilot ejected.
+Read more about [time-series data](../client-library/publish.md#timeseriesdata-format).
 
-Events are typically things that occur less frequently. They are
-streamed into the same topics as their respective parameters and act to
-provide some context to what is happening.
+## Events
 
-Start and stop events mark the beginning and end of data streams.
+Events are a discrete occurrence of a thing that happens or takes place in time.
 
-### Metadata
+For example:
+
+* Engine start, engine stop, warning light activated.
+* Game started, match made, kill made, player won the race, lap completed, track limits exceeded, task completed.
+* Takeoff, landing, missile launched, fuel low, autopilot engaged, pilot ejected.
+
+Events are typically things that occur less frequently. They are streamed into the same topics as their related time-series data, and act to provide some context to what is happening. For example, start and stop events typically mark the beginning and end of a data stream.
+
+Read more about [event data](../client-library/publish.md#eventdata-format).
+
+## Metadata
 
 Metadata describes additional information or context about a stream.
 
 For example:
 
-  - License plate number, car manufacturer, car model, car engine type,
-    driver ID,
+* License plate number, car manufacturer, car model, car engine type, driver ID.
+* Game version, player name, game session type, game session settings, race car set-up.
+* Flight number, destination, airport of origin, pilot ID, airplane type.
 
-  - Game version, player name, game session type, game session settings,
-    race car set-up
+Metadata typically has no time context, rather it exists as a constant throughout one or more streams. For example, your metadata could be the configuration of a car that is sold from a dealership (such as engine size, transmission type, wheel size, tyre model etc); you could create a stream every time that car is driven by the owner, but the engine size and transmission type won’t change.
 
-  - Flight number, destination, airport of origin, pilot ID, airplane
-    type
+Metadata is key to data governance and becomes very useful in down-stream data processing and analytics.
 
-Metadata typically has no time context, rather it exists as a constant
-throughout one or more streams. For example, your metadata could be the
-configuration of a car that is sold from a dealership (such as engine
-size, transmission type, wheel size, tyre model etc); you could create a
-stream every time that car is driven by the owner, but the engine size
-and transmission type won’t change.
+Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
-Metadata is key to data governance and becomes very useful in
-down-stream data processing and analytics.
-
-### Binary data
+## Binary data
 
 Quix also supports any binary blob data.
 
-With this data you can stream, process and store any type of audio,
-image, video or lidar data, or anything that isn’t supported with our
-parameter, event or metadata types.
-
-## Project
-
-A set of code which can be edited, compiled, executed and deployed as
-one Docker image.
-
-## Online IDE
-
-We provide an online integrated development environment for python
-projects. When you open any python project, you will see the **Run**
-button and a console during runtime in addition to the intellisense for
-python files.
-
-## Deployment
-
-An instance of a Project running in the serverless environment.
-
-### Service
-
-Any application code that is continuously running in the serverless
-environment. For example, a bridge, a function, a backend operation, or
-an integration to a third party service like Twilio.
-
-### Job
-
-Any application code that is run once. For example, use a job to run a
-batch import of data from an existing data store (CSV, DB or DataLake
-etc).
+With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time-series, event, or metadata types.
 
 ## Quix Streams
 
-[Quix Streams](../client-library/introduction.md) is the main client library we use to send and receive real-time data in our streaming applications.
+[Quix Streams](../client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## APIs
 
+In addition to the Quix Streams client library, there are several APIs that you can use with Quix.
+
 ### Streaming Writer API
 
-A [HTTP API](../apis/streaming-writer-api/intro.md) used to send
-telemetry data from any source to a topic in the Quix platform. It
-should be used when it is not possible to use directly our
-[client library](../client-library/client-library-intro.md).
+An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). You application **writes** data into Quix Platform.
 
 ### Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/intro.md) used to
-stream any data directly from a topic to an external application. Most
-commonly used to read the results of a model or service to a real-time
-web application.
+A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. You application **reads** data from Quix Platform.
 
 ### Data Catalogue API
 
-An [HTTP API](../apis/data-catalogue-api/intro.md) used to query
-historic data in the Data Catalogue. Most commonly used for
-dashboards, analytics and training ML models. Also useful to call
-historic data when running an ML model or to call historic data from an
-external application.
+An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historic data in the Data Catalogue. Most commonly used for dashboards, analytics and training ML models. Also useful to call historic data when running an ML model, or to call historic data from an external application.
 
 ### Portal API
 
-An [HTTP API](../apis/portal-api.md) used to interact with most
-portal-related features such as creation of Workspaces, Users,
-Deployments, etc.
+An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [workspaces](#workspace), [users](#workspace), and [deployments](#deployment).
