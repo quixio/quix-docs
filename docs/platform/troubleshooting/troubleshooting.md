@@ -146,16 +146,15 @@ caused by DNS propagation.
 ## Python Version
 
 If you get strange errors when trying to compile your Python code
-locally please check that you are using Python version 3.8
+locally please check that you are using Python >=3.6 and <4
 
 For example you may encounter a *ModuleNotFoundError*
 
 ``` python
-ModuleNotFoundError: No module named 'quixstreaming'
+ModuleNotFoundError: No module named 'quixstreams'
 ```
 
-For information on how to setup your IDE for working with Quix please
-check out this [section](../../client-library/python-setup.md) in the client library
+For information on using the Quix Client Library please check out this [section](../../client-library/quickstart.md) in the client library
 documentation.
 
 ## Jupyter Notebooks

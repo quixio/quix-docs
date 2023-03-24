@@ -23,7 +23,7 @@ If you'd rather watch a live stream, where one of our developers steps through t
 
 ## Prerequisites
 
-To get started make sure you have a [free Quix account](https://portal.platform.quix.io/self-sign-up).
+To get started make sure you have a [free Quix account](https://portal.platform.quix.ai/self-sign-up).
 
 You'll also need a [free TfL account](https://api-portal.tfl.gov.uk). 
 
