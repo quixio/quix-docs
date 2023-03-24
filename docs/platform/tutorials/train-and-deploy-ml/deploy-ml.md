@@ -62,8 +62,6 @@ Ensure you are logged into the Quix Portal
 	
 	You can edit and run the code from here or clone it to your computer and work locally.
 	
-	See more about setting up your local environment [here](../../../client-library/python-setup.md).
-
 ### Upload the model
 
 Now you need to upload the ML model created in the previous article and edit this code to run the model.
