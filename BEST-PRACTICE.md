@@ -50,7 +50,7 @@ Good navigation is **critical** to effective TBW. Once a reader finds themselves
 The main left-hand navbar, or TOC, provides the main element of the information architecture, and is purposely organized into the following top-level hierarchy:
 
 1. **Landing page and Quickstart**. The idea here is to quickly orientate the reader. From the landing page they can jump to key pieces of documentation. The Quickstart provides an easy way to "dip a toe" into Quix, and try the product out. The Quickstart is divided into two parts: one aimed at all users, and one specifically targeting developers.
-2. **Quix Platform**. The is the main Quix product, and consists of the SaaS offering, UI, pipelines, deployments, and pre-built connectors and transforms. Concepts, How-Tos and Tutorials for Quix Platform are contained in here.
+2. **Quix Platform**. This is the main Quix product, and consists of the SaaS offering, UI, pipelines, deployments, and pre-built connectors and transforms. Concepts, How-Tos and Tutorials for Quix Platform are contained in here.
 3. **Client Library**. The Quix Streams client library provides a very effective way to write scalable real-time streaming applications. Using Quix Streams you can create solutions that work with Quix Platform, or with other services depending on your requirement. The `Client Library` section also includes API reference documentation generated from source code for both the Python and C# versions of Quix Streams.
 4. **APIs**. These are additional Quix APIs, other than those provided by Quix Streams. The documentation consists of general topics, as well as REST API references based on OAS3 documents.
 
@@ -94,6 +94,14 @@ Quix uses multiple (currently two) repositories to manage the Quix documentation
 2. [Quix Streams](https://github.com/quixio/quix-streams) - a stand-alone repository for Quix Streams, including all Quix Streams documentation.
 
 A feature of the [insiders program](https://squidfunk.github.io/mkdocs-material/insiders/) is the ability to import a complete repo and make it part of a documentation set. Quix uses this to import the Quix Streams documentation stored in the Quix Streams repo.
+
+## Docs we like
+
+We always look at what other companies are doing and try to follow best practices in documentation. Some documentation sites that the Quix team is impressed by include:
+
+* [Cockroach Labs](https://www.cockroachlabs.com/docs/) - great design and practical information architecture targeting users.
+* [Aiven](https://docs.aiven.io/docs/platform) - a very nice example of the use of topic-based writing.
+* [ReadySet](https://docs.readyset.io/) - another good example of topic-based writing, with crisp, clear design. They also use Material for MkDocs. 
 
 ## See also
 
