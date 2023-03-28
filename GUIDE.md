@@ -75,6 +75,10 @@ Use the following guidelines for industry-standard terms, and Quix terms:
 * DevOps, never devops
 * Startup and scale-up
 
+## Use topic-based writing
+
+You can read about the Quix approach to topic-based writing in the [companion guide](./BEST-PRACTICE.md).
+
 ## Use International English
 
 The company standard is, as with most software companies, to use International English. This is [defined](https://www.star-ts.com/about/translation-faq/what-is-international-english) as US spelling, with Americanisms removed.
@@ -288,6 +292,14 @@ If you do need to use title case, you can use one of the widely available [tools
 
 So, unless there is a good reason not to, use sentence case (first letter is capitalized).
 
+## Section headings
+
+There should only be one top-level section heading per topic (`h1`). Section headings below `h3` should be avoided, as they do not show in the "on this page" table of contents, and so important information can be missed. Instead, rethink the topic structure, or create an additional new topic if required.
+
+### Make section headings informative
+
+Make topic and section headings as precise and informative as possible. For example, "How to configure RAM in a deployment" is more useful as a topic title than "Deployments". It indicates the topic content is of "how to" type, and precisely identifies the configuration being performed. It may be that related material can be conveniently collected into a single topic without the topic length becoming excessive. You might perhaps have "How to configure a deployment" and then have sub-headings for RAM, CPU, Type, Replicas, and so on. Use your best judgement.
+
 ## Bulleted lists
 
 This is an example of a bulleted list:
@@ -340,6 +352,16 @@ Make sure you write the correct case for product names:
 * macOS not Mac OS
 * .NET not .Net or .net
 
+## Links
+
+Avoid excessive interlinking (use links sparingly), as readers tend to link hop and soon get disorientated. Consider having a "next steps" section at the end of a topic with cross-references to useful material. This allows readers to progress through the material without distraction, and thenpursue additional information should they require it.
+
+External links should open in a new tab. This can be achieved by constructing links using `{target=_blank}`, as follows:
+
+```
+[Link text](URL){target=_blank}
+```
+
 ## Other considerations
 
 Some additional points to bear in mind:
@@ -361,6 +383,10 @@ Some further examples of writing style guides are:
 * [Google's guide on inclusive documentation](https://developers.google.com/style/inclusive-documentation)
 * [Vonage/Nexmo](https://developer.nexmo.com/contribute/guides/writing-style-guide)
 * [Ably](https://github.com/ably/docs/blob/main/writing-style-guide.md)
+
+## See also
+
+* [Best Practice Guide](./BEST-PRACTICE.md) - the Quix guide on topic-based writing.
 
 ## Contact
 

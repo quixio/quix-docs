@@ -16,6 +16,22 @@ To run these docs locally you'll need:
 * Sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/), if you want to see all features rendered locally.
 * A Git client (the command line is fine).
 
+## Plugins used
+
+If you want to fully render all documentation locally you will need to install the following plugins with `pip install`:
+
+* [glightbox](https://pypi.org/project/mkdocs-glightbox/0.1.0/)
+* [multirepo](https://pypi.org/project/mkdocs-multirepo/)
+* [redirects](https://pypi.org/project/mkdocs-redirects/)
+
+You will also need to sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/).
+
+## Linked repositories
+
+This repo uses the `multirepo` plugin to pull in client library content from the [Quix Streams repo](https://github.com/quixio/quix-streams). 
+
+You can read more about Quix Streams [here](https://github.com/quixio/quix-streams/blob/main/README.md).
+
 ## Running the docs locally
 
 To view the docs locally:
@@ -30,15 +46,11 @@ To view the docs locally:
 4. Run `mkdocs serve`.
 5. Navigate your browser to `localhost:8000` to view the docs.
 
-## Linked repositories
-
-This repo uses the `multirepo` plugin to pull in content from the [Quix Streams repo](https://github.com/quixio/quix-streams). 
-
-You can read more about Quix Streams [here](https://github.com/quixio/quix-streams/blob/main/README.md). 
-
 ## Contributing
 
-If you would like to contribute to these docs, see the [contribution guide](./CONTRIBUTING.md).
+If you would like to contribute to these docs, see the [Contribution Guide](./CONTRIBUTING.md). 
+
+You should also become familiar with the Quix [Writing Style Guide](./GUIDE.md) and the [Best Practice Guide](./BEST-PRACTICE.md).
 
 ## Getting in touch
 
