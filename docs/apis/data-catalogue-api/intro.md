@@ -21,11 +21,11 @@ You’ll also need to have some data stored in the Quix platform for API
 use to be meaningful. You can use any Source of our [Quix Library](../../platform/samples/samples.md) to do this using the Quix
 portal.
 
-## Topics covered
+## Further documentation
 
 |                                                                    |                    |                                           |
 | ------------------------------------------------------------------ | ------------------ | ----------------------------------------- |
-| Topic                                                              | Endpoint           | Examples                                  |
+| Documentation                                                            | Endpoint           | Examples                                  |
 | [Streams, paged](streams-paged.md)           | `/streams`         | Get all streams in groups of ten per page |
 | [Streams, filtered](streams-filtered.md)     | `/streams`         | Get a single stream, by ID                |
 |                                                                    |                    | Get only the streams with LapNumber data  |

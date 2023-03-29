@@ -16,7 +16,7 @@ If you create a PR on the docs `dev` branch, a review app consisting of a comple
 
 **IMPORTANT:** All docs PRs should be raised against the `dev` branch.
 
-If you plan to make more than basic changes to the documentation, you should also become familiar with the Quix [Writing Style Guide](./GUIDE.md) and the [Best Practice Guide](./BEST-PRACTICE.md).
+If you plan to make more than basic changes to the documentation, you should also become familiar with the Quix [Writing Style Guide](./WRITING-STYLE.md) and the [Best Practice Guide](./BEST-PRACTICE.md).
 
 ## Running docs locally
 

@@ -2,7 +2,7 @@
 
 This document describes the best practices used by Quix in writing technical documentation. In particular, it covers the main paradigm used in creating Quix documentation: topic-based writing. Topic-based writing is a long-established industry standard for writing web-based technical documentation. This guide also covers aspects of technical docs such as search, navigation, and information architecture.
 
-This is a companion document to our [Writing Style Guide](./GUIDE.md), which you should read to understand our "house style" for writing technical documentation. The style guide covers such details as tense, language, spelling, common technical terms, capitalization, section and topic headings, and many other aspects of writing Quix technical documentation.
+This is a companion document to our [Writing Style Guide](./WRITING-STYLE.md), which you should read to understand our "house style" for writing technical documentation. The style guide covers such details as tense, language, spelling, common technical terms, capitalization, section and topic headings, and many other aspects of writing Quix technical documentation.
 
 ## What is topic-based writing?
 
@@ -17,6 +17,8 @@ TBW is in contrast to the model that is commonly used in books and manuals, wher
 This affinity with "just in time" information has been made even more true with the advent of web-based documentation, and the prevalence of search engines such as Google, and Q&A sites such as Stack Overflow. People tend to start with search, and look for an immediate solution to their current pain point, which may be, in practical terms, trying to understand a concept, or configure a specific part of the software.
 
 With TBW, combined with powerful integrated search, as well as the use of external search engines that index web-based documentation, as well as effective information architecture and navigation, readers can quickly locate the specific information required, without having to wade through a lot of extraneous information, that may be useful, but not at the current moment.
+
+**Note:** To prevent confusion with Kafka Topics, writers should avoid using the term "topic" in the main documentation, when referring to documentation. For example, rather than writing "In this topic...", use "In this documentation...", or "In the following sections...".
 
 ## Topic types
 
@@ -35,7 +37,7 @@ There's also an excellent [video presentation](https://www.youtube.com/watch?v=t
 
 ## What makes a good topic?
 
-A good topic should ideally be as focused and self-contained as possible. It should not ramble or try to cover too much information in the topic, as the reader will quickly become overwhelmed. By keeping the topic focused, and using good headings (see our [writing style guide](./GUIDE.md#section-headings)), the reader (such as a developer or data scientist) will be able to find the required information more easily, using the Quix documentation integrated search. 
+A good topic should ideally be as focused and self-contained as possible. It should not ramble or try to cover too much information in the topic, as the reader will quickly become overwhelmed. By keeping the topic focused, and using good headings (see our [writing style guide](./WRITING-STYLE.md#section-headings)), the reader (such as a developer or data scientist) will be able to find the required information more easily, using the Quix documentation integrated search. 
 
 ## Search
 
@@ -109,7 +111,7 @@ Other guides that may be useful if you are thinking of contribnuting to the Quix
 
 * [README](./README.md) - Contains basic introductory material to help you get started with the Quix documentation repository.
 * [Contribution Guide](./CONTRIBUTING.md) - More detailed guide on how to contribute to the Quix documentation.
-* [Writing Style Guide](./GUIDE.md) - Writing style guide covering the writing conventions to use in the Quix documentation.
+* [Writing Style Guide](./WRITING-STYLE.md) - Writing style guide covering the writing conventions to use in the Quix documentation.
 
 ## Get in touch
 

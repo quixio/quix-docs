@@ -79,6 +79,8 @@ Use the following guidelines for industry-standard terms, and Quix terms:
 
 You can read about the Quix approach to topic-based writing in the [companion guide](./BEST-PRACTICE.md).
 
+**Note:** To prevent confusion with Kafka Topics, writers should avoid using the term "topic" in the main documentation, when referring to documentation. For example, rather than writing "In this topic...", use "In this documentation...", or "In the following sections...".
+
 ## Use International English
 
 The company standard is, as with most software companies, to use International English. This is [defined](https://www.star-ts.com/about/translation-faq/what-is-international-english) as US spelling, with Americanisms removed.
@@ -386,7 +388,7 @@ Some further examples of writing style guides are:
 
 ## See also
 
-* [Best Practice Guide](./BEST-PRACTICE.md) - the Quix guide on topic-based writing.
+* [Best Practice Guide](./BEST-PRACTICE.md) - the Quix guide to how we do documentation.
 
 ## Contact
 
