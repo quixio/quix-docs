@@ -113,6 +113,11 @@ Other guides that may be useful if you are thinking of contribnuting to the Quix
 * [Contribution Guide](./CONTRIBUTING.md) - More detailed guide on how to contribute to the Quix documentation.
 * [Writing Style Guide](./WRITING-STYLE.md) - Writing style guide covering the writing conventions to use in the Quix documentation.
 
+There are also books that cover best practices in great depth:
+
+* **DITA Best Practices** by Laura Bellamy, Michelle Carey, Jenifer Schlotfeldt - although uses DITA, the ideas and techniques in this book are useful, even if you're not using DITA.
+* **Every Page is Page One (Topic-based Writing for Technical Communication and the Web)** by Mark Baker (Foreword by Scott Abel) - excellent guide to the subject, and highlights the importance of navigation and search, including the role of external search engines. 
+
 ## Get in touch
 
 * [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g) - The Quix open source community on Slack. Feel free to sign up and ask further questions.  
