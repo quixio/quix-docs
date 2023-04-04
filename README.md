@@ -40,6 +40,8 @@ If you want to fully render all documentation locally you will need to install t
 
 You will also need to sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/).
 
+The [social plugin](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/) is also used to automatically provide metadata. See the [social plugin documentation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/) for details on how to install the dependencies of the plugin. You might also need to first install `cffi` with `pip install cffi`, if not present on your system.
+
 ### Linked repositories
 
 This repo uses the `multirepo` plugin to pull in client library content from the [Quix Streams repo](https://github.com/quixio/quix-streams). 
