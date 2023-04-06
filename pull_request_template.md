@@ -2,7 +2,7 @@
 
 A PR description indicating the purpose of the PR.
 
-* [Ticket](link).
+* [Ticket](link)
 
 ## Review
 
