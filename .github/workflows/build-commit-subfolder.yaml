@@ -68,6 +68,10 @@ jobs:
     # add 'monorepo' to mkdocs.yml file under plugins
     - run: pip install mkdocs-monorepo-plugin
 
+    # Adds requirements for social plugin. Needed to automatically fill out meta data.
+    # add 'social' to mkdocs.yml file under plugins
+    - run: pip install cffi pillow cairosvg
+
     # add mkdocs-redirects
     # zoom images
     - name: Install mkdocs-redirects

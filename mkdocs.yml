@@ -1,5 +1,5 @@
-site_name: ''
-site_description: 'Quix Docs'
+site_name: 'Quix Docs'
+site_description: 'Quix Developer Documentation. Includes documentation (tutorials, reference guides, how-tos, concepts) for Quix Platform, Quix Streams client library, and REST and websocket APIs.'
 site_author: 'Quix.io'
 site_url: 'https://docs.quix.io'
 
@@ -102,6 +102,7 @@ nav:
 plugins:
   - search:
       separator: '[\s\-\.]' 
+  - social
   - glightbox
   - multirepo
   - redirects:
