@@ -95,7 +95,7 @@ Quix uses multiple (currently two) repositories to manage the Quix documentation
 1. [Quix Docs](https://github.com/quixio/quix-docs) - this is the repository for general docs, Quix Platform docs, and API docs.
 2. [Quix Streams](https://github.com/quixio/quix-streams) - a stand-alone repository for Quix Streams, including all Quix Streams documentation.
 
-A feature of the [insiders program](https://squidfunk.github.io/mkdocs-material/insiders/) is the ability to import a complete repo and make it part of a documentation set. Quix uses this to import the Quix Streams documentation stored in the Quix Streams repo.
+Quix uses the MkDocs [multirepo plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin) to import a complete repo and make it part of a documentation set. Quix uses this to import the Quix Streams documentation stored in the Quix Streams repo.
 
 ## Docs we like
 
