@@ -3,7 +3,6 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build](https://github.com/quixio/quix-docs/actions/workflows/sync-build-deploy.yaml/badge.svg)](https://github.com/quixio/quix-docs)
 
-
 This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. The source files for the documentation are in GitHub-flavoured Markdown, with additions supported by our tooling, [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).

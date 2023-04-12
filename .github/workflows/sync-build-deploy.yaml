@@ -34,13 +34,13 @@ jobs:
         with:
          ref: main
          
-      - name: Merge dev -> main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: dev
-          target_branch: main
-          github_token: ${{ github.token }}
+#      - name: Merge dev -> main
+#        uses: devmasx/merge-branch@master
+#        with:
+#          type: now
+#          from_branch: dev
+#          target_branch: main
+#          github_token: ${{ github.token }}
          
       - name: Set up Python
         uses: actions/setup-python@v2
