@@ -68,6 +68,10 @@ jobs:
     # add 'monorepo' to mkdocs.yml file under plugins
     - run: pip install mkdocs-monorepo-plugin
 
+    # Adds requirements for social plugin. Needed to automatically fill out meta data.
+    # add 'social' to mkdocs.yml file under plugins
+    - run: pip install cffi pillow cairosvg
+
     # add mkdocs-redirects
     # zoom images
     - name: Install mkdocs-redirects
@@ -141,7 +145,7 @@ jobs:
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Library readme.md importer
-      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.11
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.12
       id: readme_importer
       with:
         LIBRARY_REPO_PATH: "library"

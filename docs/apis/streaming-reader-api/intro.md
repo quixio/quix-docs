@@ -7,7 +7,7 @@ happen. The examples shown use the Microsoft
 [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0){target=_blank}
 JavaScript client library.
 
-## Topics
+## Documentation
 
   - [Set up SignalR](signalr.md)
 
