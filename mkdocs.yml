@@ -128,6 +128,7 @@ plugins:
         'sdk/using.md': 'client-library/using.md'
         'sdk/introduction.md': 'client-library-intro.md'
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
+        'platform/intro.md': 'platform/what-is-quix.md'
 
 theme:
   name: 'material'
