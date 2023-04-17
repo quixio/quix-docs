@@ -1,6 +1,6 @@
 # What is Quix Platform?
 
-Quix Platform is a complete system for developing and deploying applications for the processing of real-time streaming data. Quix Platform includes an online IDE for developing, debugging, and deploying your real-time streaming applications. In addition, Quix also provides an open source library called Quix Streams.Quix Streams is the client library that you use in your Python or C# code to develop custom elements of your processing pipeline.
+Quix Platform is a complete system for developing and deploying applications for the processing of real-time streaming data. Quix Platform includes an online IDE for developing, debugging, and deploying your real-time streaming applications. In addition, Quix also provides an open source library called Quix Streams. Quix Streams is the client library that you use in your Python or C# code to develop custom elements of your processing pipeline.
 
 Quix Platform was built on top of a message broker, specifically [Kafka](../client-library/kafka.md), rather than on top of a database, as databases introduce latency that can result in problems in real-time applications, and can also present scaling issues. Scaling databases for real-time applications also introduces more cost and complexity. Quix Platform helps abstract these issues, providing you with a scaleable and cost effective solution. 
 
