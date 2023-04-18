@@ -135,20 +135,20 @@ jobs:
       run: "sed -i 's,./images,./assets/client-library/,g' docs/client-library-intro.md"
 
     # clone the library repo
-    - name: Checkout Library
+    - name: Checkout Samples
       uses: actions/checkout@v3
       with:
-        repository: 'quixio/quix-library'
+        repository: 'quixio/quix-samples'
         ref: 'develop' # when a dev branch exists we can get the dev content
         #ref: '{{ steps.extract_branch.outputs.branch }}'
-        path: 'library'
+        path: 'samples'
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Samples readme.md importer
       uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.12
       id: readme_importer
       with:
-        LIBRARY_REPO_PATH: "library"
+        LIBRARY_REPO_PATH: "samples"
         DOCS_PATH: ""
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         README_DEST: "docs/library_readmes/connectors"
