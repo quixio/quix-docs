@@ -20,7 +20,7 @@ Most of the code you'll need has already been written. It lives in our library, 
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [GitHub repo](https://github.com/quixio/quix-tracker){target=_blank}.
+**Android App** - Our companion app for collecting real-time sensor data from your Android phone. It's pre-built and published to the Google Play store to save you time. You can also access the source code in our [GitHub repo](https://github.com/quixio/quix-companion-app){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
@@ -80,7 +80,7 @@ The QR shown on screen is a short-lived link to the longer lasting token.
 
 It's time to install the Android app!
 
-1.  Go to the Google Play store and search for "Quix Tracker App" ensuring it's the one published by us.
+1.  Go to the Google Play store and search for "Quix Companion App" ensuring it's the one published by us.
 
 \[Screenshot of Play store coming soon\]
 
