@@ -159,10 +159,10 @@ jobs:
         echo $i
         done
 
-    - name: Build MkDocs Site
-      run: mkdocs build --no-directory-urls
-      env:
-        AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
+    # - name: Build MkDocs Site
+    #   run: mkdocs build --no-directory-urls
+    #   env:
+    #     AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
         
     - uses: azure/login@v1
       with:
@@ -175,12 +175,19 @@ jobs:
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
             az storage container create --name ${{ env.Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
 
-    - name: Upload to blob storage
+    # - name: Upload to blob storage
+    #   uses: azure/CLI@v1
+    #   with:
+    #     inlineScript: |
+    #         az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
+    #         az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
+
+    - name: Upload everything to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s .
 
   # Azure logout
     - name: logout
