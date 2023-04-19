@@ -4,7 +4,7 @@ In this part of the tutorial you connect your pipeline to the TfL traffic cam vi
 
 Follow these steps to deploy the **traffic camera feed service**:
 
-1.  Navigate to the Library and locate `TfL Camera Feed`.
+1.  Navigate to the Samples and locate `TfL Camera Feed`.
 
 2.  Click `Setup & deploy`.
 

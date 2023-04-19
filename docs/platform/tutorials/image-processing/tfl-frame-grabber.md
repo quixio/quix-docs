@@ -6,7 +6,7 @@ The frame extraction service grabs single frames from the video feeds, so that o
 
 Follow these steps to deploy the **frame extraction service**:
 
-1.  Navigate to the Library and locate `TfL traffic camera frame grabber`.
+1.  Navigate to the Samples and locate `TfL traffic camera frame grabber`.
 
 2.  Click `Setup & deploy`.
 

@@ -8,11 +8,11 @@ The UI you will deploy is shown in the following screenshot:
 
 ## Deploying the UI
 
-The following steps demonstrate how to select the UI from the Samples Library and deploy it to your Quix workspace.
+The following steps demonstrate how to select the UI from the Samples and deploy it to your Quix workspace.
 
 Follow these steps to deploy the prebuilt UI:
 
-1. Navigate to the Library and search for `Event Detection Demo UI`.
+1. Navigate to the Samples and search for `Event Detection Demo UI`.
 
 2. Click the `Setup & deploy` button.
 

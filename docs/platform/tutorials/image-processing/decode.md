@@ -6,7 +6,7 @@ In this part of the tutorial you decode the base64 encoded images coming from th
 
 Follow these steps to deploy the **base64 decoder service**:
 
-1.  Navigate to the Library and locate the Python `Empty template` transformation.
+1.  Navigate to the Samples and locate the Python `Empty template` transformation.
 
     !!! tip
         You can use the filters on the left hand side to select `Python` and `Transformation` then select `Empty template` in the resulting filtered items.
@@ -67,7 +67,7 @@ Using the following steps, update the default code so it decodes the web cam ima
         stream_producer.timeseries.buffer.publish(df)
 
 
-    # Handle event data from library items that emit event data
+    # Handle event data from samples items that emit event data
     def on_event_data_received_handler(stream_consumer: qx.StreamConsumer, data: qx.EventData):
         print(data)
         # handle your event data here
