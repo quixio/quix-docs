@@ -4,13 +4,13 @@ You’ll start this tutorial by streaming data into a topic. Starting with the d
 
 You have two options for this stage:
 
-1. Stream data from your Android phone with the [Quix Tracker app](#quix-tracker-app).
+1. Stream data from your Android phone with the [Quix Companion app](#quix-companion-app).
 
 2. Stream prerecorded [CSV data](#csv-data).
 
 You will only need to set up one of these data sources but if you want to do both you can do that too!
 
-## Quix tracker App
+## Quix companion app
 
 ### External source
 
@@ -20,31 +20,31 @@ An external source is a representation of a data source that is external to Quix
 
 To add an external source:
 
-1. Navigate to the Library
+1. Navigate to the Samples
 
 2. Under `Pipeline Stage` click `Source`.
 
-3. Locate the `External Source` library item and click `Add external source`.
+3. Locate the `External Source` sample and click `Add external source`.
 
 4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop-down.
 
-5. Enter `Quix Tracker web gateway` in the `Name` field.
+5. Enter `Quix companion web gateway` in the `Name` field.
 
 6. Click `Add external Source`.
 
 ### Install and configure the apps
 
-To stream data from your phone you’ll need to install the Quix Tracker app on your Android phone and deploy the QR Settings Share app to your Quix workspace.
+To stream data from your phone you’ll need to install the `Quix Companion App` on your Android phone and deploy the QR Settings Share app to your Quix workspace.
 
 Follow these steps:
 
-1. Install the `Quix Tracker` from the Google Play Store. 
+1. Install the `Quix Companion App` from the Google Play Store. 
 
 	[![Quix Play store image](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png){width=200px}](https://play.google.com/store/apps/details?id=com.quix.quixtracker&gl=GB){target=_blank}
 
 2. Open the app and navigate to the `Settings` page via the menu.
 
-3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Tracker app.
+3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Companion app.
 
 4. In the Quix Portal, click the user icon in the top right of the browser.
 
@@ -56,7 +56,7 @@ Follow these steps:
 
 7. Copy the token to your clipboard or somewhere safe.
 
-8. In the Quix Library, search for `QR Settings Share`.
+8. In the Quix Samples, search for `QR Settings Share`.
 
 9. Click `Setup & deploy`.
 
@@ -78,7 +78,7 @@ Follow these steps:
 
 	![QR Settings Share UI](./qr-setting-share-ui.png){width=600px}
 
-17. Scan the QR code using the Quix Tracker app.
+17. Scan the QR code using the Quix Companion App.
 
 	The app has now been configured with the access token, allowing it to communicate with Quix.
 
@@ -119,7 +119,7 @@ Follow these steps to ensure that everything is working as expected:
 7. Move or gently shake your phone and notice that the waveform reflects whatever movement your phone is experiencing.
 
 !!! success
-	You have connected the Quix Tracker app to your workspace and verified the connection using the Live Data Explorer.
+	You have connected the Quix Companion App to your workspace and verified the connection using the Live Data Explorer.
 
 ## CSV data
 
@@ -127,7 +127,7 @@ If you don’t have an Android device, or you’d rather stream some data provid
 
 Follow these instructions to deploy the data source:
 
-1. In the Quix Library, select `Python` under languages and `Source` under pipeline stage.
+1. In the Quix Samples, select `Python` under languages and `Source` under pipeline stage.
 
 2. In the search box enter `Empty template`.
 

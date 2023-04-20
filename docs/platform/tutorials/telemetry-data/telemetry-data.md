@@ -14,13 +14,13 @@ You will need an Android mobile phone for this tutorial (we're working on the Ap
 
 If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community.
 
-### Library
+### Samples
 
-Most of the code you'll need has already been written. It lives in our library, which is accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-library){target=_blank} repo. We'll be referring to the library often so make sure you know where it is.
+Most of the code you'll need has already been written. It lives in our samples, which are accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-samples){target=_blank} repo. We'll be referring to the samples often so make sure you know where it is.
 
 ## Components
 
-**Android App** - Our companion app for collecting real-time sensor data from your phone. It's pre-built and published to the Play store to save you time. You can also access the source code in our [GitHub repo](https://github.com/quixio/quix-tracker){target=_blank}.
+**Android App** - Our companion app for collecting real-time sensor data from your Android phone. It's pre-built and published to the Google Play store to save you time. You can also access the source code in our [GitHub repo](https://github.com/quixio/quix-companion-app){target=_blank}.
 
 **Streamlit App** - See your location on a map and other activity metrics.
 
@@ -34,7 +34,7 @@ This guide will show you how to deploy each of the components, starting with QR 
 
 Follow these steps to deploy the QR Settings Share.
 
-1.  Navigate to the Library and locate "QR Settings Share"
+1.  Navigate to the Samples and locate "QR Settings Share"
 
 2.  Click "Setup & deploy"
 
@@ -80,7 +80,7 @@ The QR shown on screen is a short-lived link to the longer lasting token.
 
 It's time to install the Android app!
 
-1.  Go to the Google Play store and search for "Quix Tracker App" ensuring it's the one published by us.
+1.  Go to the Google Play store and search for "Quix Companion App" ensuring it's the one published by us.
 
 \[Screenshot of Play store coming soon\]
 
@@ -144,7 +144,7 @@ Within Quix:
 
 Deploy an app:
 
-1.  Click Library on the left hand menu
+1.  Click Samples on the left hand menu
 
 2.  Search for Streamlit Dashboard
 

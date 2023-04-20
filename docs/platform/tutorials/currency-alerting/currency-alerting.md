@@ -6,9 +6,9 @@ In this tutorial you will learn how to build a real-time streaming pipeline that
 
 In this tutorial you will learn:
 
-* How to use an existing library item to interface Quix to a real-time event stream. In this tutorial this is a stream of trading data from CoinAPI.
+* How to use an existing sample to interface Quix to a real-time event stream. In this tutorial this is a stream of trading data from CoinAPI.
 * How to create a transformation. 
-* How to use an existing library item to interface Quix to a mobile device.
+* How to use an existing sample to interface Quix to a mobile device.
 
 ## Getting help
 
@@ -36,9 +36,9 @@ The colors describe the role of the microservice that is being deployed. The pos
 
 ## Setting up the CoinAPI source
 
-In this section you will learn how to set up the source library item and deploy it in your pipeline as a microservice.
+In this section you will learn how to set up the source sample and deploy it in your pipeline as a microservice.
 
-This library item, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/){target=_blank} through its [Websocket](https://en.wikipedia.org/wiki/WebSocket){target=_blank} interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2){target=_blank} is used for the purposes of this tutorial. 
+This sample, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/){target=_blank} through its [Websocket](https://en.wikipedia.org/wiki/WebSocket){target=_blank} interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2){target=_blank} is used for the purposes of this tutorial. 
 
 To summarize this functionality:
 
@@ -47,13 +47,13 @@ To summarize this functionality:
 
 To set up the CoinAPI source, follow these steps:
 
-1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Library` icon in the main left-hand navigation.
+1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Samples` icon in the main left-hand navigation.
 
-2. In the search box on the library page, enter "CoinAPI - Exchange Rate Feed".
+2. In the search box on the samples page, enter "CoinAPI - Exchange Rate Feed".
    
-   You will see the Coin API library item appear in the search results: ![CoinAPI library item](coinapi.png "CoinAPI library item")
+   You will see the Coin API sample appear in the search results: ![CoinAPI sample](coinapi.png "CoinAPI sample")
 
-3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a library item, Quix prompts you to create a copy of it as a project, as library items are read-only.
+3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a sample, Quix prompts you to create a copy of it as a project, as sample are read-only.
 
       Optionally, you could have clicked the `Setup & deploy` button, which would have deployed the microservice directly. However, in this tutorial, you are given the opportunity to first look at the code, and modify it if necessary.
 
@@ -67,11 +67,11 @@ To set up the CoinAPI source, follow these steps:
     | `asset_id_base` | The short code for the _base_ currency that you want to track, for example BTC. |
     | `asset_id_quote`  | The short code for the _target_ currency in which prices will be quoted, for example, USD. |
 
-5. Click `Save as project`. You now have a copy of the CoinAPI library item in your workspace.
+5. Click `Save as project`. You now have a copy of the CoinAPI sample in your workspace.
 
-6. Click the `Deploy` button. The library item is deployed as a service and automatically started.
+6. Click the `Deploy` button. The sample is deployed as a service and automatically started.
 
-      Once the library item has been deployed, you’ll be redirected to the workspace home page, where you can see the service in the pipeline context, as was illustrated previously.
+      Once the sample has been deployed, you’ll be redirected to the workspace home page, where you can see the service in the pipeline context, as was illustrated previously.
 
 7. Click the CoinAPI service card to inspect the logs:
 
@@ -96,12 +96,12 @@ To summarize this functionality:
 * When the threshold criteria are met, the microservice writes an alert message to a topic called `currency-rate-alerts`. 
 * Downstream services can then read fom this topic and send alerts and notifications whenever they detect a new message.
 
-To set up the Threshold Alert item, follow these steps:
+To set up the Threshold Alert sample, follow these steps:
 
-1. Click on the Library icon in the left-hand navigation.
-2. In the search box on the library page, enter "Threshold Alerts".
+1. Click on the Samples icon in the left-hand navigation.
+2. In the search box on the samples page, enter "Threshold Alerts".
    
-      You will see the `Threshold Alert` library item appear in the search results: 
+      You will see the `Threshold Alert` sample appear in the search results: 
       
       ![Threshold Alert](threshold-alerts.png "Threshold Alert")
 
@@ -120,11 +120,11 @@ To set up the Threshold Alert item, follow these steps:
 
 5. Click `Save as project`. 
 
-      You now have a copy of the Threshold Alert library item in your workspace.
+      You now have a copy of the Threshold Alert sample in your workspace.
 
 6. Click the `Deploy` button. 
 
-      The library item is deployed as a service and automatically started. Once the microservice has been deployed, you'll be redirected to the pipeline view. 
+      The sample is deployed as a service and automatically started. Once the microservice has been deployed, you'll be redirected to the pipeline view. 
 
 7. Click the Threshold Alert service card to inspect the logs.
 
@@ -146,11 +146,11 @@ It also reads the contents of the message and enriches the notification with det
 
 To set up the push nonfiction microservice, follow these steps:
 
-1. Click on the Library icon in the left-hand navigation.
+1. Click on the Samples icon in the left-hand navigation.
 
-2. In the search box on the library page, enter "Pushover".
+2. In the search box on the samples page, enter "Pushover".
    
-      You will see the `Threshold Alert` library item appear in the search results: 
+      You will see the `Threshold Alert` sample appear in the search results: 
       
       ![Pushover Notifications](library-pushover.png "Pushover Notifications")
 
@@ -166,7 +166,7 @@ To set up the push nonfiction microservice, follow these steps:
     | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
     | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e`) |
 
-5. Click the `Save as project`. You now have a copy of the Pushover notification library item in your workspace.
+5. Click the `Save as project`. You now have a copy of the Pushover notification sample in your workspace.
 
 6. Click the `Deploy` button.
 

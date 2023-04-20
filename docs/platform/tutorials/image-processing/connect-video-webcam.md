@@ -4,7 +4,7 @@ In this part of the tutorial you connect your webcam video feed.
 
 Follow these steps to deploy the **webcam service**:
 
-1.  Navigate to the Library and locate `Image processing - Webcam input`.
+1.  Navigate to the Samples and locate `Image processing - Webcam input`.
 
 2.  Click `Setup & deploy`.
 
