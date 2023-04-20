@@ -40,7 +40,7 @@ To achieve these goals, Quix Portal includes the following features:
 
 * **Online IDE**: Develop and run your real-time streaming applications directly in the browser without setting up a local environment.
 
-* **Quix samples**: Choose from the [prebuilt code examples](../platform/connectors/index.md) ready to run and deploy from the IDE.
+* **Quix Samples**: Choose from the [prebuilt code examples](../platform/connectors/index.md) ready to run and deploy from the IDE.
 
 * **One-click deployments**: Configure, deploy, and manage your streaming applications with a simple user interface.
  
@@ -102,7 +102,7 @@ Code is deployed to the Quix serverless environment using Git tags. Quix builds 
 
 ### Docker integration
 
-Each code example included in the Quix Samples library is shipped with a `Dockerfile` that is designed to work in the Quix serverless compute environment powered by Kubernetes. You can alter this file if necessary. When you deploy a service with Quix, a code reference to Git with a build request is sent to the build queue. The build service builds a docker image and saves it in the docker registry. This image is then deployed to Kubernetes.
+Each code example included in the Quix Samples is shipped with a `Dockerfile` that is designed to work in the Quix serverless compute environment powered by Kubernetes. You can alter this file if necessary. When you deploy a service with Quix, a code reference to Git with a build request is sent to the build queue. The build service builds a docker image and saves it in the docker registry. This image is then deployed to Kubernetes.
 
 !!! tip
 

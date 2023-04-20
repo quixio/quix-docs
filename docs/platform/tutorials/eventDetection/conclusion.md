@@ -1,6 +1,6 @@
 # Conclusion
 
-You’ve just made use of the Quix library, our collection of open source connectors, and examples, to deploy a UI and event detection microservice.
+You’ve just made use of the Quix Samples, our collection of open source connectors, and examples, to deploy a UI and event detection microservice.
 
 Congratulations, you have achieved a lot!
 

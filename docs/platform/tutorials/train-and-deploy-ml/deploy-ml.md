@@ -30,9 +30,9 @@ Now let's run the model you created in the previous article. If you have your ow
 
 Ensure you are logged into the Quix Portal
 
-1. Navigate to the Library
+1. Navigate to the Samples
 
-2. Filter the library by selecting `Python` under languages and `Transformation` under pipeline stage
+2. Filter the samples by selecting `Python` under languages and `Transformation` under pipeline stage
 
 3. Select the `Event Detection` item
 
@@ -58,7 +58,7 @@ Ensure you are logged into the Quix Portal
 
 !!! success
 
-	The code from the Library sample is now saved to your workspace.
+	The code from the Samples sample is now saved to your workspace.
 	
 	You can edit and run the code from here or clone it to your computer and work locally.
 	

@@ -20,7 +20,7 @@ Follow these steps to create the messages and sentiment web gateways:
 
 	This topic needs to be available so you can select it in a later step.
 
-2. Navigate to the Library and locate `External Source`.
+2. Navigate to the Samples and locate `External Source`.
 
 3. Click `Add external source`.
 
@@ -30,7 +30,7 @@ Follow these steps to create the messages and sentiment web gateways:
 
 6. Click `Add external Source` to create the external source.
 
-7. Navigate to the Library and locate `External Destination`.
+7. Navigate to the Samples and locate `External Destination`.
 
 8. Click `Add external destination`.
 
@@ -44,11 +44,11 @@ You've now created the gateways needed for this tutorial.
 
 ## Locating and deploying the Sentiment Demo UI
 
-The following steps demonstrate how to select the demo UI Library item and deploy it to your Quix workspace. 
+The following steps demonstrate how to select the demo UI Sample and deploy it to your Quix workspace. 
 
 Follow these steps to deploy the prebuilt UI:
 
-1. Navigate to the Library and locate `Sentiment Demo UI`.
+1. Navigate to the Samples and locate `Sentiment Demo UI`.
 
 2. Click the `Setup & deploy` button.
 
