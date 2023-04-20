@@ -15,7 +15,7 @@ nav:
   - Intro: 'index.md'
   - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
   - Platform:
-    - 'What is Quix?': 'platform/intro.md'
+    - 'What is Quix?': 'platform/what-is-quix.md'
     - 'Definitions': 'platform/definitions.md'
     - 'How To':
       - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
@@ -128,6 +128,7 @@ plugins:
         'sdk/using.md': 'client-library/using.md'
         'sdk/introduction.md': 'client-library-intro.md'
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
+        'platform/intro.md': 'platform/what-is-quix.md'
 
 theme:
   name: 'material'
