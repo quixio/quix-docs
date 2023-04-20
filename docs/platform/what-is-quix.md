@@ -1,12 +1,12 @@
 # What is Quix Platform?
 
-Quix Platform is a complete system for developing and deploying applications for the processing of real-time streaming data. Quix Platform includes an online IDE for developing, debugging, and deploying your real-time streaming applications. In addition, Quix also provides an open source library called Quix Streams. Quix Streams is the client library that you use in your Python or C# code to develop custom elements of your processing pipeline.
+Quix Platform is a complete system that enables you to develop, debug, and deploy real-time streaming data applications. Quix also provides an online IDE and an open source streams processing library called Quix Streams. Quix Streams is the client library that you use in your Python or C# code to develop custom elements of your processing pipeline.
 
 Quix Platform was built on top of a message broker, specifically [Kafka](../client-library/kafka.md), rather than on top of a database, as databases introduce latency that can result in problems in real-time applications, and can also present scaling issues. Scaling databases for real-time applications also introduces more cost and complexity. Quix Platform helps abstract these issues, providing you with a scaleable and cost effective solution. 
 
-Broker technology allows the developer to work with live data in memory, rather than data retrieved using complex queries from disk. This is much faster and therefore more suited to real-time applications. However, the problem with broker technologies can be that they are more complex to use. Quix Platform and Quix Streams provide abstractions and tools that make working with your real-time data processing much easier than working with broker technology directly.
+Broker technology enables you to work with data in memory in real time, rather than data retrieved using complex queries from disk and then batch processed. This is much faster and therefore more suited to real-time applications. However, the problem with broker technologies is that they are more complex to use. Quix Platform and Quix Streams provide abstractions and tools so you can work directly with your data and not the underlying broker technology.
 
-Quix also treats Python developers as first-class citizens, making it easier for Python developers to work with real-time data using the abstractions and tools they are already familiar with, such as using the pandas dataframe format. 
+Quix also treats Python developers as first-class citizens, making it easier for Python developers to work with real-time data using the abstractions and tools they are already familiar with, such as using the pandas library and data frame format. 
 
 ## The Quix stack
 
@@ -25,8 +25,6 @@ These allow developers to:
 * Access the Quix serverless compute environment for hosting your web-based real-time streaming applications.
 * Connect existing web applications and IoT clients.
 * Access the real-time data catalogue, which is a time-series database.
-
-(diagram needs updating)
 
 ![640](images/about/Product.png)
 
@@ -73,6 +71,20 @@ Python is the dominant language for data science, data engineering, and machine 
 [Quix Streams](../client-library-intro.md) provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
 
 For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../client-library-intro.md).
+
+## In-memory processing
+
+Traditional architectures for applications that need to process data have always been very database-centric. Typically you write data to the database, retrieve it with complicated queries, process the data, and then write it back to a complex database schema. This approach does not scale to real-time uses cases, especially when large amounts of data are involved. 
+
+In use cases where you need results in seconds, and where you may potentially have large amounts of data (for example from thousands of IoT devices transmitting telemetry data), a real-time stream processing approach is required, and that is what Quix was designed for.
+
+![Traditional architecture for data processing](./images/in-memory-processing-legacy.png)
+
+Quix uses an underlying message broker and it puts it at the very center of the application, enabling a new approach for processing data without the need to save and pass all the information through a database. By using in-memory processing, you can persist only the data you're really interested in keeping.
+
+![Quix approach for data processing](./images/in-memory-processing-quix.png)
+
+This approach lowers the complexity and cost of real-time data processing and is the only possible approach when you need to process a huge amount of data per second, with low latency requirements.
 
 ## Serverless compute
 
@@ -151,17 +163,3 @@ The Quix data catalogue technology has two advantages:
 1.  It allocates each data type to the optimal database technology for that type. This increases read/write and query performance, which reduces operating costs.
 
 2.  It uses your metadata to record your context. This makes your data more accessible across your organization, as users only need to know your business context in order to navigate vast quantities of data.
-
-## In-memory processing
-
-Traditional architectures for applications that need to process data have always been very database-centric. Typically you write data to the database, retrieve it with complicated queries, process the data, and then write it back to a complex database schema. This approach does not scale to real-time uses cases, especially when large amounts of data are involved. 
-
-In use cases where you need results in seconds, and where you may potentially have large amounts of data (for example from thousands of IoT devices transmitting telemetry data), a real-time stream processing approach is required, and that is what Quix was designed for.
-
-![Traditional architecture for data processing](./images/in-memory-processing-legacy.png)
-
-Quix uses an underlying message broker and it puts it at the very center of the application, enabling a new approach for processing data without the need to save and pass all the information through a database. By using in-memory processing, you can persist only the data you're really interested in keeping.
-
-![Quix approach for data processing](./images/in-memory-processing-quix.png)
-
-This approach lowers the complexity and cost of real-time data processing and is the only possible approach when you need to process a huge amount of data per second, with low latency requirements.
