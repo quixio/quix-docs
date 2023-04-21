@@ -3,7 +3,7 @@
 Quix Platform features a **replay service**. This service allows you to replay persisted data into a topic, as if it were live data. This is very useful for the following use cases:
 
 * Testing and debugging connectors and transforms
-* [Stream reprocessing](https://quix.io/blog/intro-stream-reprocessing-python/?x-craft-preview=VDVjwJTquq&token=7oGSdC9yxYk0zECNUz2RtzJLtGqG-aZB)
+* [Stream reprocessing](https://quix.io/blog/intro-stream-reprocessing-python/?x-craft-preview=VDVjwJTquq&token=7oGSdC9yxYk0zECNUz2RtzJLtGqG-aZB){target=_blank}
 * Testing and retraining ML models
 
 Once you have persisted data, it is possible to set up a replay service in your pipeline. Rather than using the live source of data, you can replay the persisted data into a topic in your pipeline, and monitor the processing. 
