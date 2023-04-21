@@ -1,4 +1,4 @@
-# Write to Quix with NodeJs
+# Write to Quix with Node.js
 
 Clients write data to Quix using streams opened on existing
 [topics](../../../platform/definitions.md#topics). Therefore, you need to

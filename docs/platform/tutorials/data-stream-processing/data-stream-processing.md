@@ -27,7 +27,7 @@ The solution has 3 main elements:
 
  - Two services to process data
 
- - A NodeJS UI to display a race track and send data from your mobile device
+ - A Node.js UI to display a race track and send data from your mobile device
 
 However, this is all running with the Quix Serverless environment.
 
@@ -46,7 +46,7 @@ You have to create and deploy 3 projects, we have: . Created an always on high p
 
 This walk through covers the following:
 
-1. Creating the python services and NodeJS UI’s
+1. Creating the python services and Node.js UI’s
 
 2. Deployment of the above
 
