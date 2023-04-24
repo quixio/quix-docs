@@ -2,7 +2,7 @@
 
 A PR description indicating the purpose of the PR.
 
-* [Ticket](link)
+* [GitHub issue](link) - link to GitHub issue (if there is one)
 
 ## Review
 
