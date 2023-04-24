@@ -20,10 +20,11 @@ nav:
     - 'How To':
       - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
       - 'Use SDK token': 'platform/how-to/use-sdk-token.md'
+      - 'Use replay service': 'platform/how-to/replay.md'
       - 'Use Jupyter notebooks': 'platform/how-to/jupyter-nb.md'
       - 'Develop web applications with Quix': 'platform/how-to/webapps.md'
-      - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
-      - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
+      - 'Write to Quix with Node.js': 'platform/how-to/webapps/write.md'
+      - 'Read from Quix with Node.js': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':

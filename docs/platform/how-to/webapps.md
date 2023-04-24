@@ -13,9 +13,9 @@ data plane.
   - Social networking applications that require broadcasting updates to
     many users at high frequency like live sharing of Strava data.
 
-## NodeJs
+## Node.js
 
-NodeJs applications can update parameter and event definitions and write
+Node.js applications can update parameter and event definitions and write
 data to streams using RESTful APIs. Quix supports WebSockets for clients
 that want to receive telemetry data and parameters/events updates in
-real-time. NodeJs clients must authenticate with Quix using [personal access tokens](../../apis/streaming-reader-api/authenticate.md#get-a-personal-access-token).
+real-time. Node.js clients must authenticate with Quix using [personal access tokens](../../apis/streaming-reader-api/authenticate.md#get-a-personal-access-token).
