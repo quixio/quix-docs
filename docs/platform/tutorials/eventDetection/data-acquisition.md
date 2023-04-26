@@ -20,7 +20,7 @@ An external source is a representation of a data source that is external to Quix
 
 To add an external source:
 
-1. Navigate to the Samples
+1. Navigate to the code samples.
 
 2. Under `Pipeline Stage` click `Source`.
 
@@ -56,7 +56,7 @@ Follow these steps:
 
 7. Copy the token to your clipboard or somewhere safe.
 
-8. In the Quix Samples, search for `QR Settings Share`.
+8. In the code samples, search for `QR Settings Share`.
 
 9. Click `Setup & deploy`.
 
@@ -127,7 +127,7 @@ If you don’t have an Android device, or you’d rather stream some data provid
 
 Follow these instructions to deploy the data source:
 
-1. In the Quix Samples, select `Python` under languages and `Source` under pipeline stage.
+1. In the code samples, select `Python` under languages and `Source` under pipeline stage.
 
 2. In the search box enter `Empty template`.
 

@@ -2,7 +2,7 @@
 
 In this tutorial you learn how to build a real-time image processing pipeline in Quix, using the Transport for London (TfL) traffic cameras, known as Jam Cams, the webcam on your laptop or phone,  and a [YOLO v3](https://viso.ai/deep-learning/yolov3-overview/) machine learning model. 
 
-You'll use prebuilt Quix Samples to build the pipeline. A prebuilt UI is also provided that shows you where the recognized objects are located around London.
+You'll use prebuilt code samples to build the pipeline. A prebuilt UI is also provided that shows you where the recognized objects are located around London.
 
 The following screenshot shows the pipeline you build in this tutorial:
 
@@ -41,13 +41,13 @@ Follow these steps to locate your TfL API key:
 
   6. You can now find your API Keys in the profile page.
 
-## Quix Samples
+## Code samples
 
-The Quix Samples is a collection of ready-to-use components you can leverage to build your own real-time streaming solutions. Typically these components require minimal configuration.
+The cdde samples is a collection of ready-to-use components you can leverage to build your own real-time streaming solutions. Typically these components require minimal configuration.
 
-Most of the code you need for this tutorial has already been written, and is located in the Quix Samples. 
+Most of the code you need for this tutorial has already been written, and is located in the code samples. 
 
-When you are logged into the Quix Portal, click on the Samples icon in the left-hand navigation, to access the Quix Samples.
+When you are logged into the Quix Portal, click on the code samples icon in the left-hand navigation, to access the code samples.
 
 ## The pipeline you will create
 

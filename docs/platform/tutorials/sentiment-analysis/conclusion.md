@@ -1,6 +1,6 @@
 # Conclusion
 
-You’ve just made extensive use of the Quix Samples, our collection of open source connectors, and examples, to deploy a UI and sentiment analysis microservice, and subscribe to Tweets.
+You’ve just made extensive use of the code samples, our collection of open source connectors, and examples, to deploy a UI and sentiment analysis microservice, and subscribe to Tweets.
 
 Congratulations, that's quite an achievement!
 
@@ -12,7 +12,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * If you want to customize the Sentiment Demo UI, you can learn how in the optional tutorial part [how to customize the UI](customize-the-ui.md).
 
-* If you decide to build your own connectors and apps, you can contribute something to the Quix Samples. Visit the [Quix GitHub](https://github.com/quixio/quix-samples){target=_blank}. Fork our samples repo and submit your code, updates, and ideas.
+* If you decide to build your own connectors and apps, you can contribute something to the code samples. Visit the [Quix GitHub](https://github.com/quixio/quix-samples){target=_blank}. Fork our code samples repo and submit your code, updates, and ideas.
 
 What will you build? Let us know! We’d love to feature your project or use case in our [newsletter](https://www.quix.io/community/).
 

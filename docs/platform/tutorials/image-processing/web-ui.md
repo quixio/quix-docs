@@ -12,7 +12,7 @@ The following screenshot shows the last image processed from one of the video st
 
 Follow these steps to deploy the **web UI service**:
 
-1. Navigate to the Samples and locate `TFL image processing UI`.
+1. Navigate to the code samples and locate `TFL image processing UI`.
 
 2. Click `Setup & deploy`.
 

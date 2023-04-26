@@ -10,7 +10,7 @@ The microservice subscribes to data from the `messages` topic and publishes sent
 
 !!! tip
 
-    While this tutorial uses a prebuilt sentiment analysis sample, it is also possible to build one from a basic template available in the Quix Samples. If you are interested in building your own service, you can refer to an optional part of this tutorial, where you learn how to [code a sentiment analysis service](./code-and-deploy-sentiment-service.md) from the basic template.
+    While this tutorial uses a prebuilt sentiment analysis sample, it is also possible to build one from a basic template available in the code samples. If you are interested in building your own service, you can refer to an optional part of this tutorial, where you learn how to [code a sentiment analysis service](./code-and-deploy-sentiment-service.md) from the basic template.
 
 ## Deploying the sentiment analysis service
 
@@ -18,7 +18,7 @@ The sentiment of each message will be evaluated by this new microservice in your
 
 Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
-1. Navigate to the Samples and search for `Sentiment analysis`.
+1. Navigate to the code samples and search for `Sentiment analysis`.
 
 2. Click the `Setup & deploy` button.
 

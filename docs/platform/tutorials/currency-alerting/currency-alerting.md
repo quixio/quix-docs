@@ -47,9 +47,9 @@ To summarize this functionality:
 
 To set up the CoinAPI source, follow these steps:
 
-1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Samples` icon in the main left-hand navigation.
+1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
 
-2. In the search box on the samples page, enter "CoinAPI - Exchange Rate Feed".
+2. In the search box on the code samples page, enter "CoinAPI - Exchange Rate Feed".
    
    You will see the Coin API sample appear in the search results: ![CoinAPI sample](coinapi.png "CoinAPI sample")
 
@@ -98,8 +98,8 @@ To summarize this functionality:
 
 To set up the Threshold Alert sample, follow these steps:
 
-1. Click on the Samples icon in the left-hand navigation.
-2. In the search box on the samples page, enter "Threshold Alerts".
+1. Click on the `Code Samples` icon in the left-hand navigation.
+2. In the search box on the code samples page, enter "Threshold Alerts".
    
       You will see the `Threshold Alert` sample appear in the search results: 
       
@@ -146,9 +146,9 @@ It also reads the contents of the message and enriches the notification with det
 
 To set up the push nonfiction microservice, follow these steps:
 
-1. Click on the Samples icon in the left-hand navigation.
+1. Click on the `Code Samples` icon in the left-hand navigation.
 
-2. In the search box on the samples page, enter "Pushover".
+2. In the search box on the code samples page, enter "Pushover".
    
       You will see the `Threshold Alert` sample appear in the search results: 
       
@@ -164,7 +164,7 @@ To set up the push nonfiction microservice, follow these steps:
     | `Input` | Select the input topic. In this case, select `currency-rate-alerts` from the list.Every message will be read from this topic, and turned into a push notification. |
     | `base_url` | Leave the default value, `https://api.pushover.net/1/messages.json?`. If you decide to use another push notification app, your can always update this value. |
     | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
-    | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e`) |
+    | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e` |
 
 5. Click the `Save as project`. You now have a copy of the Pushover notification sample in your workspace.
 

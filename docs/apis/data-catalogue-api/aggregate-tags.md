@@ -6,7 +6,7 @@ you’ll want to group results by that tag. You can do so via the
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source of our [Quix Samples](../../platform/samples/samples.md) to set some up.
+  - If you don’t already have any Stream data in your workspace, you can use any Source from our [code samples](../../platform/samples/samples.md) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
