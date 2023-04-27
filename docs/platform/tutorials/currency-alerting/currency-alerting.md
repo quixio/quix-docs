@@ -49,7 +49,7 @@ To set up the CoinAPI source, follow these steps:
 
 1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
 
-2. In the search box on the code samples page, enter "CoinAPI - Exchange Rate Feed".
+2. In the search box on the Code Samples page, enter "CoinAPI - Exchange Rate Feed".
    
    You will see the Coin API sample appear in the search results: ![CoinAPI sample](coinapi.png "CoinAPI sample")
 
@@ -99,7 +99,8 @@ To summarize this functionality:
 To set up the Threshold Alert sample, follow these steps:
 
 1. Click on the `Code Samples` icon in the left-hand navigation.
-2. In the search box on the code samples page, enter "Threshold Alerts".
+
+2. In the search box on the Code Samples page, enter "Threshold Alerts".
    
       You will see the `Threshold Alert` sample appear in the search results: 
       
@@ -148,7 +149,7 @@ To set up the push nonfiction microservice, follow these steps:
 
 1. Click on the `Code Samples` icon in the left-hand navigation.
 
-2. In the search box on the code samples page, enter "Pushover".
+2. In the search box on the Code Samples page, enter "Pushover".
    
       You will see the `Threshold Alert` sample appear in the search results: 
       

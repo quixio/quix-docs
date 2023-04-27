@@ -16,7 +16,7 @@ If you need any assistance, we're here to help in [The Stream](https://join.slac
 
 ### Code samples
 
-Most of the code you'll need has already been written. It lives in our code samples, which are accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-samples){target=_blank} repo. We'll be referring to the code samples often so make sure you know where it is.
+Most of the code you'll need has already been written. It lives in our Code Samples, which are accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-samples){target=_blank} repo. We'll be referring to the Code Samples often so make sure you know where it is.
 
 ## Components
 
@@ -34,11 +34,11 @@ This guide will show you how to deploy each of the components, starting with QR 
 
 Follow these steps to deploy the QR Settings Share.
 
-1.  Navigate to the code samples and locate "QR Settings Share"
+1.  Navigate to the `Code Samples` and locate `QR Settings Share`
 
-2.  Click "Setup & deploy"
+2.  Click `Setup & deploy`
 
-3.  Click "Deploy"
+3.  Click `Deploy`
 
 !!! info 
     The service will be deployed to your workspace
@@ -47,7 +47,7 @@ Open the UI with these steps
 
 4.  Once deployed, click the service tile
 
-5.  Click the "Public URL"
+5.  Click the `Public URL`
 
 6.  Append the following querystring to the url in the address bar
 
@@ -80,7 +80,7 @@ The QR shown on screen is a short-lived link to the longer lasting token.
 
 It's time to install the Android app!
 
-1.  Go to the Google Play store and search for "Quix Companion App" ensuring it's the one published by us.
+1.  Go to the Google Play store and search for `Quix Companion App` ensuring it's the one published by us.
 
 \[Screenshot of Play store coming soon\]
 
@@ -134,7 +134,7 @@ Within Quix:
 
 1.  Click Data Explorer on the left hand menu
 
-2.  Select the "phone-data" topic
+2.  Select the `phone-data` topic
 
 3.  You should have at least one stream, select it
 
@@ -144,7 +144,7 @@ Within Quix:
 
 Deploy an app:
 
-1.  Click code samples on the left hand menu
+1.  Click `Code Samples` on the left hand menu
 
 2.  Search for Streamlit Dashboard
 

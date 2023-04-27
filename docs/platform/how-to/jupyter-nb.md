@@ -12,8 +12,8 @@ analysis so much easier.
 
 ## Preparation
 
-You’ll need some data stored in the Quix platform. You can use any of
-our Data Sources available in the code samples, or just follow the
+You`ll need some data stored in the Quix platform. You can use any of
+our Data Sources available in the Code Samples, or just follow the
 onboarding process when you [sign-up to
 Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank}.
 

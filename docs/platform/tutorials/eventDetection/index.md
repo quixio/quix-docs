@@ -20,7 +20,7 @@ This tutorial is divided into several parts to make it more a manageable learnin
 
 2. [**Build and deploy the crash detection service**](./crash-detection.md). This service uses an ML model to detect crashes in real-time. We’ll show you how to train the model using data obtained from Quix, but we also provide you with a pretrained model for convenience.
 
-3. [**Deploy the UI**](./crash-detection-ui.md). You will deploy the demo UI. This is a prebuilt UI from the code samples. It allows the user to see where a device is located and indicates where a crash has occurred.
+3. [**Deploy the UI**](./crash-detection-ui.md). You will deploy the demo UI. This is a prebuilt UI from the Code Samples. It allows the user to see where a device is located and indicates where a crash has occurred.
 
 !!! info
 

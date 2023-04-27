@@ -20,7 +20,7 @@ Follow these steps to create the messages and sentiment web gateways:
 
 	This topic needs to be available so you can select it in a later step.
 
-2. Navigate to the Samcode samplesples and locate `External Source`.
+2. Navigate to the `Code Samples` and locate `External Source`.
 
 3. Click `Add external source`.
 
@@ -30,7 +30,7 @@ Follow these steps to create the messages and sentiment web gateways:
 
 6. Click `Add external Source` to create the external source.
 
-7. Navigate to the code samples and locate `External Destination`.
+7. Navigate to the `Code Samples` and locate `External Destination`.
 
 8. Click `Add external destination`.
 
@@ -48,7 +48,7 @@ The following steps demonstrate how to select the demo UI Sample and deploy it t
 
 Follow these steps to deploy the prebuilt UI:
 
-1. Navigate to the code samples and locate `Sentiment Demo UI`.
+1. Navigate to the `Code Samples` and locate `Sentiment Demo UI`.
 
 2. Click the `Setup & deploy` button.
 

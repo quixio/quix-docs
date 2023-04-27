@@ -1,6 +1,6 @@
 # Sentiment analysis microservice
 
-In this optional tutorial part, you learn how to code a sentiment analysis microservice, starting with a template from the code samples. Templates are useful building blocks the Quix platform provides, and which give you a great starting point from which to build your own microservices.
+In this optional tutorial part, you learn how to code a sentiment analysis microservice, starting with a template from the Code Samples. Templates are useful building blocks the Quix platform provides, and which give you a great starting point from which to build your own microservices.
 
 !!! note
     The code shown here is kept as simple as possible for learning purposes. Production code would require more robust error handling.
@@ -15,7 +15,7 @@ Follow the steps below to code, test, and deploy a new microservice to your work
 
 Follow these steps to locate and save the code to your workspace:
 
-1. Navigate to the code samples and apply the following filters:
+1. Navigate to the `Code Samples` and apply the following filters:
     
     1. Languages = `Python`
     
@@ -417,4 +417,4 @@ Tag the code and deploy the service:
 
 7. Go back to the UI, and make sure everything is working as expected. Your messages will have a color-coded sentiment, and the sentiment will displayed on the graph.
 
-You have now completed this optional tutorial part. You have learned how to create your own sentiment analysis microservice from the code samples.
+You have now completed this optional tutorial part. You have learned how to create your own sentiment analysis microservice from the Code Samples.

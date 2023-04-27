@@ -6,7 +6,7 @@ This how-to will help to explain the features and options and ensure projects co
 
 ## Code samples
 
-In our code samples you can find our `Web API Template` which demonstrates how to create a API using `Node`.
+In our Code Samples you can find our `Web API Template` which demonstrates how to create a API using `Node`.
 
 There are also examples dashboard and web/UI examples using `Dash`, `Streamlit` and `Angular`.
 
@@ -42,7 +42,7 @@ To access your public facing service or web site you must enable `Public Access`
 
 ## Security
 
-Please note that the basic examples, included in our code samples, do not include any security features and come with no warranty.
+Please note that the basic examples, included in our Code Samples, do not include any security features and come with no warranty.
 
 Quix advises you to build in a security layer to ensure your data is secure and only the intended recipients have access to it.
 

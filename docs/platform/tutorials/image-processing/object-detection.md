@@ -6,7 +6,7 @@ In a later stage of the pipeline you add a simple UI which enables you to select
 
 Follow these steps to deploy the **object detection service**:
 
-1.  Navigate to the code samples and locate `Computer Vision object detection`.
+1.  Navigate to the `Code Samples` and locate `Computer Vision object detection`.
 
 2.  Click `Setup & deploy`.
 

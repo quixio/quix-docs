@@ -1,10 +1,10 @@
 # 6. Summary
 
-In this tutorial you have learned that it is possible to quickly build a real-time image processing pipeline, using prebuilt code samples. You have seen how to can connect to multiple types of video feed, perform object detection, and display the locations of the detected objects on a map, using the prebuilt UI.
+In this tutorial you have learned that it is possible to quickly build a real-time image processing pipeline, using prebuilt Code Samples. You have seen how to can connect to multiple types of video feed, perform object detection, and display the locations of the detected objects on a map, using the prebuilt UI.
 
 ## Code samples used
 
-Here is a list of the Quix open source code samples used in this tutorial, with links to their code in GitHub:
+Here is a list of the Quix open source Code Samples used in this tutorial, with links to their code in GitHub:
 
 * [TfL traffic cam video feed](https://github.com/quixio/quix-samples/tree/main/python/sources/TFL-Camera-Feed)
 * [TfL traffic cam frame grabber](https://github.com/quixio/quix-samples/tree/main/python/transformations/TFL-Camera-Frame-Extraction)
@@ -18,7 +18,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * Try the [sentiment analysis tutorial](../sentiment-analysis/index.md).
 
-* If you decide to build your own connectors and apps, you can contribute something to the code samples. Visit the [GitHub code samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our code samples repo and submit your code, updates, and ideas.
+* If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
 What will you build? Let us know! We’d love to feature your project or use case in our [newsletter](https://www.quix.io/community/).
 

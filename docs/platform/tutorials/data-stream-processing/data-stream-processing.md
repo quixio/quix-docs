@@ -58,9 +58,9 @@ Login to Quix and open your Workspace, you get one workspace on the free tier, m
 
 ### Code Samples
 
-The code you will need for this tutorial is located in the code samples. 
+The code you will need for this tutorial is located in the Code Samples. 
 
-Open the code samples and search for `Streaming Demo`. You will see 3 results.
+Navigate to `Code Samples` and search for `Streaming Demo`. You will see 3 results.
 
 ![Code samples search results](library-items.png)
 
@@ -137,7 +137,7 @@ Follow the same process as above and deploy the `Streaming Demo - Control` proje
 
 Remember the steps are:
 
-1. Search the code samples for `Streaming Demo`
+1. Search the Code Samples for `Streaming Demo`
 
 2. Select the `Streaming Demo - Control` project
 
@@ -166,7 +166,7 @@ Now we can get to the user interface (UI). This will allow you to see the game b
 
 You should be familiar with the process by now.
 
-1. Search the code samples for `Streaming Demo`
+1. Search the Code Samples for `Streaming Demo`
 
 2. Select the `Streaming Demo - UI` tile.
 

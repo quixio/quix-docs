@@ -27,12 +27,9 @@ What you need
 
 #### 1. Get the `RSS Data Source` connector
 
-In your Quix account, navigate to the code samples and search for `RSS Data
-Source.` (Hint: you can watch Steve prepare this code in the video
-tutorial if you’re like to learn more about it.)
+In your Quix account, navigate to the `Code Samples` and search for `RSS Data Source.` (Hint: you can watch Steve prepare this code in the video tutorial if you’re like to learn more about it.)
 
-Click `Setup & deploy` on the `RSS Data Source` sample. (The card
-has a blue line across its top that indicates it’s a source connector.)
+Click `Setup & deploy` on the `RSS Data Source` sample. (The card has a blue line across its top that indicates it’s a source connector.)
 
 ![RSSTutorial/image1.png](image1.png)
 
@@ -58,7 +55,7 @@ questions with certain tags get delivered to you.
 
 #### 1\. Get the `RSS Data Filtering` connector
 
-Return to the code samples tab in Quix and search for `RSS Data Filtering.`
+Return to the `Code Samples` and search for `RSS Data Filtering.`
 Click `Setup & deploy` on the card.
 
 If you created a new workspace for this project, the fields
@@ -91,7 +88,7 @@ a Slack channel as its destination.
 
 #### 1\. Get the `Slack Notification` connector
 
-Return to the code samples and search for the `Slack Notification.`
+Return to the `Code Samples` and search for the `Slack Notification.`
 Click `Preview code.` You’re going to modify the standard code before
 deploying this connector.
 
@@ -102,7 +99,7 @@ as the input topic and provide a Slack `webhook_url.`
 
 !!! note
 
-	If you have your own slack, head over to the [Slack API pages](https://api.slack.com/messaging/webhooks){target=_blank} and create a webhook following their guide `Getting started with Incoming Webhooks.` If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the code samples, such as Twilio.
+	If you have your own slack, head over to the [Slack API pages](https://api.slack.com/messaging/webhooks){target=_blank} and create a webhook following their guide `Getting started with Incoming Webhooks.` If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the Code Samples, such as Twilio.
 
 Warning: Use a dev or demo or unimportant Slack channel while you’re
 developing this. Trust me.

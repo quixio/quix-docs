@@ -85,7 +85,7 @@ Obtaining data from TFL's BikePoint API is fairly straight forward. You need to 
 
 However, there is a much easier way to achieve the same outcome.
 
-1. Navigate to the code samples.
+1. Navigate to the `Code Samples`.
 
 2. Search for `TFL Bikepoint` and click the tile.
 
@@ -135,9 +135,9 @@ With the app created you'll now need to setup a webhook. This will give you a UR
 
 ### Integration
 
-The time has come to actually connect Quix and Slack. Once again, with the help of the code samples, this is a simple task.
+The time has come to actually connect Quix and Slack. Once again, with the help of the `Code Samples`, this is a simple task.
 
-1. Navigate to the code samples.
+1. Navigate to the `Code Samples`.
 
 2. Search for `Slack`.
 
@@ -166,7 +166,7 @@ In this part of the tutorial you will replace the current Slack connector with a
 
 Follow these steps to save the connector code to your workspace.
 
-1. Navigate to the code samples and search for `Slack`.
+1. Navigate to the `Code Samples` and search for `Slack`.
 
 2. Click `Preview code` on the tile.
 	You can preview the code here and read the readme. You can't edit the code right now.

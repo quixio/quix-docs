@@ -25,12 +25,12 @@ trained on historic data.
 You will need Python3 installed.
 
 You’ll need some data stored in the Quix platform. You can use any of
-our Data Sources available in the code samples, or just follow the
+our Data Sources available in the Code Samples, or just follow the
 onboarding process when you [sign-up to Quix](https://portal.platform.quix.ai/self-sign-up/){target=_blank}
 
 !!! tip 
 	
-	If in doubt, login to the Quix Portal, navigate to the code samples and deploy `Demo Data - Source`.
+	If in doubt, login to the Quix Portal, navigate to the `Code Samples` and deploy `Demo Data - Source`.
 	
 	This will provide you with some real-time data for your experiments.
 

@@ -10,13 +10,13 @@ For convenience this guide is divided into two parts:
 
 1. **Deploy a chat UI with sentiment analysis** - in this part you deploy a real-time chat application and connect to it with your computer and phone. You also perform sentiment analysis on the messages in a chat room. 
 
-    This part does not require any coding, as it uses prebuilt code samples for services, so is suitable for those who'd like to get an understanding of how Quix works, without needing to write code. 
+    This part does not require any coding, as it uses prebuilt Code Samples for services, so is suitable for those who'd like to get an understanding of how Quix works, without needing to write code. 
     
     The pipeline you create in this part is shown in the following screenshot:
 
     ![The sentiment pipeline](./images/sentiment-pipeline.png)
 
-2. **Connect an external service** - in this part you add an external data feed to the pipeline using code samples that you will create from templates, and see data delivered in real time to your chat app.
+2. **Connect an external service** - in this part you add an external data feed to the pipeline using Code Samples that you will create from templates, and see data delivered in real time to your chat app.
 
     This part requires some basic Python coding skills. However, as all code you need is provided for you, this is suitable for beginners.
 
@@ -30,7 +30,7 @@ If you need help with this guide, then please join our public Slack community [`
 
 ## Part 1. Deploy a chat UI with sentiment analysis
 
-To use Quix effectively in the shortest possible time, you will initially use prebuilt code samples from the [Code samples](https://github.com/quixio/quix-samples){target=_blank}. These open source code samples have already been coded and tested by Quix engineers, and other contributors. All you have to do is configure them (if required) and deploy them to your workspace.
+To use Quix effectively in the shortest possible time, you will initially use prebuilt Code Samples from the [Code samples](https://github.com/quixio/quix-samples){target=_blank}. These open source Code Samples have already been coded and tested by Quix engineers, and other contributors. All you have to do is configure them (if required) and deploy them to your workspace.
 
 ### Deploy sentiment analysis
 
@@ -39,7 +39,7 @@ To compliment the chat UI, you will first deploy a prebuilt microservice designe
 1. Click <span class="border-violet-dash">`+ Add transformation`</span> on the home screen.
 
     ???- note "Not your first time?"
-        If this is not your first time deploying a service to this workspace then navigate to the code samples using the left-hand navigation instead.
+        If this is not your first time deploying a service to this workspace then navigate to the `Code Samples` using the left-hand navigation instead.
 
 2. Use the search box to find the `Sentiment analysis` sample. 
 
@@ -63,7 +63,7 @@ To compliment the chat UI, you will first deploy a prebuilt microservice designe
 
 You are going to locate and deploy a chat UI. The chat UI is written in Angular and connects to Quix using the [Streaming Reader API](../../../apis/streaming-reader-api/intro.md). The chat UI enables you to see messages on both your phone and computer in real-time. The sentiment of each message is also displayed.
 
-1. Navigate to the code samples using the left-hand navigation.
+1. Navigate to the Code Samples using the left-hand navigation.
 
 2. Use the search box to find the `Sentiment Demo UI` sample.
 
@@ -86,7 +86,7 @@ You are going to locate and deploy a chat UI. The chat UI is written in Angular 
 
 ??? example "Understand the code"
 
-    1. Locate the `Sentiment Demo UI` item in the code samples again, and then click `Preview code`. This is just one way to access the code.
+    1. Locate the `Sentiment Demo UI` item in the Code Samples again, and then click `Preview code`. This is just one way to access the code.
 
     2. Expand the tree view and select the `webchat.component.ts` file.
     
@@ -150,13 +150,13 @@ And the same messages and sentiment will appear in real time in your computer's 
 
 ## Part 2. Connect an external service
 
-Now that you have the basics of searching the code samples, selecting and deploying them to the Quix serverless infrastructure, you can learn how to add additional services to the pipeline. In this guide you'll connect to a web service to receive data, and then transform it so it's compatible with the chat UI.
+Now that you have the basics of searching the `Code Samples`, selecting and deploying them to the Quix serverless infrastructure, you can learn how to add additional services to the pipeline. In this guide you'll connect to a web service to receive data, and then transform it so it's compatible with the chat UI.
 
 ### Create the data source
 
 In this section you will learn how to use a template to help quickly build a Quix source.
 
-1. Navigate to the code samples.
+1. Navigate to the `Code Samples`.
 
 2. Search for the `Empty template - Source`. If should have a blue highlight (blue is used to indicate a source).
 
@@ -311,7 +311,7 @@ Now that you have some data, you need to transform it to make it compatible with
 
 You will now locate a suitable transformation template and modify it to handle the incoming beer styles and output them as chat messages.
 
-1. Search the code samples for `Empty template - Transformation`.
+1. Search the Code Samples for `Empty template - Transformation`.
 
 2. Click `Preview code`.
 
@@ -396,11 +396,11 @@ You have now saved the template to your workspace. In the next section you'll mo
 
 This quickstart guide aimed to give you a tour of some important Quix features. You have learned:
 
-1. Quix enables you to build complex data processing pipelines, using prebuilt items from the code samples.
+1. Quix enables you to build complex data processing pipelines, using prebuilt items from the Code Samples.
 
 2. You can get data into and out of Quix using a variety of methods, including polling data, and using a websockets-based API such as the [Streaming Reader API](../../../apis/streaming-reader-api/intro.md). Webhooks are also supported.
 
-3. You can use templates to help rapidly develop new code samples. You built a new source and a new transformation from templates.
+3. You can use templates to help rapidly develop new Code Samples. You built a new source and a new transformation from templates.
 
 4. Quix uses [topics](../../definitions.md#topics) and [streams](../../definitions.md#stream) to route data between services in a pipeline.
 
