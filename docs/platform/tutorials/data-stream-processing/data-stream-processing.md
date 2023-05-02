@@ -62,7 +62,7 @@ The code you will need for this tutorial is located in the Code Samples.
 
 Navigate to `Code Samples` and search for `Streaming Demo`. You will see 3 results.
 
-![Code samples search results](library-items.png)
+![Code Samples search results](library-items.png)
 
 You will save the code for each of these to your workspace and deploy the two services and the UI.
 

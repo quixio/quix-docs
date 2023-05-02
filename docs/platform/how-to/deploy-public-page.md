@@ -4,13 +4,13 @@ The Quix SaaS platform allows you to deploy public-facing web pages and APIs.
 
 This how-to will help to explain the features and options and ensure projects containing public facing web pages and APIs are successful.
 
-## Code samples
+## Code Samples
 
 In our Code Samples you can find our `Web API Template` which demonstrates how to create a API using `Node`.
 
 There are also examples dashboard and web/UI examples using `Dash`, `Streamlit` and `Angular`.
 
-![Code samples](../images/library.png){width=500px}
+![Code Samples](../images/library.png){width=500px}
 
 ## The code
 

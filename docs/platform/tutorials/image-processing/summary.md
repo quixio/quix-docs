@@ -2,7 +2,7 @@
 
 In this tutorial you have learned that it is possible to quickly build a real-time image processing pipeline, using prebuilt Code Samples. You have seen how to can connect to multiple types of video feed, perform object detection, and display the locations of the detected objects on a map, using the prebuilt UI.
 
-## Code samples used
+## Code Samples used
 
 Here is a list of the Quix open source Code Samples used in this tutorial, with links to their code in GitHub:
 

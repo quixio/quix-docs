@@ -43,7 +43,7 @@ Follow these steps to locate your TfL API key:
 
 ## Code Samples
 
-The cdde samples is a collection of ready-to-use components you can leverage to build your own real-time streaming solutions. Typically these components require minimal configuration.
+The Code Samples is a collection of ready-to-use components you can leverage to build your own real-time streaming solutions. Typically these components require minimal configuration.
 
 Most of the code you need for this tutorial has already been written, and is located in the `Code Samples`. 
 

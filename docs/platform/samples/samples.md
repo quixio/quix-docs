@@ -1,4 +1,4 @@
-# Code samples
+# Code Samples
 
 The Quix Portal includes Quix Code Samples, a collection of templates and sample projects that you can use to start working with the platform.
 

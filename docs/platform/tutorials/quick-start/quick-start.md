@@ -30,7 +30,7 @@ If you need help with this guide, then please join our public Slack community [`
 
 ## Part 1. Deploy a chat UI with sentiment analysis
 
-To use Quix effectively in the shortest possible time, you will initially use prebuilt Code Samples from the [Code samples](https://github.com/quixio/quix-samples){target=_blank}. These open source Code Samples have already been coded and tested by Quix engineers, and other contributors. All you have to do is configure them (if required) and deploy them to your workspace.
+To use Quix effectively in the shortest possible time, you will initially use prebuilt Code Samples from their [repository](https://github.com/quixio/quix-samples){target=_blank}. These open source Code Samples have already been coded and tested by Quix engineers, and other contributors. All you have to do is configure them (if required) and deploy them to your workspace.
 
 ### Deploy sentiment analysis
 

@@ -14,7 +14,7 @@ You will need an Android mobile phone for this tutorial (we're working on the Ap
 
 If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community.
 
-### Code samples
+### Code Samples
 
 Most of the code you'll need has already been written. It lives in our Code Samples, which are accessible from inside the Quix portal or directly via our open source [GitHub](https://github.com/quixio/quix-samples){target=_blank} repo. We'll be referring to the Code Samples often so make sure you know where it is.
 
