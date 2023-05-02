@@ -10,7 +10,7 @@ If you want to customize the Sentiment Demo UI, you would follow three main step
 
 ## Create the project
 
-1. Navigate to the Samples and locate `Sentiment Demo UI`.
+1. Navigate to the `Code Samples` and locate `Sentiment Demo UI`.
 
 2. Click `Preview code` and then `Edit code`.
 

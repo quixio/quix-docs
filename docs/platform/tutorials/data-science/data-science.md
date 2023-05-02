@@ -72,14 +72,14 @@ This walk through covers the following steps:
 
 Start by getting the real time bikes stream. Use CityBikes to get real time bikes data (it doesn’t require a sign up or any keys).
 
-Instead of writing a lot of code you will use the Samples to deploy a pre-built service that streams data from the New York CitiBikes api.
+Instead of writing a lot of code you will use the Code Samples to deploy a pre-built service that streams data from the New York CitiBikes api.
 
-1. Search the samples for `New York` and select the `New York Bikes - Source` tile.
+1. Navigate to `Code Samples` and search for `New York` and select the `New York Bikes - Source` tile.
 
 	![NY Bikes sample tile](ny-bikes-library-tile.png){width=400px}
 
 	!!! tip 
-		Samples is on the left hand menu
+		`Code Samples` is on the left hand menu
 
 2. Click `Setup and deploy`
 
@@ -96,7 +96,7 @@ Instead of writing a lot of code you will use the Samples to deploy a pre-built 
 
 You now have a working real time stream of bike data. Now use the OpenWeather account to create a real time weather stream. The procedure is almost the same, so you should have no problems!
 
-1. Search the samples for `weather` and select the `Open Weather API` tile.
+1. Search the Code Samples for `weather` and select the `Open Weather API` tile.
 
 2. Click `Setup and deploy`
 
@@ -216,13 +216,13 @@ However, it would take several weeks to accumulate enough historic data to train
 
 ## 6. Run the model
 
-We have included our trained model artifacts as pickle files in the prediction code project and uploaded it to the open source samples, so let's use them.
+We have included our trained model artifacts as pickle files in the prediction code project and uploaded it to the open source Code Samples, so let's use them.
 
 ### Prediction service code
 
 Get the code for the prediction service.
 
-1. Click on Samples in the left hand navigation
+1. Click on `Code Samples` in the left hand navigation
 
 2. Search for `New York` and select the `New york Bikes - Prediction` tile
 

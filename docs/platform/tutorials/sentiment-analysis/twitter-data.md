@@ -30,7 +30,7 @@ You are going to be using a prebuilt sample for fetching the tweets. The default
 
 Follow these steps to deploy the Twitter data source:
 
-1. Navigate to the Samples and locate the `Twitter` data source.
+1. Navigate to the `Code Samples` and locate the `Twitter` data source.
 
 2. Click the `Setup & deploy` button.
 
@@ -58,7 +58,7 @@ This service will subscribe to the `twitter-data` topic and publish data to the 
 
 Follow these steps to code and deploy the tweet-to-chat conversion stage:
 
-1. Navigate to the Samples and apply the following filters:
+1. Navigate to the `Code Samples` and apply the following filters:
     
     1. Languages = `Python`
     

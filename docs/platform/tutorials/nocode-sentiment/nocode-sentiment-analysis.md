@@ -30,11 +30,11 @@ will receive your data. Call this "demodata" and click "Create."
 
 ## Step two: get your data
 
-In Quix, click into the samples and search for the Twitter source
+In the Quix Portal, navigate to the `Code Samples` and search for the Twitter source
 connector.
 
 Click "Add new." This adds the source to your pipeline and brings you
-back to the samples.
+back to the Code Samples.
 
 Fill in the necessary fields:
 
@@ -58,7 +58,7 @@ Click "Deploy"
 
   - Click the "Add transformation" button
 
-  - In the samples, search for "HuggingFace"
+  - In the Code Samples, search for "HuggingFace"
 
   - Click "Set up and deploy" on the HuggingFace connector
 
@@ -81,7 +81,7 @@ Click "Deploy"
 
   - Click the "Add destination" button on the home screen
 
-  - Search the samples for the Snowflake connector
+  - Search the Code Samples for the Snowflake connector
 
   - Click "Set up and deploy" on the connector
 
