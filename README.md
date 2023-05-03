@@ -3,63 +3,42 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build](https://github.com/quixio/quix-docs/actions/workflows/sync-build-deploy.yaml/badge.svg)](https://github.com/quixio/quix-docs)
 
-This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. The source files for the documentation are in GitHub-flavoured Markdown, with additions supported by our tooling, [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. The source files for the documentation are in GitHub-flavoured Markdown, with the additions supported by our tooling, [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).
 
 ## Contributing
 
-If you would like to contribute to these docs, see the [Contribution Guide](./CONTRIBUTING.md). 
+If you would like to contribute to the docs, there are two main ways:
 
-If you create a PR on the docs `dev` branch, a review app consisting of a complete rendered docs build is created automatically for you, so you can preview your changes there. Currently, to rebuild the docs after pushing up any further changes, you need to close and reopen your PR.
+1. **Create a GitHub issue** - Create a GitHub issue and describe the bug or change you would like to see in the docs.
+2. **Create a GitHub Pull Request (PR)** - This would contain the patch you would like to apply to the docs.
 
-**IMPORTANT:** All docs PRs should be raised against the `dev` branch.
+> **IMPORTANT:** All docs PRs should be raised against the `dev` branch.
 
-If you plan to make more than basic changes to the documentation, you should also become familiar with the Quix [Writing Style Guide](./WRITING-STYLE.md) and the [Best Practice Guide](./BEST-PRACTICE.md).
+Your PR will be reviewed by a member of the Quix Docs team, and from that point on the standard GitHub workflow is applied. A member of the team will possibly suggest changes, but if everything is OK the PR will be approved and merged for you.
 
-## Running docs locally
+### Docs preview site
 
-The following is only required if you are part of the Quix technical writing team, or you contribute frequently, and want to check your docs PR locally before pushing up. Otherwise, the simplest approach is to refer to the review app that is created automatically for you, when you push up a PR on the `dev` branch.
+If you create a PR on the docs `dev` branch, a docs preview site consisting of a complete rendered docs build is created automatically for you, so you can see your changes there. 
 
-### Prerequisites
+> **NOTE:** Currently, to rebuild the docs after pushing up any further changes, you need to close and reopen your PR.
 
-To run these docs locally you'll need:
+To access the preview site follow the link generated for you on the PR, as shown in the following screenshot:
 
-* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-* Sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/), if you want to see all features rendered locally.
-* A Git client (the command line is fine).
+![Docs preview site](./docs-preview-site.png)
 
-### Plugins used
+### Contribution guides
 
-If you want to fully render all documentation locally you will need to install the following plugins with `pip install`:
+If you plan to make more than basic changes to the documentation, you should become familiar with our contribution guides. There are three main guides in addition to this README:
 
-* [glightbox](https://pypi.org/project/mkdocs-glightbox/0.1.0/)
-* [multirepo](https://pypi.org/project/mkdocs-multirepo/)
-* [redirects](https://pypi.org/project/mkdocs-redirects/)
+1. [Contribution guide](./CONTRIBUTING.md) - more detailed notes on how to contribute through a GitHub issue or PR.
+2. [Writing Style Guide](./WRITING-STYLE.md) - this covers our documentation writing style in detail. Generally you should write in the second person, present tense, active voice, using International English. Try to use simple, directive language. Further details are contained in the guide.
+3. [Best Practice Guide](./BEST-PRACTICE.md) - this covers our general aproach to technical writing, which is to use topic-based writing, with effective incremental search, and structured navigation. You don't need to be familiar with this to contribute, but it's a useful resource if you're interested in making more in-depth contributions.
 
-You will also need to sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/).
+### Running docs locally
 
-The [social plugin](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/) is also used to automatically provide metadata. See the [social plugin documentation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/) for details on how to install the dependencies of the plugin. You might also need to first install `cffi` with `pip install cffi`, if not present on your system.
-
-### Linked repositories
-
-This repo uses the `multirepo` plugin to pull in client library content from the [Quix Streams repo](https://github.com/quixio/quix-streams). 
-
-You can read more about Quix Streams [here](https://github.com/quixio/quix-streams/blob/main/README.md).
-
-### Viewing the docs
-
-To view the docs locally:
-
-1. Follow the install guide for Material [here](https://squidfunk.github.io/mkdocs-material/getting-started/).
-2. Clone the repo as follows:
-
-   ```
-   git clone https://github.com/quixio/quix-docs.git
-   ```
-3. Change into the docs directory you cloned (there will be a `mkdocs.yml` file there). 
-4. Run `mkdocs serve`.
-5. Navigate your browser to `localhost:8000` to view the docs.
+If you are part of the Quix technical writing team, or you contribute frequently, and want to check your docs PR locally before pushing up, please read our guide on [running the docs locally](./RUNNING-DOCS-LOCALLY.md). Otherwise, the simplest approach is to refer to the documentation preview site that is created automatically for you, when you push up a PR on the `dev` branch.
 
 ## Getting in touch
 
