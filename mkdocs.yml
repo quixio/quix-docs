@@ -135,7 +135,7 @@ theme:
   name: 'material'
   custom_dir: overrides
   # TODO
-  logo: assets/Quix-docs-logo-header03.svg
+  logo: images/logo.svg
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
   
