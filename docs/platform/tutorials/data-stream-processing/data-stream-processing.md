@@ -27,7 +27,7 @@ The solution has 3 main elements:
 
  - Two services to process data
 
- - A NodeJS UI to display a race track and send data from your mobile device
+ - A Node.js UI to display a race track and send data from your mobile device
 
 However, this is all running with the Quix Serverless environment.
 
@@ -46,7 +46,7 @@ You have to create and deploy 3 projects, we have: . Created an always on high p
 
 This walk through covers the following:
 
-1. Creating the python services and NodeJS UI’s
+1. Creating the python services and Node.js UI’s
 
 2. Deployment of the above
 
@@ -56,13 +56,13 @@ This walk through covers the following:
 
 Login to Quix and open your Workspace, you get one workspace on the free tier, more on higher tiers. A Quix Workspace is a container to help you manage all the data, topics, models and services related to a single solution so we advise using a new, clean one for this tutorial.
 
-### Quix Samples
+### Code Samples
 
-The code you will need for this tutorial is located in the Quix Samples. 
+The code you will need for this tutorial is located in the Code Samples. 
 
-Open the samples and search for `Streaming Demo`. You will see 3 results.
+Navigate to `Code Samples` and search for `Streaming Demo`. You will see 3 results.
 
-![Samples search results](library-items.png)
+![Code Samples search results](library-items.png)
 
 You will save the code for each of these to your workspace and deploy the two services and the UI.
 
@@ -137,7 +137,7 @@ Follow the same process as above and deploy the `Streaming Demo - Control` proje
 
 Remember the steps are:
 
-1. Search the samples for `Streaming Demo`
+1. Search the Code Samples for `Streaming Demo`
 
 2. Select the `Streaming Demo - Control` project
 
@@ -166,7 +166,7 @@ Now we can get to the user interface (UI). This will allow you to see the game b
 
 You should be familiar with the process by now.
 
-1. Search the samples for `Streaming Demo`
+1. Search the Code Samples for `Streaming Demo`
 
 2. Select the `Streaming Demo - UI` tile.
 

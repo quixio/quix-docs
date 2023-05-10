@@ -15,15 +15,16 @@ nav:
   - Intro: 'index.md'
   - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
   - Platform:
-    - 'What is Quix?': 'platform/intro.md'
+    - 'What is Quix?': 'platform/what-is-quix.md'
     - 'Definitions': 'platform/definitions.md'
     - 'How To':
       - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
       - 'Use SDK token': 'platform/how-to/use-sdk-token.md'
+      - 'Use replay service': 'platform/how-to/replay.md'
       - 'Use Jupyter notebooks': 'platform/how-to/jupyter-nb.md'
       - 'Develop web applications with Quix': 'platform/how-to/webapps.md'
-      - 'Write to Quix with NodeJs': 'platform/how-to/webapps/write.md'
-      - 'Read from Quix with NodeJs': 'platform/how-to/webapps/read.md'
+      - 'Write to Quix with Node.js': 'platform/how-to/webapps/write.md'
+      - 'Read from Quix with Node.js': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':
@@ -128,12 +129,12 @@ plugins:
         'sdk/using.md': 'client-library/using.md'
         'sdk/introduction.md': 'client-library-intro.md'
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
+        'platform/intro.md': 'platform/what-is-quix.md'
 
 theme:
   name: 'material'
   custom_dir: overrides
   # TODO
-  logo: assets/Quix-docs-logo-header03.svg
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
   

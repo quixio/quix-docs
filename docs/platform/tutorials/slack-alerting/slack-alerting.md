@@ -8,11 +8,11 @@ We will start by sending the raw BikePoint data to Slack and then we'll show you
 
 By the end you will have:
 
- - Configured Slack to allow external services to send messages via WebHooks
+ - Configured Slack to allow external services to send messages via WebHooks.
 
- - Built and deployed a Quix Service that streams data received from the TFL BikePoint API
+ - Built and deployed a Quix Service that streams data received from the TFL BikePoint API.
 
- - Received messages to your slack channel on the availability of bikes around London
+ - Received messages to your slack channel on the availability of bikes around London.
 
 !!! note 
 	If at any point you run into trouble please reach out to us. We’ll be waiting for your message in [The Stream](https://quix.io/slack-invite){target=_blank} our Slack community.
@@ -23,9 +23,9 @@ By the end you will have:
 
 The solution has 2 main elements:
 
- - A Quix Service to pull TFL BikePoint data
+ - A Quix Service to pull TFL BikePoint data.
 
- - A Slack Alerting Quix service
+ - A Slack Alerting Quix service.
 
 A Quix Service receives data from the Transport For London BikePoint API and streams the data onto the Quix message broker. Another service listens to the bike data stream. When the number of available bikes at a station falls below the desired level an alert is sent to the Slack channel via the Slack Webhook.
 
@@ -33,11 +33,11 @@ A Quix Service receives data from the Transport For London BikePoint API and str
 
 To proceed with this tutorial you need:
 
- - Quix portal login. (You'll need an account for this, go to [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one)
+ - Quix portal login. (You'll need an account for this, go to [here](https://portal.platform.quix.ai/self-sign-up/){target=_blank} and create one).
 
  - Access to Slack, you’ll need to be an admin.
 
- - A TFL account and API keys
+ - A TFL account and API keys.
 
 	???- info "Getting your TFL API key"
 
@@ -64,15 +64,15 @@ To proceed with this tutorial you need:
 
 This walk through covers the following steps:
 
-1. Creating a Slack App
+1. Creating a Slack App.
 
-2. Setup Webhooks
+2. Setup Webhooks.
 
-3. Deploy a service to pull TFL BikePoint data
+3. Deploy a service to pull TFL BikePoint data.
 
-4. Publish messages to Slack from Quix
+4. Publish messages to Slack from Quix.
 
-5. Edit the code and send a custom Slack message
+5. Edit the code and send a custom Slack message.
 
 ## Part one
 
@@ -85,17 +85,17 @@ Obtaining data from TFL's BikePoint API is fairly straight forward. You need to 
 
 However, there is a much easier way to achieve the same outcome.
 
-1. Navigate to the Quix Samples
+1. Navigate to the `Code Samples`.
 
-2. Search for `TFL Bikepoint` and click the tile
+2. Search for `TFL Bikepoint` and click the tile.
 
 	![TFL BikePoint sample tile](tfl-bikepoint-library-tile.png){width=300px}
 
-3. Click `Setup & deploy`
+3. Click `Setup & deploy`.
 
-4. Paste your TFL API keys into the `tfl_primary_key` and `tfl_secondary_key` input fields
+4. Paste your TFL API keys into the `tfl_primary_key` and `tfl_secondary_key` input fields.
 
-5. Click `Deploy`
+5. Click `Deploy`.
 
 !!! success 
 
@@ -109,45 +109,45 @@ You'll need to be an admin on Slack for this.
 
 Ensure you’re logged into the [Slack web portal](https://api.slack.com/messaging/webhooks){target=_blank} here then create a new app.
 
-1. Click `Create your Slack app`
+1. Click `Create your Slack app`.
 
-2. On the popup, select `From Scratch`
+2. On the popup, select `From Scratch`.
 
-3. Enter a name and choose your workspace
+3. Enter a name and choose your workspace.
 
-4. Click `Create App`
+4. Click `Create App`.
 
 #### Webhooks
 
 With the app created you'll now need to setup a webhook. This will give you a URL that you can use to publish messages to a Slack channel.
 
-1. On the left hand menu under `Features` select the `Incoming Webhooks` menu item
+1. On the left hand menu under `Features` select the `Incoming Webhooks` menu item.
 
-2. Switch the slider to `On` to activate incoming Webhooks
+2. Switch the slider to `On` to activate incoming Webhooks.
 
-3. Click the `Add New Webhook to Workspace` button
+3. Click the `Add New Webhook to Workspace` button.
 
-4. Select the channel you want to give access to and thus publish messages to
+4. Select the channel you want to give access to and thus publish messages to.
 
-5. Click allow
+5. Click allow.
 
-6. Copy the `Webhook URL` near the bottom of the page. Keep this safe you will need it soon
+6. Copy the `Webhook URL` near the bottom of the page. Keep this safe you will need it soon.
 
 ### Integration
 
-The time has come to actually connect Quix and Slack. Once again, with the help of the Quix Samples, this is a simple task.
+The time has come to actually connect Quix and Slack. Once again, with the help of the `Code Samples`, this is a simple task.
 
-1. Navigate to the Samples
+1. Navigate to the `Code Samples`.
 
-2. Search for `Slack`
+2. Search for `Slack`.
 
-3. Click `Setup & deploy`
+3. Click `Setup & deploy`.
 
-4. Ensure that the `input` is set to `tfl-bikepoint-data`
+4. Ensure that the `input` is set to `tfl-bikepoint-data`.
 
-5. Past your Webhook URL into the `webhook_url` input box
+5. Past your Webhook URL into the `webhook_url` input box.
 
-6. Click `Deploy`
+6. Click `Deploy`.
 
 !!! success 
 
@@ -166,25 +166,25 @@ In this part of the tutorial you will replace the current Slack connector with a
 
 Follow these steps to save the connector code to your workspace.
 
-1. Navigate to the samples and search for `Slack`
+1. Navigate to the `Code Samples` and search for `Slack`.
 
-2. Click `Preview code` on the tile
-	You can preview the code here and read the readme. You can't edit the code right now
+2. Click `Preview code` on the tile.
+	You can preview the code here and read the readme. You can't edit the code right now.
 
-3. Click `Edit code`
+3. Click `Edit code`.
 
-4. Ensure that the `input` field is set to `tfl-bikepoint-data` and past your Slack WebHook URL into the appropriate field
+4. Ensure that the `input` field is set to `tfl-bikepoint-data` and past your Slack WebHook URL into the appropriate field.
 
-5. Click `Save as project`
-	The code is now saved to your workspace and you can now edit the code and make any modifications you need
+5. Click `Save as project`.
+	The code is now saved to your workspace and you can now edit the code and make any modifications you need.
 
 ### Customize the message
 
 Now that you have the code saved and can edit it, you can customize the message that's sent to Slack.
 
-1. Ensure you are viewing the file called `quix_function.py`
+1. Ensure you are viewing the file called `quix_function.py`.
 
-2. Locate the function named `on_pandas_frame_handler`
+2. Locate the function named `on_pandas_frame_handler`.
 
 3. Replace the code inside the function with the following code:
 
@@ -240,19 +240,19 @@ Now that you have verified that the code works it's time to deploy it as a micro
 
 Follow these steps:
 
-1. Tag the code
+1. Tag the code.
 
 	???- info "This is how you tag the code"
 
 		![How to tag your code](tag.gif){width=350px}
 
-2. Click `Deploy` near the top right corner of the code editor window
+2. Click `Deploy` near the top right corner of the code editor window.
 
-3. On the Deploy dialog select the version tag you just created
+3. On the Deploy dialog select the version tag you just created.
 
-4. Click `Deploy`
+4. Click `Deploy`.
 
-	The service will be built, deployed and started
+	The service will be built, deployed and started.
 
 !!! success
 

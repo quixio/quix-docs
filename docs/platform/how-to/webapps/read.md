@@ -1,4 +1,4 @@
-# Read from Quix with NodeJs
+# Read from Quix with Node.js
 
 Quix supports real-time data streaming over WebSockets. JavaScript
 clients can receive updates on parameter and event definition updates,

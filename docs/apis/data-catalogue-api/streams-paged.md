@@ -8,7 +8,7 @@ use pagination parameters to group the results into smaller pages.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source of our [Quix Samples](../../platform/samples/samples.md) to set some up.
+  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
 
   - [Get a Personal Access Token](authenticate.md)
     to authenticate each request.
