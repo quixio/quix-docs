@@ -135,8 +135,8 @@ theme:
   name: 'material'
   custom_dir: overrides
   # TODO
-  icon:
-    logo: material/library
+  # icon:
+  #   logo: material/library
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
   
