@@ -1,6 +1,6 @@
 # 2. Event Detection
 
-Our event detection pipeline is centered around this service, which executes an ML model to detect whether a vehicle has been involved in an accident.
+Our event detection pipeline is centered around this service, which runs an ML model to detect whether a vehicle has been involved in an accident.
 
 In reality our ML model was trained to detect the difference between a phone being shaken versus just being used normally. You actually don’t have to use an ML model at all! There are various ways this service could have been written, for example, you could detect a change in the speed or use the speed and another parameter to determine if an event has occurred.
 

@@ -258,6 +258,6 @@ With the microservices for control and input processing deployed along with the 
 
 ## Thanks
 
-Thanks for following the tutorial, hopefully you learnt something about Quix and had some fun doing it!
+Thanks for following the tutorial, hopefully you learned something about Quix and had some fun doing it!
 
 If you need any help, got into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}.
