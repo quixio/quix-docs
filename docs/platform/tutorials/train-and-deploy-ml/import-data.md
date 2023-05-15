@@ -77,4 +77,4 @@ The Quix Portal has a code generator that can generate code to connect your Jupy
 
 !!! tip
 
-	If you want to use this generated code for more than 15 minutes, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
+	If you want to use this generated code for more than 30 days, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
