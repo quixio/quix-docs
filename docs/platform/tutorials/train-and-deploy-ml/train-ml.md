@@ -1,10 +1,12 @@
 # Train your ML model
 
-In this part you learn how to train an ML model using the data you imported in the [previous part](./import-data.md). 
+In this part you learn how to train an ML model in Jupyter Notebook, using the data you imported in the [previous part](./import-data.md). 
 
 You write code to train your model on this data. You save your model to a Pickle file, which you then deploy in the [next part](./deploy-ml.md) of this tutorial. 
 
 ![](./images/train.png)
+
+This is just one approach that you might use if you are already familiar with Jupyter Notebook. You might also train your ML model directly in Quix using live data, or data played back using the [replay feature](../../how-to/replay.md).
 
 ## Install the required libraries
 

@@ -1,10 +1,10 @@
 # Conclusion
 
-In this tutorial you've learned how to use Quix to generate real-time data. You've also learned how to import that data into Jupyter Notebook using the Quix code generator. You then saw how to deploy your ML model and visualize its output in real time.
+In this tutorial you've learned how to use Quix to generate real-time data. You've also learned how to import that data into Jupyter Notebook using the Quix code generator. You then saw how to deploy your ML model to the Quix Platform, and visualize its output in real time.
 
 ![Data explorer](./images/visualize-result.png)
 
-The objective of the tutorial was not to create the most accurate model, but to step you through the overall process, and show you some of the useful features of Quix.
+The objective of the tutorial was not to create the most accurate model, but to step you through the overall process, and show you some of the useful features of Quix. It shows one possible workflow, where you train your ML model in Jupyter Notebook, and the integration between Quix and Jupyter was demonstrated. It is also possible to train your ML model directly in Quix, on live data, or persisted data using the [replay functionality](../../how-to/replay.md).
 
 ## Next Steps
 

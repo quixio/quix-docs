@@ -1,6 +1,6 @@
 # Import data into Jupyter Notebook
 
-From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the Quix Data Catalogue. 
+From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix Data Catalogue](../../../apis/data-catalogue-api/intro.md). 
 
 ## Run Jupyter Notebook
 
@@ -16,14 +16,16 @@ jupyter notebook
 
 3. Select `New` and then `Python 3 (ipykernel)` from the menu, as shown here:
 
-![Jupyter Notebook Python 3 selection](./images/jupyter-python3-selection.png)
+    ![Jupyter Notebook Python 3 selection](./images/jupyter-python3-selection.png)
 
-If you don’t see **Python 3** in the `New` menu, run the following commands in your Python environment: 
+!!! tip
 
-``` python
-python3 -m pip install ipykernel
-python3 -m ipykernel install --user
-```
+    If you don’t see **Python 3** in the `New` menu, run the following commands in your Python environment: 
+
+    ``` python
+    python3 -m pip install ipykernel
+    python3 -m ipykernel install --user
+    ```
 
 ## Obtain the training data
 
@@ -75,5 +77,4 @@ The Quix Portal has a code generator that can generate code to connect your Jupy
 
 !!! tip
 
-	If you want to use this generated code for a long time, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
-
+	If you want to use this generated code for more than 15 minutes, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.

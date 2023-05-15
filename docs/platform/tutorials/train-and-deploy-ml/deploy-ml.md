@@ -1,8 +1,10 @@
 # Deploy your ML model
 
-In this part of the tutorial, you deploy the Pickle file you [created previously](train-ml-model.md). You deploy the file to the Quix Portal, where it can react to data in real time. 
+In this part of the tutorial, you deploy the Pickle file [containing your ML model](./train-ml.md) to the Quix Platform. Your ML code then uses this model to predict braking in real time. 
 
 ![What you'll build](./images/run-live.png)
+
+You'll also use the Quix Data Explorer to visualize the braking prediction in real time.
 
 ## Create a transform
 
@@ -16,23 +18,23 @@ Ensure you are logged into the Quix Portal, then follow these steps to create a 
 
 4. Click `Preview code` in the `Event Detection` panel. You can browse the files to ensure you have the correct sample.
 
-4. Click `Edit code`.
+5. Click `Edit code`.
 
-5. Change the name to `Prediction Model`.
+6. Change the name to `Prediction Model`.
 
-6. Ensure the input is `f1-data`.
+7. Ensure the input is `f1-data`.
 
-7. Leave output as `hard-braking` (its default value).
+8. Leave output as `hard-braking` (its default value).
 
-8. Click `new topic` next to `hard-braking` to create this topic, leaving topic values at their defaults.
+9. Click `new topic` next to `hard-braking` to create this topic, leaving topic values at their defaults.
 
-9. Click `Save as Project`. The code  is now saved to your workspace. 
+10. Click `Save as Project`. The code  is now saved to your workspace. 
 
 	!!! tip
 		
 		You can see a list of projects at any time by clicking `Projects` in the left-hand navigation.
 
-10. Click `Topics` in the left-hand navigation. Wait until the topic `hard-braking` has been created.
+11. Click `Topics` in the left-hand navigation. Wait until the topic `hard-braking` has been created.
 
 ## Upload the model
 
