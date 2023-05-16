@@ -32,7 +32,7 @@ To access the preview site follow the link generated for you on the PR, as shown
 
 If you plan to make more than basic changes to the documentation, you should become familiar with our contribution guides. There are three main guides in addition to this README:
 
-1. [Contribution guide](./CONTRIBUTING.md) - more detailed notes on how to contribute through a GitHub issue or PR.
+1. [Contribution Guide](./CONTRIBUTING.md) - more detailed notes on how to contribute through a GitHub issue or PR.
 2. [Writing Style Guide](./WRITING-STYLE.md) - this covers our documentation writing style in detail. Generally you should write in the second person, present tense, active voice, using International English. Try to use simple, directive language. Further details are contained in the guide.
 3. [Best Practice Guide](./BEST-PRACTICE.md) - this covers our general aproach to technical writing, which is to use topic-based writing, with effective incremental search, and structured navigation. You don't need to be familiar with this to contribute, but it's a useful resource if you're interested in making more in-depth contributions.
 
