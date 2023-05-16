@@ -158,7 +158,7 @@ In this section you will learn how to use a template to help quickly build a Qui
 
 1. Navigate to the `Code Samples`.
 
-2. Search for the `Starter source`. If should have a blue highlight (blue is used to indicate a source). Make sure the Python language version is selected.
+2. Search for the `Starter source`. It should have a blue highlight (blue is used to indicate a source). Make sure the Python language version is selected.
 
 3. Click `Preview code`.
 
