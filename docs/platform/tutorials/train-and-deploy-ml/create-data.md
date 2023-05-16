@@ -20,7 +20,7 @@ To make things a little easier, first create a **persisted topic** to receive th
 
 7. Once the topic has been created, click the persistence slider button to ensure your data is persisted, as shown in the following screenshot: 
 
-![Enable topic persistence](./images/enable-topic-persistence.png)
+    ![Enable topic persistence](./images/enable-topic-persistence.png)
 
 ## Generate data from the demo data source
 
