@@ -70,7 +70,7 @@ This walk through covers the following steps:
 
 ## 2. Bikes real time stream
 
-Start by getting the real time bikes stream. Use CityBikes to get real time bikes data (it doesn’t require a sign up or any keys).
+Start by getting the real time bikes stream. Use CitiBikes to get real time bikes data (it doesn’t require a sign up or any keys).
 
 Instead of writing a lot of code you will use the Code Samples to deploy a pre-built service that streams data from the New York CitiBikes api.
 
@@ -116,7 +116,7 @@ You now have a working real time stream of bike data. Now use the OpenWeather ac
 
 		The OpenWeather API has limits on how much data we can access for free and the real weather only changes in real-time (this means slowly). 
 		
-		In order to prevent your account from being rate limited, we consume updated data every 30 minutes. (see more about this limitation later on in [training data](#training-data))
+		In order to prevent your account from being rate limited, we consume updated data every 30 minutes.
 
 !!! success 
 

@@ -62,7 +62,13 @@ nav:
         - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
         - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
         - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
-      - 'Data Science': 'platform/tutorials/data-science/index.md'
+      - 'Availability Prediction: New York Bikes':
+        - 'platform/tutorials/data-science/index.md'
+        - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
+        - '2. Weather data': 'platform/tutorials/data-science/2-openweather.md'
+        - '3. Data views': 'platform/tutorials/data-science/3-data.md'
+        - '4. Train the model': 'platform/tutorials/data-science/4-train.md'
+        - '5. Run the model': 'platform/tutorials/data-science/5-results.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
@@ -71,7 +77,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
-  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
+#  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=steverosam/sc-36869/create-docs-for-how-a-contributor-can-get'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
@@ -105,11 +111,12 @@ nav:
     - 'Portal API': 'apis/portal-api.md'
 
 plugins:
+  - multirepo:
+      cleanup: true
   - search:
       separator: '[\s\-\.]' 
   - social
   - glightbox
-  - multirepo
   - redirects:
       redirect_maps:
         'sdk-intro.md': 'client-library-intro.md'
@@ -135,6 +142,7 @@ plugins:
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
         'platform/intro.md': 'platform/what-is-quix.md'
         'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
+        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/intro.md"
 
 theme:
   name: 'material'
