@@ -22,23 +22,23 @@ Even if the exact connector you require does not currently exist, it is sometime
 
 If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. An example of creating such a connector is described in the [Platform Quickstart guide](../tutorials/quick-start/quick-start.md#part-2-connect-an-external-service). By way of example, the following code demonstrates the idea:
 
-    ``` python
-    while True:
+``` python
+while True:
 
-        # get a random beer from this free API
-        response = requests.get("https://random-data-api.com/api/v2/beers")
+    # get a random beer from this free API
+    response = requests.get("https://random-data-api.com/api/v2/beers")
 
-        # print the response data
-        print(response.json())
+    # print the response data
+    print(response.json())
 
-        # sink the beer's `style` to Quix as an event
-        stream.events.add_timestamp(datetime.datetime.utcnow()) \
-        .add_value("beer", response.json()["style"]) \
-        .publish()
+    # sink the beer's `style` to Quix as an event
+    stream.events.add_timestamp(datetime.datetime.utcnow()) \
+    .add_value("beer", response.json()["style"]) \
+    .publish()
 
-        # sleep for a bit
-        time.sleep(4)
-    ```
+    # sleep for a bit
+    time.sleep(4)
+```
 
 The code requests data from the REST API and then publishes it to a stream.
 
