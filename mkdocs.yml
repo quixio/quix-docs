@@ -61,7 +61,7 @@ nav:
         - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
         - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
         - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
-      - 'Data Science': 'platform/tutorials/data-science/data-science.md'
+      - 'Data Science': 'platform/tutorials/data-science/index.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
