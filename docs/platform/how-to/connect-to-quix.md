@@ -16,6 +16,15 @@ This is the easiest method, as no code needs to be written, and there is usually
 
 You can review the list of connectors in the [connector documentation](../connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
 
+Note there are two main types of connector:
+
+1. *Sources*
+2. *Destination*
+
+A *source* enables you to get data into Quix, such as data coming from a database or IoT device, to be processed in real time. A source represents an input with respect to Quix. 
+
+A *destination* enables you to get data out of Quix. For example, to store processed data in a relational database for archiving, or to write data to a Streamlit dashboard. A destination represents an output with respect to Quix.
+
 Even if the exact connector you require does not currently exist, it is sometimes possible to adapt one of the existing connectors to suit your needs. For example, the Segment webhook connector could be adapted to suit many different webhook-based services. See the [webhooks section](#inbound-webhooks) for more information.
 
 ## Polling
@@ -190,7 +199,7 @@ Some example code that shows how to connect to Quix and write data into Quix usi
 
     <script>
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
-      const workspaceId = "your-workspace1";
+      const workspaceId = "<your_workspace>";
       const topic = "websocket-topic";
       const streamId = "mouse-pos";
 
@@ -282,7 +291,7 @@ Code that could read mouse cursor position from Quix is as follows:
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
 
       // Set the Workspace and Topic
-      const workspaceId = "your-workspace1";
+      const workspaceId = "<your_workspace>";
       const topicName = "transform";
       const streamId = "mouse-pos";
       const canvas = document.getElementById("myCanvas");
@@ -327,7 +336,7 @@ Code that could read mouse cursor position from Quix is as follows:
 
 This code uses the Reader API to read data from a Quix topic.
 
-The Quix documentation explains how to [obtain your PAT token](../../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix workspace ID](./get-workspace-id.md), [PAT token](../../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../../apis/streaming-reader-api/signalr.md). 
 
 ## Summary
 
