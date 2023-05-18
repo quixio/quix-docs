@@ -8,9 +8,9 @@ In reality our ML model was trained to detect the difference between a phone bei
 
 Follow these steps to start creating the `crash detection service`:
 
-1. Navigate to `Code Samples` and search for `Empty template`.
+1. Navigate to `Code Samples` and search for `Starter transformation`.
 
-2. Click `Preview code` on the transformation template (shown with a violet highlight).
+2. Ensure you have located the Python starter transformation and click `Preview code`.
 
 3. Click `Edit code`.
 

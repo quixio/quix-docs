@@ -6,10 +6,10 @@ In this part of the tutorial you decode the base64 encoded images coming from th
 
 Follow these steps to deploy the **base64 decoder service**:
 
-1.  Navigate to the `Code Samples` and locate the Python `Empty template` transformation.
+1.  Navigate to the `Code Samples` and locate the Python `Starter transformation`.
 
     !!! tip
-        You can use the filters on the left hand side to select `Python` and `Transformation` then select `Empty template` in the resulting filtered items.
+        You can use the filters on the left hand side to select `Python` and `Transformation` then select `Starter transformation` in the resulting filtered items.
 
 2.  Click `Edit code`.
 

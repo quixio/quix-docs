@@ -14,7 +14,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     New to Quix? Find out more.
 
-    [:octicons-arrow-right-24: What is Quix?](./platform/intro.md)
+    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
 
 - __Definitions__
 

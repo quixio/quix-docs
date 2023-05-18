@@ -158,7 +158,7 @@ In this section you will learn how to use a template to help quickly build a Qui
 
 1. Navigate to the `Code Samples`.
 
-2. Search for the `Empty template - Source`. If should have a blue highlight (blue is used to indicate a source).
+2. Search for the `Starter source` item. Ensure you select the Python version.
 
 3. Click `Preview code`.
 
@@ -311,9 +311,9 @@ Now that you have some data, you need to transform it to make it compatible with
 
 You will now locate a suitable transformation template and modify it to handle the incoming beer styles and output them as chat messages.
 
-1. Search the Code Samples for `Empty template - Transformation`.
+1. Search the Code Samples for `Starter transformation`.
 
-2. Click `Preview code`.
+2. Click `Preview code` on the Python version.
 
 3. Click `Edit code`.
 

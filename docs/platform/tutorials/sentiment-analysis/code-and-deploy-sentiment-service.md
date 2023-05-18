@@ -23,9 +23,9 @@ Follow these steps to locate and save the code to your workspace:
     
     3. Type = `Basic templates`
 
-2. Select `Empty template - Transformation`.
+2. Select `Starter transformation`.
 
-    - This is a simple example of how to subscribe and publish messages to Quix.
+    - This is a simple example of how to subscribe to and publish messages to Quix.
     - You can't edit anything here, this is a read-only view so you can explore the files in the template and see what each one does.
 
 3. Click `Preview code` then `Edit code`.

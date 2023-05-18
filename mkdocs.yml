@@ -54,13 +54,13 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
-      - 'Telemetry data': 'platform/tutorials/telemetry-data/telemetry-data.md'
       - 'Real-time Machine Learning (ML) pipelines':
         - platform/tutorials/train-and-deploy-ml/index.md
         - 'Create your data': 'platform/tutorials/train-and-deploy-ml/create-data.md'
         - 'Import data into Jupyter': 'platform/tutorials/train-and-deploy-ml/import-data.md'
         - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
         - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
+        - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
       - 'Data Science': 'platform/tutorials/data-science/data-science.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
@@ -139,7 +139,6 @@ theme:
   name: 'material'
   custom_dir: overrides
   # TODO
-  logo: assets/Quix-docs-logo-header03.svg
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
   
