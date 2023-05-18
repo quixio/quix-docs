@@ -33,7 +33,7 @@ To access historical data:
 
 		If you see a pre-populated query builder:
 
-		![Populated query builder](query-a.png){width=250px}
+		![Populated query builder](./images/query-a.png){width=250px}
 
 		Follow these steps:
 
@@ -50,7 +50,7 @@ To access historical data:
 
 		If you see an empty query builder:
 
-		![Un-populated query builder](query-b.png){width=250px}
+		![Un-populated query builder](./images/query-b.png){width=250px}
 
 		Follow these steps:
 
@@ -70,7 +70,7 @@ To access historical data:
 
 	Whichever options you used, you should be looking at a visualization of the two selected parameters:
 
-	![Data explorer](data-explorer.png){width=600px}
+	![Data explorer](./images/data-explorer.png){width=600px}
 
 	Note that your data won't look the same as ours, so don't be concerned if they aren't identical.
 
@@ -78,13 +78,13 @@ To access historical data:
 
 9. Select the `Code` tab to view the code to access this data set from outside of Quix.
 
-	![Data explorer settings](data-explorer-settings.png)
+	![Data explorer settings](./images/data-explorer-settings.png)
 
 	!!! hint
 
 		You can copy and paste this code into a [`Jupyter Notebook`](https://jupyter.org/){target=_blank} or [`Google Colab Notebook`](https://colab.research.google.com/){target=_blank} and run it to get your data there.
 
-		![Collab Notebook](results.png){width=450px}
+		![Collab Notebook](./images/results.png){width=450px}
 
 ## Train the model
 

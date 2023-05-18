@@ -24,7 +24,7 @@ Follow these steps to view real-time data as it arrives into your topics:
 
 6. After a few moments you will see data being shown in the table.
 
-	![CitiBike data](data.png)
+	![CitiBike data](./images/data.png)
 
 !!! tip "Be patient"
 

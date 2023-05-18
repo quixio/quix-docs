@@ -6,7 +6,7 @@ You won't need to write lots of code, you will use the Quix Code Samples to depl
 
 1. Navigate to `Code Samples` using the left-hand menu and search for `New York` then select the `New York Bikes` tile.
 
-	![NY Bikes sample tile](ny-bikes-library-tile.png){width=200px}
+	![NY Bikes sample tile](./images/ny-bikes-library-tile.png){width=200px}
 
 2. Click `Setup and deploy`
 

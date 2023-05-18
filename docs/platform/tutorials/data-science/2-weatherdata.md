@@ -46,7 +46,7 @@ At this stage you should have two services running.
 
 One is publishing `New York CitiBike` data to a topic called `bikes-topic` and another is publishing `Visual Crossing` weather data to a topic called `weather-topic`.
 
-![Successfully deployed pipeline](early-success.png)
+![Successfully deployed pipeline](./images/early-success.png)
 
 
 [Part 3 - Data views :material-arrow-right-circle:{ align=right }](3-data.md)
