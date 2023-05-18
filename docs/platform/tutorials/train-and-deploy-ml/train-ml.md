@@ -15,10 +15,10 @@ You now need to install some Python libraries on your system. This is the system
 The following libraries are required to create the ML model and visualize your data. To install the libraries enter the following commands into a terminal on the system where you are running Jupyter Notebook:
 
 ``` shell
-python3 -m pip install seaborn
-python3 -m pip install sklearn
-python3 -m pip install mlflow
-python3 -m pip install matplotlib
+pip install seaborn
+pip install scikit-learn
+pip install mlflow
+pip install matplotlib
 ```
 
 !!! note 

@@ -26,15 +26,11 @@ Ensure you are logged into the Quix Portal, then follow these steps to create a 
 
 8. Leave output as `hard-braking` (its default value).
 
-9. Click `new topic` next to `hard-braking` to create this topic, leaving topic values at their defaults.
-
-10. Click `Save as Project`. The code  is now saved to your workspace. 
+9. Click `Save as Project`. The code  is now saved to your workspace. 
 
 	!!! tip
 		
 		You can see a list of projects at any time by clicking `Projects` in the left-hand navigation.
-
-11. Click `Topics` in the left-hand navigation. Wait until the topic `hard-braking` has been created.
 
 ## Upload the model
 

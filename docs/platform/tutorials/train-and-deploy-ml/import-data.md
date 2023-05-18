@@ -23,8 +23,8 @@ jupyter notebook
     If you don’t see **Python 3** in the `New` menu, run the following commands in your Python environment: 
 
     ``` python
-    python3 -m pip install ipykernel
-    python3 -m ipykernel install --user
+    pip install ipykernel
+    python -m ipykernel install --user
     ```
 
 ## Obtain the training data
