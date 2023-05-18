@@ -1,55 +1,101 @@
 
 # Training data
 
-Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then great, you can train the model and import it into Quix so that you can run it in real-time. 
+Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then you can train the model and use it in the Quix Platform where you can run it in real-time. 
 
-Follow along and we'll show you how to get data out of Quix so you can train the model.
+Follow along and learn how to retrieve historical data from your topics, so you can train your model.
 
-### Limited data set
+## Limited data set
 
-We mentioned earlier in [Weather data](#2-openweather.md) that free access to the OpenWeather API only allows us to consume new data every 30 minutes, therefore at this point you will have a limited data set.
+You've already read about the limitations of the free Visual Crossing API. Namely, that it only allows requests for new data  1000 times per day and so the Quix Code Sample only requests data very 2 minutes, therefore at this point in the tutorial you may have a limited data set.
 
-You can continue following the tutorial to see how to access the data, however please note that weather data changes slowly and we've used the free OpenWeather API so we are only collecting updates every 30 minutes. After a few hours you will have more data to examine.
+Continue following the tutorial to see how to access the accumulated historical data, however, after a few hours you will have more data to examine at which time you can repeat the steps again.
 
-#### Get the data
+## Get the data
 
-1. Click `Persisted data` in the left hand navigation.
+To access historical data:
 
-2. Select the `bikes-topic` in the left hand panel.
+1. Click `Persisted data` in the left-hand navigation.
+
+2. Select the `bikes-topic` in the left-hand panel.
 
 3. Mouse over a stream name in the table and click the `Visualize stream` icon.
 
 	The page will navigate to the `Data explorer`.
 
-4. In the query builder on the left hand side click the `Add query`.
+4. You will see one of two scenarios represented in the `query builder` on the left-hand side. 
 
-5. In the Add query dialog select the `New York Total Bikes Real Time` stream.
+	Select the tab most applicable to what you see:
 
-6. Click `Next`
+	<div class="grid" markdown>
 
-7. Select `total_num_bikes_available` and `num_docks_available`
+	=== "Pre-filled"
 
-8. Click `Done`
+		If you see a pre-populated query builder:
+
+		![Populated query builder](query-a.png){width=250px}
+
+		Follow these steps:
+
+		1. Select the `+` under `SELECT (Parameters & Events)`.
+
+		2. Select `total_num_bikes_available` from the list.
+		
+		3. Again select the `+` under `SELECT (Parameters & Events)`.
+
+		4. Select `num_docks_available` from the list.
 
 
-	You should be looking at a visualization of the two selected parameters
+	=== "Empty"
+
+		If you see an empty query builder:
+
+		![Un-populated query builder](query-b.png){width=250px}
+
+		Follow these steps:
+
+		1. Click `Add Query`.
+
+		2. Select `bikes-topic` under `From topic`.
+
+		3. Select the `New York Total Bikes Real Time` stream.
+
+		4. Click `Next`.
+
+		5. Select both parameters i.e. `num_docks_available` and `total_num_bikes_available`.
+
+		6. Click `Done`.
+
+	</div>
+
+	Whichever options you used, you should be looking at a visualization of the two selected parameters:
 
 	![Data explorer](data-explorer.png){width=600px}
 
-8. Switch off `aggregation` to see all of the data
+	Note that your data won't look the same as ours, so don't be concerned if they aren't identical.
 
-9. Select the `Code` tab to view the code to access this data set from outside of Quix
+8. Switch off `aggregation` to see all of the data.
 
-### Train the model
+9. Select the `Code` tab to view the code to access this data set from outside of Quix.
 
-At this point, you are generating historic data and know how to query it. You can train your ML models as soon as you've gathered enough data.
+	![Data explorer settings](data-explorer-settings.png)
 
-!!! example "Need help?"
+	!!! hint
+
+		You can copy and paste this code into a [`Jupyter Notebook`](https://jupyter.org/){target=_blank} or [`Google Colab Notebook`](https://colab.research.google.com/){target=_blank} and run it to get your data there.
+
+		![Collab Notebook](results.png){width=450px}
+
+## Train the model
+
+At this point, you are collecting historical data and you know how to query it for use outside the Quix Platform to train your ML models.
+
+???- example "Need help training a model?"
 
 	Follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/train-ml-model.md)
 
 	We walk you through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
-However, it would take several weeks to accumulate enough historic data to train a model, so let's continue the tutorial with some pre-trained models we have provided. We've done it using the very same data flow you've just built, and can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
+However, it would take several weeks to accumulate enough historical data to train a model, so continue the tutorial with some pre-trained models already built by the Quix team. We've done it using the very same data flow you've just built. You can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
 
-[Part 5 - Run the model :material-arrow-right-circle:{ align=right }](5-results.md)
+[Part 5 - Run the model :material-arrow-right-circle:{ align=right }](5-run.md)
