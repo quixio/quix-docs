@@ -26,13 +26,13 @@ Get the code for the prediction service:
 
 !!! note "Free Models" 
 
-	Look in the `MLModels` folder. We've stashed the pre-trained ML models here for you. You can upload your own and compare them to ours. (Let us know how they compare)
+	Look in the `MLModels` folder for the Quix pretrained ML models. You can upload your own and compare them to ours. Let us know how they compare.
 
 ## Run in the dev environment
 
 You can now run the prediction model from this 'dev' environment to make sure it's working before deploying it to an always ready, production environment.
 
-1. Click `Run` in the top right hand corner.
+1. Click `Run` in the top right-hand corner.
 
 2. Observe the `Console` tab at the bottom of the screen.
 

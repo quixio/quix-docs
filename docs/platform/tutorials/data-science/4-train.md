@@ -1,4 +1,3 @@
-
 # Training data
 
 Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then you can train the model and use it in the Quix Platform where you can run it in real-time. 
@@ -31,7 +30,7 @@ To access historical data:
 
 	=== "Pre-filled"
 
-		If you see a pre-populated query builder:
+		If you see a prepopulated query builder:
 
 		![Populated query builder](./images/query-a.png){width=250px}
 
@@ -62,7 +61,7 @@ To access historical data:
 
 		4. Click `Next`.
 
-		5. Select both parameters i.e. `num_docks_available` and `total_num_bikes_available`.
+		5. Select both parameters, that is both `num_docks_available` and `total_num_bikes_available`.
 
 		6. Click `Done`.
 
@@ -94,7 +93,7 @@ At this point, you are collecting historical data and you know how to query it f
 
 	Follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/train-ml-model.md)
 
-	We walk you through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
+	You are walked through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
 However, it would take several weeks to accumulate enough historical data to train a model, so continue the tutorial with some pre-trained models already built by the Quix team. We've done it using the very same data flow you've just built. You can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
 

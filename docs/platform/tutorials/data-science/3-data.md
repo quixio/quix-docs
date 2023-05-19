@@ -1,8 +1,8 @@
 # View and store the data
 
-With the Quix Platform it's easy to visualize your data in a powerful and flexible way, you can see the data in real-time as well as viewing historical data.
+With the Quix Platform it's easy to visualize your data in a powerful and flexible way, you can see the data in real time, as well as viewing historical data.
 
-The Quix Platform was designed for real-time data, so if you want to see data-at-rest for any topic you must turn on data persistence for that specific topic (You'll do this [below](#historical-data)).
+The Quix Platform was designed for real-time data, so if you want to see data-at-rest for any topic you must turn on data persistence for that specific topic. You'll do this in the section on [historical](#historical-data)).
 
 ## Real-time data
 
@@ -34,7 +34,7 @@ Now you know how to observe data arriving into your topics. You can also explore
 
 ## Historical data
 
-In order to train a machine learning model on historical data, the live real-time data being ingested needs to be stored. However, topics are real time and therefore not designed for data storage. To solve this, Quix allows you to store the data going through a topic to an efficient real time database if you need it.
+In order to train a machine learning model on historical data, the live real-time data being ingested needs to be stored. However, topics are real time and therefore not designed for data storage. To solve this, Quix allows you to store the data going through a topic to an efficient real-time database if you need it.
 
 Enable persistence on your topics:
 
