@@ -190,7 +190,10 @@ extra:
       link: 'https://www.youtube.com/channel/UCrijXvbQg67m9-le28c7rPA'
   analytics:
     provider: google-tag-manager
-    property: GTM-55L66N3 #UA-173360929-3 ignored, using GTM instead of universal analytics
+    property: GTM-55L66N3
+  posthog:
+    host: https://eu.posthog.com
+    key: phc_UyQcafs2J7OUQEwJrmejeb0vCIdA9i9vYz66suPshix
   hotjar:
     id: 2437577
 
