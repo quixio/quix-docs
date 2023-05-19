@@ -158,7 +158,7 @@ In this section you will learn how to use a template to help quickly build a Qui
 
 1. Navigate to the `Code Samples`.
 
-2. Search for the `Starter source`. It should have a blue highlight (blue is used to indicate a source). Make sure the Python language version is selected.
+2. Search for the `Starter source` item. Ensure you select the Python version.
 
 3. Click `Preview code`.
 
@@ -314,7 +314,7 @@ You will now locate a suitable transformation template and modify it to handle t
 
 1. Search the Code Samples for `Starter transformation`. Make sure you select the Python language version.
 
-2. Click `Preview code`.
+2. Click `Preview code` on the Python version.
 
 3. Click `Edit code`.
 

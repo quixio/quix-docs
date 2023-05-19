@@ -129,9 +129,9 @@ Follow these instructions to deploy the data source:
 
 1. Navigate to `Code Samples`, select `Python` under languages and `Source` under pipeline stage.
 
-2. In the search box enter `Empty template`.
+2. In the search box enter `Starter source`.
 
-3. On `Empty template`, click `Preview code` then `Edit code`.
+3. On `Starter source`, click `Preview code` then `Edit code`.
 
 4. Change the `Name` field to `CSV data source`.
 

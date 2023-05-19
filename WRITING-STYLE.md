@@ -385,6 +385,7 @@ Some further examples of writing style guides are:
 * [Google's guide on inclusive documentation](https://developers.google.com/style/inclusive-documentation)
 * [Vonage/Nexmo](https://developer.nexmo.com/contribute/guides/writing-style-guide)
 * [Ably](https://github.com/ably/docs/blob/main/writing-style-guide.md)
+* [Redpanda](https://github.com/redpanda-data/documentation/blob/dev/meta_docs/style_guide.mdx)
 
 ## See also
 

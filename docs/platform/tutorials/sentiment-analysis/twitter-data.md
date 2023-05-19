@@ -66,7 +66,7 @@ Follow these steps to code and deploy the tweet-to-chat conversion stage:
     
     3. Type = `Basic templates`
 
-2. Select `Empty template - Transformation`.
+2. Select `Starter transformation`.
 
 3. Click `Preview code` then `Edit code`.
 

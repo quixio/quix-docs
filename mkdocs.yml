@@ -55,7 +55,6 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
-      - 'Telemetry data': 'platform/tutorials/telemetry-data/telemetry-data.md'
       - 'Train and deploy an ML model':
         - 'How to train an ML model': 'platform/tutorials/train-and-deploy-ml/train-ml-model.md'
         - 'Run ML model in realtime environment': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
