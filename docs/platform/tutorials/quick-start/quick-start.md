@@ -208,7 +208,7 @@ You now have a project for a Quix source you can modify to suit your own require
         # sink the beer's `style` to Quix as an event
         stream.events.add_timestamp(datetime.datetime.utcnow()) \
         .add_value("beer", response.json()["style"]) \
-        .write()
+        .publish()
 
         # sleep for a bit
         time.sleep(4)
@@ -219,37 +219,38 @@ You now have a project for a Quix source you can modify to suit your own require
 6. Lastly, delete the following lines:
 
     ```python
-    stream.parameters.add_definition("ParameterA").set_range(-1.2, 1.2)
-    stream.parameters.buffer.time_span_in_milliseconds = 100
+    stream.timeseries.add_definition("ParameterA").set_range(-1.2, 1.2)
+    stream.timeseries.buffer.time_span_in_milliseconds = 100
     ```
+7. You can also delete the `import math` statement, as this is no longer used.
 
-
-7. Save and then run the code by clicking the `Run` button near the top right of the code editor window.
+8. Save and then run the code by clicking the `Run` button near the top right of the code editor window.
 
 Every 4 seconds the random beer API is called, and a new style of beer is published to the Quix topic `api-data`.
 
-8. Click `Stop` to stop the code running (mouse over the `Running` button).
+9. Click `Stop` to stop the code running (mouse over the `Running` button).
 
 ??? example "Understand the code"
 
     The complete code for `main.py` is shown here:
 
     ```python
-    from quixstreaming import QuixStreamingClient
+    import quixstreams as qx
     import time
     import datetime
     import os
     import requests  # (1)
 
-
-    # Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
-    client = QuixStreamingClient()
+    # Quix injects credentials automatically to the client. 
+    # Alternatively, you can always pass an SDK token manually as an argument.
+    client = qx.QuixStreamingClient()
 
     # Open the output topic where to write data out
-    output_topic = client.open_output_topic(os.environ["output"])
+    topic_producer = client.get_topic_producer(topic_id_or_name = os.environ["output"])
 
-    stream = output_topic.create_stream()
-    stream.properties.name = "Hello World python stream"
+    # Set stream ID or leave parameters empty to get stream ID generated.
+    stream = topic_producer.create_stream()
+    stream.properties.name = "Hello World Python stream"
 
     print("Sending values for 30 seconds.")
 
@@ -264,7 +265,7 @@ Every 4 seconds the random beer API is called, and a new style of beer is publis
         # sink the beer's `style` to Quix as an event (4)
         stream.events.add_timestamp(datetime.datetime.utcnow()) \  
         .add_value("beer", response.json()["style"]) \
-        .write()
+        .publish()
 
         # sleep for a bit
         time.sleep(4) # (5)
@@ -311,7 +312,7 @@ Now that you have some data, you need to transform it to make it compatible with
 
 You will now locate a suitable transformation template and modify it to handle the incoming beer styles and output them as chat messages.
 
-1. Search the Code Samples for `Starter transformation`.
+1. Search the Code Samples for `Starter transformation`. Make sure you select the Python language version.
 
 2. Click `Preview code` on the Python version.
 
@@ -327,7 +328,7 @@ You will now locate a suitable transformation template and modify it to handle t
 
 You have now saved the template to your workspace. In the next section you'll modify your code to suit your requirements.
 
-1. Add the following import to the `quix_function.py` file:
+1. Add the following import to the `main.py` file:
 
 	```python
 	import datetime
@@ -335,48 +336,23 @@ You have now saved the template to your workspace. In the next section you'll mo
 
     You'll need to include this module to use the `datetime` function to add a timestamp to your event data.
 
-2. Locate the `on_event_data_handler` method.
+2. Locate the `on_event_data_received_handler` method.
 
-3. Replace the comment `# Here transform your data.` with the following code
+3. Replace the comment `# handle your event data here` with the following code:
 
 	```python
 	# stream chat-messages to the output topic
-    self.output_stream.parameters.buffer.add_timestamp(datetime.datetime.utcnow()) \
-		.add_value("chat-message", data.value) \
-		.add_tag("room", "Beer") \
-		.add_tag("name", "BeerAPI") \
-		.write()
-	```
-
-    This writes data to the output stream in the parameter data format.
-
-4. Delete the last line of the method:
-
-	```python
-	self.output_stream.events.write(data)
-	```
-
-    This is not longer required as the previous method writes out the data in the parameter format.
-
-5. Save the file.
-
-6. Open the `main.py` file.
-
-8. Locate the following line:
-
-	```python
-	output_stream = output_topic.create_stream(input_stream.stream_id)
-	```
-
-9. Replace it with:
-
-    ```python
-    output_stream = output_topic.get_or_create_stream("beer")
+    stream_producer = topic_producer.get_or_create_stream("beer")
+    stream_producer.timeseries.buffer.add_timestamp(datetime.datetime.utcnow()) \
+        .add_value("chat-message", data.value) \
+        .add_tag("room", "Beer") \
+        .add_tag("name", "BeerAPI") \
+        .publish()
     ```
 
-    This code creates the output stream if it does not exist. The chat UI will write messages from this stream into the chat room with the same name.
+    This code creates the output stream if it does not exist, and writes data to the output stream in the [timeseries data format](../../../client-library/publish.html#publishing-time-series-data). The chat UI will write messages from this stream into the chat room with the same name.
 
-10. Save, tag, and deploy this project!
+4. Save, tag, and deploy this project!
 
 !!! success
 

@@ -20,6 +20,7 @@ nav:
     - 'How To':
       - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
       - 'Use SDK token': 'platform/how-to/use-sdk-token.md'
+      - 'Connect to Quix': 'platform/how-to/connect-to-quix.md'
       - 'Use replay service': 'platform/how-to/replay.md'
       - 'Use Jupyter notebooks': 'platform/how-to/jupyter-nb.md'
       - 'Develop web applications with Quix': 'platform/how-to/webapps.md'
