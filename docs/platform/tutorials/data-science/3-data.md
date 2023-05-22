@@ -6,9 +6,9 @@ The Quix Platform was designed for real-time data, so if you want to see data-at
 
 ## Real-time data
 
-Follow these steps to view real-time data as it arrives into your topics:
+Follow these steps to view real-time data as it arrives in your topics:
 
-1. On the `Pipeline` page, click on the grey or green arrow coming out of the `New York Bikes` service.
+1. On the `Pipeline` page, click on the arrow coming out of the `New York Bikes` service. If there is data being emitted this arrow is green, otherwise it is gray.
 
 2. Click `Explore live data` on the context menu.
 
@@ -42,7 +42,7 @@ Enable persistence on your topics:
 
 2. Locate the topic(s) you want to store data for (in this case `bikes-topic` and `weather-topic`).
 
-3. Click the toggle in the `Persistence` column to `on`.
+3. For each topic, click the toggle in the `Persistence` column to `on`.
 
 4. Finally, go back to the `Pipeline` page.
 	

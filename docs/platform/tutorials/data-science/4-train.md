@@ -95,6 +95,6 @@ At this point, you are collecting historical data and you know how to query it f
 
 	You are walked through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
-However, it would take several weeks to accumulate enough historical data to train a model, so continue the tutorial with some pre-trained models already built by the Quix team. We've done it using the very same data flow you've just built. You can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
+It would take several weeks to accumulate enough historical data to train a model, so you will continue the tutorial with some pre-trained models already built by the Quix team. This was done using the very same data flow you've just built. You can find the Jupyter notebook code used to train the model in the [Quix GitHub repo](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
 
 [Part 5 - Run the model :material-arrow-right-circle:{ align=right }](5-run.md)

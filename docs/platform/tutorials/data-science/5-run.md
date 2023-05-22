@@ -58,13 +58,13 @@ You can now run the prediction model from this 'dev' environment to make sure it
 
 Having verified that the code runs, you can now deploy it to the Quix serverless environment. Once deployed, it will run continuously, gathering data from the sources and producing predictions.
 
-1. Click `stop` if you haven't already done so.
+1. Click `Running` to stop the code running.
 
-2. Click `Deploy` in the top right hand corner near `run`.
+2. Click `Deploy` in the top right-hand corner near `Run`.
 
 3. On the `Deployment settings`, increase the memory to at least 1.5GB.
 
-4. Click `deploy`.
+4. Click `Deploy`.
 
 	You will be redirected to the pipeline page and the code will be built, deployed and started.
 	
