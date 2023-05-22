@@ -14,7 +14,7 @@ In other words, you will complete all the typical phases of a data science proje
 
  - Store the data efficiently
 
- - Train some ML models with historic data
+ - Train some ML models with historical data
 
  - Deploy the ML models into production in real time
 
@@ -128,9 +128,9 @@ You now have a working real time stream of bike data. Now use the OpenWeather ac
 
 ## 4. View and store the data
 
-With Quix it's easy to visualize your data in a powerful and flexible way, you can see the real-time data and view historic data.
+With Quix it's easy to visualize your data in a powerful and flexible way, you can see the real-time data and view historical data.
 
-At it's heart Quix is a real-time data platform, so if you want to see data-at-rest for a topic, you must turn on data persistence for that topic (You'll do this [below](#historic)).
+At it's heart Quix is a real-time data platform, so if you want to see data-at-rest for a topic, you must turn on data persistence for that topic (You'll do this [below](#historical)).
 
 ### Real-time
 
@@ -148,9 +148,9 @@ At it's heart Quix is a real-time data platform, so if you want to see data-at-r
 
 	If you don't see any streams or parameters, just wait a moment or two. The next time data arrives these lists will be automatically populated.
 
-### Historic
+### Historical
 
-In order to train a machine learning model we will need to store the data we are ingesting so that we start building a historic dataset. However topics are real time infrastructures, not designed for data storage. To solve this, Quix allows you to send the data going through a topic to an efficient real time database if you need it:
+In order to train a machine learning model we will need to store the data we are ingesting so that we start building a historical dataset. However topics are real time infrastructures, not designed for data storage. To solve this, Quix allows you to send the data going through a topic to an efficient real time database if you need it:
 
 1. Navigate to the topics page using the left hand navigation
 
@@ -172,7 +172,7 @@ Follow the along and we'll show you how to get data out of Quix so you can train
 
 We mentioned earlier in [Weather real time stream](#3-weather-real-time-stream) that free access to the OpenWeather API only allows us to consume new data every 30 minutes therefore, at this point you will have a limited data set.
 
-You can leave the data consumption process running overnight or for a few days to gather more data, but for the time being there's no problem in continuing with the tutorial with your limited historic data.
+You can leave the data consumption process running overnight or for a few days to gather more data, but for the time being there's no problem in continuing with the tutorial with your limited historical data.
 
 #### Get the data
 
@@ -204,7 +204,7 @@ You can leave the data consumption process running overnight or for a few days t
 
 ### Train the model
 
-At this point, you are generating historic data and know how to query it. You can train your ML models as soon as you've gathered enough data.
+At this point, you are generating historical data and know how to query it. You can train your ML models as soon as you've gathered enough data.
 
 !!! example "Need help?"
 
@@ -212,7 +212,7 @@ At this point, you are generating historic data and know how to query it. You ca
 
 	We walk you through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
-However, it would take several weeks to accumulate enough historic data to train a model, so let's continue the tutorial with some pre-trained models we have provided. We've done it using the very same data flow you've just built, and can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
+However, it would take several weeks to accumulate enough historical data to train a model, so let's continue the tutorial with some pre-trained models we have provided. We've done it using the very same data flow you've just built, and can find the Jupyter notebook code we used [here](https://github.com/quixio/NY-bikes-tutorial/blob/1stversion/notebooks-and-sample-data/04%20-%20Train%20ML%20models.ipynb){target=_blank}.
 
 ## 6. Run the model
 

@@ -19,18 +19,18 @@ a seamless journey from concept to production. The key steps are:
 Any member of any team can quickly access data in the Catalogue without
 support from software or regulatory teams.
 
-## Develop features in historic data
+## Develop features in historical data
 
 Use Visualise to discover, segment, label and store significant features
 in the catalogue.
 
-## Build & train models on historic data
+## Build & train models on historical data
 
 Use Develop and Deploy to:
 
   - Write model code in Python using their favourite IDE.
 
-  - Train models on historic data.
+  - Train models on historical data.
 
   - Evaluate results against raw data and results from other models.
 

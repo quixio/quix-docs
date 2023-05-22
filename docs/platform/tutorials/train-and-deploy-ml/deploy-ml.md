@@ -1,108 +1,76 @@
-# Run ML model in realtime environment
+# Deploy your ML model
 
-In this article, you will learn how to use pickle file trained on
-historic data in a realtime environment.
+In this part of the tutorial, you deploy the Pickle file [containing your ML model](./train-ml.md) to the Quix Platform. Your ML code then uses this model to predict braking in real time. 
 
-Ensure you have completed the previous stage first, if not find it [here](train-ml-model.md).
+![What you'll build](./images/run-live.png)
 
-## Watch
-If you prefer watching instead of reading, we've recorded a short video:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8h0jm0q_0PA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You'll also use the Quix Data Explorer to visualize the braking prediction in real time.
 
-## Why this is important
+## Create a transform
 
-With the Quix platform, you can run and deploy ML models to the leading
-edge reacting to data coming from the source with milliseconds latency.
+Ensure you are logged into the Quix Portal, then follow these steps to create a transform that uses your model:
 
-## End result
+1. Click `Code Samples` in the left-hand sidebar.
 
-At the end of this article, we will end up with a **live model** using the **pickle file** from [How to train ML model](train-ml-model.md) to process live data on the edge.
+2. Filter the Code Samples by selecting `Python` under `LANGUAGES` and `Transformation` under `PIPELINE STAGE`.
 
-![What you'll build](run-live.png)
+3. Locate the `Event Detection` item.
 
-## Preparation
+4. Click `Preview code` in the `Event Detection` panel. You can browse the files to ensure you have the correct sample.
 
-You’ll need to complete the [How to train ML model](train-ml-model.md) article to get pickle file with trained model logic.
+5. Click `Edit code`.
 
-## Run the model
+6. Change the name to `Prediction Model`.
 
-Now let's run the model you created in the previous article. If you have your own model and already know how to run the Python to execute it then these steps might also be useful for you.
+7. Ensure the input is `f1-data`.
 
-Ensure you are logged into the Quix Portal
+8. Leave output as `hard-braking` (its default value).
 
-1. Navigate to the `Code Samples`
-
-2. Filter the Code Samples by selecting `Python` under languages and `Transformation` under pipeline stage
-
-3. Select the `Event Detection` item
+9. Click `Save as Project`. The code  is now saved to your workspace. 
 
 	!!! tip
-
-		If you can't see `Event Detection` you can also use search to find it
 		
-	!!! info
+		You can see a list of projects at any time by clicking `Projects` in the left-hand navigation.
 
-		Usually, after clicking on the `Event Detection` you can look at the code and the readme to ensure it's the correct sample for your needs.
+## Upload the model
 
-4. Now click Edit code
+Now you need to upload your ML model and edit your transform code to run the model.
 
-5. Change the name to "Prediction Model"
+1. Click on `Projects` and select `Prediction Model` to display your project code.
 
-6. Ensure the input is "f1-data"
+2. Click the `Upload File` icon at the top of the file list, as shown in the following screenshot:
 
-7. Ensure the output is "brake-prediction"
+	![Upload file to project](./images/upload-file-to-project.png)
 
-	!!! info
-
-		The platform will automatically create any topics that don't already exist
-
-!!! success
-
-	The code from the Code Samples sample is now saved to your workspace.
-	
-	You can edit and run the code from here or clone it to your computer and work locally.
-	
-### Upload the model
-
-Now you need to upload the ML model created in the previous article and edit this code to run the model.
-
-1. Click the upload file icon at the top of the file list
-
-2. Find the file saved in the previous article.
-
-	!!! hint
-	
-		It's called 'decision_tree_5_depth.sav' and should be in "C:\Users\[USER]\" on Windows
+3. Find the Pickle file containing your ML model. It's named `decision_tree_5_depth.sav` and is in the same directory as your Jupyter Notebook files.
 
 	!!! warning
-	
-		When you click off the file e.g. onto quix_function.py, the editor might prompt you to save the .sav file.
+
+		When you click off the file, for example onto `quix_function.py`, the editor may prompt you to save the `.sav` file. **Click `Discard changes`**.
 		
-		Click "Do not commit"
-		
-3. Click quix_function.py in the file list (remember do not commit changes to the model file)
+4. Click `quix_function.py` in the file list (remember, **do not** commit changes to the model file).
 
-### Modify the code
+## Modify the transform code
 
-1. Add the following statements to import the required libraries
+You need to modify your transform code to work with the ML model in the Pickle file. In the file `quix_function.py`:
 
-	``` py
+1. Add the following statements to import the required libraries:
+
+	``` python
 	import pickle
 	import math
 	```
 
-2. In the `__init__` function add the following lines to load the model
+2. In the `__init__` function add the following lines to load the model:
 
-	``` py
+	``` python
 	## Import ML model from file
     self.model = pickle.load(open('decision_tree_5_depth.sav', 'rb'))
 	```
 
-3. Under the `__init__` function add the following new function
+3. Under the `__init__` function add the following new function to preprocess the data:
 
-	This will pre-process the data, a necessary step before passing it to the model.
-
-	``` py
+	``` python
 	## To get the correct output, we preprocess data before we feed them to the trained model
     def preprocess(self, df):
 
@@ -126,11 +94,11 @@ Now you need to upload the ML model created in the previous article and edit thi
         return df
 	```
 
-4. Delete the `on_pandas_frame_handler` function and paste this code in it's place.
+4. Replace the `on_dataframe_handler` function with the following code:
 
-	``` py
+	``` python
 	# Callback triggered for each new parameter data.
-    def on_pandas_frame_handler(self, df: pd.DataFrame):
+    def on_dataframe_handler(self, stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
 
         # if no speed column, skip this record        
         if not "Speed" in df.columns:
@@ -144,79 +112,75 @@ Now you need to upload the ML model created in the previous article and edit thi
         features = ["Motion_WorldPositionX_cos", "Motion_WorldPositionX_sin", "Steer", "Speed", "Gear"]
         X = df[features]
 
-        # Lets shift data into the future by 5 seconds. (Note that time column is in nanoseconds).
-        output_df["time"] = df["time"].apply(lambda x: int(x) + int((5 * 1000 * 1000 * 1000)))
+        # Shift data into the future by 5 seconds. (Note that time column is in nanoseconds).
+        output_df["timestamp"] = df["timestamp"].apply(lambda x: int(x) + int((5 * 1000 * 1000 * 1000)))
         output_df["brake-prediction"] = self.model.predict(X)
 		
         print("Prediction")
         print(output_df["brake-prediction"])		
 
 		# Merge the original brake value into the output data frame
-        output_df = pd.concat([df[["time", "Brake"]], output_df]).sort_values("time", ascending=True)
+        output_df = pd.concat([df[["timestamp", "Brake"]], output_df]).sort_values("timestamp", ascending=True)
 
-
-        self.output_stream.parameters.buffer.write(output_df)  # Send filtered data to output topic
+        self.producer_stream.timeseries.buffer.publish(output_df)  # Send filtered data to output topic
 	```
 
-### Update requirements
+5. Commit your changes to the `quix_function.py` file by clicking `Commit` or using ++ctrl+s++ or ++command+s++.
 
-Click on the requirements.txt file and add `sklearn` on a new line
+## Update the `requirements.txt` file
 
+Click on the `requirements.txt` file and add `scikit-learn` on a new line. Commit your change.
 
 !!! success
 
 	You have edited the code to load and run the model.
 	
+## Run the code
 
-### Run the code
-
-The fastest way to run the code is to click Run in the top right hand corner.
+The simplest way to run the code is to click the `Run` button in the top right-hand corner.
 
 This will install any dependencies into a sandboxed environment and then run the code.
 
-In the output console you will see the result of the prediction.
+The output console displays the result of the prediction.
 
-In the next few steps you will deploy the code and then see a visualization of the output.
+In the next few steps you deploy the code and then see a visualization of the output.
 
 ## Deploy
 
-1. Click Stop if you haven't already done so.
+To deploy your transform:
 
-2. To deploy the code, click Deploy.
+1. Click `Stop` if you haven't already done so.
 
-3. On the dialog that appears click Deploy.
+2. To deploy the code, click `Deploy`.
 
-Once the code has been built, deployed it will be started automatically.
+3. In the dialog that appears click `Deploy`.
+
+Once the code has built, it is started automatically.
 
 !!! success
 
-	Your code is now running in a fully production ready ecosystem.
+	Your code is now running in a production-ready ecosystem.
 
-## Visualize whats happening
+## Visualize your data
 
-To see the output of your model in real time you will use the Data explorer.
+To see the output of your model in real time you can use the Data Explorer. To use the Data Explorer:
 
-1. Click the Data explorer button on the left hand menu.
+1. Click the Data Explorer button on the left-hand sidebar.
 
-2. If it's not already selected click the Live data tab at the top
+2. If it's not already selected click the `Live` data tab at the top.
 
-3. Ensure the `brake-prediciton` topic is selected
+3. Ensure the `hard-braking` topic is selected from the `Select a topic` drop-down list.
 
-4. Select a stream (you should only have one)
+4. Select a stream (you should only have one).
 
-5. Select `brake-prediction` and `brake` from the parameters list
+5. Select `brake-prediction` and `brake` from the parameters list.
 
-!!! success 
+You now see a graphical output for the prediction being output by the model as well as the actual brake value, as illustrated in the following screenshot
 
-	You should now see a graphical output for the prediction being output by the model as well as the actual brake value
-
-	![Data explorer](visualize-result.png)
-
+![Data explorer](./images/visualize-result.png)
 
 !!! note
 
-	Don't forget this exercise was to deploy an ML model in the Quix platform. 
-	
-	We didn't promise to train a good model. So the prediciton may not always match the actual brake value.
+	Don't forget the purpose of this tutorial was to show you how to deploy an ML model in Quix Platform, rather than to train an accurate model. So the prediction may not always match the actual brake value.
 
-
+[Conclusion and next steps :material-arrow-right-circle:{ align=right }](conclusion.md)

@@ -22,7 +22,7 @@ Workspaces are collaborative. Multiple users, including developers, data scienti
 
 ## Project
 
-A set of code in Quix Platform that can be edited, compiled, executed, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
+A set of code in Quix Platform that can be edited, compiled, run, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
 
 ## Deployment
 
@@ -153,7 +153,7 @@ A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any dat
 
 ### Data Catalogue API
 
-An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historic data in the Data Catalogue. Most commonly used for dashboards, analytics and training ML models. Also useful to call historic data when running an ML model, or to call historic data from an external application.
+An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historical data in the Data Catalogue. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application.
 
 ### Portal API
 
