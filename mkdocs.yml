@@ -62,7 +62,7 @@ nav:
         - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
         - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
         - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
-      - 'Availability Prediction: New York Bikes':
+      - 'Real-time Machine Learning (ML) predictions':
         - 'platform/tutorials/data-science/index.md'
         - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
         - '2. Weather data': 'platform/tutorials/data-science/2-weatherdata.md'

@@ -26,7 +26,7 @@ This tutorial has the following prerequisites:
 
 	???- example "Want to learn it?"
 
-		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../../tutorials/train-and-deploy-ml/train-ml-model.md).
+		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../../tutorials/train-and-deploy-ml/index.md).
 
 		We take you through the process of getting the code to access the data, running the code in a Jupyter notebook, training the model and uploading your pickle file to the Quix Platform.
 
@@ -51,6 +51,6 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 5. **Deploy pre-trained ML models and produce predictions in real time**. Use our pre-trained models to get CitiBike predictions based on historical bicycle availability and weather forecasts. You also use the built-in visualization tools to view the models prediction.
 
-6. **Conclusion**. In this [concluding](conclusion.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+6. **Conclusion**. In this [concluding](6-conclusion.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
 [Part 1 - CitiBike data stream :material-arrow-right-circle:{ align=right }](1-bikedata.md)
