@@ -237,7 +237,7 @@ req.end();
 ```
 
 In the preceding example, tags in the event data request are optional.
-Tags add context to your data points and help you to execute efficient
+Tags add context to your data points and help you to run efficient
 queries over them on your data like using indexes in traditional
 databases.
 

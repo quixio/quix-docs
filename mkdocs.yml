@@ -1,10 +1,10 @@
 site_name: 'Quix Docs'
 site_description: 'Quix Developer Documentation. Includes documentation (tutorials, reference guides, how-tos, concepts) for Quix Platform, Quix Streams client library, and REST and websocket APIs.'
 site_author: 'Quix.io'
-site_url: 'https://docs.quix.io'
+site_url: 'https://quix.io/docs'
 
 copyright: >
-  Copyright &copy; 2020 - 2022 Quix Analytics, Ltd. –
+  Copyright &copy; 2020 - 2023 Quix Analytics, Ltd. –
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
@@ -55,10 +55,21 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
       - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
-      - 'Train and deploy an ML model':
-        - 'How to train an ML model': 'platform/tutorials/train-and-deploy-ml/train-ml-model.md'
-        - 'Run ML model in realtime environment': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
-      - 'Data Science': 'platform/tutorials/data-science/data-science.md'
+      - 'Real-time Machine Learning (ML) pipelines':
+        - platform/tutorials/train-and-deploy-ml/index.md
+        - 'Create your data': 'platform/tutorials/train-and-deploy-ml/create-data.md'
+        - 'Import data into Jupyter': 'platform/tutorials/train-and-deploy-ml/import-data.md'
+        - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
+        - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
+        - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
+      - 'Real-time Machine Learning (ML) predictions':
+        - 'platform/tutorials/data-science/index.md'
+        - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
+        - '2. Weather data': 'platform/tutorials/data-science/2-weatherdata.md'
+        - '3. Data views': 'platform/tutorials/data-science/3-data.md'
+        - '4. Get training data': 'platform/tutorials/data-science/4-train.md'
+        - '5. Run the model': 'platform/tutorials/data-science/5-run.md'
+        - '6. Conclusion': 'platform/tutorials/data-science/6-conclusion.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
     - 'Code Samples': 'platform/samples/samples.md'
@@ -101,11 +112,12 @@ nav:
     - 'Portal API': 'apis/portal-api.md'
 
 plugins:
+  - multirepo:
+      cleanup: true
   - search:
       separator: '[\s\-\.]' 
   - social
   - glightbox
-  - multirepo
   - redirects:
       redirect_maps:
         'sdk-intro.md': 'client-library-intro.md'
@@ -130,6 +142,8 @@ plugins:
         'sdk/introduction.md': 'client-library-intro.md'
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
         'platform/intro.md': 'platform/what-is-quix.md'
+        'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
+        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/intro.md"
 
 theme:
   name: 'material'

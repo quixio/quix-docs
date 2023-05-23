@@ -60,7 +60,7 @@ Quix provides four APIs to help you work with streaming data. These include:
 
 * [**Stream Reader API**](../apis/streaming-reader-api/intro.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
 
-* [**Data Catalogue API**](../apis/data-catalogue-api/intro.md): enables you to query historic data streams in the data catalogue, in order to train ML models, build dashboards, and export data to other systems.
+* [**Data Catalogue API**](../apis/data-catalogue-api/intro.md): enables you to query historical data streams in the data catalogue, in order to train ML models, build dashboards, and export data to other systems.
 
 * [**Portal API**](../apis/portal-api.md): enables you to automate Quix Portal tasks such as creating workspaces, topics, and deployments.
 

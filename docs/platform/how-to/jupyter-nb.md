@@ -52,7 +52,7 @@ You need to be logged into the platform for this:
 
 ![how-to/jupyter-wb/connect-python.png](../../platform/images/how-to/jupyter-wb/connect-python.png)
 
-Copy the Python code to your Jupyter notebook and execute.
+Copy the Python code to your Jupyter notebook and run.
 
 ![how-to/jupyter-wb/jupyter-results.png](../../platform/images/how-to/jupyter-wb/jupyter-results.png)
 
