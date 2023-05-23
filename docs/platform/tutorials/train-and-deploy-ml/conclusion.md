@@ -14,7 +14,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * [Sentiment analysis tutorial](../sentiment-analysis/index.md) - In this tutorial you learn how to build a sentiment analysis pipeline, capable of analyzing real-time chat.
 
-* [Data science tutorial](../data-science/data-science.md) - In this tutorial you use data science to build a real-time bike availability pipeline.
+* [Real-time Machine Learning (ML) predictions](../data-science/index.md) - In this tutorial you use data science to build a real-time bike availability pipeline.
 
 What will you build? Let us know! We’d love to feature your project or use case in our [newsletter](https://www.quix.io/community/).
 
