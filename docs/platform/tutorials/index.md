@@ -1,6 +1,8 @@
 # Tutorials
  
-The Quix tutorials provide you with learning experiences. They are meant to be fun, informative, and interesting.
+The Quix tutorials provide you with experience of using Quix. They guide you in a step-by-step manner through a practical use case. 
+
+Each tutorial is divided into parts, so that you can leave a tutorial at a convenient point, come back to it later, and continue where you left off.
 
 ## For the data scientist
 
@@ -12,7 +14,7 @@ The Quix tutorials provide you with learning experiences. They are meant to be f
     
     Deploy a real-time **data science** project into a scalable self-maintained solution.
 
-    [:octicons-arrow-right-24: Image Processing](./data-science/index.md)
+    [:octicons-arrow-right-24: Data Science](./data-science/index.md)
 
 
 -   __Sentiment Analysis__
@@ -41,7 +43,7 @@ The Quix tutorials provide you with learning experiences. They are meant to be f
 
     ---
     
-    Extract data from Quix to train your Machine Learning (ML) model in Jupyter Notebook.
+    Extract data from Quix to train your ML model in Jupyter Notebook.
     
     [:octicons-arrow-right-24: ML pipelines](./train-and-deploy-ml/index.md)
     
@@ -59,7 +61,7 @@ The Quix tutorials provide you with learning experiences. They are meant to be f
     
     Build a real-time event detection pipeline.
 
-    [:octicons-arrow-right-24: Image Processing](./eventDetection/index.md)
+    [:octicons-arrow-right-24: Event Detection](./eventDetection/index.md)
 
 </div>
 
