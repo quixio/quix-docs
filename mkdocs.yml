@@ -144,7 +144,7 @@ plugins:
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
         'platform/intro.md': 'platform/what-is-quix.md'
         'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
-        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/intro.md"
+        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/index.md"
 
 theme:
   name: 'material'
