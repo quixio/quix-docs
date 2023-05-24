@@ -37,7 +37,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Deploy a real-time data science project into a scalable self-maintained solution.
 
-    [:octicons-arrow-right-24: ML predictions](./data-science/index.md)
+    [:octicons-arrow-right-24: ML Predictions](./data-science/index.md)
 
 -   __ML Pipelines__
 
@@ -45,7 +45,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Extract data from Quix to train your ML model in Jupyter Notebook.
     
-    [:octicons-arrow-right-24: ML pipelines](./train-and-deploy-ml/index.md)
+    [:octicons-arrow-right-24: ML Pipelines](./train-and-deploy-ml/index.md)
     
 -   __Image Processing__
 
