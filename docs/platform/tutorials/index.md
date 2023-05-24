@@ -63,5 +63,6 @@ The Quix tutorials provide you with learning experiences. They are meant to be f
 
 </div>
 
+## Need help?
 
-
+If you'd like some help with a tutorial, or advice on a suitable tutorial for your use case, feel free to ask in the [Quix Forum](https://forum.quix.io/){target=_blank}!
