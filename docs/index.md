@@ -52,7 +52,7 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
     ---
     
-    Learn how to deploy a real-time **data science** project into a scalable self-maintained solution.
+    Deploy a real-time **data science** project into a scalable self-maintained solution.
 
     [:octicons-arrow-right-24: Data Science](./platform/tutorials/data-science/index.md)    
     
@@ -60,7 +60,7 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
     ---
     
-    Real-time image processing using London's 'Jam Cams'.
+    Deploy a real-time image processing pipeline using ML and London's 'Jam Cams'.
 
     [:octicons-arrow-right-24: Image Processing](./platform/tutorials/image-processing/index.md)
 
