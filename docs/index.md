@@ -48,6 +48,15 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
 <div class="grid cards" markdown>
 
+-   __Use data science to predict availability__
+
+    ---
+    
+    Learn how to deploy a real-time **data science** project into a scalable self-maintained solution. You create a service that predicts bicycle availability in New York, by building the raw data ingestion pipelines, Extract Transform Load (ETL), and predictions.
+
+    [:octicons-arrow-right-24: Image Processing](./platform/tutorials/data-science/index.md)
+
+
 -   __Sentiment Analysis__
 
     ---
