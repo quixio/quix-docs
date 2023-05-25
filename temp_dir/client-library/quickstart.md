@@ -30,7 +30,7 @@ Optionally:
 
 ## Getting help
 
-If you need help with this guide, then please join our public Slack community [`The Stream`](https://quix.io/slack-invite){target=_blank}, and ask any questions you have there.
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
 ## Install
 
@@ -397,6 +397,10 @@ print("Listening to streams. Press CTRL-C to exit.")
 qx.App.run()
 ```
 
+## Getting help
+
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+
 ## Next steps
 
 Try one of the following resources to continue your Quix learning journey:
@@ -406,8 +410,6 @@ Try one of the following resources to continue your Quix learning journey:
 * [Quix Streams GitHub](https://github.com/quixio/quix-streams){target=_blank}
 
 * [Quix definitions](../platform/definitions.html)
-
-* [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
 
 * [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
 

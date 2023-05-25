@@ -58,4 +58,4 @@ In this case the model file is stored in the cloud, and simply downloaded prior 
 
 ## Contact
 
-If you want to discuss a change with us or let us know about a PR please join [The Stream community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365).
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.

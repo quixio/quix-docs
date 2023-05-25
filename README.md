@@ -42,6 +42,6 @@ If you are part of the Quix technical writing team, or you contribute frequently
 
 ## Getting in touch
 
-The best way to contact us is through our public Slack channel, [The Stream community](https://quix.io/slack-invite). Please sign up, and introduce yourself!
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
 Thanks!
