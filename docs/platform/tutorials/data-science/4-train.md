@@ -91,7 +91,7 @@ At this point, you are collecting historical data and you know how to query it f
 
 ???- example "Need help training a model?"
 
-	Follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/train-ml-model.md)
+	Follow our "How to train an ML model" tutorial [here](../train-and-deploy-ml/index.md)
 
 	You are walked through the process of getting the code to access the data (as described above), running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 

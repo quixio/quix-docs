@@ -29,12 +29,22 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
     - 'Tutorials':
-      - 'Event detection':
-        - 'platform/tutorials/eventDetection/index.md'
-        - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
-        - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
-        - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
-        - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
+      - 'platform/tutorials/index.md'
+      - 'Real-time ML predictions':
+        - 'platform/tutorials/data-science/index.md'
+        - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
+        - '2. Weather data': 'platform/tutorials/data-science/2-weatherdata.md'
+        - '3. Data views': 'platform/tutorials/data-science/3-data.md'
+        - '4. Get training data': 'platform/tutorials/data-science/4-train.md'
+        - '5. Run the model': 'platform/tutorials/data-science/5-run.md'
+        - '6. Conclusion': 'platform/tutorials/data-science/6-conclusion.md'
+      - 'Real-time ML pipelines':
+        - platform/tutorials/train-and-deploy-ml/index.md
+        - 'Create your data': 'platform/tutorials/train-and-deploy-ml/create-data.md'
+        - 'Import data into Jupyter': 'platform/tutorials/train-and-deploy-ml/import-data.md'
+        - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
+        - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
+        - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
         - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
@@ -52,26 +62,17 @@ nav:
         - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
         - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
         - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
-      - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
+      - 'Event detection':
+        - 'platform/tutorials/eventDetection/index.md'
+        - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
+        - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
+        - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
+        - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
       - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
-      - 'Real-time Machine Learning (ML) pipelines':
-        - platform/tutorials/train-and-deploy-ml/index.md
-        - 'Create your data': 'platform/tutorials/train-and-deploy-ml/create-data.md'
-        - 'Import data into Jupyter': 'platform/tutorials/train-and-deploy-ml/import-data.md'
-        - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
-        - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
-        - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
-      - 'Real-time Machine Learning (ML) predictions':
-        - 'platform/tutorials/data-science/index.md'
-        - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
-        - '2. Weather data': 'platform/tutorials/data-science/2-weatherdata.md'
-        - '3. Data views': 'platform/tutorials/data-science/3-data.md'
-        - '4. Get training data': 'platform/tutorials/data-science/4-train.md'
-        - '5. Run the model': 'platform/tutorials/data-science/5-run.md'
-        - '6. Conclusion': 'platform/tutorials/data-science/6-conclusion.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
+      - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Connectors':
       - platform/connectors/index.md
@@ -143,7 +144,7 @@ plugins:
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
         'platform/intro.md': 'platform/what-is-quix.md'
         'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
-        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/intro.md"
+        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/index.md"
 
 theme:
   name: 'material'
