@@ -65,6 +65,19 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
 
 </div>
 
+## For the simulation engineer
+
+<div class="grid cards" markdown>
+
+-   __MATLAB and Simulink__
+
+    ---
+    
+    Deploy real-time MATLAB transformations and Simulink models to Quix.
+
+    [:octicons-arrow-right-24: MATLAB and Simulink](./matlab/matlab-and-simulink.md)
+
+</div>
 ## Need help?
 
 If you'd like some help with a tutorial, or advice on a suitable tutorial for your use case, feel free to ask in the [Quix Forum](https://forum.quix.io/){target=_blank}!
