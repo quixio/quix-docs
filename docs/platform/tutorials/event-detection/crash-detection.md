@@ -6,7 +6,7 @@ For the purposes of this tutorial, the ML model you use was trained to detect th
 
 Using an ML model is not the only way to create the event detection - you could detect a change in the speed or use the speed and another parameter to determine if an event has occurred.
 
-## Service template
+## The starter template
 
 Follow these steps to create the event detection service:
 
@@ -26,7 +26,7 @@ Follow these steps to create the event detection service:
 
 You now have the basic template for the service saved to your workspace.
 
-### Test
+## Test
 
 At this stage you should test the code to make sure it passes some basic functional tests:
 
