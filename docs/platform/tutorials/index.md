@@ -61,7 +61,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Build a real-time event detection pipeline.
 
-    [:octicons-arrow-right-24: Event Detection](./eventDetection/index.md)
+    [:octicons-arrow-right-24: Event Detection](./event-detection/index.md)
 
 </div>
 

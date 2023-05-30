@@ -1,6 +1,6 @@
 # 1. Data acquisition
 
-You’ll start this tutorial by streaming data into a topic. Starting with the data feed allows you to verify that the code and services you’ll build and deploy are working properly.
+You start this tutorial by streaming data into a **topic**. Starting with the data feed enables you to verify that the code and services you build and deploy are working properly.
 
 You have two options for this stage:
 
@@ -8,7 +8,7 @@ You have two options for this stage:
 
 2. Stream prerecorded [CSV data](#csv-data).
 
-You will only need to set up one of these data sources but if you want to do both you can do that too!
+You only need to set up one of these data sources for the purposes of this tutorial, although you are welcome to step through both approaches.
 
 ## Quix companion app
 
@@ -48,7 +48,7 @@ Follow these steps:
 
 4. In the Quix Portal, click the user icon in the top right of the browser.
 
-	![Portal token menu](./token-menu.png){width=150px}
+	![Portal token menu](./images/token-menu.png){width=150px}
 
 5. Click `Tokens`.
 
@@ -66,7 +66,7 @@ Follow these steps:
 
 12. Open the QR Settings Share by clicking the "open in new window" icon.
 
-	![QR Settings Share Service](./qr-settings-share-service.png){width=300px}
+	![QR Settings Share Service](./images/qr-settings-share-service.png){width=300px}
 
 13. Enter a name and a device identifier into the input fields.
 
@@ -76,7 +76,7 @@ Follow these steps:
 
 16. A QR code will be generated and presented to you in the UI.
 
-	![QR Settings Share UI](./qr-setting-share-ui.png){width=600px}
+	![QR Settings Share UI](./images/qr-setting-share-ui.png){width=600px}
 
 17. Scan the QR code using the Quix Companion App.
 
@@ -143,14 +143,22 @@ Follow these instructions to deploy the data source:
 
 8. Open the `main.py` file and replace the code with the following code:
 
-	```py
-	from quixstreaming import QuixStreamingClient
-	from quixstreaming.app import App
+	```python
+	import quixstreams as qx
 	import time
-	import pandas as pd
 	import os
+	import pandas as pd
 	from urllib import request
 
+	# Quix injects credentials automatically to the client. 
+	# Alternatively, you can always pass an SDK token manually as an argument.
+	client = qx.QuixStreamingClient()
+
+	# Open the output topic where to write data out
+	topic_producer = client.get_topic_producer(topic_id_or_name = os.environ["output"])
+
+	# Set stream ID or leave parameters empty to get stream ID generated.
+	stream = topic_producer.create_stream()
 
 	# download data.csv
 	# if you want to use your own data file just comment these lines
@@ -158,15 +166,6 @@ Follow these instructions to deploy the data source:
 	f = request.urlopen("https://quixtutorials.blob.core.windows.net/tutorials/event-detection/data.csv")
 	with open("data.csv", "wb") as data_file:
 		data_file.write(f.read())
-
-	# Quix injects credentials automatically to the client. Alternatively, you can always pass an SDK token manually as an argument.
-	client = QuixStreamingClient()
-
-	# Open the output topic
-	print("Opening output topic")
-	output_topic = client.open_output_topic(os.environ["output"])
-
-	output_stream = output_topic.create_stream()
 
 	df = pd.read_csv("data.csv")
 
@@ -179,16 +178,13 @@ Follow these instructions to deploy the data source:
 	while True:
 		for i in range(len(df)):
 			start_loop = time.time()
-
 			df_i = df.iloc[[i]]
-
-			output_stream.parameters.write(df_i)
+			stream.timeseries.publish(df_i)
 			print("Sending " + str(i) + "/" + str(len(df)))
 			end_loop = time.time()
 			time.sleep(max(0.0, seconds_to_wait - (end_loop - start_loop)))
 
-	App.run()
-
+	qx.App.run()
 	```
 
 	!!! info 
@@ -198,7 +194,7 @@ Follow these instructions to deploy the data source:
 
 		- Opens the CSV file using Pandas.
 
-		- Renames some columns so Quix Streams teams them as tags.
+		- Renames some columns so Quix Streams streams them as tags.
 
 		- Then streams each row to the `phone-data` topic.
 
@@ -206,7 +202,7 @@ Follow these instructions to deploy the data source:
 
 7. Test the code by clicking `run` near the top right corner of the code window.
 
-	With the code running you will see messages in the `Console` tab
+	With the code running you see messages in the `Console` tab:
 
 	```sh
 	[xx-xx-xx xx:xx:xx.xxx (8) INF] Topic phone-data is still creating
@@ -217,13 +213,13 @@ Follow these instructions to deploy the data source:
 	Sending 2/18188
 	```
 
-8. Click the `Messages` tab and you’ll see the raw messages being streamed to the `phone-data` topic.
+8. Click the `Messages` tab and you see the raw messages being streamed to the `phone-data` topic.
 
-9. Click one of the messages and you’ll see the raw data in [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} format.
+9. Click one of the messages and you see the raw data in [JSON](https://www.w3schools.com/whatis/whatis_json.asp){target=_blank} format.
 
 	???- info "Your data should look like JSON"
 
-		Note! Depending on which row you click you may see slightly different results. Only some rows contain location data.
+		**Note**, depending on which row you click, you may see slightly different results. Only some rows contain location data.
 
 		```
 		"Epoch": 0,
@@ -272,13 +268,13 @@ Follow these instructions to deploy the data source:
 
 7. Stop the code by clicking the same button you clicked to run it.
 
-8. You'll now deploy the code as a service, so it stays running when you navigate around the platform.
+8. You now deploy the code as a service, so it stays running when you navigate around the platform.
 
 9. Click `Deploy`.
 
 10. On the dialog, click `Deploy`.
 
-	Once deployed the service will be started and data will be streamed to the `phone-data` topic.
+	Once deployed, the service starts and data is streamed to the `phone-data` topic.
 
 [Detect crash events by following step 2 :material-arrow-right-circle:{ align=right }](crash-detection.md)
 
