@@ -26,7 +26,7 @@ Follow these steps to create the event detection service:
 
 You now have the basic template for the service saved to your workspace.
 
-## Test
+## Test the template
 
 At this stage you should test the code to make sure it passes some basic functional tests:
 
