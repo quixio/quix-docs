@@ -169,38 +169,6 @@ Follow these steps:
 	qx.App.run()
 	```
 
-## Modify `dockerfile`
-
-1. Now update the `dockerfile` in the `build` folder to make sure `libgomp1` is included.
-
-	Under the line with `COPY --from=git /project .`, add the following:
-
-	```sh
-	RUN apt-get install libgomp1
-	```
-
-	This will install `libgomp1` which a requirement of `XGBoost`.
-
-	???- info "The completed `dockerfile` should look like this"
-
-		```sh
-	FROM quixpythonbaseimage
-
-	ENV DEBIAN_FRONTEND="noninteractive"
-	ENV PYTHONUNBUFFERED=1
-	ENV PYTHONIOENCODING=UTF-8
-	ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-
-	WORKDIR /app
-	COPY --from=git /project .
-	RUN apt-get -y install libgomp1 ca-certificates
-
-	RUN find | grep requirements.txt | xargs -I '{}' python3 -m pip install -i http://pip-cache.pip-cache.svc.cluster.local/simple --trusted-host pip-cache.pip-cache.svc.cluster.local -r '{}' --extra-index-url https://pypi.org/simple --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
-	ENTRYPOINT ["python3", "main.py"]
-	```
-
-2. Save `dockerfile`. 
-
 ## Test again
 
 You can once again run the code in the development environment to test the functionality:
