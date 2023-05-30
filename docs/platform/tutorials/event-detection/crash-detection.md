@@ -184,18 +184,20 @@ Follow these steps:
 	???- info "The completed `dockerfile` should look like this"
 
 		```sh
-		FROM quixpythonbaseimage
+	FROM quixpythonbaseimage
 
-		ENV DEBIAN_FRONTEND="noninteractive"
-		ENV PYTHONUNBUFFERED=1
-		ENV PYTHONIOENCODING=UTF-8
+	ENV DEBIAN_FRONTEND="noninteractive"
+	ENV PYTHONUNBUFFERED=1
+	ENV PYTHONIOENCODING=UTF-8
+	ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
-		WORKDIR /app
-		COPY --from=git /project .
-		RUN apt-get install libgomp1
-		RUN find | grep requirements.txt | xargs -I '{}' python3 -m pip install -i http://pip-cache.pip-cache.svc.cluster.local/simple --trusted-host pip-cache.pip-cache.svc.cluster.local -r '{}' --extra-index-url https://pypi.org/simple --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
-		ENTRYPOINT ["python3", "main.py"]		
-		```
+	WORKDIR /app
+	COPY --from=git /project .
+	RUN apt-get -y install libgomp1 ca-certificates
+
+	RUN find | grep requirements.txt | xargs -I '{}' python3 -m pip install -i http://pip-cache.pip-cache.svc.cluster.local/simple --trusted-host pip-cache.pip-cache.svc.cluster.local -r '{}' --extra-index-url https://pypi.org/simple --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
+	ENTRYPOINT ["python3", "main.py"]
+	```
 
 2. Save `dockerfile`. 
 
