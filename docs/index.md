@@ -36,9 +36,9 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    If you need any help, please sign up to The Stream community, our free public Slack channel.
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
     
-    [:octicons-arrow-right-24: Join The Stream community](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}
+    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
 
 </div>
 

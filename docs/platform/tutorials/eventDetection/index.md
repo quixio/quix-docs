@@ -24,4 +24,5 @@ This tutorial is divided into several parts to make it more a manageable learnin
 
 !!! info
 
-	If at any point you run into an issue or want to know more then please reach out to us in our Slack community [The Stream](https://quix.ai/slack-invite){target=_blank}.
+	If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+	
