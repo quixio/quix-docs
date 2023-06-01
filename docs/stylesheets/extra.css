@@ -306,3 +306,11 @@ button.header-btn-inner:hover {
     height: 2.4rem;
     width: auto;
 }
+
+#__consent > aside > form > div.md-consent__controls > label{
+    color: #e8e8e8;
+}
+
+#__consent > aside > form > div.md-consent__controls > button{
+    background-color: #008eff;
+}

@@ -120,4 +120,4 @@ There are also books that cover best practices in great depth:
 
 ## Get in touch
 
-* [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g) - The Quix open source community on Slack. Feel free to sign up and ask further questions.  
+* If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.

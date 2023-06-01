@@ -36,9 +36,9 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    If you need any help, please sign up to The Stream community, our free public Slack channel.
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
     
-    [:octicons-arrow-right-24: Join The Stream community](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}
+    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
 
 </div>
 
@@ -48,20 +48,19 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
 <div class="grid cards" markdown>
 
--   __Sentiment Analysis__
+-   __Data Science__
 
     ---
     
-    Stream data from Twitter and build a Sentiment analysis pipeline.
+    Deploy a real-time **data science** project into a scalable self-maintained solution.
 
-    [:octicons-arrow-right-24: Sentiment Analysis](./platform/tutorials/sentiment-analysis/index.md)
-    
+    [:octicons-arrow-right-24: Data Science](./platform/tutorials/data-science/index.md)    
     
 -   __Image Processing__
 
     ---
     
-    Real time image processing using London's 'Jam Cams'.
+    Deploy a real-time image processing pipeline using ML and London's 'Jam Cams'.
 
     [:octicons-arrow-right-24: Image Processing](./platform/tutorials/image-processing/index.md)
 

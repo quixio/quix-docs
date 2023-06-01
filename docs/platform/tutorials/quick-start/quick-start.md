@@ -26,7 +26,7 @@ For convenience this guide is divided into two parts:
 
 ## Getting help
 
-If you need help with this guide, then please join our public Slack community [`The Stream`](https://quix.io/slack-invite){target=_blank} and ask any questions you have there.
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
 ## Part 1. Deploy a chat UI with sentiment analysis
 
@@ -382,14 +382,17 @@ This quickstart guide aimed to give you a tour of some important Quix features. 
 
 5. You can build part of a Quix data processing pipeline, test it, and then extend the pipeline as required.
 
+## Getting help
+
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+
 ## Next steps
 
 Try one of the following resources to continue your Quix learning journey:
 
 * [Quix definitions](../../definitions.md)
 
-* [The Stream community on Slack](https://quix.io/slack-invite){target=_blank}
-
 * [Stream processing glossary](https://quix.io/stream-processing-glossary/){target=_blank}
 
 * [Sentiment analysis tutorial](../sentiment-analysis/index.md)
+
