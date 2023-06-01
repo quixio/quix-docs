@@ -14,4 +14,4 @@ What will you build? Let us know! We’d love to feature your project or use cas
 
 ## Getting help
 
-If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community. Introduce yourself and then ask any questions in `quix-help`.
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
