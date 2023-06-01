@@ -212,7 +212,7 @@ extra:
     key: phc_UyQcafs2J7OUQEwJrmejeb0vCIdA9i9vYz66suPshix
   hotjar:
     id: 2437577
-
+ 
   consent:
     title: Cookie consent
     description: >- 
@@ -224,6 +224,7 @@ extra:
       analytics:
         name: Google Analytics
         checked: true
+      posthog: Posthog
   
   #alternate:
 markdown_extensions:
