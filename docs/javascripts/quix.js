@@ -15,6 +15,7 @@ if(window.location.hostname == "docs.quix.io"){
     window.location.replace(redirectUrl)
 }
 
+// handle posthog optin/optout on cookie settings
 var consent = __md_get("__consent")
 if (consent && consent.posthog) {
   /* The user accepted the cookie */
@@ -22,3 +23,9 @@ if (consent && consent.posthog) {
 }else{
     this.posthog.opt_out_capturing();
 }
+
+// force feedback form to be shown
+if(document.getElementsByName('feedback').length > 0){
+    document.getElementsByName('feedback')[0].removeAttribute("hidden"); 
+}
+

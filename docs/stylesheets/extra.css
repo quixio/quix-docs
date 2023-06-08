@@ -314,3 +314,10 @@ button.header-btn-inner:hover {
 #__consent > aside > form > div.md-consent__controls > button{
     background-color: #008eff;
 }
+
+.md-feedback__note{
+    opacity: 1 !important;
+}
+.md-feedback__note>*{
+    max-width: none !important;
+}
