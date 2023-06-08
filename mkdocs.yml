@@ -8,9 +8,10 @@ copyright: >
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
-repo_name: quixio/quix-docs-dev
+repo_name: quixio/quix-docs
 repo_url: https://github.com/quixio/quix-docs
-edit_uri: tree/dev/docs/
+edit_uri: tree/dev/docs
+
 nav:
   - Intro: 'index.md'
   - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
@@ -184,6 +185,7 @@ theme:
   - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
   - content.code.annotate  # code annotations
+  - content.action.view    # view page source
   
   icon:
     logo: 'material/library'
