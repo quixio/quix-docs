@@ -41,7 +41,6 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
   <!-- End HOTJAR -->
-
 {{ super }}
 {% endblock %}
 
@@ -148,3 +147,13 @@
 {% endblock %} 
 
 {% block footer %} {{ super() }} {% endblock %}
+
+{% block scripts %} 
+
+{{ super() }} 
+
+<script src="javascripts/feedback.js">
+
+</script>
+
+{% endblock %}

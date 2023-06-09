@@ -210,19 +210,6 @@ extra:
   analytics:
     provider: google-tag-manager
     property: GTM-55L66N3
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/thumb-up-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/thumb-down-outline
-          name: This page could be improved
-          data: 0
-          note: >- 
-            Thanks for your feedback!<br/>Help us improve this page by letting us know what went wrong in our <a href="https://forum.quix.io/c/quix-saas-platform/6" target="_blank" rel="noopener">Quix community forum</a>.
   posthog:
     host: https://eu.posthog.com
     key: phc_UyQcafs2J7OUQEwJrmejeb0vCIdA9i9vYz66suPshix

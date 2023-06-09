@@ -23,9 +23,3 @@ if (consent && consent.posthog) {
 }else{
     this.posthog.opt_out_capturing();
 }
-
-// force feedback form to be shown
-if(document.getElementsByName('feedback').length > 0){
-    document.getElementsByName('feedback')[0].removeAttribute("hidden"); 
-}
-

@@ -1,19 +1,50 @@
-var feedback = document.forms.feedback
-feedback.addEventListener("submit", function(ev) {
-  ev.preventDefault()
+/* Register event handlers after document is loaded */
+document.addEventListener("DOMContentLoaded", function() {
 
-  /* Retrieve page and feedback value */
-  var page = document.location.pathname
-  var data = ev.submitter.getAttribute("data-md-value")
-
-  /* Send feedback value */
-  gtag("event", "docs-feedback", { page, data })
-
-  /* Hide the feedback on the feedback */
-  document.querySelectorAll(`div[data-md-value="0"]`)[0].hidden = true;
-  document.querySelectorAll(`div[data-md-value="1"]`)[0].hidden = true;
-
-  /* Show the relevant feedback feedback */
-  document.querySelectorAll(`div[data-md-value="${data}"]`)[0].removeAttribute("hidden")
-
-})
+  /* Set up search tracking */
+  if (document.forms.search) {
+    var query = document.forms.search.query
+    query.addEventListener("blur", function() {
+      if (this.value)
+        gtag("event", "search", { search_term: this.value })
+    })
+  }
+  
+  /* Set up feedback, i.e. "Was this page helpful?" */
+  document$.subscribe(function() {
+    var feedback = document.forms.feedback
+    if (typeof feedback === "undefined")
+      return
+  
+    /* Send feedback to Google Analytics */
+    for (var button of feedback.querySelectorAll("[type=submit]")) {
+      button.addEventListener("click", function(ev) {
+        ev.preventDefault()
+  
+        /* Retrieve and send data */
+        var page = document.location.pathname
+        var data = this.getAttribute("data-md-value")
+        gtag("event", "feedback", { page, data })
+  
+        /* Disable form and show note, if given */
+        feedback.firstElementChild.disabled = true
+        var note = feedback.querySelector(
+          ".md-feedback__note [data-md-value='" + data + "']"
+        )
+        if (note)
+          note.hidden = false
+      })
+  
+      /* Show feedback */
+      feedback.hidden = false
+    }
+  })
+  
+  /* Send page view on location change */
+  location$.subscribe(function(url) {
+    gtag("config", "{{ config.extra.analytics.property }}", {
+      pageview: url.pathname,
+      page_view: url.pathname
+    })
+  })
+  })
