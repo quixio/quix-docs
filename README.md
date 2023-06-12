@@ -7,9 +7,9 @@ This repository is the source content for the Quix documentation that is publish
 
 To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).
 
-## Doc releases
+## Docs releases
 
-You can find detailed information on doc releases in the [docs repo Wiki page](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+You can find detailed information on docs releases in the [docs repo Wiki page](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
 
 ## Contributing
 
