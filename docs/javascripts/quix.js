@@ -15,6 +15,7 @@ if(window.location.hostname == "docs.quix.io"){
     window.location.replace(redirectUrl)
 }
 
+// handle posthog optin/optout on cookie settings
 var consent = __md_get("__consent")
 if (consent && consent.posthog) {
   /* The user accepted the cookie */

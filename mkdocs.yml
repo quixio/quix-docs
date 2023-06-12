@@ -8,9 +8,10 @@ copyright: >
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
-repo_name: quixio/quix-docs-dev
+repo_name: quixio/quix-docs
 repo_url: https://github.com/quixio/quix-docs
-edit_uri: tree/dev/docs/
+edit_uri: tree/dev/docs
+
 nav:
   - Intro: 'index.md'
   - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
@@ -79,6 +80,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
+    - 'MLOps': 'platform/MLOps.md'
   - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
@@ -184,6 +186,7 @@ theme:
   - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
   - content.code.annotate  # code annotations
+  - content.action.view    # view page source
   
   icon:
     logo: 'material/library'
@@ -194,6 +197,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/quix.js
+  - javascripts/feedback.js
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -212,7 +216,6 @@ extra:
     key: phc_UyQcafs2J7OUQEwJrmejeb0vCIdA9i9vYz66suPshix
   hotjar:
     id: 2437577
- 
   consent:
     title: Cookie consent
     description: >- 
