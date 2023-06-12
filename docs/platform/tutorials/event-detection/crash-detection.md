@@ -42,9 +42,9 @@ Next you add code to detect the crash events, making use of some code snippets a
 
 ## Modify `requirements.txt`
 
-Follow these steps:
+You need to modify the `requirements.txt` file in order to make sure required packages are installed. Follow these steps:
 
-1. Open the `requirements.txt` file and add the following lines to ensure all the packages are installed.
+1. Open the `requirements.txt` file and add the following lines to ensure all the packages are installed:
 
 	```python
 	urllib3
@@ -53,6 +53,39 @@ Follow these steps:
 	```
 
 2. Save the `requirements.txt` file.
+
+## Modify `dockerfile`
+
+The standard `dockerfile` can't be used in this case. You need one that includes `libgomp1`.
+
+1. Now update the `dockerfile` in the `build` folder to make sure `libgomp1` is included.
+
+	Under the line with `COPY --from=git /project .`, add the following:
+
+	```sh
+	RUN apt-get install libgomp1
+	```
+
+	This will install `libgomp1` which a requirement of `XGBoost`.
+
+	???- info "The completed `dockerfile` should look like this"
+
+		```sh
+		FROM quixpythonbaseimage
+
+		ENV DEBIAN_FRONTEND="noninteractive"
+		ENV PYTHONUNBUFFERED=1
+		ENV PYTHONIOENCODING=UTF-8
+		ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+		WORKDIR /app
+		COPY --from=git /project .
+		RUN apt-get -y install libgomp1 ca-certificates
+		RUN find | grep requirements.txt | xargs -I '{}' python3 -m pip install -i http://pip-cache.pip-cache.svc.cluster.local/simple --trusted-host pip-cache.pip-cache.svc.cluster.local -r '{}' --extra-index-url https://pypi.org/simple --extra-index-url https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/
+		ENTRYPOINT python3 main.py
+		```
+
+2. Save `dockerfile`. 
 
 ## Modify `main.py`
 
