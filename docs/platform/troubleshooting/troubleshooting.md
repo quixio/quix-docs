@@ -65,14 +65,13 @@ signalrcore.hub.errors.UnAuthorizedHubError
 The APIs that require a valid bearer token are:
 
 1.  Portal API
-      - <https://portal-api.platform.quix.ai/swagger/index.html>
+    - <https://portal-api.platform.quix.ai/swagger/index.html>
 
 2.  Streaming Writer API
-	  - <https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
+	  - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html
         
 3.  Telemetry Query API
-
-	  - <https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
+	  - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html
     
 ## Error Handling in the client library callbacks
 
