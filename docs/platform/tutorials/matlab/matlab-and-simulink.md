@@ -76,7 +76,7 @@ This section describes the process for packaging your own MATLAB functions for d
 
 By the end of the preceding section, you should have a working MATLAB transformation in your pipeline. In this section, we will deploy a simple service to generate test data for the transformation. In production, data from sensors or the output of another node will replace this service.
 
- 1. Click on the `Projects` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a simple data source. Follow the steps described in the previous section to create a project named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`:
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a simple data source. Follow the steps described in the previous section to create a project named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`:
 
 	![create project from starter template](./images/starter_source.png){width=600}
 
@@ -288,7 +288,7 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 By the end of the preceding section, you should have a working Simulink model in your pipeline. In this section, we will deploy a simple service to generate test data for the model. In production, data from sensors or the output of another simulation will replace this service.
 
- 1. Click on the `Projects` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a simple data source. Follow the steps described in the previous section to create a project based on this template by clicking on `Preview code` followed by `Edit code`:
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a simple data source. Follow the steps described in the previous section to create a project based on this template by clicking on `Preview code` followed by `Edit code`:
 
 
 	![create project from starter template](./images/starter_source.png){width=600}
