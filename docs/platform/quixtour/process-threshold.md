@@ -48,7 +48,7 @@ To create the threshold detection transform:
     qx.App.run()
     ```
 
-11. Tag the project as `v1` and deploy as a service (watch the video if you're not sure how to do this).
+11. Tag the project as `v1` and deploy as a service (watch the [video](#watch-the-video) if you're not sure how to do this).
 12. Monitor the logs for the deployed process.
 
 ## Generate a CPU spike

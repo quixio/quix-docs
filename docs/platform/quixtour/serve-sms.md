@@ -76,7 +76,7 @@ To create the SMS alert destination:
     qx.App.run()
     ```
 
-11. Click add file to add a new file to your project - name it `.env`.
+11. Click the add file icon to add a new file to your project - name it `.env`.
 12. Add the following to the file:
 
     ```
@@ -93,6 +93,8 @@ To create the SMS alert destination:
 ## Generate an alert
 
 Again generate a CPU spike by opening several large applications on your laptop. If you have SMS alert enabled, you'll receive an SMS. If not, you can check the logs.
+
+You can watch a video that shows how to test your service:
 
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/5b1ac961df2b4c2bae851979050a88ac?sid=250be5ce-8e0c-482a-8c60-b776ab38b95f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
