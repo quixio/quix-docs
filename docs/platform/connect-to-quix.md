@@ -126,7 +126,7 @@ serve(app, host='0.0.0.0', port = 80)
 
 When you deploy your service you can configure public access in the `Deploy` dialog. You can then obtain the public access URL needed to configure the inbound webhook from the `Deploy` dialog or from the service itself, as shown in the following screenshot:
 
-![Webhook public access URL](../images/deploy/webhook-public-url.png){width=60%}
+![Webhook public access URL](./images/deploy/webhook-public-url.png){width=60%}
 
 See also [How to deploy a public service](deploy-public-page.md) for more information.
 
@@ -155,7 +155,7 @@ The easiest way to try out these HTTP APIs is to use the prebuilt connectors cal
 
 7. In the Pipeline view click the newly created source and the following is displayed:
 
-    ![External source options](../images/how-to/connect/external-source-options.png)
+    ![External source options](./images/connect/external-source-options.png){width=80%}
 
 8. For this example, select `HTTP API - JavaScript`. Code is generated for you that uses the Writer HTTP API.
 
