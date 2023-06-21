@@ -7,6 +7,7 @@ There are various ways to connect your data and services to Quix. The main metho
 3. Inbound webhooks
 4. HTTP API
 5. Websockets
+6. Push data using Quix Streams
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described briefly in the following sections.
 
@@ -29,23 +30,28 @@ Even if the exact connector you require does not currently exist, it is sometime
 
 ## Polling
 
-If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. An example of creating such a connector is described in the [Platform Quickstart guide](../tutorials/quick-start/quick-start.md#part-2-connect-an-external-service). By way of example, the following code demonstrates the idea:
+If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. By way of example, the following code demonstrates the idea:
 
 ``` python
+import quixstreams as qx
+import time
+import os
+import requests
+import pandas as pd
+
+client = qx.QuixStreamingClient()
+
+topic_producer = client.get_topic_producer(topic_id_or_name = os.environ["output"])
+
+stream = topic_producer.create_stream()
+stream.properties.name = "Users Stream"
+
 while True:
-
-    # get a random beer from this free API
-    response = requests.get("https://random-data-api.com/api/v2/beers")
-
-    # print the response data
-    print(response.json())
-
-    # sink the beer's `style` to Quix as an event
-    stream.events.add_timestamp(datetime.datetime.utcnow()) \
-    .add_value("beer", response.json()["style"]) \
-    .publish()
-
-    # sleep for a bit
+    response = requests.get("https://random-data-api.com/api/v2/users")
+    json_response = response.json()
+    df = pd.json_normalize(json_response)
+    print(df)
+    stream.timeseries.publish(df)
     time.sleep(4)
 ```
 
@@ -337,6 +343,55 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 This code uses the Reader API to read data from a Quix stream.
 
 The Quix documentation explains how to obtain your [Quix workspace ID](./get-workspace-id.md), [PAT token](../../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../../apis/streaming-reader-api/signalr.md). 
+
+## Push data using Quix Streams
+
+You can use Quix Streams to push data up from your laptop (for example) into Quix Platform. Some example code showing Quix Streams pushing data inot the platform is shown here:
+
+```python
+    import psutil
+    import quixstreams as qx
+    from dotenv import load_dotenv
+    import time
+    import datetime
+    import os
+
+    load_dotenv()
+    token = os.getenv("STREAMING_TOKEN")
+
+    def get_cpu_load():
+        cpu_load = psutil.cpu_percent(interval=1)
+        return cpu_load
+
+    # Obtain client library token from portal
+    client = qx.QuixStreamingClient(token)
+
+    # Open a topic to publish data to
+    topic_producer = client.get_topic_producer("cpu-load")
+
+    stream = topic_producer.create_stream()
+    stream.properties.name = "Quickstart CPU Load - Server 1"
+    stream.timeseries.buffer.time_span_in_milliseconds = 100   # Send data in 100 ms chunks
+
+    def main():
+        try:
+            while True:
+                cpu_load = get_cpu_load()
+                print(f"CPU Load: {cpu_load}%")
+                stream.timeseries \
+                    .buffer \ 
+                    .add_timestamp(datetime.datetime.utcnow()) \
+                    .add_value("CPU_Load_1", cpu_load) \
+                    .publish()
+        except KeyboardInterrupt:
+            print("Closing stream")
+            stream.close()
+
+    if __name__ == '__main__':
+        main()
+```
+
+You need to obtain a [streaming token](../how-to/streaming-token) from within the platform.
 
 ## Summary
 
