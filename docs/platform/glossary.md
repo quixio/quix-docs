@@ -16,7 +16,7 @@ With this data you can stream, process and store any type of audio, image, video
 
 Quix Platform contains a large number of [open source](https://github.com/quixio/quix-samples) Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the Quix Portal by using the navigation menu as show here:
 
-![Code Samples](./images/code-samples.png)
+![Code Samples](./images/code-samples.png){height=50%}
 
 ## Connectors
 
@@ -76,7 +76,9 @@ Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
 ## Online IDE (Quix Platform)
 
-Quix provides an online integrated development environment for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+
+Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
 
 ## Portal API
 
