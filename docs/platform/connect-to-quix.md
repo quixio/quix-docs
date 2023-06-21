@@ -15,7 +15,7 @@ The particular method you use depends on the nature of the service you're trying
 
 This is the easiest method, as no code needs to be written, and there is usually only minor configuration required to get a Quix connector up and running. For example, Quix provides connectors for many common services such as Postgres, Twilio, Streamlit, and so on.
 
-You can review the list of connectors in the [connector documentation](../connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
+You can review the list of connectors in the [connector documentation](../platform/connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
 
 Note there are two main types of connector:
 
@@ -128,14 +128,14 @@ When you deploy your service you can configure public access in the `Deploy` dia
 
 ![Webhook public access URL](./images/deploy/webhook-public-url.png){width=60%}
 
-See also [How to deploy a public service](deploy-public-page.md) for more information.
+See also [How to deploy a public service](../platform/how-to/deploy-public-page.md) for more information.
 
 ## HTTP API
 
 Quix provides two APIs with an HTTP API interface:
 
-1. [Writer API](../../apis/streaming-writer-api/intro.md)
-2. [Reader API](../../apis/streaming-reader-api/intro.md)
+1. [Writer API](../apis/streaming-writer-api/intro.md)
+2. [Reader API](../apis/streaming-reader-api/intro.md)
 
 The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a websockets interface, which is described in the [next section](#websockets).
 
@@ -169,7 +169,7 @@ As you can see there are other options such as generating Curl code that can be 
 
     The code samples generated are meant to provide you with a starting point from which you can build your own solutions. They provide a convenient way to see how the API works.
 
-Further information can be found in the [Writer API](../../apis/streaming-writer-api/intro.md) and [Reader API](../../apis/streaming-reader-api/intro.md) documentation.
+Further information can be found in the [Writer API](../apis/streaming-writer-api/intro.md) and [Reader API](../apis/streaming-reader-api/intro.md) documentation.
 
 ## Websockets
 
@@ -342,7 +342,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix workspace ID](./get-workspace-id.md), [PAT token](../../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix workspace ID](../platform/how-to/get-workspace-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
 
 ## Push data using Quix Streams
 
@@ -391,14 +391,14 @@ You can use Quix Streams to push data up from your laptop (for example) into Qui
         main()
 ```
 
-You need to obtain a [streaming token](../how-to/streaming-token) from within the platform.
+You need to obtain a [streaming token](../platform/how-to/streaming-token.md) from within the platform.
 
 ## Summary
 
-There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../connectors/index.md) you can use with minor configuration. 
+There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../platform/connectors/index.md) you can use with minor configuration. 
 
 If you want some example code you can use as a starting point for connecting your own data, you can use the `External source` and `External destination` [samples](#http-api). Or use one of the [existing connectors](#using-a-prebuilt-connector) as a starting point.
 
 Low-frequency data from REST APIs can be [polled](#polling) from Quix using a library such as `requests`. 
 
-Quix also provides the [streaming writer](../../apis/streaming-writer-api/intro.md) and [streaming reader](../../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.
+Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.

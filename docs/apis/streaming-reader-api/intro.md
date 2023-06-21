@@ -1,11 +1,9 @@
 # Introduction
 
-As an alternative to [Quix Streams](../../client-library/subscribe.html), the Quix platform
-supports real-time data streaming over WebSockets. Clients can receive
-updates on data and definitions for parameters and events, as they
-happen. The examples shown use the Microsoft
-[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0){target=_blank}
-JavaScript client library.
+As an alternative to [Quix Streams](../../client-library-intro.md), the Quix platform supports real-time data streaming over WebSockets. Clients can receive updates on data and definitions for parameters and events, as they happen. 
+
+The examples shown use the Microsoft
+[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0){target=_blank} JavaScript client library.
 
 ## Documentation
 
@@ -15,5 +13,4 @@ JavaScript client library.
 
   - [Reading data](reading-data.md)
 
-  - [Subscription & Event
-    reference](subscriptions.md)
+  - [Subscription and Event reference](subscriptions.md)
