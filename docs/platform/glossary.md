@@ -1,10 +1,10 @@
 # Glossary
 
-The following is a list of definitions to aid understanding of how to work with Quix and streaming data.
+The following is a list of terms useful when working with Quix and streaming data.
 
 ## APIs
 
-In addition to the Quix Streams client library, there are several APIs that you can use with Quix.
+In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [API landing page](../apis/index.md).
 
 ## Binary data
 
@@ -12,7 +12,17 @@ Quix also supports any binary blob data.
 
 With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time-series, event, or metadata types.
 
-### Data Catalogue API
+## Code Samples
+
+Quix Platform contains a large number of [open source](https://github.com/quixio/quix-samples) Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the Quix Portal by using the navigation menu as show here:
+
+![Code Samples](./images/code-samples.png)
+
+## Connectors
+
+There are [many ways](../platform/connect-to-quix.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destimation facets. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
+
+## Data Catalogue API
 
 An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historical data in the Data Catalogue. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application.
 
@@ -44,7 +54,7 @@ Events are typically things that occur less frequently. They are streamed into t
 
 Read more about [event data](../client-library/publish.md#eventdata-format).
 
-### Job
+## Job
 
 Any application code that is run once. For example, use a job to run a batch import of data from an existing data store, such as a CSV file, database, or data lake.
 
@@ -68,7 +78,7 @@ Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
 Quix provides an online integrated development environment for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
 
-### Portal API
+## Portal API
 
 An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [workspaces](#workspace), [users](#workspace), and [deployments](#deployment).
 
@@ -80,7 +90,7 @@ A set of code in Quix Platform that can be edited, compiled, run, and deployed a
 
 [Quix Streams](../client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
-### Service
+## Service
 
 Any application code that runs continuously in the serverless environment. For example, a connector, a function, a backend operation, or an integration to a third-party service like Twilio.
 
@@ -137,13 +147,13 @@ Topics are key for scalability and good data governance. Use them to organize yo
 
 Read more about [topics](../client-library/publish.md#create-a-topic-producer).
 
-### Streaming Reader API
+## Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. You application **reads** data from Quix Platform.
+A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
 
-### Streaming Writer API
+## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). You application **writes** data into Quix Platform.
+An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
 
 ## Workspace
 
