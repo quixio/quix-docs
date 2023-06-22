@@ -52,7 +52,7 @@ If you're just curious, click the box to see the complete code.
                 stream.timeseries \
                     .buffer \
                     .add_timestamp(datetime.datetime.utcnow()) \
-                    .add_value("CPU_Load_1", cpu_load) \
+                    .add_value("CPU_Load", cpu_load) \
                     .publish() # (8)
         except KeyboardInterrupt:
             print("Closing stream")
@@ -75,7 +75,7 @@ If you're just curious, click the box to see the complete code.
 
 To complete the Quickstart you'll need the following:
 
-1. [Python installed](https://www.python.org/downloads/){target=_blank} on your machine.
+1. [Python installed](https://www.python.org/downloads/){target=_blank} on your machine. Python version >= 3.6 < 4 is required for the Quix Streams client library.
 2. A [free Quix account](https://portal.platform.quix.ai/self-sign-up).
 
 ## 1. Install the Python modules
@@ -136,7 +136,7 @@ You use `python-dotenv` as you securely store your client library token (previou
                 stream.timeseries \
                     .buffer \
                     .add_timestamp(datetime.datetime.utcnow()) \
-                    .add_value("CPU_Load_1", cpu_load) \
+                    .add_value("CPU_Load", cpu_load) \
                     .publish()
         except KeyboardInterrupt:
             print("Closing stream")
