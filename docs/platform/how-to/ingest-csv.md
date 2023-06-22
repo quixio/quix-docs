@@ -1,8 +1,10 @@
 # How to ingest data from a CSV file
 
-How to ingest from CSV file.
+You may need to load data from a CSV file into a service, as CSV is a very common file format, especially in data science. One possibility is to upload the CSV to be processed into your Quix project, and read the data from there. Another option is to read the CSV file on some other system (perhaps your laptop) and push that data into Quix using the Quix Streams client library.
 
-Using Pandas, but data in CSV **must** have a timestamp:
+## Using pandas 
+
+The pandas library allows the contents of a CSV file to be easily loaded into a pandas dataframe. If this data is to be published to a stream it must have a timestamp. If one is not present in the CSV data, it can be added, but that complicated the code a little. The following example demonstrates loading data from an uploaded CSV file where the data contains a timestamp column:
 
 ```python
 import quixstreams as qx
@@ -20,12 +22,13 @@ df = pd.read_csv("UserData.csv")
 stream_producer.timeseries.publish(df)
 ```
 
-Note, data is a dataframe here.
+Note, the data is loaded into a pandas dataframe, and then published to the output stream.
 
-Without pandas, you add your own timestamp to the data from the CSV file - this data pushes data into Quix using Quix Streams from the command line:
+If you're loading data that does not contain a timestamp, then you can write your own code to add a timestamp before publishing to the output stream. The following code demonstrates loading data from a CSV file and adding the timestamp column, and only adding other data columns of interest. In addition, this code is designed to be run on the command line. This code reads a CSV file on, for example, your laptop, and pushes the data into Quix Platform, using the Quix Streams client library:
 
 ``` python 
 # pip install quixstreams
+# pip install python-dotenv
 import quixstreams as qx
 import time
 import datetime
@@ -45,17 +48,17 @@ def main():
     load_dotenv()
     token = os.getenv("STREAMING_TOKEN")
 
-    users_file = "users3.csv"
+    users_file = "user-data.csv"
     users = load_csv(users_file)
 
     # Obtain client library token from portal
     client = qx.QuixStreamingClient(token)
 
     # Open a topic to publish data to
-    topic_producer = client.get_topic_producer("quickstart-users-streams")
+    topic_producer = client.get_topic_producer("users-topic")
     stream = topic_producer.create_stream()
     print('stream_id: -->', stream.stream_id)
-    stream.properties.name = "Quickstart CSV using Streams"
+    stream.properties.name = "CSV using Quix Streams"
     print('Writing CSV data to stream...')
 
     try:
