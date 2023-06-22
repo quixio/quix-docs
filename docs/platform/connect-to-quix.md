@@ -7,7 +7,8 @@ There are various ways to connect your data and services to Quix. The main metho
 3. Inbound webhooks
 4. HTTP API
 5. Websockets
-6. Push data using Quix Streams
+6. Push data into Quix Platform using Quix Streams
+7. Read data from a CSV file
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described briefly in the following sections.
 
@@ -392,6 +393,10 @@ You can use Quix Streams to push data up from your laptop (for example) into Qui
 ```
 
 You need to obtain a [streaming token](../platform/how-to/streaming-token.md) from within the platform.
+
+## Read data from a CSV file
+
+A common source of data is a CSV file. As well as prebuilt code samples that can be modified to suit your own purposes, it is possible to write you own code to load data in from CSV files. Read the [CSV file how-to](../platform/how-to/ingest-csv.md) for further detail on ingesting data from CSV files.
 
 ## Summary
 
