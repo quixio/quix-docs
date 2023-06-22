@@ -24,7 +24,11 @@ stream_producer.timeseries.publish(df)
 
 Note, the data is loaded into a pandas dataframe, and then published to the output stream.
 
-If you're loading data that does not contain a timestamp, then you can write your own code to add a timestamp before publishing to the output stream. The following code demonstrates loading data from a CSV file and adding the timestamp column, and only adding other data columns of interest. In addition, this code is designed to be run on the command line. This code reads a CSV file on, for example, your laptop, and pushes the data into Quix Platform, using the Quix Streams client library:
+## Without pandas
+
+If you're not using pandas, you can write your own code to load data from a CSV file.
+
+The following code demonstrates loading data from a CSV file and adding the timestamp column, and only adding other data columns of interest. In addition, this code is designed to be run on the command line. This code reads a CSV file on, for example, your laptop, and pushes the data into Quix Platform, using the Quix Streams client library:
 
 ``` python 
 # pip install quixstreams
