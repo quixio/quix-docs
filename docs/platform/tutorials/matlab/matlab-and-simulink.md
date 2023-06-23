@@ -1,5 +1,7 @@
 # MATLAB and Simulink
 
+MATLAB and Simulink by MathWorks play an important role in scientific computing and Model-based Design in academic and industrial applications of science and technology. Ability to deploy MATLAB and Simulink applications with Quix enables engineers, scientists and researchers to develop, test, deploy and orchestrate large clusters of stream processing applications at scale.
+
 The following sections describe how to deploy MATLAB functions and Simulink models to Quix to perform real-time analytics and simulations with MATLAB and Quix Streams.
 
 ## MATLAB
