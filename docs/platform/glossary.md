@@ -20,7 +20,7 @@ Quix Platform contains a large number of [open source](https://github.com/quixio
 
 ## Connectors
 
-There are [many ways](../platform/connect-to-quix.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destimation facets. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
+There are [many ways](../platform/ingest-data.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destimation facets. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
 
 ## Data Catalogue API
 

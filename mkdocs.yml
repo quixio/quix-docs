@@ -16,7 +16,7 @@ nav:
   - Intro: 'index.md'
   - 'What is Quix?': 'platform/what-is-quix.md'
   - 'Quickstart 🚀': 'platform/quickstart.md'
-  - 'Connect to Quix': 'platform/connect-to-quix.md'
+  - 'Ingest data': 'platform/ingest-data.md'
   - 'Glossary': 'platform/glossary.md'
   - 'Quix Tour': 
     - 'Overview': 'platform/quixtour/overview.md'
@@ -158,7 +158,7 @@ plugins:
         'platform/definitions.md': 'platform/glossary.md'
         'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
-        'platform/how-to/connect-to-quix.md': 'platform/connect-to-quix.md'
+        'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
 
 theme:
   name: 'material'

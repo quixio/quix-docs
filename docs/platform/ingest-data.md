@@ -1,14 +1,14 @@
-# How to connect to Quix
+# How to ingest data into Quix
 
-There are various ways to connect your data and services to Quix. The main methods are listed here:
+There are various ways to ingest data into Quix, as well as write data out from Quix to external products and services. The main methods are listed here:
 
 1. Using a prebuilt connector
-2. Polling
-3. Inbound webhooks
-4. HTTP API
-5. Websockets
-6. Push data into Quix Platform using Quix Streams
-7. Read data from a CSV file
+2. Read data from a CSV file
+3. Polling
+4. Inbound webhooks
+5. HTTP API
+6. Websockets
+7. Push data into Quix Platform using Quix Streams
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described briefly in the following sections.
 
@@ -28,6 +28,10 @@ A *source* enables you to get data into Quix, such as data coming from a databas
 A *destination* enables you to get data out of Quix. For example, to store processed data in a relational database for archiving, or to write data to a Streamlit dashboard. A destination represents an output with respect to Quix.
 
 Even if the exact connector you require does not currently exist, it is sometimes possible to adapt one of the existing connectors to suit your needs. For example, the Segment webhook connector could be adapted to suit many different webhook-based services. See the [webhooks section](#inbound-webhooks) for more information.
+
+## Read data from a CSV file
+
+A common source of data is a CSV file. As well as prebuilt code samples that can be modified to suit your own purposes, it is possible to write you own code to load data in from CSV files. Read the [CSV file how-to](../platform/how-to/ingest-csv.md) for further detail on ingesting data from CSV files.
 
 ## Polling
 
@@ -393,10 +397,6 @@ You can use Quix Streams to push data up from your laptop (for example) into Qui
 ```
 
 You need to obtain a [streaming token](../platform/how-to/streaming-token.md) from within the platform.
-
-## Read data from a CSV file
-
-A common source of data is a CSV file. As well as prebuilt code samples that can be modified to suit your own purposes, it is possible to write you own code to load data in from CSV files. Read the [CSV file how-to](../platform/how-to/ingest-csv.md) for further detail on ingesting data from CSV files.
 
 ## Summary
 

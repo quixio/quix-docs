@@ -14,7 +14,7 @@ Watch the video showing what you're going to build:
 
 The Quix Tour is split into three parts. These parts represent the typical stream processing **pipeline**:
 
-1. **Ingest** - this is where you get your data into Quix using one of [many methods](../connect-to-quix.md). In Quix Platform this is typically implemented using a **Source**.
+1. **Ingest** - this is where you get your data into Quix using one of [many methods](../ingest-data.md). In Quix Platform this is typically implemented using a **Source**.
 2. **Process** - here you process your data in a manner depending on your use case. In Quix Platform this is implemented using a **Transform**.
 3. **Serve** - typically you display information, such as on real-time charts, or perhaps persist your data in a database. In Quix Platform this is implemented using a **Destination**.
 

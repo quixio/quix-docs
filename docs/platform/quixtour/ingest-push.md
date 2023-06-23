@@ -1,6 +1,6 @@
 # Push your data into Quix Platform using Quix Streams 
 
-There are [many ways](../connect-to-quix.md) to get your data into Quix, a process usually known as ingestion. Data can be loaded using CSV files, by polling external web services, websockets and so on. The option you use depends on your use case.
+There are [many ways](../ingest-data.md) to get your data into Quix, a process usually known as ingestion. Data can be loaded using CSV files, by polling external web services, websockets and so on. The option you use depends on your use case.
 
 In this part you'll learn how to send data into Quix from your laptop using Quix Streams to push data into Quix Platform. You'll write a short Python program to retrieve your CPU load and publish that data into a Quix topic in real time. 
 
@@ -22,7 +22,7 @@ pip install python-dotenv
 
     If you're on Mac and using Homebrew, you may have multiple Python versions installed. In this case you may have to use the command `pip3` to install your modules. 
 
-You're going to use the [Quix Streams](../../client-library-intro.md) library to push data into Quix Platform. This is just one of [many ways](../connect-to-quix.md) to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../connectors/index.md).
+You're going to use the [Quix Streams](../../client-library-intro.md) library to push data into Quix Platform. This is just one of [many ways](../ingest-data.md) to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../connectors/index.md).
 
 You use the `psutil` module to retrieve the CPU load on your laptop.
 
