@@ -36,6 +36,7 @@ nav:
       - 'Read from Quix with Node.js': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
+      - 'Add environment variables': 'platform/how-to/environment-variables.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
       - 'Real-time ML predictions':

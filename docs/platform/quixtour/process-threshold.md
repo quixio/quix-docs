@@ -1,6 +1,6 @@
 # Process - threshold detection
 
-In this part of the tour you'll learn how to create a transform. The transform detects if CPU load exceeds a certain threshold, and of so, send a dataframe to its output topic.
+In this part of the tour you'll learn how to create a transform. The transform detects if CPU load exceeds a certain threshold, and if so, sends a dataframe to its output topic.
 
 ## Watch the video
 
@@ -11,7 +11,7 @@ In this part of the tour you'll learn how to create a transform. The transform d
 To create the threshold detection transform:
 
 1. Click on `Code Samples` in the main left-hand navigation. 
-2. Select the `Python`, `Transformation`, and `Basic templates` facets.
+2. Select the `Python`, `Transformation`, and `Basic templates` filters.
 3. For `Starter transformation` click `Preview code`.
 4. Click `Edit code`.
 5. Name the transform "CPU Threshold".

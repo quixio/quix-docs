@@ -169,7 +169,7 @@ Run your code with the following command in your terminal:
 python cpu_load.py
 ```
 
-The code runs and displays your CPU load. The code is now publishing data to the Quix topic `cpu-load`.
+The code runs and, after creating the `cpu-load` topic, displays your CPU load. The code is now publishing data to the Quix topic `cpu-load`.
 
 !!! tip
 
@@ -183,7 +183,7 @@ The code runs and displays your CPU load. The code is now publishing data to the
 4. Hover the mouse over the `Data` colum. You see the tool tip text `View live data`.
 5. Click the mouse where the tool tip text is displayed. You are taken to the Quix Data Explorer in a new tab.
 6. Under `SELECT STREAMS` select the box `Quickstart CPU Load - Server 1`.
-7. Under `SELECT PARAMETERS OR EVENTS` select `CPU_Load_1`. Your real-time CPU load is displayed as a waveform. You can also take a look at the table view, and the message view. 
+7. Under `SELECT PARAMETERS OR EVENTS` select `CPU_Load`. Your real-time CPU load is displayed as a waveform. You can also take a look at the table view, and the message view. 
 
 ## Conclusion
 

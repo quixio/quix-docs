@@ -15,7 +15,7 @@ In this part of the tour you'll learn how to create a simple destination. This d
 To create the SMS alert destination:
 
 1. Click on `Code Samples` in the main left-hand navigation. 
-2. Select the `Python`, `Destination`, and `Basic templates` facets.
+2. Select the `Python`, `Destination`, and `Basic templates` filters.
 3. For `Starter destination` click `Preview code`.
 4. Click `Edit code`.
 5. Name the destination "CPU Alert SMS".
@@ -84,6 +84,14 @@ To create the SMS alert destination:
     VONAGE_API_KEY=
     VONAGE_API_SECRET=
     ```
+
+    !!! tip
+
+        While this example shows you how to use a `.env` file, you could also create environment variables in Quix, and use those rather than load your variables from the `.env` file. To use this approach, open the code view for your service, and in the `Environment variables` panel, click `+ Add`. The `Add Variable` dialog is displayed. Complete the information for the environment variable. You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
+        
+        Once the variable has been created, you can then access the variable in your code using `os.environ["variable"]`. For example, to access the environment variable `VONAGE_API_SECRET`, your code would be `vonage_secret = os.environ["VONAGE_API_SECRET"]`.
+
+        See also [how to add environment variables](../how-to/environment-variables.md).
 
 13. If you've enabled the SMS alert feature, then paste your information into the `.env` file (you can get all of this information from your Vonage API dashboard). If you don't want to use this feature, just leave the file as shown.
 14. You now need to add your modules to the `requirements.txt` file in your project. Click to open it and add lines for `vonage` and `python-dotenv`. This ensures these modules are built into the deployment.

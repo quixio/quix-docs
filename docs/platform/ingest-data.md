@@ -386,7 +386,7 @@ You can use Quix Streams to push data up from your laptop (for example) into Qui
                 stream.timeseries \
                     .buffer \ 
                     .add_timestamp(datetime.datetime.utcnow()) \
-                    .add_value("CPU_Load_1", cpu_load) \
+                    .add_value("CPU_Load", cpu_load) \
                     .publish()
         except KeyboardInterrupt:
             print("Closing stream")
