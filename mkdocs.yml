@@ -155,6 +155,8 @@ theme:
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
+  features:
+    - content.code.copy
   
   palette: 
   # Palette toggle for light mode
