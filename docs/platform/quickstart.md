@@ -6,7 +6,7 @@ This Quickstart is designed to show you how to get your data into Quix and displ
 
 Watch the video showing what you're going to build.
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/94bd93d620c9472abe809035f13bd787?sid=fd1e8779-06e8-44bb-8fff-945ea60a6294" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 52.742123687281214%; height: 0;"><iframe src="https://www.loom.com/embed/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=890e16d2-60cb-4483-be3c-11db01cd93d2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Peek at the code
 

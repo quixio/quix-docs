@@ -114,6 +114,10 @@ This now appears in the pipeline view as a reminder (visual cue) as to the natur
 
 Watch a video on adding an external source:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/8b87933a57e74ce2bd1e41ea52d03175?sid=c0f8fb17-35b5-4482-88e1-fe68fa42da93" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 52.975495915986%; height: 0;"><iframe src="https://www.loom.com/embed/ecc3ca3c4bb74f12b4da3b41b12187bc?sid=62bb3692-b54f-4ad9-85bd-1e99e293fe84" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-[Process your data :material-arrow-right-circle:{ align=right }](./process-threshold.md)
+## 🏃‍♀️ Next step
+
+Build a transform to process your data!
+
+[2. Process your data :material-arrow-right-circle:{ align=right }](./process-threshold.md)

@@ -4,7 +4,7 @@ In this part of the tour you'll learn how to create a simple destination. This d
 
 ## Watch the video
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/0281bd6ca44247eca82a3c811d71a999?sid=37afb2f6-451d-4296-8996-a88d3fe53bda" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 52.74853801169591%; height: 0;"><iframe src="https://www.loom.com/embed/69dccaa10fd549d089c2646f64a61d30?sid=1617f044-33d1-453b-b2e9-c1cc41d9d61e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ Again generate a CPU spike by opening several large applications on your laptop.
 
 You can watch a video that shows how to test your service:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/5b1ac961df2b4c2bae851979050a88ac?sid=250be5ce-8e0c-482a-8c60-b776ab38b95f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 53.0373831775701%; height: 0;"><iframe src="https://www.loom.com/embed/08cdaef968c944ba90fdd03ec733e97e?sid=a6366cd6-7716-44fa-8e2b-c2a408bb89d2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Next steps
 

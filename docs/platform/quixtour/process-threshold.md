@@ -4,7 +4,7 @@ In this part of the tour you'll learn how to create a transform. The transform d
 
 ## Watch the video
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/14daea2ac1a044cd84cf47ce1fe37c03?sid=4e72a0f8-8276-408b-beaf-1515454d8c49" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 52.85880980163361%; height: 0;"><iframe src="https://www.loom.com/embed/fc97798c574b4efda77759df0351f844?sid=fa2ddd8d-ba22-4d75-8f24-26c0bcb387c5" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Create the transform
 
@@ -61,6 +61,10 @@ CPU spike of 71% detected!
 
 This video also demonstrates testing the transform:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/8ae964ce14234fa7961c4e8db2ebb0fa?sid=32926920-d4b9-48b9-9f41-4151fa490ba9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 52.686915887850475%; height: 0;"><iframe src="https://www.loom.com/embed/b0d029a97aca41579dc8aaea2a9fccff?sid=c69a89b9-5222-4c47-97fe-e520995621de" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## 🏃‍♀️ Next step
+
+Create a destination to log events and send a notification SMS!
 
 [Serve your data :material-arrow-right-circle:{ align=right }](./serve-sms.md)

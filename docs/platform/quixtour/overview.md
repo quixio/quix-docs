@@ -8,7 +8,7 @@ The Quix Tour is designed to help you build a complete stream processing pipelin
 
 Watch the video showing what you're going to build:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/66b8c74e717f450092a3c825ee1158fa?sid=bf74741b-f8fe-49cf-ab45-bd5eebd9acfc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 49.77477477477478%; height: 0;"><iframe src="https://www.loom.com/embed/5b0a88d2185c4cfea8fd2917d3898964?sid=7ea745ef-6dee-45ca-b6db-1fb450b671c8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## The parts
 
@@ -41,5 +41,9 @@ To complete the Quix Tour you'll need the following:
 1. [Python installed](https://www.python.org/downloads/){target=_blank} on your machine.
 2. A [free Quix account](https://portal.platform.quix.ai/self-sign-up).
 3. (Optional) A free [Vonage API account](https://developer.vonage.com/sign-up).
+
+## 🏃‍♀️ Next step
+
+Get your data into Quix Platform!
 
 [Ingest your data :material-arrow-right-circle:{ align=right }](./ingest-push.md)
