@@ -155,8 +155,6 @@ theme:
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
-  features:
-    - content.code.copy
   
   palette: 
   # Palette toggle for light mode
@@ -189,6 +187,7 @@ theme:
   - content.tabs.link
   - content.code.annotate  # code annotations
   - content.action.view    # view page source
+  - content.code.copy
   
   icon:
     logo: 'material/library'
