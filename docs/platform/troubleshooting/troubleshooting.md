@@ -66,7 +66,7 @@ The APIs that require a valid bearer token are:
 
 1.  Portal API
 
-    - <https://portal-api.platform.quix.ai/swagger/index.html>
+    - https://portal-api.platform.quix.ai/swagger/index.html
 
 2.  Streaming Writer API
 
@@ -181,7 +181,7 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](../../platform/definitions.md#online-ide) does
+Currently the [online IDE](../../platform/glossary.md#online-ide) does
 not use the same docker image as the one used for deployment due to time
 it would take to build it and make it available to you. (Likely feature
 for future however) Because of this you might have some OS level

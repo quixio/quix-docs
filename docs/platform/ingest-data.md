@@ -1,12 +1,14 @@
-# How to connect to Quix
+# How to ingest data into Quix
 
-There are various ways to connect your data and services to Quix. The main methods are listed here:
+There are various ways to ingest data into Quix, as well as write data out from Quix to external products and services. The main methods are listed here:
 
 1. Using a prebuilt connector
-2. Polling
-3. Inbound webhooks
-4. HTTP API
-5. Websockets
+2. Read data from a CSV file
+3. Polling
+4. Inbound webhooks
+5. HTTP API
+6. Websockets
+7. Push data into Quix Platform using Quix Streams
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described briefly in the following sections.
 
@@ -14,7 +16,7 @@ The particular method you use depends on the nature of the service you're trying
 
 This is the easiest method, as no code needs to be written, and there is usually only minor configuration required to get a Quix connector up and running. For example, Quix provides connectors for many common services such as Postgres, Twilio, Streamlit, and so on.
 
-You can review the list of connectors in the [connector documentation](../connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
+You can review the list of connectors in the [connector documentation](../platform/connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
 
 Note there are two main types of connector:
 
@@ -27,25 +29,34 @@ A *destination* enables you to get data out of Quix. For example, to store proce
 
 Even if the exact connector you require does not currently exist, it is sometimes possible to adapt one of the existing connectors to suit your needs. For example, the Segment webhook connector could be adapted to suit many different webhook-based services. See the [webhooks section](#inbound-webhooks) for more information.
 
+## Read data from a CSV file
+
+A common source of data is a CSV file. As well as prebuilt code samples that can be modified to suit your own purposes, it is possible to write you own code to load data in from CSV files. Read the [CSV file how-to](../platform/how-to/ingest-csv.md) for further detail on ingesting data from CSV files.
+
 ## Polling
 
-If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. An example of creating such a connector is described in the [Platform Quickstart guide](../tutorials/quick-start/quick-start.md#part-2-connect-an-external-service). By way of example, the following code demonstrates the idea:
+If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. By way of example, the following code demonstrates the idea:
 
 ``` python
+import quixstreams as qx
+import time
+import os
+import requests
+import pandas as pd
+
+client = qx.QuixStreamingClient()
+
+topic_producer = client.get_topic_producer(topic_id_or_name = os.environ["output"])
+
+stream = topic_producer.create_stream()
+stream.properties.name = "Users Stream"
+
 while True:
-
-    # get a random beer from this free API
-    response = requests.get("https://random-data-api.com/api/v2/beers")
-
-    # print the response data
-    print(response.json())
-
-    # sink the beer's `style` to Quix as an event
-    stream.events.add_timestamp(datetime.datetime.utcnow()) \
-    .add_value("beer", response.json()["style"]) \
-    .publish()
-
-    # sleep for a bit
+    response = requests.get("https://random-data-api.com/api/v2/users")
+    json_response = response.json()
+    df = pd.json_normalize(json_response)
+    print(df)
+    stream.timeseries.publish(df)
     time.sleep(4)
 ```
 
@@ -120,16 +131,16 @@ serve(app, host='0.0.0.0', port = 80)
 
 When you deploy your service you can configure public access in the `Deploy` dialog. You can then obtain the public access URL needed to configure the inbound webhook from the `Deploy` dialog or from the service itself, as shown in the following screenshot:
 
-![Webhook public access URL](../images/deploy/webhook-public-url.png){width=60%}
+![Webhook public access URL](./images/deploy/webhook-public-url.png){width=60%}
 
-See also [How to deploy a public service](deploy-public-page.md) for more information.
+See also [How to deploy a public service](../platform/how-to/deploy-public-page.md) for more information.
 
 ## HTTP API
 
 Quix provides two APIs with an HTTP API interface:
 
-1. [Writer API](../../apis/streaming-writer-api/intro.md)
-2. [Reader API](../../apis/streaming-reader-api/intro.md)
+1. [Writer API](../apis/streaming-writer-api/intro.md)
+2. [Reader API](../apis/streaming-reader-api/intro.md)
 
 The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a websockets interface, which is described in the [next section](#websockets).
 
@@ -149,7 +160,7 @@ The easiest way to try out these HTTP APIs is to use the prebuilt connectors cal
 
 7. In the Pipeline view click the newly created source and the following is displayed:
 
-    ![External source options](../images/how-to/connect/external-source-options.png)
+    ![External source options](./images/connect/external-source-options.png){width=80%}
 
 8. For this example, select `HTTP API - JavaScript`. Code is generated for you that uses the Writer HTTP API.
 
@@ -163,7 +174,7 @@ As you can see there are other options such as generating Curl code that can be 
 
     The code samples generated are meant to provide you with a starting point from which you can build your own solutions. They provide a convenient way to see how the API works.
 
-Further information can be found in the [Writer API](../../apis/streaming-writer-api/intro.md) and [Reader API](../../apis/streaming-reader-api/intro.md) documentation.
+Further information can be found in the [Writer API](../apis/streaming-writer-api/intro.md) and [Reader API](../apis/streaming-reader-api/intro.md) documentation.
 
 ## Websockets
 
@@ -336,14 +347,63 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix workspace ID](./get-workspace-id.md), [PAT token](../../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix workspace ID](../platform/how-to/get-workspace-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
+
+## Push data using Quix Streams
+
+You can use Quix Streams to push data up from your laptop (for example) into Quix Platform. Some example code showing Quix Streams pushing data inot the platform is shown here:
+
+```python
+import psutil
+import quixstreams as qx
+from dotenv import load_dotenv
+import time
+import datetime
+import os
+
+load_dotenv()
+token = os.getenv("STREAMING_TOKEN")
+
+def get_cpu_load():
+    cpu_load = psutil.cpu_percent(interval=1)
+    return cpu_load
+
+# Obtain client library token from portal
+client = qx.QuixStreamingClient(token)
+
+# Open a topic to publish data to
+topic_producer = client.get_topic_producer("cpu-load")
+
+stream = topic_producer.create_stream()
+stream.properties.name = "Quickstart CPU Load - Server 1"
+stream.timeseries.buffer.time_span_in_milliseconds = 100   # Send data in 100 ms chunks
+
+def main():
+    try:
+        while True:
+            cpu_load = get_cpu_load()
+            print(f"CPU Load: {cpu_load}%")
+            stream.timeseries \
+                .buffer \ 
+                .add_timestamp(datetime.datetime.utcnow()) \
+                .add_value("CPU_Load", cpu_load) \
+                .publish()
+    except KeyboardInterrupt:
+        print("Closing stream")
+        stream.close()
+
+if __name__ == '__main__':
+    main()
+```
+
+You need to obtain a [streaming token](../platform/how-to/streaming-token.md) from within the platform.
 
 ## Summary
 
-There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../connectors/index.md) you can use with minor configuration. 
+There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../platform/connectors/index.md) you can use with minor configuration. 
 
 If you want some example code you can use as a starting point for connecting your own data, you can use the `External source` and `External destination` [samples](#http-api). Or use one of the [existing connectors](#using-a-prebuilt-connector) as a starting point.
 
 Low-frequency data from REST APIs can be [polled](#polling) from Quix using a library such as `requests`. 
 
-Quix also provides the [streaming writer](../../apis/streaming-writer-api/intro.md) and [streaming reader](../../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.
+Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.
