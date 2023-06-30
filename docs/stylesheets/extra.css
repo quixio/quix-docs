@@ -22,6 +22,8 @@
     --p-color: #dedede;
     --md-code-bg-color: #393939;
     --md-code-hl-comment-color: #858585;
+    --md-default-fg-color--lightest: #cbcbcb;
+
 }
 
 .md-typeset code {
@@ -320,4 +322,10 @@ button.header-btn-inner:hover {
 }
 .md-feedback__note>*{
     max-width: none !important;
+}
+.md-code__nav{
+    background-color: var(--md-code-bg-color--darker);
+}
+.md-code__button{
+    color: var(--md-default-fg-color--lightest);
 }

@@ -65,14 +65,16 @@ signalrcore.hub.errors.UnAuthorizedHubError
 The APIs that require a valid bearer token are:
 
 1.  Portal API
-      - <https://portal-api.platform.quix.ai/swagger/index.html>
+
+    - https://portal-api.platform.quix.ai/swagger/index.html
 
 2.  Streaming Writer API
-	  - <https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html>
+
+    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html
         
 3.  Telemetry Query API
 
-	  - <https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html>
+    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html
     
 ## Error Handling in the client library callbacks
 
@@ -179,7 +181,7 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](../../platform/definitions.md#online-ide) does
+Currently the [online IDE](../../platform/glossary.md#online-ide) does
 not use the same docker image as the one used for deployment due to time
 it would take to build it and make it available to you. (Likely feature
 for future however) Because of this you might have some OS level
