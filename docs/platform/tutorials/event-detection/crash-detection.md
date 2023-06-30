@@ -220,7 +220,7 @@ You can once again run the code in the development environment to test the funct
 
 5. Gently shake your phone, or wait for another crash event from the CSV data, and observe that crash events are streamed to the output topic. You can click these rows to investigate the event data, for example:
 
-	``` { .copy }
+	```
 	[{
 		"Timestamp": 1674137774598972000,
 		"Tags": {},
