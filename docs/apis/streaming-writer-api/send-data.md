@@ -7,7 +7,7 @@ timestamps.
 
 ## Before you begin
 
-  - You should have a [Workspace set up](../../platform/definitions.md#workspace) with at least one [Topic](../../platform/definitions.md#topics).
+  - You should have a [Workspace set up](../../platform/glossary.md#workspace) with at least one [Topic](../../platform/glossary.md#topics).
 
   - [Get a Personal Access
     Token](authenticate.md) to authenticate each

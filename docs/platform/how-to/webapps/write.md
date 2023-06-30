@@ -1,7 +1,7 @@
 # Write to Quix with Node.js
 
 Clients write data to Quix using streams opened on existing
-[topics](../../../platform/definitions.md#topics). Therefore, you need to
+[topics](../../../platform/glossary.md#topics). Therefore, you need to
 first create a topic in the Portal to hold your data streams.
 
 Once you have a topic, your clients can start writing data to Quix by
