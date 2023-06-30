@@ -10,7 +10,7 @@ Welcome to the Quix developer documentation!
 
 If you're new to Quix, here are some resources to help get you started quickly.
 
-First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up){target=_blank}).
+First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
 
 <div class="grid cards" markdown>
 
