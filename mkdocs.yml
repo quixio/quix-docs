@@ -201,6 +201,7 @@ theme:
   - content.tabs.link
   - content.code.annotate  # code annotations
   - content.action.view    # view page source
+  - content.code.copy
   
   icon:
     logo: 'material/library'
