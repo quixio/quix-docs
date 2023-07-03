@@ -14,3 +14,12 @@ if(window.location.hostname == "docs.quix.io"){
     // The user won't be able to nav back here
     window.location.replace(redirectUrl)
 }
+
+// handle posthog optin/optout on cookie settings
+var consent = __md_get("__consent")
+if (consent && consent.posthog) {
+  /* The user accepted the cookie */
+  this.posthog.opt_in_capturing();
+}else{
+    this.posthog.opt_out_capturing();
+}

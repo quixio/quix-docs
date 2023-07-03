@@ -14,7 +14,7 @@ Here is a list of the open source Quix Code Samples used in this tutorial, with 
 
 Here are some suggested next steps to continue on your Quix learning journey:
 
-* Try the [Event detection tutorial](../eventDetection/index.md).
+* Try the [Event detection tutorial](../event-detection/index.md).
 
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
@@ -22,4 +22,4 @@ What will you build? Let us know! Quix would like to feature your project or use
 
 ## Getting help
 
-If you need any assistance, we're here to help in [The Quix Forum](https://forum.quix.io/){target=_blank}. Introduce yourself and then ask any questions in [Quix SaaS Platform](https://forum.quix.io/c/quix-saas-platform/6){target=_blank}.
+If you need any assistance, we're here to help in [The Quix Forum](https://forum.quix.io/){target=_blank}. Introduce yourself and then ask any questions in [Quix Platform](https://forum.quix.io/c/quix-saas-platform/6){target=_blank}.

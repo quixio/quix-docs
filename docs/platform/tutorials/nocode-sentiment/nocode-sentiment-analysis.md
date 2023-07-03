@@ -118,4 +118,4 @@ Expand the "demodata" database and then find the tables under "public".
 
 !!! tip
 
-	If you need help with this tutorial or want to chat about anything related to Quix or stream processing in general please come and say hi on [The Stream](https://quix.io/slack-invite){target=_blank}, our slack community.
+  If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.

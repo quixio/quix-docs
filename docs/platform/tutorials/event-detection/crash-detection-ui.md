@@ -4,7 +4,7 @@ This is the UI for this tutorial, it enables the user to see where a device is l
 
 The UI you will deploy is shown in the following screenshot:
 
-![Event detection UI](./ui.png){width=600px}
+![Event detection UI](./images/ui.png){width=600px}
 
 ## Deploying the UI
 
@@ -33,7 +33,7 @@ Follow these steps to deploy the prebuilt UI:
 
 6. Click the "open in new window" button on the `Crash Detection Demo UI` tile.
 
-	![Crash detection UI tile](./crash-detection-ui-tile.png){width=300px}
+	![Crash detection UI tile](./images/crash-detection-ui-tile.png){width=300px}
 
 7. Observe the various elements of the UI:
 

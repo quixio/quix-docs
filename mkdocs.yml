@@ -8,19 +8,27 @@ copyright: >
   <a href="#__consent">Change cookie settings</a>
 
 docs_dir: docs/
-repo_name: quixio/quix-docs-dev
+repo_name: quixio/quix-docs
 repo_url: https://github.com/quixio/quix-docs
-edit_uri: tree/dev/docs/
+edit_uri: tree/dev/docs
+
 nav:
   - Intro: 'index.md'
-  - 'Quickstart': 'platform/tutorials/quick-start/quick-start.md'
+  - 'What is Quix?': 'platform/what-is-quix.md'
+  - 'Quickstart 🚀': 'platform/quickstart.md'
+  - 'Ingest data': 'platform/ingest-data.md'
+  - 'Glossary': 'platform/glossary.md'
+  - 'Quix Tour': 
+    - 'Overview': 'platform/quixtour/overview.md'
+    - '1. Ingest': 'platform/quixtour/ingest-push.md'
+    - '2. Process': 'platform/quixtour/process-threshold.md'
+    - '3. Serve': 'platform/quixtour/serve-sms.md'
   - Platform:
-    - 'What is Quix?': 'platform/what-is-quix.md'
-    - 'Definitions': 'platform/definitions.md'
     - 'How To':
       - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
-      - 'Use SDK token': 'platform/how-to/use-sdk-token.md'
-      - 'Connect to Quix': 'platform/how-to/connect-to-quix.md'
+      - 'Get streaming token': 'platform/how-to/streaming-token.md'
+      - 'Get personal access token (PAT)': 'platform/how-to/personal-access-token-pat.md'
+      - 'Ingest from CSV': 'platform/how-to/ingest-csv.md'
       - 'Use replay service': 'platform/how-to/replay.md'
       - 'Use Jupyter notebooks': 'platform/how-to/jupyter-nb.md'
       - 'Develop web applications with Quix': 'platform/how-to/webapps.md'
@@ -28,6 +36,7 @@ nav:
       - 'Read from Quix with Node.js': 'platform/how-to/webapps/read.md'
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
+      - 'Add environment variables': 'platform/how-to/environment-variables.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
       - 'Real-time ML predictions':
@@ -62,12 +71,12 @@ nav:
         - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
         - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
         - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
-      - 'Event detection':
-        - 'platform/tutorials/eventDetection/index.md'
-        - '1. Data acquisition': 'platform/tutorials/eventDetection/data-acquisition.md'
-        - '2. Event detection': 'platform/tutorials/eventDetection/crash-detection.md'
-        - '3. Demo UI': 'platform/tutorials/eventDetection/crash-detection-ui.md'
-        - '4. Conclusion': 'platform/tutorials/eventDetection/conclusion.md'
+      - 'Real-time event detection':
+        - 'platform/tutorials/event-detection/index.md'
+        - '1. Data acquisition': 'platform/tutorials/event-detection/data-acquisition.md'
+        - '2. Event detection': 'platform/tutorials/event-detection/crash-detection.md'
+        - '3. Demo UI': 'platform/tutorials/event-detection/crash-detection-ui.md'
+        - '4. Conclusion': 'platform/tutorials/event-detection/conclusion.md'
       - 'RSS Processing': 'platform/tutorials/rss-tutorial/rss-processing-pipeline.md'
       - 'Currency Alerting': 'platform/tutorials/currency-alerting/currency-alerting.md'
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
@@ -80,6 +89,7 @@ nav:
 #ConnectorsGetInsertedHere
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
+    - 'MLOps': 'platform/MLOps.md'
   - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
@@ -145,11 +155,18 @@ plugins:
         'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
         'platform/intro.md': 'platform/what-is-quix.md'
         'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
-        "platform/tutorials/data-science/data-science.md": "platform/tutorials/data-science/index.md"
+        'platform/tutorials/data-science/data-science.md': 'platform/tutorials/data-science/index.md'
+        'platform/tutorials/eventDetection/index.md': 'platform/tutorials/event-detection/index.md'
+        'platform/definitions.md': 'platform/glossary.md'
+        'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
+        'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
+        'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
 
 theme:
   name: 'material'
   custom_dir: overrides
+  features:
+    - content.code.copy
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
@@ -184,6 +201,8 @@ theme:
   - search.suggest         # Search will suggest the likeliest completion for a word.*
   - content.tabs.link
   - content.code.annotate  # code annotations
+  - content.action.view    # view page source
+  - content.code.copy
   
   icon:
     logo: 'material/library'
@@ -194,6 +213,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/quix.js
+  - javascripts/feedback.js
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -212,7 +232,6 @@ extra:
     key: phc_UyQcafs2J7OUQEwJrmejeb0vCIdA9i9vYz66suPshix
   hotjar:
     id: 2437577
-
   consent:
     title: Cookie consent
     description: >- 
@@ -224,6 +243,7 @@ extra:
       analytics:
         name: Google Analytics
         checked: true
+      posthog: Posthog
   
   #alternate:
 markdown_extensions:

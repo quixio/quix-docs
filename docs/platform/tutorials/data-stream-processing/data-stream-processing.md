@@ -17,7 +17,8 @@ By the end you will have:
 ![A demo of the end result.](CarDemoGif.gif)
 
 !!! tip 
-    If you need any help, get into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}. We're eager to hear from anyone working with real-time data and that includes people following our tutorials.
+    
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
 ## Project Architecture
 
@@ -83,7 +84,7 @@ Follow these steps to get the code and deploy the project as a microservice.
 
         Leave the name, input and output as they are.
 
-        The input and output values are [Topics](../../definitions.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
+        The input and output values are [Topics](../../glossary.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
 
 3. Click `Save as project`
 
@@ -256,8 +257,6 @@ With the microservices for control and input processing deployed along with the 
 
 ![What you'll see on your computer](track.png){width=400px}
 
-## Thanks
+## Getting help
 
-Thanks for following the tutorial, hopefully you learned something about Quix and had some fun doing it!
-
-If you need any help, got into difficulties or just want to say hi then please join our [Slack community](https://quix.io/slack-invite?_ga=2.132866574.1283274496.1668680959-1575601866.1664365365){target=_blank}.
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.

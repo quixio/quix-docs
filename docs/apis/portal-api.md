@@ -1,6 +1,5 @@
-Portal API gives access to the Portal interface allowing you to automate
-access to data including Users, Workspaces, and Projects.
+# Portal API
 
-Refer to [Portal API
-Swagger](https://portal-api.platform.quix.ai/swagger){target=_blank} for more
-information.
+The Quix Portal API gives access to the Portal interface allowing you to automate access to data including Users, Workspaces, and Projects.
+
+Refer to [Portal API Swagger](https://portal-api.platform.quix.ai/swagger){target=_blank} for more information.

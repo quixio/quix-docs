@@ -7,6 +7,10 @@ This repository is the source content for the Quix documentation that is publish
 
 To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).
 
+## Docs releases
+
+You can find detailed information on docs releases in the [docs repo Wiki page](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
 ## Contributing
 
 If you would like to contribute to the docs, there are two main ways:
@@ -42,6 +46,6 @@ If you are part of the Quix technical writing team, or you contribute frequently
 
 ## Getting in touch
 
-The best way to contact us is through our public Slack channel, [The Stream community](https://quix.io/slack-invite). Please sign up, and introduce yourself!
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/).
 
 Thanks!

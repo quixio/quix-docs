@@ -22,6 +22,8 @@
     --p-color: #dedede;
     --md-code-bg-color: #393939;
     --md-code-hl-comment-color: #858585;
+    --md-default-fg-color--lightest: #cbcbcb;
+
 }
 
 .md-typeset code {
@@ -305,4 +307,25 @@ button.header-btn-inner:hover {
     display: block;
     height: 2.4rem;
     width: auto;
+}
+
+#__consent > aside > form > div.md-consent__controls > label{
+    color: #e8e8e8;
+}
+
+#__consent > aside > form > div.md-consent__controls > button{
+    background-color: #008eff;
+}
+
+.md-feedback__note{
+    opacity: 1 !important;
+}
+.md-feedback__note>*{
+    max-width: none !important;
+}
+.md-code__nav{
+    background-color: var(--md-code-bg-color--darker);
+}
+.md-code__button{
+    color: var(--md-default-fg-color--lightest);
 }

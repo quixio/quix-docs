@@ -139,8 +139,6 @@ haven’t lost all those precious live messages.
 
 ![RSSTutorial/image4.png](image4.png)
 
-### Help
+## Getting help
 
-If you run into trouble with the tutorial, want to chat with us about
-your project or anything else associated with streaming processing you
-can join our public Slack community called [The Stream](https://quix.io/slack-invite){target=_blank}.
+If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.

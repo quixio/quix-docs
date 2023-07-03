@@ -1,10 +1,16 @@
 # Quix Documentation
 
-Welcome to the Quix documentation!
+Welcome to the Quix developer documentation!
+
+!!! tip
+    
+    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
 
 ## Get started
 
 If you're new to Quix, here are some resources to help get you started quickly.
+
+First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
 
 <div class="grid cards" markdown>
 
@@ -12,33 +18,41 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    New to Quix? Find out more.
+    New to Quix? Find out more!
 
     [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
-
-- __Definitions__
-
-    ---
-
-    Learn about common terms and definitions.
-
-    [:octicons-arrow-right-24: Definitions](./platform/definitions.md)
 
 - __Quickstart__
 
     ---
 
-    Start working with Quix Platform, the simple-to-use GUI for building real-time streaming applications.
+    Get data into Quix, and display it, in under 10 minutes.
 
-    [:octicons-arrow-right-24: Quickstart](./platform/tutorials/quick-start/quick-start.md)
+    [:octicons-arrow-right-24: Quickstart](./platform/quickstart.md)
+
+- __Quix Tour__
+
+    ---
+
+    Build a complete stream processing pipeline in under 30 minutes.
+
+    [:octicons-arrow-right-24: Quix Tour](./platform/quixtour/overview.md)
+ 
+- __Glossary__
+
+    ---
+
+    List of Quix terms.
+
+    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
 
 -   __Help__
 
     ---
 
-    If you need any help, please sign up to The Stream community, our free public Slack channel.
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
     
-    [:octicons-arrow-right-24: Join The Stream community](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}
+    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
 
 </div>
 
