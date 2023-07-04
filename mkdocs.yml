@@ -82,6 +82,7 @@ nav:
       - 'Data Stream Processing': 'platform/tutorials/data-stream-processing/data-stream-processing.md'
       - 'Slack Alerting': 'platform/tutorials/slack-alerting/slack-alerting.md'
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
+      - 'MATLAB and Simulink': 'platform/tutorials/matlab/matlab-and-simulink.md'
     - 'Code Samples': 'platform/samples/samples.md'
     - 'Connectors':
       - platform/connectors/index.md
