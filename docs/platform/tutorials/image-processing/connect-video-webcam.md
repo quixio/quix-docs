@@ -6,9 +6,9 @@ Follow these steps to deploy the **webcam service**:
 
 1.  Navigate to the Samples and locate `Image processing - Webcam input`.
 
-2.  Click `Setup & deploy`.
+2.  Click `Deploy`.
 
-3.  Click `Deploy`.
+3.  Once again, click `Deploy`.
 
     This service will stream data from your webcam to the `image-base64` topic.
 
