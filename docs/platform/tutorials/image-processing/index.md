@@ -68,7 +68,7 @@ There are five stages to the processing pipeline you build in this tutorial:
 
 4. Stream merge
 
-    - Merge the seperate data streams into one
+    - Merge the separate data streams into one
 
 5. Web UI configuration
 

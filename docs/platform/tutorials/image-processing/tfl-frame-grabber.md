@@ -1,4 +1,4 @@
-# 6. Frame extraction
+# 5. Frame extraction
 
 In this part of the tutorial you add a frame extraction service. 
 
