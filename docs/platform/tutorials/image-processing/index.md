@@ -51,7 +51,7 @@ When you are logged into the Quix Portal, click on the `Code Samples` icon in th
 
 ## The pipeline you will create
 
-There are four stages to the processing pipeline you build in this tutorial:
+There are five stages to the processing pipeline you build in this tutorial:
 
 1. Video feeds
   
@@ -66,7 +66,11 @@ There are four stages to the processing pipeline you build in this tutorial:
 
     - Detect objects within images
 
-4. Web UI configuration
+4. Stream merge
+
+    - Merge the separate data streams into one
+
+5. Web UI configuration
 
     - A simple UI showing:
 
@@ -81,14 +85,18 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 1. **Connect the webcam video feed**. You learn how to quickly connect a video feed from your webcam, using a prebuilt sample.
 
-2. **Object detection**. You use a computer vision sample to detect a chosen type of object. You'll preview these events in the live preview. The object type to detect can be selected through a web UI, which is described later.
+2. **Decode images**. You decode the base64 encoded images coming from the webcam.
 
-3. **Connect the TfL video feed**. You learn how to quickly connect the TfL traffic cam feeds, using a prebuilt sample. You can perform object detection across these feeds, as they are all sent into the objection detection service in this tutorial.
+3. **Object detection**. You use a computer vision sample to detect a chosen type of object. You'll preview these events in the live preview. The object type to detect can be selected through a web UI, which is described later.
 
-4. **Frame grabber**. You use a standard sample to grab frames from the TfL video feed.
+4. **Connect the TfL video feed**. You learn how to quickly connect the TfL traffic cam feeds, using a prebuilt sample. You can perform object detection across these feeds, as they are all sent into the objection detection service in this tutorial.
 
-5. **Deploy the web UI**. You the deploy a prebuilt web UI. This UI enables you to select an object type to detect across all of your input video feeds. It displays the location pof object detection and object detection count on a map.
+5. **Frame grabber**. You use a standard sample to grab frames from the TfL video feed.
 
-6. **Summary**. In this [concluding](summary.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+6. **Stream merge**. You use a standard sample to merge the different streams into one.
+
+7. **Deploy the web UI**. You the deploy a prebuilt web UI. This UI enables you to select an object type to detect across all of your input video feeds. It displays the location pof object detection and object detection count on a map.
+
+8. **Summary**. In this [concluding](summary.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
 [Part 1 - Connect the webcam feed :material-arrow-right-circle:{ align=right }](connect-video-webcam.md)

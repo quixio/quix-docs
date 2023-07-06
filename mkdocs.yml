@@ -61,8 +61,9 @@ nav:
         - '3. Object detection': platform/tutorials/image-processing/object-detection.md
         - '4. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
         - '5. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
-        - '6. Deploy the UI': platform/tutorials/image-processing/web-ui.md
-        - '7. Summary': platform/tutorials/image-processing/summary.md        
+        - '6. Stream merge': platform/tutorials/image-processing/stream-merge.md
+        - '7. Deploy the UI': platform/tutorials/image-processing/web-ui.md
+        - '8. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'

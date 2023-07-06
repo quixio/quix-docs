@@ -1,4 +1,4 @@
-# 3. Connect the TfL video feeds
+# 4. Connect the TfL video feeds
 
 In this part of the tutorial you connect your pipeline to the TfL traffic cam video feeds.
 
@@ -6,11 +6,11 @@ Follow these steps to deploy the **traffic camera feed service**:
 
 1.  Navigate to the `Code Samples` and locate `TfL Camera Feed`.
 
-2.  Click `Setup & deploy`.
+2.  Click `Deploy`.
 
 3.  Paste your TfL API Key into the appropriate input.
 
-4.  Click `Deploy`.
+4.  Click `Deploy` again.
 
     Deploying will start the service in the Quix pre-provisioned infrastructure. This service will stream data from the TfL cameras to the `tfl-cameras` topic.
 
