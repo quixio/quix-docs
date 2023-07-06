@@ -8,6 +8,13 @@ The following screenshot shows the pipeline you build in this tutorial:
 
 ![pipeline overview](./images/pipeline-overview.png)
 
+
+This is the tutorial running live on Quix:
+<div id="wrap">
+    <iframe id="frame" src="https://tfl-image-processing-ui-quixdev-stevesstuff.deployments-dev.quix.ai/" title="Live real-time stream processing demo"></iframe>
+</div>
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://tfl-image-processing-ui-quixdev-stevesstuff.deployments-dev.quix.ai/){target="_blank"}.
+
 ## Getting help
 
 If you need any assistance while following the tutorial, we're here to help in [The Stream community](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g), our public Slack channel.
