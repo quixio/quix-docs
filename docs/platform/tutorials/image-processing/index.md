@@ -11,9 +11,9 @@ The following screenshot shows the pipeline you build in this tutorial:
 
 This is the tutorial running live on Quix:
 <div id="wrap">
-    <iframe id="frame" src="https://tfl-image-processing-ui-quixdev-stevesstuff.deployments-dev.quix.ai/" title="Live real-time stream processing demo"></iframe>
+    <iframe id="frame" src="https://tfl-image-processing-ui-quix-realtimeimageprocessingtutorial.deployments.quix.ai/" title="Live real-time stream processing demo"></iframe>
 </div>
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://tfl-image-processing-ui-quixdev-stevesstuff.deployments-dev.quix.ai/){target="_blank"}.
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://tfl-image-processing-ui-quix-realtimeimageprocessingtutorial.deployments.quix.ai/){target="_blank"}.
 
 ## Getting help
 
