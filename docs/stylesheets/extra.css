@@ -360,3 +360,8 @@ button.header-btn-inner:hover {
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
+
+.md-container{
+    height: calc(100vh - 72px) !important;
+}
+
