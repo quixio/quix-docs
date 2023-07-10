@@ -5,7 +5,7 @@ Quix requires Kafka to provide log functionality for your Quix workspace.
 When you create a new Quix workspace, there are three hosting options:
 
 1. **Quix Broker** - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
-2. **Self-Hosted Kafka** - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastyructure using this option.
+2. **Self-Hosted Kafka** - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
 3. **Confluent Cloud** - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
 
 This documentation covers the third hosting option, Confluent Cloud. 
