@@ -85,6 +85,9 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
       - 'MATLAB and Simulink': 'platform/tutorials/matlab/matlab-and-simulink.md'
     - 'Code Samples': 'platform/samples/samples.md'
+    - 'Integrations':
+      - 'Kafka':
+        - 'Confluent': 'platform/integrations/kafka/confluent-cloud.md'   
     - 'Connectors':
       - platform/connectors/index.md
 #ConnectorsGetInsertedHere
