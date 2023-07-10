@@ -365,3 +365,9 @@ button.header-btn-inner:hover {
     height: calc(100vh - 72px) !important;
 }
 
+
+@media screen and (min-width: 76.25em)
+.md-sidebar {
+    height: auto; !important
+}
+
