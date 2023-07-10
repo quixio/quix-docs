@@ -1,4 +1,4 @@
-# 6. Summary
+# 8. Summary
 
 In this tutorial you have learned that it is possible to quickly build a real-time image processing pipeline, using prebuilt Code Samples. You have seen how to can connect to multiple types of video feed, perform object detection, and display the locations of the detected objects on a map, using the prebuilt UI.
 
@@ -10,6 +10,7 @@ Here is a list of the Quix open source Code Samples used in this tutorial, with 
 * [TfL traffic cam frame grabber](https://github.com/quixio/quix-samples/tree/main/python/transformations/TFL-Camera-Frame-Extraction)
 * [Webcam interface](https://github.com/quixio/quix-samples/tree/main/applications/image-processing/webcam-input)
 * [Computer vision object detection](https://github.com/quixio/quix-samples/tree/main/python/transformations/Image-processing-object-detection)
+* [Stream merge](https://github.com/quixio/quix-samples/tree/develop/python/transformations/Stream-Merge)
 * [Web UI](https://github.com/quixio/quix-samples/tree/main/nodejs/advanced/Image-Processing-UI)
 
 ## Next Steps
