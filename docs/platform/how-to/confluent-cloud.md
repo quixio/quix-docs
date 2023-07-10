@@ -1,6 +1,6 @@
 # Connect to Confluent Cloud
 
-Quix requires Kafka to provide log functionality for your Quix workspace. 
+Quix requires Kafka to provide streaming infrastructure for your Quix workspace. 
 
 When you create a new Quix workspace, there are three hosting options:
 
