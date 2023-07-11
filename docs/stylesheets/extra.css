@@ -26,6 +26,13 @@
 
 }
 
+.warning-banner{
+    background-color: rgb(240, 156, 0);
+    font-size: large;
+    color: #000000;
+    text-align: center;
+}
+
 .md-typeset code {
     border-radius: 0.2rem;
 }

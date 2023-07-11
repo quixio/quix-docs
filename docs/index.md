@@ -2,6 +2,8 @@
 
 Welcome to the Quix developer documentation!
 
+THIS IS V1
+
 !!! tip
     
     Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
