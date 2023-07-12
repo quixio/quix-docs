@@ -173,7 +173,11 @@ jobs:
       with:
         inlineScript: |
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob directory download -c v1-docs-binaries --account-name quixdocsdev --auth-mode key -d "docs/v1/" --recursive
+            az storage blob directory download -c v1-docs-binaries --auth-mode key -d "v1-docs" --recursive -s "" --account-name quixdocsdev
+
+    - name: Copy V1 docs into built docs dir
+      shell: bash
+      run: cp -r docs/v1/v1-docs-binaries/. site/v1/
 
     - name: Create container in Azure blob storage
       uses: azure/CLI@v1
