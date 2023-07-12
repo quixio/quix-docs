@@ -180,8 +180,8 @@ jobs:
       run: cp -r v1-docs/v1-docs-binaries/. site/v1/
 
     - name: List Files and Folders
-      run: ls $GITHUB_WORKSPACE
-      
+      run: ls $GITHUB_WORKSPACE/site
+
     # don't do this on deployment to prod (github pages)
     - name: Update V1 and V2 URLs to match deployment directory
       shell: bash
