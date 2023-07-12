@@ -187,7 +187,7 @@ jobs:
     # don't do this on deployment to prod (github pages)
     - name: Update V1 and V2 URLs to match deployment directory
       shell: bash
-      run: "sed -i 's,href=\"/docs/V1/\",href=\"/${{ env.Deployment_Dir }}/V1//index.html\",g' $GITHUB_WORKSPACE/site/v1/index.html"
+      run: "sed -i 's,href=\"/docs/V1/\",href=\"/${{ env.Deployment_Dir }}/v1//index.html\",g' $GITHUB_WORKSPACE/site/v1/index.html"
     
     # don't do this on deployment to prod (github pages)
     - name: Update V1 and V2 URLs to match deployment directory
@@ -197,7 +197,7 @@ jobs:
     # don't do this on deployment to prod (github pages)
     - name: Update V1 and V2 URLs to match deployment directory
       shell: bash
-      run: "sed -i 's,href=\"/docs/V1/\",href=\"/${{ env.Deployment_Dir }}/V1/index.html\",g' $GITHUB_WORKSPACE/site/index.html"
+      run: "sed -i 's,href=\"/docs/V1/\",href=\"/${{ env.Deployment_Dir }}/v1/index.html\",g' $GITHUB_WORKSPACE/site/index.html"
     
     - name: Create container in Azure blob storage
       uses: azure/CLI@v1
