@@ -1,18 +1,12 @@
 name: On PR, Build, Publish to Azure Bucket
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-#env:
-  #SITE_DIR: ${{ github.ref }}
-  #SITE_DIR: subsite
 on:
   workflow_dispatch:
-  # We have another workflow for pushing directly to dev
+
   push:
     branches:
-      - 'dev'
-    tags:
-      - test-*
+      - 'sr/v1-test'
+
   pull_request:
     types: [opened, reopened]
 
@@ -23,42 +17,20 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-    - name: Get branch name
-      id: getbr
-      uses: tj-actions/branch-names@v6
-    
-    - name: Get the branch output
-      run: echo "The output of get-branch is ${{ steps.getbr.outputs.ref_branch }}"
-      
-    - name: Remove last part of PR ref
-      uses: mad9000/actions-find-and-replace-string@3
-      id: findandreplace
-      with:
-        source: 'pr${{ steps.getbr.outputs.ref_branch }}'
-        find: '/merge'    
-        replace: '' 
-        
-    - name: Get the above output
-      run: echo "The output of findandreplace is $Deployment_Dir"
 
-    - name: BuildHasTag
-      if: ${{ github.ref_type=='tag' }}
+    - name: SetDeploymentDirToV1
       run:  |
-          echo "Setting Deployment_Dir to tag-${{ github.ref_name }} -- ${{ github.ref_type }}"
-          echo "Deployment_Dir=tag-${{ github.ref_name }}" >> $GITHUB_ENV
-
-    - name: BuildHasNoTag
-      if: ${{ github.ref_type!='tag' }}
-      run: |
-          echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
-          echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+          echo "Setting Deployment_Dir to V1"
+          echo "Deployment_Dir=v1-docs-binaries" >> $GITHUB_ENV
 
     - name: blob
       run: echo $Deployment_Dir
 
-    - name: Checkout Dev
+    - name: Checkout V1
       uses: actions/checkout@v3
-    
+      with: 
+        ref: 'sr/v1-test'
+      
     - uses: actions/setup-python@v2
       with:
         python-version: 3.x
@@ -167,13 +139,6 @@ jobs:
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
-          
-    - name: Download V1 docs from blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-            az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
-            az storage blob directory download --container v1-docs-binaries --destination-path docs/V1/  --account-name quixdocsdev --auth-mode key
 
     - name: Create container in Azure blob storage
       uses: azure/CLI@v1
