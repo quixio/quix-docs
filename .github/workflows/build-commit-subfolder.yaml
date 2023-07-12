@@ -175,6 +175,13 @@ jobs:
             az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
             az storage blob directory download -c v1-docs-binaries --auth-mode key -d "v1-docs" --recursive -s "" --account-name quixdocsdev
 
+    # don't do this on deployment to prod (github pages)
+    - name: Update V1 and V2 URLs to match deployment directory
+      shell: bash
+      run: |
+        "sed -i 's,href=\"/docs/V1/\",href=\"/${{ env.Deployment_Dir }}/V1/\",g' v1-docs/v1-docs-binaries/index.html"
+        "sed -i 's,href=\"/docs/\",href=\"/${{ env.Deployment_Dir }}/\",g' v1-docs/v1-docs-binaries/index.html"
+    
     - name: Copy V1 docs into built docs dir
       shell: bash
       run: cp -r v1-docs/v1-docs-binaries/. site/v1/
