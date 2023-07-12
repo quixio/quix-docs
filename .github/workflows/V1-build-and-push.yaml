@@ -21,7 +21,7 @@ jobs:
     - name: SetDeploymentDirToV1
       run:  |
           echo "Setting Deployment_Dir to V1"
-          echo "Deployment_Dir=V1" >> $GITHUB_ENV
+          echo "Deployment_Dir=V1DocsBuild" >> $GITHUB_ENV
 
     - name: blob
       run: echo $Deployment_Dir
