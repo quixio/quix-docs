@@ -29,7 +29,7 @@ jobs:
     - name: Checkout V1
       uses: actions/checkout@v3
       with: 
-        repository: '${{ github.repository }}/sr/v1-test'
+        ref: 'sr/v1-test'
       
     - uses: actions/setup-python@v2
       with:
