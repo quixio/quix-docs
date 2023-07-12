@@ -1,0 +1,195 @@
+name: On PR, Build, Publish to Azure Bucket
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - 'sr/v1-test'
+
+  pull_request:
+    types: [opened, reopened]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-html:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+
+    - name: SetDeploymentDirToV1
+      run:  |
+          echo "Setting Deployment_Dir to V1"
+          echo "Deployment_Dir=V1" >> $GITHUB_ENV
+
+    - name: blob
+      run: echo $Deployment_Dir
+
+    - name: Checkout V1
+      uses: actions/checkout@v3
+      with: 
+        repository: '${{ github.repository }}/sr/v1-test'
+      
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - run: python -m pip install --upgrade pip setuptools wheel
+    
+    # Needed when using more than one repo
+    # add 'monorepo' to mkdocs.yml file under plugins
+    - run: pip install mkdocs-monorepo-plugin
+
+    # Adds requirements for social plugin. Needed to automatically fill out meta data.
+    # add 'social' to mkdocs.yml file under plugins
+    - run: pip install cffi pillow cairosvg
+
+    # add mkdocs-redirects
+    # zoom images
+    - name: Install mkdocs-redirects
+      run: pip install mkdocs-redirects
+      
+    # add lightbox
+    # zoom images
+    - name: Install MkDocs Light Box
+      run: pip install mkdocs-glightbox
+
+    # add multirepo to support pulling docs from other repos
+    - name: Install multirepo
+      run: pip install mkdocs-multirepo-plugin
+    
+    # Commenting out material insiders install until get proper token back.
+    - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - run: pip install mkdocs
+    #- run: pip install mkdocs-material
+
+    # enable when there is an Client Library dev branch 
+    # - name: Extract branch name
+    #   shell: bash
+    #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    #   id: extract_branch
+      
+    # checkout client library files
+    - name: Checkout Client Library
+      uses: actions/checkout@v3
+      with:
+        repository: 'quixio/quix-streams'
+        ref: 'main' # when a dev branch exists we can get the dev content
+        #ref: '{{ steps.extract_branch.outputs.branch }}'
+        path: 'client-library'
+
+    # copy client-library readme to client-library intro.md
+    - name: Copy and rename client library intro.md
+      shell: bash
+      run: cp client-library/README.md docs/client-library-intro.md
+
+    # copy client library images to client library intro.md
+    - name: Copy Client Library Quix image
+      shell: bash
+      run: cp client-library/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
+
+    # copy client library images to docs/assets/client-library/
+    - name: Copy client library waveform image
+      shell: bash
+      run: cp -r client-library/images/. docs/assets/client-library/
+
+    # Change image URL in the copied file to new location 
+    # sed -i 's/old-text/new-text/g' input.txt
+    - name: Update intro.md
+      shell: bash
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/client-library-intro.md"
+    
+    # Change image paths from ./images to ./assets/client-library
+    - name: Update intro.md
+      shell: bash
+      run: "sed -i 's,./images,./assets/client-library/,g' docs/client-library-intro.md"
+
+    # clone the library repo
+    - name: Checkout Samples
+      uses: actions/checkout@v3
+      with:
+        repository: 'quixio/quix-samples'
+        ref: 'develop' # when a dev branch exists we can get the dev content
+        #ref: '{{ steps.extract_branch.outputs.branch }}'
+        path: 'samples'
+
+    # use our own GitHub Action to bring in library readme files
+    - name: Quix Samples readme.md importer
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.13
+      id: readme_importer
+      with:
+        LIBRARY_REPO_PATH: "samples"
+        DOCS_PATH: ""
+        REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
+        README_DEST: "docs/library_readmes/connectors"
+
+    - name: Output Importer Logs
+      run: |
+        for i in ${{ steps.readme_importer.outputs.logs }}; do
+        echo $i
+        done
+
+    - name: Build MkDocs Site
+      run: mkdocs build --no-directory-urls
+      env:
+        AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
+        
+    - uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+          
+    - name: Create container in Azure blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
+            az storage container create --name ${{ env.Deployment_Dir }} --public-access container --account-name quixdocsdev --auth-mode key
+
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            az login --service-principal -u 172103f9-7886-4f00-a49e-621461d234e1 -p ${{ secrets.DOCSBOT_SECRET }} --tenant 07dc27cd-da6f-4de6-b83d-c4eed0a10602
+            az storage blob upload-batch --overwrite true --account-name quixdocsdev --auth-mode key -d '${{ env.Deployment_Dir }}' -s site
+
+  # Azure logout
+    - name: logout
+      run: |
+            az logout
+      if: always()
+          
+    - name: Echo Site URL
+      run: echo "Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
+      
+    - name: Comment Site URL    
+      uses: mshick/add-pr-comment@v2
+      with:
+        if: always()
+        message: |
+          Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html
+        message-failure: |
+            Build failed. URL was not updated.
+      
+    - name: Send Slack notification
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        # For posting a rich message using Block Kit
+        payload: |
+          {
+            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ":rocket: A build just left the launch pad\nPreview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html"
+                }
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
