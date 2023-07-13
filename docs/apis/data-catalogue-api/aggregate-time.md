@@ -1,32 +1,23 @@
 # Aggregate data by time
 
-You can downsample and upsample data from the catalogue using the
-`/parameters/data` endpoint.
+You can downsample and upsample data from the catalogue using the `/parameters/data` endpoint.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
+If you don’t already have any Stream data in your environment, you can use a Source from the [Code Samples](../../platform/samples/samples.md) to provide suitable data.
 
-  - [Get a Personal Access Token](authenticate.md)
-    to authenticate each request.
+You'll need to obtain a [Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Aggregating and interpolating
 
-The JSON payload can include a `groupByTime` property, an object with
-the following members:
+The JSON payload can include a `groupByTime` property, an object with the following members:
 
-  - `timeBucketDuration`  
-    The duration, in nanoseconds, for one aggregated value.
+* `timeBucketDuration` - The duration, in nanoseconds, for one aggregated value.
+* `interpolationType`  - Specify how additional values should be generated when interpolating.
 
-  - `interpolationType`  
-    Specify how additional values should be generated when
-    interpolating.
+For example, imagine you have a set of speed data, with values recorded at 1-second intervals. You can group such data into 2-second intervals, aggregated by mean average, with the following:
 
-For example, imagine you have a set of speed data, with values recorded
-at 1-second intervals. You can group such data into 2-second intervals,
-aggregated by mean average, with the following:
-
-``` json
+```json
 {
     "groupByTime": {
         "timeBucketDuration": 2000000000,
@@ -38,11 +29,9 @@ aggregated by mean average, with the following:
 }
 ```
 
-You can specify an `interpolationType` to define how any missing values
-are generated. `Linear` will provide a value in linear proportion,
-whilst `Previous` will repeat the value before the one that was missing.
+You can specify an `interpolationType` to define how any missing values are generated. `Linear` will provide a value in linear proportion, while `Previous` will repeat the value before the one that was missing:
 
-``` json
+```json
 {
     "from": 1612191286000000000,
     "to":   1612191295000000000,

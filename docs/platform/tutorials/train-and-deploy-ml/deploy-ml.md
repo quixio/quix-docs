@@ -26,7 +26,7 @@ Ensure you are logged into the Quix Portal, then follow these steps to create a 
 
 8. Leave output as `hard-braking` (its default value).
 
-9. Click `Save as Project`. The code  is now saved to your workspace. 
+9. Click `Save as Application`. The code  is now saved to your environment. 
 
 	!!! tip
 		

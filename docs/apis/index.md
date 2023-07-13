@@ -16,4 +16,4 @@ As an alternative to the client library, the Quix platform supports real-time da
 
 ## Portal API
 
-The [Portal API](portal-api.md) gives access to the Portal interface allowing you to automate access to data including Users, Workspaces, and Projects.
+The [Portal API](portal-api.md) gives access to the Portal interface enabling you to programmatically control projects, environments, applications, and deployments.

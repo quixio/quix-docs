@@ -20,7 +20,7 @@ The Quix Tour is split into three parts. These parts represent the typical strea
 
 This general stream processing architecture is illustrated in the following diagram:
 
-![Architecture](./images/architecture.png)
+![Architecture](../images/architecture.png)
 
 ## CPU overload detection pipeline
 

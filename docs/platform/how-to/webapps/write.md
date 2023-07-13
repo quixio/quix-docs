@@ -1,10 +1,8 @@
 # Write to Quix with Node.js
 
-Clients write data to Quix using streams opened on existing
-[topics](../../../platform/glossary.md#topics). Therefore, you need to
-first create a topic in the Portal to hold your data streams.
+Clients write data to Quix using streams opened on existing [topics](../../../platform/glossary.md#topics). Therefore, you need to first create a topic in the Portal to hold your data streams.
 
-Once you have a topic, your clients can start writing data to Quix by
+Once you have a topic, your clients can start writing data to Quix by:
 
   - creating a stream in your topic
 
@@ -14,11 +12,9 @@ Once you have a topic, your clients can start writing data to Quix by
 
 ## Creating a stream
 
-To write data to Quix, you need to open a stream to your topic.
-Following is an example of creating a stream using JavaScript and
-Node.js.
+To write data to Quix, you need to open a stream to your topic. Following is an example of creating a stream using JavaScript and Node.js.
 
-``` javascript
+```javascript
 const https = require(https);
 
 const data = JSON.stringify({
@@ -33,7 +29,7 @@ const data = JSON.stringify({
 });
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams',
     method: 'POST',
     headers: {
@@ -53,33 +49,21 @@ req.write(data);
 req.end();
 ```
 
-Upon completing the request successfully, you will receive the stream id
-in the response body. You are going to need this stream id when you are
-writing data to the stream.
+Upon completing the request successfully, you will receive the stream ID in the response body. You are going to need this stream id when you are writing data to the stream.
 
-In the request data, `Location` is also an optional, but an important
-property. Location allows you to organize your streams under directories
-in the Data Catalogue.
+In the request data, `Location` is also an optional, but an important property. Location allows you to organize your streams under directories in the Data Catalogue.
 
-When you are creating the stream, you can add optional metadata about
-the stream to the stream definition like `Property1` and `Property2` in
-the preceding example.
+When you are creating the stream, you can add optional metadata about the stream to the stream definition like `Property1` and `Property2` in the preceding example.
 
-Field `Parents` is also optional. If the current stream is derived from
-one or more streams (e.g. by transforming data from one stream using an
-analytics model), you can reference the original streams using this
-field.
+Field `Parents` is also optional. If the current stream is derived from one or more streams (e.g. by transforming data from one stream using an analytics model), you can reference the original streams using this field.
 
-`TimeOfRecording` is an optional field that allows you to specify the
-actual time the data was recorded. This field is useful if you are
-streaming data that was recorded in the past.
+`TimeOfRecording` is an optional field that allows you to specify the actual time the data was recorded. This field is useful if you are streaming data that was recorded in the past.
 
 ## Writing parameter data to a stream
 
-After you have created the stream, you can start writing data to that
-stream using the following HTTP request.
+After you have created the stream, you can start writing data to that stream using the following HTTP request.
 
-``` javascript
+```javascript
 const https = require(https);
 
 const data = JSON.stringify({
@@ -104,7 +88,7 @@ const data = JSON.stringify({
 });
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams/your-stream-id/parameters/data',
     method: 'POST',
     headers: {
@@ -121,25 +105,15 @@ req.write(data);
 req.end();
 ```
 
-In the preceding example, `data` has two different parameter types,
-numeric and strings. If your data only contains numeric data, you do not
-need to include the `StringValues` property. In the case of binary
-values, the items in the array must be a base64 encoded string.
+In the preceding example, `data` has two different parameter types, numeric and strings. If your data only contains numeric data, you do not need to include the `StringValues` property. In the case of binary values, the items in the array must be a base64 encoded string.
 
-`TagValues` is another optional field in the data request that allows
-you to add context to data points by means of tagging them. Index of the
-`Timestamps` array is used when matching the parameter data values as
-well as tag values. Therefore, the order of the arrays is important.
+`TagValues` is another optional field in the data request that allows you to add context to data points by means of tagging them. Index of the `Timestamps` array is used when matching the parameter data values as well as tag values. Therefore, the order of the arrays is important.
 
 ## Defining parameters
 
-In the above examples, parameters are created in Quix as you write data
-to the stream. However, what if you would like to add more information
-like acceptable value ranges, measurement units, etc. to your
-parameters? You can use the following HTTP request to update your
-parameter definitions.
+In the above examples, parameters are created in Quix as you write data to the stream. However, what if you would like to add more information like acceptable value ranges, measurement units, etc. to your parameters? You can use the following HTTP request to update your parameter definitions.
 
-``` javascript
+```javascript
 const https = require(https);
 
 const data = JSON.stringify([
@@ -156,7 +130,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams/your-stream-id/parameters',
     method: 'PUT',
     headers: {
@@ -173,22 +147,13 @@ req.write(data);
 req.end();
 ```
 
-In the preceding request, the `Id` must match the parameter id you set
-when writing data to the stream. `Name` allows you to set a more
-readable name for the parameter. You can also add a description, minimum
-and maximum values, unit of measurement to your parameter. `Location`
-allows you to organize/group your parameters in a hierarchical manner
-like with the streams. If you have a custom parameter definition that is
-not covered by the primary fields of the request, you can use
-`CustomProperties` field to add your custom definition as a string.
+In the preceding request, the `Id` must match the parameter ID you set when writing data to the stream. `Name` allows you to set a more readable name for the parameter. You can also add a description, minimum and maximum values, unit of measurement to your parameter. `Location` allows you to organize/group your parameters in a hierarchical manner like with the streams. If you have a custom parameter definition that is not covered by the primary fields of the request, you can use `CustomProperties` field to add your custom definition as a string.
 
 ## Writing event data to a stream
 
-Writing event data to a stream is similar to writing parameter data
-using the web api. The main difference in the two requests is in the
-request body.
+Writing event data to a stream is similar to writing parameter data using the web api. The main difference in the two requests is in the request body.
 
-``` javascript
+```javascript
 const data = JSON.stringify([
     {
         Id: "EventA",
@@ -219,7 +184,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams/your-stream-id/events/data',
     method: 'POST',
     headers: {
@@ -236,19 +201,13 @@ req.write(data);
 req.end();
 ```
 
-In the preceding example, tags in the event data request are optional.
-Tags add context to your data points and help you to run efficient
-queries over them on your data like using indexes in traditional
-databases.
+In the preceding example, tags in the event data request are optional. Tags add context to your data points and help you to run efficient queries over them on your data like using indexes in traditional databases.
 
 ## Defining events
 
-In the above examples, events are created in Quix as you write data to
-the stream. If you want to add more descriptions to your events, you can
-use event definitions api similar to parameter definitions to update
-your events.
+In the above examples, events are created in Quix as you write data to the stream. If you want to add more descriptions to your events, you can use event definitions api similar to parameter definitions to update your events.
 
-``` javascript
+```javascript
 const https = require(https);
 
 const data = JSON.stringify([
@@ -263,7 +222,7 @@ const data = JSON.stringify([
 ]);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams/your-stream-id/events',
     method: 'PUT',
     headers: {
@@ -280,26 +239,17 @@ req.write(data);
 req.end();
 ```
 
-In the preceding request, the `Id` must match the event id you set when
-writing events to the stream. `Name` allows you to set a more readable
-name for the event. `Location` allows you to organize/group your events
-in a hierarchy like with the parameters. If you have a custom event
-definition that is not covered by the primary fields of the request, you
-can use `CustomProperties` field to add your custom definition as a
-string. You can also set an optional event `Level`. Accepted event
-levels are Trace, Debug, Information, Warning, Error and Critical. Event
-level defaults to Information if not specified.
+In the preceding request, the `Id` must match the event id you set when writing events to the stream. `Name` allows you to set a more readable name for the event. `Location` allows you to organize/group your events in a hierarchy like with the parameters. If you have a custom event definition that is not covered by the primary fields of the request, you can use `CustomProperties` field to add your custom definition as a string. You can also set an optional event `Level`. Accepted event levels are Trace, Debug, Information, Warning, Error and Critical. Event level defaults to Information if not specified.
 
 ## Closing a stream
 
-After finishing sending data, you can proceed to close the stream using
-the request below.
+After finishing sending data, you can proceed to close the stream using the request below.
 
-``` javascript
+```javascript
 const https = require(https);
 
 const options = {
-    hostname: 'your-workspace-id.portal.quix.ai',
+    hostname: 'your-environment-id.portal.quix.ai',
     path: '/topics/your-topic-name/streams/your-stream-id/close',
     method: 'POST',
     headers: {

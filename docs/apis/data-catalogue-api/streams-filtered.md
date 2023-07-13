@@ -1,39 +1,31 @@
 # Filtered streams
 
-To fetch specific streams, you can include various filters with your
-request to the `/streams` endpoint.
+To fetch specific streams, you can include various filters with your request to the `/streams` endpoint.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
+If you don’t already have any Stream data in your environment, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
 
-  - [Get a Personal Access Token](authenticate.md)
-    to authenticate each request.
+[Get a Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Fetch a single stream via ID
 
-The most basic filter matches against a stream’s ID.
+The most basic filter matches against a stream’s ID:
 
-``` bash
+```bash
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"streamIds": ["302b1de3-2338-43cb-8148-3f0d6e8c0b8a"]}'
 ```
 
-Note that you can supply multiple IDs in the `streamIds` array to match
-multiple streams.
+Note that you can supply multiple IDs in the `streamIds` array to match multiple streams.
 
 ## Filtering streams on basic properties
 
-The **location** of a stream defines its position in a hierarchy. A
-stream location looks just like a filesystem path. You can filter
-streams based on the start of this path, so you can easily find streams
-contained within any point in the hierarchy. For example, this query
-will find streams with a location of `/one` but it will also find
-streams with a `/one/two` location:
+The **location** of a stream defines its position in a hierarchy. A stream location looks just like a filesystem path. You can filter streams based on the start of this path, so you can easily find streams contained within any point in the hierarchy. For example, this query will find streams with a location of `/one` but it will also find streams with a `/one/two` location:
 
-``` bash
+```bash
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
@@ -48,24 +40,18 @@ curl "https://${domain}.platform.quix.ai/streams" \
 
 	Filtering on topic uses a case insensitive *Equals* match. Filtering on a topic named "MyTopic" will match "mytopic" but will not match "MyTopic123"
 
-You can filter streams based on their use of a given **parameter** with
-the `parameterIds` property. For example, to find all streams that
-contain at least one single occurence of `Gear` data:
+You can filter streams based on their use of a given **parameter** with the `parameterIds` property. For example, to find all streams that contain at least one single occurence of `Gear` data:
 
-``` bash
+```bash
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"parameterIds": [ "Gear"] }'
 ```
 
-You can filter based on the presence or absence of a certain stream
-**status**, for example, if the stream is `Open` or was `Interrupted`.
-The `includeStatuses` and `excludeStatuses` properties each take an
-array of values to act on. So to get all streams that aren’t Interrupted
-or Closed, use this query:
+You can filter based on the presence or absence of a certain stream **status**, for example, if the stream is `Open` or was `Interrupted`. The `includeStatuses` and `excludeStatuses` properties each take an array of values to act on. So to get all streams that aren’t Interrupted or Closed, use this query:
 
-``` bash
+```bash
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
@@ -74,13 +60,9 @@ curl "https://${domain}.platform.quix.ai/streams" \
 
 ## Filtering streams on metadata
 
-You can associate metadata with your streams. This can be used, for
-example, to store the circuit a car has travelled around, or the player
-of a particular run of a game.
+You can associate metadata with your streams. This can be used, for example, to store the circuit a car has travelled around, or the player of a particular run of a game.
 
-To filter on metadata, include the `metadata` property in the JSON
-object in your request body. This property’s value is an array of
-objects, each of which has two properties, `key` and `value`:
+To filter on metadata, include the `metadata` property in the JSON object in your request body. This property’s value is an array of objects, each of which has two properties, `key` and `value`:
 
   - `key`  
     The exact, case-sensitive key of the metadata you’re interested in.
@@ -88,10 +70,9 @@ objects, each of which has two properties, `key` and `value`:
   - `value`  
     The exact, case-sensitive value of the metadata to match on
 
-If you have a metadata entry keyed as "circuit", you can match against
-it for an example value with this payload:
+If you have a metadata entry keyed as "circuit", you can match against it for an example value with this payload:
 
-``` json
+```json
 "metadata": [{
     "key": "circuit",
     "value": "Sakhir Short"
@@ -100,7 +81,7 @@ it for an example value with this payload:
 
 As before, the response is an array of Stream objects:
 
-``` json
+```json
 [{
     "streamId":"e6545c18-d20d-47bd-8997-f3f825c1a45c",
     "name":"cardata",
@@ -122,19 +103,17 @@ As before, the response is an array of Stream objects:
 
 ## Ordering results
 
-Calls to the `/streams` endpoint can include an `ordering` property in
-the payload. This references an array of properties to sort on, each one
-an object with the following properties:
+Calls to the `/streams` endpoint can include an `ordering` property in the payload. This references an array of properties to sort on, each one an object with the following properties:
 
-  - by  
+  - `by`  
     A string representing the property to order by.
 
-  - direction  
+  - `direction`  
     A string, either "Asc" or "Desc", to define the sort direction.
 
 For example, to sort all streams in ascending order by topic:
 
-``` bash
+```bash
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \

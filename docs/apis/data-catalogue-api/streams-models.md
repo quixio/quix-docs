@@ -1,30 +1,22 @@
 # Streams with models
 
-One stream can derive from another, for example, acting as a model in a
-pipeline. This relationship can be inspected using the `/streams/models`
-endpoint.
+One stream can derive from another, for example, acting as a model in a pipeline. This relationship can be inspected using the `/streams/models` endpoint.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
+If you don’t already have any Stream data in your environment, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
 
-  - [Get a Personal Access Token](authenticate.md)
-    to authenticate each request.
+[Get a Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Fetching model data
 
-The hierarchy is represented as a parent/child structure where a stream
-can have an optional parent and any number of children.
+The hierarchy is represented as a parent/child structure where a stream can have an optional parent and any number of children.
 
-The `/streams/models` endpoint will return data in the same structure as
-[the `/streams` endpoint](streams-paged.md), with
-an additional property for each stream: `children`. This is an array of
-stream objects which may have their own children.
+The `/streams/models` endpoint will return data in the same structure as [the `/streams` endpoint](streams-paged.md), with an additional property for each stream: `children`. This is an array of stream objects which may have their own children.
 
-The payload requirements are the same as those for `/streams`. You can
-fetch model information across all streams with an empty payload:
+The payload requirements are the same as those for `/streams`. You can fetch model information across all streams with an empty payload:
 
-``` shell
+```shell
 curl "https://${domain}.platform.quix.ai/streams/models" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
@@ -33,7 +25,7 @@ curl "https://${domain}.platform.quix.ai/streams/models" \
 
 Here’s an example result for a stream with two children:
 
-``` json
+```json
 [{
     "children": [{
         "children": [],
@@ -80,7 +72,7 @@ Here’s an example result for a stream with two children:
 
 And here’s an example with a child and a grandchild:
 
-``` json
+```json
 [{
     "children": [{
         "children": [{

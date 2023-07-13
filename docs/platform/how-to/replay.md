@@ -18,11 +18,11 @@ Once created, a replay service looks like any other service in your pipeline, an
 
 ## To replay persisted data into a topic
 
-You can only replay persisted data, so you need to persist a topic first. In your Quix workspace, select `Topics` in the left-hand sidebar to list all your topics. Ensure the topic you want to persist has persistence switched on, as shown in the following screenshot:
+You can only replay persisted data, so you need to persist a topic first. In your Quix environment, select `Topics` in the left-hand sidebar to list all your topics. Ensure the topic you want to persist has persistence switched on, as shown in the following screenshot:
 
 ![Enable persistence](../images/how-to/replay/replay-add-persist-topic.png)
 
-Click `Pipeline` in your Quix workspace, and then to create a new replay, click `Add new` in the top right corner:
+Click `Pipeline` in your Quix environment, and then to create a new replay, click `Add new` in the top right corner:
 
 ![Add replay](../images/how-to/replay/replay-add-new.png)
 

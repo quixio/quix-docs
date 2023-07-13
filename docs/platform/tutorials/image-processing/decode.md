@@ -19,12 +19,12 @@ Follow these steps to deploy the **base64 decoder service**:
 
 5.  Select or enter `image-raw` for the output.
 
-6.  Click `Save as project`.
+6.  Click `Save as Application`.
 
 
 ## Update the code
 
-The code is now saved to your workspace and you can edit it to perform any actions you need it to.
+The code is now saved to your environment and you can edit it to perform any actions you need it to.
 
 Using the following steps, update the default code so it decodes the web cam images being received on the `image-base64` topic. Then publish the decoded images to the `image-raw` topic.
 

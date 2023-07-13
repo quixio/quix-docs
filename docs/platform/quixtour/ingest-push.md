@@ -30,7 +30,7 @@ You use `python-dotenv` as you securely store your client library token (previou
 
 ## 2. Write your code
 
-1. Open up a terminal on your laptop, create a directory for your new project, and then create a new file `cpu_load.py`.
+1. Open up a terminal on your laptop, create a directory for your code, and then create a new file `cpu_load.py`.
 2. Copy and paste in the following code:
 
     ```python 

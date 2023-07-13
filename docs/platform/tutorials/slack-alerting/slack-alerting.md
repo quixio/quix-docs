@@ -114,7 +114,7 @@ Ensure you’re logged into the [Slack web portal](https://api.slack.com/messagi
 
 2. On the popup, select `From Scratch`.
 
-3. Enter a name and choose your workspace.
+3. Enter a name and choose your environment.
 
 4. Click `Create App`.
 
@@ -165,7 +165,7 @@ In this part of the tutorial you will replace the current Slack connector with a
 
 ### Slack connector project
 
-Follow these steps to save the connector code to your workspace.
+Follow these steps to save the connector code to your environment.
 
 1. Navigate to the `Code Samples` and search for `Slack`.
 
@@ -176,8 +176,8 @@ Follow these steps to save the connector code to your workspace.
 
 4. Ensure that the `input` field is set to `tfl-bikepoint-data` and past your Slack WebHook URL into the appropriate field.
 
-5. Click `Save as project`.
-	The code is now saved to your workspace and you can now edit the code and make any modifications you need.
+5. Click `Save as Application`.
+	The code is now saved to your environment and you can now edit the code and make any modifications you need.
 
 ### Customize the message
 

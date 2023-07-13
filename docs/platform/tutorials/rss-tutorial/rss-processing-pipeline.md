@@ -40,7 +40,7 @@ Enter the following URL into the rss_url field:
 [https://stackoverflow.com/feeds/tag/python](https://stackoverflow.com/feeds/tag/python){target=_blank}
 
 Click `Deploy` and wait a few seconds for the pre-built connector to be
-deployed to your workspace.
+deployed to your environment.
 
 You will then begin to receive data from the RSS feed. The data then
 goes into the configured output topic. Don’t worry, you won’t lose data.
@@ -58,9 +58,9 @@ questions with certain tags get delivered to you.
 Return to the `Code Samples` and search for `RSS Data Filtering.`
 Click `Setup & deploy` on the card.
 
-If you created a new workspace for this project, the fields
-automatically populate. If you’re using the workspace for other
-projects, you may need to specify the input topic as `rss-data.`
+If you created a new envi for this project, the fields
+automatically populate. If you’re using the environment for other
+applications, you may need to specify the input topic as `rss-data.`
 
 You might also want to customize the tag_filter. It is automatically
 populated with a wide range of tags related to Python. This works well
@@ -74,7 +74,7 @@ connector will begin processing the data that’s been building up in the
 rss-data topic.
 
 Have a look in the logs by clicking the Data Filtering Model tile (pink
-outlined) on the workspace home page.
+outlined) on the environment home page.
 
 ![RSSTutorial/image2.png](image2.png)
 
@@ -106,8 +106,8 @@ developing this. Trust me.
 
 #### 2\. Modify and deploy the `Slack Notification` connector
 
-Enter your webhook into the webhook_url field. Click `Save as project.`
-This will save the code to your workspace, which is a GitLab repository.
+Enter your webhook into the webhook_url field. Click `Save as Application.`
+This will save the code to your environment, which is a Gitea repository.
 
 Once saved, you’ll see the code again. The quix_function.py file should
 be open. This is what you’ll alter. The default code dumps everything in

@@ -20,9 +20,9 @@ Get the code for the prediction service:
 
 7. Ensure the `output` is set to `NY-bikes-prediction`.
 
-8. Click `Save as project`.
+8. Click `Save as Application`.
 
-	This will save the code for this service to your workspace.
+	This will save the code for this service to your environment.
 
 !!! note "Free Models" 
 

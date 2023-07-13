@@ -210,7 +210,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
 
     <script>
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
-      const workspaceId = "<your_workspace>";
+      const environmentId = "<your_environment>";
       const topic = "websocket-topic";
       const streamId = "mouse-pos";
 
@@ -228,7 +228,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
 
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(
-          "https://writer-" + workspaceId + ".platform.quix.ai/hub",
+          "https://writer-" + environmentId + ".platform.quix.ai/hub",
           options
         )
         .build();
@@ -301,8 +301,8 @@ Code that could read mouse cursor position from a Quix stream is as follows:
     <script>
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
 
-      // Set the Workspace and Topic
-      const workspaceId = "<your_workspace>";
+      // Set the environment and Topic
+      const environmentId = "<your_environment>";
       const topicName = "transform";
       const streamId = "mouse-pos";
       const canvas = document.getElementById("myCanvas");
@@ -314,7 +314,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
       };
 
       const connection = new signalR.HubConnectionBuilder()
-        .withUrl(`https://reader-${workspaceId}.platform.quix.ai/hub`, options)
+        .withUrl(`https://reader-${environmentId}.platform.quix.ai/hub`, options)
         .build();
 
       connection.start().then(() => {
@@ -347,7 +347,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix workspace ID](../platform/how-to/get-workspace-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
 
 ## Push data using Quix Streams
 

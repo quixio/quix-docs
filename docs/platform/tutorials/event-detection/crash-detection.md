@@ -22,9 +22,9 @@ Follow these steps to create the event detection service:
 
 6. Enter `phone-out` into the output field.
 
-7. Click `Save as project`.
+7. Click `Save as Application`.
 
-You now have the basic template for the service saved to your workspace.
+You now have the basic template for the service saved to your environment.
 
 ## Test the template
 
@@ -249,7 +249,7 @@ Now that you have verified the service is working you can go ahead and deploy th
 5. Click `Deploy`.
 
 !!! success
-	You now have a data source and the crash detection service running in your workspace. 
+	You now have a data source and the crash detection service running in your environment. 
 	
 	Next you’ll deploy a real-time UI to visualize the route being taken, the location of any crash events and also to see some of the sensor data.
 

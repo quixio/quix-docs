@@ -17,7 +17,7 @@ To create the threshold detection transform:
 5. Name the transform "CPU Threshold".
 6. Select the input topic `cpu-load`.
 7. For the output topic, add a new topic called `cpu-spike`.
-8. Click `Save as Project`.
+8. Click `Save as Application`.
 9. In the project view click on `main.py` to edit it.
 10. Replace all the code in `main.py` with the following:
 

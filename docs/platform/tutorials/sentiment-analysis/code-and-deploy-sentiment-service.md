@@ -9,11 +9,11 @@ In this optional tutorial part, you learn how to code a sentiment analysis micro
 
 It is assumed that you have a data source such as the [Sentiment Demo UI](sentiment-demo-ui.md) used in the Sentiment Analysis tutorial. It supplies data to a `messages` topic and has a `chat-message` column in the dataset.
 
-Follow the steps below to code, test, and deploy a new microservice to your workspace.
+Follow the steps below to code, test, and deploy a new microservice to your environment.
 
 ## Select the template
 
-Follow these steps to locate and save the code to your workspace:
+Follow these steps to locate and save the code to your environment:
 
 1. Navigate to the `Code Samples` and apply the following filters:
     
@@ -40,9 +40,9 @@ Follow these steps to locate and save the code to your workspace:
 
     This is the topic that sentiment results are published to.
 
-7. Click `Save as project`.
+7. Click `Save as Application`.
 
-    The code is now saved to your workspace, you can edit and run it as needed before deploying it into the Quix production-ready, serverless, and scalable environment.
+    The code is now saved to your environment, you can edit and run it as needed before deploying it into the Quix production-ready, serverless, and scalable environment.
 
 ## Development lifecycle
 

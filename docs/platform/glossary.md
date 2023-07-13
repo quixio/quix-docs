@@ -6,6 +6,12 @@ The following is a list of terms useful when working with Quix and streaming dat
 
 In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [API landing page](../apis/index.md).
 
+## Application
+
+A set of code in Quix Platform that can be edited, compiled, run, and deployed as one Docker image (configured using a `dockerfile`). 
+
+Applications in Quix Platform exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
+
 ## Binary data
 
 Quix also supports any binary blob data.
@@ -38,7 +44,13 @@ Read more about [data types](../client-library-intro.md#multiple-data-types).
 
 ## Deployment
 
-An instance of a project running in the serverless environment. When you deploy your project, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+An instance of an application running in the serverless environment. When you deploy your application, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+
+## Environment
+
+An environment is an entity that encapsulates a branch in your [project](#project), that contains the code for your [applications](#application). 
+
+Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
 
 ## Events
 
@@ -80,13 +92,19 @@ Quix provides an online Integrated Development Environment (IDE) for Python and 
 
 Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
 
+## Pipeline
+
+Applications implementing a source, transform, or destination, are connected together using [topics](#topic) into a pipeline. A pipeline provides the complete stream processing solution for your use case. The pipeline is visually represented in an environment.
+
 ## Portal API
 
-An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [workspaces](#workspace), [users](#workspace), and [deployments](#deployment).
+An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
 
 ## Project
 
-A set of code in Quix Platform that can be edited, compiled, run, and deployed as one Docker image. Projects in Quix Platform are fully version controlled. You can also tag your code as an easy way to manage releases of your project.
+A project is an entity that corresponds to a Git repository. That Git repository can be hosted for you on Quix, or you can use another provider such as GitHub or Bitbucket to host the repository. 
+
+A project contains one or more [environments](#environment), so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
 
 ## Quix Streams
 
@@ -156,17 +174,3 @@ A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any dat
 ## Streaming Writer API
 
 An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
-
-## Workspace
-
-In Quix Platform, a workspace is an instance of a complete streaming infrastructure isolated from the rest of your Organization in terms of performance and security. It contains its own dedicated API instances and Quix internal services.
-
-You can imagine a workspace as the streaming infrastructure of your company or your team. As each workspace has its own allocated infrastructure, development work in one workspace will not affect the performance and reliability of another workspace.
-
-You can also have different workspaces to separate different stages of your development process like Development, Staging, and Production.
-
-Part of a typical workspace is shown here:
-
-![Workspace](./images/workspace.png)
-
-Workspaces are collaborative. Multiple users, including developers, data scientitsts, and machine learning engineers, can all work together in the same workspace. You can invite other users into a workspace you created.

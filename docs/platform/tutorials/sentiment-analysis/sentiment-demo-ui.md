@@ -44,7 +44,7 @@ You've now created the gateways needed for this tutorial.
 
 ## Locating and deploying the Sentiment Demo UI
 
-The following steps demonstrate how to select the demo UI Sample and deploy it to your Quix workspace. 
+The following steps demonstrate how to select the demo UI Sample and deploy it to your Quix environment. 
 
 Follow these steps to deploy the prebuilt UI:
 

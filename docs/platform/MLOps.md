@@ -49,7 +49,7 @@ In the Quix Portal you can:
 
 ## Deploy production models
 
-in the Quix Portal, with one click of the project's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
+in the Quix Portal, with one click of the application's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
 
 ## Monitor production models
 

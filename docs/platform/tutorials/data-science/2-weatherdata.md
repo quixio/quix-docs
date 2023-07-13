@@ -32,7 +32,7 @@ You can now deploy the VisualCrossing connector from the Quix Code Samples:
 
 6. Click `Deploy`.
 
-	The precompiled service is deployed to your workspace and begins running immediately.
+	The precompiled service is deployed to your environment and begins running immediately.
 
 	!!! warning "Visual Crossing usage limitation"
 

@@ -67,11 +67,11 @@ To set up the CoinAPI source, follow these steps:
     | `asset_id_base` | The short code for the _base_ currency that you want to track, for example BTC. |
     | `asset_id_quote`  | The short code for the _target_ currency in which prices will be quoted, for example, USD. |
 
-5. Click `Save as project`. You now have a copy of the CoinAPI sample in your workspace.
+5. Click `Save as Application`. You now have a copy of the CoinAPI sample in your environment.
 
 6. Click the `Deploy` button. The sample is deployed as a service and automatically started.
 
-      Once the sample has been deployed, you’ll be redirected to the workspace home page, where you can see the service in the pipeline context, as was illustrated previously.
+      Once the sample has been deployed, you’ll be redirected to the portal home page, where you can see the service in the pipeline context, as was illustrated previously.
 
 7. Click the CoinAPI service card to inspect the logs:
 
@@ -119,9 +119,9 @@ To set up the Threshold Alert sample, follow these steps:
     | `thresholdValue` | The price in USD that you'd like to get alerted about. For example, on the day that this tutorial was written, BTC was hovering around $16,300 so we entered `16300`. This increases the likelihood that some alerts are generated soon after deploying (otherwise it's hard to tell if it's working). |
     | `msecs_before_recheck` | Enter the minimum delay in milliseconds between alerts. The default is 300 milliseconds (5 minutes), as this prevents numerous alerts when the price hovers around the threshold. |
 
-5. Click `Save as project`. 
+5. Click `Save as Application`. 
 
-      You now have a copy of the Threshold Alert sample in your workspace.
+      You now have a copy of the Threshold Alert sample in your environment.
 
 6. Click the `Deploy` button. 
 
@@ -167,7 +167,7 @@ To set up the push nonfiction microservice, follow these steps:
     | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
     | `user_key` | Enter the user key that you received when you signed up with Pushover. For example: `u721txxxgmvuy5dxaxxxpzx5xxxx9e` |
 
-5. Click the `Save as project`. You now have a copy of the Pushover notification sample in your workspace.
+5. Click the `Save as Application`. You now have a copy of the Pushover notification sample in your environment.
 
 6. Click the `Deploy` button.
 

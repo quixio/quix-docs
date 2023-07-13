@@ -24,9 +24,9 @@ If you want to customize the Sentiment Demo UI, you would follow three main step
 	- The UI will subscribe to this topic, to display new messages, as well as publishing to the topic when a user sends a message using the 'send' button in the UI.
 	- Later, the sentiment analysis service will also subscribe to messages on this topic to produce sentiment scores.
 
-3. Click `Save as project`. 
+3. Click `Save as Application`. 
 
-	The code for this Angular UI is now saved to your workspace.
+	The code for this Angular UI is now saved to your environment.
 
 You have created the project and you can now modifiy the code as required.
 

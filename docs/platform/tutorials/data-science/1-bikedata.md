@@ -16,6 +16,6 @@ You won't need to write lots of code, as you will use the Quix Code Samples to d
 	
 3. Click `Deploy`.
 
-	The precompiled service is deployed to your workspace and begins running immediately.
+	The precompiled service is deployed to your environment and begins running immediately.
 
 [Part 2 - Weather data :material-arrow-right-circle:{ align=right }](2-weatherdata.md)

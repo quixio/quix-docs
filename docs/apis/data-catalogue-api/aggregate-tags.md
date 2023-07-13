@@ -1,23 +1,18 @@
 # Aggregate data by tags
 
-If you need to compare data across different values for a given tag,
-you’ll want to group results by that tag. You can do so via the
-`/parameters/data` endpoint.
+If you need to compare data across different values for a given tag, you’ll want to group results by that tag. You can do so using the `/parameters/data` endpoint.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
+If you don’t already have any stream data in your environment, you can use a Source from the [Code Samples](../../platform/samples/samples.md) to provide suitable data.
 
-  - [Get a Personal Access Token](authenticate.md)
-    to authenticate each request.
+You'll need to obtain a [Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Using the groupBy property
 
-You can supply a list of Tags in the `groupBy` array to aggregate
-results by. For example, you could group a set of Speed readings by the
-LapNumber they occurred on using something like:
+You can supply a list of Tags in the `groupBy` array to aggregate results by. For example, you could group a set of Speed readings by the LapNumber they occurred on using something like:
 
-``` json
+```json
 {
     "from": 1612191286000000000,
     "to":   1612191386000000000,
@@ -28,11 +23,9 @@ LapNumber they occurred on using something like:
 }
 ```
 
-With these settings alone, we’ll get the `LapNumber` tag included in our
-results, alongside the existing timestamps and requested parameters,
-e.g.
+With these settings alone, we’ll get the `LapNumber` tag included in our results, alongside the existing timestamps and requested parameters, for example:
 
-``` json
+```json
 {
     "timestamps": [
         1612191286000000000,
@@ -58,24 +51,18 @@ e.g.
 
 ## Using aggregationType
 
-For meaningful aggregations, you should specify a type of aggregation
-function for each parameter. When specifying the parameters to receive,
-include the `aggregationType` in each parameter object like so:
+For meaningful aggregations, you should specify a type of aggregation function for each parameter. When specifying the parameters to receive, include the `aggregationType` in each parameter object like so:
 
-``` json
+```json
 "numericParameters": [{
     "parameterName": "Speed",
     "aggregationType": "mean"
 }]
 ```
 
-Ten standard aggregation functions are provided including `max`,
-`count`, and `spread`. When you group by a tag and specify how to
-aggregate parameter values, the result will represent that aggregation.
-For example, the following results demonstrate the average speed that
-was recorded against each lap:
+Standard aggregation functions are provided including `max`, `count`, and `spread`. When you group by a tag and specify how to aggregate parameter values, the result will represent that aggregation. For example, the following results demonstrate the average speed that was recorded against each lap:
 
-``` json
+```json
 {
   "timestamps": [
     1612191286000000000,

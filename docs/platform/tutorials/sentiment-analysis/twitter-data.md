@@ -76,9 +76,9 @@ Follow these steps to code and deploy the tweet-to-chat conversion stage:
 
 6. Ensure the output is set to `messages`.
 
-7. Click `Save as project`.
+7. Click `Save as Application`.
     
-    The code for this transformation is now saved to your workspace.
+    The code for this transformation is now saved to your environment.
 
 ### Editing the code
 

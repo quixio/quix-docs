@@ -20,7 +20,7 @@ To create the SMS alert destination:
 4. Click `Edit code`.
 5. Name the destination "CPU Alert SMS".
 6. Select the input topic `cpu-spike`.
-7. Click `Save as Project`.
+7. Click `Save as Application`.
 8. In the project view click on `main.py` to edit it.
 9. Replace all the code in `main.py` with the following:
 

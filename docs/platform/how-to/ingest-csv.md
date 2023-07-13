@@ -1,6 +1,6 @@
 # How to ingest data from a CSV file
 
-You may need to load data from a CSV file into a service, as CSV is a very common file format, especially in data science. One possibility is to upload the CSV to be processed into your Quix project, and read the data from there. Another option is to read the CSV file on some other system (perhaps your laptop) and push that data into Quix using the Quix Streams client library.
+You may need to load data from a CSV file into a service, as CSV is a very common file format, especially in data science. One possibility is to upload the CSV to be processed into your Quix application, and read the data from there. Another option is to read the CSV file on some other system (perhaps your laptop) and push that data into Quix using the Quix Streams client library.
 
 ## Using pandas 
 

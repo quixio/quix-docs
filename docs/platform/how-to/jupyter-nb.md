@@ -40,7 +40,7 @@ The Quix web application has a python code generator to help you connect your Ju
 
 You need to be logged into the platform for this:
 
-1.  Select workspace (you likely only have one)
+1.  Select an environment (you likely only have one)
 
 2.  Go to the Data Explorer
 

@@ -1,23 +1,16 @@
 # Paged streams
 
-You can fetch all streams within a
-[workspace](../../platform/glossary.md#workspace), across
-[topics](../../platform/glossary.md#topics) and locations, with a
-single call. If you’re working with a large number of streams, you can
-use pagination parameters to group the results into smaller pages.
+You can fetch all streams within a [environment](../../platform/glossary.md#environment), across [topics](../../platform/glossary.md#topics) and locations, with a single call. If you’re working with a large number of streams, you can use pagination parameters to group the results into smaller pages.
 
 ## Before you begin
 
-  - If you don’t already have any Stream data in your workspace, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
+If you don’t already have any Stream data in your environment, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
 
-  - [Get a Personal Access Token](authenticate.md)
-    to authenticate each request.
+[Get a Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Fetching all streams
 
-The `/streams` endpoint provides read access to all streams within
-the workspace. Sending an empty JSON object in your request body will
-return all streams.
+The `/streams` endpoint provides read access to all streams within the environment. Sending an empty JSON object in your request body will return all streams.
 
 !!! warning
 
@@ -25,7 +18,7 @@ return all streams.
 
 ### Example request
 
-``` shell
+```shell
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
@@ -36,7 +29,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
 
 The JSON returned consists of an array of Stream objects:
 
-``` json
+```json
 [{
     "streamId":"e6545c18-d20d-47bd-8997-f3f825c1a45c",
     "name":"cardata",
@@ -54,10 +47,7 @@ The JSON returned consists of an array of Stream objects:
 
 ## Fetching streams page by page
 
-To reduce the size of the response, you should page these results with
-the `paging` property. Include this in the JSON object you send in
-the body of your request. The value of this property is an object with
-two members, `index` and `length`:
+To reduce the size of the response, you should page these results with the `paging` property. Include this in the JSON object you send in the body of your request. The value of this property is an object with two members, `index` and `length`:
 
   - `index`  
     The index of the page you want returned.
@@ -65,10 +55,9 @@ two members, `index` and `length`:
   - `length`  
     The number of items (i.e. streams) per page.
 
-For example, to group all streams in pages of 10 and receive the 2nd
-page, use this value:
+For example, to group all streams in pages of 10 and receive the 2nd page, use this value:
 
-``` json
+```json
 "paging": {
     "index": 1,
     "length": 10
@@ -77,7 +66,7 @@ page, use this value:
 
 ### Example request
 
-``` shell
+```shell
 curl "https://${domain}.platform.quix.ai/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \

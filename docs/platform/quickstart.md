@@ -100,7 +100,7 @@ You use `python-dotenv` as you securely store your client library token (previou
 
 ## 2. Write your code
 
-1. Open up a terminal on your laptop, make a new directory for your project, and then create a new file `cpu_load.py`.
+1. Open up a terminal on your laptop, make a new directory for your code, and then create a new file `cpu_load.py`.
 2. Copy and paste in the following code:
 
     ```python 
@@ -159,7 +159,7 @@ You use `python-dotenv` as you securely store your client library token (previou
 7. Paste the streaming token from the clipboard into the `.env` file _immediately_ after the `=` (there should be no space between the `=` and the token).
 8. Save the file.
 
-Your streaming token is now safely stored in your `.env` file for the project.
+Your streaming token is now safely stored in your `.env` file for the application.
 
 ## 4. Run your code
 

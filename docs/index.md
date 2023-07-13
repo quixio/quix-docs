@@ -2,6 +2,10 @@
 
 Welcome to the Quix developer documentation!
 
+!!! note "Closed Beta"
+
+    ** See [here](./platform/changes.md) for significant changes.**
+
 !!! tip
     
     Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
@@ -66,7 +70,7 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
     ---
     
-    Deploy a real-time **data science** project into a scalable self-maintained solution.
+    Deploy a real-time **data science** application into a scalable self-maintained solution.
 
     [:octicons-arrow-right-24: Data Science](./platform/tutorials/data-science/index.md)    
     

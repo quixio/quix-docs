@@ -1,8 +1,8 @@
 # Connect to Confluent Cloud
 
-Quix requires Kafka to provide streaming infrastructure for your Quix workspace. 
+Quix requires Kafka to provide streaming infrastructure for your Quix environment. 
 
-When you create a new Quix workspace, there are three hosting options:
+When you create a new Quix environment, there are three hosting options:
 
 1. **Quix Broker** - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
 2. **Self-Hosted Kafka** - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
@@ -16,7 +16,7 @@ If you do not already have Confluent Cloud account, you can [sign up for a free 
 
 ## Selecting Confluent Cloud to host Quix
 
-When you create a new Quix workspace, you can select your hosting option in the `Broker settings` dialog, as shown in the following screenshot:
+When you create a new Quix environment, you can select your hosting option in the `Broker settings` dialog, as shown in the following screenshot:
 
 ![Broker Settings](../../images/integrations/confluent/confluent-broker-settings.png)
 
@@ -32,4 +32,4 @@ All the required configuration information can be found in your Confluent Cloud 
 
 !!! note
 
-    If you already have topics created in your Confluent Cloud, you can synchronize these with your Quix workspace. The `Synchronize Topics` checkbox is enabled by default.
+    If you already have topics created in your Confluent Cloud, you can synchronize these with your Quix environment. The `Synchronize Topics` checkbox is enabled by default.

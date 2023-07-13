@@ -15,6 +15,7 @@ edit_uri: tree/dev/docs
 nav:
   - Intro: 'index.md'
   - 'What is Quix?': 'platform/what-is-quix.md'
+  - 'Recent changes 🔥': 'platform/changes.md'
   - 'Quickstart 🚀': 'platform/quickstart.md'
   - 'Ingest data': 'platform/ingest-data.md'
   - 'Glossary': 'platform/glossary.md'
@@ -25,7 +26,7 @@ nav:
     - '3. Serve': 'platform/quixtour/serve-sms.md'
   - Platform:
     - 'How To':
-      - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
+      - 'Get Environment ID': 'platform/how-to/get-environment-id.md'
       - 'Get streaming token': 'platform/how-to/streaming-token.md'
       - 'Get personal access token (PAT)': 'platform/how-to/personal-access-token-pat.md'
       - 'Ingest from CSV': 'platform/how-to/ingest-csv.md'
