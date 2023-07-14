@@ -12,6 +12,10 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 
 [Sign up for free](https://portal.platform.quix.ai/self-sign-up).
 
+!!! note
+
+    For recent significant changes to Quix Platform, pleasee see the [changes documentation](../platform/changes.md).
+
 ## Reducing complexity
 
 Quix is also designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your stream processing applications.
@@ -79,15 +83,7 @@ To achieve these goals, Quix Portal includes the following features:
 
 ## Git integration
 
-Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on a third-party provider, such as GitHub, or Bitbucket. The following providers are currently supported:
-
-* Gitea (Quix hosted)
-* Azure DevOps
-* GitHub
-* Bitbucket
-* GitLab
-
-This helps integrate Quix with your existing workflows.
+Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on any third-party Git provider, such as GitHub, or Bitbucket, where you can configure the Quix SSH public key provided to you for Git provider authentication. This helps integrate Quix with your existing workflows.
 
 ## Kafka integration
 
@@ -109,9 +105,19 @@ For a simple example of getting data from your laptop into Quix, see the [Quicks
 
 ## Pipelines
 
-In Quix you create a project to contain your stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively on an external Git provider such as GitHub. Within a project you can create multiple environments, containing your stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
+Stream processing is implemented by building pipelines consisting of a series of applications deployed to Kafka and Kubernetes clusters. These processing pipelines are now described by a single YAML file, `quix.yaml`. With just this file, you can reconstruct any pipeline. Further, changes in this file in one environment can be merged into another environment, giving you the ability to test changes in one environment, before deplying into another, while the change history is retained in Git. 
+
+An example pipeline is shown in the following screenshot:
+
+![Pipeline View](../platform/tutorials/sentiment-analysis/sentiment-analysis-media/pipeline-view.png)
 
 You can see how to build a simple pipeline in the [Quix Tour](../platform/quixtour/overview.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
+
+## Multiple environments
+
+In Quix you create a project to contain your stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively on an external Git provider such as GitHub. Within a project you can create multiple environments, containing your stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
+
+Environments are a new features of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
 
 ## Monitoring and managing your data
 

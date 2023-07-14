@@ -32,7 +32,7 @@ With these changes, you now start by creating a Project. A project is an entity 
 
 A project contains one or more environments, so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
 
-## Environment
+## Environments
 
 An environment can be thought of as an entity that encapsulates a branch in your project, that contains the code for your applications. Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
 

@@ -14,8 +14,8 @@ edit_uri: tree/dev/docs
 
 nav:
   - Intro: 'index.md'
-  - 'What is Quix?': 'platform/what-is-quix.md'
   - 'Recent changes 🔥': 'platform/changes.md'
+  - 'What is Quix?': 'platform/what-is-quix.md'
   - 'Quickstart 🚀': 'platform/quickstart.md'
   - 'Ingest data': 'platform/ingest-data.md'
   - 'Glossary': 'platform/glossary.md'
