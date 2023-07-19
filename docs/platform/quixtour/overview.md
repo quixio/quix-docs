@@ -10,6 +10,10 @@ Watch the video showing what you're going to build:
 
 <div style="position: relative; padding-bottom: 49.77477477477478%; height: 0;"><iframe src="https://www.loom.com/embed/5b0a88d2185c4cfea8fd2917d3898964?sid=7ea745ef-6dee-45ca-b6db-1fb450b671c8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+## The code
+
+The complete code for the Quix Tour can be found in the [Quix Tutorials GitHub repository](https://github.com/quixio/tutorial-code/tree/main/quixtour){target=_blank}.
+
 ## The parts
 
 The Quix Tour is split into three parts. These parts represent the typical stream processing **pipeline**:

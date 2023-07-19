@@ -71,6 +71,10 @@ If you're just curious, click the box to see the complete code.
     7. Create a Quix stream to write to. You can think of a stream as a channel within a topic.
     8. Publish your data to the stream.
 
+## The code
+
+The complete code for the Quickstart can be found in the [Quix Tutorials GitHub repository](https://github.com/quixio/tutorial-code/tree/main/quickstart){target=_blank}.
+
 ## Prerequisites
 
 To complete the Quickstart you'll need the following:
