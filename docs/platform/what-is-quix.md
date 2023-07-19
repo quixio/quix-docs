@@ -1,6 +1,6 @@
 # What is Quix?
 
-Quix is a complete end-to-end solution for building and deploying stream processing applications. Quix provides you with the ability to build, deploy and scale your applications.
+Quix is a complete end-to-end solution for building and deploying stream processing applications. Quix provides you with the ability to build, deploy, and scale your applications.
 
 Streaming data applications, where you need to process time series or event data in order to make decisions in real time, is what Quix is designed for. 
 
@@ -8,13 +8,13 @@ With its roots in the demanding world of Formula 1 racing, where performance is 
 
 Such intelligent real-time decision making has many use cases, including examples such as increasing engagement with social media and digital content, monitoring vast arrays of sensors, fraud prevention, and of course Formula 1 race car telemetry systems.
 
-Quix has excellent synergy with Machine Learning (ML) systems too. You can quickly deploy your ML models and monitor their performance in real time, modifying the model, and redeploying it with a single click. 
+Quix has excellent synergy with Machine Learning (ML) systems too. You can quickly deploy your ML model and monitor its performance in real time, modify the model, and redeploy it with a single click. 
 
 [Sign up for free](https://portal.platform.quix.ai/self-sign-up).
 
 !!! note
 
-    For recent significant changes to Quix Platform, pleasee see the [changes documentation](../platform/changes.md).
+    For recent significant changes to Quix Platform, please see the [changes documentation](../platform/changes.md).
 
 ## Reducing complexity
 
@@ -41,7 +41,7 @@ The Quix stack provides the following:
 * [REST and websocket APIs](../apis/index.md)
 * [Quix Streams](../client-library-intro.md)
 
-These enable developers to:
+These components enable developers to:
 
 * Use a full web-based IDE with version control and logging, to build their applications. 
 * Have abstracted access to underlying broker infrastructure, including fully-managed Kafka topics.
@@ -51,7 +51,7 @@ These enable developers to:
 
 ![quix](./images/architecture.png)
 
-In addition to provide a complete solution, Quix also enables you to leverage third-party providers if your use case requires it. For example, while Quix can host all your Git repositories, you can also configure your environments to use third-party providers for this purpose, such as GitHub, Bitbucket, and Azure DevOps. 
+In addition to providing a complete solution, Quix also enables you to leverage third-party providers if your use case requires it. For example, while Quix can host all your Git repositories, you can also configure your environments to use third-party providers for this purpose, such as GitHub, Bitbucket, and Azure DevOps. 
 
 Similarly Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud or self-hosted Kafka options.
 
@@ -115,7 +115,7 @@ You can see how to build a simple pipeline in the [Quix Tour](../platform/quixto
 
 ## Multiple environments
 
-In Quix you create a project to contain your stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively on an external Git provider such as GitHub. Within a project you can create multiple environments, containing your stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
+In Quix you create a project to contain your stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
 
 Environments are a new features of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
 
@@ -134,6 +134,10 @@ While [topics](../platform/glossary.md#topic) do provide a configurable retentio
 Quix provides a very simple way to persist data in a topic. Simply locate the topic in your topic list, and click the `Persistance` button. 
 
 For more information see the later sections on [Data Catalogue](#data-catalogue) and [APIs](#apis).
+
+!!! note
+
+    You don't have to use the Quix Data Catalogue. Quix provides [connectors](../platform/connectors/index.md) for common database technologies, so you can always store your data in the database of your choice.
 
 ## Replay service
 
@@ -175,6 +179,6 @@ For Python developers, Quix Streams can provide streaming data packaged in a dat
 
 ## Next steps
 
-* Our Quickstart - get data into Quix and display it in less than 10 minutes
-* Quix Tour: Build a complete pipeline in less than 30 minutes
-* The art of the possible (https://www.youtube.com/watch?v=0cr19MfATfY)
+* [Quickstart](../platform/quickstart.md) - get data into Quix and display it in less than 10 minutes
+* [Quix Tour](../platform/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
+* Watch [a video]((https://www.youtube.com/watch?v=0cr19MfATfY)) on the art of the possible with Quix
