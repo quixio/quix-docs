@@ -36,7 +36,7 @@ Use the following guidelines regarding the company's name:
     * Quix Portal is our product, which includes:
         * Managed Kafka
         * Serverless compute
-        * Data catalogue
+        * Quix data store
         * APIs
     * Quix Streams is our client library:
         * A client library is a collection of code specific to one programming language.

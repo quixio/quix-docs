@@ -2,23 +2,19 @@
 
 ## Before you begin
 
-  - Sign up on the Quix Portal
+  - [Sign up for Quix](https://portal.platform.quix.ai/workspaces/v2)
 
 ## Get a Personal Access Token
 
-You should authenticate requests to the Catalogue API using a Personal
-Access Token (PAT). This is a time-limited token which you can revoke if
-necessary.
+You should authenticate requests to the Query API using a Personal Access Token (PAT). This is a time-limited token which you can revoke if necessary.
 
 Follow these steps to generate a PAT:
 
-1.  Click the user icon in the top-right of the Portal and select the
-    Tokens menu.
+1.  Click the user icon in the top-right of the Portal and select the Tokens menu.
 
 2.  Click **GENERATE TOKEN**.
 
-3.  Choose a name to describe the token’s purpose, and an expiration
-    date, then click **CREATE**.
+3.  Choose a name to describe the token’s purpose, and an expiration date, then click **CREATE**.
 
 4.  Copy the token and store it in a secure place.
 
@@ -32,16 +28,13 @@ Follow these steps to generate a PAT:
 
 ## Sign all your requests using this token
 
-Make sure you accompany each request to the API with an `Authorization`
-header using your PAT as a bearer token, as follows:
+Make sure you accompany each request to the API with an `Authorization` header using your PAT as a bearer token, as follows:
 
 ``` http
 Authorization: bearer <token>
 ```
 
-Replace `<token>` with your Personal Access Token. For example, if
-you’re using curl on the command line, you can set the header using
-the `-H` flag:
+Replace `<token>` with your Personal Access Token. For example, if you’re using curl on the command line, you can set the header using the `-H` flag:
 
 ``` shell
 curl -H "Authorization: bearer <token>" ...

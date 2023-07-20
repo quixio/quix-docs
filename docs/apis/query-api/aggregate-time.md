@@ -1,6 +1,6 @@
 # Aggregate data by time
 
-You can downsample and upsample data from the catalogue using the `/parameters/data` endpoint.
+You can downsample and upsample persisted data using the `/parameters/data` endpoint.
 
 ## Before you begin
 

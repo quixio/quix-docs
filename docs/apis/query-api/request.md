@@ -1,6 +1,6 @@
 # Forming a request
 
-How you send requests to the Data Catalogue API will vary depending on the client or language you’re using. But the API still has behavior and expectations that is common across all clients.
+How you send requests to the Query API will vary depending on the client or language you’re using. But the API still has behavior and expectations that is common across all clients.
 
 !!! tip
 
@@ -10,11 +10,11 @@ How you send requests to the Data Catalogue API will vary depending on the clien
 
 Sign up for a [free Quix account](https://portal.platform.quix.ai/self-sign-up).
 
-Read about [Authenticating with the Data Catalogue API](authenticate.md).
+Read about [authenticating](authenticate.md) with the Query API.
 
 ## Endpoint URLs
 
-The Data Catalogue API is available on a per-environment basis, so the subdomain is based on a combination of your organization and environment names. See [How to get a environment ID](../../platform/how-to/get-environment-id.md) to find out how to get the exact hostname required. It will be in this format:
+The Query API is available on a per-environment basis, so the subdomain is based on a combination of your organization and environment names. See [How to get a environment ID](../../platform/how-to/get-environment-id.md) to find out how to get the exact hostname required. It will be in this format:
 
     https://telemetry-query-${organization}-${environment}.platform.quix.ai/
 

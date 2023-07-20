@@ -38,7 +38,7 @@ curl "https://${domain}.platform.quix.ai/parameters/data" \
     -d '{"numericParameters":[{"parameterName":"Speed"}]}'
 ```
 
-If you just had a single parameter value in the catalogue, the response from the above call might look something like this:
+If you just had a single parameter value in the stored data, the response from the above call might look something like this:
 
 ```json
 {
@@ -58,7 +58,7 @@ If you just had a single parameter value in the catalogue, the response from the
 
 ### Restricting by Stream or time
 
-In reality, you’ll have far more data in the catalogue, so you’ll want to filter it. Three remaining properties of the request object allow you to do so:
+In reality, you’ll have far more data in the stored data, so you’ll want to filter it. Three remaining properties of the request object allow you to do so:
 
   - `streamIds`
 

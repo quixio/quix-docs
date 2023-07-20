@@ -1,6 +1,12 @@
 # What is Quix?
 
-Quix is a complete end-to-end solution for building and deploying stream processing applications. Quix provides you with the ability to build, deploy, and scale your applications.
+Quix is a complete end-to-end solution for building and deploying stream processing applications. 
+
+!!! important
+
+    For recent significant changes to Quix Platform, please see the [changes documentation](../platform/changes.md).
+
+Quix provides you with the ability to build, deploy, and scale your applications.
 
 Streaming data applications, where you need to process time series or event data in order to make decisions in real time, is what Quix is designed for. 
 
@@ -11,10 +17,6 @@ Such intelligent real-time decision making has many use cases, including example
 Quix has excellent synergy with Machine Learning (ML) systems too. You can quickly deploy your ML model and monitor its performance in real time, modify the model, and redeploy it with a single click. 
 
 [Sign up for free](https://portal.platform.quix.ai/self-sign-up).
-
-!!! note
-
-    For recent significant changes to Quix Platform, please see the [changes documentation](../platform/changes.md).
 
 ## Reducing complexity
 
@@ -47,7 +49,6 @@ These components enable developers to:
 * Have abstracted access to underlying broker infrastructure, including fully-managed Kafka topics.
 * Access the Quix serverless compute environment for hosting your web-based real-time streaming applications.
 * Connect existing web applications and IoT clients.
-* Access the real-time data catalogue, which is a time-series database.
 
 ![quix](./images/architecture.png)
 
@@ -127,44 +128,13 @@ The Data Explorer enables you to view your data graphically in real time. Graph,
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 
-## Data persistence
-
-While [topics](../platform/glossary.md#topic) do provide a configurable retention time, persisting data into a database provides advantages - for example, you can perform powerful queries to retrieve historical data. This data can be retrieved and displayed using the Data Explorer, or retrieved using the Data Catalogue API.
-
-Quix provides a very simple way to persist data in a topic. Simply locate the topic in your topic list, and click the `Persistance` button. 
-
-For more information see the later sections on [Data Catalogue](#data-catalogue) and [APIs](#apis).
-
-!!! note
-
-    You don't have to use the Quix Data Catalogue. Quix provides [connectors](../platform/connectors/index.md) for common database technologies, so you can always store your data in the database of your choice.
-
-## Replay service
-
-When data has been [persisted](#data-persistence), you have the option to not only query and display it, but replay it into your pipeline. This can be very useful for debugging pipelines using historical data.
-
-See how to [use the Quix replay service](../platform/how-to/replay.md).
-
-See also an in-depth blog post on [stream reprocessing](https://quix.io/blog/intro-stream-reprocessing-python/){target=_blank}.
-
-## Data Catalogue
-
-Quix provides a data catalogue for long-term storage, analytics, and data science activities.
-
-The Quix data catalogue combines the best database technologies for each data type into a unified catalogue. There’s a timeseries database for recording your events and parameter values, blob storage for your binary data, and a NoSQL database for recording your metadata.
-
-The Quix data catalogue technology has two advantages:
-
-1. It allocates each data type to the optimal database technology for that type. This increases read/write and query performance, which reduces operating costs.
-2. It uses your metadata to record your context. This makes your data more accessible across your organization, as users only need to know your business context in order to navigate vast quantities of data.
-
 ## APIs
 
-Quix provides four APIs to help you work with streaming data. These include:
+Quix provides several APIs to help you work with streaming data. These include:
 
 * [**Stream Writer API**](../apis/streaming-writer-api/intro.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
 * [**Stream Reader API**](../apis/streaming-reader-api/intro.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Data Catalogue API**](../apis/data-catalogue-api/intro.md): enables you to query historical data streams in the data catalogue, in order to train ML models, build dashboards, and export data to other systems.
+* [**Query API**](../apis/query-api/intro.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
 * [**Portal API**](../apis/portal-api.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
 
 ## Quix Streams

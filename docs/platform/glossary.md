@@ -28,9 +28,9 @@ Quix Platform contains a large number of [open source](https://github.com/quixio
 
 There are [many ways](../platform/ingest-data.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
 
-## Data Catalogue API
+## Query API
 
-An [HTTP API](../apis/data-catalogue-api/intro.md) used to query historical data in the Data Catalogue. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application.
+The [Query API](../apis/query-api/intro.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
 ## Data Types
 

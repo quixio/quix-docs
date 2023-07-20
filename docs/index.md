@@ -130,13 +130,13 @@ Read more about the Quix Streams Client Library and APIs.
 
     [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.md)
 
--   __Data Catalogue API__
+-   __Query API__
 
     ---
 
     Query historical time-series data in Quix using HTTP interface.
 
-    [:octicons-arrow-right-24: Learn more](./apis/data-catalogue-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
 
 </div>
 

@@ -51,7 +51,7 @@ req.end();
 
 Upon completing the request successfully, you will receive the stream ID in the response body. You are going to need this stream id when you are writing data to the stream.
 
-In the request data, `Location` is also an optional, but an important property. Location allows you to organize your streams under directories in the Data Catalogue.
+In the request data, `Location` is also an optional, but an important property. Location allows you to organize your streams under directories in the Quix data store.
 
 When you are creating the stream, you can add optional metadata about the stream to the stream definition like `Property1` and `Property2` in the preceding example.
 

@@ -1,6 +1,10 @@
 # Introduction
 
-The Data Catalogue HTTP API allows you to fetch data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
+The Query API allows you to fetch persisted data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
+
+!!! note
+
+    The Query API is primarily designed for **testing purposes only**. For production storage of data, Quix recommends using one of the numerous [connectors](../../platform/connectors/index.md) to persist data in the database technology of your choice.
 
 The API is fully described in our [Swagger documentation](get-swagger.md). Read on for a guide to using the API, including real-world examples you can invoke from your language of choice, or using the command line using `curl`.
 

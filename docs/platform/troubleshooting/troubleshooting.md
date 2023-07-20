@@ -4,13 +4,15 @@ This section contains solutions, fixes, hints and tips to help you solve the mos
 
 ## Data is not being received into a Topic
 
-  - Ensure the Topic Name or Id is correct in Topics option of Quix Portal.
+If data is not being received in a topic:
 
-  - You can check the data in / out rates on the Topics tab.
+* Ensure the Topic Name or Id is correct in Topics option of Quix Portal.
 
-  - If you want to see the data in the Data Catalogue please make sure you are persisting the data to the Topic otherwise it may appear that there is no data.
+* You can check the data in / out rates on the Topics tab.
 
-  - If you are using a consumer group, check that no other services are using the same group. If you run your code locally and deployed somewhere and they are both using the same consumer group one of them may consume all of the data.
+* If you want to see the data in the Quix data store please make sure you are persisting the data to the Topic otherwise it may appear that there is no data.
+
+* If you are using a consumer group, check that no other services are using the same group. If you run your code locally and deployed somewhere and they are both using the same consumer group one of them may consume all of the data.
 
 ## Topic Authentication Error
 
@@ -102,18 +104,15 @@ If your service continually fails and restarts you will not be able to view the 
 
 ## Possible DNS Propagation Errors
 
-There are currently 2 scenarios in which you might encounter an issue caused by DNS propagation.
+There are currently two scenarios in which you might encounter an issue caused by DNS propagation:
 
-  - 1\. Data catalogue has been deployed but DNS entries have not fully
-    propagated. In this scenario you might see a banner when accessing
-    the data catalogue.
+1. Quix data store has been deployed but DNS entries have not fully propagated. In this scenario you might see a banner when accessing the Quix data store.
 
-![troubleshoot/datacataloguewarning.jpg](datacataloguewarning.jpg)
+    ![Quix data storage warning](quix-data-store.png)
 
-  - 2\. A dashboard or other publicly visible deployment is not yet
-    accessible, again due to DNS propagation.
+2. A dashboard or other publicly visible deployment is not yet accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](sitecantbereached.jpg)
+    ![Site can't be reached](site-cant-be-reached.png)
 
 !!! tip
 
@@ -123,7 +122,7 @@ There are currently 2 scenarios in which you might encounter an issue caused by 
 
 If you get strange errors when trying to compile your Python code locally please check that you are using Python >=3.6 and <4
 
-For example you may encounter a *ModuleNotFoundError*
+For example you may encounter a *ModuleNotFoundError*:
 
 ``` python
 ModuleNotFoundError: No module named 'quixstreams'
