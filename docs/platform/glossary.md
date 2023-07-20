@@ -12,6 +12,8 @@ A set of code in Quix Platform that can be edited, compiled, run, and deployed a
 
 Applications in Quix Platform exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
 
+Read more about [applications](../platform/changes.md#applications).
+
 ## Binary data
 
 Quix also supports any binary blob data.
@@ -22,17 +24,19 @@ With this data you can stream, process and store any type of audio, image, video
 
 Quix Platform contains a large number of [open source](https://github.com/quixio/quix-samples) Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the Quix Portal by using the navigation menu as show here:
 
-![Code Samples](./images/code-samples.png){height=50%}
+![Code Samples](./images/code-samples.png){height=30%}
 
 ## Connectors
 
 There are [many ways](../platform/ingest-data.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
 
-## Query API
+## Data ingestion
 
-The [Query API](../apis/query-api/intro.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
+Data ingestion is the means by which you get your data into Quix.
 
-## Data Types
+Read more about [data ingestion](../platform/ingest-data.md).
+
+## Data types
 
 Quix supports time-series data, events, metadata, and blobs with the following data types: 
 
@@ -51,6 +55,8 @@ An instance of an application running in the serverless environment. When you de
 An environment is an entity that encapsulates a branch in your [project](#project), that contains the code for your [applications](#application). 
 
 Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
+
+Read more about [environments](../platform/changes.md#environments).
 
 ## Events
 
@@ -105,6 +111,10 @@ An [HTTP API](../apis/portal-api.md) used to interact with most portal-related f
 A project is an entity that corresponds to a Git repository. That Git repository can be hosted for you on Quix, or you can use another provider such as GitHub or Bitbucket to host the repository. 
 
 A project contains one or more [environments](#environment), so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
+
+## Query API
+
+The [Query API](../apis/query-api/intro.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
 ## Quix Streams
 
