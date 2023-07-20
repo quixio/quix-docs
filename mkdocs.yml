@@ -166,6 +166,7 @@ plugins:
         'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
+        'apis/data-catalogue-api/intro.md': 'apis/query-api/intro.md'
 
 theme:
   name: 'material'
