@@ -36,7 +36,9 @@ A project contains one or more environments, so typically you create an environm
 
 ## Environments
 
-An environment can be thought of as an entity that encapsulates a branch in your project, that contains the code for your applications. Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
+An environment can be thought of as an entity that encapsulates a branch in your project, that contains the code for your applications. For example, you could have an environment called "production" that references a `main` branch. You could also have an environment called "develop" that references a `dev` branch.
+
+While environments share a repository, they are logically isolated. Each environment can use Kafka hosted by Quix, self-hosted Kafka, or Confluent Cloud, independently of each other. For example, your "develop" environment could use Quix-hosted Kafka, and your "production" environment could use Confluent Cloud.
 
 Let’s look at an example, Project Alpha, which has a Git repository hosted on Bitbucket:
 
@@ -46,11 +48,27 @@ Let’s look at an example, Project Alpha, which has a Git repository hosted on 
 | Staging | staging | Quix |
 | Develop | dev | Quix |
 
-You can see that while the project is hosted in Bitbucket, each environment can use different Kafka hosting options as required for your use case.
+You can see that while the project is hosted in Bitbucket, each environment can use a different Kafka hosting option as required for the use case.
 
 !!! note
 
     In previous versions of Quix, the main entity most closely corresponding to an environment was the workspace. In some circumstances you may still see the term workspace used in some places, such as URLs. Simply bear in mind that workspaces are now environments, and very much enhanced in their capabilities.
+
+## Protected environments
+
+When you create a branch, it is possible to make it protected. This means that you can’t change the branch directly. You can’t commit changes directly into a protected branch. To modify a protected branch you would need to create a pull request, which would need to be reviewed, approved, and then merge in the usual way for the Git workflow. 
+
+!!! tip
+
+    Note that as all code and configuration for an environment is stored in its corresponding branch, you will not be able to directly change an environment that has a protected branch.
+
+Consider a simple example where you have a protected `main` branch, and a `dev` branch. You would carry out normal development work in the `dev` branch, and then when satisfied that the changes are fully correct and tested, you could create a merge pull request to merge `dev` into `main`. The pull request would appear in your Git provider (Gitea if using the Quix-hosted Git solution), where it could be reviewed by other developers, approved, and then merged into `main`. 
+
+If you then view the pipeline in the production environment, it is now marked as “out of sync”. This is because the view of the pipeline in the Quix environment is now different to what is in the `main` branch of the repository. If you then “sync” the environment, you can see the changes you merged from dev to main are reflected in the production pipeline.
+
+If you make changes to an unprotected environment in the Quix "view", then the environment differs from the configuration and code in the corresponding repository branch. Quix will detect this and you will again be notified that the environment is now out of sync. You can simply click `Sync environment` to have the changes in the Quix view reflected in the corresponding branch.
+
+[Watch a video on merging changes](https://www.loom.com/share/b2f2115fba014473aac072bb61609160?sid=22ddf07f-fa40-4ed8-a5ae-1a6eb0420465){target=_blank}
 
 ## Applications
 
@@ -76,14 +94,6 @@ An entire Quix pipeline can be described by a `quix.yaml` file. This file is als
 This allows Quix to quickly replicate an entire pipeline and configuration. For example, a pipeline created and tested in one branch, can be quickly duplicated in another branch. 
 
 It is also possible to use YAML variables in the YAML file to configure resources differently depending on the environment.
-
-## Protected branches
-
-When you create a branch, it is possible to make it protected. This means that you can’t change the branch directly. You can’t commit changes directly into a protected branch. To modify a protected branch you would need to create a pull request, which would need to be reviewed, approved, and then merge in the usual way for the Git workflow. 
-
-Consider a simple example where you have a protected main branch, and a develop branch. You would carry out normal development work in the develop branch, and then when satisfied that the changes are fully correct and tested, you could create a merge pull request to merge develop with main. The pull request would appear in your Git provider (Gitea if using the Quix-hosted Git solution), where it could be reviewed by other developers, approved, and then merged into main. 
-
-If you view the pipeline in the production environment, it is now marked as “out of sync”. This is because the view of the pipeline in the Quix environment is now different to what is in the main branch of the repository. If you then “sync” the environment, you can see the changes you merged from dev to main are reflected in the production pipeline.
 
 ## New and legacy terminology comparison
 
