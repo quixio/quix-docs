@@ -105,3 +105,9 @@ The key terminology changes are shown in the following table:
 | Environment | Workspace | Git branch plus Kafka hosting option |
 | Branch | N/A | Represents a Git branch, such as main or dev |
 | Application | Project | The files for the implementation of a source, transform, or destination |
+
+## Next steps
+
+* [What is Quix?](../platform/what-is-quix.md)
+* [Check the Quix Glossary](../platform/glossary.md)
+* [Dive into the Quickstart](../platform/quickstart.md)
