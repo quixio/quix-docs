@@ -7,7 +7,7 @@ Each workspace comes with one of these tokens, limited in use for that specific 
 
 ## How to find
 
-You can access these tokens by logging into the Quix POrtal and cliicking on `Settings` in the main left-hand navigation. Then click on `APIs and tokens` and then click on `Streaming Tokens`.
+You can access these tokens by logging into the Quix Portal and clicking on `Settings` in the main left-hand navigation. Then click on `APIs and tokens` and then click on `Streaming Tokens`.
 
 If you are looking for a bearer token to access the Quix APIs, such as the Portal API, you can select `Personal Access Tokens`. These are custom JWTs.
 
@@ -15,7 +15,7 @@ If you are looking for a bearer token to access the Quix APIs, such as the Porta
 
 The streaming token is primarily used to authenticate the [Quix Streams client library](../../client-library-intro.md).
 
-When using it with QuixStreamingClient, you no longer need to provide all broker credentials manually, they’ll be acquired when needed and set up automatically.
+When using it with `QuixStreamingClient`, you no longer need to provide all broker credentials manually, they’ll be acquired when needed and set up automatically.
 
 !!! warning
 
