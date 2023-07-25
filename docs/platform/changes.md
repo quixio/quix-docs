@@ -25,8 +25,9 @@ Watch a video demonstrating the new features, UI and workflow:
 3. [Creating an application](https://www.loom.com/share/dee01c5f7d0d4d338504c3c09dcd3181?sid=b902acbd-ef72-4450-80f3-6201764f48b9){target=_blank}
 4. [Merging environments](https://www.loom.com/share/b2f2115fba014473aac072bb61609160?sid=22ddf07f-fa40-4ed8-a5ae-1a6eb0420465){target=_blank} **Note:** video is continued in the next video.
 5. [Using YAML variables for deployment configuration](https://www.loom.com/share/c66029f67b8747bbb28c0605f5ea3fad?sid=4f30404e-f2dc-4564-b758-5935c405be3e){target=_blank}
-6. Third-party Git
-7. Confluent Cloud
+6. [Third-party Git - Part 1](https://www.loom.com/share/b48b2b3aede5487e8591aa6aee6e1e9a?sid=79ca7ea8-4491-44f6-a675-f7d1075fa5ed){target=_blank}
+7. [Third-party Git - Part 2](https://www.loom.com/share/71590a35421f4626a46a753d8a691cad?sid=0e1e269d-5e60-4be4-b861-a68557961749){target=_blank}
+8. [Confluent Cloud](https://www.loom.com/share/fb5d9cd4ab6e4e0caf01e97f5000885c?sid=0512bb6c-2f1c-4e10-b085-05bd49aa15f5){target=_blank}
 
 ## Projects
 
