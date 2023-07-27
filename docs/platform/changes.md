@@ -125,6 +125,22 @@ The key terminology changes are shown in the following table:
 | Branch | N/A | Represents a Git branch, such as main or dev |
 | Application | Project | The files for the implementation of a source, transform, or destination |
 
+## Legacy workspaces
+
+To protect your investment in Quix, legacy workspaces will be supported for some time to come. 
+
+!!! important
+
+    Quix **strongly** advises that your event streaming solutions use the new project-based approach, with environments aligned with your development processes. Simply click `+ New project` to build your first project and environment.
+
+If you already have a legacy workspace, or you wish to create one for some reason, such as to follow some old content, then this is still supported. You can create a legacy workspace by clicking `+ New workspace`, as shown in the following screenshot:
+
+![Legacy Workspace](../platform/images/legacy-workspaces.png)
+
+!!! tip
+
+    Legacy workspaces now map to [environments](#environments). In the dashboard you can see that your legacy workspaces are simply counted as environments.
+
 ## Next steps
 
 * [What is Quix?](../platform/what-is-quix.md)
