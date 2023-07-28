@@ -118,7 +118,7 @@ For a simple example of getting data from your laptop into Quix, see the [Quicks
 
 Quix provides numerous standard [connectors](../platform/connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
 
-!! tip
+!!! tip
 
     To see available transforms log into Quix. Open your project, and then an environment, and click on `Code Samples`. Then under `PIPELINE STAGE` select `Transformation`.
 
