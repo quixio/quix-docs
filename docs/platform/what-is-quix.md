@@ -105,7 +105,25 @@ This section describes the main technical components and architecture of Quix.
 
 ![Quix Technical Architecture](./images/quix-technical-architecture.png)
 
-TBD.
+### Git integration
+
+Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on any third-party Git provider, such as GitHub, or Bitbucket, where you can configure the Quix SSH public key provided to you for Git provider authentication. This helps integrate Quix with your existing workflows.
+
+### Kafka integration
+
+Quix requires Kafka to provide streaming infrastructure for your solutions.
+
+When you create a new Quix environment, there are three hosting options:
+
+1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
+2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
+3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
+
+This enables you host according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
+
+### Docker integration
+
+When you create an application from a template in Quix, a Dockerfile is provided for you in the `build` directory of the application. This uses a base image, and additions only need to be made in the case of special requirements, such as to include a library that is not part of the base image. The Dockerfile, combined with your code and configuration, is used to drive the Quix build service, which ensures the generated Docker image is registered with the Quix Docker registry. This image is then submitted to the Quix serverless engine, as part of the deployment process. All this is largely transparent to the developer - you simply click `Deploy` to build and deploy your application, and then monitor the deployment using the tools provided, such as the Data Explorer, logs, CPU monitor, and memory monitor.
 
 ## Building with Quix
 
@@ -140,22 +158,6 @@ Quix provides numerous standard [connectors](../platform/connectors/index.md) fo
 !! tip
 
     To see available transforms log into Quix. Open your project, and then an environment, and click on `Code Samples`. Then under `PIPELINE STAGE` select `Transformation`.
-
-### Git integration
-
-Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on any third-party Git provider, such as GitHub, or Bitbucket, where you can configure the Quix SSH public key provided to you for Git provider authentication. This helps integrate Quix with your existing workflows.
-
-### Kafka integration
-
-Quix requires Kafka to provide streaming infrastructure for your solutions.
-
-When you create a new Quix environment, there are three hosting options:
-
-1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
-2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
-3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
-
-This enables you host according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
 
 ### Multiple environments
 
