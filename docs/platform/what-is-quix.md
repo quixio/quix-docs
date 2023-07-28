@@ -48,7 +48,7 @@ The components that make up the Quix Platform enable developers to:
 
 In addition to providing a complete solution, Quix also enables you to leverage third-party providers if your use case requires it. For example, while Quix can host all your Git repositories, you can also configure your environments to use third-party providers for this purpose, such as GitHub, Bitbucket, and Azure DevOps. 
 
-Similarly Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud or self-hosted Kafka options.
+Similarly, Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud or self-hosted Kafka options.
 
 ## Quix architecture
 
@@ -106,6 +106,22 @@ This enables you host according to requirements. For example, your production en
 
 When you create an application from a template in Quix, a Dockerfile is provided for you in the `build` directory of the application. This uses a base image, and additions only need to be made in the case of special requirements, such as to include a library that is not part of the base image. The Dockerfile, combined with your code and configuration, is used to drive the Quix build service, which ensures the generated Docker image is registered with the Quix Docker registry. This image is then submitted to the Quix serverless engine, as part of the deployment process. All this is largely transparent to the developer - you simply click `Deploy` to build and deploy your application, and then monitor the deployment using the tools provided, such as the Data Explorer, logs, CPU monitor, and memory monitor.
 
+### Infrastructure as code
+
+When you develop your event streaming solution, you will build a pipeline of services that can be viewed in the Quix Portal. Each service in the pipeline is individually coded, using a standard component, a modified template, or even completely from scratch. Depending on the use case, pipelines can be quite complex, and in the past, this has made them time consuming to recreate. Now Quix supports infrastructure as code. Your entire pipeline can be defined by a single `quix.yaml` file, and this file can be used to completely and easily reconstruct a pipeline from its corresponding repository.
+
+## Interfacing with Quix
+
+There are [various ways](../platform/ingest-data.md) to connect your data to Quix. Quix provides a number of [connectors](../platform/connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and websockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+
+For a simple example of getting data from your laptop into Quix, see the [Quickstart](../platform/quickstart.md).
+
+Quix provides numerous standard [connectors](../platform/connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
+
+!! tip
+
+    To see available transforms log into Quix. Open your project, and then an environment, and click on `Code Samples`. Then under `PIPELINE STAGE` select `Transformation`.
+
 ### APIs
 
 Quix provides several APIs to help you work with streaming data. These include:
@@ -147,18 +163,6 @@ You can see that a typical pipeline is built from sources, transforms, and desti
 
 You can see how to build a simple pipeline in the [Quix Tour](../platform/quixtour/overview.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
 
-### Connecting your data
-
-There are [various ways](../platform/ingest-data.md) to connect your data to Quix. Quix provides a number of [connectors](../platform/connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and websockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
-
-For a simple example of getting data from your laptop into Quix, see the [Quickstart](../platform/quickstart.md).
-
-Quix provides numerous standard [connectors](../platform/connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
-
-!! tip
-
-    To see available transforms log into Quix. Open your project, and then an environment, and click on `Code Samples`. Then under `PIPELINE STAGE` select `Transformation`.
-
 ### Multiple environments
 
 In Quix you create a project to contain your event stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your event stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
@@ -167,9 +171,12 @@ Environments are a new features of Quix, and you can read more about them in the
 
 ### Monitoring and managing your data
 
-Quix provides a suite of tools to enable you to monitor and manage your data. These are explored in the following sections.
+Quix provides a suite of tools to enable you to monitor and manage your data. These include:
 
-The Data Explorer enables you to view your data graphically in real time. Graph, table and messages views.
+* Data Explorer - The Data Explorer enables you to view your data graphically in real time. Graph, table and messages views.
+* Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
+* CPU monitor - you can monitor the CPU utilization of your deplyment in real time.
+* Memory monitor - you can monitor the memory usage of the deployment in real time.
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 
