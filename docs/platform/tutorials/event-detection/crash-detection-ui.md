@@ -14,7 +14,7 @@ Follow these steps to deploy the prebuilt UI:
 
 1. Navigate to `Code Samples` and search for `Event Detection Demo UI`.
 
-2. Click the `Setup & deploy` button.
+2. Click the `Deploy` button.
 
 3. Ensure that the `topic` input box contains `phone-data`.
 

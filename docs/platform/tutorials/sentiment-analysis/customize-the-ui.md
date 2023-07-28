@@ -4,11 +4,11 @@ In this optional tutorial part, you learn how to customize the Sentiment Demo UI
 
 If you want to customize the Sentiment Demo UI, you would follow three main steps:
 
-1. Create the new project from the existing UI code.
-2. Modify the code in your next project as required to customize the UI.
+1. Create the new application from the existing UI code.
+2. Modify the code in your next application as required to customize the UI.
 3. Deploy the modified UI.
 
-## Create the project
+## Create the application
 
 1. Navigate to the `Code Samples` and locate `Sentiment Demo UI`.
 
@@ -28,7 +28,7 @@ If you want to customize the Sentiment Demo UI, you would follow three main step
 
 	The code for this Angular UI is now saved to your environment.
 
-You have created the project and you can now modifiy the code as required.
+You have created the application and you can now modifiy the code as required.
 
 ## Modify the code
 

@@ -30,7 +30,7 @@ Now generate the actual data for use later in the tutorial by completing the fol
 
 2. Find the `Demo Data` source. This service streams F1 Telemetry data into a topic from a recorded game session.
 
-3. Click the `Setup & deploy` button in the `Demo Data` panel.
+3. Click the `Deploy` button in the `Demo Data` panel.
 
 4. You can leave `Name` as the default value.
 

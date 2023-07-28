@@ -58,7 +58,7 @@ Follow these steps:
 
 8. Navigate to the `Code Samples` and search for `QR Settings Share`.
 
-9. Click `Setup & deploy`.
+9. Click `Deploy`.
 
 10. Paste the token into the `token` field.
 

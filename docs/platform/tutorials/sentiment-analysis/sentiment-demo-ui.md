@@ -50,7 +50,7 @@ Follow these steps to deploy the prebuilt UI:
 
 1. Navigate to the `Code Samples` and locate `Sentiment Demo UI`.
 
-2. Click the `Setup & deploy` button.
+2. Click the `Deploy` button.
 
 3. Ensure that the `sentiment` input box contains `sentiment`.
 

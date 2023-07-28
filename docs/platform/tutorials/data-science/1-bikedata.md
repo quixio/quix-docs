@@ -8,7 +8,7 @@ You won't need to write lots of code, as you will use the Quix Code Samples to d
 
 	![NY Bikes sample tile](./images/ny-bikes-library-tile.png){width=200px}
 
-2. Click `Setup and deploy`:
+2. Click `Deploy`:
 
 	a. Leave the `Name` as it is.
 	

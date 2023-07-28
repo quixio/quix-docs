@@ -20,11 +20,11 @@ By the end you will have:
     
     If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
-## Project Architecture
+## Application architecture
 
 ![The demo's architecture](architecture.png)
 
-The solution has 3 main elements:
+The solution has three main elements:
 
  - Two services to process data
 
@@ -32,7 +32,11 @@ The solution has 3 main elements:
 
 However, this is all running with the Quix Serverless environment.
 
-You have to create and deploy 3 projects, we have: . Created an always on high performance back-end . Created APIs and Services focused on performance . Opened firewall ports and optimized DNS propagation
+You have to create and deploy three applications. Quix has:
+
+1. Created an always on high performance back-end
+2. Created APIs and Services focused on performance
+3. Opened firewall ports and optimized DNS propagation
 
 ## Prerequisites
 
@@ -69,13 +73,13 @@ You will save the code for each of these to your environment and deploy the two 
 
 ### Input
 
-First you will select, build and deploy the input project, this project handles and transforms data from your phone.
+First you will select, build and deploy the input application, this application handles and transforms data from your phone.
 
-Don't worry, all the code you'll need is in the `Streaming Demo - Input` project.
+Don't worry, all the code you'll need is in the `Streaming Demo - Input` application.
 
 #### Save the code
 
-Follow these steps to get the code and deploy the project as a microservice.
+Follow these steps to get the code and deploy the application as a microservice.
 
 1. Click the tile
 2. Click `Edit code`
@@ -84,7 +88,7 @@ Follow these steps to get the code and deploy the project as a microservice.
 
         Leave the name, input and output as they are.
 
-        The input and output values are [Topics](../../glossary.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
+        The input and output values are [Topics](../../glossary.md#topics). These have been pre-configured in this and the other applications in this tutorial to allow the services to communicate with each other.
 
 3. Click `Save as Application`
 
@@ -134,13 +138,13 @@ To deploy a microservice in Quix is a very simple three step process and step on
 
 Now that you have the first service up and running it's time for the next one.
 
-Follow the same process as above and deploy the `Streaming Demo - Control` project.
+Follow the same process as above and deploy the `Streaming Demo - Control` application.
 
 Remember the steps are:
 
 1. Search the Code Samples for `Streaming Demo`
 
-2. Select the `Streaming Demo - Control` project
+2. Select the `Streaming Demo - Control` application
 
 3. Save it to your environment.
 

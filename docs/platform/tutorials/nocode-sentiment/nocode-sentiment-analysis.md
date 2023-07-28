@@ -52,7 +52,7 @@ Click "Deploy"
 
   - In the Code Samples, search for "HuggingFace"
 
-  - Click "Set up and deploy" on the HuggingFace connector
+  - Click "Deploy" on the HuggingFace connector
 
   - Choose "Twitter data" as the input topic
 
@@ -75,7 +75,7 @@ Click "Deploy"
 
   - Search the Code Samples for the Snowflake connector
 
-  - Click "Set up and deploy" on the connector
+  - Click "Deploy" on the connector
 
   - Fill in the necessary fields:
 

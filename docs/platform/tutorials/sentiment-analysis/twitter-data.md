@@ -32,7 +32,7 @@ Follow these steps to deploy the Twitter data source:
 
 1. Navigate to the `Code Samples` and locate the `Twitter` data source.
 
-2. Click the `Setup & deploy` button.
+2. Click the `Deploy` button.
 
 3. Enter your Twitter bearer token into the `twitter_bearer_token` field.
 
@@ -54,7 +54,7 @@ In order to get the tweets to appear in the Sentiment Demo UI, and have their se
 
 This service will subscribe to the `twitter-data` topic and publish data to the `messages` topic. It will transform the incoming data to make it compatible with the UI and sentiment analysis service.
 
-### Creating the project
+### Creating the application
 
 Follow these steps to code and deploy the tweet-to-chat conversion stage:
 

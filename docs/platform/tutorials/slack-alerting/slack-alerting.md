@@ -18,9 +18,9 @@ By the end you will have:
 	
 	If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
-## Project Architecture
+## Application Architecture
 
-![project architecture](architecture.png)
+![application architecture](architecture.png)
 
 The solution has 2 main elements:
 
@@ -59,7 +59,7 @@ To proceed with this tutorial you need:
 		6. You can now find your API Keys in the profile page.
 
 !!! tip
-	Check out the projects README.md later on in the tutorial if you need help creating a Slack WebHook
+	Check out the application's README.md later on in the tutorial if you need help creating a Slack WebHook
 
 ## Overview
 
@@ -92,7 +92,7 @@ However, there is a much easier way to achieve the same outcome.
 
 	![TFL BikePoint sample tile](tfl-bikepoint-library-tile.png){width=300px}
 
-3. Click `Setup & deploy`.
+3. Click `Deploy`.
 
 4. Paste your TFL API keys into the `tfl_primary_key` and `tfl_secondary_key` input fields.
 
@@ -142,7 +142,7 @@ The time has come to actually connect Quix and Slack. Once again, with the help 
 
 2. Search for `Slack`.
 
-3. Click `Setup & deploy`.
+3. Click `Deploy`.
 
 4. Ensure that the `input` is set to `tfl-bikepoint-data`.
 
@@ -163,7 +163,7 @@ In this part of the tutorial you will replace the current Slack connector with a
 !!! note 
 	Begin by stopping the existing Slack connector from the home page.
 
-### Slack connector project
+### Slack connector application
 
 Follow these steps to save the connector code to your environment.
 

@@ -6,9 +6,9 @@ This is the message processing pipeline you will build in this tutorial:
 
 ![The pipeline being built in this tutorial](./sentiment-analysis-media/pipeline-view.png)
 
-The completed project is capable of the sentiment analysis of a high volume of tweets, or your own chat messages, as illustrated in the following screenshot:
+The completed application is capable of the sentiment analysis of a high volume of tweets, or your own chat messages, as illustrated in the following screenshot:
 
-![The completed project. Chats on screen with sentiment and overall sentiment](./sentiment-analysis-media/running-ui.png){width=450px}
+![The completed application. Chats on screen with sentiment and overall sentiment](./sentiment-analysis-media/running-ui.png){width=450px}
 
 There are also optional parts of the tutorial where you can learn how to build your own sentiment analysis service rather than use a prebuilt service, and customize your UI, which all help to enhance your learning of key Quix concepts.
 

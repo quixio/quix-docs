@@ -30,17 +30,17 @@ Ensure you are logged into the Quix Portal, then follow these steps to create a 
 
 	!!! tip
 		
-		You can see a list of projects at any time by clicking `Projects` in the left-hand navigation.
+		You can see a list of applications at any time by clicking `Applications` in the left-hand navigation.
 
 ## Upload the model
 
 Now you need to upload your ML model and edit your transform code to run the model.
 
-1. Click on `Projects` and select `Prediction Model` to display your project code.
+1. Click on `Applications` and select `Prediction Model` to display your application code.
 
 2. Click the `Upload File` icon at the top of the file list, as shown in the following screenshot:
 
-	![Upload file to project](./images/upload-file-to-project.png)
+	![Upload file to application](./images/upload-file-to-application.png)
 
 3. Find the Pickle file containing your ML model. It's named `decision_tree_5_depth.sav` and is in the same directory as your Jupyter Notebook files.
 

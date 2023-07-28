@@ -1,6 +1,6 @@
 # What is Quix?
 
-Quix is a complete end-to-end solution for building and deploying stream processing applications. 
+Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications. 
 
 !!! important
 
@@ -20,7 +20,7 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 
 ## Reducing complexity
 
-Quix is also designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your stream processing applications.
+Quix is also designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your event streaming applications.
 
 Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for streaming data, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
 
@@ -99,17 +99,25 @@ Python is the dominant language for data science, data engineering, and machine 
 
 For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../client-library-intro.md).
 
+## Quix architecture
+
+This section describes the main technical components and architecture of Quix.
+
+![Quix Technical Architecture](./images/quix-technical-architecture.png)
+
+TBD.
+
 ## Building with Quix
 
 The basic flow that pipelines follow is ingestion, processing, and serving of data. These correlate to source, transform, and destination components within Quix.
 
-![quix](./images/architecture.png)
+![Stream Processing Architecture](./images/stream-processing-architecture.png)
 
 These are described in the following sections in more detail.
 
 ### Pipelines
 
-Stream processing is implemented by building pipelines consisting of a series of applications deployed to Kafka and Kubernetes clusters. These processing pipelines are now described by a single YAML file, `quix.yaml`. With just this file, you can reconstruct any pipeline. 
+Event stream processing is implemented by building pipelines consisting of a series of applications deployed to Kafka and Kubernetes clusters. These processing pipelines are now described by a single YAML file, `quix.yaml`. With just this file, you can reconstruct any pipeline. 
 
 Further, changes in this file in one environment can be merged into another environment, giving you the ability to test changes in one environment, before deplying into another, while the change history is retained in Git. 
 
@@ -144,14 +152,14 @@ Quix requires Kafka to provide streaming infrastructure for your solutions.
 When you create a new Quix environment, there are three hosting options:
 
 1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
-2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
+2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
 3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
 
 This enables you host according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
 
 ### Multiple environments
 
-In Quix you create a project to contain your stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
+In Quix you create a project to contain your event stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your event stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
 
 Environments are a new features of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
 

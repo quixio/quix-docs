@@ -26,7 +26,7 @@ To complete this tutorial you will need the following accounts:
 
 The objective of this tutorial is to create a pipeline that resembles the following example:
 
-![Alt text](currency-pipeline.png)
+![Alt text](./images/currency-pipeline.png)
 
 The colors describe the role of the microservice that is being deployed. The possible roles are as follows:
 
@@ -51,17 +51,17 @@ To set up the CoinAPI source, follow these steps:
 
 2. In the search box on the Code Samples page, enter "CoinAPI - Exchange Rate Feed".
    
-   You will see the Coin API sample appear in the search results: ![CoinAPI sample](coinapi.png "CoinAPI sample")
+   You will see the Coin API sample appear in the search results: ![CoinAPI sample](./images/coinapi.png "CoinAPI sample")
 
-3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a sample, Quix prompts you to create a copy of it as a project, as sample are read-only.
+3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button. When you choose to edit a sample, Quix prompts you to create a copy of it as an application, as sample are read-only.
 
-      Optionally, you could have clicked the `Setup & deploy` button, which would have deployed the microservice directly. However, in this tutorial, you are given the opportunity to first look at the code, and modify it if necessary.
+      Optionally, you could have clicked the `Deploy` button, which would have deployed the microservice directly. However, in this tutorial, you are given the opportunity to first look at the code, and modify it if necessary.
 
-4. In the `Setup project` form, configure the following environment variables:
+4. In the `Setup` form, configure the following environment variables:
 
     | Field | Value |
     | --- | --- |
-    | `Name` | Enter a project name or keep the default suggestion. |
+    | `Name` | Enter an application name or keep the default suggestion. |
     | `output` | Select the output topic. In this case, select `currency-exchange-rates` from the list. |
     | `coin_api_key` | The API key that you use to access CoinAPI. |
     | `asset_id_base` | The short code for the _base_ currency that you want to track, for example BTC. |
@@ -75,11 +75,11 @@ To set up the CoinAPI source, follow these steps:
 
 7. Click the CoinAPI service card to inspect the logs:
 
-   ![CoinAPI Step](pipeline-coinstep.png)
+   ![CoinAPI Step](./images/pipeline-coinstep.png)
 
 A successful deployment will resemble the following example:
 
-![CoinAPI Step](success-coinapi.png)
+![CoinAPI Step](./images/success-coinapi.png)
 
 If there is an issue with the service, you can also inspect the `build logs` in the `Lineage` panel to check for any traces of a syntax error or other build issues.
 
@@ -104,15 +104,15 @@ To set up the Threshold Alert sample, follow these steps:
    
       You will see the `Threshold Alert` sample appear in the search results: 
       
-      ![Threshold Alert](threshold-alerts.png "Threshold Alert")
+      ![Threshold Alert](./images/threshold-alerts.png "Threshold Alert")
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
-4. In the `Setup project` form, set the following environment variables:
+4. In the `Setup application` form, set the following environment variables:
       
     | Field | Value |
     | --- | --- |
-    | `Name` | As usual, enter a project name or keep the default suggestion. |
+    | `Name` | As usual, enter an application name or keep the default suggestion. |
     | `input` | Select the input topic. In this case, select `currency-exchange-rates` from the list. |
     | `output` | Select the output topic. In this case, select `currency-rate-alerts` from the list. |
     | `parameterName` | Set this to `PRICE`. |
@@ -131,7 +131,7 @@ To set up the Threshold Alert sample, follow these steps:
 
 A successful deployment will resemble the following screenshot:
 
-![CoinAPI Step](success-threshold.png)
+![CoinAPI Step](./images/success-threshold.png)
 
 In the `Lineage` panel, you will notice that the two services are connected by a line, which indicates that they're both using the same topic, `currency-exchange-rates`. The CoinAPI service is _writing_ to `currency-exchange-rates`, and the Threshold Alert service is _reading_ from it.
 
@@ -153,15 +153,15 @@ To set up the push nonfiction microservice, follow these steps:
    
       You will see the `Threshold Alert` sample appear in the search results: 
       
-      ![Pushover Notifications](library-pushover.png "Pushover Notifications")
+      ![Pushover Notifications](./images/library-pushover.png "Pushover Notifications")
 
 3. Click the `Preview code` button, and on the page that appears, click the `Edit code` button.
 
-4. On the `Project Creation` page, complete the following fields:
+4. On the `Setup application` page, complete the following fields:
    
     | Field | Value |
     | --- | --- |
-    | `Name` | Enter a project name or keep the default suggestion. |
+    | `Name` | Enter an application name or keep the default suggestion. |
     | `Input` | Select the input topic. In this case, select `currency-rate-alerts` from the list.Every message will be read from this topic, and turned into a push notification. |
     | `base_url` | Leave the default value, `https://api.pushover.net/1/messages.json?`. If you decide to use another push notification app, your can always update this value. |
     | `api_token` | Enter the API token that you generated for this application in your Pushover dashboard. For example: `azovmnbxxdxkj7j4g4wxxxdwf12xx4`. |
@@ -173,11 +173,11 @@ To set up the push nonfiction microservice, follow these steps:
 
 You will now start receiving Pushover notifications on your phone, as shown here:
 
-![Pushover Notification Example](pushover_notification.png){width=60%}
+![Pushover Notification Example](./images/pushover_notification.png){width=60%}
 
 Depending on your threshold value and the price fluctuations, it might take a few minutes for you to get a notification. While you are waiting to receive a notification, you can inspect the logs, as shown previously.
 
-![Pushover Logs](success-pushover.png)
+![Pushover Logs](./images/success-pushover.png)
 
 * Don't worry if the logs only show "_Listening to Stream_" initially — remember that the Threshold service only writes a message to the `currency-rate-alerts` topic when the threshold has been crossed.
 * This means that the `currency-rate-alerts` stream might be empty for a short while.

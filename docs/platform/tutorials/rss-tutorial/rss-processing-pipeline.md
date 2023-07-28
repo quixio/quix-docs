@@ -19,7 +19,7 @@ This tutorial has three parts
 What you need
 
   - A free [Quix account](https://quix.io/signup){target=_blank}. It
-    comes with enough credits to create this project.
+    comes with enough credits to create this application.
 
   - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
 
@@ -29,7 +29,7 @@ What you need
 
 In your Quix account, navigate to the `Code Samples` and search for `RSS Data Source.` (Hint: you can watch Steve prepare this code in the video tutorial if you’re like to learn more about it.)
 
-Click `Setup & deploy` on the `RSS Data Source` sample. (The card has a blue line across its top that indicates it’s a source connector.)
+Click `Deploy` on the `RSS Data Source` sample. (The card has a blue line across its top that indicates it’s a source connector.)
 
 ![RSSTutorial/image1.png](image1.png)
 
@@ -56,9 +56,9 @@ questions with certain tags get delivered to you.
 #### 1\. Get the `RSS Data Filtering` connector
 
 Return to the `Code Samples` and search for `RSS Data Filtering.`
-Click `Setup & deploy` on the card.
+Click `Deploy` on the card.
 
-If you created a new envi for this project, the fields
+If you created a new envi for this application, the fields
 automatically populate. If you’re using the environment for other
 applications, you may need to specify the input topic as `rss-data.`
 
@@ -78,7 +78,7 @@ outlined) on the environment home page.
 
 ![RSSTutorial/image2.png](image2.png)
 
-The transformation stage is now complete. Your project is now sending
+The transformation stage is now complete. Your application is now sending
 the filtered and enhanced data to the output topic.
 
 ### Sending alerts
@@ -120,7 +120,7 @@ The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
 Copy the code and paste it over the quix_function.py file in your
-project in the Quix portal.
+application in the Quix portal.
 
 Save it by clicking `CTRL+S` or `Command + S` or click the tick in the
 top right.

@@ -1,6 +1,6 @@
 # 5. Run the model
 
-Quix has has already trained model artifacts and these have been included as pickle files in the prediction code project. This project is included in the open source Code Samples. You will use the Code Sample to run the model.
+Quix has has already trained model artifacts and these have been included as pickle files in the prediction code application. This application is included in the open source Code Samples. You will use the Code Sample to run the model.
 
 ## Prediction service code
 

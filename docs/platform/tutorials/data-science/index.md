@@ -1,12 +1,12 @@
 # Real-time Machine Learning (ML) predictions
 
-In this tutorial you will learn how to deploy a real-time **data science** project into a scalable self-maintained solution. You create a service that predicts bicycle availability in New York, by building the raw data ingestion pipelines, Extract Transform Load (ETL), and predictions.
+In this tutorial you will learn how to deploy a real-time **data science** application into a scalable self-maintained solution. You create a service that predicts bicycle availability in New York, by building the raw data ingestion pipelines, Extract Transform Load (ETL), and predictions.
 
 ## Aim
 
 The Quix Platform enables you to harness complex, efficient real-time infrastructure in a quick and simple way. You are going to build an application that uses real-time New York bicycle data and weather data to predict the future availability of bikes in New York.
 
-You will complete all the typical phases of a data science project:
+You will complete all the typical phases of a data science application:
 
  - Build pipelines to gather bicycle and weather data.
 

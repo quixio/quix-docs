@@ -20,7 +20,7 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
 1. Navigate to the `Code Samples` and search for `Sentiment analysis`.
 
-2. Click the `Setup & deploy` button.
+2. Click the `Deploy` button.
 
 3. Ensure the "input" is set to `messages`. 
 
@@ -34,7 +34,7 @@ Follow these steps to deploy the prebuilt sentiment analysis microservice:
 
    This deploys the service using the default settings. If you later find that this microservice is not performing as expected, then you can subsequently edit the deployment, and increase the resources allocated.  
 
-6. Navigate to the web page for the UI project you deployed in [Part 1](sentiment-demo-ui.md). 
+6. Navigate to the web page for the UI application you deployed in [Part 1](sentiment-demo-ui.md). 
 
 7. Enter values for `Room` and `Name` and click `CONNECT`, or re-enter the room.
 

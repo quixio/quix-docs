@@ -13,7 +13,7 @@ Follow these steps to deploy the **base64 decoder service**:
 
 2.  Click `Edit code`.
 
-3.  Enter `base64 decoder service` as the name for the project.
+3.  Enter `base64 decoder service` as the name for the application.
 
 4.  Select or enter `image-base64` for the input.
 
