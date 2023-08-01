@@ -10,7 +10,7 @@ This documentation describes how to create a new project, and populate it with t
 
 To do anything useful with Quix, you'll need at least one project, and one environment. You can think of a project as corresponding to a Git repository, and an environment as corresponding to Git branch within that repository. 
 
-1. [Sign up](https://portal.platform.quix.ai/self-sign-up) and log into Quix.
+1. [Sign up](https://portal.platform.quix.ai/self-sign-up){target=_blank} and log into Quix.
 
 2. Click on `+ New project`.
 
