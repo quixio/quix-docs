@@ -96,11 +96,11 @@ When you create a new Quix environment, there are three hosting options:
 2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
 3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
 
-This enables you host according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
+This enables you to select a Kafka hosting option according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
 
 !!! tip
 
-    To get your even streaming application to the testing stage as quickly as possible, the Quix-hosted Kafka option is recommended, as it requires zero configuration to get Kafka running. You can focus on your application code, without needing to do the up front work of creating a powerful scalable Kafka cluster, as that work has already been done for you by Quix.
+    To get your event streaming application to the testing stage as quickly as possible, the Quix-hosted Kafka option is recommended, as it requires zero configuration to get Kafka running. You can focus on your application code, without needing to do the up front work of creating a powerful scalable Kafka cluster, as that work has already been done for you by Quix.
 
 ### Docker integration
 
@@ -153,7 +153,7 @@ These are described in the following sections in more detail.
 
 Event stream processing is implemented by building pipelines consisting of a series of applications deployed to Kafka and Kubernetes clusters. These processing pipelines are now described by a single YAML file, `quix.yaml`. With just this file, you can reconstruct any pipeline. 
 
-Further, changes in this file in one environment can be merged into another environment, giving you the ability to test changes in one environment, before deplying into another, while the change history is retained in Git. 
+Further, changes in this file in one environment can be merged into another environment, giving you the ability to test changes in one environment, before deploying into another, while the change history is retained in Git. 
 
 An example pipeline is shown in the following screenshot:
 
@@ -167,7 +167,7 @@ You can see how to build a simple pipeline in the [Quix Tour](../platform/quixto
 
 In Quix you create a project to contain your event stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your event stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
 
-Environments are a new features of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
+Environments are a new feature of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
 
 ### Monitoring and managing your data
 
@@ -175,7 +175,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 
 * Data Explorer - The Data Explorer enables you to view your data graphically in real time. Graph, table and messages views.
 * Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
-* CPU monitor - you can monitor the CPU utilization of your deplyment in real time.
+* CPU monitor - you can monitor the CPU utilization of your deployment in real time.
 * Memory monitor - you can monitor the memory usage of the deployment in real time.
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
