@@ -74,6 +74,7 @@ Use the following guidelines for industry-standard terms, and Quix terms:
 * Event-stream processing, not event stream processing
 * DevOps, never devops
 * Startup and scale-up
+* Dropdown (as in dropdown menu) is one word and [not hyphenated](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/d/dropdown).
 
 ## Use topic-based writing
 
