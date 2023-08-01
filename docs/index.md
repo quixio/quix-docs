@@ -4,7 +4,7 @@ Welcome to the Quix developer documentation!
 
 !!! note "Closed Beta"
 
-    ** See [here](./platform/changes.md) for significant changes.**
+    **See [here](./platform/changes.md) for significant changes.**
 
 !!! tip
     
