@@ -169,7 +169,7 @@ To see the output of your model in real time you can use the Data Explorer. To u
 
 2. If it's not already selected click the `Live` data tab at the top.
 
-3. Ensure the `hard-braking` topic is selected from the `Select a topic` drop-down list.
+3. Ensure the `hard-braking` topic is selected from the `Select a topic` dropdown list.
 
 4. Select a stream (you should only have one).
 

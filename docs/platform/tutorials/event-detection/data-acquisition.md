@@ -26,7 +26,7 @@ To add an external source:
 
 3. Locate the `External Source` sample and click `Add external source`.
 
-4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop-down.
+4. Enter `phone-data` in the `Output` field and click `Add new topic` in the dropdown.
 
 5. Enter `Quix companion web gateway` in the `Name` field.
 

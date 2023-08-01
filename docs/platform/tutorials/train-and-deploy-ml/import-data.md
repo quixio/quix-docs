@@ -59,7 +59,7 @@ The Quix Portal has a code generator that can generate code to connect your Jupy
 
 10. Select the `Code` tab.
 
-11. Select `Python` from the  the `LANGUAGE` drop-down.
+11. Select `Python` from the  the `LANGUAGE` dropdown.
 
     ![Generated code to retrieve data](./images/connect-python.png)
 

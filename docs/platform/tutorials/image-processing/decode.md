@@ -104,7 +104,7 @@ Follow these steps:
 
 1. Click `Deploy` near the top right hand corner of the screen.
 
-2. Select the `v1.0` from the verison tag drop down.
+2. Select the `v1.0` from the verison tag dropdown.
 
 3. Click `Deploy`.
 

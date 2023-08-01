@@ -216,7 +216,7 @@ You can once again run the code in the development environment to test the funct
 
 5. Observe the `Console` tab. You should see a message saying "Crash detected".
 
-4. On the `Messages` tab select `output : phone-out` from the first drop-down.
+4. On the `Messages` tab select `output : phone-out` from the first dropdown.
 
 5. Gently shake your phone, or wait for another crash event from the CSV data, and observe that crash events are streamed to the output topic. You can click these rows to investigate the event data, for example:
 
@@ -244,7 +244,7 @@ Now that you have verified the service is working you can go ahead and deploy th
 
 3. Now click the `Deploy` button near the top right of the code panel.
 
-4. From the `Version tag` drop-down, select the tag you created.
+4. From the `Version tag` dropdown, select the tag you created.
 
 5. Click `Deploy`.
 
