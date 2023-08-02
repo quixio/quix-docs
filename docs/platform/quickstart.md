@@ -127,7 +127,7 @@ You'll need a streaming token to connect your client code to your Quix environme
 You'll store your streaming token securely in a `.env` file on your computer in the same directory as your Python code. To create the `.env` file:
 
 1. Open up a terminal on your laptop, make a new directory for your code. 
-2. Using your editor, create a `.env` file in the same directory as your Python code. On the first line add the text `STREAMING_TOKEN=`.
+2. Using your editor, create a `.env` file in your project directory. On the first line add the text `STREAMING_TOKEN=`.
 3. Paste the streaming token from the clipboard into the `.env` file _immediately_ after the `=` (there should be no space between the `=` and the token).
 4. Save the file.
 
