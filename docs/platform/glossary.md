@@ -18,7 +18,7 @@ Read more about [applications](../platform/changes.md#applications).
 
 Quix also supports any binary blob data.
 
-With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time-series, event, or metadata types.
+With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time series, event, or metadata types.
 
 ## Code Samples
 
@@ -38,7 +38,7 @@ Read more about [data ingestion](../platform/ingest-data.md).
 
 ## Data types
 
-Quix supports time-series data, events, metadata, and blobs with the following data types: 
+Quix supports time series data, events, metadata, and blobs with the following data types: 
 
 * Numeric (double precision)
 * String (UTF-8)
@@ -68,7 +68,7 @@ For example:
 * Game started, match made, kill made, player won the race, lap completed, track limits exceeded, task completed.
 * Takeoff, landing, missile launched, fuel low, autopilot engaged, pilot ejected.
 
-Events are typically things that occur less frequently. They are streamed into the same topics as their related time-series data, and act to provide some context to what is happening. For example, start and stop events typically mark the beginning and end of a data stream.
+Events are typically things that occur less frequently. They are streamed into the same topics as their related time series data, and act to provide some context to what is happening. For example, start and stop events typically mark the beginning and end of a data stream.
 
 Read more about [event data](../client-library/publish.md#eventdata-format).
 
@@ -126,7 +126,7 @@ Any application code that runs continuously in the serverless environment. For e
 
 ## Stream
 
-A stream is a collection of data (time-series data, events, binary blobs and metadata) that belong to a single session of a single source. For example:
+A stream is a collection of data (time series data, events, binary blobs and metadata) that belong to a single session of a single source. For example:
 
 * One journey for one car
 * One game session for one player
@@ -134,19 +134,19 @@ A stream is a collection of data (time-series data, events, binary blobs and met
 
 Read more about [streams](../client-library/features/streaming-context.md).
 
-## Time-series data
+## Time series data
 
 Tine-series data consists of values that change over time. Quix Streams supports numeric and string values.
 
 For example:
 
-* Crank revolution and oil temperature are two engine time-series variables that define the engine system.
-* Player position in X, Y and Z are three time-series variables that define the player location in a game.
-* Altitude, GPS LAT, GPS LONG and Speed are four time-series variables that define the location and velocity of a plane in the sky.
+* Crank revolution and oil temperature are two engine time series variables that define the engine system.
+* Player position in X, Y and Z are three time series variables that define the player location in a game.
+* Altitude, GPS LAT, GPS LONG and Speed are four time series variables that define the location and velocity of a plane in the sky.
 
 Referring back to topics as a grouping context: Quix recommends that each of these examples would be grouped into a single topic to maintain context.
 
-Read more about [time-series data](../client-library/publish.md#timeseriesdata-format).
+Read more about [time series data](../client-library/publish.md#timeseriesdata-format).
 
 ## Timestamp
 

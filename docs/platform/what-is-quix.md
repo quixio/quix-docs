@@ -6,8 +6,6 @@ Quix is a complete end-to-end solution for building, deploying, and monitoring e
 
     For recent significant changes to Quix Platform, please see the [changes documentation](../platform/changes.md).
 
-Quix provides you with the ability to build, deploy, and scale your applications.
-
 Streaming data applications, where you need to process time series or event data in order to make decisions in real time, is what Quix is designed for. 
 
 With its roots in the demanding world of Formula 1 racing, where performance is paramount, Quix is built to deliver results. 

@@ -134,7 +134,7 @@ Read more about the Quix Streams Client Library and APIs.
 
     ---
 
-    Query historical time-series data in Quix using HTTP interface.
+    Query historical time series data in Quix using HTTP interface.
 
     [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
 
