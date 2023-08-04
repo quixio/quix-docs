@@ -30,7 +30,7 @@ This general stream processing architecture is illustrated in the following diag
 
 The pipeline you will implement:
 
-1. **Ingest** - you push data from your laptop into Quix Platform using the Quix client library, Quix Streams. You're going to push your real-time CPU load. You could alternatively push data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../connectors/index.md).
+1. **Ingest** - you publish data from your laptop into Quix Platform using the Quix client library, Quix Streams. You're going to publish your real-time CPU load. You could alternatively publish data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../connectors/index.md).
 2. **Process** - in this step, you process your data. There are many [types of processing](../concepts/types-of-processing.md), one of which is the transform. There are many possible [types of transform](../concepts/types-of-transform.md). Here you create a transform that performs threshold detection. You publish a message to the transform's output topic. 
 3. **Serve** - when you receive a message indicating CPU load has exceeded the threshold you (optionally) send an SMS to the system administrator.
 

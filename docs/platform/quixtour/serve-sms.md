@@ -4,9 +4,11 @@ In this part of the tour you'll learn how to create a simple destination. This d
 
 ## Watch the video
 
-<div style="position: relative; padding-bottom: 52.74853801169591%; height: 0;"><iframe src="https://www.loom.com/embed/69dccaa10fd549d089c2646f64a61d30?sid=1617f044-33d1-453b-b2e9-c1cc41d9d61e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 61.87845303867403%; height: 0;"><iframe src="https://www.loom.com/embed/940b085f130847fb8893e885907b1f4a?sid=6359001c-9f17-4e1e-b8a9-7ecd2d2f20db" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Prerequisites
+
+If you've completed this tutorial so far, you should have all the prerequisites already installed.
 
 **Optionally:** You can sign up for a [free Vonage account](https://developer.vonage.com/sign-up), to be able to send an SMS. If you would like to try this, simply set `send_sms_bool = True` in the `main.py` code you create later, to switch this feature **on**.
 
@@ -14,7 +16,7 @@ In this part of the tour you'll learn how to create a simple destination. This d
 
 To create the SMS alert destination:
 
-1. Click on `Code Samples` in the main left-hand navigation. 
+1. In your `Develop` environment, click on `Code Samples` in the main left-hand navigation. 
 2. Select the `Python`, `Destination`, and `Basic templates` filters.
 3. For `Starter destination` click `Preview code`.
 4. Click `Edit code`.
@@ -28,18 +30,19 @@ To create the SMS alert destination:
     import quixstreams as qx
     import os
     import pandas as pd
-    import vonage # add vonage to requirements.txt to pip install it
-    from dotenv import load_dotenv # add python-dotenv to requirement.txt
 
-    load_dotenv()
-    vonage_key = os.getenv("VONAGE_API_KEY")
-    vonage_secret = os.getenv("VONAGE_API_SECRET")
-    to_number = os.getenv("TO_NUMBER")
-    send_sms_bool = False # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
+    # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
+    send_sms_bool = False 
+    if send_sms_bool:
+        import vonage # add vonage module to requirements.txt to pip install it
+        vonage_key = os.environ["VONAGE_API_KEY"]
+        vonage_secret = os.environ["VONAGE_API_SECRET"]
+        to_number = os.environ["TO_NUMBER"]
 
-    client = vonage.Client(key=vonage_key, secret=vonage_secret)
-    sms = vonage.Sms(client)
+        client = vonage.Client(key=vonage_key, secret=vonage_secret)
+        sms = vonage.Sms(client)
 
+    # function to send an SMS
     def send_sms(message):
         print("Sending SMS message to admin...")
         responseData = sms.send_message(
@@ -76,39 +79,48 @@ To create the SMS alert destination:
     qx.App.run()
     ```
 
-11. Click the add file icon to add a new file to your project - name it `.env`.
-12. Add the following to the file:
+## Send an SMS (optional)
 
-    ```
-    TO_NUMBER=
-    VONAGE_API_KEY=
-    VONAGE_API_SECRET=
-    ```
+This section is **optional**. 
 
+If you want to send an alert SMS follow these steps:
+
+1. Change the variable `send_sms_bool` to `True` in your `main.py`.
+2. In the `Environment variables` panel, click `+ Add`. The `Add Variable` dialog is displayed. 
+3. Complete the information for the following environment variables (you obtain these from your Vonage developer dashboard):
+
+    | Variable name | Variable type |
+    |----|----|
+    | VONAGE_API_KEY | `text - hidden` |
+    | VONAGE_API_SECRET | `text - hidden` |
+    | TO_NUMBER | `text - hidden` |
+    
     !!! tip
 
-        While this example shows you how to use a `.env` file, you could also create environment variables in Quix, and use those rather than load your variables from the `.env` file. To use this approach, open the code view for your service, and in the `Environment variables` panel, click `+ Add`. The `Add Variable` dialog is displayed. Complete the information for the environment variable. You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
-        
-        Once the variable has been created, you can then access the variable in your code using `os.environ["variable"]`. For example, to access the environment variable `VONAGE_API_SECRET`, your code would be `vonage_secret = os.environ["VONAGE_API_SECRET"]`.
+        You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
+            
+    See also [how to add environment variables](../how-to/environment-variables.md).
 
-        See also [how to add environment variables](../how-to/environment-variables.md).
+4. You now need to add the `vonage` module to the `requirements.txt` file in your project. Click to open it and add a line for `vonage`. This ensures the module is built into the deployment.
 
-13. If you've enabled the SMS alert feature, then paste your information into the `.env` file (you can get all of this information from your Vonage API dashboard). If you don't want to use this feature, just leave the file as shown.
-14. You now need to add your modules to the `requirements.txt` file in your project. Click to open it and add lines for `vonage` and `python-dotenv`. This ensures these modules are built into the deployment.
-15. Tag the project as `v1` and deploy as a service (watch the video if you're not sure how to do this).
-16. Monitor the logs for the deployed process.
+## Tag and deploy your SMS alert service
+
+You can now tag and deploy your code:
+
+1. Tag the project as `sms-v1` and deploy as a service (watch the video if you're not sure how to do this).
+2. Monitor the logs for the deployed process.
 
 ## Generate an alert
 
 Again generate a CPU spike by opening several large applications on your laptop. If you have SMS alert enabled, you'll receive an SMS. If not, you can check the logs.
 
-You can watch a video that shows how to test your service:
+## Conclusion
 
-<div style="position: relative; padding-bottom: 53.0373831775701%; height: 0;"><iframe src="https://www.loom.com/embed/08cdaef968c944ba90fdd03ec733e97e?sid=a6366cd6-7716-44fa-8e2b-c2a408bb89d2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+You've now completed the Quix Tour. You've built a simple but complete stream processing pipeline. 
 
 ## Next steps
 
-You've now completed the Quix Tour. You've built a simple but complete stream processing pipeline. To continue your Quix learning journey, you may want to consider some of the following resources:
+To continue your Quix learning journey, you may want to consider some of the following resources:
 
 * [Real-time event detection tutorial](../tutorials/event-detection/index.md)
 * [Real-time Machine Learning (ML) predictions tutorial](../tutorials/data-science/index.md)
