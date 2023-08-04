@@ -104,7 +104,9 @@ You're going to use the [Quix Streams](../client-library-intro.md) library to pu
 
 You use the `psutil` module to retrieve the CPU load on your laptop.
 
-You use `python-dotenv` as you securely store your streaming token (previously known as the SDK token) in a `.env` file.
+!!! tip
+
+    You use `python-dotenv` as you securely store your streaming token (previously known as the SDK token) in a `.env` file.
 
 ## 2. Create your project and environment
 
