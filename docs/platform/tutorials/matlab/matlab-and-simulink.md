@@ -10,8 +10,9 @@ This section describes the steps for deploying a MATLAB function that rotates 2D
 
 ### Prerequisites
 
- - A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
- - MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
+* A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
+* It is assumed you have created a Quix project and environment in which to contain your application. Alternatively, you can use a legacy workspace, but this is not recommended.
+* MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
 
 This tutorial uses MATLAB R2023a. Please refer to the [Working with different MATLAB versions](#working-with-different-matlab-versions) section for information on how to use a different version of MATLAB.
 
@@ -47,25 +48,17 @@ This section describes the process for packaging MATLAB functions for deployment
 
 ### Deploying a MATLAB function
 
- 1. Sign in to your environment on the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
+ 1. Sign in to your environment in the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
 
- 2. Click on the `Code Samples` on the left navigation panel and search for `matlab` in the search bar on the top left to filter code samples:
-
- 	![code samples view on Quix](./images/code_samples.png){width=600}
+ 2. Click on the `Code Samples` in the left navigation panel, and search for `matlab` in the search box on the top left to filter code samples.
 
  3. Select the MATLAB template for your programming language of choice. Optionally, use the `LANGUAGES` filter on the left to filter templates based on the programming language.
 
- 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate an application from the template:
-
- 	![Application preview on Quix](./images/matlab_application_preview.png){width=600}
+ 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate an application from the template.
 
  5. Enter `Rotation Transform` as the application name. Enter `matlab-input` for input topic and `matlab-output` for output topic, and click `Save as Application.`
 
-	![Create application from template](./images/matlab_set_up_application.png){width=600}
-
  6. To use your own MATLAB packages, replace the contents of the `MATLAB` directory in the application with your assets by clicking on the upload icon in the application explorer.
-
-	![upload MATLAB packages](./images/matlab_pkg_upload.png){width=600}
 
  7. Assign a tag to the application by clicking on the `add tag` icon and typing in a release tag such as `1.0`. Click on `Deploy` on the top right to open the deployment dialog:
 
@@ -79,9 +72,7 @@ This section describes the process for packaging MATLAB functions for deployment
 
 This section describes the steps to test the MATLAB function by deploying a service to generate test data. In production environments, data from sensors or the output of another function or simulation takes the place of this service.
 
- 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`:
-
-	![create application from starter template](./images/starter_source.png){width=600}
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`.
 
  2. Set the output topic of the application to the input topic of the deployment containing the MATLAB transformation:
 
@@ -114,7 +105,7 @@ This section describes the steps to test the MATLAB function by deploying a serv
 	    time.sleep(0.5)
 	```
  
- 4. Create a tag and deploy the `2D Vector Source`.
+ 4. Create a tag and deploy the `2D Vector Source`. Click `Pipeline` in the main navigation to display your pipeline:
 
 	![pipeline](./images/matlab_pipeline_view.png){width=600}
 
@@ -122,7 +113,7 @@ This section describes the steps to test the MATLAB function by deploying a serv
 
 	![deployment details](./images/matlab_deployment_details.png){width=600}
 
- 6. Next, click on `Data explorer` on the left navigation panel, select `Live data` from the top menu, and select the output topic of the MATLAB transformation (for example, `matlab-output`), the stream, and the parameters as shown in the figure below to view the live transformation:
+ 6. Next, click on `Data explorer` on the left-hand navigation, select `Live data` from the top menu, and select the output topic of the MATLAB transformation (for example, `matlab-output`), the stream, and the parameters as shown in the figure below to view the live transformation:
 
 	![data explorer](./images/matlab_data_explorer.png){width=600}
 
@@ -186,17 +177,11 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
  2. Click on the `Code Samples` on the left navigation panel and search for `simulink` in the search bar on the top left to filter code samples (templates for MATLAB and Simulink are the same):
 
-	![code samples view on Quix](./images/simulink_code_samples.png){width=600}
-
  3. Click on the template for your programming language of choice. You can also use the `LANGUAGES` filters on the left to filter templates based on the programming language.
 
- 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate a new application from the template:
-
-	![application preview on Quix](./images/matlab_application_preview.png){width=600}
+ 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate a new application from the template.
 
  5. Enter `Engine Model` for the application name. Enter `simulink-input` for input topic and `simulink-output` for output topic, and click `Save as Application.`
-
-	![create application from template](./images/simulink_set_up_application.png){width=600}
 
  6. To deploy your own functions and models, replace the contents of the `MATLAB` directory in the application with your packages.
 
@@ -294,14 +279,9 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 This section describes the steps to deploy a service to generate test data for the model. In production environments, data from sensors or output of another simulation takes the place of this service.
 
- 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application based on this template by clicking on `Preview code` followed by `Edit code`:
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application based on this template by clicking on `Preview code` followed by `Edit code`.
 
-
-	![create application from starter template](./images/starter_source.png){width=600}
-
- 2. Set the output topic of the `Engine Data Source` to the input topic of the deployment containing the Simulink model:
-
-	![starter application configuration](./images/starter_application_creation.png){width=600}
+ 2. Set the output topic of the `Engine Data Source` to the input topic of the deployment containing the Simulink model, `simulink-input`.
 
  3. Replace the contents of the `main.py` file in the `Engine Data Source` application with the following script, which randomly generates a throttle angle once every second:
 
