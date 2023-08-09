@@ -1,8 +1,10 @@
 # Authenticate
 
+You need a Personal Access Token (PAT) to authenticate requests made with the Query API.
+
 ## Before you begin
 
-  - [Sign up for Quix](https://portal.platform.quix.ai/workspaces/v2)
+  - [Sign up for Quix](https://portal.platform.quix.ai/self-sign-up){target=_blank}
 
 ## Get a Personal Access Token
 
