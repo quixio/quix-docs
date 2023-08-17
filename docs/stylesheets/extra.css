@@ -230,22 +230,22 @@ li {
 
 /* Edited existing docs CSS */
 
-@media screen and (min-width: 60em)
+@media screen and (min-width: 60em){
 .md-search__form {
     background-color: #ffffff24;
     border-radius: 0.1rem;
     height: 1.8rem;
-}
+}}
 
-@media screen and (min-width: 60em)
+@media screen and (min-width: 60em){
 [dir=ltr] .md-header__source {
     margin-left: 0.4rem;
-}
+}}
 
-@media screen and (min-width: 76.25em)
+@media screen and (min-width: 76.25em){
 [dir=ltr] .md-header__source {
     margin-left: 0.4rem;
-}
+}}
 
 /* New CSS to be added */
 

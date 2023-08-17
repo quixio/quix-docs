@@ -94,7 +94,7 @@ nav:
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
     - 'MLOps': 'platform/MLOps.md'
-  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
+  #- 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
     - 'Data Catalogue API':
@@ -216,6 +216,7 @@ theme:
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
+  - javascripts/quix-publish.js
   - javascripts/quix.js
   - javascripts/feedback.js
 extra:
