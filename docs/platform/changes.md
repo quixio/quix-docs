@@ -6,8 +6,8 @@ The Quix Platform has recently undergone some substantial changes. These changes
 
 Quix now supports the ability to: 
 
-* Host a complete pipeline in one branch of your Git repository
-* Build a complete pipeline from a single YAML file
+* Host a complete project in one branch of your Git repository
+* Build a complete project from a single YAML file
 * Automatically synchronize changes in the Git repository with the pipeline view
 * Easily manage multiple environments such as production, staging and development
 * Host projects with Quix-hosted Git or using a third-party provider
