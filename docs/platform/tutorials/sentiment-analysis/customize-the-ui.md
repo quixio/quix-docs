@@ -38,11 +38,11 @@ At this stage if you want to customize the code you can do so. You can also depl
 
 1. Click the `+tag` button at the top of any code file.
 
-2. Enter `v1` and press ++enter++.
+2. Enter a tag such as `ui-v1` and press ++enter++.
 
 3. Click `Deploy` near the top right corner.
 
-4. In the deployment dialog, select your tag, for example, `v1` under the `Version Tag`.
+4. In the deployment dialog, select your tag, for example, `ui-v1` under the `Version Tag`.
 	
 	This is the tag you just created.
 

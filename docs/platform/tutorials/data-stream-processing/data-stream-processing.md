@@ -107,7 +107,7 @@ Follow these steps to get the code and deploy the application as a microservice.
 
 4. Tag this version of the code by clicking the small tag icon at the top of the code window.
 
-    -  Type `v1.0` into the input box
+    -  Type `game-v1.0` into the input box
     -  Hit enter
 
 Next you will deploy the code as a microservice.
@@ -118,7 +118,7 @@ To deploy a microservice in Quix is a very simple three step process and step on
 
 1. Click `Deploy` near the top right hand corner of the screen.
 
-2. Select the `v1.0` tag you created earlier
+2. Select the `game-v1.0` tag you created earlier
 
 3. Click `Deploy`
 

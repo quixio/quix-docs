@@ -240,7 +240,7 @@ Now that you have verified the service is working you can go ahead and deploy th
 
 1. Tag the code by clicking the `add tag` icon at the top of the code panel.
 
-2. Enter a tag such as `v1`.
+2. Enter a tag such as `crash-v1`.
 
 3. Now click the `Deploy` button near the top right of the code panel.
 

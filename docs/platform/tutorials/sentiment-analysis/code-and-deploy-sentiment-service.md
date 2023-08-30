@@ -395,13 +395,13 @@ Tag the code and deploy the service:
 
 1. Click the `+tag` button at the top of the code file.
 
-2. Enter `v1` and press ++enter++.
+2. Enter `sentiment-v1` and press ++enter++.
     
     This tags the code with a specific identifier and allows you to know exactly which version of the code you are deploying.
 
 3. Click `Deploy` near the top right corner.
 
-4. Select `v1` under the `Version Tag`.
+4. Select `sentiment-v1` under the `Version Tag`.
 
     This is the same tag you created in step 2.
 

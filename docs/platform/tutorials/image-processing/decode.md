@@ -100,11 +100,11 @@ Now it's time to deploy this microservice.
 
 Follow these steps:
 
-1.  Tag the code by clicking `add tag` at the top of the code panel. Enter `v1.0` for your tag.
+1.  Tag the code by clicking `add tag` at the top of the code panel. Enter `decode-v1.0` for your tag.
 
 1. Click `Deploy` near the top right hand corner of the screen.
 
-2. Select the `v1.0` from the verison tag dropdown.
+2. Select the `decode-v1.0` from the version tag dropdown.
 
 3. Click `Deploy`.
 

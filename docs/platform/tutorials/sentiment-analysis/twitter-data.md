@@ -156,11 +156,11 @@ You'll now tag the code and deploy the service with these steps:
 
 1. Click the `+tag` button at the top of any code file.
 
-2. Enter `v1` and press ++enter++.
+2. Enter `twitter-v1` and press ++enter++.
 
 3. Click `Deploy` near the top right corner.
 
-4. In the deployment dialog, select `v1` under the `Version Tag`.
+4. In the deployment dialog, select `twitter-v1` under the `Version Tag`.
     
     There is no need to allocate much resource to this service, it is very light weight.
 
