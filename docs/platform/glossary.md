@@ -30,6 +30,10 @@ Quix Platform contains a large number of [open source](https://github.com/quixio
 
 There are [many ways](../platform/ingest-data.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../platform/connectors/index.md).
 
+## Consumer
+
+Any project, container or application that [subscribes](https://quix.io/docs/client-library/subscribe.html) to data in a topic.
+
 ## Data ingestion
 
 Data ingestion is the means by which you get your data into Quix.
@@ -49,6 +53,10 @@ Read more about [data types](../client-library-intro.md#multiple-data-types).
 ## Deployment
 
 An instance of an application running in the serverless environment. When you deploy your application, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+
+## Destination
+
+A type of [connector](../platform/connectors/index.md) where data is consumed from a Quix topic by an output (destination) such as a database or dashboard.
 
 ## Environment
 
@@ -92,6 +100,10 @@ Metadata is key to data governance and becomes very useful in down-stream data p
 
 Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
+## Model
+
+A machine learning model "program" that comprises of both data and a procedure for using the data to make a prediction. In the case of neural networks, a model has typically been trained on a dataset. A standard program or script is not a model - if deployed, this is an application. For example, the sorted list output of a sorting algorithm is not really a model. Neither is an alert script that sends a message when the incoming data goes over a certain threshold. Note: during development a model can be deployed as a job. For example, when training the model.
+
 ## Online IDE (Quix Platform)
 
 Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
@@ -105,6 +117,10 @@ Applications implementing a source, transform, or destination, are connected tog
 ## Portal API
 
 An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
+
+## Producer
+
+Any project, container or application that [publishes](https://quix.io/docs/client-library/publish.html) data to a topic.
 
 ## Project
 
@@ -123,6 +139,10 @@ The [Query API](../apis/query-api/intro.md) is used to query persisted data. Mos
 ## Service
 
 Any application code that runs continuously in the serverless environment. For example, a connector, a function, a backend operation, or an integration to a third-party service like Twilio.
+
+## Source
+
+A type of [connector](../platform/connectors/index.md) where data is published to a Quix topic from an input (source), such as a web service or command line program.
 
 ## Stream
 
