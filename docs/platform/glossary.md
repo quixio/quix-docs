@@ -104,11 +104,9 @@ Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
 A machine learning model "program" that comprises of both data and a procedure for using the data to make a prediction. In the case of neural networks, a model has typically been trained on a dataset. A standard program or script is not a model - if deployed, this is an application. For example, the sorted list output of a sorting algorithm is not really a model. Neither is an alert script that sends a message when the incoming data goes over a certain threshold. Note: during development a model can be deployed as a job. For example, when training the model.
 
-## Online IDE (Quix Platform)
+## Online IDE (Quix Portal)
 
-Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
-
-Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
+See [Quix Portal](#quix-portal).
 
 ## Pipeline
 
@@ -131,6 +129,12 @@ A project contains one or more [environments](#environment), so typically you cr
 ## Query API
 
 The [Query API](../apis/query-api/intro.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
+
+## Quix Portal
+
+Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+
+Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
 
 ## Quix Streams
 
