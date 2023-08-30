@@ -40,6 +40,7 @@ nav:
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
       - 'Add environment variables': 'platform/how-to/environment-variables.md'
       - 'Testing using Quix data store': 'platform/how-to/testing-data-store.md'
+      - 'Configure deployments': 'platform/how-to/yaml-variables.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
       - 'Real-time ML predictions':

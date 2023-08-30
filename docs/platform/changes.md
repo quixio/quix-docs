@@ -112,7 +112,7 @@ An entire Quix pipeline can be described by a `quix.yaml` file. This file is als
 
 This allows Quix to quickly replicate an entire pipeline and configuration. For example, a pipeline created and tested in one branch, can be quickly duplicated in another branch. 
 
-It is also possible to use YAML variables in the YAML file to configure resources differently depending on the environment.
+It is also possible to use [YAML variables](../platform/how-to/yaml-variables.md) in the YAML file to configure resources differently depending on the environment.
 
 ## New and legacy terminology comparison
 
