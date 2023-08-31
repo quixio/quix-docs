@@ -27,6 +27,7 @@ nav:
   - Platform:
     - 'How To':
       - 'Create a project': 'platform/how-to/create-project.md'
+      - 'Project structure': 'platform/how-to/project-structure.md'
       - 'Get Environment ID': 'platform/how-to/get-environment-id.md'
       - 'Get streaming token': 'platform/how-to/streaming-token.md'
       - 'Get personal access token (PAT)': 'platform/how-to/personal-access-token-pat.md'
