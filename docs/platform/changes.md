@@ -35,6 +35,8 @@ With these changes, you now start by creating a Project. A project is an entity 
 
 A project contains one or more environments, so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
 
+You can read more about the structure of a project in Git in the [project structure documentation](../platform/how-to/project-structure.md).
+
 ## Environments
 
 An environment can be thought of as an entity that encapsulates a branch in your project, that contains the code for your applications. For example, you could have an environment called "production" that references a `main` branch. You could also have an environment called "develop" that references a `dev` branch.
@@ -146,3 +148,6 @@ If you already have a legacy workspace, or you wish to create one for some reaso
 * [What is Quix?](../platform/what-is-quix.md)
 * [Check the Quix Glossary](../platform/glossary.md)
 * [Dive into the Quickstart](../platform/quickstart.md)
+* [Create a project](../platform/how-to/create-project.md)
+* [Project structure](../platform/how-to/project-structure.md)
+* [YAML variables](../platform/how-to/yaml-variables.md)
