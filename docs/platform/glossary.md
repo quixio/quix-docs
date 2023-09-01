@@ -52,7 +52,23 @@ Read more about [data types](../client-library-intro.md#multiple-data-types).
 
 ## Deployment
 
-An instance of an application running in the serverless environment. When you deploy your application, you can specify a number of parameters such as allocated RAM, CPU count, number of replicas, and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+An instance of an application running in the serverless environment. When you deploy your application, you can specify a number of parameters such as allocated [RAM](#ram), [CPU count (cores)](#cpu-cores), number of [replicas](#replicas), and public URL. You can also specify whether you want it to run as a [job](#job) or a [service](#service), depending on your use case. A job runs only once, and service runs continuously.
+
+The following screenshot shows the `New Deployment` dialog:
+
+![New Deployment](../platform/images/deployment.png)
+
+### CPU (cores)
+
+The number of CPU cores allocated to a deployment. The range is 0.1 to 16 cores.
+
+### RAM 
+
+Random-Access Memory (RAM) allocated to a deployment. The RAM is specified in GB. The range is 0.1 to 32 GB.
+
+### Replicas
+
+The number of instances of the deployment (service). If the replicas are part of a consumer group, then each message in the topic is processed once by only one replica. If the replicas are not part of a consumer group, then all messages are processed by all replicas.
 
 ## Destination
 
@@ -108,6 +124,14 @@ A machine learning model "program" that comprises of both data and a procedure f
 
 See [Quix Portal](#quix-portal).
 
+## Partitions
+
+When creating a new topic, you can specify the number of topic partitions. The default is two partitions. You can add more partitions later, but you can’t remove them. Each partition is an independent queue that preserves the order of messages.
+
+[Quix Streams](#quix-streams) restricts all messages inside one stream to the same partition. This means that inside one stream, a consumer can rely on the order of messages.
+
+Partitions are spread across the Kafka cluster, and over different Kafka nodes, for improved performance.
+
 ## Pipeline
 
 Applications implementing a source, transform, or destination, are connected together using [topics](#topic) into a pipeline. A pipeline provides the complete stream processing solution for your use case. The pipeline is visually represented in an environment.
@@ -158,6 +182,14 @@ A stream is a collection of data (time series data, events, binary blobs and met
 
 Read more about [streams](../client-library/features/streaming-context.md).
 
+## Streaming Reader API
+
+A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
+
+## Streaming Writer API
+
+An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
+
 ## Time series data
 
 Tine-series data consists of values that change over time. Quix Streams supports numeric and string values.
@@ -200,11 +232,3 @@ Topics are key for scalability and good data governance. Use them to organize yo
 * Maintaining separate topics for raw, clean, or processed data
 
 Read more about [topics](../client-library/publish.md#create-a-topic-producer).
-
-## Streaming Reader API
-
-A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
-
-## Streaming Writer API
-
-An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
