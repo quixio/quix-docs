@@ -34,6 +34,12 @@ There are [many ways](../platform/ingest-data.md) to get data into Quix Platform
 
 Any project, container or application that [subscribes](https://quix.io/docs/client-library/subscribe.html) to data in a topic.
 
+## Consumer group
+
+Consumer [replicas](#replicas) can be grouped into a consumer group. When consumers are grouped into a consumer group, processing of a topic's messages is distributed over all consumers, providing horizontal scaling. 
+
+If the consumers (replicas) are not in a consumer group, then all messages are processed by all replicas.
+
 ## Data ingestion
 
 Data ingestion is the means by which you get your data into Quix.
@@ -68,7 +74,7 @@ Random-Access Memory (RAM) allocated to a deployment. The RAM is specified in GB
 
 ### Replicas
 
-The number of instances of the deployment (service). If the replicas are part of a consumer group, then each message in the topic is processed once by only one replica. If the replicas are not part of a consumer group, then all messages are processed by all replicas.
+The number of instances of the deployment (service). If the replicas are part of a [consumer group](#consumer-group), then each message in the topic is processed once by only one replica. If the replicas are not part of a consumer group, then all messages are processed by all replicas.
 
 ## Destination
 
