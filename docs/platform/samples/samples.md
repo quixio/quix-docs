@@ -6,4 +6,5 @@ Quix allows you to explore the Code Samples and save them as a new project and i
 
 The backend of the Code Samples is handled by a public [Open source repository](https://github.com/quixio/quix-samples){target=_blank} on GitHub. You can become a contributor of our Code Samples by generating new samples or updating existing ones.
 
-![Library.png](library.png)
+![Code Samples](../samples/code-samples.png)
+
