@@ -1,67 +1,126 @@
-# 3. Object detection
+# Object detection
 
-In this part of the tutorial you add an object detection service into the pipeline. This service detects objects in any video feeds connected to its input. This service uses a [YOLO v3](https://viso.ai/deep-learning/yolov3-overview/) machine learning model for object detection.
+This service takes frames from the frame grabber and detects objects in each frame. This service uses the [YOLOv8 object detection library](https://github.com/ultralytics/ultralytics){target=_blank}.
 
-In a later stage of the pipeline you add a simple UI which enables you to select the type of object to detect.
+![Object detection](../image-processing/images/object-detection-pipeline-segment.png)
 
-Follow these steps to deploy the **object detection service**:
+## What it does
 
-1.  Navigate to the `Code Samples` and locate `Computer Vision object detection`.
+The key thing this service does is detect objects in frames passed to it. You will remember from the previous part of this tutorial, the frame grabber, that the frame grabber service outputs time  series data, rather than event data. A different handler is invoked for time series data:
 
-2.  Click `Deploy`.
+``` python
+def on_dataframe_received_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
+```
 
-3.  Click `Deploy` again.
+This callback receives the time series data in pandas dataframe format.
 
-    This service receives data from the `image-raw` topic and streams data to the `image-processed` topic.
+Objects are detected in the frame by the YOLOv8 code. Data is published to the output stream. The messages on the output topic have the following format:
+
+``` json
+{
+  "Epoch": 0,
+  "Timestamps": [
+    1694003142728625200
+  ],
+  "NumericValues": {
+    "car": [
+      5
+    ],
+    "truck": [
+      2
+    ],
+    "person": [
+      2
+    ],
+    "traffic light": [
+      1
+    ],
+    "lat": [
+      51.4739
+    ],
+    "lon": [
+      -0.09045
+    ],
+    "delta": [
+      -2.597770929336548
+    ]
+  },
+  "StringValues": {},
+  "BinaryValues": {
+    "image": [
+      "(Binary of 152.47 KB)"
+    ]
+  },
+  "TagValues": {}
+}
+```
+
+The key data here is the count of vehicles in the frame. Further, an annotated image (detected objects are marked with a green rectangle) is also included as binary data. The annotated image is used by the UI to display detected objects, as shown in the following screenshot:
+
+![Detected object](../image-processing/images/detected-objects.png)
+
+## Watch the video
+
+Watch the video that shows how to explore the code and data for this service:
+
+**Loom coming soon!**
+
+??? Transcript
+
+    **Transcript**
+
+## Understand the code
+
+TBD
 
 ??? example "Understand the code"
 
-    Here's the code in the file `quix_function.py`:
+    Code with annotations...
 
-    ```python
-    # Callback triggered for each new parameter data. (1)
-    def on_parameter_data_handler(self, data: ParameterData):
-        
-        # Loop every row in incoming data. (2)
-        for timestamp in data.timestamps:
+## 👩‍🔬 Lab - Examine the logs and code
 
-            binary_value = timestamp.parameters['image'].binary_value
-            source_img = self.image_processor.img_from_base64(binary_value)
-            start = time.time()
+In this section, you will learn how to examine the logs for the service, and also see how to explore the code.
 
-            # We call YOLO3 model with binary values of the image
-            # and receive objects with confidence values. (3)
-            img, class_ids, confidences = self.image_processor.process_image(source_img)
-            delta = start - time.time() # (4)
+1. In the pipeline view, click on the object detection service tile.
 
-            # We count how many times each class ID is present in the picture. (5)
-            counter = Counter(class_ids)
+2. Click on the Logs tab, if not selected by default.
 
-            print("New image in {0} at {1}".format(self.input_stream.stream_id, timestamp.timestamp))
+3. You can now see the log messages being produced by the service:
 
-            # Starts by creating new row with timestamp that we carry from input. (6)
-            row = self.output_stream.parameters.buffer.add_timestamp_nanoseconds(timestamp.timestamp_nanoseconds) 
+    ![Object detection logs](../image-processing/images/object-detection-logs.png)
 
-            # For each class ID we sent column with number of occurrences in the picture. (7)
-            for key, value in counter.items():
-                print("Key:{}".format(key))
-                row = row.add_value(key, value)
+    !!! tip
 
-            # Attach image column with binary data, GPS coordinates and model performance metrics. (8)
-            row.add_value("image", self.image_processor.img_to_binary(img)) \
-                .add_value("lat", timestamp.parameters["lat"].numeric_value) \
-                .add_value("lon", timestamp.parameters["lon"].numeric_value) \
-                .add_value("delta", delta) \
-                .write()
-    ```
+        There is a pause button to allow you to pause the logs (see the screenshot). There is also a button you can use to download the logs for the service.
 
-    1. Each time a new parameter data arrives, this callback is invoked.
-    2. Parameter data can be thought of as data in a tabular form. This code loops over all rows in the table.
-    3. The object detection model is called with the source image. It returns an annoted image, an array containing the ids of the types of objects detected (for example: ['bus', 'car', 'truck', 'car', 'car', 'person', 'car', 'car', 'person', 'car', 'car', 'car', 'person', 'car', 'person', 'person']), and the confidence of the detection.
-    4. The `delta` is a variable used to record how long it takes for the object detection. This is used as a measure of performance. 
-    5. `Counter` is a dictionary that object type counts, for example, `{'truck': 3, 'car': 3}`.
-    6. Timestamp TDB
-    7. Add the class ID (object type detected) and the count for that object type. 
-    8. The row is written out. The row includes the image binary, geolocation, and delta as a measure of performance for object detection.
+There  also some tasks for you to carry out in the following sections.
 
-[Part 4 - TfL video :material-arrow-right-circle:{ align=right }](connect-video-tfl.md)
+You now learn how to examine the code for the service.
+
+1. Click the panel indicated in the screenshot:
+
+    ![object detection code](../image-processing/images/object-detection-code.png){width=60%}
+
+    This takes you to the code view. You can view or edit the complete code for this service here. 
+    
+2. You could for example, make some changes, and then redeploy the service using the `Redeploy` button, or simply test your changes using the `Run` button.
+
+3. In the code view, click the `History` tab to see the complete revision history for changes to the code.
+
+### Task - Check the output message format for this service
+
+Using what you have learned in previous parts of this tutorial, check the format of the messages published by this service. 
+
+### Task - Determine the output topic name
+
+Using the pipline view, can you determine the topic name that the output messages are being published to.
+
+## See also
+
+For more information refer to:
+
+* [Quix Streams](../../../client-library-intro.md) - More about streams, publishing, consuming, events and much more. 
+
+## 🏃‍♀️ Next step
+
+[Part 5 - Web UI :material-arrow-right-circle:{ align=right }](../image-processing/web-ui.md)
