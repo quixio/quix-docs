@@ -10,6 +10,8 @@ The following screenshot shows vehicle density at various points in London:
 
 ![image processing web UI](./images/web-ui.png)
 
+## 💡 Key ideas
+
 The key ideas on this page:
 
 * How a web client can read data from a Quix topic using Quix Streaming Reader API
@@ -118,7 +120,7 @@ If you have not done so, explore the web UI.
 
 1. In your pipeline view, click on the `external link` icon:
 
-  ![External link](../image-processing/images/external-link.png)
+    ![External link](../image-processing/images/external-link.png)
 
 2. Now interact with the web UI.
 

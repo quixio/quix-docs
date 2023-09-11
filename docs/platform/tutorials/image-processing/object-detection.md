@@ -4,6 +4,8 @@ This service takes frames from the frame grabber and detects objects in each fra
 
 ![Object detection](../image-processing/images/object-detection-pipeline-segment.png)
 
+## 💡 Key ideas
+
 The key ideas on this page:
 
 * Using the YOLOv8 library to detect objects in a frame

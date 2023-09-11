@@ -4,6 +4,8 @@ In this part of the tutorial you take a look at the TfL camera feed service. The
 
 ![TfL camera feed](../image-processing/images/tfl-camera-feed-pipeline-segment.png)
 
+## 💡 Key ideas
+
 The key ideas on this page:
 
 * Reading external REST API

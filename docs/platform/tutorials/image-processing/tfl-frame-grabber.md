@@ -4,6 +4,8 @@ In this part of the tutorial you learn about the TfL frame grabber service. The 
 
 ![TfL frame grabber](../image-processing/images/tfl-frame-grabber-pipeline-segment.png)
 
+## 💡 Key ideas
+
 The key ideas on this page:
 
 * Using computer vision library to extract frames from a video file

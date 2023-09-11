@@ -9,6 +9,8 @@ In the following sections you learn how to:
 
 In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for the Quix Portal.
 
+## 💡 Key ideas
+
 The key ideas on this page:
 
 * Connecting Quix to an external Git repository
