@@ -4,6 +4,14 @@ This service takes frames from the frame grabber and detects objects in each fra
 
 ![Object detection](../image-processing/images/object-detection-pipeline-segment.png)
 
+The key ideas on this page:
+
+* Using the YOLOv8 library to detect objects in a frame
+* Intro to Data frame handler: `on_dataframe_received_handler`  
+* How to view logs
+* How to view the code of a Quix Application
+* Using pipeline view to examine topics
+
 ## What it does
 
 The key thing this service does is detect objects in frames passed to it. You will remember from the previous part of this tutorial, the frame grabber, that the frame grabber service outputs time  series data, rather than event data. A different handler is invoked for time series data:
@@ -12,7 +20,7 @@ The key thing this service does is detect objects in frames passed to it. You wi
 def on_dataframe_received_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
 ```
 
-This callback receives the time series data in pandas dataframe format.
+This callback receives the time series data in pandas dataframe format. Each dataframe received in the stream causes this handler to be invoked.
 
 Objects are detected in the frame by the YOLOv8 code. Data is published to the output stream. The messages on the output topic have the following format:
 
@@ -55,27 +63,9 @@ Objects are detected in the frame by the YOLOv8 code. Data is published to the o
 }
 ```
 
-The key data here is the count of vehicles in the frame. Further, an annotated image (detected objects are marked with a green rectangle) is also included as binary data. The annotated image is used by the UI to display detected objects, as shown in the following screenshot:
+The key data here is the count of each vehicle type in the frame. Further, an annotated image (detected objects are marked with a green rectangle) is also included as binary data. The annotated image is used by the UI to display detected objects, as shown in the following screenshot:
 
 ![Detected object](../image-processing/images/detected-objects.png)
-
-## Watch the video
-
-Watch the video that shows how to explore the code and data for this service:
-
-**Loom coming soon!**
-
-??? Transcript
-
-    **Transcript**
-
-## Understand the code
-
-TBD
-
-??? example "Understand the code"
-
-    Code with annotations...
 
 ## 👩‍🔬 Lab - Examine the logs and code
 

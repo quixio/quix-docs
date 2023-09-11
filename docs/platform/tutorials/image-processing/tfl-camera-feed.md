@@ -4,6 +4,14 @@ In this part of the tutorial you take a look at the TfL camera feed service. The
 
 ![TfL camera feed](../image-processing/images/tfl-camera-feed-pipeline-segment.png)
 
+The key ideas on this page:
+
+* Reading external REST API
+* Publishing event data with Quix Streams
+* Multiple streams within a topic
+* Passing video file URLs through the pipeline
+* Explore raw message format using Quix
+
 ## What it does
 
 The key thing this service does is retrieve the camera feeds from the TfL API endpoint, using your TfL API key. This is done using the `requests` library and a simple REST `GET`:
@@ -107,26 +115,6 @@ There is much useful data here, including a link to the camera's video stream, w
   It is more efficient to pass a link to a video through the pipeline than the video itself, as the video file size can be relatively large.
 
 This message is passed on to the next service in the pipeline, the frame grabber.
-
-## Watch the video
-
-Watch the video that shows how to explore the code and data for this service:
-
-**Loom coming soon!**
-
-??? Transcript
-
-    **Transcript**
-
-## Understand the code
-
-TBD
-
-??? example "Understand the code"
-
-    Code with annotations...
-
-To examine the code in the Quix UI... TBD
 
 ## 👩‍🔬 Lab - Examine the data 
 

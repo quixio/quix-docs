@@ -5,20 +5,16 @@ While you can try out the live demo, or experiement using the ungated product ex
 In the following sections you learn how to:
 
 1. Fork the project repository.
-
 2. Create a new project in Quix linked to your forked repository.
 
 In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for the Quix Portal.
 
-## Watch the video
+The key ideas on this page:
 
-This video shows forking the repository and creating the Quix project:
-
-TBD - coming soon.
-
-??? Transcript
-
-    **Transcript**
+* Connecting Quix to an external Git repository
+* Quix projects, environments, and applications
+* Pipeline view of project
+* Synchronizing an environment
 
 ## Fork the project repository
 

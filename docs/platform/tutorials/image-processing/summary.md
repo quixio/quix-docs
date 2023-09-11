@@ -1,6 +1,6 @@
 # Summary
 
-In this tutorial you have learned that it is possible to quickly fork a complete Quix project and get it up and running in your Quix account very quickly. This allows you to start your own project by using one of our templates. You can then modify our code, keeping your project in a public or private Git repository as required.Alternatively, you can build your own custom pipeline from a mix of our code samples, and your own custom sources, transforms, and destinations.
+In this tutorial you have learned that it is possible to quickly fork a complete Quix project and get it up and running in your Quix account very quickly. This allows you to start your own project by using one of our templates. You can then modify our code, keeping your project in a public or private Git repository as required. Alternatively, you can build your own custom pipeline from a mix of our code samples, and your own custom sources, transforms, and destinations.
 
 In addition, you have see how in the Quix portal you can:
 
@@ -22,6 +22,10 @@ Here is a list of the Quix open source Code Samples related to this tutorial, wi
 * [Computer vision object detection](https://github.com/quixio/quix-samples/tree/main/python/transformations/Image-processing-object-detection)
 * [Web UI](https://github.com/quixio/quix-samples/tree/main/nodejs/advanced/Image-Processing-UI)
 
+## Getting help
+
+If you need any assistance, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
+
 ## Next Steps
 
 Here are some suggested next steps to continue on your Quix learning journey:
@@ -31,7 +35,3 @@ Here are some suggested next steps to continue on your Quix learning journey:
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
 What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
-
-## Getting help
-
-If you need any assistance, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.

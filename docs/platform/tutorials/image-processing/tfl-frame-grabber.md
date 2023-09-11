@@ -4,6 +4,13 @@ In this part of the tutorial you learn about the TfL frame grabber service. The 
 
 ![TfL frame grabber](../image-processing/images/tfl-frame-grabber-pipeline-segment.png)
 
+The key ideas on this page:
+
+* Using computer vision library to extract frames from a video file
+* Publishing time series data
+* Publishing binary data
+* Using the Quix Data Explorer to examine raw message format
+
 ## What it does
 
 The key thing this service does is extract frames from the TfL video file. By default the frame grabber grabs one frame in every 100, which is typically one per five seconds of video. This is done using the [OpenCV](https://opencv.org/){target=_blank} Python library. 
@@ -66,24 +73,6 @@ Geolocation information from the camera data is also added to the message. The m
 ```
 
 This can be used by later stages of the pipeline to locate the capacity information, and frame thumbnail, on the map.
-
-## Watch the video
-
-Watch the video that shows how to explore the code and data for this service:
-
-**Loom coming soon!**
-
-??? Transcript
-
-    **Transcript**
-
-## Understand the code
-
-TBD
-
-??? example "Understand the code"
-
-    Code with annotations...
 
 ## 👩‍🔬 Lab - Examine the data 
 
