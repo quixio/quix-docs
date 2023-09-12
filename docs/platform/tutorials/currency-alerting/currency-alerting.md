@@ -30,7 +30,7 @@ The objective of this tutorial is to create a pipeline that resembles the follow
 
 The colors describe the role of the microservice that is being deployed. The possible roles are as follows:
 
-<div class="sq sq-blue"><span></span>Source — enables streaming of data into the Quix platform from any external source, such as an API or websocket.</div>
+<div class="sq sq-blue"><span></span>Source — enables streaming of data into the Quix platform from any external source, such as an API or WebSocket.</div>
 <div class="sq sq-violet"><span></span>Transformation — implements the processing of data, for example, cleaning data or implementing a Machine Learning (ML) model.</div>
 <div class="sq sq-orange"><span></span> Destination — enables streaming of processed data to an external destination, such as a database or dashboard.</div>
 
@@ -38,7 +38,7 @@ The colors describe the role of the microservice that is being deployed. The pos
 
 In this section you will learn how to set up the source sample and deploy it in your pipeline as a microservice.
 
-This sample, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/){target=_blank} through its [Websocket](https://en.wikipedia.org/wiki/WebSocket){target=_blank} interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2){target=_blank} is used for the purposes of this tutorial. 
+This sample, when deployed as a microservice in the Quix pipeline, connects a live stream of updates for the currency pair: `BTC/USD`. This real-time exchange rate data is streamed in from the [CoinAPI](https://www.coinapi.io/){target=_blank} through its [WebSocket](https://en.wikipedia.org/wiki/WebSocket){target=_blank} interface. The free [sandbox version](https://docs.coinapi.io/#endpoints-2){target=_blank} is used for the purposes of this tutorial. 
 
 To summarize this functionality:
 

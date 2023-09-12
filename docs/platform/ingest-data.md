@@ -7,7 +7,7 @@ There are various ways to ingest data into Quix, as well as write data out from 
 3. Polling
 4. Inbound webhooks
 5. HTTP API
-6. Websockets
+6. WebSockets
 7. Push data into Quix Platform using Quix Streams
 8. Post data into Quix using a web app
 
@@ -143,7 +143,7 @@ Quix provides two APIs with an HTTP API interface:
 1. [Writer API](../apis/streaming-writer-api/intro.md)
 2. [Reader API](../apis/streaming-reader-api/intro.md)
 
-The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a websockets interface, which is described in the [next section](#websockets).
+The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a WebSockets interface, which is described in the [next section](#websockets).
 
 The easiest way to try out these HTTP APIs is to use the prebuilt connectors called `External source` and `External destination`. This section looks at using the `External source` connector, but the process is similar for the `External destination` connector. To use the `External source` connector, step through the following procedure:
 
@@ -177,17 +177,17 @@ As you can see there are other options such as generating Curl code that can be 
 
 Further information can be found in the [Writer API](../apis/streaming-writer-api/intro.md) and [Reader API](../apis/streaming-reader-api/intro.md) documentation.
 
-## Websockets
+## WebSockets
 
-The Writer and Reader APIs offer a websockets interface in addition to the HTTP interface described in the [previous section](#http-api). The websockets interface provides a continuous end-to-end connection suitable for higher speed, real-time data transfer. This is a higher performance alternative to the request-response mode of operation of the HTTP interface. The Writer and Reader APIs both use the [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&tabs=visual-studio) technology to implement the websockets interface.
+The Writer and Reader APIs offer a WebSockets interface in addition to the HTTP interface described in the [previous section](#http-api). The WebSockets interface provides a continuous end-to-end connection suitable for higher speed, real-time data transfer. This is a higher performance alternative to the request-response mode of operation of the HTTP interface. The Writer and Reader APIs both use the [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&tabs=visual-studio) technology to implement the WebSockets interface.
 
-Some example code that shows how to connect to Quix and write data into a Quix stream using the websockets interface is shown here:
+Some example code that shows how to connect to Quix and write data into a Quix stream using the WebSockets interface is shown here:
 
 ``` html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello Websockets</title>
+    <title>Hello WebSockets</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
   </head>
@@ -287,7 +287,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 ></script>
 <html>
   <body>
-    <h2>Quix JavaScript Hello Websockets</h2>
+    <h2>Quix JavaScript Hello WebSockets</h2>
 
     <canvas
       id="myCanvas"
@@ -480,4 +480,4 @@ If you want some example code you can use as a starting point for connecting you
 
 Low-frequency data from REST APIs can be [polled](#polling) from Quix using a library such as `requests`. 
 
-Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.
+Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and WebSockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using ebSockets](#websockets), where a continuous connection is required.

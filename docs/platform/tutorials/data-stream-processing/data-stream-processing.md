@@ -204,7 +204,7 @@ You should be familiar with the process by now.
 ???- info "About the code"
     This UI code is Javascript and HTML, it displays the track and car and subscribes to data coming from the topics to keep the car where it's supposed to be or at least where you drive it!
 
-    The most relevant part of the code is where websockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr){target=_blank}.
+    The most relevant part of the code is where WebSockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr){target=_blank}.
 
     For example these lines subscribe to various parameter values on the `car-game-control` topic.
 

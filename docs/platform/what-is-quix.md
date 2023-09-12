@@ -110,7 +110,7 @@ When you develop your event streaming solution, you will build a pipeline of ser
 
 ## Interfacing with Quix
 
-There are [various ways](../platform/ingest-data.md) to connect your data to Quix. Quix provides a number of [connectors](../platform/connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and websockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+There are [various ways](../platform/ingest-data.md) to connect your data to Quix. Quix provides a number of [connectors](../platform/connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
 For a simple example of getting data from your laptop into Quix, see the [Quickstart](../platform/quickstart.md).
 

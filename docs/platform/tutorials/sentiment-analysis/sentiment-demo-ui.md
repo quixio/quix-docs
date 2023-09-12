@@ -12,7 +12,7 @@ Gateways provide a way for external apps to subscribe and publish to topics, and
 
 ![Chat messages webgateway](./sentiment-analysis-media/web-gateway.png){width=550px}
 
-In this scenario, the Sentiment Demo UI is the external app since it is using the [Quix websockets API](../../how-to/webapps/read.md).
+In this scenario, the Sentiment Demo UI is the external app since it is using the [Quix WebSockets API](../../how-to/webapps/read.md).
 
 Follow these steps to create the messages and sentiment web gateways:
 

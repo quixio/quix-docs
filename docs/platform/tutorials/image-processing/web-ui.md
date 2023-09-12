@@ -15,8 +15,8 @@ The following screenshot shows vehicle density at various points in London:
 The key ideas on this page:
 
 * How a web client can read data from a Quix topic using Quix Streaming Reader API
-* Websockets as a way of streaming data into a web client
-* Microsoft SignalR is the websockets technology used in the Streaming Reader API
+* WebSockets as a way of streaming data into a web client
+* Microsoft SignalR is the WebSockets technology used in the Streaming Reader API
 * Access an external web application from the pipeline view
 
 ## What it does
@@ -25,9 +25,9 @@ The key thing this service does is provides a UI that enables you to see vehicle
 
 The UI is a JavaScript web client. The most important thing to understand is how this service obtains data from the Quix pipeline. This is done through use of the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md). 
 
-The Streaming Reader API has both an HTTP and websockets interface you can use to interface with a Quix topic. This web client uses the websockets interface. This enables data to be streamed from the Quix topic into the web client with good performance. This is a more efficient method than using the request-response method of HTTP.
+The Streaming Reader API has both an HTTP and WebSockets interface you can use to interface with a Quix topic. This web client uses the WebSockets interface. This enables data to be streamed from the Quix topic into the web client with good performance. This is a more efficient method than using the request-response method of HTTP.
 
-The websockets interface uses Microsoft SignalR technology. You can read more about that in the [Quix SignalR documentation](../../../apis/streaming-reader-api/signalr.md) for the Reader API.
+The WebSockets interface uses Microsoft SignalR technology. You can read more about that in the [Quix SignalR documentation](../../../apis/streaming-reader-api/signalr.md) for the Reader API.
 
 In essence the code to read a topic needs to:
 

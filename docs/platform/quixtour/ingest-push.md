@@ -1,6 +1,6 @@
 # Publish your data into a Quix topic using Quix Streams 
 
-There are [many ways](../ingest-data.md) to get your data into Quix, a process usually known as ingestion. Data can be loaded using CSV files, by polling external web services, websockets and so on. The option you use depends on your use case.
+There are [many ways](../ingest-data.md) to get your data into Quix, a process usually known as ingestion. Data can be loaded using CSV files, by polling external web services, WebSockets and so on. The option you use depends on your use case.
 
 In this part of the Quix Tour, you'll learn how to send data into Quix using Quix Streams to publish data into a topic hosted in the Quix Platform. 
 
