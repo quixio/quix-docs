@@ -13,6 +13,7 @@ Quix now supports the ability to:
 * Host projects with Quix-hosted Git or using a third-party provider
 * Enable environments to leverage Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud
 * Customized resource variables, so you can allocate different resources to different environments - for example, automatically allocate more CPU cores to production
+* Secret (encrypted) variables
 
 These new features introduced significant changes to the Quix UI and workflow. The rest of this documentation describes the new terminology, features, and workflow. 
 
@@ -114,7 +115,15 @@ An entire Quix pipeline can be described by a `quix.yaml` file. This file is als
 
 This allows Quix to quickly replicate an entire pipeline and configuration. For example, a pipeline created and tested in one branch, can be quickly duplicated in another branch. 
 
+### YAML variables
+
 It is also possible to use [YAML variables](../platform/how-to/yaml-variables.md) in the YAML file to configure resources differently depending on the environment.
+
+## Secret variables
+
+It is now possible to make the value assigned to an environment variable completely secret. This means it cannot be read in code (either in the Application view or in the Git repository), the UI, or in the YAML code for a pipeline. This is essential in order to keep credentials for others services, such as Amazon Web Services (AWS) secure.
+
+To create a secret variable read the [secrets management](../platform/how-to/environment-variables.md#secrets-management) section in the environment variables documentation. 
 
 ## New and legacy terminology comparison
 
