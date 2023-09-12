@@ -474,7 +474,7 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 
 	# MathWorks base dependencies
 	ENV DEBIAN_FRONTEND="noninteractive" TZ="Etc/UTC"
-	COPY  --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
+	COPY --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
 	RUN apt-get update && apt-get install --no-install-recommends -y `cat /tmp/base-dependencies.txt` \
 	    && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 	RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
@@ -495,7 +495,7 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 
 	# MathWorks base dependencies
 	ENV DEBIAN_FRONTEND="noninteractive" TZ="Etc/UTC"
-	COPY  --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
+	COPY --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
 	RUN apt-get update && apt-get install --no-install-recommends -y `cat /tmp/base-dependencies.txt` \
 	    && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 	RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
@@ -516,7 +516,7 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 
 	# MathWorks base dependencies
 	ENV DEBIAN_FRONTEND="noninteractive" TZ="Etc/UTC"
-	COPY  --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
+	COPY --from=git /project/base-dependencies.txt /tmp/base-dependencies.txt
 	RUN apt-get update && apt-get install --no-install-recommends -y `cat /tmp/base-dependencies.txt` \
 	    && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 	RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
