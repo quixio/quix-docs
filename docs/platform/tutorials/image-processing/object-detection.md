@@ -69,9 +69,11 @@ The key data here is the count of each vehicle type in the frame. Further, an an
 
 ![Detected object](../image-processing/images/detected-objects.png)
 
-## 👩‍🔬 Lab - Examine the logs and code
+## 👩‍🔬 Lab - Examine the logs
 
-In this section, you will learn how to examine the logs for the service, and also see how to explore the code.
+In this section, you learn how to examine the logs for the service. The logs are a very useful resource when debugging a service - you can see trace messages output from the service, and any errors that are generated.
+
+To view the logs for a service:
 
 1. In the pipeline view, click on the object detection service tile.
 
@@ -87,7 +89,9 @@ In this section, you will learn how to examine the logs for the service, and als
 
 There  also some tasks for you to carry out in the following sections.
 
-You now learn how to examine the code for the service.
+## 👩‍🔬 Lab - Examine the application code
+
+You now learn how to examine the code for the service. You may want to fix bugs in it, or otherwise improve the code for a service. Once the code is edited, you can use the `Redeploy` button the redeploy the service, even if it is already running.
 
 1. Click the panel indicated in the screenshot:
 
@@ -105,7 +109,7 @@ Using what you have learned in previous parts of this tutorial, check the format
 
 ### Task - Determine the output topic name
 
-Using the pipline view, can you determine the topic name that the output messages are being published to.
+Using the pipline view, can you determine the topic name that the output messages are being published to?
 
 ## See also
 

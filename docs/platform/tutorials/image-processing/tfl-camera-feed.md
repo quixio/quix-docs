@@ -23,7 +23,7 @@ cameras = requests.get(
     "https://api.tfl.gov.uk/Place/Type/JamCam/?app_id=QuixFeed&app_key={}".format(api_key))
 ```
 
-With this data the code loops writing the data for each camera to its own stream in the output topic, `tfl-cameras`. The code also adds a timestamp and the camera data as a value called `camera`:
+With this data the code loops, writing the data for each camera to its own stream in the output topic, `tfl-cameras`. The code also adds a timestamp and the camera data, as a value called `camera`:
 
 ``` python
 producer_topic.get_or_create_stream(camera_id).events.add_timestamp_nanoseconds(time.time_ns()) \
@@ -120,7 +120,9 @@ This message is passed on to the next service in the pipeline, the frame grabber
 
 ## 👩‍🔬 Lab - Examine the data 
 
-In this section, you will learn how to use the Quix Portal to examine the message data format. There are various ways of doing this, and several ways are shown in later parts of this tutorial.
+In this section, you learn how to use the Quix Portal to examine the message data format. There are various ways of doing this, and several ways are shown in later parts of this tutorial. Having clarity on the message format enables better undertanding of the data flow in the pipeline.
+
+To see the message format on the output topic of the service:
 
 1. In the pipeline view click on the TFL camera feed service tile.
 

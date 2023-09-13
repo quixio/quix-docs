@@ -15,7 +15,7 @@ The key ideas on this page:
 
 ## What it does
 
-The key thing this service does is extract frames from the TfL video file. By default the frame grabber grabs one frame in every 100, which is typically one per five seconds of video. This is done using the [OpenCV](https://opencv.org/){target=_blank} Python library. 
+The key thing this service does is extract frames from the TfL video file. By default the frame grabber grabs one frame in every 100 frames, which is typically one per five seconds of video. This is done using the [OpenCV](https://opencv.org/){target=_blank} Python library. 
 
 The frame grabber needs to obtain the video URL, as that is where it's going to grab frames from. Much of the other information can be ignored, so this is filtered by the following code:
 
@@ -78,7 +78,9 @@ This can be used by later stages of the pipeline to locate the capacity informat
 
 ## 👩‍🔬 Lab - Examine the data 
 
-In this section, you will learn how to use the Quix Data Explorer to examine data output from this service.
+In this section, you learn how to use the Quix Data Explorer to examine data output from this service. The Data Explorer enables you to view data in real time. This is very useful when debugging a pipeline, or ensuring the data you are receiving is what you expect.
+
+To examine the data published by the service:
 
 1. In the pipeline view, click on the arrow (representing the output topic) on the right side of the frame grabber service tile, and select `Explore live data`. This opens a new tab and displays the Data Explorer. 
 
@@ -90,7 +92,7 @@ In this section, you will learn how to use the Quix Data Explorer to examine dat
 
         There are actually two types of message here: stream metadata messages and actually data messages. The messages you're interested in have `timestamp` in them. You can ignore the metadata messages in this tutorial, as they are not used.
 
-4. Examine the data format that is being sent to the next stage of the pipeline, the object detection service:
+4. Examine the data format that is being sent to the next stage of the pipeline, the object detection service. It should be similar to the following:
 
 ``` json
 {
