@@ -33,7 +33,7 @@ To fork the repository:
 
     !!! tip 
 
-        If you don't have GitHub account you can use another Git provider, such as Bitbucket. On Bitbucket you could import the repository.
+        If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case.
 
 ## Create your Quix project
 
