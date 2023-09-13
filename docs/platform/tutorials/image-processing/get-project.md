@@ -50,13 +50,19 @@ To link to this forked repository from Quix:
 
 7. Click `Done` to proceed.
 
-8. Now create an environment called `Develop` which uses the `develop` branch.
+## Create your environment
 
-9. Complete creation of the environment, and the project.
+Now create an environment called `Develop` which uses the `develop` branch:
 
-10. Go to the pipeline view. You will see that Quix is out of sync with the repository.
+1. Enter the environment name `Develop`.
 
-11. Click the `Sync` button to synchronize the environment, and then click `Go to pipeline`. You will see the pipeline building.
+2. Select the `develop` branch from the dropdown.
+
+3. Click `Continue` and then select the Quix Broker and Standard storage options to complete creation of the environment, and the project.
+
+4. Go to the pipeline view. You will see that Quix is out of sync with the repository.
+
+5. Click the `Sync` button to synchronize the environment, and then click `Go to pipeline`. You will see the pipeline building.
 
 At this point you can wait a few minutes for the pipeline services to completely build and start running.
 
