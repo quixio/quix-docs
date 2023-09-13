@@ -109,6 +109,14 @@ For example, a pipeline on the develop branch of Project Alpha might be:
 | Archive data | Destination | Write to Postgres relational database |
 | Dashboard | Destination | Streamlit dashboard |
 
+### Application name and path
+
+A new feature in Quix is the ability to change an application name and path. For example, when creating a new application from a Code Sample, you are prompted for the application name and path. 
+
+The application name can be any suitable name, the application path is the folder in which the application is stored in the Git repository. By default the path is set to be the same as the application name, but you can choose any path name - for example, you might not want to use spaces in folder names, so you use underscores instead of spaces in the path.
+
+See documentation on how to [create an application](../platform/how-to/create-application.md).
+
 ## Pipeline
 
 An entire Quix pipeline can be described by a `quix.yaml` file. This file is also used to configure resources used by the deployment.
