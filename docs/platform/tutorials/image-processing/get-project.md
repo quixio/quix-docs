@@ -33,7 +33,7 @@ To fork the repository:
 
     !!! tip 
 
-        If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case.
+        If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket, for example, you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case. Other providers support other options, check the documentation for your Git provider.
 
 ## Create your Quix project
 
@@ -47,17 +47,34 @@ To link Quix to this forked repository:
 
 3. Give your project a name. For example, "Computer Vision".
 
-4. Select `Connect to your own Git repo`.
-
-5. Assuming you are connecting to a GitHub account, you'll now need to copy the SSH key provided into your GitHub account.
+4. Select `Connect to your own Git repo`, and follow the setup guide for your provider.
 
     !!! tip
 
-        It is recommended that you create a new GitHub user for managing your Quix projects.
+        A setup guide is provided for each of the common Git providers. Other Git providers are supported, as long as they support SSH keys.
 
-6. Click `Validate` to test the connection between Quix and GitHub.
+    The setup guide for GitHub is shown here:
+            
+    ![Git seup guide](../../images/git-setup-guide.png)
+
+5. Assuming you are connecting to a GitHub account, you'll now need to copy the SSH key provided by Quix into your GitHub account. See the setup guide for further details.
+
+    !!! important
+
+        It is recommended that you create a new user in your Git provider for managing your Quix projects. You are reminded of this when you create a project (the notice is shown in the following screenshot).
+
+    ![Create new user](../../images/create-new-github-user.png)
+
+
+6. Click `Validate` to test the connection between Quix and GitHub. 
+
+    !!! tip
+    
+        If errors occur you need to address them before continuing. For example, make sure you have the correct link to the repository, and you have have added the provided SSH key to your provider account, as outlined in the setup guide for that provider.
 
 7. Click `Done` to proceed.
+
+You now need to add an environment to your project. This is explained in the following section.
 
 ## Create your environment
 
