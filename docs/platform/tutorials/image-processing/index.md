@@ -6,6 +6,24 @@ The pipeline uses the Transport for London (TfL) traffic cameras, known as Jam C
 
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full pipeline code running in your Quix account. You then examine the data flow through the pipeline, using tools provided by the Quix Portal.
 
+## Technologies used
+
+This template project uses the following technologies:
+
+* [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
+* [OpenCV](https://opencv.org/){target=_blank}
+* [YOLOv8](https://github.com/ultralytics/ultralytics){target=_blank}
+* [Amazon Web Services (AWS) S3](https://aws.amazon.com/s3/){target=_blank}
+* [Git](https://git-scm.com/){target=_blank}
+* [Angular](https://angular.io/){target=_blank}
+* [Typescript](https://www.typescriptlang.org/){target=_blank}
+* [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/){target=_blank}
+* [TfL API](https://api-portal.tfl.gov.uk){target=_blank}
+* [Python 3](https://www.python.org/){target=_blank}
+* [Flask](https://flask.palletsprojects.com/en/2.3.x/#){target=_blank}
+* [pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}
+* [Google Maps](https://developers.google.com/maps)
+
 ## Live demo
 
 You can see the project running live on Quix:
