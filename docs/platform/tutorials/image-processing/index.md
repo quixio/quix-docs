@@ -1,10 +1,10 @@
 # Real-time image processing
 
-In this tutorial you learn about a real-time image processing pipeline in Quix. 
+In this tutorial you learn about a real-time image processing pipeline, using a Quix template project. 
 
 The pipeline uses the Transport for London (TfL) traffic cameras, known as Jam Cams, as the video input. The [YOLO v8](https://docs.ultralytics.com/) machine learning model is used to identify various objects such as types of vehicles. Additional services count the vehicles and finally the data is displayed on a map which is part of the web UI that has been creatde specially for this project. 
 
-You'll fork the project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full pipeline code running in your Quix account. You then examine the data flow through the pipeline, using tools provided by the Quix Portal.
+You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full pipeline code running in your Quix account. You then examine the data flow through the pipeline, using tools provided by the Quix Portal.
 
 ## Live demo
 

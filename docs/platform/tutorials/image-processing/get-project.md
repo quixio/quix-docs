@@ -1,11 +1,13 @@
 # Get the project
 
-While you can try out the live demo, or experiement using the ungated product experience, it can be useful to learn how to get a project up and running in Quix. Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your forked copy of the project. You can also receive upstream bug fixes and improvements if you want to, by syncing the fork with the upstream repository. 
+While you can try out the live demo, or experiment using the ungated product experience, it can be useful to learn how to get a project up and running in Quix. 
+
+Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your forked copy of the project. With a forked copy of the repository, you can also receive upstream bug fixes and improvements if you want to, by syncing the fork with the upstream repository. 
 
 In the following sections you learn how to:
 
-1. Fork the project repository.
-2. Create a new project in Quix linked to your forked repository.
+1. Fork an existing project repository, in this case the image processing template project.
+2. Create a new project (and environment) in Quix linked to your forked repository.
 
 In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for the Quix Portal.
 
@@ -13,12 +15,17 @@ In later parts of the tutorial you explore the project pipeline using the Quix d
 
 The key ideas on this page:
 
-* Connecting Quix to an external Git repository
+* Forking a public template project repository
+* Connecting Quix to an external Git repository, in this case the forked repository
 * Quix projects, environments, and applications
 * Pipeline view of project
 * Synchronizing an environment
 
 ## Fork the project repository
+
+Quix provides the image processing template project as a [public GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}. If you want to use this template as a starting point for your own project, then the best way to accomplish this is to fork the project. Using fork allows you to create a complete copy of the project, but also benefit from future bug fixes and improvements by using the upstream changes.
+
+To fork the repository:
 
 1. Navigate to the [Quix GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}.
 
@@ -30,7 +37,9 @@ The key ideas on this page:
 
 ## Create your Quix project
 
-To link to this forked repository from Quix:
+Now that you have a forked copy of the repository in your GitHub account, you can now link your Quix account to it. Doing this enables you to build and deploy the project in your Quix account, and examine the pipeline much more closely.
+
+To link Quix to this forked repository:
 
 1. Log into your Quix account.
 
@@ -51,6 +60,8 @@ To link to this forked repository from Quix:
 7. Click `Done` to proceed.
 
 ## Create your environment
+
+A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `develop` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Develop` environment mapped to the `develop` branch of the repository.
 
 Now create an environment called `Develop` which uses the `develop` branch:
 
