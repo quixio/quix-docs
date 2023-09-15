@@ -146,7 +146,7 @@ The key terminology changes are shown in the following table:
 | New | Legacy | New meaning |
 |---|---|---|
 | Project | N/A | Git repository |
-| Environment | Workspace | Git branch plus Kafka hosting option |
+| Environment | Workspace | Git branch plus Kafka hosting and storage options |
 | Branch | N/A | Represents a Git branch, such as main or dev |
 | Application | Project | The files for the implementation of a source, transform, or destination |
 
