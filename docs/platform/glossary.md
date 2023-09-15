@@ -126,6 +126,12 @@ Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
 A machine learning model "program" that comprises of both data and a procedure for using the data to make a prediction. In the case of neural networks, a model has typically been trained on a dataset. A standard program or script is not a model - if deployed, this is an application. For example, the sorted list output of a sorting algorithm is not really a model. Neither is an alert script that sends a message when the incoming data goes over a certain threshold. Note: during development a model can be deployed as a job. For example, when training the model.
 
+## Monorepo
+
+A monorepo is a single repository that contains all code and configuration for a complete pipeline. The monorepo contains all revision history and all branches for all services and their associated code and configurations. 
+
+In Quix, the monorepo is known as a [project](#project).
+
 ## Online IDE (Quix Portal)
 
 See [Quix Portal](#quix-portal).

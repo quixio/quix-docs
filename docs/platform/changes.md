@@ -1,12 +1,12 @@
 # Recent changes to Quix
 
-The Quix Platform has recently undergone some substantial changes. These changes introduce some new terminology, and may also impact the way you currently work. This page provides an overview of the main changes. Other parts of this documentation will be updated in due course.
+The Quix Platform has recently undergone some substantial changes. These changes introduce some new terminology, and may also impact the way you currently work. This page provides an overview of the main changes.
 
 ## Main features of the update
 
 Quix now supports the ability to: 
 
-* Host a complete project in one branch of your Git repository
+* Host a complete project in a Git repository
 * Build a complete project from a single YAML file
 * Automatically synchronize changes in the Git repository with the pipeline view
 * Easily manage multiple environments such as production, staging and development
@@ -32,9 +32,15 @@ Watch a video demonstrating the new features, UI and workflow:
 
 ## Projects
 
-With these changes, you now start by creating a Project. A project is an entity that corresponds to a Git repository. That Git repository can be hosted for you on Quix, or you can use another provider such as GitHub or Bitbucket. 
+In previous versions of Quix, each service was developed independently and had its code in its own Git repository. The problem with this approach was it was not possible to manage a complete pipeline with revision control. For the pipeline you could not have different branches for development or production, for example. 
 
-A project contains one or more environments, so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
+Quix now introduces the concept of a "monorepo" known as a project, where all the code and configuration for the pipeline is stored in a single repository. 
+
+The monorepo (project) contains all the branches for the project, and all revision history for all services that make up the pipeline. This enables you to manage the complete pipeline development with full revision history, and use branches to develop features that are then merged after testing, as is usual for development processes based around Git.
+
+With these changes, you now start your pipeline development by creating a project. A project is an entity that corresponds to a Git repository. That Git repository can be hosted for you on Quix, or you can use another provider such as GitHub or Bitbucket. 
+
+A project contains one or more environments (which is mapped to a Git branch), so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
 
 You can read more about the structure of a project in Git in the [project structure documentation](../platform/how-to/project-structure.md).
 
