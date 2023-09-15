@@ -20,7 +20,7 @@ To create a new environment (and branch):
 
     !!! important
 
-      Make sure you branch from the `develop` branch, not `main`, as you are going to merge your changes onto the `develop` branch.
+        Make sure you branch from the `develop` branch, not `main`, as you are going to merge your changes onto the `develop` branch.
 
 4. Complete creation of the environment using the default options.
 
@@ -90,14 +90,52 @@ To create the transform:
     qx.App.run()
     ```
 
-    ??? "Understand the code"
+    ??? example "Understand the code"
 
-        The code is a little different to the starter transform. The handler for event data has been removed, along with its registration code, as you are only interested in time series data in this transform. This time series data is received in a pandas dataframe format. For ease of manipulation this is converted to a Python dictionary, so the car data can be simply extracted. 
+        The code is a little different to the starter transform. The handler for event data has been removed, along with its registration code, as you are only interested in time series data in this transform. This time series data is received in a pandas dataframe format. For ease of manipulation this is converted to a Python dictionary, so the car data can be simply extracted.
 
-        A new pandas dataframe is the created, as the data published to the output topic is only going to consist of a timestamp and the number of cars on it. This is an example of simple filtering. 
+        If you want to check the format of the message processed here, you can use the message view for the stream merge service output, or the Data Explorer message view, to examine it in great detail. You will see something similar to the following:
+
+        ``` json
+        {
+            "Epoch": 0,
+            "Timestamps": [
+                1694788651367069200
+            ],
+            "NumericValues": {
+                "truck": [
+                1
+                ],
+                "car": [
+                3
+                ],
+                "lat": [
+                51.55164
+                ],
+                "lon": [
+                -0.01853
+                ],
+                "delta": [
+                -0.43226194381713867
+                ]
+            },
+            "StringValues": {
+                "image": [
+                "iVBOR/snip/QmCC"
+                ]
+            },
+            "BinaryValues": {},
+            "TagValues": {
+                "parent_streamId": [
+                "JamCams_00002.00820"
+                ]
+            }
+        }
+        ```
+
+        A new pandas dataframe is then created, as the data published to the output topic is only going to consist of a timestamp and the number of cars on it. This is an example of simple filtering. 
 
         Once prepared, the dataframe is then published to the output topic.
-
 
 5. Edit environment variables, so that the input topic is `image-processed-merged` and the output topic is a new topic called `cars-only`, as shown in the following screenshot:
 
@@ -105,11 +143,7 @@ To create the transform:
 
     !!! tip
 
-        These environment variables are used by the code. For example, the input topic is read by the code with the code:
-
-            ``` python
-            os.environ["input"]
-            ```
+        These environment variables are used by the code. For example, the input topic is read by the code with the Python code `os.environ["input"]`.
 
 6. Click the tag icon (see screenshot), and give the code a tag such as `cars-only-v1`:
 
@@ -143,8 +177,57 @@ You now use the Quix Data Explorer to view the cars data in real time.
 
 ## Merge the feature
 
-TBD
+Once you are sure that the changes on your feature branch are tested, you can then merge your changes onto the develop branch. Here your changes undergo further tests before finally being merged into production. 
 
+To merge your feature branch, `cars-only` into `develop`:
+
+1. Select `Merge request` from the menu as shown:
+
+    ![Merge request menu](../image-processing/images/merge-request-menu.png)
+
+2. In the `Merge request` dialog, set the `cars-only` branch to merge into the `develop` branch, as shown:
+
+    ![Merge request dialog](../image-processing/images/merge-request-dialog.png)
+
+You are going to create a pull request, rather than perform a direct merge. This enables you to have the PR reviewed in GitHub (or other Git provider). You are also going to do a squash and merge, as much of the feature branch history is not required.
+
+To create the pull request:
+
+1. Click `Create pull request`. You are taken to your Git provider, in this case GitHub.
+
+2. Click the `Pull request` button:
+
+    ![Pull request GitHub](../image-processing/images/pull-request-github.png)
+
+3. Add your description, and then click `Create pull request`:
+
+    ![Pull request description](../image-processing/images/pr-add-description.png)
+
+4. Get your PR reviewed and approved. Then squash and merge the commits:
+
+    ![Squash and merge](../image-processing/images/squash-and-merge.png)
+
+    You can replace the prefilled description by something more succinct. Then click `Confirm squash and merge`.
+
+    !!! tip
+
+        You can just merge, you don't have to squash and merge. You would then retain the complete commit hsitory for your service while it was being developed. Squash and merge is used in this case by way of example, as the commit messages generated while the service was being developed were deemed to be not useful in this case.
+
+## Resync the Develop environment
+
+You have now merged your new feature into the `develop` branch in the Git repository. Your Quix view in the Develop environment is now out of sync with the Git repository. If you click on your Develop environment in Quix, you'll see it is now a commit (the merge commit) behind:
+
+![Develop behind](../image-processing/images/develop-behind.png)
+
+You now need to make sure your Develop environment in Quix is synchronized with the Git repository. To do this:
+
+1. Click on `Sync environment`. The `Sync environment` dialog is displayed.
+
+2. Review the changes and click `Sync environment`.
+
+3. Click `Go to pipeline`.
+
+Your new service will build and start in the Develop environment, where you can now carry out further testing. When you are satisfied this feature can be released tp production, then you would repeat the previous process to merge your changes to Production `main`.
 
 ## 🏃‍♀️ Next step
 
