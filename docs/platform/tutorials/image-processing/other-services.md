@@ -148,7 +148,7 @@ This service is implemented as a simple Flask web app hosted in Quix.
 
 Returns a dictionary of all the data for a given camera (except for the images as these are quite large to store, even temporarily).
 
-For a `GET` on the endpoint `/detected_objects`, the response is:
+For a `GET` on the endpoint `/detected_objects`, the response is an array of:
 
 * Key=camera name
 * Value=dictionary of the data
@@ -165,15 +165,18 @@ Using this you can plot/display every camera and its count as soon as you get th
 Example response JSON:
 
 ``` json
-"JamCams_00001.01419": {
-    "car":{"0":3.0},
-    "delta":{"0":-1.0003459453582764},
-    "image":{"0":""},"lat":{"0":51.5596},
-    "lon":{"0":-0.07424},"person":{"0":3.0},
-    "timestamp":{"0":1692471825406959867},
-    "traffic light":{"0":1.0},
-    "truck":{"0":1.0}
-}
+[
+  "JamCams_00001.01419": {
+      "car":{"0":3.0},
+      "delta":{"0":-1.0003459453582764},
+      "image":{"0":""},"lat":{"0":51.5596},
+      "lon":{"0":-0.07424},"person":{"0":3.0},
+      "timestamp":{"0":1692471825406959867},
+      "traffic light":{"0":1.0},
+      "truck":{"0":1.0}
+  },
+  ...
+]
 ```
 
 ## S3
@@ -189,4 +192,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 7 - Summary :material-arrow-right-circle:{ align=right }](../image-processing/summary.md)
+[Part 7 - Add a new service :material-arrow-right-circle:{ align=right }](../image-processing/add-service.md)

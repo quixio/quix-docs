@@ -68,7 +68,8 @@ nav:
         - '4. Object detection': platform/tutorials/image-processing/object-detection.md
         - '5. Web UI': platform/tutorials/image-processing/web-ui.md
         - '6. Other services': platform/tutorials/image-processing/other-services.md
-        - '7. Summary': platform/tutorials/image-processing/summary.md        
+        - '7. Add service': platform/tutorials/image-processing/add-service.md
+        - '8. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
         - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'

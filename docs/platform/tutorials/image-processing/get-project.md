@@ -76,7 +76,7 @@ To link Quix to this forked repository:
 
 You now need to add an environment to your project. This is explained in the following section.
 
-## Create your environment
+## Create your Develop environment
 
 A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `develop` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Develop` environment mapped to the `develop` branch of the repository.
 
@@ -85,6 +85,14 @@ Now create an environment called `Develop` which uses the `develop` branch:
 1. Enter the environment name `Develop`.
 
 2. Select the `develop` branch from the dropdown.
+
+    Make sure the branch is protected, as shown in the following screenshot:
+
+    ![Protected branch](../image-processing/images/protected-branch.png){width=70%}
+
+    !!! tip
+
+        Making a branch protected ensures that developers cannot commit directly into the branch. Developers have to raise pull requests (PRs), which need to be approved before they can be merged into the protected branch.
 
 3. Click `Continue` and then select the Quix Broker and Standard storage options to complete creation of the environment, and the project.
 

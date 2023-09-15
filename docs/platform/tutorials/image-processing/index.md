@@ -136,7 +136,9 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 6. [Other services](../image-processing/other-services.md). The other services are fairly simple so are collected together for discussion. You can optionally investigate the message data format and code. 
 
-7. [Summary](../image-processing/summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+7. [Add new service](../image-processing/add-service.md). You add a new service to a feature branch, test it, and then merge to the develop branch.
+
+8. [Summary](../image-processing/summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
 ## 🏃‍♀️ Next step
 
