@@ -122,6 +122,10 @@ Metadata is key to data governance and becomes very useful in down-stream data p
 
 Read more about [Metadata](../client-library/publish.md#parameter-definitions).
 
+## Microservice
+
+An instance of a Quix Application that has been deployed and is running. When applications are deployed in the processing pipeline, they are running as microservices, and often referred to simply as services.
+
 ## Model
 
 A machine learning model "program" that comprises of both data and a procedure for using the data to make a prediction. In the case of neural networks, a model has typically been trained on a dataset. A standard program or script is not a model - if deployed, this is an application. For example, the sorted list output of a sorting algorithm is not really a model. Neither is an alert script that sends a message when the incoming data goes over a certain threshold. Note: during development a model can be deployed as a job. For example, when training the model.
