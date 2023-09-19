@@ -11,6 +11,7 @@ You'll fork the complete project from GitHub, and then create a Quix project fro
 This template project uses the following technologies:
 
 * [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
+* [Apache Kafka](https://kafka.apache.org/){target=_blank}
 * [OpenCV](https://opencv.org/){target=_blank}
 * [YOLOv8](https://github.com/ultralytics/ultralytics){target=_blank}
 * [Amazon Web Services (AWS) S3](https://aws.amazon.com/s3/){target=_blank}
@@ -22,7 +23,7 @@ This template project uses the following technologies:
 * [Python 3](https://www.python.org/){target=_blank}
 * [Flask](https://flask.palletsprojects.com/en/2.3.x/#){target=_blank}
 * [pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}
-* [Google Maps](https://developers.google.com/maps)
+* [Google Maps](https://developers.google.com/maps){target=_blank}
 
 ## Live demo
 
