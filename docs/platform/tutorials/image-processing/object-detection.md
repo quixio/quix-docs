@@ -109,7 +109,7 @@ Using what you have learned in previous parts of this tutorial, check the format
 
 ### Task - Determine the output topic name
 
-Using the pipline view, can you determine the topic name that the output messages are being published to?
+Using the pipeline view, can you determine the topic name that the output messages are being published to?
 
 ## See also
 
