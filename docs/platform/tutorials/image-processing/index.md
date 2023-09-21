@@ -8,21 +8,35 @@ You'll fork the complete project from GitHub, and then create a Quix project fro
 
 ## Technologies used
 
-This template project uses the following technologies:
+Some of the technologies used by this template project are listed here.
 
-* [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
+**Infrastructure:** 
+
+* [Quix](https://quix.io/){target=_blank}
+* [Docker](https://www.docker.com/){target=_blank}
+* [Kubernetes](https://kubernetes.io/){target=_blank}
+
+**Backend:** 
+
 * [Apache Kafka](https://kafka.apache.org/){target=_blank}
+* [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
+* [Flask](https://flask.palletsprojects.com/en/2.3.x/#){target=_blank}
+* [pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}
+
+**Video capture:**
+
+* [TfL API](https://api-portal.tfl.gov.uk){target=_blank}
 * [OpenCV](https://opencv.org/){target=_blank}
+
+**Object detection:**
+
 * [YOLOv8](https://github.com/ultralytics/ultralytics){target=_blank}
-* [Amazon Web Services (AWS) S3](https://aws.amazon.com/s3/){target=_blank}
-* [Git](https://git-scm.com/){target=_blank}
+
+**Frontend:** 
+
 * [Angular](https://angular.io/){target=_blank}
 * [Typescript](https://www.typescriptlang.org/){target=_blank}
 * [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/){target=_blank}
-* [TfL API](https://api-portal.tfl.gov.uk){target=_blank}
-* [Python 3](https://www.python.org/){target=_blank}
-* [Flask](https://flask.palletsprojects.com/en/2.3.x/#){target=_blank}
-* [pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}
 * [Google Maps](https://developers.google.com/maps){target=_blank}
 
 ## Live demo
@@ -30,7 +44,7 @@ This template project uses the following technologies:
 You can see the project running live on Quix:
 
 <div id="wrap">
-    <iframe id="frame" src="https://app-demo-computervisiondemo-frontend.deployments.quix.ai/" title="Live real-time stream processing demo"></iframe>
+    <iframe id="frame" src="https://app-demo-computervisiondemo-frontend.deployments.quix.ai/" title="Live real-time image processing"></iframe>
 </div>
 
 You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-frontend.deployments.quix.ai/){target="_blank"}.
@@ -125,22 +139,22 @@ More details are provided on all these services later in the tutorial.
 
 This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
-1. [Get the project](../image-processing/get-project.md) - you get the project up and running in your Quix account. 
+1. [Get the project](get-project.md) - you get the project up and running in your Quix account. 
 
-2. [TfL camera feed](../image-processing/tfl-camera-feed.md) service. You examine the code and then see how to view the message data format used in the service, in real time.
+2. [TfL camera feed](tfl-camera-feed.md) service. You examine the code and then see how to view the message data format used in the service, in real time.
 
-3. [Frame grabber](../image-processing/tfl-frame-grabber.md) service. You examine the code and then see how to view the message data format used in the service, in real time.
+3. [Frame grabber](tfl-frame-grabber.md) service. You examine the code and then see how to view the message data format used in the service, in real time.
 
-4. [Object detection](../image-processing/object-detection.md) service. This is the YOLO v8 logic that identifies and annotates the objects identified in the frame. You examine the code and then see how to view the message data format used in the service, in real time.
+4. [Object detection](object-detection.md) service. This is the YOLO v8 logic that identifies and annotates the objects identified in the frame. You examine the code and then see how to view the message data format used in the service, in real time.
 
-5. [Web UI](../image-processing/web-ui.md) service. This is a JavaScript web client app that uses the Quix Streaming Reader API to read data from a Quix topic (the output of the stream merge service). There are various UI components that are beyond the scope of this tutorial.
+5. [Web UI](web-ui.md) service. This is a JavaScript web client app that uses the Quix Streaming Reader API to read data from a Quix topic (the output of the stream merge service). There are various UI components that are beyond the scope of this tutorial.
 
-6. [Other services](../image-processing/other-services.md). The other services are fairly simple so are collected together for discussion. You can optionally investigate the message data format and code. 
+6. [Other services](other-services.md). The other services are fairly simple so are collected together for discussion. You can optionally investigate the message data format and code. 
 
-7. [Add new service](../image-processing/add-service.md). You add a new service to a feature branch, test it, and then merge to the develop branch.
+7. [Add new service](add-service.md). You add a new service to a feature branch, test it, and then merge to the develop branch.
 
-8. [Summary](../image-processing/summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+8. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
 
 ## 🏃‍♀️ Next step
 
-[Part 1 - Get the project :material-arrow-right-circle:{ align=right }](../image-processing/get-project.md)
+[Part 1 - Get the project :material-arrow-right-circle:{ align=right }](get-project.md)

@@ -2,7 +2,7 @@
 
 In this part of the tutorial you learn about the web UI service. 
 
-![Web UI pipeline](../image-processing/images/web-ui-pipeline-segment.png)
+![Web UI pipeline](./images/web-ui-pipeline-segment.png)
 
 This provides the rather fancy interface for you to interact with this project.
 
@@ -120,7 +120,7 @@ If you have not done so, explore the web UI.
 
 1. In your pipeline view, click on the `external link` icon:
 
-    ![External link](../image-processing/images/external-link.png)
+    ![External link](./images/external-link.png)
 
 2. Now interact with the web UI.
 
@@ -134,4 +134,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 6 - Other services :material-arrow-right-circle:{ align=right }](../image-processing/other-services.md)
+[Part 6 - Other services :material-arrow-right-circle:{ align=right }](other-services.md)

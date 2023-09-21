@@ -2,7 +2,7 @@
 
 In this part of the tutorial you learn about the TfL frame grabber service. The main job of the frame grabber is to grab frames from the TfL video feed file, and then pass this on to the object detection service.
 
-![TfL frame grabber](../image-processing/images/tfl-frame-grabber-pipeline-segment.png)
+![TfL frame grabber](./images/tfl-frame-grabber-pipeline-segment.png)
 
 ## 💡 Key ideas
 
@@ -129,4 +129,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 4 - Object detection :material-arrow-right-circle:{ align=right }](../image-processing/object-detection.md)
+[Part 4 - Object detection :material-arrow-right-circle:{ align=right }](object-detection.md)

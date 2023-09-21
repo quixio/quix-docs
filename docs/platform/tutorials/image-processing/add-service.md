@@ -10,13 +10,13 @@ To create a new environment (and branch):
 
 1. Click `+ New environment` to create a new environment (note, your screen will look slightly different to the one shown here):
 
-    ![New environment](../image-processing/images/new-environment.png)
+    ![New environment](./images/new-environment.png)
 
 2. Create a new environment called `Cars Only`.
 
 3. Create a new branch called `cars-only`. To do this, from the branch dropdown click `+ New branch` which displays the New branch dialog:
 
-    ![New branch](../image-processing/images/new-branch.png)
+    ![New branch](./images/new-branch.png)
 
     !!! important
 
@@ -34,7 +34,7 @@ To synchronize Quix with the repository:
 
 1. Click `Sync environment`:
 
-    ![Sync environment](../image-processing/images/sync-environment.png)
+    ![Sync environment](./images/sync-environment.png)
 
     The sync environment dialog is displayed, showing you the changes that are to be made to the `quix.yaml` file, which is the configuration file that defines the pipeline.
 
@@ -139,7 +139,7 @@ To create the transform:
 
 5. Edit environment variables, so that the input topic is `image-processed-merged` and the output topic is a new topic called `cars-only`, as shown in the following screenshot:
 
-    ![Edit environment variables](../image-processing/images/edit-env-variables.png)
+    ![Edit environment variables](./images/edit-env-variables.png)
 
     !!! tip
 
@@ -147,7 +147,7 @@ To create the transform:
 
 6. Click the tag icon (see screenshot), and give the code a tag such as `cars-only-v1`:
 
-    ![Tag icon](../image-processing/images/tag.png)
+    ![Tag icon](./images/tag.png)
 
 7. Click the `Deploy` button and select the version tag `cars-only-v1` from the `Version tag` dropdown, and leaving all other values at their defaults, click `Deploy`.
 
@@ -173,7 +173,7 @@ You now use the Quix Data Explorer to view the cars data in real time.
 
     You see the waveform showing the number of cars detected:
 
-    ![Cars waveform](../image-processing/images/cars-waveform.png)
+    ![Cars waveform](./images/cars-waveform.png)
 
 ## Merge the feature
 
@@ -183,11 +183,11 @@ To merge your feature branch, `cars-only` into `develop`:
 
 1. Select `Merge request` from the menu as shown:
 
-    ![Merge request menu](../image-processing/images/merge-request-menu.png)
+    ![Merge request menu](./images/merge-request-menu.png)
 
 2. In the `Merge request` dialog, set the `cars-only` branch to merge into the `develop` branch, as shown:
 
-    ![Merge request dialog](../image-processing/images/merge-request-dialog.png)
+    ![Merge request dialog](./images/merge-request-dialog.png)
 
 You are going to create a pull request, rather than perform a direct merge. This enables you to have the PR reviewed in GitHub (or other Git provider). You are also going to do a squash and merge, as much of the feature branch history is not required.
 
@@ -197,15 +197,15 @@ To create the pull request:
 
 2. Click the `Pull request` button:
 
-    ![Pull request GitHub](../image-processing/images/pull-request-github.png)
+    ![Pull request GitHub](./images/pull-request-github.png)
 
 3. Add your description, and then click `Create pull request`:
 
-    ![Pull request description](../image-processing/images/pr-add-description.png)
+    ![Pull request description](./images/pr-add-description.png)
 
 4. Get your PR reviewed and approved. Then squash and merge the commits:
 
-    ![Squash and merge](../image-processing/images/squash-and-merge.png)
+    ![Squash and merge](./images/squash-and-merge.png)
 
     You can replace the prefilled description by something more succinct. Then click `Confirm squash and merge`.
 
@@ -217,7 +217,7 @@ To create the pull request:
 
 You have now merged your new feature into the `develop` branch in the Git repository. Your Quix view in the Develop environment is now out of sync with the Git repository. If you click on your Develop environment in Quix, you'll see it is now a commit (the merge commit) behind:
 
-![Develop behind](../image-processing/images/develop-behind.png)
+![Develop behind](./images/develop-behind.png)
 
 You now need to make sure your Develop environment in Quix is synchronized with the Git repository. To do this:
 
@@ -231,5 +231,5 @@ Your new service will build and start in the Develop environment, where you can 
 
 ## 🏃‍♀️ Next step
 
-[Part 8 - Summary :material-arrow-right-circle:{ align=right }](../image-processing/summary.md)
+[Part 8 - Summary :material-arrow-right-circle:{ align=right }](summary.md)
  

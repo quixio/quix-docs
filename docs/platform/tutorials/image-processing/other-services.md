@@ -2,7 +2,7 @@
 
 There are some additional services in the pipeline that provide useful functionality. These range from S3 storage of data to calculation of the maximum vehicles per day in a specific location.
 
-![Other services](../image-processing/images/other-services-pipeline-segment.png)
+![Other services](./images/other-services-pipeline-segment.png)
 
 Briefly, these services are:
 
@@ -111,7 +111,7 @@ The max vehicles service takes the total vehicle count and finds the maximum val
 
 You can see the exact time window is recorded, along with the maximum vehicle count during that time window. This provides a crude measure of the capacity of the road. This capacity can then be used by the UI to calculate a percentage of capacity. For example, if there are 8 cars on a road, and the maximum seen is 10, then the road is considered to be at 80% capacity, and this is displayed on the UI, as shown in the following screenshot:
 
-![Road capacity](../image-processing/images/road-capacity.png)
+![Road capacity](./images/road-capacity.png)
 
 This service uses [state](https://quix.io/docs/client-library/state-management.html), as you need to save the maximum count reached during the time window. 
 
@@ -192,4 +192,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 7 - Add a new service :material-arrow-right-circle:{ align=right }](../image-processing/add-service.md)
+[Part 7 - Add a new service :material-arrow-right-circle:{ align=right }](add-service.md)

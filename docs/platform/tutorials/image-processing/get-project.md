@@ -88,7 +88,7 @@ Now create an environment called `Develop` which uses the `develop` branch:
 
     Make sure the branch is protected, as shown in the following screenshot:
 
-    ![Protected branch](../image-processing/images/protected-branch.png){width=70%}
+    ![Protected branch](./images/protected-branch.png){width=70%}
 
     !!! tip
 
@@ -108,4 +108,4 @@ If you are new to Quix it is worth reviewing the [recent changes page](../../cha
 
 ## 🏃‍♀️ Next step
 
-[Part 2 - TfL camera feed :material-arrow-right-circle:{ align=right }](../image-processing/tfl-camera-feed.md)
+[Part 2 - TfL camera feed :material-arrow-right-circle:{ align=right }](tfl-camera-feed.md)

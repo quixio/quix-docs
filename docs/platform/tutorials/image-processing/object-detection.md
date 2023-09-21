@@ -2,7 +2,7 @@
 
 This service takes frames from the frame grabber and detects objects in each frame. This service uses the [YOLOv8 object detection library](https://github.com/ultralytics/ultralytics){target=_blank}.
 
-![Object detection](../image-processing/images/object-detection-pipeline-segment.png)
+![Object detection](./images/object-detection-pipeline-segment.png)
 
 ## 💡 Key ideas
 
@@ -67,7 +67,7 @@ Objects are detected in the frame by the YOLOv8 code. Data is published to the o
 
 The key data here is the count of each vehicle type in the frame. Further, an annotated image (detected objects are marked with a green rectangle) is also included as binary data. The annotated image is used by the UI to display detected objects, as shown in the following screenshot:
 
-![Detected object](../image-processing/images/detected-objects.png)
+![Detected object](./images/detected-objects.png)
 
 ## 👩‍🔬 Lab - Examine the logs
 
@@ -81,7 +81,7 @@ To view the logs for a service:
 
 3. You can now see the log messages being produced by the service:
 
-    ![Object detection logs](../image-processing/images/object-detection-logs.png)
+    ![Object detection logs](./images/object-detection-logs.png)
 
     !!! tip
 
@@ -95,7 +95,7 @@ You now learn how to examine the code for the service. You may want to fix bugs 
 
 1. Click the panel indicated in the screenshot:
 
-    ![object detection code](../image-processing/images/object-detection-code.png){width=60%}
+    ![object detection code](./images/object-detection-code.png){width=60%}
 
     This takes you to the code view. You can view or edit the complete code for this service here. 
     
@@ -119,4 +119,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 5 - Web UI :material-arrow-right-circle:{ align=right }](../image-processing/web-ui.md)
+[Part 5 - Web UI :material-arrow-right-circle:{ align=right }](web-ui.md)

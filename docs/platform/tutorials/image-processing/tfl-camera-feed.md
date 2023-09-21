@@ -2,7 +2,7 @@
 
 In this part of the tutorial you take a look at the TfL camera feed service. The main function of this service is to retrieve camera data from the TfL API and pass it to the frame grabber service.
 
-![TfL camera feed](../image-processing/images/tfl-camera-feed-pipeline-segment.png)
+![TfL camera feed](./images/tfl-camera-feed-pipeline-segment.png)
 
 ## 💡 Key ideas
 
@@ -128,7 +128,7 @@ To see the message format on the output topic of the service:
 
 2. Click the `Messages` tab and then click on a message. You will see something similar to the following screenshot:
 
-    ![Message view](../image-processing/images/tfl-camera-feed-message-view.png)
+    ![Message view](./images/tfl-camera-feed-message-view.png)
 
     You might see messages that have the format:
 
@@ -167,4 +167,4 @@ For more information refer to:
 
 ## 🏃‍♀️ Next step
 
-[Part 3 - Frame grabber :material-arrow-right-circle:{ align=right }](../image-processing/tfl-frame-grabber.md)
+[Part 3 - Frame grabber :material-arrow-right-circle:{ align=right }](tfl-frame-grabber.md)
