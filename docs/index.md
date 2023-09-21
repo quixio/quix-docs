@@ -2,13 +2,19 @@
 
 Welcome to the Quix developer documentation!
 
-!!! note "Closed Beta"
+!!! note "Beta"
 
-    **See [here](./platform/changes.md) for significant changes.**
+    **See [here](./platform/changes.md) for significant recent changes.**
 
 !!! tip
     
     Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+
+## Documentation changelog
+
+The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
 
 ## Get started
 
