@@ -21,9 +21,9 @@ The key ideas on this page:
 
 ## What it does
 
-The key thing this service does is provides a UI that enables you to see vehicle data in real time, displayed on a Google map.
+The key thing this service does is provide a UI that enables you to see vehicle data in real time, displayed on a Google map.
 
-The UI is a JavaScript web client. The most important thing to understand is how this service obtains data from the Quix pipeline. This is done through use of the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md). 
+The UI is an Angular web client written using Typescript. The most important thing to understand is how this service obtains data from the Quix pipeline. This is done through use of the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md). 
 
 The Streaming Reader API has both an HTTP and WebSockets interface you can use to interface with a Quix topic. This web client uses the WebSockets interface. This enables data to be streamed from the Quix topic into the web client with good performance. This is a more efficient method than using the request-response method of HTTP.
 

@@ -72,12 +72,13 @@ nav:
         - '8. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
-        - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
-        - '2. Analyzing sentiment': 'platform/tutorials/sentiment-analysis/analyze.md'
-        - '3. Twitter data': 'platform/tutorials/sentiment-analysis/twitter-data.md'
-        - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
-        - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
-        - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
+        - '1. Get the project': platform/tutorials/sentiment-analysis/get-project.md
+        - '2. Try the UI': 'platform/tutorials/sentiment-analysis/try-the-ui.md'
+        - '3. UI service': 'platform/tutorials/sentiment-analysis/ui-service.md'
+        - '4. Sentiment analysis service': 'platform/tutorials/sentiment-analysis/sentiment-analysis-service.md'
+        - '5. Twitch service': 'platform/tutorials/sentiment-analysis/twitch-service.md'
+        - '6. Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
+        - '7. Summary': 'platform/tutorials/sentiment-analysis/summary.md'
       - 'Real-time event detection':
         - 'platform/tutorials/event-detection/index.md'
         - '1. Data acquisition': 'platform/tutorials/event-detection/data-acquisition.md'

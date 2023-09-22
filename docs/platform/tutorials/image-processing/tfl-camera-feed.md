@@ -4,6 +4,10 @@ In this part of the tutorial you take a look at the TfL camera feed service. The
 
 ![TfL camera feed](./images/tfl-camera-feed-pipeline-segment.png)
 
+!!! tip
+
+    In the pipeline view, you can always determine a topic name by hovering over the connecting line that represents that topic. You can also click the connecting line, to see its name, and optionally to jump to the Data Explorer to view live data for the topic.
+
 ## 💡 Key ideas
 
 The key ideas on this page:
@@ -35,7 +39,7 @@ Note the stream name is derived from the camera ID, which has the format `JamCam
 
 !!! tip 
 
-    It is a common pattern to publish data to its own stream when it is from a different device or source. For example, if you had multiple IoT devices each with its own ID these would publish to their own stream. As streams are mapped to partitions by Quix Streams, the messages are guaranteed to be delivered in order. Publishing to multiple streams enables you to horizontally scale too. If you increased the number of paritions in the topic, the streams would be spread across all available partitions, enabling increased throughput and fault tolerance. Further, multiple consumer replicas could be used, and stream data would be processed by all available replicas in the consumer group. In the TfL camera feed service, data for each camera is published to its own stream for these reasons, the stream name being based on the camera ID.
+    It is a common pattern to publish data to its own stream when it is from a different device or source. For example, if you had multiple IoT devices each with its own ID these would publish to their own stream. As streams are mapped to partitions by Quix Streams, the messages are guaranteed to be delivered in order. Publishing to multiple streams enables you to horizontally scale too. If you increased the number of paritions in the topic, the streams would be spread across all available partitions, enabling increased throughput and fault tolerance. Further, multiple consumer replicas could be used, and stream data would be processed by all available replicas in the consumer group. In the TfL camera feed service, data for each camera is published to its own stream for these reasons, the stream name being based on the camera ID. If you ever need to obtain the stream ID, and it is not in the messsages available to that service, it is available through the stream object by using the `stream_id` property, for example, `stream_id = stream_consumer.stream_id`.
 
 The code then sleeps for two minutes. This prevents exceeding the 500 API requests from being exceeded.
 

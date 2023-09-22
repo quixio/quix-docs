@@ -107,10 +107,6 @@ You now learn how to examine the code for the service. You may want to fix bugs 
 
 Using what you have learned in previous parts of this tutorial, check the format of the messages published by this service. 
 
-### Task - Determine the output topic name
-
-Using the pipeline view, can you determine the topic name that the output messages are being published to?
-
 ## See also
 
 For more information refer to:

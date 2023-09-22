@@ -115,19 +115,19 @@ There are several *main* stages in the pipeline:
 
 1. *TfL camera feed* - TfL Camera feed or "Jam Cams". This service retrieves the raw data from the TfL API endpoint. A list of all JamCams is retrieved, along with the camera data. The camera data contains a link to a video clip from the camera. These video clips are hosted by TfL in MP4 format on AWS S3. A stream is created for each camera, and the camera data published to this stream. Using multiple streams in this way enables a solution capable of horizontal scaling, through additional topic partitions and, optionally, replicated services in a consumer group. Once the camera list has been scanned, the service sleeps for two minutes, and then repeats the previous code. This reduces the load, and also means the API limit of 500 requests per minute is not exceeded. Messages are passed to the frame grabber.
 
-2. *TfL traffic camera frame grabber* - This service grabs frames from a TfL video file (MP4 format) at the rate specified. By default the grabber extracts one frame every 100 frames, which is typically one per five seconds of video. Messages are passed to the object detection service.
+2. *TfL traffic camera frame grabber* - this service grabs frames from a TfL video file (MP4 format) at the rate specified. By default the grabber extracts one frame every 100 frames, which is typically one per five seconds of video. Messages are passed to the object detection service.
 
-3. *Object detection* - This service uses the YOLOv8 computer vision algorthm to detect objects within a given frame.
+3. *Object detection* - this service uses the YOLOv8 computer vision algorthm to detect objects within a given frame.
 
-4. *Stream merge* - Merges the separate data streams (one for each camera) back into one, prior to sending to the UI. This is a legacy service that is not really required any more, and will be removed from future iterations of this project. It is not discussed further in this tutorial.
+4. *Stream merge* - merges the separate data streams (one for each camera) back into one, prior to sending to the UI.
 
-5. *Web UI* - A UI that displays: frames with the objects that have been identified, and a map with a count of objects at each camera's location. The web UI is a web client app that uses the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md), to read data from a Quix topic.
+5. *Web UI* - a UI that displays: frames with the objects that have been identified, and a map with a count of objects at each camera's location. The web UI is a web client app that uses the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md), to read data from a Quix topic.
 
 There are also some additional services in the pipeline:
 
-1. *Cam vehicles* - calculates the total vehicles, where vehicle is defined as one of: car, 'bus', 'truck', 'motorbike'. This number is fed into the *Max vehicle window* service.
+1. *Cam vehicles* - calculates the total vehicles, where vehicle is defined as one of: car, 'bus', 'truck', 'motorbike'. This number is published to its utput topic. The *Max vehicle window* service subscribes to this topic.
 
-2. *Max vehicle window* - calculates the total vehicles over a time window of one day. This service sends messages to the Data API service.
+2. *Max vehicle window* - calculates the total vehicles over a time window of one day. This service publishes messages its output topic. 
 
 3. *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
 

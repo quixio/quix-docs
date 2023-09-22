@@ -1,8 +1,8 @@
 # 👩‍🔬 Lab - Add a new service
 
-In this lab you use everything you've learned so far, to add a new service to the pipeline. Specifically, you add a service to publish the number of cars captured by the TfL cams to a new topic. You will then observe the number of cars change in real time using the waveform view of the Quix Data Explorer. This service could be useful if you want to easily store the number of cars, or perhsp create an alarm if the number of cars rises above a certain threshold. This service is a simple example of filtering - where you filter out data you are not interested in for subsequent processing.
+In this lab you use everything you've learned so far, to add a new service to the pipeline. Specifically, you add a service to publish the number of cars captured by the TfL cams to a new topic. You will then observe the number of cars change in real time using the waveform view of the Quix Data Explorer. This service could be useful if you want to easily store the number of cars, or perhaps create an alarm if the number of cars rises above a certain threshold. This service is a simple example of filtering - where you filter out data you are not interested in for subsequent processing.
 
-You develop this service on a feature branch, and then, you create a PR to merge your new feature into the develop branch. This is a common pattern for development - you can test your new service on the feature branch, and then test again on the develop branch, before final integration into the production `main` branch.
+You develop this service on a feature branch, and then you create a PR to merge your new feature into the develop branch. This is a common pattern for development - you can test your new service on the feature branch, and then test again on the develop branch, before final integration into the production `main` branch.
 
 ## Create an environment
 
@@ -211,7 +211,7 @@ To create the pull request:
 
     !!! tip
 
-        You can just merge, you don't have to squash and merge. You would then retain the complete commit hsitory for your service while it was being developed. Squash and merge is used in this case by way of example, as the commit messages generated while the service was being developed were deemed to be not useful in this case.
+        You can just merge, you don't have to squash and merge. You would then retain the complete commit history for your service while it was being developed. Squash and merge is used in this case by way of example, as the commit messages generated while the service was being developed were deemed to be not useful in this case.
 
 ## Resync the Develop environment
 

@@ -6,13 +6,38 @@ There are some additional services in the pipeline that provide useful functiona
 
 Briefly, these services are:
 
-1. *Cam vehicles* - calculates the total vehicles, where vehicle is defined as one of: car, 'bus', 'truck', 'motorbike'. This number is fed into the *Max vehicle window* service.
+* *Stream merge* - merges all the traffic cam streams into a single stream to make things easier to process in the UI.
 
-2. *Max vehicle window* - calculates the maximum vehicles over a time window of one day. This service sends messages to the Data API service.
+* *Cam vehicles* - calculates the total vehicles, where vehicle is defined as one of: car, 'bus', 'truck', 'motorbike'. This number is fed into the *Max vehicle window* service.
 
-3. *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
+* *Max Vehicle Window* - calculates the maximum vehicles over a time window of one day. This service sends messages to the Data API service.
 
-4. *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
+* *Data buffer* - TODO
+
+* *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
+
+* *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
+
+!!! tip
+
+  If you ever need to obtain the stream ID, and it is not in the messsages available to the service, it is available through the stream object by using the `stream_id` property, for example, `stream_id = stream_consumer.stream_id`.
+
+## Stream merge
+
+This service prepares data for ease of processing by the UI. Merges all streams onto a single stream. The input stream is `image-processed`, the output stream is `image-processed-merged`. Note the code also decodes the image and then does a Base64 encode prior to passing to the output topic. The UI uses the Quix Streaming Reader to read the messages from `image-processed-merged`, including the Base64 encoded image data.
+
+The key code:
+
+``` python
+  # Callback triggered for each new parameter data.
+  def on_dataframe_handler(self, stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
+
+      df["TAG__parent_streamId"] = self.consumer_stream.stream_id
+      df['image'] = df["image"].apply(lambda x: str(base64.b64encode(x).decode('utf-8')))
+
+      self.producer_topic.get_or_create_stream("image-feed") \
+          .timeseries.buffer.publish(df)
+```
 
 ## Cam vehicles
 
@@ -75,7 +100,7 @@ def on_dataframe_received_handler(stream_consumer: qx.StreamConsumer, df: pd.Dat
 
 You can find out more about pandas DataFrames in the [pandas documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}.
 
-## Max vehicles
+## Max Vehicle Window
 
 The max vehicles service takes the total vehicle count and finds the maximum value over a one day window. This value is made available to the Data API service. The message passed to the Data API has the following format:
 
@@ -115,7 +140,13 @@ You can see the exact time window is recorded, along with the maximum vehicle co
 
 This service uses [state](https://quix.io/docs/client-library/state-management.html), as you need to save the maximum count reached during the time window. 
 
+## Data buffer
+
+TODO:
+
 ## Data API
+
+TODO: add purpose
 
 The Data API provides these endpoints:
 
@@ -142,7 +173,7 @@ Example response JSON:
 }
 ```
 
-This service is implemented as a simple Flask web app hosted in Quix.
+This service is implemented as a simple [Flask web app](https://flask.palletsprojects.com/en/2.3.x/quickstart/){target=_blank} hosted in Quix.
 
 ### Detected Objects 
 
