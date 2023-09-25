@@ -89,6 +89,16 @@ Follow these steps to locate your TfL API key:
 
   6. You can now find your API Keys in the profile page.
 
+When testing the project you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. 
+
+To set the Google Maps API key to an empty string, you need to edit `app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
+
+``` typescript
+AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
+```
+
 ### Git provider
 
 You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](){target=_blank}.

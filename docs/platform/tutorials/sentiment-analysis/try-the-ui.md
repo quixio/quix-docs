@@ -1,6 +1,6 @@
 # Try the UI
 
-TODO
+In this part of the tutorial you try out the UI to get a feel for the project and what it does.
 
 !!! tip
 

@@ -12,7 +12,7 @@ Briefly, these services are:
 
 * *Max Vehicle Window* - calculates the maximum vehicles over a time window of one day. This service sends messages to the Data API service.
 
-* *Data buffer* - TODO
+* *Data buffer* - this provides a one second data buffer. This helps reduce load on the Data API service.
 
 * *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
 
@@ -142,18 +142,20 @@ This service uses [state](https://quix.io/docs/client-library/state-management.h
 
 ## Data buffer
 
-TODO:
+This service provides a one second data buffer. This reduces load on the Data API service. There are three input topics to the service, `max-vehicles`, `processed-images`, and `vehicle-counts`: and one output topic, `buffered-data`.
+
+See the documentation on [using buffers](https://quix.io/docs/client-library/publish.html#using-a-buffer).
 
 ## Data API
 
-TODO: add purpose
+The data service offloads calculations that could be done in the web client, and instead provides key data only when the UI needs it. The UI can request this data when it needs it through the REST API of the Data API service.
 
 The Data API provides these endpoints:
 
 * max_vehicles
 * detected_objects
 
-These are used by the UI to obtain and display the data on the web interface.
+These are used by the UI to obtain and then display the data on the web interface.
 
 ### Max Vehicles 
 
