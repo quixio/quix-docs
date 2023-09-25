@@ -11,6 +11,12 @@ The key ideas on this page:
 * A Quix service can use external APIs to retrieve data and then publish that data into a Quix topic
 * Publish time series data
 
+## Twitch credentials
+
+To run the Twitch service you'll need to provide your Twitch API credentials. You can configure these as [secret variables](../../how-to/environment-variables.md#secrets-management). The credentials required are shown in the following screenshot:
+
+![Twitch credentials](../sentiment-analysis/images/twitch-credentials.png)
+
 ## What it does
 
 The Twitch service uses the [Twitch API](https://dev.twitch.tv/docs/api/){target=_blank} to read messages from some of the most popular channels. It then publishes these messages to the output topic, `messages`. 
