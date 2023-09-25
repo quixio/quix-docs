@@ -73,6 +73,8 @@ To get started make sure you have a [free Quix account](https://portal.platform.
 
 If you are new to Quix it is worth reviewing the [recent changes page](../../changes.md), as that contains very useful information about the significant recent changes, and also has a number of useful videos you can watch to gain familiarity with Quix.
 
+### TfL account and API key
+
 You'll also need a [free TfL account](https://api-portal.tfl.gov.uk){target=_blank}. 
 
 Follow these steps to locate your TfL API key:
@@ -88,6 +90,12 @@ Follow these steps to locate your TfL API key:
   5. Enter a name for your subscription into the box, for example "QuixFeed", and click `Register`.
 
   6. You can now find your API Keys in the profile page.
+
+Later, you'll need to configure the TfL service with your own TfL API key. To do this, open the service and edit the environment variable as shown here:
+
+![TfL credentials](./images/tfl-credentials.png){width=60%}
+
+### Google Maps API key
 
 When testing the project you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. 
 

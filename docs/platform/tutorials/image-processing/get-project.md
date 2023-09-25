@@ -102,6 +102,30 @@ Now create an environment called `Develop` which uses the `develop` branch:
 
 At this point you can wait a few minutes for the pipeline services to completely build and start running.
 
+## Configure credentials
+
+As the project uses Quix API credentials, you'll now need to configure your details for the services that require API keys.
+
+### TfL camera feed
+
+Open the service and edit the environment variable as shown here:
+
+![TfL credentials](./images/tfl-credentials.png){width=60%}
+
+### Web UI service
+
+When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. 
+
+To set the Google Maps API key to an empty string, you need to edit `app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
+
+``` typescript
+AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
+```
+
+Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials fo you want to use it.
+
 ## See also
 
 If you are new to Quix it is worth reviewing the [recent changes page](../../changes.md), as that contains very useful information about the significant recent changes, and also has a number of useful videos you can watch to gain familiarity with Quix.
