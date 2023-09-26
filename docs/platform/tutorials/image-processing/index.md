@@ -44,10 +44,10 @@ Some of the technologies used by this template project are listed here.
 You can see the project running live on Quix:
 
 <div id="wrap">
-    <iframe id="frame" src="https://app-demo-computervisiondemo-frontend.deployments.quix.ai/" title="Live real-time image processing"></iframe>
+    <iframe id="frame" src="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" title="Live real-time image processing"></iframe>
 </div>
 
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-frontend.deployments.quix.ai/){target="_blank"}.
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target="_blank"}.
 
 ## Watch a video
 

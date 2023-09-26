@@ -46,10 +46,10 @@ Some of the technologies used by this template project are listed here.
 You can see the project running live on Quix:
 
 <div id="wrap">
-    <iframe id="frame" src="https://sentimentdemoui-f203bf0-demo-chatappdemo-newfeui.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
+    <iframe id="frame" src="https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
 </div>
 
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-f203bf0-demo-chatappdemo-newfeui.deployments.quix.ai/chat){target="_blank"}.
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
 
 ## Watch a video
 
