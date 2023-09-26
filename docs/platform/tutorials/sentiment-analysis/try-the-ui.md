@@ -10,7 +10,7 @@ Now try out the UI you just deployed. To do this:
 
 1. In the pipeline view find the UI service tile, as shown in the following screenshot:
 
-	![Deployed UI tile](./images/ui-tile.png){width=200px}
+	![Deployed UI tile](./images/web-ui-pipeline-segment.png){width=200px}
 
 2. In the service tile, click the external link icon to launch the UI in a new tab:
 
