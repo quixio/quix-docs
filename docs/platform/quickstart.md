@@ -2,11 +2,15 @@
 
 This Quickstart is designed to show you how to get your data into Quix and display it, in **less than 10 minutes**.
 
-## Video
+## Watch a video
 
-Watch the video showing what you're going to build.
+Create your first project and environment:
 
-<div style="position: relative; padding-bottom: 52.742123687281214%; height: 0;"><iframe src="https://www.loom.com/embed/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=890e16d2-60cb-4483-be3c-11db01cd93d2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 59.726027397260275%; height: 0;"><iframe src="https://www.loom.com/embed/6056fffa4f0e49799ed24a54496ae81a?sid=4475117c-41c3-462b-9550-4c33dae5da2a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Get data into Quix and display it:
+
+<div style="position: relative; padding-bottom: 59.47802197802198%; height: 0;"><iframe src="https://www.loom.com/embed/5ce302bc4ca74b1d9a02ee9a80989666?sid=b40fc99c-ef0b-42cf-8baf-4bfa6911e187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Peek at the code
 
@@ -34,7 +38,7 @@ If you're just curious, click the box to see the complete code.
         cpu_load = psutil.cpu_percent(interval=1)
         return cpu_load
 
-    # Obtain client library token from portal
+    # Obtain streaming token from portal
     client = qx.QuixStreamingClient(token) # (5)
 
     # Open a topic to publish data to
@@ -71,6 +75,10 @@ If you're just curious, click the box to see the complete code.
     7. Create a Quix stream to write to. You can think of a stream as a channel within a topic.
     8. Publish your data to the stream.
 
+## Download the code
+
+The complete code for the Quickstart can be found in the [Quix Tutorials GitHub repository](https://github.com/quixio/tutorial-code/tree/main/quickstart){target=_blank}.
+
 ## Prerequisites
 
 To complete the Quickstart you'll need the following:
@@ -96,11 +104,42 @@ You're going to use the [Quix Streams](../client-library-intro.md) library to pu
 
 You use the `psutil` module to retrieve the CPU load on your laptop.
 
-You use `python-dotenv` as you securely store your client library token (previously known as the SDK token) in a `.env` file.
+!!! tip
 
-## 2. Write your code
+    You use `python-dotenv` as you securely store your streaming token (previously known as the SDK token) in a `.env` file.
 
-1. Open up a terminal on your laptop, make a new directory for your project, and then create a new file `cpu_load.py`.
+## 2. Create your project and environment
+
+You'll need to create a project and an environment. You can watch a video on how to do this:
+
+<div style="position: relative; padding-bottom: 59.726027397260275%; height: 0;"><iframe src="https://www.loom.com/embed/6056fffa4f0e49799ed24a54496ae81a?sid=4475117c-41c3-462b-9550-4c33dae5da2a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## 3. Get your token
+
+You'll need a streaming token to connect your client code to your Quix environment:
+
+1. Log in to the Quix Portal and enter the `Develop` environment.
+2. Click `Settings` and then click `Develop` again to display the environment settings.
+3. Click `APIs and tokens`.
+4. Click `Streaming Token`.
+5. Copy the streaming token to the clipboard using the button provided.
+
+## 4. Create your `.env` file
+
+You'll store your streaming token securely in a `.env` file on your computer in the same directory as your Python code. To create the `.env` file:
+
+1. Open up a terminal on your laptop, make a new directory for your code. 
+2. Using your editor, create a `.env` file in your project directory. On the first line add the text `STREAMING_TOKEN=`.
+3. Paste the streaming token from the clipboard into the `.env` file _immediately_ after the `=` (there should be no space between the `=` and the token).
+4. Save the file.
+
+Your streaming token is now safely stored in your `.env` file for your Python code to use.
+
+## 5. Write your code
+
+You'll now write the Python code that runs on your computer, and publishes your CPU load into a Quix topic.
+
+1. Create a new file `cpu_load.py`.
 2. Copy and paste in the following code:
 
     ```python 
@@ -118,7 +157,7 @@ You use `python-dotenv` as you securely store your client library token (previou
         cpu_load = psutil.cpu_percent(interval=1)
         return cpu_load
 
-    # Obtain client library token from portal
+    # Obtain streaming token from portal
     client = qx.QuixStreamingClient(token)
 
     # Open a topic to publish data to
@@ -148,20 +187,7 @@ You use `python-dotenv` as you securely store your client library token (previou
 
 3. Save the file.
 
-## 3. Get your token
-
-1. Log in to the Quix Portal.
-2. Click `Settings`.
-3. Click `APIs and tokens`.
-4. Click `Streaming Token`.
-5. Copy the streaming token to the clipboard.
-6. Create a `.env` file in the same directory as your Python code. On the first line add `STREAMING_TOKEN=`
-7. Paste the streaming token from the clipboard into the `.env` file _immediately_ after the `=` (there should be no space between the `=` and the token).
-8. Save the file.
-
-Your streaming token is now safely stored in your `.env` file for the project.
-
-## 4. Run your code
+## 6. Run your code
 
 Run your code with the following command in your terminal:
 
@@ -169,27 +195,31 @@ Run your code with the following command in your terminal:
 python cpu_load.py
 ```
 
-The code runs and, after creating the `cpu-load` topic, displays your CPU load. The code is now publishing data to the Quix topic `cpu-load`.
-
 !!! tip
 
     If you're on Mac and using Homebrew, you may have multiple Python versions installed. In this case you may have to use the command `python3` to run your code. 
 
-## 5. See the data in Quix
+The code runs and, after creating the `cpu-load` topic, displays your CPU load. The code is now publishing data to the Quix topic `cpu-load`.
 
-1. Switch back to the Quix Portal.
+## 7. See the data in Quix
+
+1. Switch back to the Quix Portal and enter your `Develop` environment.
 2. Click on `Topics` in the main left-hand navigation.
 3. You see the `cpu-load` topic. Note the vertical green bars representing inbound data.
-4. Hover the mouse over the `Data` colum. You see the tool tip text `View live data`.
+4. Hover the mouse over the `Data` column. You see the tool tip text `View live data`.
 5. Click the mouse where the tool tip text is displayed. You are taken to the Quix Data Explorer in a new tab.
 6. Under `SELECT STREAMS` select the box `Quickstart CPU Load - Server 1`.
-7. Under `SELECT PARAMETERS OR EVENTS` select `CPU_Load`. Your real-time CPU load is displayed as a waveform. You can also take a look at the table view, and the message view. 
+7. Under `SELECT PARAMETERS OR EVENTS` select `CPU_Load`. 
+
+Your real-time CPU load is displayed as a waveform. You can also take a look at the table view, and the message view. 
 
 ## Conclusion
 
 That concludes the Quickstart! In this Quickstart you've learned the following:
 
-* How to push data into Quix Platform from the command line.
+* How to create a project and an environment.
+* How to obtain the streaming token for your environment.
+* How to publish data into a Quix topic from the command line using Quix Streams.
 * How to view real-time data in a topic using the Quix Data Explorer.
 
 ## Next steps

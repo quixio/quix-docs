@@ -20,11 +20,11 @@ By the end you will have:
     
     If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
 
-## Project Architecture
+## Application architecture
 
 ![The demo's architecture](architecture.png)
 
-The solution has 3 main elements:
+The solution has three main elements:
 
  - Two services to process data
 
@@ -32,7 +32,11 @@ The solution has 3 main elements:
 
 However, this is all running with the Quix Serverless environment.
 
-You have to create and deploy 3 projects, we have: . Created an always on high performance back-end . Created APIs and Services focused on performance . Opened firewall ports and optimized DNS propagation
+You have to create and deploy three applications. Quix has:
+
+1. Created an always on high performance back-end
+2. Created APIs and Services focused on performance
+3. Opened firewall ports and optimized DNS propagation
 
 ## Prerequisites
 
@@ -55,7 +59,7 @@ This walk through covers the following:
 
 ## Getting Started
 
-Login to Quix and open your Workspace, you get one workspace on the free tier, more on higher tiers. A Quix Workspace is a container to help you manage all the data, topics, models and services related to a single solution so we advise using a new, clean one for this tutorial.
+Login to Quix and open your project, you get one project on the free tier, more on higher tiers. A Quix project is a container to help you manage all the data, topics, models and services related to a single solution so we advise using a new, clean one for this tutorial.
 
 ### Code Samples
 
@@ -65,17 +69,17 @@ Navigate to `Code Samples` and search for `Streaming Demo`. You will see 3 resul
 
 ![Code Samples search results](library-items.png)
 
-You will save the code for each of these to your workspace and deploy the two services and the UI.
+You will save the code for each of these to your environment and deploy the two services and the UI.
 
 ### Input
 
-First you will select, build and deploy the input project, this project handles and transforms data from your phone.
+First you will select, build and deploy the input application, this application handles and transforms data from your phone.
 
-Don't worry, all the code you'll need is in the `Streaming Demo - Input` project.
+Don't worry, all the code you'll need is in the `Streaming Demo - Input` application.
 
 #### Save the code
 
-Follow these steps to get the code and deploy the project as a microservice.
+Follow these steps to get the code and deploy the application as a microservice.
 
 1. Click the tile
 2. Click `Edit code`
@@ -84,11 +88,11 @@ Follow these steps to get the code and deploy the project as a microservice.
 
         Leave the name, input and output as they are.
 
-        The input and output values are [Topics](../../glossary.md#topics). These have been pre-configured in this and the other projects in this tutorial to allow the services to communicate with each other.
+        The input and output values are [Topics](../../glossary.md#topics). These have been pre-configured in this and the other applications in this tutorial to allow the services to communicate with each other.
 
-3. Click `Save as project`
+3. Click `Save as Application`
 
-    This will save a copy of this code to your workspace.
+    This will save a copy of this code to your environment.
 
     ???- info "About the code"
         The code's main purpose is to listen for and respond in real-time to data and events being streamed to it via the `gamedata` topic.
@@ -103,7 +107,7 @@ Follow these steps to get the code and deploy the project as a microservice.
 
 4. Tag this version of the code by clicking the small tag icon at the top of the code window.
 
-    -  Type `v1.0` into the input box
+    -  Type `game-v1.0` into the input box
     -  Hit enter
 
 Next you will deploy the code as a microservice.
@@ -114,7 +118,7 @@ To deploy a microservice in Quix is a very simple three step process and step on
 
 1. Click `Deploy` near the top right hand corner of the screen.
 
-2. Select the `v1.0` tag you created earlier
+2. Select the `game-v1.0` tag you created earlier
 
 3. Click `Deploy`
 
@@ -134,15 +138,15 @@ To deploy a microservice in Quix is a very simple three step process and step on
 
 Now that you have the first service up and running it's time for the next one.
 
-Follow the same process as above and deploy the `Streaming Demo - Control` project.
+Follow the same process as above and deploy the `Streaming Demo - Control` application.
 
 Remember the steps are:
 
 1. Search the Code Samples for `Streaming Demo`
 
-2. Select the `Streaming Demo - Control` project
+2. Select the `Streaming Demo - Control` application
 
-3. Save it to your workspace
+3. Save it to your environment.
 
 4. Tag it
 
@@ -171,7 +175,7 @@ You should be familiar with the process by now.
 
 2. Select the `Streaming Demo - UI` tile.
 
-3. Save it to your workspace
+3. Save it to your environment
 
 4. Tag it
 
@@ -194,13 +198,13 @@ You should be familiar with the process by now.
 
 !!! success
 
-    🚀 You deployed the UI to your workspace and can now proceed to the fun part of the tutorial
+    🚀 You deployed the UI to your environment and can now proceed to the fun part of the tutorial
 
 
 ???- info "About the code"
     This UI code is Javascript and HTML, it displays the track and car and subscribes to data coming from the topics to keep the car where it's supposed to be or at least where you drive it!
 
-    The most relevant part of the code is where websockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr){target=_blank}.
+    The most relevant part of the code is where WebSockets are used via Microsoft's [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr){target=_blank}.
 
     For example these lines subscribe to various parameter values on the `car-game-control` topic.
 

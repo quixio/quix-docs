@@ -22,7 +22,7 @@ You can now deploy the VisualCrossing connector from the Quix Code Samples:
 
 1. Search the Code Samples for `weather` and select the `VisualCrossing Weather` tile.
 
-2. Click `Setup and deploy`.
+2. Click `Deploy`.
 
 3. Leave the `Name` as it is.
 	
@@ -32,7 +32,7 @@ You can now deploy the VisualCrossing connector from the Quix Code Samples:
 
 6. Click `Deploy`.
 
-	The precompiled service is deployed to your workspace and begins running immediately.
+	The precompiled service is deployed to your environment and begins running immediately.
 
 	!!! warning "Visual Crossing usage limitation"
 

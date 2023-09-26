@@ -2,9 +2,9 @@
 
 The Quix Platform provides the following APIs:
 
-## Data Catalogue
+## Query
 
-The [Data Catalogue HTTP API](data-catalogue-api/intro.md) allows you to fetch data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
+The [Query API](query-api/intro.md) allows you to fetch data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
 
 ## Streaming Writer
 
@@ -16,4 +16,4 @@ As an alternative to the client library, the Quix platform supports real-time da
 
 ## Portal API
 
-The [Portal API](portal-api.md) gives access to the Portal interface allowing you to automate access to data including Users, Workspaces, and Projects.
+The [Portal API](portal-api.md) gives access to the Portal interface enabling you to programmatically control projects, environments, applications, and deployments.

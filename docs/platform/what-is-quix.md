@@ -1,34 +1,60 @@
-# What is Quix Platform?
+# What is Quix?
 
-Quix Platform is a complete system that enables you to develop, debug, and deploy real-time streaming data applications. Quix also provides an online IDE and an open source streams processing library called Quix Streams. Quix Streams is the client library that you use in your Python or C# code to develop custom elements of your processing pipeline.
+Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications. 
 
-Quix Platform was built on top of a message broker, specifically [Kafka](../client-library/kafka.md), rather than on top of a database, as databases introduce latency that can result in problems in real-time applications, and can also present scaling issues. Scaling databases for real-time applications also introduces more cost and complexity. Quix Platform helps abstract these issues, providing you with a scaleable and cost effective solution. 
+!!! important
 
-Broker technology enables you to work with data in memory in real time, rather than data retrieved using complex queries from disk and then batch processed. This is much faster and therefore more suited to real-time applications. However, the problem with broker technologies is that they are more complex to use. Quix Platform and Quix Streams provide abstractions and tools so you can work directly with your data and not the underlying broker technology.
+    For recent significant changes to Quix Platform, please see the [changes documentation](../platform/changes.md).
 
-Quix also treats Python developers as first-class citizens, making it easier for Python developers to work with real-time data using the abstractions and tools they are already familiar with, such as using the pandas library and data frame format. 
+Streaming data applications, where you need to process time series or event data in order to make decisions in real time, is what Quix is designed for. 
 
-## The Quix stack
+With its roots in the demanding world of Formula 1 racing, where performance is paramount, Quix is built to deliver results. 
 
-Quix provides everything a developer needs to build low-latency real-time streaming applications. 
+Such intelligent real-time decision making has many use cases, including examples such as increasing engagement with social media and digital content, monitoring vast arrays of sensors, fraud prevention, and of course Formula 1 race car telemetry systems.
 
-From the top-down, the Quix stack provides the following:
+Quix has excellent synergy with Machine Learning (ML) systems too. You can quickly deploy your ML model and monitor its performance in real time, modify the model, and redeploy it with a single click. 
 
-* Quix Portal, the web-based Integrated Development Environment (IDE). [Sign up for free](https://portal.platform.quix.ai/self-sign-up).
-* [REST and websocket APIs](../apis/index.md)
-* [Quix Streams](../client-library-intro.md)
+!!! tip
 
-These allow developers to:
+    [Sign up for free](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
 
-* Use a full web-based IDE with version control and logging, to build their applications. 
+## Reducing complexity
+
+Quix is also designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your event streaming applications.
+
+Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for streaming data, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
+
+The following sections take a look at the key components of creating your streaming data solutions:
+
+* Connecting your data to Quix
+* Developing your application
+* Deploying (and scaling) pipelines
+* Monitoring and managing your data
+
+While this short introduction to Quix is intentionally brief, there are abundant links for more detailed information you can follow to increase your knowledge of Quix. Alternatively, simply drop into our [Community](https://forum.quix.io/){target=_blank} and ask any question you may have.
+
+## The Quix Platform
+
+The Quix Platform provides everything a developer needs to build industrial-strength event streaming applications. 
+
+The components that make up the Quix Platform enable developers to:
+
+* Use a full web-based IDE with version control and logging, to build, deploy, and monitor their event streaming applications. 
 * Have abstracted access to underlying broker infrastructure, including fully-managed Kafka topics.
-* Access the Quix serverless compute environment for hosting your web-based real-time streaming applications.
+* Single-click deployment to the Quix serverless compute environment for hosting your web-based real-time streaming applications.
 * Connect existing web applications and IoT clients.
-* Access the real-time data catalogue, which is a time-series database.
 
-![640](images/about/Product.png)
+In addition to providing a complete solution, Quix also enables you to leverage third-party providers if your use case requires it. For example, while Quix can host all your Git repositories, you can also configure your environments to use third-party providers for this purpose, such as GitHub, Bitbucket, and Azure DevOps. 
 
-## Quix Portal
+Similarly, Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud or self-hosted Kafka options.
+
+## Quix architecture
+
+This section describes the main technical components and architecture of Quix.
+
+![Quix Technical Architecture](./images/quix-technical-architecture.png)
+
+### Quix Portal
 
 **Quix Portal** strives to present an intuitive software experience that facilitates DevOps/MLOps best practices for development teams. The goals of Quix Portal are to:
 
@@ -38,7 +64,7 @@ These allow developers to:
 
 To achieve these goals, Quix Portal includes the following features:
 
-* **Online IDE**: Develop and run your real-time streaming applications directly in the browser without setting up a local environment.
+* **Online IDE**: Develop and run your streaming applications directly in the browser without setting up a local environment.
 
 * **Code Samples**: Choose from the [prebuilt Code Samples](../platform/connectors/index.md) ready to run and deploy from the IDE.
 
@@ -52,19 +78,60 @@ To achieve these goals, Quix Portal includes the following features:
 
 * **Data Explorer**: Explore live and historical data of your applications to test that your code is working as expected.
 
-## APIs
+**Watch the video to see the Quix web-based IDE**
 
-Quix provides four APIs to help you work with streaming data. These include:
+### Git integration
+
+Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on any third-party Git provider, such as GitHub, or Bitbucket, where you can configure the Quix SSH public key provided to you for Git provider authentication. This helps integrate Quix with your existing workflows.
+
+### Kafka integration
+
+Quix requires Kafka to provide streaming infrastructure for your solutions.
+
+When you create a new Quix environment, there are three hosting options:
+
+1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
+2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
+3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
+
+This enables you to select a Kafka hosting option according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
+
+!!! tip
+
+    To get your event streaming application to the testing stage as quickly as possible, the Quix-hosted Kafka option is recommended, as it requires zero configuration to get Kafka running. You can focus on your application code, without needing to do the up front work of creating a powerful scalable Kafka cluster, as that work has already been done for you by Quix.
+
+### Docker integration
+
+When you create an application from a template in Quix, a Dockerfile is provided for you in the `build` directory of the application. This uses a base image, and additions only need to be made in the case of special requirements, such as to include a library that is not part of the base image. The Dockerfile, combined with your code and configuration, is used to drive the Quix build service, which ensures the generated Docker image is registered with the Quix Docker registry. This image is then submitted to the Quix serverless engine, as part of the deployment process. All this is largely transparent to the developer - you simply click `Deploy` to build and deploy your application, and then monitor the deployment using the tools provided, such as the Data Explorer, logs, CPU monitor, and memory monitor.
+
+### Infrastructure as code
+
+When you develop your event streaming solution, you will build a pipeline of services that can be viewed in the Quix Portal. Each service in the pipeline is individually coded, using a standard component, a modified template, or even completely from scratch. Depending on the use case, pipelines can be quite complex, and in the past, this has made them time consuming to recreate. Now Quix supports infrastructure as code. Your entire pipeline can be defined by a single `quix.yaml` file, and this file can be used to completely and easily reconstruct a pipeline from its corresponding repository.
+
+## Interfacing with Quix
+
+There are [various ways](../platform/ingest-data.md) to connect your data to Quix. Quix provides a number of [connectors](../platform/connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+
+For a simple example of getting data from your laptop into Quix, see the [Quickstart](../platform/quickstart.md).
+
+Quix provides numerous standard [connectors](../platform/connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
+
+!!! tip
+
+    To see available transforms, log into Quix. Open your project, and then an environment, and click on `Code Samples`. Then under `PIPELINE STAGE` select `Transformation`.
+
+### APIs
+
+Quix provides several APIs to help you work with streaming data. These include:
 
 * [**Stream Writer API**](../apis/streaming-writer-api/intro.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
-
 * [**Stream Reader API**](../apis/streaming-reader-api/intro.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
+* [**Query API**](../apis/query-api/intro.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
+* [**Portal API**](../apis/portal-api.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
 
-* [**Data Catalogue API**](../apis/data-catalogue-api/intro.md): enables you to query historical data streams in the data catalogue, in order to train ML models, build dashboards, and export data to other systems.
+### Quix Streams
 
-* [**Portal API**](../apis/portal-api.md): enables you to automate Quix Portal tasks such as creating workspaces, topics, and deployments.
-
-## Quix Streams
+As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, [Quix Streams](../client-library-intro.md), to reduce development times, and provide advanced features such as automatic scaling through Streams.
 
 Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as [Kafka](../client-library/kafka.md), which are predominantly written in Java and Scala.
 
@@ -72,94 +139,47 @@ Python is the dominant language for data science, data engineering, and machine 
 
 For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../client-library-intro.md).
 
-## In-memory processing
+## Building with Quix
 
-Traditional architectures for applications that need to process data have always been very database-centric. Typically you write data to the database, retrieve it with complicated queries, process the data, and then write it back to a complex database schema. This approach does not scale to real-time uses cases, especially when large amounts of data are involved. 
+The basic flow that pipelines follow is ingestion, processing, and serving of data. These correlate to source, transform, and destination components within Quix.
 
-In use cases where you need results in seconds, and where you may potentially have large amounts of data (for example from thousands of IoT devices transmitting telemetry data), a real-time stream processing approach is required, and that is what Quix was designed for.
+![Stream Processing Architecture](./images/stream-processing-architecture.png)
 
-![Traditional architecture for data processing](./images/in-memory-processing-legacy.png)
+These are described in the following sections in more detail.
 
-Quix uses an underlying message broker and it puts it at the very center of the application, enabling a new approach for processing data without the need to save and pass all the information through a database. By using in-memory processing, you can persist only the data you're really interested in keeping.
+### Pipelines
 
-![Quix approach for data processing](./images/in-memory-processing-quix.png)
+Event stream processing is implemented by building pipelines consisting of a series of applications deployed to Kafka and Kubernetes clusters. These processing pipelines are now described by a single YAML file, `quix.yaml`. With just this file, you can reconstruct any pipeline. 
 
-This approach lowers the complexity and cost of real-time data processing and is the only possible approach when you need to process a huge amount of data per second, with low latency requirements.
+Further, changes in this file in one environment can be merged into another environment, giving you the ability to test changes in one environment, before deploying into another, while the change history is retained in Git. 
 
-## Serverless compute
+An example pipeline is shown in the following screenshot:
 
-Quix provides an easy way to run code in an elastic serverless compute environment. It automatically builds your code into a docker image, and deploys containers to Kubernetes. This usually complicated procedure is simplified using the Quix Portal UI.
+![Pipeline View](../platform/tutorials/image-processing/images/pipeline-overview-2.png)
 
-### Architecture
+You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-![about/serverless-environment.png](images/about/serverless-environment.png)
+You can see how to build a simple pipeline in the [Quix Tour](../platform/quixtour/overview.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
 
-### Git integration
+### Multiple environments
 
-Source code for workspace projects (models, connectors and services) is hosted in Git repositories. Developers can check out these repositories and develop locally and collaborate using Git. 
+In Quix you create a project to contain your event stream processing pipeline. A project corresponds to  a Git repository, either hosted by Quix, or alternatively using an external Git provider such as GitHub. Within a project you can create multiple environments, containing your event stream processing pipelines. Each environment is associated with a Git branch, so that you can embrace the full Git workflow, having for example, production, staging and development branches. You can also configure your preferred Kafka hosting option for the environment too, for example you can choose Quix-hosted Kafka, self-hosted Kafka, or Confluent Cloud.
 
-Code is deployed to the Quix serverless environment using Git tags. Quix builds the selected Git tag or commit into a docker image which is then deployed.
+Environments are a new feature of Quix, and you can read more about them in the [documentation](../platform/changes.md#environments).
 
-### Docker integration
+### Monitoring and managing your data
 
-Each code example included in the Quix [Code Samples](https://github.com/quixio/quix-samples) is shipped with a `Dockerfile` that is designed to work in the Quix serverless compute environment powered by Kubernetes. You can alter this file if necessary. When you deploy a service with Quix, a code reference to Git with a build request is sent to the build queue. The build service builds a docker image and saves it in the docker registry. This image is then deployed to Kubernetes.
+Quix provides a suite of tools to enable you to monitor and manage your data. These include:
 
-!!! tip
+* Data Explorer - The Data Explorer enables you to view your data graphically in real time. Graph, table and messages views.
+* Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
+* CPU monitor - you can monitor the CPU utilization of your deployment in real time.
+* Memory monitor - you can monitor the memory usage of the deployment in real time.
 
-	If there is any problem with the docker build process, you can check the **build logs**.
+[See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 
-### Kubernetes integration
+## Next steps
 
-Quix manages an elastic compute environment so you don’t need to worry about such details as servers, nodes, memory, and CPUs. Quix ensures that your container is deployed to the right server in the cluster.
-
-Quix provides the following integrations with Kubernetes:
-
-* **Logs** from the container accessible in the portal or using the Portal API.
-
-* **Environment variables** allows passing variables into the Docker image deployment. This enables code to be configured using these parameters.
-
-* **Replica** number for horizontal scale.
-
-* **CPU** limit.
-
-* **Memory** limit.
-
-* **Deployment type** - Options of a one-time job or a continuously running service,
-
-* **Ingress** - Optional ingress mapped to port 80.
-
-!!! tip
-
-	If a deployment reference is already built and deployed to a service, the build process is skipped and the docker image from the container registry is used instead.
-
-### DNS integration
-
-The Quix serverless environment offers DNS routing for services on port 80. That means that any API or frontend can be hosted in Quix with no extra complexity. Load balancing is achieved by increasing the replica count to provide resiliency to your deployed API or frontend.
-
-!!! warning
-
-	A newly deployed service with DNS routing takes up to 10 minutes to propagate to all DNS servers in the network.
-
-## Managed Kafka topics
-
-Quix provides fully managed Kafka topics which are used to stream data and build data processing pipelines by daisy-chaining models together.
-
-Our topics are multi-tenant which means you don’t have to build and maintain an entire cluster. Instead, you can start quickly and cheaply by creating one topic for your application and only pay for the resources consumed when streaming that data. When your solution grows in data volume or complexity you can add more topics without concern for the underlying infrastructure, which is managed by Quix.
-
-Together with [Quix Streams](../client-library-intro.md) and serverless compute, you can connect your models directly to Quix topics to read and write data using the pub/sub pattern. This keeps the data in-memory to deliver low-latency and cost-effective stream processing capabilities.
-
-!!! note
-
-	Quix also provides the ability to connect Quix Portal to external infrastructure components such as your own message broker infrastructure.
-
-## Data Catalogue
-
-Quix provides a data catalogue for long-term storage, analytics, and data science activities.
-
-The Quix data catalogue combines the best database technologies for each data type into a unified catalogue. There’s a timeseries database for recording your events and parameter values, blob storage for your binary data, and a NoSQL database for recording your metadata.
-
-The Quix data catalogue technology has two advantages:
-
-1.  It allocates each data type to the optimal database technology for that type. This increases read/write and query performance, which reduces operating costs.
-
-2.  It uses your metadata to record your context. This makes your data more accessible across your organization, as users only need to know your business context in order to navigate vast quantities of data.
+* [Quickstart](../platform/quickstart.md) - get data into Quix and display it in less than 10 minutes
+* [Quix Tour](../platform/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
+* Watch [a video]((https://www.youtube.com/watch?v=0cr19MfATfY)) on the art of the possible with Quix

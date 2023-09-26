@@ -7,8 +7,9 @@ There are various ways to ingest data into Quix, as well as write data out from 
 3. Polling
 4. Inbound webhooks
 5. HTTP API
-6. Websockets
+6. WebSockets
 7. Push data into Quix Platform using Quix Streams
+8. Post data into Quix using a web app
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described briefly in the following sections.
 
@@ -142,7 +143,7 @@ Quix provides two APIs with an HTTP API interface:
 1. [Writer API](../apis/streaming-writer-api/intro.md)
 2. [Reader API](../apis/streaming-reader-api/intro.md)
 
-The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a websockets interface, which is described in the [next section](#websockets).
+The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a WebSockets interface, which is described in the [next section](#websockets).
 
 The easiest way to try out these HTTP APIs is to use the prebuilt connectors called `External source` and `External destination`. This section looks at using the `External source` connector, but the process is similar for the `External destination` connector. To use the `External source` connector, step through the following procedure:
 
@@ -176,17 +177,17 @@ As you can see there are other options such as generating Curl code that can be 
 
 Further information can be found in the [Writer API](../apis/streaming-writer-api/intro.md) and [Reader API](../apis/streaming-reader-api/intro.md) documentation.
 
-## Websockets
+## WebSockets
 
-The Writer and Reader APIs offer a websockets interface in addition to the HTTP interface described in the [previous section](#http-api). The websockets interface provides a continuous end-to-end connection suitable for higher speed, real-time data transfer. This is a higher performance alternative to the request-response mode of operation of the HTTP interface. The Writer and Reader APIs both use the [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&tabs=visual-studio) technology to implement the websockets interface.
+The Writer and Reader APIs offer a WebSockets interface in addition to the HTTP interface described in the [previous section](#http-api). The WebSockets interface provides a continuous end-to-end connection suitable for higher speed, real-time data transfer. This is a higher performance alternative to the request-response mode of operation of the HTTP interface. The Writer and Reader APIs both use the [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&tabs=visual-studio) technology to implement the WebSockets interface.
 
-Some example code that shows how to connect to Quix and write data into a Quix stream using the websockets interface is shown here:
+Some example code that shows how to connect to Quix and write data into a Quix stream using the WebSockets interface is shown here:
 
 ``` html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello Websockets</title>
+    <title>Hello WebSockets</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
   </head>
@@ -210,7 +211,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
 
     <script>
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
-      const workspaceId = "<your_workspace>";
+      const environmentId = "<your_environment>";
       const topic = "websocket-topic";
       const streamId = "mouse-pos";
 
@@ -228,7 +229,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
 
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(
-          "https://writer-" + workspaceId + ".platform.quix.ai/hub",
+          "https://writer-" + environmentId + ".platform.quix.ai/hub",
           options
         )
         .build();
@@ -286,7 +287,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 ></script>
 <html>
   <body>
-    <h2>Quix JavaScript Hello Websockets</h2>
+    <h2>Quix JavaScript Hello WebSockets</h2>
 
     <canvas
       id="myCanvas"
@@ -301,8 +302,8 @@ Code that could read mouse cursor position from a Quix stream is as follows:
     <script>
       const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
 
-      // Set the Workspace and Topic
-      const workspaceId = "<your_workspace>";
+      // Set the environment and Topic
+      const environmentId = "<your_environment>";
       const topicName = "transform";
       const streamId = "mouse-pos";
       const canvas = document.getElementById("myCanvas");
@@ -314,7 +315,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
       };
 
       const connection = new signalR.HubConnectionBuilder()
-        .withUrl(`https://reader-${workspaceId}.platform.quix.ai/hub`, options)
+        .withUrl(`https://reader-${environmentId}.platform.quix.ai/hub`, options)
         .build();
 
       connection.start().then(() => {
@@ -347,7 +348,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix workspace ID](../platform/how-to/get-workspace-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
 
 ## Push data using Quix Streams
 
@@ -398,6 +399,79 @@ if __name__ == '__main__':
 
 You need to obtain a [streaming token](../platform/how-to/streaming-token.md) from within the platform.
 
+## Post data into Quix using a web app
+
+You may have a web app, either hosted in Quix, or elsewhere (say on Glitch), that receives data that you want to process in Quix. In either case, data can be posted using HTTP `POST` methods (or other HTTP methods) to the web app, and then this data published to a Quix topic using Quix Streams.
+
+The following example shows a Python Flask web app hosted in Quix. Data is received on an endpoint, in this case `/data`. The data is then published to an output topic. Of course you may have multiple endpoints receiving data, which you can publish to different streams, depending on your use case.
+
+!!! note
+
+    When deploying this service in Quix, it's important to enable public access in the deployment dialog, and make a note of the [service public URL](../platform/how-to/deploy-public-page.md). 
+
+The following shows the code for a simple web app that enables you to post data using HTTP, and then publish this to a Quix topic using Quix Streams:
+
+```python
+import quixstreams as qx
+from flask import Flask, request
+from datetime import datetime
+from waitress import serve
+import os
+import json
+
+# Quix injects credentials automatically to the client. 
+# Alternatively, you can always pass an SDK token manually as an argument.
+client = qx.QuixStreamingClient()
+
+# Open the output topic where to write data out
+producer_topic = client.get_topic_producer(os.environ["output"])
+
+stream = producer_topic.create_stream()
+stream.properties.name = "Post Data"
+
+app = Flask("Post Data")
+
+# this is unauthenticated, anyone could post anything to you!
+@app.route("/data", methods=['POST'])
+def webhook():
+    print('dumps: ',  json.dumps(request.json))
+
+    # post event data
+    stream.events.add_timestamp(datetime.now())\
+        .add_value("sensor", json.dumps(request.json))\
+        .publish()
+
+    return "OK", 200
+
+
+print("CONNECTED!")
+
+# use waitress for production
+serve(app, host='0.0.0.0', port = 80)
+```
+
+There may be various devices or apps posting data to your web app. 
+
+A simple test of your web app can be performed with Curl, as shown in the following example:
+
+```shell
+curl -X POST -H "Content-Type: application/json"  https://app-workspace-project-branch.deployments.quix.ai/data -d @data.json
+```
+
+In this example, `data.json` contains your JSON data, such as:
+
+```json
+{
+  "id": "device-012-ABC",
+  "temp": 123,
+  "press": 456
+}
+```
+
+!!! tip
+
+    You'll need to change the URL in the Curl example to the one provided in the [deployment dialog](../platform/how-to/deploy-public-page.md) for your service.
+
 ## Summary
 
 There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../platform/connectors/index.md) you can use with minor configuration. 
@@ -406,4 +480,4 @@ If you want some example code you can use as a starting point for connecting you
 
 Low-frequency data from REST APIs can be [polled](#polling) from Quix using a library such as `requests`. 
 
-Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and websockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using websockets](#websockets), where a continuous connection is required.
+Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and WebSockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using ebSockets](#websockets), where a continuous connection is required.

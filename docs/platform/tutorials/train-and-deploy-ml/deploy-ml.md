@@ -26,21 +26,21 @@ Ensure you are logged into the Quix Portal, then follow these steps to create a 
 
 8. Leave output as `hard-braking` (its default value).
 
-9. Click `Save as Project`. The code  is now saved to your workspace. 
+9. Click `Save as Application`. The code  is now saved to your environment. 
 
 	!!! tip
 		
-		You can see a list of projects at any time by clicking `Projects` in the left-hand navigation.
+		You can see a list of applications at any time by clicking `Applications` in the left-hand navigation.
 
 ## Upload the model
 
 Now you need to upload your ML model and edit your transform code to run the model.
 
-1. Click on `Projects` and select `Prediction Model` to display your project code.
+1. Click on `Applications` and select `Prediction Model` to display your application code.
 
 2. Click the `Upload File` icon at the top of the file list, as shown in the following screenshot:
 
-	![Upload file to project](./images/upload-file-to-project.png)
+	![Upload file to application](./images/upload-file-to-application.png)
 
 3. Find the Pickle file containing your ML model. It's named `decision_tree_5_depth.sav` and is in the same directory as your Jupyter Notebook files.
 
@@ -169,7 +169,7 @@ To see the output of your model in real time you can use the Data Explorer. To u
 
 2. If it's not already selected click the `Live` data tab at the top.
 
-3. Ensure the `hard-braking` topic is selected from the `Select a topic` drop-down list.
+3. Ensure the `hard-braking` topic is selected from the `Select a topic` dropdown list.
 
 4. Select a stream (you should only have one).
 

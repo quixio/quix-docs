@@ -12,7 +12,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
 
     ---
     
-    Deploy a real-time **data science** project into a scalable self-maintained solution.
+    Deploy a real-time **data science** application into a scalable self-maintained solution.
 
     [:octicons-arrow-right-24: Data Science](./data-science/index.md)
 
@@ -35,7 +35,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
 
     ---
     
-    Deploy a real-time data science project into a scalable self-maintained solution.
+    Deploy a real-time data science application into a scalable self-maintained solution.
 
     [:octicons-arrow-right-24: ML Predictions](./data-science/index.md)
 

@@ -1,62 +1,127 @@
-# Customizing the Sentiment Demo UI
+# 👩‍🔬 Lab - Customize the UI
 
-In this optional tutorial part, you learn how to customize the Sentiment Demo UI.
+In this lab you use everything you've learned so far, to add a customization to the pipeline. Specifically, you change the name of the chat room in the web UI.
 
-If you want to customize the Sentiment Demo UI, you would follow three main steps:
+You develop this change on a feature branch, and then you create a PR to merge your new feature into the develop branch. 
 
-1. Create the new project from the existing UI code.
-2. Modify the code in your next project as required to customize the UI.
-3. Deploy the modified UI.
+This is a common pattern for development - you can test your new service on the feature branch, and then test again on the develop branch, before final integration into the production `main` branch.
 
-## Create the project
+## Create an environment
 
-1. Navigate to the `Code Samples` and locate `Sentiment Demo UI`.
+To create a new environment (and branch):
 
-2. Click `Preview code` and then `Edit code`.
+1. Click `+ New environment` to create a new environment (**note, your screen will look slightly different to the one shown here**):
 
-3. Ensure that the `sentiment` input box contains `sentiment`.
+    ![New environment](./images/new-environment.png)
 
-	This topic will be subscribed to and will contain the sentiment scores from the sentiment analysis service, you'll deploy this in a later part of this tutorial.
+2. Create a new environment called `Rename Chat Room`.
 
-3. Ensure that the `messages` input contains `messages`.
+3. Create a new branch called `rename-chat-room`. To do this, from the branch dropdown click `+ New branch` which displays the New branch dialog:
 
-	- This topic will contain all the chat messages.
-	- The UI will subscribe to this topic, to display new messages, as well as publishing to the topic when a user sends a message using the 'send' button in the UI.
-	- Later, the sentiment analysis service will also subscribe to messages on this topic to produce sentiment scores.
+    ![New branch](./images/new-branch.png)
 
-3. Click `Save as project`. 
+    !!! important
 
-	The code for this Angular UI is now saved to your workspace.
+        Make sure you branch from the `develop` branch, not `main`, as you are going to merge your changes onto the `develop` branch.
 
-You have created the project and you can now modifiy the code as required.
+4. Complete creation of the environment using the default options.
 
-## Modify the code
+5. On the projects screen, click your newly created environment, `Rename Chat Room`.
 
-At this stage if you want to customize the code you can do so. You can also deploy what you have and customize it later by repeating the steps in the following section.
+## Sync the environment
 
-## Deploy your modified code
+You now see that the Quix environment is out of sync with the Git repository. You need to synchronize the Quix view of the environment, with that stored in the repository. 
 
-1. Click the `+tag` button at the top of any code file.
+To synchronize Quix with the repository:
 
-2. Enter `v1` and press ++enter++.
+1. Click `Sync environment`:
 
-3. Click `Deploy` near the top right corner.
+    ![Sync environment](./images/sync-environment.png)
 
-4. In the deployment dialog, select your tag, for example, `v1` under the `Version Tag`.
-	
-	This is the tag you just created.
+    The sync environment dialog is displayed, showing you the changes that are to be made to the `quix.yaml` file, which is the configuration file that defines the pipeline.
 
-5. Click `Service` in `Deployment Settings`.
-	
-	This ensures the service runs continuously.
+2. Click `Sync environment`, and then `Go to pipeline`. 
 
-6. Click the toggle in `Public Access`.
+    In the pipeline view, you see the services building. Ensure all services are "Running" before continuing.
 
-	This enables access from anywhere on the internet.
+## Edit the code
 
-7. Click `Deploy`.
-	
-	- The UI will stream data from the `sentiment` and `messages` topics as well as send messages to the `messages` topic.
-	- The `sentiment` topic will be used later for sentiment analysis.
+You are now going to edit the code for the UI to rename the chat room. To do this:
 
-In this tutorial you've learned how you can modify the Sentiment Demo UI.
+1. Click `Applications` in the left-hand navigation. Locate the UI application in the list and click on it. The code view loads.
+
+2. Locate the file `room.service.ts` and click it. You can then change the room name to something like `Support Chat Room`:
+
+    ![Edit code](./images/edit-code.png)
+
+3. Click `Commit` to save your changes (or use your usual Save hotkey such as Command-s).
+
+4. Click the tag icon, and enter a tag value such as `rename-room-v1`:
+
+    ![Tag icon](./images/tag.png)
+
+5. Now click the `Redeploy` button on the top right of the code screen.
+
+6. In the `Edit deployment` dialog select the tag `rename-room-v1` from the `Version tag` dropdown, and then click `Redeploy`.
+
+At this point the redeployment will restart. You see the spinner as the service rebuilds. After some time, the service the spinner will disappear and you can test the UI again. The name of the chat room has changed:
+
+![New name](./images/new-name.png)
+
+Once you're happy with your change you can move on to merge this to the `develop` branch.
+
+## Merge the feature
+
+Once you are sure that the changes on your feature branch are tested, you can then merge your changes onto the `develop`` branch. Here your changes undergo further tests before finally being merged into production. 
+
+To merge your feature branch, `rename-chat-room` into `develop`:
+
+1. Select `Merge request` from the menu as shown:
+
+    ![Merge request menu](./images/merge-request-menu.png)
+
+2. In the `Merge request` dialog, set the `rename-chat-room` branch to merge into the `develop` branch, as shown:
+
+    ![Merge request dialog](./images/merge-request-dialog.png)
+
+You are going to create a pull request, rather than perform a direct merge. This enables you to have the PR reviewed in GitHub (or other Git provider). You are also going to do a squash and merge, as much of the feature branch history is not required.
+
+## Create the pull request
+
+To create the pull request:
+
+1. Click `Create pull request` in Quix. You are taken to your Git provider, in this case GitHub.
+
+2. Click the `Pull request` button.
+
+3. Add your description, and then click `Create pull request`.
+
+4. Get your PR reviewed and approved. Then squash and merge the commits.
+
+    ![Squash and merge](./images/squash-and-merge.png)
+
+    You can replace the prefilled description by something more succinct. Then click `Confirm squash and merge`.
+
+    !!! tip
+
+        You can just merge, you don't have to squash and merge. You would then retain the complete commit history for your service while it was being developed. Squash and merge is used in this case by way of example, as the commit messages generated while the service was being developed were deemed to be not useful in this case.
+
+## Resync the Develop environment
+
+You have now merged your new feature into the `develop` branch in the Git repository. Your Quix view in the Develop environment is now out of sync with the Git repository. If you click on your Develop environment in Quix, you'll see it is now a commit (the merge commit) behind:
+
+![Develop behind](./images/develop-behind.png)
+
+You now need to make sure your Develop environment in Quix is synchronized with the Git repository. To do this:
+
+1. Click on `Sync environment`. The `Sync environment` dialog is displayed.
+
+2. Review the changes and click `Sync environment`.
+
+3. Click `Go to pipeline`.
+
+Your new service will build and start in the Develop environment, where you can now carry out further testing. When you are satisfied this feature can be released tp production, then you would repeat the previous process to merge your changes to Production `main`.
+
+## 🏃‍♀️ Next step
+
+[Part 7 - Summary :material-arrow-right-circle:{ align=right }](summary.md)

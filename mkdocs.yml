@@ -14,6 +14,7 @@ edit_uri: tree/dev/docs
 
 nav:
   - Intro: 'index.md'
+  - 'Recent changes 🔥': 'platform/changes.md'
   - 'What is Quix?': 'platform/what-is-quix.md'
   - 'Quickstart 🚀': 'platform/quickstart.md'
   - 'Ingest data': 'platform/ingest-data.md'
@@ -25,7 +26,10 @@ nav:
     - '3. Serve': 'platform/quixtour/serve-sms.md'
   - Platform:
     - 'How To':
-      - 'Get Workspace ID': 'platform/how-to/get-workspace-id.md'
+      - 'Create a project': 'platform/how-to/create-project.md'
+      - 'Project structure': 'platform/how-to/project-structure.md'
+      - 'Create an application': 'platform/how-to/create-application.md'
+      - 'Get Environment ID': 'platform/how-to/get-environment-id.md'
       - 'Get streaming token': 'platform/how-to/streaming-token.md'
       - 'Get personal access token (PAT)': 'platform/how-to/personal-access-token-pat.md'
       - 'Ingest from CSV': 'platform/how-to/ingest-csv.md'
@@ -37,6 +41,8 @@ nav:
       - 'Create a Dead Letter Queue': 'platform/how-to/create-dlq.md'
       - 'Deploy public services': 'platform/how-to/deploy-public-page.md'
       - 'Add environment variables': 'platform/how-to/environment-variables.md'
+      - 'Testing using Quix data store': 'platform/how-to/testing-data-store.md'
+      - 'Configure deployments': 'platform/how-to/yaml-variables.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
       - 'Real-time ML predictions':
@@ -56,22 +62,23 @@ nav:
         - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
       - 'Real-time image processing': 
         - platform/tutorials/image-processing/index.md
-        - '1. Connect webcam video': platform/tutorials/image-processing/connect-video-webcam.md
-        - '2. Decode images': platform/tutorials/image-processing/decode.md
-        - '3. Object detection': platform/tutorials/image-processing/object-detection.md
-        - '4. Connect TfL video': platform/tutorials/image-processing/connect-video-tfl.md
-        - '5. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
-        - '6. Stream merge': platform/tutorials/image-processing/stream-merge.md
-        - '7. Deploy the UI': platform/tutorials/image-processing/web-ui.md
+        - '1. Get the project': platform/tutorials/image-processing/get-project.md
+        - '2. TfL camera feed': platform/tutorials/image-processing/tfl-camera-feed.md
+        - '3. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
+        - '4. Object detection': platform/tutorials/image-processing/object-detection.md
+        - '5. Web UI': platform/tutorials/image-processing/web-ui.md
+        - '6. Other services': platform/tutorials/image-processing/other-services.md
+        - '7. Add service': platform/tutorials/image-processing/add-service.md
         - '8. Summary': platform/tutorials/image-processing/summary.md        
       - 'Sentiment analysis': 
         - platform/tutorials/sentiment-analysis/index.md
-        - '1. Sentiment Demo UI': 'platform/tutorials/sentiment-analysis/sentiment-demo-ui.md'
-        - '2. Analyzing sentiment': 'platform/tutorials/sentiment-analysis/analyze.md'
-        - '3. Twitter data': 'platform/tutorials/sentiment-analysis/twitter-data.md'
-        - '4. Conclusion': 'platform/tutorials/sentiment-analysis/conclusion.md'
-        - 'Sentiment analysis microservice': 'platform/tutorials/sentiment-analysis/code-and-deploy-sentiment-service.md'
-        - 'Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
+        - '1. Get the project': platform/tutorials/sentiment-analysis/get-project.md
+        - '2. Try the UI': 'platform/tutorials/sentiment-analysis/try-the-ui.md'
+        - '3. UI service': 'platform/tutorials/sentiment-analysis/ui-service.md'
+        - '4. Sentiment analysis service': 'platform/tutorials/sentiment-analysis/sentiment-analysis-service.md'
+        - '5. Twitch service': 'platform/tutorials/sentiment-analysis/twitch-service.md'
+        - '6. Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
+        - '7. Summary': 'platform/tutorials/sentiment-analysis/summary.md'
       - 'Real-time event detection':
         - 'platform/tutorials/event-detection/index.md'
         - '1. Data acquisition': 'platform/tutorials/event-detection/data-acquisition.md'
@@ -97,18 +104,18 @@ nav:
   - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Index': 'apis/index.md'
-    - 'Data Catalogue API':
-      - 'Introduction': 'apis/data-catalogue-api/intro.md'
-      - 'Authenticate': 'apis/data-catalogue-api/authenticate.md'
-      - 'Getting Swagger URL': 'apis/data-catalogue-api/get-swagger.md'
-      - 'Forming a request': 'apis/data-catalogue-api/request.md'
-      - 'Paged streams': 'apis/data-catalogue-api/streams-paged.md'
-      - 'Filtered streams': 'apis/data-catalogue-api/streams-filtered.md'
-      - 'Streams with models': 'apis/data-catalogue-api/streams-models.md'
-      - 'Raw data': 'apis/data-catalogue-api/raw-data.md'
-      - 'Aggregate data by time': 'apis/data-catalogue-api/aggregate-time.md'
-      - 'Aggregate data by tags': 'apis/data-catalogue-api/aggregate-tags.md'
-      - 'Tag filtering': 'apis/data-catalogue-api/filter-tags.md'
+    - 'Query API':
+      - 'Introduction': 'apis/query-api/intro.md'
+      - 'Authenticate': 'apis/query-api/authenticate.md'
+      - 'Getting Swagger URL': 'apis/query-api/get-swagger.md'
+      - 'Forming a request': 'apis/query-api/request.md'
+      - 'Paged streams': 'apis/query-api/streams-paged.md'
+      - 'Filtered streams': 'apis/query-api/streams-filtered.md'
+      - 'Streams with models': 'apis/query-api/streams-models.md'
+      - 'Raw data': 'apis/query-api/raw-data.md'
+      - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
+      - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
+      - 'Tag filtering': 'apis/query-api/filter-tags.md'
     - 'Streaming Writer API':
       - 'Introduction': 'apis/streaming-writer-api/intro.md'
       - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
@@ -165,6 +172,9 @@ plugins:
         'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
+        'apis/data-catalogue-api/intro.md': 'apis/query-api/intro.md'
+        'platform/tutorials/image-processing/connect-video-tfl.md': 'platform/tutorials/image-processing/tfl-camera-feed.md'
+        
 
 theme:
   name: 'material'

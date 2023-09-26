@@ -26,7 +26,7 @@ To add an external source:
 
 3. Locate the `External Source` sample and click `Add external source`.
 
-4. Enter `phone-data` in the `Output` field and click `Add new topic` in the drop-down.
+4. Enter `phone-data` in the `Output` field and click `Add new topic` in the dropdown.
 
 5. Enter `Quix companion web gateway` in the `Name` field.
 
@@ -34,7 +34,7 @@ To add an external source:
 
 ### Install and configure the apps
 
-To stream data from your phone you’ll need to install the `Quix Companion App` on your Android phone and deploy the QR Settings Share app to your Quix workspace.
+To stream data from your phone you’ll need to install the `Quix Companion App` on your Android phone and deploy the QR Settings Share app to your Quix environment.
 
 Follow these steps:
 
@@ -58,7 +58,7 @@ Follow these steps:
 
 8. Navigate to the `Code Samples` and search for `QR Settings Share`.
 
-9. Click `Setup & deploy`.
+9. Click `Deploy`.
 
 10. Paste the token into the `token` field.
 
@@ -98,7 +98,7 @@ Follow these steps:
 
 20. Click the `START` button.
 
-	This will open a connection to your Quix workspace and start streaming data from your phone.
+	This will open a connection to your Quix environment and start streaming data from your phone.
 
 ### Verify the live data
 
@@ -119,7 +119,7 @@ Follow these steps to ensure that everything is working as expected:
 7. Move or gently shake your phone and notice that the waveform reflects whatever movement your phone is experiencing.
 
 !!! success
-	You have connected the Quix Companion App to your workspace and verified the connection using the Live Data Explorer.
+	You have connected the Quix Companion App to your environment and verified the connection using the Live Data Explorer.
 
 ## CSV data
 
@@ -137,7 +137,7 @@ Follow these instructions to deploy the data source:
 
 5. Change the `output` field to `phone-data`.
 
-6. Click `Save as project`.
+6. Click `Save as Application`.
 
 7. Open the `requirements.txt` file and add `urllib3` to a new line.
 

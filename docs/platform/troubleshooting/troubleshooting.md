@@ -1,35 +1,24 @@
 # Troubleshooting
 
-This section contains solutions, fixes, hints and tips to help you solve
-the most common issues encountered when using Quix.
+This section contains solutions, fixes, hints and tips to help you solve the most common issues encountered when using Quix.
 
 ## Data is not being received into a Topic
 
-  - Ensure the Topic Name or Id is correct in Topics option of Quix
-    Portal.
+If data is not being received in a topic:
 
-  - You can check the data in / out rates on the Topics tab.
+* Ensure the Topic Name or Id is correct in Topics option of Quix Portal.
 
-  - If you want to see the data in the Data Catalogue please make sure
-    you are persisting the data to the Topic otherwise it may appear
-    that there is no data.
+* You can check the data in / out rates on the Topics tab.
 
-  - If you are using a consumer group, check that no other services are
-    using the same group. If you run your code locally and deployed
-    somewhere and they are both using the same consumer group one of
-    them may consume all of the data.
+* If you want to see the data in the Quix data store please make sure you are persisting the data to the Topic otherwise it may appear that there is no data.
+
+* If you are using a consumer group, check that no other services are using the same group. If you run your code locally and deployed somewhere and they are both using the same consumer group one of them may consume all of the data.
 
 ## Topic Authentication Error
 
-If you see errors like these in your service or job logs then you may
-have used the wrong credentials or it could be that you have specified
-the wrong Topic Id.
+If you see errors like these in your service or job logs then you may have used the wrong credentials or it could be that you have specified the wrong Topic Id.
 
-Authentication failed during authentication due to invalid credentials
-with SASL mechanism SCRAM-SHA-256 Exception receiving
-package from Kafka 3/3 brokers are
-down Broker: Topic authorization
-failed
+Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-256 Exception receiving package from Kafka 3/3 brokers are down Broker: Topic authorization failed
 
 Check very carefully each of the details.
 
@@ -43,9 +32,7 @@ These can all be found in Topics option of Quix Portal.
 
 ## Broker Transport Failure
 
-If you have deployed a service or job and the logs mention *broker
-transport failure* then check the workspace name and password in the
-SecurityOptions.
+If you have deployed a service or job and the logs mention *broker transport failure* then check the environment name and password in the SecurityOptions.
 
 Also check the broker address list. You should have these by default:
 
@@ -53,12 +40,9 @@ kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093
 
 ## 401 Error
 
-When attempting to access the web APIs you may encounter a 401 error.
-Check that the bearer token is correct and has not expired. If necessary
-generate a new bearer token.
+When attempting to access the web APIs you may encounter a 401 error. Check that the bearer token is correct and has not expired. If necessary generate a new bearer token.
 
-Example of the error received when trying to connect to the Streaming
-Reader API with an expired bearer token
+Example of the error received when trying to connect to the Streaming Reader API with an expired bearer token
 
 signalrcore.hub.errors.UnAuthorizedHubError
 
@@ -70,29 +54,25 @@ The APIs that require a valid bearer token are:
 
 2.  Streaming Writer API
 
-    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/index.html
+    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.ai/index.html
         
 3.  Telemetry Query API
 
-    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_WORKSPACE_ID].platform.quix.ai/swagger/index.html
+    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.ai/swagger/index.html
     
 ## Error Handling in the client library callbacks
 
-Errors generated in the client library callback can be swallowed or hard to read.
-To prevent this and make it easier to determine the root cause you
-should use a
-[traceback](https://docs.python.org/3/library/traceback.html){target=_blank}
+Errors generated in the client library callback can be swallowed or hard to read. To prevent this and make it easier to determine the root cause you should use a [traceback](https://docs.python.org/3/library/traceback.html){target=_blank}
 
 Begin by importing traceback
 
-``` python
+```python
 import traceback
 ```
 
-Then, inside the client library callback where you might have an issue place code
-similar to this:
+Then, inside the client library callback where you might have an issue place code similar to this:
 
-``` python
+```python
 def read_stream(new_stream: StreamReader):
 
     def on_parameter_data_handler(data: ParameterData):
@@ -107,10 +87,9 @@ def read_stream(new_stream: StreamReader):
 input_topic.on_stream_received += read_stream
 ```
 
-Notice that the try clause is within the handler and the except clause
-prints a formatted exception (below)
+Notice that the try clause is within the handler and the except clause prints a formatted exception (below)
 
-``` python
+```python
 Traceback (most recent call last):
   File "main.py", line 20, in on_parameter_data_handler
     data.timestamps[19191919]
@@ -121,25 +100,19 @@ IndexError: list index out of range
 
 ## Service keeps failing and restarting
 
-If your service continually fails and restarts you will not be able to
-view the logs. Redeploy your service as a job instead. This will allow
-you to inspect the logs and get a better idea about what is happening.
+If your service continually fails and restarts you will not be able to view the logs. Redeploy your service as a job instead. This will allow you to inspect the logs and get a better idea about what is happening.
 
 ## Possible DNS Propagation Errors
 
-There are currently 2 scenarios in which you might encounter an issue
-caused by DNS propagation.
+There are currently two scenarios in which you might encounter an issue caused by DNS propagation:
 
-  - 1\. Data catalogue has been deployed but DNS entries have not fully
-    propagated. In this scenario you might see a banner when accessing
-    the data catalogue.
+1. Quix data store has been deployed but DNS entries have not fully propagated. In this scenario you might see a banner when accessing the Quix data store.
 
-![troubleshoot/datacataloguewarning.jpg](datacataloguewarning.jpg)
+    ![Quix data storage warning](quix-data-store.png)
 
-  - 2\. A dashboard or other publicly visible deployment is not yet
-    accessible, again due to DNS propagation.
+2. A dashboard or other publicly visible deployment is not yet accessible, again due to DNS propagation.
 
-![troubleshoot/sitecantbereached.jpg](sitecantbereached.jpg)
+    ![Site can't be reached](site-cant-be-reached.png)
 
 !!! tip
 
@@ -147,30 +120,25 @@ caused by DNS propagation.
 
 ## Python Version
 
-If you get strange errors when trying to compile your Python code
-locally please check that you are using Python >=3.6 and <4
+If you get strange errors when trying to compile your Python code locally please check that you are using Python >=3.6 and <4
 
-For example you may encounter a *ModuleNotFoundError*
+For example you may encounter a *ModuleNotFoundError*:
 
 ``` python
 ModuleNotFoundError: No module named 'quixstreams'
 ```
 
-For information on using the Quix Client Library please check out this [section](../../client-library/quickstart.md) in the client library
-documentation.
+For information on using the Quix Client Library please check out this [section](../../client-library/quickstart.md) in the client library documentation.
 
 ## Jupyter Notebooks
 
-If you are having trouble with Jupyter Notebooks or another consumer of
-Quix data try using aggregation to reduce the number of records
-returned.
+If you are having trouble with Jupyter Notebooks or another consumer of Quix data try using aggregation to reduce the number of records returned.
 
 For more info on aggregation check out this [short video](https://youtu.be/fnEPnIunyxA).
 
 ## Process Killed or Out of memory
 
-If your deployment’s logs report "Killed" or "Out of memory" then you
-may need to increase the amount of memory assigned to the deployment.
+If your deployment’s logs report "Killed" or "Out of memory" then you may need to increase the amount of memory assigned to the deployment.
 
 You may experience this:
 
@@ -181,23 +149,15 @@ You may experience this:
 
 ## Missing Dependency in online IDE
 
-Currently the [online IDE](../../platform/glossary.md#online-ide) does
-not use the same docker image as the one used for deployment due to time
-it would take to build it and make it available to you. (Likely feature
-for future however) Because of this you might have some OS level
-dependencies that you need to install from within your python code to be
-able to make use of the **Run** feature in the IDE. The section
-below should give you guidance how to achieve this.
+Currently the [online IDE](../../platform/glossary.md#online-ide) does not use the same docker image as the one used for deployment due to time it would take to build it and make it available to you. (Likely feature for future however) Because of this you might have some OS level dependencies that you need to install from within your python code to be able to make use of the **Run** feature in the IDE. The section below should give you guidance how to achieve this.
 
-In your `main.py` (or similar) file, add as the first line: `import
-preinstall`. Now create the file `preinstall.py` and add content based
-on example below:
+In your `main.py` (or similar) file, add as the first line: `import preinstall`. Now create the file `preinstall.py` and add content based on example below:
 
   - TA-Lib  
     This script will check if TA-Lib is already installed (like from
     docker deployment). If not then installs it.
     
-    ``` python
+    ```python
     import os
     import sys
     
@@ -257,8 +217,4 @@ on example below:
         print("Installed TA-Lib pip package")
     ```
 
-
-
-With this, the first time you press **Run**, the dependency should
-install. Any subsequent run should already work without having to
-install.
+With this, the first time you press **Run**, the dependency should install. Any subsequent run should already work without having to install.

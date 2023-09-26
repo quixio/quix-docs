@@ -1,21 +1,16 @@
 # Create a new Stream
 
-You can create a new stream by specifying a topic to create it in, and
-supplying any other additional properties required.
+You can create a new stream by specifying a topic to create it in, and supplying any other additional properties required.
 
 !!! tip
 
-	This method is optional. You can also create a stream implicitly by
-	sending data to a stream that doesn’t already exist. But creating a
-	stream using the method on this page avoids having to determine a
-	unique stream id yourself.
+	This method is optional. You can also create a stream implicitly by sending data to a stream that doesn’t already exist. But creating a stream using the method on this page avoids having to determine a unique stream id yourself.
 
 ## Before you begin
 
-  - You should have a [Workspace set up](../../platform/glossary.md#workspace) with at least one [Topic](../../platform/glossary.md#topics).
+  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
 
-  - [Get a Personal Access Token](authenticate.md) to authenticate each
-    request.
+  - [Get a Personal Access Token](authenticate.md) to authenticate each request.
 
 ## Using the /streams endpoint
 
@@ -23,21 +18,15 @@ To create a new stream, send a `POST` request to:
 
     /topics/${topicName}/streams
 
-You should replace `$\{topicName}` in the endpoint URL with the name of
-the [Topic](../../platform/glossary.md#topics) you wish to create the
-stream in. For example, if your topic is named “cars”, your endpoint url
-will be `/topics/cars/streams`.
+You should replace `$\{topicName}` in the endpoint URL with the name of the [Topic](../../platform/glossary.md#topics) you wish to create the stream in. For example, if your topic is named “cars”, your endpoint URL will be `/topics/cars/streams`.
 
 ### Example request
 
-You can create a new Stream with an absolute minimum of effort by
-passing an empty JSON object in the payload:
-
-
+You can create a new Stream with an absolute minimum of effort by passing an empty JSON object in the payload:
 
   - curl
     
-    ``` shell
+    ```shell
     curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams" \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
@@ -46,7 +35,7 @@ passing an empty JSON object in the payload:
 
   - Node.js
     
-    ``` javascript
+    ```javascript
     const https = require('https');
     
     const data = "{}";
@@ -72,10 +61,7 @@ passing an empty JSON object in the payload:
     req.end();
     ```
 
-
-
-For most real-world cases, you’ll also want to provide some or all of
-the following:
+For most real-world cases, you’ll also want to provide some or all of the following:
 
   - `name`
 
@@ -89,7 +75,7 @@ the following:
 
 For example, here’s a more useful payload:
 
-``` json
+```json
 {
     "name": "cardata",
     "location": "simulations/trials",
@@ -101,11 +87,9 @@ For example, here’s a more useful payload:
 
 ### Example response
 
-The JSON returned is an object with a single property, `streamId`. This
-contains the unique identifier of your newly created stream, and will
-look something like this:
+The JSON returned is an object with a single property, `streamId`. This contains the unique identifier of your newly created stream, and will look something like this:
 
-``` json
+```json
 {
     "streamId": "66fb0a2f-eb70-494e-9df7-c06d275aeb7c"
 }
@@ -113,20 +97,18 @@ look something like this:
 
 !!! tip
 
-	If you’re following these guides in order, you’ll want to take note of
-	that stream id. For curl examples, it’s convenient to keep it in an
-	environment variable, e.g.
+	If you’re following these guides in order, you’ll want to take note of that stream id. For curl examples, it’s convenient to keep it in an environment variable, for example:
 
-	``` bash
+	```bash
 	$ streamId=66fb0a2f-eb70-494e-9df7-c06d275aeb7c
 	```
 
 ## Using SignalR
 
-``` javascript
+```javascript
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
-const workspaceId = "YOUR_WORKSPACE_ID"
+const environmentId = "YOUR_ENVIRONMENT_ID"
 const topic = "YOUR_TOPIC_NAME"
 
 const options = {
@@ -134,7 +116,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
     .build();
 
 // Establish connection
@@ -158,5 +140,6 @@ connection.start().then(async () => {
 });
 ```
 
-!!! tip 
+!!! tip
+
 	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/cLno68fs/](https://jsfiddle.net/QuixAI/cLno68fs/){target=_blank}

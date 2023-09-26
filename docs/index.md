@@ -2,9 +2,19 @@
 
 Welcome to the Quix developer documentation!
 
+!!! note "Beta"
+
+    **See [here](./platform/changes.md) for significant recent changes.**
+
 !!! tip
     
     Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+
+## Documentation changelog
+
+The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
 
 ## Get started
 
@@ -66,7 +76,7 @@ By following these tutorials, you can learn how to build data-driven apps, and i
 
     ---
     
-    Deploy a real-time **data science** project into a scalable self-maintained solution.
+    Deploy a real-time **data science** application into a scalable self-maintained solution.
 
     [:octicons-arrow-right-24: Data Science](./platform/tutorials/data-science/index.md)    
     
@@ -126,13 +136,13 @@ Read more about the Quix Streams Client Library and APIs.
 
     [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.md)
 
--   __Data Catalogue API__
+-   __Query API__
 
     ---
 
-    Query historical time-series data in Quix using HTTP interface.
+    Query historical time series data in Quix using HTTP interface.
 
-    [:octicons-arrow-right-24: Learn more](./apis/data-catalogue-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
 
 </div>
 
