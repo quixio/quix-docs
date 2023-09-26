@@ -39,12 +39,12 @@ The Streaming Reader is used to read the sentiment from the sentiment analysis s
 
 The four topics involved are:
 
-* `messages` - topic for the sent messages
+* `chat-messages` - topic for the sent messages
 * `drafts` - topic for draft messages
-* `sentiment` - topic with sentiment for sent messages
+* `chat-with-sentiment` - topic with sentiment for sent messages
 * `drafts_sentiment` - topic with sentiment for draft messages
 
-So, the web UI uses the Writer API to write to both `messages` and `drafts` and the Reader API to read from both `sentiment` and `drafts_sentiment`.
+So, the web UI uses the Writer API to write to both `chat-messages` and `drafts` and the Reader API to read from both `chat-with-sentiment` and `drafts_sentiment`.
 
 The Streaming Reader API has both an HTTP and WebSockets interface you can use to interface with a Quix topic. This web client uses the WebSockets interface. This enables data to be streamed from the Quix topic into the web client with good performance. This is a more efficient method than using the request-response method of HTTP.
 
