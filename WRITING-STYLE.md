@@ -36,7 +36,7 @@ Use the following guidelines regarding the company's name:
     * Quix Portal is our product, which includes:
         * Managed Kafka
         * Serverless compute
-        * Data catalogue
+        * Quix data store
         * APIs
     * Quix Streams is our client library:
         * A client library is a collection of code specific to one programming language.
@@ -74,6 +74,7 @@ Use the following guidelines for industry-standard terms, and Quix terms:
 * Event-stream processing, not event stream processing
 * DevOps, never devops
 * Startup and scale-up
+* Dropdown (as in dropdown menu) is one word and [not hyphenated](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/d/dropdown).
 
 ## Use topic-based writing
 

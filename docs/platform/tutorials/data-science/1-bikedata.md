@@ -8,7 +8,7 @@ You won't need to write lots of code, as you will use the Quix Code Samples to d
 
 	![NY Bikes sample tile](./images/ny-bikes-library-tile.png){width=200px}
 
-2. Click `Setup and deploy`:
+2. Click `Deploy`:
 
 	a. Leave the `Name` as it is.
 	
@@ -16,6 +16,6 @@ You won't need to write lots of code, as you will use the Quix Code Samples to d
 	
 3. Click `Deploy`.
 
-	The precompiled service is deployed to your workspace and begins running immediately.
+	The precompiled service is deployed to your environment and begins running immediately.
 
 [Part 2 - Weather data :material-arrow-right-circle:{ align=right }](2-weatherdata.md)

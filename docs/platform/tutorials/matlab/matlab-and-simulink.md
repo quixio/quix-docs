@@ -10,16 +10,18 @@ This section describes the steps for deploying a MATLAB function that rotates 2D
 
 ### Prerequisites
 
- - A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
- - MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
+* A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
+* It is assumed you have created a Quix project and environment in which to contain your application. Alternatively, you can use a legacy workspace, but this is not recommended.
+* MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
 
 This tutorial uses MATLAB R2023a. Please refer to the [Working with different MATLAB versions](#working-with-different-matlab-versions) section for information on how to use a different version of MATLAB.
 
 ### Preparing a MATLAB function for deployment
 
-This section describes the process for packaging MATLAB functions for deployment. The project templates in the Quix Portal have pre-built MATLAB packages. To deploy the default packages without compiling them, go to [deploying a MATLAB function](#deploying-a-matlab-function) section.
+This section describes the process for packaging MATLAB functions for deployment. The application templates in the Quix Portal have pre-built MATLAB packages. To deploy the default packages without compiling them, go to [deploying a MATLAB function](#deploying-a-matlab-function) section.
 
  1. In MATLAB, create a new `*.m` file with the following function and save it as `rot.m`:
+	
 	```
 	function M = rot(v, theta)
     	R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
@@ -46,27 +48,19 @@ This section describes the process for packaging MATLAB functions for deployment
 
 ### Deploying a MATLAB function
 
- 1. Sign in to your workspace on the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
+ 1. Sign in to your environment in the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
 
- 2. Click on the `Code Samples` on the left navigation panel and search for `matlab` in the search bar on the top left to filter code samples:
-
- 	![code samples view on Quix](./images/code_samples.png){width=600}
+ 2. Click on the `Code Samples` in the left navigation panel, and search for `matlab` in the search box on the top left to filter code samples.
 
  3. Select the MATLAB template for your programming language of choice. Optionally, use the `LANGUAGES` filter on the left to filter templates based on the programming language.
 
- 4. Click on the `Preview code` button to open a preview of the project, and then click on the `Edit code` button to generate a project from the template:
+ 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate an application from the template.
 
- 	![project preview on Quix](./images/matlab_project_preview.png){width=600}
+ 5. Enter `Rotation Transform` as the application name. Enter `matlab-input` for input topic and `matlab-output` for output topic, and click `Save as Application.`
 
- 5. Enter `Rotation Transform` as the project name. Enter `matlab-input` for input topic and `matlab-output` for output topic, and click `Save as Project.`
+ 6. To use your own MATLAB packages, replace the contents of the `MATLAB` directory in the application with your assets by clicking on the upload icon in the application explorer.
 
-	![create project from template](./images/matlab_set_up_project.png){width=600}
-
- 6. To use your own MATLAB packages, replace the contents of the `MATLAB` directory in the project with your assets by clicking on the upload icon in the project explorer.
-
-	![upload MATLAB packages](./images/matlab_pkg_upload.png){width=600}
-
- 7. Assign a tag to the project by clicking on the `add tag` icon and typing in a release tag such as `1.0`. Click on `Deploy` on the top right to open the deployment dialog:
+ 7. Assign a tag to the application by clicking on the `add tag` icon and typing in a release tag such as `1.0`. Click on `Deploy` on the top right to open the deployment dialog:
 
 	![create a release tag](./images/matlab_deployment_tag.png){width=600}
 
@@ -78,17 +72,15 @@ This section describes the process for packaging MATLAB functions for deployment
 
 This section describes the steps to test the MATLAB function by deploying a service to generate test data. In production environments, data from sensors or the output of another function or simulation takes the place of this service.
 
- 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a data source. Follow the steps described in the previous section to create a project named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`:
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application named `2D Vector Source` based on this template by clicking on `Preview code` followed by `Edit code`.
 
-	![create project from starter template](./images/starter_source.png){width=600}
+ 2. Set the output topic of the application to the input topic of the deployment containing the MATLAB transformation:
 
- 2. Set the output topic of the project to the input topic of the deployment containing the MATLAB transformation:
+	![starter application configuration](./images/matlab_starter_application_creation.png){width=600}
 
-	![starter project configuration](./images/matlab_starter_project_creation.png){width=600}
+ 3. Replace the contents of the `main.py` file of the application with the following script, which generates a random stream of 2D unit vectors:
 
- 3. Replace the contents of the `main.py` file of the project with the following script, which generates a random stream of 2D unit vectors:
-
-	```
+	```python
 	import quixstreams as qx
 	import time
 	import datetime
@@ -113,7 +105,7 @@ This section describes the steps to test the MATLAB function by deploying a serv
 	    time.sleep(0.5)
 	```
  
- 4. Create a tag and deploy the `2D Vector Source`.
+ 4. Create a tag and deploy the `2D Vector Source`. Click `Pipeline` in the main navigation to display your pipeline:
 
 	![pipeline](./images/matlab_pipeline_view.png){width=600}
 
@@ -121,7 +113,7 @@ This section describes the steps to test the MATLAB function by deploying a serv
 
 	![deployment details](./images/matlab_deployment_details.png){width=600}
 
- 6. Next, click on `Data explorer` on the left navigation panel, select `Live data` from the top menu, and select the output topic of the MATLAB transformation (for example, `matlab-output`), the stream, and the parameters as shown in the figure below to view the live transformation:
+ 6. Next, click on `Data explorer` on the left-hand navigation, select `Live data` from the top menu, and select the output topic of the MATLAB transformation (for example, `matlab-output`), the stream, and the parameters as shown in the figure below to view the live transformation:
 
 	![data explorer](./images/matlab_data_explorer.png){width=600}
 
@@ -139,11 +131,12 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 ### Preparing a Simulink model for deployment
 
  1. Download the MATLAB and Simulink assets for the internal combustion engine from the MathWorks [site](https://www.mathworks.com/help/simulink/slref/modeling-engine-timing-using-triggered-subsystems.html){target=_blank} or the `samples` directory in the Quix `Code Samples` for MATLAB.
- 2. Convert the input and output of the Simulink model to workspace variables. For other means of interacting with Simulink programmatically, refer to [How to Bring Data from MATLAB Into Simulink](https://www.youtube.com/watch?v=kM2qL__YxBQ){target=_blank} and [Simulate a Simulink® model from Python](https://github.com/mathworks/Call-Simulink-from-Python){target=_blank}.
+ 2. Convert the input and output of the Simulink model to environment variables. For other means of interacting with Simulink programmatically, refer to [How to Bring Data from MATLAB Into Simulink](https://www.youtube.com/watch?v=kM2qL__YxBQ){target=_blank} and [Simulate a Simulink® model from Python](https://github.com/mathworks/Call-Simulink-from-Python){target=_blank}.
 
  	![Simulink](./images/simulink_console.png){width=600}
 
  3. Create a MATLAB function in `engine.m` file with the following content to bootstrap the Simulink model and prepare it for deployment:
+
 	```
 	function R = engine(throttle_angle, time)
     	ta = timeseries(throttle_angle, time);
@@ -154,12 +147,14 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
     	R = sout.engine_speed.Data(end);
 	end
 	```
- 4. If you use workspace variables to pass arguments to Simulink, create them in the workspace before compiling the model. Run the following commands on the MATLAB command window to seed some input data and run the Simulink model using the `engine.m` function:
+ 4. If you use environment variables to pass arguments to Simulink, create them in the environment before compiling the model. Run the following commands on the MATLAB command window to seed some input data and run the Simulink model using the `engine.m` function:
+
 	```
 	throttle_a = [0.2, 0.23, 1.2, 4.2, 5.3 ];
 	ts = [1, 2, 3, 4, 5];
 	engine(throttle_a, ts);
 	```
+
  5. On the MATLAB command window, type the following command to compile the MATLAB function to your preferred runtime environment. For information on compiling MATLAB functions for deployment, please refer to [MATLAB compiler documentation](https://www.mathworks.com/help/compiler/mcc.html#d124e20858){target=_blank}:
 
 	=== "Python"
@@ -178,29 +173,23 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 ### Deploying a Simulink model
 
- 1. Sign in to the workspace on the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
+ 1. Sign in to the environment on the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}.
 
  2. Click on the `Code Samples` on the left navigation panel and search for `simulink` in the search bar on the top left to filter code samples (templates for MATLAB and Simulink are the same):
 
-	![code samples view on Quix](./images/simulink_code_samples.png){width=600}
-
  3. Click on the template for your programming language of choice. You can also use the `LANGUAGES` filters on the left to filter templates based on the programming language.
 
- 4. Click on the `Preview code` button to open a preview of the project, and then click on the `Edit code` button to generate a new project from the template:
+ 4. Click on the `Preview code` button to open a preview of the application, and then click on the `Edit code` button to generate a new application from the template.
 
-	![project preview on Quix](./images/matlab_project_preview.png){width=600}
+ 5. Enter `Engine Model` for the application name. Enter `simulink-input` for input topic and `simulink-output` for output topic, and click `Save as Application.`
 
- 5. Enter `Engine Model` for the project name. Enter `simulink-input` for input topic and `simulink-output` for output topic, and click `Save as Project.`
-
-	![create project from template](./images/simulink_set_up_project.png){width=600}
-
- 6. To deploy your own functions and models, replace the contents of the `MATLAB` directory in the project with your packages.
+ 6. To deploy your own functions and models, replace the contents of the `MATLAB` directory in the application with your packages.
 
  7. Replace the contents of the main function (`main.py` for Python, `Program.cs` for C#) with the following for your target programming language. They are responsible for calling the `engine` function with the correct arguments:
 
 	=== "Python"
 	
-		``` python
+		```python
 		import quixstreams as qx
 		import os
 		import quixmatlab
@@ -235,7 +224,7 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 	=== "C\#"
 	
-		``` cs
+		```cs
 		using System;
 		using MathWorks.MATLAB.Runtime;
 		using MathWorks.MATLAB.Types;
@@ -278,7 +267,7 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 		}
 		```
 
- 8. Assign a tag to the project by clicking on the `add tag` icon and typing in a release tag such as `1.0`, and clicking on `Deploy` on the top right to open the deployment dialog:
+ 8. Assign a tag to the application by clicking on the `add tag` icon and typing in a release tag such as `1.0`, and clicking on `Deploy` on the top right to open the deployment dialog:
 
 	![create a release tag](./images/simulink_deployment_tag.png){width=600}
 
@@ -290,18 +279,13 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 This section describes the steps to deploy a service to generate test data for the model. In production environments, data from sensors or output of another simulation takes the place of this service.
 
- 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter project for a data source. Follow the steps described in the previous section to create a project based on this template by clicking on `Preview code` followed by `Edit code`:
+ 1. Click on the `Code Samples` on the left navigation, select `Python` under languages, and `Source` under the pipeline stage. Then type `starter` in the search box to filter the starter template for a data source. Follow the steps described in the previous section to create an application based on this template by clicking on `Preview code` followed by `Edit code`.
 
+ 2. Set the output topic of the `Engine Data Source` to the input topic of the deployment containing the Simulink model, `simulink-input`.
 
-	![create project from starter template](./images/starter_source.png){width=600}
+ 3. Replace the contents of the `main.py` file in the `Engine Data Source` application with the following script, which randomly generates a throttle angle once every second:
 
- 2. Set the output topic of the `Engine Data Source` to the input topic of the deployment containing the Simulink model:
-
-	![starter project configuration](./images/starter_project_creation.png){width=600}
-
- 3. Replace the contents of the `main.py` file in the `Engine Data Source` project with the following script, which randomly generates a throttle angle once every second:
-
-	```
+	```python
 	import quixstreams as qx
 	import time
 	import datetime
@@ -337,7 +321,7 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 
 === "Python"
 	
-	``` python
+	```python
 	FROM ubuntu:22.04
 	ENV PYTHONUNBUFFERED=1
 	ENV PYTHONIOENCODING=UTF-8
@@ -505,7 +489,8 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 	```
 
 === "C\# (SDK)"
-	``` cs
+	
+	```cs
 	FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy
 
 	# MathWorks base dependencies
@@ -525,7 +510,8 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 	```
 
 === "C\# (Runtime)"
-	``` cs
+	
+	```cs
 	FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy
 
 	# MathWorks base dependencies
@@ -545,6 +531,7 @@ Quix supports all versions of MATLAB with support for MATLAB Runtime API. To red
 	```
 
 === "Base dependencies"
+	
 	```
 	ca-certificates libasound2 libc6 libcairo2 libcairo-gobject2 libcap2 libcrypt1 libcrypt-dev libcups2 libdrm2 libdw1 libgbm1 libgdk-pixbuf2.0-0 libgl1 libglib2.0-0 libgomp1 libgstreamer1.0-0 libgstreamer-plugins-base1.0-0 libgtk-3-0 libice6 libnspr4 libnss3 libodbc1 libpam0g libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libsndfile1 libsystemd0 libuuid1 libwayland-client0 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxft2 libxinerama1 libxrandr2 libxt6 libxtst6 libxxf86vm1 linux-libc-dev locales locales-all make net-tools odbcinst1debian2 procps sudo unzip wget zlib1g
 	```

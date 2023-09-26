@@ -16,7 +16,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * [Real-time Machine Learning (ML) predictions](../data-science/index.md) - In this tutorial you use data science to build a real-time bike availability pipeline.
 
-What will you build? Let us know! We’d love to feature your project or use case in our [newsletter](https://www.quix.io/community/).
+What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
 
 ## Getting help
 

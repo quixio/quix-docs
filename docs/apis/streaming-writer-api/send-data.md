@@ -1,13 +1,10 @@
 # Send Parameter data
 
-You can send telemetry data using the Streaming Writer API. Select a
-topic and a stream to send the data to. In your payload, you can include
-numeric, string, or binary parameter data, with nanosecond-level
-timestamps.
+You can send telemetry data using the Streaming Writer API. Select a topic and a stream to send the data to. In your payload, you can include numeric, string, or binary parameter data, with nanosecond-level timestamps.
 
 ## Before you begin
 
-  - You should have a [Workspace set up](../../platform/glossary.md#workspace) with at least one [Topic](../../platform/glossary.md#topics).
+  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
 
   - [Get a Personal Access
     Token](authenticate.md) to authenticate each
@@ -15,16 +12,13 @@ timestamps.
 
 ## Sending structured data to the endpoint
 
-Send a POST request together with a JSON payload representing the data
-you’re sending to:
+Send a POST request together with a JSON payload representing the data you’re sending to:
 
 ```
 /topics/${topicName}/streams/${streamId}/parameters/data
 ```
 
-You should replace `$\{topicName}` with the name of the topic your
-stream belongs to, and `$\{streamId}` with the id of the stream you wish
-to send data to. For example:
+You should replace `$\{topicName}` with the name of the topic your stream belongs to, and `$ {streamId}` with the id of the stream you wish to send data to. For example:
 
 ```
 /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/parameters/data
@@ -36,13 +30,9 @@ to send data to. For example:
 
 ### Example request
 
-Your payload should include an array of `timestamps` with one timestamp
-for each item of data you’re sending. Actual data values should be keyed
-on their name, in the object that corresponds to their type, one of
-`numericValues`, `stringValues`, or `binaryValues`. The payload is in
-this structure:
+Your payload should include an array of `timestamps` with one timestamp for each item of data you’re sending. Actual data values should be keyed on their name, in the object that corresponds to their type, one of `numericValues`, `stringValues`, or `binaryValues`. The payload is in this structure:
 
-``` json
+```json
 {
     "timestamps": [...],
     "numericValues": {...},
@@ -52,10 +42,7 @@ this structure:
 }
 ```
 
-Any data types that are unused can be omitted. So a final request using
-curl might look something like this:
-
-
+Any data types that are unused can be omitted. So a final request using curl might look something like this:
 
 === "curl"
     
@@ -101,20 +88,16 @@ curl might look something like this:
     req.end();
     ```
 
-
-
 ### Response
 
-No payload is returned from this call. A 200 HTTP response code
-indicates success. If the call fails, you should see either a 4xx or 5xx
-response code indicating what went wrong.
+No payload is returned from this call. A 200 HTTP response code indicates success. If the call fails, you should see either a 4xx or 5xx response code indicating what went wrong.
 
 ## Using SignalR
 
-``` javascript
+```javascript
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
-const workspaceId = "YOUR_WORKSPACE_ID"
+const environmentId = "YOUR_ENVIRONMENT_ID"
 const topic = "YOUR_TOPIC_NAME"
 const streamId = "ID_OF_STREAM_TO_WRITE_TO"
 
@@ -123,7 +106,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
     .build();
 
 // Establish connection
@@ -174,5 +157,7 @@ connection.start().then(async () => {
     console.log("Sent parameter data");
 });
 ```
+
 !!! tip 
-	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/a41b8x0t/](https://jsfiddle.net/QuixAI/a41b8x0t/){target=_blank}
+
+	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/a41b8x0t/](https://jsfiddle.net/QuixAI a41b8x0t/){target=_blank}

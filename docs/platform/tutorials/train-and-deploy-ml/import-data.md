@@ -1,6 +1,6 @@
 # Import data into Jupyter Notebook
 
-From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix Data Catalogue](../../../apis/data-catalogue-api/intro.md). 
+From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix data store](../../../apis/query-api/intro.md). 
 
 ## Run Jupyter Notebook
 
@@ -59,7 +59,7 @@ The Quix Portal has a code generator that can generate code to connect your Jupy
 
 10. Select the `Code` tab.
 
-11. Select `Python` from the  the `LANGUAGE` drop-down.
+11. Select `Python` from the  the `LANGUAGE` dropdown.
 
     ![Generated code to retrieve data](./images/connect-python.png)
 
@@ -77,6 +77,6 @@ The Quix Portal has a code generator that can generate code to connect your Jupy
 
 !!! tip
 
-	If you want to use this generated code for more than 30 days, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/data-catalogue-api/authenticate.md) for how to do that.
+	If you want to use this generated code for more than 30 days, replace the temporary token with a **PAT token**. See [authenticate your requests](../../../apis/query-api/authenticate.md) for how to do that.
 
 [Train your ML model :material-arrow-right-circle:{ align=right }](./train-ml.md)

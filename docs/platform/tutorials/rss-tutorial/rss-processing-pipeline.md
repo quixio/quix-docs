@@ -19,7 +19,7 @@ This tutorial has three parts
 What you need
 
   - A free [Quix account](https://quix.io/signup){target=_blank}. It
-    comes with enough credits to create this project.
+    comes with enough credits to create this application.
 
   - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
 
@@ -29,7 +29,7 @@ What you need
 
 In your Quix account, navigate to the `Code Samples` and search for `RSS Data Source.` (Hint: you can watch Steve prepare this code in the video tutorial if you’re like to learn more about it.)
 
-Click `Setup & deploy` on the `RSS Data Source` sample. (The card has a blue line across its top that indicates it’s a source connector.)
+Click `Deploy` on the `RSS Data Source` sample. (The card has a blue line across its top that indicates it’s a source connector.)
 
 ![RSSTutorial/image1.png](image1.png)
 
@@ -40,7 +40,7 @@ Enter the following URL into the rss_url field:
 [https://stackoverflow.com/feeds/tag/python](https://stackoverflow.com/feeds/tag/python){target=_blank}
 
 Click `Deploy` and wait a few seconds for the pre-built connector to be
-deployed to your workspace.
+deployed to your environment.
 
 You will then begin to receive data from the RSS feed. The data then
 goes into the configured output topic. Don’t worry, you won’t lose data.
@@ -56,11 +56,11 @@ questions with certain tags get delivered to you.
 #### 1\. Get the `RSS Data Filtering` connector
 
 Return to the `Code Samples` and search for `RSS Data Filtering.`
-Click `Setup & deploy` on the card.
+Click `Deploy` on the card.
 
-If you created a new workspace for this project, the fields
-automatically populate. If you’re using the workspace for other
-projects, you may need to specify the input topic as `rss-data.`
+If you created a new envi for this application, the fields
+automatically populate. If you’re using the environment for other
+applications, you may need to specify the input topic as `rss-data.`
 
 You might also want to customize the tag_filter. It is automatically
 populated with a wide range of tags related to Python. This works well
@@ -74,11 +74,11 @@ connector will begin processing the data that’s been building up in the
 rss-data topic.
 
 Have a look in the logs by clicking the Data Filtering Model tile (pink
-outlined) on the workspace home page.
+outlined) on the environment home page.
 
 ![RSSTutorial/image2.png](image2.png)
 
-The transformation stage is now complete. Your project is now sending
+The transformation stage is now complete. Your application is now sending
 the filtered and enhanced data to the output topic.
 
 ### Sending alerts
@@ -106,8 +106,8 @@ developing this. Trust me.
 
 #### 2\. Modify and deploy the `Slack Notification` connector
 
-Enter your webhook into the webhook_url field. Click `Save as project.`
-This will save the code to your workspace, which is a GitLab repository.
+Enter your webhook into the webhook_url field. Click `Save as Application.`
+This will save the code to your environment, which is a Gitea repository.
 
 Once saved, you’ll see the code again. The quix_function.py file should
 be open. This is what you’ll alter. The default code dumps everything in
@@ -120,7 +120,7 @@ The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
 Copy the code and paste it over the quix_function.py file in your
-project in the Quix portal.
+application in the Quix portal.
 
 Save it by clicking `CTRL+S` or `Command + S` or click the tick in the
 top right.

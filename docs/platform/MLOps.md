@@ -8,23 +8,13 @@ Solving these challenges is a new field of expertise called [MLOps](https://en.w
 
 Quix have incorporated MLOps into the Quix Platform so that your data team has a seamless journey from concept to production. The key steps in the MLOps process are:
 
-1. Discover and access data
-2. Develop features in historical data
-3. Build and train models on historical data
-4. Test models on live data
-5. Build a production pipeline
-6. Deploy production models
-7. Monitor production models
+1. Build and train models on historical data
+2. Test models on live data
+3. Build a production pipeline
+4. Deploy production models
+5. Monitor production models
 
 Each of these is described in the following sections.
-
-## Discover and access data
-
-Using the Quix Data Catalogue, team members can quickly access data without support from software or regulatory teams.
-
-## Develop features in historical data
-
-Use the Quix Data Explorer to discover, segment, label, and store significant features in the catalogue.
 
 ## Build and train models on historical data
 
@@ -49,7 +39,7 @@ In the Quix Portal you can:
 
 ## Deploy production models
 
-in the Quix Portal, with one click of the project's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
+in the Quix Portal, with one click of the application's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
 
 ## Monitor production models
 

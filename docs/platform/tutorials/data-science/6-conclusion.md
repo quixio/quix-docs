@@ -18,7 +18,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
-What will you build? Let us know! Quix would like to feature your project or use case in our [newsletter](https://www.quix.io/community/){target=_blank}.
+What will you build? Let us know! Quix would like to feature your application or use case in our [newsletter](https://www.quix.io/community/){target=_blank}.
 
 ## Getting help
 

@@ -1,28 +1,23 @@
 # Send an Event
 
-You can add Events to your stream data to record discrete actions for
-future reference.
+You can add Events to your stream data to record discrete actions for future reference.
 
 ## Before you begin
 
   - [Get a Personal Access Token](authenticate.md) to authenticate each
     request.
 
-  - If you don’t already have a Stream in your workspace, [add one using
-    the API](create-stream.md).
+  - If you don’t already have a Stream in your environment, [add one using the API](create-stream.md).
 
 ## Sending event data
 
-To send event data to a stream, use the `POST` method with this
-endpoint:
+To send event data to a stream, use the `POST` method with this endpoint:
 
 ```
 /topics/${topicName}/streams/${streamId}/events/data
 ```
 
-You should replace `${topicName}` with the name of the topic your
-stream belongs to, and `${streamId}` with the id of the stream you wish
-to send data to. For example:
+You should replace `${topicName}` with the name of the topic your stream belongs to, and `${streamId}` with the id of the stream you wish to send data to. For example:
 
 ```
 /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/events/data
@@ -32,32 +27,23 @@ to send data to. For example:
 	
 	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
-Your payload should be an array of events. Each event is an object
-containing the following properties:
+Your payload should be an array of events. Each event is an object containing the following properties:
 
-  - id  
-    a unique identifier for the event
+  - `id` - a unique identifier for the event
 
-  - timestamp  
-    the nanosecond-precise timestamp at which the event occurred
+  - `timestamp` - the nanosecond-precise timestamp at which the event occurred
 
-  - tags  
-    a object containing key-value string pairs representing tag values
+  - `tags` - a object containing key-value string pairs representing tag values
 
-  - value  
-    a string value associated with the event
+  - `value` - a string value associated with the event
 
 ### Example request
 
-This example call adds a single event to a stream. The event has an
-example value and demonstrates use of a tag to include additional
-information.
-
-
+This example call adds a single event to a stream. The event has an example value and demonstrates use of a tag to include additional information.
 
 === "curl"
     
-    ``` shell
+    ```shell
     curl -i "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/events/data" \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
@@ -73,7 +59,7 @@ information.
 
 === "Node.js"
     
-    ``` javascript
+    ```javascript
     const https = require('https');
     
     const data = JSON.stringify({
@@ -101,20 +87,16 @@ information.
     req.end();
     ```
 
-
-
 ### Response
 
-No payload is returned from this call. A 200 HTTP response code
-indicates success. If the call fails, you should see either a 4xx or 5xx
-response code indicating what went wrong.
+No payload is returned from this call. A 200 HTTP response code indicates success. If the call fails, you should see either a 4xx or 5xx response code indicating what went wrong.
 
 ## Using SignalR
 
-``` javascript
+```javascript
 var signalR = require("@microsoft/signalr");
 const token = "YOUR_TOKEN"
-const workspaceId = "YOUR_WORKSPACE_ID"
+const environmentId = "YOUR_ENVIRONMENT_ID"
 const topic = "YOUR_TOPIC_NAME"
 const streamId = "ID_OF_STREAM_TO_WRITE_TO"
 
@@ -123,7 +105,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + workspaceId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
     .build();
 
 // Establish connection
@@ -148,5 +130,7 @@ connection.start().then(async () => {
     console.log("Sent event data");
 });
 ```
-!!! tip 
+
+!!! tip
+
 	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/h4fztrns/](https://jsfiddle.net/QuixAI/h4fztrns/){target=_blank}

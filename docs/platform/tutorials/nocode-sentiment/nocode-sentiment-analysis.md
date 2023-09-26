@@ -1,12 +1,7 @@
 # No code sentiment analysis
 
-This tutorial shows how to build a data processing pipeline without
-code. You’ll analyze tweets that contain information about Bitcoin and
-stream both raw and transformed data into
-[Snowflake](https://www.snowflake.com/){target=_blank}, a storage platform,
-using the Twitter,
-[HuggingFace](https://huggingface.co/){target=_blank} and Snowflake
-connectors.
+This tutorial shows how to build a data processing pipeline without code. You’ll analyze tweets that contain information about Bitcoin and stream both raw and transformed data into [Snowflake](https://www.snowflake.com/){target=_blank}, a storage platform,
+using the Twitter, [HuggingFace](https://huggingface.co/){target=_blank} and Snowflake connectors.
 
 I’ve made a video of this tutorial if you prefer watching to reading.
 
@@ -25,16 +20,13 @@ I’ve made a video of this tutorial if you prefer watching to reading.
 
 ## Step one: create a database
 
-Sign in to your Snowflake account to create the Snowflake database which
-will receive your data. Call this "demodata" and click "Create."
+Sign in to your Snowflake account to create the Snowflake database which will receive your data. Call this "demodata" and click "Create."
 
 ## Step two: get your data
 
-In the Quix Portal, navigate to the `Code Samples` and search for the Twitter source
-connector.
+In the Quix Portal, navigate to the `Code Samples` and search for the Twitter source connector.
 
-Click "Add new." This adds the source to your pipeline and brings you
-back to the Code Samples.
+Click "Add new." This adds the source to your pipeline and brings you back to the Code Samples.
 
 Fill in the necessary fields:
 
@@ -60,7 +52,7 @@ Click "Deploy"
 
   - In the Code Samples, search for "HuggingFace"
 
-  - Click "Set up and deploy" on the HuggingFace connector
+  - Click "Deploy" on the HuggingFace connector
 
   - Choose "Twitter data" as the input topic
 
@@ -83,7 +75,7 @@ Click "Deploy"
 
   - Search the Code Samples for the Snowflake connector
 
-  - Click "Set up and deploy" on the connector
+  - Click "Deploy" on the connector
 
   - Fill in the necessary fields:
 
@@ -93,26 +85,17 @@ Click "Deploy"
     "hugging-face-output". This means it will receive the data being
     output by the sentiment analysis model.
 
-To fill in the Snowflake locator and region (these are similar to a
-unique ID for your Snowflake instance), navigate to your Snowflake
-account. Copy the locator and region from the URL and paste them into
-the corresponding fields in the connector setup in Quix. Lastly, input
-your username and password.
+To fill in the Snowflake locator and region (these are similar to a unique ID for your Snowflake instance), navigate to your Snowflake account. Copy the locator and region from the URL and paste them into the corresponding fields in the connector setup in Quix. Lastly, input your username and password.
 
 ![image](image2.png)
 
-Click "Deploy" on the Snowflake connector. If the credentials and
-connection details are correct, you’ll see the "Connected" status in the
-log and will be redirected to your workspace.
+Click "Deploy" on the Snowflake connector. If the credentials and connection details are correct, you’ll see the "Connected" status in the log and will be redirected to your environment.
 
 ![image](image3.png)
 
-Congratulations\! You built a no-code pipeline that filters and collects
-data from Twitter, transforms it with a HuggingFace model and delivers
-it to a Snowflake database.
+Congratulations! You built a no-code pipeline that filters and collects data from Twitter, transforms it with a HuggingFace model and delivers it to a Snowflake database.
 
-You can now go back over to Snowflake and find the "Databases" menu.
-Expand the "demodata" database and then find the tables under "public".
+You can now go back over to Snowflake and find the "Databases" menu. Expand the "demodata" database and then find the tables under "public".
 
 ![image](snowflake.png)
 

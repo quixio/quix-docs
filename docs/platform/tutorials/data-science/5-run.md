@@ -1,6 +1,6 @@
 # 5. Run the model
 
-Quix has has already trained model artifacts and these have been included as pickle files in the prediction code project. This project is included in the open source Code Samples. You will use the Code Sample to run the model.
+Quix has has already trained model artifacts and these have been included as pickle files in the prediction code application. This application is included in the open source Code Samples. You will use the Code Sample to run the model.
 
 ## Prediction service code
 
@@ -20,9 +20,9 @@ Get the code for the prediction service:
 
 7. Ensure the `output` is set to `NY-bikes-prediction`.
 
-8. Click `Save as project`.
+8. Click `Save as Application`.
 
-	This will save the code for this service to your workspace.
+	This will save the code for this service to your environment.
 
 !!! note "Free Models" 
 

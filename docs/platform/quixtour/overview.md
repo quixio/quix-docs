@@ -10,6 +10,10 @@ Watch the video showing what you're going to build:
 
 <div style="position: relative; padding-bottom: 49.77477477477478%; height: 0;"><iframe src="https://www.loom.com/embed/5b0a88d2185c4cfea8fd2917d3898964?sid=7ea745ef-6dee-45ca-b6db-1fb450b671c8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+## The code
+
+The complete code for the Quix Tour can be found in the [Quix Tutorials GitHub repository](https://github.com/quixio/tutorial-code/tree/main/quixtour){target=_blank}.
+
 ## The parts
 
 The Quix Tour is split into three parts. These parts represent the typical stream processing **pipeline**:
@@ -20,13 +24,13 @@ The Quix Tour is split into three parts. These parts represent the typical strea
 
 This general stream processing architecture is illustrated in the following diagram:
 
-![Architecture](./images/architecture.png)
+![Stream Processing Architecture](../images/stream-processing-architecture.png)
 
 ## CPU overload detection pipeline
 
 The pipeline you will implement:
 
-1. **Ingest** - you push data from your laptop into Quix Platform using the Quix client library, Quix Streams. You're going to push your real-time CPU load. You could alternatively push data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../connectors/index.md).
+1. **Ingest** - you publish data from your laptop into Quix Platform using the Quix client library, Quix Streams. You're going to publish your real-time CPU load. You could alternatively publish data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../connectors/index.md).
 2. **Process** - in this step, you process your data. There are many [types of processing](../concepts/types-of-processing.md), one of which is the transform. There are many possible [types of transform](../concepts/types-of-transform.md). Here you create a transform that performs threshold detection. You publish a message to the transform's output topic. 
 3. **Serve** - when you receive a message indicating CPU load has exceeded the threshold you (optionally) send an SMS to the system administrator.
 
