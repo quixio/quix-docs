@@ -51,6 +51,10 @@ You can see the project running live on Quix:
 
 You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
 
+## See the pipeline running
+
+See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod) without needing to sign up to Quix.
+
 ## Watch a video
 
 Explore the pipeline:
