@@ -114,9 +114,11 @@ Open the service and edit the environment variable as shown here:
 
 ### Web UI service
 
-When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. 
+Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target=_blank}.
 
-To set the Google Maps API key to an empty string, you need to edit `app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
+When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. To do this, in the Applications list, click on the `TfL image processing UI` application.
+
+To set the Google Maps API key to an empty string, you need to edit `src/app/app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
 
 ``` typescript
 AgmCoreModule.forRoot({
@@ -124,7 +126,19 @@ AgmCoreModule.forRoot({
     }),
 ```
 
-Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials fo you want to use it.
+Also, you need your [workspace ID](../../how-to/get-environment-id.md) and a [PAT](../../how-to/personal-access-token-pat.md) to get the UI fully working. Once you have these, you'll need to access the code for the service, and set these values.
+
+In the file `src/app/services/quix.service.ts`, locate the following code, and replace the place holders with your values:
+
+``` typescript
+/*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+  /*WORKING LOCALLY? UPDATE THESE!*/
+  private workingLocally = false; // set to true if working locally
+  private token: string = '<your_pat>'; // Create a token in the Tokens menu and paste it here
+  public workspaceId: string = '<your_workspace_id>'; // Look in the URL for the Quix Portal your workspace ID is after 'workspace='
+```
+
+Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
 
 ## See also
 
