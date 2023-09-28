@@ -58,3 +58,7 @@ To create an environment variable that uses a secret variable:
 3. Select the corresponding secret variable from the dropdown list.
 
 Now, when the environment variable appears in code or the UI, its value is the secret variable you assigned, but you cannot not see the value of the secret variable, only its name.
+
+## See also
+
+* [Configuring environments with YAML variables](./yaml-variables.md)
