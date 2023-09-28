@@ -6,6 +6,30 @@ The pipeline uses the Transport for London (TfL) traffic cameras, known as Jam C
 
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full pipeline code running in your Quix account. You then examine the data flow through the pipeline, using tools provided by the Quix Portal.
 
+## Live demo
+
+You can see the project running live on Quix:
+
+<div id="wrap">
+    <iframe id="frame" src="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" title="Live real-time image processing"></iframe>
+</div>
+
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target="_blank"}.
+
+## See the pipeline running
+
+See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-computervisiondemo-prod) without needing to sign up to Quix.
+
+## Watch a video
+
+Explore the pipeline:
+
+**Loom video coming soon.**
+
+??? Transcript
+
+    **Transcript**
+
 ## Technologies used
 
 Some of the technologies used by this template project are listed here.
@@ -38,30 +62,6 @@ Some of the technologies used by this template project are listed here.
 * [Typescript](https://www.typescriptlang.org/){target=_blank}
 * [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/){target=_blank}
 * [Google Maps](https://developers.google.com/maps){target=_blank}
-
-## Live demo
-
-You can see the project running live on Quix:
-
-<div id="wrap">
-    <iframe id="frame" src="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" title="Live real-time image processing"></iframe>
-</div>
-
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target="_blank"}.
-
-## See the pipeline running
-
-See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-computervisiondemo-prod) without needing to sign up to Quix.
-
-## Watch a video
-
-Explore the pipeline:
-
-**Loom video coming soon.**
-
-??? Transcript
-
-    **Transcript**
 
 ## GitHub repository
 

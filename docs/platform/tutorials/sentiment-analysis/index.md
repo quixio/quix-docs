@@ -10,6 +10,30 @@ The completed application is illustrated in the following screenshot:
 
 You learn how to get the project, try out the UI, look more deeply into the UI and the sentiment analysis service, and then customize the UI.
 
+## Live demo
+
+You can see the project running live on Quix:
+
+<div id="wrap">
+    <iframe id="frame" src="https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
+</div>
+
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
+
+## See the pipeline running
+
+See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod) without needing to sign up to Quix.
+
+## Watch a video
+
+Explore the pipeline:
+
+**Loom video coming soon.**¥¥
+
+??? Transcript
+
+    **Transcript - coming soon**
+
 ## Technologies used
 
 Some of the technologies used by this template project are listed here.
@@ -40,30 +64,6 @@ Some of the technologies used by this template project are listed here.
 **Data warehousing:**
 
 * [BigQuery](https://cloud.google.com/bigquery/){target=_blank}
-
-## Live demo
-
-You can see the project running live on Quix:
-
-<div id="wrap">
-    <iframe id="frame" src="https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
-</div>
-
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
-
-## See the pipeline running
-
-See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod) without needing to sign up to Quix.
-
-## Watch a video
-
-Explore the pipeline:
-
-**Loom video coming soon.**
-
-??? Transcript
-
-    **Transcript - coming soon**
 
 ## GitHub repository
 
