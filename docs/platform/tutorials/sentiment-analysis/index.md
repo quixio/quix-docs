@@ -24,16 +24,6 @@ You can interact with it here, on this page, or open the page to view it more cl
 
 See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod) without needing to sign up to Quix.
 
-## Watch a video
-
-Explore the pipeline:
-
-**Loom video coming soon.**¥¥
-
-??? Transcript
-
-    **Transcript - coming soon**
-
 ## Technologies used
 
 Some of the technologies used by this template project are listed here.
