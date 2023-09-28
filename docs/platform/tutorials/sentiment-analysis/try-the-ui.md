@@ -6,6 +6,24 @@ In this part of the tutorial you try out the UI to get a feel for the project an
 
     In the pipeline view, you can always determine a topic name by hovering over the connecting line that represents that topic. You can also click the connecting line, to see its name, and optionally to jump to the Data Explorer to view live data for the topic.
 
+## Prerequisites
+
+You need your [workspace ID](../../how-to/get-environment-id.md) and a [PAT](../../how-to/personal-access-token-pat.md) to get the UI working. Once you have these, you'll need to access the code for the service, and set these values.
+
+To do this, in the Applications list, click on the `Sentiment Demo UI` application. In the file `src/app/services/quix.service.ts`, locate the following code and replace the place holders with your values:
+
+``` typescript
+/*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+  /*WORKING LOCALLY? UPDATE THESE!*/
+  private workingLocally = false; // set to true if working locally
+  private token: string = '<your_pat>'; // Create a token in the Tokens menu and paste it here
+  public workspaceId: string = '<your_workspace_id>'; // Look in the URL for the Quix Portal your workspace ID is after 'workspace='
+```
+
+Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target=_blank}.
+
+## Try out the UI in your Quix account
+
 Now try out the UI you just deployed. To do this:
 
 1. In the pipeline view find the UI service tile, as shown in the following screenshot:
