@@ -143,7 +143,14 @@ There are also some additional services in the pipeline:
 
 3. *Data buffer* - this provides a one second data buffer. This helps reduce load on the Data API service.
 
-4. *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
+4. *Data API* - this REST API service provides the following endpoints: 
+
+    * `max_vehicles` - last known maximum vehicle count for each camera. 24 hour rolling window.
+    * `detected_objects` - output from the computer vision service for all cameras. excludes images
+    * `vehicles` - the last known vehicle count for each camera
+    * `image` - the last image from the specified camera
+
+    This API is called by the UI to obtain useful data.
 
 5. *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
 
