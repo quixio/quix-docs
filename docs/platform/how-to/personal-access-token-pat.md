@@ -2,7 +2,7 @@
 
 Personal Access Tokens, or PATs, are bearer tokens that can be used to authenticate the various Quix APIs, such as the Portal API.
 
-To obtain a PAT, log in to Quix, and click on your profile icon in the top right corner, then click `Personal Access Tokens`. You can then generate a PAT with a lifetime suitablke for your use case.
+To obtain a PAT, log in to Quix, and click on your profile icon in the top right corner, then click `Personal Access Tokens`. You can then generate a PAT with a lifetime suitable for your use case.
 
 Alternatively, log in to the Quix Portal, and click `Settings` in the main left-hand navigation. Then, for a specific environment, click `APIs and tokens`.
 
