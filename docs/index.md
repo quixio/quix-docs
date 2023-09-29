@@ -10,12 +10,6 @@ Welcome to the Quix developer documentation!
     
     Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
 
-## Documentation changelog
-
-The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
-
-This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
-
 ## See Quix in action
 
 See the following live demos and running pipelines:
@@ -64,22 +58,6 @@ First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up
 
 <div class="grid cards" markdown>
 
-- __What is Quix?__
-
-    ---
-
-    New to Quix? Find out more!
-
-    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
-
-- __Glossary__
-
-    ---
-
-    List of Quix terms.
-
-    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
-
 - __Quickstart__
 
     ---
@@ -95,6 +73,22 @@ First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up
     Build a complete stream processing pipeline in under 30 minutes.
 
     [:octicons-arrow-right-24: Quix Tour](./platform/quixtour/overview.md)
+
+- __What is Quix?__
+
+    ---
+
+    New to Quix? Find out more!
+
+    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
+
+- __Glossary__
+
+    ---
+
+    List of Quix terms.
+
+    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
  
 - __Ingest data__
 
@@ -193,6 +187,12 @@ Read more about the Quix Streams Client Library and APIs.
     [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
 
 </div>
+
+## Documentation changelog
+
+The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
 
 ## Contribute
 
