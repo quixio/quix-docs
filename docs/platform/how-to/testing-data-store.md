@@ -4,7 +4,7 @@ Quix provides a data store for testing and debugging purposes.
 
 While [topics](../glossary.md#topic) do provide a configurable retention time, persisting data into a database provides advantages - for example, you can perform powerful queries to retrieve historical data. This data can be retrieved and displayed using the Data Explorer, or retrieved using the [Query API](../../apis/query-api/intro.md).
 
-Quix provides a very simple way to persist data in a topic. Simply locate the topic in your topic list, and click the `Persistance` button. 
+Quix provides a very simple way to persist data in a topic. Simply locate the topic in your topic list, and click the `Persistence` button. 
 
 !!! important
 

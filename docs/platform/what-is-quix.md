@@ -143,9 +143,7 @@ For Python developers, Quix Streams can provide streaming data packaged in a dat
 
 The basic flow that pipelines follow is ingestion, processing, and serving of data. These correlate to source, transform, and destination components within Quix.
 
-![Stream Processing Architecture](./images/stream-processing-architecture.png)
-
-These are described in the following sections in more detail.
+These are described in more detail in the following sections.
 
 ### Pipelines
 

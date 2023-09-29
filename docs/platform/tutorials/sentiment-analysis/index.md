@@ -10,6 +10,20 @@ The completed application is illustrated in the following screenshot:
 
 You learn how to get the project, try out the UI, look more deeply into the UI and the sentiment analysis service, and then customize the UI.
 
+## Live demo
+
+You can see the project running live on Quix:
+
+<div id="wrap">
+    <iframe id="frame" src="https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
+</div>
+
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
+
+## See the pipeline running
+
+See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1qVTBRVE01TmtJNVJqSTNOVEpFUlVSRFF6WXdRVFF4TjBSRk56SkNNekpFUWpBNFFqazBSUSJ9.eyJodHRwczovL3F1aXguYWkvb3JnX2lkIjoiZGVtbyIsImh0dHBzOi8vcXVpeC5haS9vd25lcl9pZCI6ImF1dGgwfDI4YWQ4NWE4LWY1YjctNGFjNC1hZTVkLTVjYjY3OGIxYjA1MiIsImh0dHBzOi8vcXVpeC5haS90b2tlbl9pZCI6ImMzNzljNmVlLWNkMmYtNDExZC1iOGYyLTMyMDU0ZDc5MTY2YSIsImh0dHBzOi8vcXVpeC5haS9leHAiOiIxNzM3ODI5NDc5LjIyMyIsImlzcyI6Imh0dHBzOi8vYXV0aC5xdWl4LmFpLyIsInN1YiI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBQGNsaWVudHMiLCJhdWQiOiJxdWl4IiwiaWF0IjoxNjk1NzE2MDI4LCJleHAiOjE2OTgzMDgwMjgsImF6cCI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwicGVybWlzc2lvbnMiOltdfQ.Ndm0K2iNHPxDq1ohF-yb-6LzIqx_UY8Ptcq0kAwSNye12S3deX_eDkC4XqZqW2NoSLd3GsmWV9PZGetGGp2IlqshQFZtUMp6WP6hq917ZC1i8JFx93PAbY7NT_88nFDovVlaRcoTpWvI-03KbryLkAoB28c6qb3EFwjCWFBuy_yA4yjQ8uF0-AZ0R9Qi4IBaekXWqcgO0a91gVRg0oA_hnzJFoR-EnZ2G1ZSxtuVgnyyPuQTMUvzJuUT_IJTLzEB_kejX0pcXRZBIwHP8MWLB4mE5DtIdz4jm8WIA4eZJZ7ZCG4dk-adQwZ2BdkNknV5eEwRgRJL4ybaplkaDlR-dg) without needing to sign up to Quix.
+
 ## Technologies used
 
 Some of the technologies used by this template project are listed here.
@@ -41,26 +55,6 @@ Some of the technologies used by this template project are listed here.
 
 * [BigQuery](https://cloud.google.com/bigquery/){target=_blank}
 
-## Live demo
-
-You can see the project running live on Quix:
-
-<div id="wrap">
-    <iframe id="frame" src="https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat" title="Real-time chat sentiment analysis"></iframe>
-</div>
-
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target="_blank"}.
-
-## Watch a video
-
-Explore the pipeline:
-
-**Loom video coming soon.**
-
-??? Transcript
-
-    **Transcript - coming soon**
-
 ## GitHub repository
 
 The complete code for this project can be found in the [Quix GitHub repository](https://github.com/quixio/chat-demo-app){target="_blank"}.
@@ -75,13 +69,17 @@ To get started make sure you have a [free Quix account](https://portal.platform.
 
 If you are new to Quix it is worth reviewing the [recent changes page](../../changes.md), as that contains very useful information about the significant recent changes, and also has a number of useful videos you can watch to gain familiarity with Quix.
 
+### Twitch API key
+
 You'll also need an API key for the [Twitch](https://dev.twitch.tv/docs/api/) service (optional), if you want to try Twitch-related features.
+
+### BigQuery credentials
 
 If you want to use the Quix BigQuery service (optional), you'll need to provide your credentials for accessing [BigQuery](https://cloud.google.com/bigquery/){target=_blank}.
 
 ### Git provider
 
-You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](){target=_blank}.
+You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](https://github.com){target=_blank}.
 
 !!! tip
 
@@ -97,7 +95,7 @@ The main services in the pipeline are:
 
 1. *UI* - provides the chat UI, and shows the sentiment being applied to the chat messages.
 
-2. *Sentiment analysis* - uses the [Hugging Face](https://huggingface.co/) model to perform sentiment analysis on the chat messages.
+2. *Sentiment analysis* - uses the [Hugging Face](https://huggingface.co/) model to perform sentiment analysis on the chat messages. There is also a *Drafts sentiment analysis* service for messages being typed, but not yet sent.
 
 3. *Twitch data source* - An alternative to typing chat messages - you select a Twitch channel and then perform sentiment analysis on Twitch messages.
 

@@ -14,7 +14,14 @@ Briefly, these services are:
 
 * *Data buffer* - this provides a one second data buffer. This helps reduce load on the Data API service.
 
-* *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
+* *Data API* - this REST API service provides the following endpoints:
+
+    * `max_vehicles` - last known maximum vehicle count for each camera. 24 hour rolling window.
+    * `detected_objects` - output from the computer vision service for all cameras. excludes images
+    * `vehicles` - the last known vehicle count for each camera
+    * `image` - the last image from the specified camera
+
+    This API is called by the UI to obtain useful data.
 
 * *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
 
@@ -150,10 +157,12 @@ See the documentation on [using buffers](https://quix.io/docs/client-library/pub
 
 The data service offloads calculations that could be done in the web client, and instead provides key data only when the UI needs it. The UI can request this data when it needs it through the REST API of the Data API service.
 
-The Data API provides these endpoints:
+The Data API provides the following endpoints:
 
 * max_vehicles
 * detected_objects
+* vehicles
+* image
 
 These are used by the UI to obtain and then display the data on the web interface.
 
@@ -211,6 +220,18 @@ Example response JSON:
   ...
 ]
 ```
+
+### Vehicles
+
+The last known vehicle count for each camera.
+
+See the [README](https://github.com/quixio/computer-vision-demo/tree/main/Data%20API){target=_blank} for more information.
+
+### Image
+
+The last image from the specified camera.
+
+See the [README](https://github.com/quixio/computer-vision-demo/tree/main/Data%20API){target=_blank} for more information.
 
 ## S3
 
