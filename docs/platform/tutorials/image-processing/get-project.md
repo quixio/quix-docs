@@ -116,7 +116,7 @@ Open the service and edit the environment variable as shown here:
 
 Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target=_blank}.
 
-When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string, and then enable "developer mode" in your browser - the maps then display correctly. To do this, in the Applications list, click on the `TfL image processing UI` application.
+When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string. Google maps will then default to "developer mode" - the map will display correctly, but will be watermarked with 'for developer use'. To do this, in the Applications list, click on the `TfL image processing UI` application.
 
 To set the Google Maps API key to an empty string, you need to edit `src/app/app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
 
