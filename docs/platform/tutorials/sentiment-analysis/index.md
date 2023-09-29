@@ -79,7 +79,7 @@ If you want to use the Quix BigQuery service (optional), you'll need to provide 
 
 ### Git provider
 
-You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](){target=_blank}.
+You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](https://github.com){target=_blank}.
 
 !!! tip
 
