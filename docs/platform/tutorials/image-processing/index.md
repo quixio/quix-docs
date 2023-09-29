@@ -6,6 +6,20 @@ The pipeline uses the Transport for London (TfL) traffic cameras, known as Jam C
 
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full pipeline code running in your Quix account. You then examine the data flow through the pipeline, using tools provided by the Quix Portal.
 
+## Live demo
+
+You can see the project running live on Quix:
+
+<div id="wrap">
+    <iframe id="frame" src="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" title="Live real-time image processing"></iframe>
+</div>
+
+You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target="_blank"}.
+
+## See the pipeline running
+
+See the [pipeline running](https://portal.platform.quix.ai/pipeline?workspace=demo-computervisiondemo-prod&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1qVTBRVE01TmtJNVJqSTNOVEpFUlVSRFF6WXdRVFF4TjBSRk56SkNNekpFUWpBNFFqazBSUSJ9.eyJodHRwczovL3F1aXguYWkvb3JnX2lkIjoiZGVtbyIsImh0dHBzOi8vcXVpeC5haS9vd25lcl9pZCI6ImF1dGgwfDI4YWQ4NWE4LWY1YjctNGFjNC1hZTVkLTVjYjY3OGIxYjA1MiIsImh0dHBzOi8vcXVpeC5haS90b2tlbl9pZCI6ImMzNzljNmVlLWNkMmYtNDExZC1iOGYyLTMyMDU0ZDc5MTY2YSIsImh0dHBzOi8vcXVpeC5haS9leHAiOiIxNzM3ODI5NDc5LjIyMyIsImlzcyI6Imh0dHBzOi8vYXV0aC5xdWl4LmFpLyIsInN1YiI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBQGNsaWVudHMiLCJhdWQiOiJxdWl4IiwiaWF0IjoxNjk1NzE2MDI4LCJleHAiOjE2OTgzMDgwMjgsImF6cCI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwicGVybWlzc2lvbnMiOltdfQ.Ndm0K2iNHPxDq1ohF-yb-6LzIqx_UY8Ptcq0kAwSNye12S3deX_eDkC4XqZqW2NoSLd3GsmWV9PZGetGGp2IlqshQFZtUMp6WP6hq917ZC1i8JFx93PAbY7NT_88nFDovVlaRcoTpWvI-03KbryLkAoB28c6qb3EFwjCWFBuy_yA4yjQ8uF0-AZ0R9Qi4IBaekXWqcgO0a91gVRg0oA_hnzJFoR-EnZ2G1ZSxtuVgnyyPuQTMUvzJuUT_IJTLzEB_kejX0pcXRZBIwHP8MWLB4mE5DtIdz4jm8WIA4eZJZ7ZCG4dk-adQwZ2BdkNknV5eEwRgRJL4ybaplkaDlR-dg) without needing to sign up to Quix.
+
 ## Technologies used
 
 Some of the technologies used by this template project are listed here.
@@ -38,26 +52,6 @@ Some of the technologies used by this template project are listed here.
 * [Typescript](https://www.typescriptlang.org/){target=_blank}
 * [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/){target=_blank}
 * [Google Maps](https://developers.google.com/maps){target=_blank}
-
-## Live demo
-
-You can see the project running live on Quix:
-
-<div id="wrap">
-    <iframe id="frame" src="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" title="Live real-time image processing"></iframe>
-</div>
-
-You can interact with it here, on this page, or open the page to view it more clearly [here](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target="_blank"}.
-
-## Watch a video
-
-Explore the pipeline:
-
-**Loom video coming soon.**
-
-??? Transcript
-
-    **Transcript**
 
 ## GitHub repository
 
@@ -131,7 +125,7 @@ The second part of the pipeline is:
 
 There are several *main* stages in the pipeline:
 
-1. *TfL camera feed* - TfL Camera feed or "Jam Cams". This service retrieves the raw data from the TfL API endpoint. A list of all JamCams is retrieved, along with the camera data. The camera data contains a link to a video clip from the camera. These video clips are hosted by TfL in MP4 format on AWS S3. A stream is created for each camera, and the camera data published to this stream. Using multiple streams in this way enables a solution capable of horizontal scaling, through additional topic partitions and, optionally, replicated services in a consumer group. Once the camera list has been scanned, the service sleeps for two minutes, and then repeats the previous code. This reduces the load, and also means the API limit of 500 requests per minute is not exceeded. Messages are passed to the frame grabber.
+1. *TfL camera feed* - TfL Camera feed or "Jam Cams". This service retrieves the raw data from the TfL API endpoint. A list of all JamCams is retrieved, along with the camera data. The camera data contains a link to a video clip from the camera. These video clips are hosted by TfL in MP4 format on AWS S3. A stream is created for each camera, and the camera data published to this stream. Using multiple streams in this way enables a solution capable of horizontal scaling, through additional topic partitions and, optionally, replicated services in a consumer group. Once the camera list has been scanned, the service sleeps for a configurable amount of time, and then repeats the previous code. This reduces the load, and also means the API limit of 500 requests per minute is not exceeded. Messages are passed to the frame grabber.
 
 2. *TfL traffic camera frame grabber* - this service grabs frames from a TfL video file (MP4 format) at the rate specified. By default the grabber extracts one frame every 100 frames, which is typically one per five seconds of video. Messages are passed to the object detection service.
 
@@ -147,9 +141,18 @@ There are also some additional services in the pipeline:
 
 2. *Max vehicle window* - calculates the total vehicles over a time window of one day. This service publishes messages its output topic. 
 
-3. *Data API* - this REST API service provide two endpoints: one returns the *Max vehicle window* values for the specified camera, and the other endpoint returns camera data for the specified camera. This API is called by the UI to obtain useful data.
+3. *Data buffer* - this provides a one second data buffer. This helps reduce load on the Data API service.
 
-4. *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
+4. *Data API* - this REST API service provides the following endpoints: 
+
+    * `max_vehicles` - last known maximum vehicle count for each camera. 24 hour rolling window.
+    * `detected_objects` - output from the computer vision service for all cameras. excludes images
+    * `vehicles` - the last known vehicle count for each camera
+    * `image` - the last image from the specified camera
+
+    This API is called by the UI to obtain useful data.
+
+5. *S3* - stores objects in Amazon Web Services (AWS) S3. This service enables you to persist any data or results you might like to keep more permanently.
 
 More details are provided on all these services later in the tutorial.
 
