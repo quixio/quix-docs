@@ -179,7 +179,7 @@ plugins:
         'apis/streaming-writer-api/intro.md': 'apis/streaming-writer-api/index.md'
         'apis/query-api/intro.md': 'apis/query-api/index.md'
         'apis/portal-api.md': 'apis/portal-api/index.md'
-        'apis/index.md': 'apis/portal-api/intro.md'
+        'apis/index.md': 'apis/intro.md'
         
 
 theme:
