@@ -103,9 +103,9 @@ nav:
     - 'MLOps': 'platform/MLOps.md'
   - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
-    - 'Index': 'apis/index.md'
-    - 'Query API':
-      - 'Introduction': 'apis/query-api/intro.md'
+    - 'Intro': 'apis/intro.md'
+    - 'Query API': 
+      - 'apis/query-api/index.md'
       - 'Authenticate': 'apis/query-api/authenticate.md'
       - 'Getting Swagger URL': 'apis/query-api/get-swagger.md'
       - 'Forming a request': 'apis/query-api/request.md'
@@ -116,8 +116,8 @@ nav:
       - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
       - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
       - 'Tag filtering': 'apis/query-api/filter-tags.md'
-    - 'Streaming Writer API':
-      - 'Introduction': 'apis/streaming-writer-api/intro.md'
+    - 'Streaming Writer API': 
+      - 'apis/streaming-writer-api/index.md'
       - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
       - 'Getting Swagger URL': 'apis/streaming-writer-api/get-swagger.md'
       - 'Forming a request': 'apis/streaming-writer-api/request.md'
@@ -126,13 +126,14 @@ nav:
       - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
       - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
       - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
-    - 'Streaming Reader API':
-      - 'Introduction': 'apis/streaming-reader-api/intro.md'
+    - 'Streaming Reader API': 
+      - 'apis/streaming-reader-api/index.md'
       - 'Authenticate': 'apis/streaming-reader-api/authenticate.md'
       - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
-    - 'Portal API': 'apis/portal-api.md'
+    - 'Portal API': 
+      - 'apis/portal-api/index.md'
 
 plugins:
   - multirepo:
@@ -172,8 +173,13 @@ plugins:
         'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
-        'apis/data-catalogue-api/intro.md': 'apis/query-api/intro.md'
         'platform/tutorials/image-processing/connect-video-tfl.md': 'platform/tutorials/image-processing/tfl-camera-feed.md'
+        'apis/data-catalogue-api/intro.md': 'apis/query-api/index.md'
+        'apis/streaming-reader-api/intro.md': 'apis/streaming-reader-api/index.md'
+        'apis/streaming-writer-api/intro.md': 'apis/streaming-writer-api/index.md'
+        'apis/query-api/intro.md': 'apis/query-api/index.md'
+        'apis/portal-api.md': 'apis/portal-api/index.md'
+        'apis/index.md': 'apis/portal-api/intro.md'
         
 
 theme:

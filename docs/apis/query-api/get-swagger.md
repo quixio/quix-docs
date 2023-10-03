@@ -1,6 +1,6 @@
 # Getting the Swagger documentation URL
 
-You can access [Swagger documentation](https://swagger.io/){target=_blank} and then use it to try out the [Query API](intro.md). 
+You can access [Swagger documentation](https://swagger.io/){target=_blank} and then use it to try out the [Query API](./index.md). 
 
 The URL is environment-specific, and follows this pattern:
 

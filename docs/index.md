@@ -168,7 +168,7 @@ Read more about the Quix Streams Client Library and APIs.
 
     Stream data to Quix Kafka topics via HTTP with this API.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/index.md)
 
 -   __Streaming Reader API__
 
@@ -176,7 +176,15 @@ Read more about the Quix Streams Client Library and APIs.
 
     Work with this API to receive live data in your Web applications from Quix Kafka topics via Websockets.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/index.md)
+
+-   __Portal API__
+
+    ---
+
+    Automate creation and management of your project and pipeline.
+
+    [:octicons-arrow-right-24: Learn more](./apis/portal-api/index.md)
 
 -   __Query API__
 
@@ -184,7 +192,7 @@ Read more about the Quix Streams Client Library and APIs.
 
     Query historical time series data in Quix using HTTP interface.
 
-    [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/query-api/index.md)
 
 </div>
 

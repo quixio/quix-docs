@@ -1,6 +1,6 @@
 # Get environment ID
 
-Occasionally, you’ll need to obtain an ID based on a specific environment. For example, endpoints for the [Query API](../../apis/query-api/intro.md) use a domain with the following pattern:
+Occasionally, you’ll need to obtain an ID based on a specific environment. For example, endpoints for the [Query API](../../apis/query-api/index.md) use a domain with the following pattern:
 
     https://telemetry-query-${environment-id}.platform.quix.ai/
 

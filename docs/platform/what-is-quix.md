@@ -124,10 +124,10 @@ Quix provides numerous standard [connectors](../platform/connectors/index.md) fo
 
 Quix provides several APIs to help you work with streaming data. These include:
 
-* [**Stream Writer API**](../apis/streaming-writer-api/intro.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
-* [**Stream Reader API**](../apis/streaming-reader-api/intro.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Query API**](../apis/query-api/intro.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
-* [**Portal API**](../apis/portal-api.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
+* [**Stream Writer API**](../apis/streaming-writer-api/index.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
+* [**Stream Reader API**](../apis/streaming-reader-api/index.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
+* [**Query API**](../apis/query-api/index.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
+* [**Portal API**](../apis/portal-api/index.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams
 
