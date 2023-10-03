@@ -19,7 +19,6 @@ The [Streaming Writer](./streaming-writer-api/index.md) and [Streaming Reader](.
 * [Read more about Streaming Writer API](./streaming-writer-api/index.md)
 * [Read more about Streaming Reader API](./streaming-reader-api/index.md)
 
-
 ## Portal API
 
 The [Portal API](portal-api/index.md) gives access to the Quix Portal interface enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deply, and monitor services.
