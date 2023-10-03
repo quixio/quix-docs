@@ -104,18 +104,6 @@ nav:
   - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Intro': 'apis/intro.md'
-    - 'Query API': 
-      - 'apis/query-api/index.md'
-      - 'Authenticate': 'apis/query-api/authenticate.md'
-      - 'Getting Swagger URL': 'apis/query-api/get-swagger.md'
-      - 'Forming a request': 'apis/query-api/request.md'
-      - 'Paged streams': 'apis/query-api/streams-paged.md'
-      - 'Filtered streams': 'apis/query-api/streams-filtered.md'
-      - 'Streams with models': 'apis/query-api/streams-models.md'
-      - 'Raw data': 'apis/query-api/raw-data.md'
-      - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
-      - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
-      - 'Tag filtering': 'apis/query-api/filter-tags.md'
     - 'Streaming Writer API': 
       - 'apis/streaming-writer-api/index.md'
       - 'Authenticate': 'apis/streaming-writer-api/authenticate.md'
@@ -134,6 +122,18 @@ nav:
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 
       - 'apis/portal-api/index.md'
+    - 'Query API': 
+      - 'apis/query-api/index.md'
+      - 'Authenticate': 'apis/query-api/authenticate.md'
+      - 'Getting Swagger URL': 'apis/query-api/get-swagger.md'
+      - 'Forming a request': 'apis/query-api/request.md'
+      - 'Paged streams': 'apis/query-api/streams-paged.md'
+      - 'Filtered streams': 'apis/query-api/streams-filtered.md'
+      - 'Streams with models': 'apis/query-api/streams-models.md'
+      - 'Raw data': 'apis/query-api/raw-data.md'
+      - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
+      - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
+      - 'Tag filtering': 'apis/query-api/filter-tags.md'
 
 plugins:
   - multirepo:
