@@ -4,7 +4,7 @@ You may need to load data from a CSV file into a service, as CSV is a very commo
 
 ## Using pandas 
 
-The pandas library allows the contents of a CSV file to be easily loaded into a pandas dataframe. If this data is to be published to a stream it must have a timestamp. If one is not present in the CSV data, it can be added, but that complicated the code a little. The following example demonstrates loading data from an uploaded CSV file where the data contains a timestamp column:
+The pandas library enables the contents of a CSV file to be easily loaded into a pandas dataframe. If this data is to be published to a stream it must have a timestamp. If one is not present in the CSV data, it can be added, but that complicated the code a little. The following example demonstrates loading data from an uploaded CSV file where the data contains a timestamp column:
 
 ```python
 import quixstreams as qx

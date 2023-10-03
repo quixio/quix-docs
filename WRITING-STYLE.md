@@ -357,7 +357,7 @@ Make sure you write the correct case for product names:
 
 ## Links
 
-Avoid excessive interlinking (use links sparingly), as readers tend to link hop and soon get disorientated. Consider having a "next steps" section at the end of a topic with cross-references to useful material. This allows readers to progress through the material without distraction, and thenpursue additional information should they require it.
+Avoid excessive interlinking (use links sparingly), as readers tend to link hop and soon get disorientated. Consider having a "next steps" section at the end of a topic with cross-references to useful material. This enables readers to progress through the material without distraction, and thenpursue additional information should they require it.
 
 External links should open in a new tab. This can be achieved by constructing links using `{target=_blank}`, as follows:
 

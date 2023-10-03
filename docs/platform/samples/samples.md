@@ -4,7 +4,7 @@ The Quix Portal includes Quix Code Samples, a collection of templates and sample
 
 ![Code Samples](../samples/code-samples.png)
 
-Quix allows you to explore the Code Samples and save them as a new application and immediately run or deploy them. 
+Quix enables you to explore the Code Samples and save them as a new application and immediately run or deploy them. 
 
 If you don't have a Quix account yet, go [sign-up to Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank} and create one.
 

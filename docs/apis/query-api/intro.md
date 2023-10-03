@@ -1,6 +1,6 @@
 # Introduction
 
-The Query API allows you to fetch persisted data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
+The Query API enables you to fetch persisted data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
 
 !!! note
 

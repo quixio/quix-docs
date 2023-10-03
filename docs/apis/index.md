@@ -4,11 +4,11 @@ The Quix Platform provides the following APIs:
 
 ## Query
 
-The [Query API](query-api/intro.md) allows you to fetch data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
+The [Query API](query-api/intro.md) enables you to fetch data stored in the Quix platform. You can use it for exploring the platform, prototyping applications, or working with stored data in any language with HTTP capabilities.
 
 ## Streaming Writer
 
-The [Streaming Writer API](streaming-writer-api/intro.md) allows you to stream data into the Quix platform via HTTP. It’s an alternative to using our C\# and Python client libraries. You can use the Streaming Writer API from any HTTP-capable language.
+The [Streaming Writer API](streaming-writer-api/intro.md) enables you to stream data into the Quix platform via HTTP. It’s an alternative to using our C\# and Python client libraries. You can use the Streaming Writer API from any HTTP-capable language.
 
 ## Streaming Reader
 

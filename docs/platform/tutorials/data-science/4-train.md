@@ -6,7 +6,7 @@ Follow along and learn how to retrieve historical data from your topics, so you 
 
 ## Limited data set
 
-You've already read about the limitations of the free Visual Crossing API. Namely, that it only allows requests for new data  1000 times per day and so the Quix Code Sample only requests data very 2 minutes, therefore at this point in the tutorial you may have a limited data set.
+You've already read about the limitations of the free Visual Crossing API. Namely, that it only enables requests for new data  1000 times per day and so the Quix Code Sample only requests data very 2 minutes, therefore at this point in the tutorial you may have a limited data set.
 
 Continue following the tutorial to see how to access the accumulated historical data, however, after a few hours you will have more data to examine at which time you can repeat the steps again.
 
