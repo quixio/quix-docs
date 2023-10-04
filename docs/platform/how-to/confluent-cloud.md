@@ -18,7 +18,7 @@ If you do not already have Confluent Cloud account, you can [sign up for a free 
 
 When you create a new Quix environment, you can select your hosting option in the `Broker settings` dialog, as shown in the following screenshot:
 
-![Broker Settings](../../images/integrations/confluent/confluent-broker-settings.png)
+![Broker Settings](../images/integrations/confluent/confluent-broker-settings.png)
 
 Select the option `Connect to your Confluent Cloud`. 
 
@@ -26,7 +26,7 @@ Select the option `Connect to your Confluent Cloud`.
 
 When you choose the `Connect to your Confluent Cloud` broker setting, the `Confluent Cloud Setup Guide` is displayed, as shown in the following screenshot:
 
-![Broker Settings](../../images/integrations/confluent/confluent-cloud-setup.png)
+![Broker Settings](../images/integrations/confluent/confluent-cloud-setup.png)
 
 All the required configuration information can be found in your Confluent Cloud account. 
 
