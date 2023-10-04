@@ -50,7 +50,7 @@ You also have the option to test your connection with the Kafka server before co
 
 You can also use the Confluent Cloud hosting option. You can read a detailed How-To on [connecting to Confluent Cloud](confluent-cloud.md). It is assumed you're familiar with [Confluent Cloud](https://www.confluent.io/){target=_blank}.
 
-## Data and streaming service
+## Data and streaming services
 
 The last step in creating an environment is to choose your data and streaming services option. 
 
@@ -101,3 +101,8 @@ Generally, if you notice sluggish performance in one of these services, it may m
 Standard is designed for proof-of-concept, experimentation, and testing environments.
 
 High performance is designed for production environments.
+
+## Next steps
+
+* [See the pricing page](https://quix.io/pricing){target=_blank}
+* [See account limits](TODO){target=_blank}
