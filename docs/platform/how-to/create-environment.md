@@ -46,6 +46,10 @@ If you want to install and manage your own Kafka installation, you can do this t
 
 You also have the option to test your connection with the Kafka server before continuing.
 
+!!! tip
+
+    You could use any Kafka solution here, for example [Redpanda](https://redpanda.com/){target=_blank}.
+
 ### Confluent Cloud
 
 You can also use the Confluent Cloud hosting option. You can read a detailed How-To on [connecting to Confluent Cloud](confluent-cloud.md). It is assumed you're familiar with [Confluent Cloud](https://www.confluent.io/){target=_blank}.
