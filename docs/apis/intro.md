@@ -7,16 +7,34 @@ The Quix Platform provides several APIs. These are:
 * Portal API
 * Query API
 
-## Streaming Writer and Reader
+While [Quix Streams](../client-library-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
 
-The [Streaming Writer](./streaming-writer-api/index.md) and [Streaming Reader](./streaming-reader-api/index.md) APIs enable you to stream data into and out of a Quix topic respectively. These can use WebSockets for real-time streaming of data, but an HTTP interface is also available and intended for low-frequency applications. The main advantage of these APIs is they can be used from any client that supports HTTP or WebSockets, for examples web browsers, but also clients built from languages other than those supported by the [Quix Streams](../client-library-intro.md) client library, such as Ruby or Rust. Quix Streams only currently supports Python or C#. Use cases for these APIs are shown in the following table:
+* The client uses a language is not supported by Quix Streams (it supports Python and C# only)
+* There are resource constraints which mean you can't run Quix Streams
+* The nature of the client (for example, a web browser)
 
-| API | Purpose | Typical use case |
-|---|---|---|
-| Streaming Reader | Subscribe to a Quix topic | Web browser client, dashboard, command line client |
-| Streaming Writer | Publish data to a Quix topic | External service, command line client |
+In these situations Streaming Reader and Writer APIs can provide an alternative solution - for example, they can easily be accommodated in a modern web browser, or using most modern programming languages with an HTTP or SignalR client. 
+
+Portal API is useful for automating processes normally carried out manually in the Quix Portal.
+
+Query API is useful for testing and examining data persisted into the Quix internal database.
+
+Each of these APIs is described in more detail in the following sections.
+
+## Streaming Writer API
+
+The [Streaming Writer API](./streaming-writer-api/index.md) enables you to stream data into a Quix topic. 
+
+Streaming Writer provides both an HTTP interface and a [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} interface, with SignalR supporting WebSockets, for real-time data transfer.
 
 * [Read more about Streaming Writer API](./streaming-writer-api/index.md)
+
+## Streaming Reader API
+
+The [Streaming Reader](./streaming-reader-api/index.md) API enables you to stream data out of a Quix topic. 
+
+Streaming Reader uses Microsoft's [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} technology, which provides both WebSockets and Long Polling, depending on client capabilities.
+
 * [Read more about Streaming Reader API](./streaming-reader-api/index.md)
 
 ## Portal API
@@ -30,3 +48,29 @@ The [Portal API](portal-api/index.md) gives access to the Quix Portal interface 
 The [Query API](query-api/index.md) enables you to fetch persisted data from Quix. You can use it for exploring the platform, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
 
 [Read more about Query API](query-api/index.md)
+
+## Comparing the APIs
+
+Use cases for these APIs are shown in the following table:
+
+| API | Interface | Purpose | Typical use case |
+|---|---|---|---|
+| Streaming Writer | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client |
+| Streaming Reader | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client |
+| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments |
+| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly |
+
+## Next steps
+
+Read the prerequisites and how to get the API references: 
+
+* Learn about [prerequisites](prerequisites.md)
+* Get the [API references](api-references.md)
+* Learn how to form [HTTP requests](http-requests.md)
+
+Read about the API you're interested in:
+
+* Read more about [Streaming Writer](./streaming-writer-api/index.md)
+* Read more about [Streaming Reader](./streaming-reader-api/index.md)
+* Read more about [Portal API](./portal-api/index.md)
+* Read more about [Query API](./query-api/index.md)

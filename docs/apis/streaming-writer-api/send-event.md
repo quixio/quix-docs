@@ -2,13 +2,6 @@
 
 You can add Events to your stream data to record discrete actions for future reference.
 
-## Before you begin
-
-  - [Get a Personal Access Token](authenticate.md) to authenticate each
-    request.
-
-  - If you don’t already have a Stream in your environment, [add one using the API](create-stream.md).
-
 ## Sending event data
 
 To send event data to a stream, use the `POST` method with this endpoint:

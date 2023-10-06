@@ -2,12 +2,6 @@
 
 You can add arbitrary string metadata to any stream. You can also create a new stream by sending metadata using a stream id that does not already exist.
 
-## Before you begin
-
-  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
-
-  - [Get a Personal Access Token](authenticate.md) to authenticate each request.
-
 ## How to add metadata to a stream
 
 Send a `PUT` request to the following endpoint to update a stream with the given properties:

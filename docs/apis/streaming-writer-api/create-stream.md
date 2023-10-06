@@ -1,16 +1,10 @@
 # Create a new Stream
 
-You can create a new stream by specifying a topic to create it in, and supplying any other additional properties required.
+Data is typicaly published to a stream within a topic. As a stream is confined to a topic partition, order of delivery is guaranteed for a stream.
 
 !!! tip
 
-	This method is optional. You can also create a stream implicitly by sending data to a stream that doesn’t already exist. But creating a stream using the method on this page avoids having to determine a unique stream id yourself.
-
-## Before you begin
-
-  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
-
-  - [Get a Personal Access Token](authenticate.md) to authenticate each request.
+	This method is optional. You can also create a stream implicitly by sending data to a stream that doesn’t already exist. If a stream does not exist it is created for you.
 
 ## Using the /streams endpoint
 
@@ -18,28 +12,28 @@ To create a new stream, send a `POST` request to:
 
     /topics/${topicName}/streams
 
-You should replace `$\{topicName}` in the endpoint URL with the name of the [Topic](../../platform/glossary.md#topics) you wish to create the stream in. For example, if your topic is named “cars”, your endpoint URL will be `/topics/cars/streams`.
+You should replace `$\{topicName}` in the endpoint URL with the name of the [Topic](../../platform/glossary.md#topics) you wish to create the stream in. For example, if your topic is named "cars", your endpoint URL will be `/topics/cars/streams`.
 
 ### Example request
 
 You can create a new Stream with an absolute minimum of effort by passing an empty JSON object in the payload:
 
-  - curl
+=== "Curl"
     
-    ```shell
+    ``` shell
     curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams" \
-         -H "Authorization: bearer ${token}" \
-         -H "Content-Type: application/json" \
-         -d '{}'
+            -H "Authorization: bearer ${token}" \
+            -H "Content-Type: application/json" \
+            -d '{}'
     ```
 
-  - Node.js
+=== "Node.js"
     
-    ```javascript
+    ``` javascript
     const https = require('https');
-    
+
     const data = "{}";
-    
+
     const options = {
         hostname: domain + '.platform.quix.ai',
         path: '/topics/' + topicName + '/streams',
@@ -49,14 +43,14 @@ You can create a new Stream with an absolute minimum of effort by passing an emp
             'Content-Type': 'application/json'
         }
     };
-    
+
     const req = https.request(options, res => {
         res.on('data', d => {
             let streamId = JSON.parse(d).streamId;
             console.log(streamId);
         });
     });
-    
+
     req.write(data);
     req.end();
     ```

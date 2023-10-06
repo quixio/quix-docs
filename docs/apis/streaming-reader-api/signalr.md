@@ -1,10 +1,7 @@
 # Set up SignalR
 
-## Before you begin
+TODO
 
-Get a PAT for [Authentication](authenticate.md).
-
-Ensure you know your environment ID.
 
 ## Installation
 
@@ -14,20 +11,9 @@ If you are using a package manager like [npm](https://www.npmjs.com/){target=_bl
 
 Once you’ve installed the SignalR library, you can test it’s set up correctly with the following code snippet. This opens a connection to the hub running on your custom subdomain, and checks authentication.
 
-You should replace the text `YOUR_ACCESS_TOKEN` with the PAT obtained from [Authenticating with the Streaming Reader API](authenticate.md).
+You should replace the text `YOUR_ACCESS_TOKEN` with your [PAT](../../platform/how-to/personal-access-token-pat.md).
 
-You should also replace `YOUR_ENVIRONMENT_ID` with the appropriate identifier, a combination of your organization and environment names.
-
-This can be located in one of the following ways:
-
-- **Portal URL**  - Look in the browsers URL when you are logged into the Portal and inside the     environment you want to work with. The URL contains the environment ID. For example, everything after "workspace=" through to the next *&*
-
-  !!! note
-
-    `workspace=` is legacy. This is in fact your environment ID.
-
-
-- **Settings** - Click on `Settings` and then the environment. Click on `General settings`. The environment name and environment ID is displayed.
+You should also replace `YOUR_ENVIRONMENT_ID` with your [environment ID](../../platform/how-to/get-environment-id.md).
 
 ```javascript
 var signalR = require("@microsoft/signalr");

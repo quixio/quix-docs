@@ -6,10 +6,6 @@ Welcome to the Quix developer documentation!
 
     **See [here](./platform/changes.md) for significant recent changes.**
 
-!!! tip
-    
-    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
-
 ## See Quix in action
 
 See the following live demos and running pipelines:
@@ -201,6 +197,11 @@ Read more about the Quix Streams Client Library and APIs.
 The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
 
 This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
+
+
+## Secret tip
+
+Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
 
 ## Contribute
 

@@ -2,14 +2,6 @@
 
 You can send telemetry data using the Streaming Writer API. Select a topic and a stream to send the data to. In your payload, you can include numeric, string, or binary parameter data, with nanosecond-level timestamps.
 
-## Before you begin
-
-  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
-
-  - [Get a Personal Access
-    Token](authenticate.md) to authenticate each
-    request.
-
 ## Sending structured data to the endpoint
 
 Send a POST request together with a JSON payload representing the data you’re sending to:

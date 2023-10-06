@@ -1,31 +1,9 @@
 # Introduction
 
-The Streaming Writer API enables you to stream data into the Quix platform via HTTP endpoints or SignalR. It’s an alternative to using our C# and Python client libraries. You can use the Streaming Writer API from any HTTP-capable language.
+The Streaming Writer API enables you to stream data into a Quix topic using HTTP endpoints or Microsoft's [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} technology. You can use the Streaming Writer API from any language or web client with an HTTP (REST) or WebSockets interface. 
 
-The API is fully documented in our [Swagger documentation](get-swagger.md). Read on for a guide to using the API, including real-world examples you can invoke
-from your language of choice, or using the command line using curl.
+It is typically used by clients written in languages not supported by Quix Streams, which supports Python and C#, or by other web services and clients that need to publish data to Quix. 
 
-## Preparation
+## Next steps
 
-If you plan on using the HTTP endpoints, then you’ll need to know how to
-[authenticate your requests](authenticate.md)
-and how to [form a typical request to the API](request.md).
-
-If you would rather use the SignalR api, which is suggested for high
-frequency data streaming, then see [SignalR setup](../streaming-reader-api/signalr.md).
-
-## Topics covered
-
-  - Stream
-    
-      - [Create a new Stream](create-stream.md)
-    
-      - [Add Stream metadata](stream-metadata.md)
-
-  - Parameters
-    
-      - [Send Parameter data](send-data.md)
-
-  - Events
-    
-      - [Send an Event](send-event.md)
+The following pages provide a guide to using the API, including real-world examples you can invoke from your language of choice, or by using [Curl](https://curl.se/) on the command line.
