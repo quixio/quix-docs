@@ -107,16 +107,15 @@ nav:
     - 'Prerequisites': 'apis/prerequisites.md'
     - 'API References': 'apis/api-references.md'
     - 'HTTP requests': 'apis/http-requests.md'
+    - 'Set up SignalR': 'apis/signalr.md'
     - 'Streaming Writer API': 
       - 'apis/streaming-writer-api/index.md'
-      - 'Set up SignalR': 'apis/streaming-writer-api/signalr.md'
       - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
       - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
       - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
       - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
     - 'Streaming Reader API': 
       - 'apis/streaming-reader-api/index.md'
-      - 'Set up SignalR': 'apis/streaming-reader-api/signalr.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
       - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 

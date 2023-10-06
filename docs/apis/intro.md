@@ -67,6 +67,7 @@ Read the prerequisites and how to get the API references:
 * Learn about [prerequisites](prerequisites.md)
 * Get the [API references](api-references.md)
 * Learn how to form [HTTP requests](http-requests.md)
+* Set up [SignalR](signalr.md) (if using WebSockets rather than HTTP)
 
 Read about the API you're interested in:
 
