@@ -81,5 +81,5 @@ You should structure most of your requests to the API around this pattern:
 curl -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "@data.json" \
-     https://<api-name>-<environment-id>.platform.quix.ai/<action>
+     https://${api-name}-${environment-id}.platform.quix.ai/<action>
 ```

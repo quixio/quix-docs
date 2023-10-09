@@ -16,4 +16,3 @@ Replace `<environment-id>` with your [environment ID](../platform/how-to/get-env
 !!! tip
 
     Once you access the API reference, you can select the version of the API you require from the `Select a definition` dropdown list.
-

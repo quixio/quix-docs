@@ -18,21 +18,18 @@ You should replace `${topicName}` with the name of the topic your stream belongs
 
 !!! tip
 	
-	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
+	You can create a new stream by supplying a `${streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 Your payload should be an array of events. Each event is an object containing the following properties:
 
-  - `id` - a unique identifier for the event
-
-  - `timestamp` - the nanosecond-precise timestamp at which the event occurred
-
-  - `tags` - a object containing key-value string pairs representing tag values
-
-  - `value` - a string value associated with the event
+* `id` - a unique identifier for the event
+* `timestamp` - the nanosecond-precise timestamp at which the event occurred
+* `tags` - a object containing key-value string pairs representing tag values
+* `value` - a string value associated with the event
 
 ### Example request
 
-This example call adds a single event to a stream. The event has an example value and demonstrates use of a tag to include additional information.
+This example call adds a single event to a stream. The event has an example value and demonstrates use of a tag to include additional information:
 
 === "curl"
     
@@ -82,9 +79,11 @@ This example call adds a single event to a stream. The event has an example valu
 
 ### Response
 
-No payload is returned from this call. A 200 HTTP response code indicates success. If the call fails, you should see either a 4xx or 5xx response code indicating what went wrong.
+No payload is returned from this call. A 200 HTTP response code indicates success. If the call fails, you see either a 4xx or 5xx response code, indicating what went wrong.
 
 ## Using SignalR
+
+The following code shows how to send event data using SignalR (WebSockets):
 
 ```javascript
 var signalR = require("@microsoft/signalr");

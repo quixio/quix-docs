@@ -6,7 +6,7 @@ Data is typicaly published to a stream within a topic. As a stream is confined t
 
 	This method is optional. You can also create a stream implicitly by sending data to a stream that doesn’t already exist. If a stream does not exist it is created for you.
 
-## Using the /streams endpoint
+## Using the `/streams` endpoint
 
 To create a new stream, send a `POST` request to:
 
@@ -22,6 +22,7 @@ You can create a new Stream with an absolute minimum of effort by passing an emp
     
     ``` shell
     curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams" \
+            -X POST \
             -H "Authorization: bearer ${token}" \
             -H "Content-Type: application/json" \
             -d '{}'
@@ -57,15 +58,11 @@ You can create a new Stream with an absolute minimum of effort by passing an emp
 
 For most real-world cases, you’ll also want to provide some or all of the following:
 
-  - `name`
-
-  - `location`
-
-  - `metadata`
-
-  - `parents`
-
-  - `timeOfRecording`
+* `name` - the human friendly name of the stream
+* `location` - the location of the stream's persisted data in the data catalogue (retrieved using Query API)
+* `metadata` - metadata for the stream (retrieved using Query API, or Data Explorer) 
+* `parents` - the list of stream ids of the parent streams
+* `timeOfRecording` - the datetime of the stream recording
 
 For example, here’s a more useful payload:
 
@@ -81,7 +78,7 @@ For example, here’s a more useful payload:
 
 ### Example response
 
-The JSON returned is an object with a single property, `streamId`. This contains the unique identifier of your newly created stream, and will look something like this:
+The JSON returned is an object with a single property, `streamId`. This contains the unique identifier of your newly created stream, and resembles the following:
 
 ```json
 {
@@ -93,7 +90,7 @@ The JSON returned is an object with a single property, `streamId`. This contains
 
 	If you’re following these guides in order, you’ll want to take note of that stream id. For curl examples, it’s convenient to keep it in an environment variable, for example:
 
-	```bash
+	``` bash
 	$ streamId=66fb0a2f-eb70-494e-9df7-c06d275aeb7c
 	```
 
@@ -137,3 +134,7 @@ connection.start().then(async () => {
 !!! tip
 
 	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/cLno68fs/](https://jsfiddle.net/QuixAI/cLno68fs/){target=_blank}
+
+## 🏃‍♀️ Next step
+
+[Stream metadata :material-arrow-right-circle:{ align=right }](stream-metadata.md)
