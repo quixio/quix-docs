@@ -19,6 +19,7 @@ The following code sample shows how to use the SignalR client library to:
 In the following Node.js code, click `+` to see the annotation:
 
 ``` javascript
+// Use with Demo Data (for example)
 var signalR = require("@microsoft/signalr");
 
 const options = {
@@ -38,8 +39,9 @@ connection.start().then(() => {
 
     // Read data from the stream (3)
     connection.on("ParameterDataReceived", data => {
-        let model = JSON.parse(data);
-        console.log("Received data from stream: " + model.streamId);
+        console.log("topicId: " + data.topicId);
+        console.log("streamId: " + data.streamId);
+        console.log("EngineRPM values: " + data.numericValues.EngineRPM);
 
         // Unsubscribe from stream (4)
         connection.invoke("UnsubscribeFromParameter", "your-topic-name", "your-stream-id", "your-parameter-id");

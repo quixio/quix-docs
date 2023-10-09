@@ -16,8 +16,7 @@ You can subscribe to the following hub methods using [the `invoke` method](https
 
   - `SubscribeToPackages(string topicName)`: Subscribe to Topic packages. A package is an abstraction for any message received in the topic.
 
-Each Subscribe method has its own Unsubscribe. Use them once you don’t
-need the subscriptions anymore to avoid receiving data unnecessarily:
+Each Subscribe method has its own Unsubscribe. Use them once you don’t need the subscriptions anymore to avoid receiving data unnecessarily:
 
   - `UnsubscribeFromParameter(topicName, streamId, parameterId)`: Unsubscribe from a parameter data stream.
 
@@ -33,7 +32,9 @@ need the subscriptions anymore to avoid receiving data unnecessarily:
 
 You should pass the method’s name as the first argument to `invoke`, followed by the method-specific arguments. For example, to call:
 
-`SubscribeToParameter(topicName, streamId, parameterId)`
+```
+SubscribeToParameter(topicName, streamId, parameterId)
+```
 
 Use the following:
 
@@ -41,9 +42,47 @@ Use the following:
 connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
 ```
 
+A more complete example is shown here:
+
+``` javascript
+var signalR = require("@microsoft/signalr");
+
+const options = {
+    accessTokenFactory: () => '<your-PAT>'
+};
+
+const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .build();
+
+// Establish connection 
+connection.start().then(() => {
+    console.log("Connected to Quix.");
+
+    // Subscribe to parameter data stream 
+    connection.invoke("SubscribeToParameter", "f1-data", "*", "EngineRPM");
+
+    // Read parameter data from the stream 
+    connection.on("ParameterDataReceived", data => {
+        console.log('topicId ', data.topicId);
+        console.log('streamId ', data.streamId);
+        console.log('streamId ', data.numericValues.EngineRPM);
+
+        // Unsubscribe from stream 
+        connection.invoke("UnsubscribeFromParameter", "f1-data", "*", "EngineRPM");
+    });
+});
+```
+
+!!! tip
+
+    When subscribing, you can use the wildcard `*` for topics, streams, and parameters.
+
 ## SignalR events
 
-You can register a handler for SignalR events using [the `on` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#on){target=_blank} of a `HubConnection`. The following events are available:
+You can register a handler for SignalR events using [the `on` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#on){target=_blank} of a `HubConnection`. 
+
+The following events are available:
 
   - `ParameterDataReceived(parameterData)`
 
@@ -70,6 +109,38 @@ Add a listener to `ParameterDataReceived` event to receive data from a `Subscrib
 
 One event is generated each time a ParameterData package is received in the Topic and the data contains the Parameter the user has subscribed for.
 
+A more complete example is shown here:
+
+``` javascript
+var signalR = require("@microsoft/signalr");
+
+const options = {
+    accessTokenFactory: () => '<your-PAT>'
+};
+
+const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .build();
+
+// Establish connection 
+connection.start().then(() => {
+    console.log("Connected to Quix.");
+
+    // Subscribe to parameter data stream 
+    connection.invoke("SubscribeToParameter", "f1-data", "*", "EngineRPM");
+
+    // Read parameter data from the stream 
+    connection.on("ParameterDataReceived", data => {
+        console.log('topicId ', data.topicId);
+        console.log('streamId ', data.streamId);
+        console.log('streamId ', data.numericValues.EngineRPM);
+
+        // Unsubscribe from stream 
+        connection.invoke("UnsubscribeFromParameter", "f1-data", "*", "EngineRPM");
+    });
+});
+```
+
 Example payload:
 
 ``` javascript
@@ -89,6 +160,36 @@ Add a listener to `EventDataReceived` event to receive data from a `SubscribeToE
 
 One event is generated each time a EventData package is received in the Topic and the data contains the Event the user has subscribed for.
 
+A more complete example is shown here:
+
+``` javascript
+var signalR = require("@microsoft/signalr");
+
+const options = {
+    accessTokenFactory: () => '<your-PAT>'
+};
+
+const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .build();
+
+// Establish connection 
+connection.start().then(() => {
+    console.log("Connected to Quix.");
+
+    // Subscribe to parameter data stream 
+    connection.invoke("SubscribeToEvent", "event-data-topic", "rig-telemetry", "temp");
+
+    // Read parameter data from the stream 
+    connection.on("EventDataReceived", data => {
+        console.log('data --> ', data);
+
+        // Unsubscribe from stream 
+        connection.invoke("UnsubscribeFromEvent", "f1-data", "*", "EngineRPM");
+    });
+});
+```
+
 Example payload:
 
 ``` javascript
@@ -104,23 +205,86 @@ Example payload:
 }
 ```
 
-### ActiveStreamChanged
+### ActiveStreamsChanged
 
 This event is generated each time a change has been produced in the list of Active streams of a Topic.
 
-Add a listener to `ActiveStreamChanged` event to receive data from a `SubscribeToActiveStreams` subscription. This SignalR event contains two
-arguments on it:
+Add a listener to `ActiveStreamChanged` event to receive data from a `SubscribeToActiveStreams` subscription. This SignalR event contains two arguments on it:
 
   - `stream`: Payload of the stream that has been changed.
 
-  - `action`: It describes the type of operation has been applied to the
-    list of active streams:
+  - `action`: It describes the type of operation has been applied to the list of active streams:
     
       - `AddUpdate`: Stream added or updated
     
       - `Remove`: Stream removed
 
-Stream payload example:
+Example code:
+
+``` javascript
+var signalR = require("@microsoft/signalr");
+
+const options = {
+    accessTokenFactory: () => '<your-PAT>'
+};
+
+const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .build();
+
+// Establish connection 
+connection.start().then(() => {
+    console.log("Connected to Quix.");
+
+    // Subscribe to parameter data stream 
+    connection.invoke("SubscribeToActiveStreams", "f1-data");
+
+    // Read parameter data from the stream 
+    connection.on("ActiveStreamsChanged", (stream, action) => {
+        console.log('stream -----> ', stream);
+        console.log('action -----> ', action);
+
+        // Unsubscribe from stream 
+        connection.invoke("UnsubscribeFromParameter", "f1-data", "*", "*");
+    });
+});
+```
+
+Might produce the following output:
+
+``` shell
+[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.platform.quix.ai/hub?id=o9Ctg5zdQ7aAzdQ2Cz4eMw.
+Connected to Quix.
+stream ----->  {
+  streamId: '0a23798f-7d75-413d-9031-8d8386c2f8c7',
+  topicId: 'joeengland-apitests-testing-f1-data',
+  topicName: 'f1-data',
+  metadata: {},
+  parents: [],
+  parameters: {
+    EngineTemp: { dataType: 'Numeric' },
+    Motion_WorldPositionX: { dataType: 'Numeric' },
+    Steer: { dataType: 'Numeric' },
+    Brake: { dataType: 'Numeric' },
+    EngineRPM: { dataType: 'Numeric' },
+    Motion_WorldPositionZ: { dataType: 'Numeric' },
+    TotalLapDistance: { dataType: 'Numeric' },
+    LapDistance: { dataType: 'Numeric' },
+    Gear: { dataType: 'Numeric' },
+    original_timestamp: { dataType: 'Numeric' },
+    Motion_WorldPositionY: { dataType: 'Numeric' },
+    Speed: { dataType: 'Numeric' }
+  },
+  events: {},
+  firstSeen: '2023-10-09T15:23:29.7197985Z',
+  lastSeen: '2023-10-09T15:23:29.7198602Z',
+  status: 'Receiving',
+  lastData: '2023-10-09T15:23:29.7198603Z'
+}
+action ----->  AddUpdate
+```
+
+Another stream payload example, showing more metadata:
 
 ``` json
 {
