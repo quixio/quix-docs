@@ -30,38 +30,6 @@ First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up
 
     [:octicons-arrow-right-24: Quix Tour](./platform/quixtour/overview.md)
 
-- __What is Quix?__
-
-    ---
-
-    New to Quix? Find out more!
-
-    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
-
-- __Glossary__
-
-    ---
-
-    List of Quix terms.
-
-    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
- 
-- __Ingest data__
-
-    ---
-
-    Read about some of the many ways you can get your data into Quix.
-
-    [:octicons-arrow-right-24: Ingest data](./platform/ingest-data.md)
-
--   __Help__
-
-    ---
-
-    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
-    
-    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
-
 </div>
 
 ## See Quix in action
@@ -183,6 +151,38 @@ Read more about the Quix Streams Client Library and APIs.
 
     [:octicons-arrow-right-24: Learn more](./apis/portal-api/index.md)
 
+- __What is Quix?__
+
+    ---
+
+    New to Quix? Find out more!
+
+    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
+
+- __Glossary__
+
+    ---
+
+    List of Quix terms.
+
+    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
+ 
+- __Ingest data__
+
+    ---
+
+    Read about some of the many ways you can get your data into Quix.
+
+    [:octicons-arrow-right-24: Ingest data](./platform/ingest-data.md)
+
+-   __Help__
+
+    ---
+
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+    
+    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
+
 </div>
 
 ## Documentation changelog
@@ -199,7 +199,7 @@ Read more about the Quix Streams Client Library and APIs.
 
 </div>
 
-## Secret tip
+## Secret tip ㊙️
 
 <div class="grid cards" markdown>
 
