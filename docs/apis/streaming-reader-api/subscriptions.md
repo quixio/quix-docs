@@ -1,62 +1,45 @@
-# Subscription & Event reference
+# Subscription and Event reference
 
 The Quix SignalR hub provides the following subscriptions and events.
 
 ## Subscriptions
 
-You can subscribe to the following hub methods via [the `invoke` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke){target=_blank}
-of a `HubConnection`:
+You can subscribe to the following hub methods using [the `invoke` method](https://docs.microsoft.com/en-gb/javascript/api/@aspnet/signalr/hubconnection?view=signalr-js-latest#invoke){target=_blank} of a `HubConnection`:
 
-  - `SubscribeToParameter(topicName, streamId, parameterId)`: Subscribe
-    to a parameter data stream.
+  - `SubscribeToParameter(topicName, streamId, parameterId)`: Subscribe to a parameter data stream.
 
-  - `SubscribeToEvent(topicName, streamId, eventId)`: Subscribes to an
-    event data stream.
+  - `SubscribeToEvent(topicName, streamId, eventId)`: Subscribes to an event data stream.
 
-  - `IList<ActiveStream> SubscribeToActiveStreams(topicName)`: Subscribe
-    to Active Streams List changes. The subscription method returns an
-    initial list of the active streams existing in the topic.
+  - `IList<ActiveStream> SubscribeToActiveStreams(topicName)`: Subscribe to Active Streams List changes. The subscription method returns an initial list of the active streams existing in the topic.
 
-  - `IList<TopicMetrics> SubscribeToTopicMetrics(topicName)`: Subscribe
-    to Topic metrics updates. The subscription method returns an initial
-    list of the last 5 minutes of topic metrics.
+  - `IList<TopicMetrics> SubscribeToTopicMetrics(topicName)`: Subscribe to Topic metrics updates. The subscription method returns an initial list of the last 5 minutes of topic metrics.
 
-  - `SubscribeToPackages(string topicName)`: Subscribe to Topic
-    packages. A package is an abstraction for any message received in
-    the topic.
+  - `SubscribeToPackages(string topicName)`: Subscribe to Topic packages. A package is an abstraction for any message received in the topic.
 
 Each Subscribe method has its own Unsubscribe. Use them once you don’t
 need the subscriptions anymore to avoid receiving data unnecessarily:
 
-  - `UnsubscribeFromParameter(topicName, streamId, parameterId)`:
-    Unsubscribe from a parameter data stream.
+  - `UnsubscribeFromParameter(topicName, streamId, parameterId)`: Unsubscribe from a parameter data stream.
 
-  - `UnsubscribeFromEvent(topicName, streamId, eventId)` Unsubscribe
-    from an event data stream.
+  - `UnsubscribeFromEvent(topicName, streamId, eventId)` Unsubscribe from an event data stream.
 
-  - `UnsubscribeFromActiveStreams(string topicName)`: Unsubscribe from
-    Streams List changes.
+  - `UnsubscribeFromActiveStreams(string topicName)`: Unsubscribe from Streams List changes.
 
-  - `UnsubscribeFromTopicMetrics(topicName)`: Unsubscribe from Topic
-    metrics updates.
+  - `UnsubscribeFromTopicMetrics(topicName)`: Unsubscribe from Topic metrics updates.
 
-  - `UnsubscribeFromPackages(string topicName)`: Unsubscribe from Topic
-    packages.
+  - `UnsubscribeFromPackages(string topicName)`: Unsubscribe from Topic packages.
 
-  - `UnsubscribeFromStream(topicName, streamId)`: Unsubscribes from all
-    subscriptions of the specified stream.
+  - `UnsubscribeFromStream(topicName, streamId)`: Unsubscribes from all subscriptions of the specified stream.
 
-!!! tip
- 
-	You should pass the method’s name as the first argument to `invoke`, followed by the method-specific arguments. For example, to call:
+You should pass the method’s name as the first argument to `invoke`, followed by the method-specific arguments. For example, to call:
 
-	`SubscribeToParameter(topicName, streamId, parameterId)`
+`SubscribeToParameter(topicName, streamId, parameterId)`
 
-	Use the following:
+Use the following:
 
-	``` javascript
-	connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
-	```
+``` javascript
+connection.invoke("SubscribeToParameter", "your-topic-name", "your-stream-id", "your-parameter-id");
+```
 
 ## SignalR events
 
@@ -72,24 +55,20 @@ You can register a handler for SignalR events using [the `on` method](https://do
 
   - `PackageReceived(package)`
 
-!!! tip
 
-	You should pass the event’s name as the first argument to `on`,	followed by a function callback. For example, to react to the `ParameterDataReceived` event, use the following:
+You should pass the event’s name as the first argument to `on`,	followed by a function callback. For example, to react to the `ParameterDataReceived` event, use the following:
 
-	``` javascript
-	connection.on("ParameterDataReceived", data => {
-		// process payload data
-	});
-	```
+``` javascript
+connection.on("ParameterDataReceived", data => {
+  // process payload data
+});
+```
 
 ### ParameterDataReceived
 
-Add a listener to `ParameterDataReceived` event to receive data from a
-`SubscribeToParameter` subscription.
+Add a listener to `ParameterDataReceived` event to receive data from a `SubscribeToParameter` subscription.
 
-One event is generated each time a ParameterData package is received in
-the Topic and the data contains the Parameter the user has subscribed
-for.
+One event is generated each time a ParameterData package is received in the Topic and the data contains the Parameter the user has subscribed for.
 
 Example payload:
 
@@ -106,11 +85,9 @@ Example payload:
 
 ### EventDataReceived
 
-Add a listener to `EventDataReceived` event to receive data from a
-`SubscribeToEvent` subscription.
+Add a listener to `EventDataReceived` event to receive data from a `SubscribeToEvent` subscription.
 
-One event is generated each time a EventData package is received in the
-Topic and the data contains the Event the user has subscribed for.
+One event is generated each time a EventData package is received in the Topic and the data contains the Event the user has subscribed for.
 
 Example payload:
 
@@ -129,11 +106,9 @@ Example payload:
 
 ### ActiveStreamChanged
 
-This event is generated each time a change has been produced in the list
-of Active streams of a Topic.
+This event is generated each time a change has been produced in the list of Active streams of a Topic.
 
-Add a listener to `ActiveStreamChanged` event to receive data from a
-`SubscribeToActiveStreams` subscription. This SignalR event contains 2
+Add a listener to `ActiveStreamChanged` event to receive data from a `SubscribeToActiveStreams` subscription. This SignalR event contains two
 arguments on it:
 
   - `stream`: Payload of the stream that has been changed.
@@ -147,7 +122,7 @@ arguments on it:
 
 Stream payload example:
 
-``` javascript
+``` json
 {
   "streamId": "5ecfc7ce-906c-4d3a-811c-a85ea75a24b3",
   "topicName": "f1-data",
@@ -233,16 +208,13 @@ Stream payload example:
 
 ### TopicMetricsUpdated
 
-This event is generated periodically by the service to provide basic
-metrics about a Topic, like "Bytes per Second" or "Number of Active
-Streams".
+This event is generated periodically by the service to provide basic metrics about a Topic, like "Bytes per Second" or "Number of Active Streams".
 
-Add a listener to `TopicMetricsUpdated` event to receive data from a
-`SubscribeToTopicMetrics` subscription.
+Add a listener to `TopicMetricsUpdated` event to receive data from a `SubscribeToTopicMetrics` subscription.
 
 Topic Metrics payload example:
 
-``` javascript
+``` json
 {
     "timestamp": "2022-04-10T19:26:49.1417825Z",
     "topicName": "f1-data",
@@ -253,8 +225,7 @@ Topic Metrics payload example:
 
 ### PackageReceived
 
-Add a listener to `PackageReceived` event to receive data from a
-`SubscribeToPackages` subscription.
+Add a listener to `PackageReceived` event to receive data from a `SubscribeToPackages` subscription.
 
 One event is generated each time a package is received in the topic.
 
@@ -265,7 +236,7 @@ One event is generated each time a package is received in the topic.
 
 Package payload example:
 
-``` javascript
+``` json
 {
     "topicName": "f1-data",
     "streamId": "dec481d7-7ae4-403a-9d20-a1cabdcd3275",

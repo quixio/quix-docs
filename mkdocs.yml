@@ -117,7 +117,7 @@ nav:
     - 'Streaming Reader API': 
       - 'apis/streaming-reader-api/index.md'
       - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
-      - 'Subscription & Event reference': 'apis/streaming-reader-api/subscriptions.md'
+      - 'Subscription and Event reference': 'apis/streaming-reader-api/subscriptions.md'
     - 'Portal API': 
       - 'apis/portal-api/index.md'
     - 'Query API': 
