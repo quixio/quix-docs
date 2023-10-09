@@ -187,14 +187,29 @@ Read more about the Quix Streams Client Library and APIs.
 
 ## Documentation changelog
 
-The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+<div class="grid cards" markdown>
 
-This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
+-   __Changelog__
 
+    ---
+
+    The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+    This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
+
+</div>
 
 ## Secret tip
 
-Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+<div class="grid cards" markdown>
+
+-   __Hotkeys__
+
+    ---
+
+    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+
+</div>
 
 ## Contribute
 
