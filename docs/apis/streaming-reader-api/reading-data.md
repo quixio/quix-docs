@@ -53,3 +53,9 @@ connection.start().then(() => {
 2. Subscribe to a parameter data stream (you can subscribe to multiple streams using the special wildcard character `*`).
 3. Read data from the stream.
 4. Unsubscribe from the stream.
+
+Note that SignalR will confirm its connection method, with logging such as the following:
+
+``` shell
+[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.platform.quix.ai/hub?id=ABC9Ctg5zdQ7aAzXYX.
+```
