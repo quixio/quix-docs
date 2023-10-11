@@ -4,7 +4,7 @@ The following is a list of terms useful when working with Quix and streaming dat
 
 ## APIs
 
-In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [API landing page](../apis/index.md).
+In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [API landing page](../apis/intro.md).
 
 ## Application
 
@@ -160,7 +160,7 @@ Applications implementing a source, transform, or destination, are connected tog
 
 ## Portal API
 
-An [HTTP API](../apis/portal-api.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
+An [HTTP API](../apis/portal-api/index.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
 
 ## Producer
 
@@ -174,7 +174,7 @@ A project contains one or more [environments](#environment), so typically you cr
 
 ## Query API
 
-The [Query API](../apis/query-api/intro.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
+The [Query API](../apis/query-api/index.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
 ## Quix Portal
 
@@ -206,11 +206,11 @@ Read more about [streams](../client-library/features/streaming-context.md).
 
 ## Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/intro.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
+A [WebSockets API](../apis/streaming-reader-api/index.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/intro.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
+An [HTTP API](../apis/streaming-writer-api/index.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
 
 ## Time series data
 

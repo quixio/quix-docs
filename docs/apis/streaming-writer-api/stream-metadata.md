@@ -1,12 +1,6 @@
 # Add Stream metadata
 
-You can add arbitrary string metadata to any stream. You can also create a new stream by sending metadata using a stream id that does not already exist.
-
-## Before you begin
-
-  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
-
-  - [Get a Personal Access Token](authenticate.md) to authenticate each request.
+You can add arbitrary string metadata to any stream. You can also create a new stream by sending metadata using a stream ID that does not already exist. This is mainly used when retrieving persisted data using the Query API, but is also displayed in Data Explorer. This helps you identify data of interest.
 
 ## How to add metadata to a stream
 
@@ -14,13 +8,13 @@ Send a `PUT` request to the following endpoint to update a stream with the given
 
     /topics/${topicName}/streams/${streamId}
 
-You should replace `$\{topicName}` with the name of the topic your stream belongs to, and `$\{streamId}` with the id of the stream you wish to update. For example:
+You should replace `${topicName}` with the name of the topic your stream belongs to, and `${streamId}` with the id of the stream you wish to update. For example:
 
     /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c
 
 !!! tip
 
-	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. It will be initialized with the data you provide in the payload, and the id you use in the endpoint. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
+	You can create a new stream by supplying a `${streamId}` that doesn’t already exist. It will be initialized with the data you provide in the payload, and the ID you use in the endpoint. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 Your request should contain a payload consisting of JSON data containing the desired metadata.
 
@@ -116,3 +110,7 @@ connection.start().then(async () => {
 !!! tip
  
 	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/ruywnz28/](https://jsfiddle.net/QuixAI/ruywnz28/){target=_blank}
+
+## 🏃‍♀️ Next step
+
+[Send parameter data :material-arrow-right-circle:{ align=right }](send-data.md)

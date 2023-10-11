@@ -2,14 +2,6 @@
 
 You can send telemetry data using the Streaming Writer API. Select a topic and a stream to send the data to. In your payload, you can include numeric, string, or binary parameter data, with nanosecond-level timestamps.
 
-## Before you begin
-
-  - You should have an [environment set up](../../platform/glossary.md#environment) with at least one [Topic](../../platform/glossary.md#topics).
-
-  - [Get a Personal Access
-    Token](authenticate.md) to authenticate each
-    request.
-
 ## Sending structured data to the endpoint
 
 Send a POST request together with a JSON payload representing the data you’re sending to:
@@ -18,7 +10,7 @@ Send a POST request together with a JSON payload representing the data you’re 
 /topics/${topicName}/streams/${streamId}/parameters/data
 ```
 
-You should replace `$\{topicName}` with the name of the topic your stream belongs to, and `$ {streamId}` with the id of the stream you wish to send data to. For example:
+You should replace `${topicName}` with the name of the topic your stream belongs to, and `${streamId}` with the id of the stream you wish to send data to. For example:
 
 ```
 /topics/cars/streams/66fb0a2f-eb70-494e-9df7-c06d275aeb7c/parameters/data
@@ -26,7 +18,7 @@ You should replace `$\{topicName}` with the name of the topic your stream belong
 
 !!! tip
 
-	You can create a new stream by supplying a `$\{streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
+	You can create a new stream by supplying a `${streamId}` that doesn’t already exist. This avoids the need to call the [create stream endpoint](create-stream.md) separately.
 
 ### Example request
 
@@ -42,15 +34,16 @@ Your payload should include an array of `timestamps` with one timestamp for each
 }
 ```
 
-Any data types that are unused can be omitted. So a final request using curl might look something like this:
+Any data types that are unused can be omitted. An example request is as follows:
 
 === "curl"
     
     ``` bash
-    curl -X POST "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/parameters/data" \
-         -H "Authorization: Bearer ${token}" \
-         -H "Content-Type: application/json" \
-         -d '{
+    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/parameters/data" \
+        -X POST \
+        -H "Authorization: Bearer ${token}" \
+        -H "Content-Type: application/json" \
+        -d '{
                  "timestamps": [1591733989000000000, 1591733990000000000, 1591733991000000000],
                  "numericValues": {
                      "SomeParameter1": [10.01, 202.02, 303.03],
@@ -93,6 +86,8 @@ Any data types that are unused can be omitted. So a final request using curl mig
 No payload is returned from this call. A 200 HTTP response code indicates success. If the call fails, you should see either a 4xx or 5xx response code indicating what went wrong.
 
 ## Using SignalR
+
+The following code shows how to send data using SignalR (WebSockets):
 
 ```javascript
 var signalR = require("@microsoft/signalr");
@@ -161,3 +156,8 @@ connection.start().then(async () => {
 !!! tip 
 
 	Also available as JsFiddle at [https://jsfiddle.net/QuixAI/a41b8x0t/](https://jsfiddle.net/QuixAI a41b8x0t/){target=_blank}
+
+
+## 🏃‍♀️ Next step
+
+[Send event data :material-arrow-right-circle:{ align=right }](send-event.md)

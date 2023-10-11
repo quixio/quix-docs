@@ -10,7 +10,7 @@ This document outlines how Quix helps customers configure, deploy and use the cl
 
 ## Authentication
 
-Securing your information starts with identity controls, no matter where your users are located. Quix allows you to manage users, streamline authentication using your identity provider, and assign roles. We give you the solutions to ensure that only the right people can access your company's information in Quix.
+Securing your information starts with identity controls, no matter where your users are located. Quix enables you to manage users, streamline authentication using your identity provider, and assign roles. We give you the solutions to ensure that only the right people can access your company's information in Quix.
 
 OAuth is the protocol Quix uses when you auth against our platform using Google or your preferred Identity provider. Customers are responsible for integrating and managing their identity provider (for single sign-on and provisioning) as well as assigning roles in Quix.
 
@@ -52,7 +52,7 @@ To give you even further protection and control, we architected Quix on independ
 
 Environments at Quix are hermetically sealed with no reused components between them. Development and Production environments are distinct entities with no cross-talk.
 
-The separation of these concerns allows us to deliver a Quix platform experience in a way that minimizes the chance of errors and mistakes and is a well-supported industry standard of software delivery.
+The separation of these concerns enables us to deliver a Quix platform experience in a way that minimizes the chance of errors and mistakes and is a well-supported industry standard of software delivery.
 
 In case you choose to host Quix on your platform, we recommend that you follow the same practices.
 

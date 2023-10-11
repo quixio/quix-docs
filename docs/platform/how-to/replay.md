@@ -1,6 +1,6 @@
 # How to replay data
 
-Quix Platform features a **replay service**. This service allows you to replay persisted data into a topic, as if it were live data. This is very useful for the following use cases:
+Quix Platform features a **replay service**. This service enables you to replay persisted data into a topic, as if it were live data. This is very useful for the following use cases:
 
 * Testing and debugging connectors and transforms
 * [Stream reprocessing](https://quix.io/blog/intro-stream-reprocessing-python/?x-craft-preview=VDVjwJTquq&token=7oGSdC9yxYk0zECNUz2RtzJLtGqG-aZB){target=_blank}

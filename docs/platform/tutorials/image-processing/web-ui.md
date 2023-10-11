@@ -23,7 +23,7 @@ The key ideas on this page:
 
 The key thing this service does is provide a UI that enables you to see vehicle data in real time, displayed on a Google map.
 
-The UI is an Angular web client written using Typescript. The most important thing to understand is how this service obtains data from the Quix pipeline. This is done through use of the [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md). 
+The UI is an Angular web client written using Typescript. The most important thing to understand is how this service obtains data from the Quix pipeline. This is done through use of the [Quix Streaming Reader API](../../../apis/streaming-reader-api/index.md). 
 
 The Streaming Reader API has both an HTTP and WebSockets interface you can use to interface with a Quix topic. This web client uses the WebSockets interface. This enables data to be streamed from the Quix topic into the web client with good performance. This is a more efficient method than using the request-response method of HTTP.
 
@@ -62,7 +62,7 @@ So, simplifying, after connection to the Quix topic, on a `ParameterDataReceived
 
 !!! note
 
-    A web client can also write data into a Quix topic using the [Quix Streaming Writer API](../../../apis/streaming-writer-api/intro.md), but in this app you only consume (read) data. 
+    A web client can also write data into a Quix topic using the [Quix Streaming Writer API](../../../apis/streaming-writer-api/index.md), but in this app you only consume (read) data. 
 
 The data read from the topic is as follows:
 
@@ -112,7 +112,7 @@ The interesting thing here is that the detected object image to be displayed by 
 
 You learned how to explore the code for a service in previous parts of this tutorial. The web UI is a fairly standard web client using Angular. 
 
-For more details on using the Quix Streaming Reader API see the [API documentation](../../../apis/streaming-reader-api/intro.md).
+For more details on using the Quix Streaming Reader API see the [API documentation](../../../apis/streaming-reader-api/index.md).
 
 ## 👩‍🔬 Lab - Explore the UI 
 
@@ -130,7 +130,7 @@ Have fun!
 
 For more information refer to:
 
-* [Quix Streaming Reader API](../../../apis/streaming-reader-api/intro.md) - read about the API used by clients external to Quix to read data from a Quix topic.
+* [Quix Streaming Reader API](../../../apis/streaming-reader-api/index.md) - read about the API used by clients external to Quix to read data from a Quix topic.
 
 ## 🏃‍♀️ Next step
 
