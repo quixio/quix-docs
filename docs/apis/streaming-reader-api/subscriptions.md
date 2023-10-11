@@ -56,7 +56,7 @@ connection.on("ParameterDataReceived", data => {
 });
 ```
 
-Each of the previously llisted methods are described in the following sections.
+Each of the previously listed methods are described in the following sections.
 
 ### ParameterDataReceived
 
@@ -98,14 +98,27 @@ connection.start().then(() => {
 
 Example payload:
 
-``` javascript
+``` shell
 {
-    topicName: 'topic-1',
-    streamId: 'b45969d2-4624-4ab7-9779-c8f90ce79420',
-    timestamps: [ 1591733989000000000, 1591733990000000000, 1591733991000000000 ],
-    numericValues: { ParameterA: [ 1, 2, 3 ] },
-    stringValues: {},
-    tagValues: { ParameterA: [ null, null, 'tag-1' ] }
+  topicId: 'joeengland-apitests-testing-f1-data',
+  topicName: 'f1-data',
+  streamId: '020aee7e-edba-4913-aee3-b1e493c78132',
+  epoch: 0,
+  timestamps: [ 1697025689418406000, 1697025689487857000 ],
+  numericValues: { EngineRPM: [ 11444, 11463 ] },
+  stringValues: {},
+  tagValues: {
+    DriverStatus: [ 'Flying_lap', 'Flying_lap' ],
+    LapNumber: [ '2', '2' ],
+    LapValidity: [ 'Valid', 'Valid' ],
+    PitStatus: [ 'None', 'None' ],
+    Sector: [ '0', '0' ],
+    streamId: [
+      '5a517ca4-efc3-4166-aedb-a5c57e2b9c59',
+      '5a517ca4-efc3-4166-aedb-a5c57e2b9c59'
+    ]
+  },
+  binaryValues: {}
 }
 ```
 
@@ -351,19 +364,12 @@ connection.start().then(() => {
 
 Topic Metrics payload examples:
 
-``` json
-metrics ----->  {
+``` shell
+{
   timestamp: '2023-10-11T10:22:14.7787333Z',
   topicId: 'joeengland-apitests-testing-f1-data',
   topicName: 'f1-data',
   bytesPerSecond: 8282,
-  activeStreams: 1
-}
-metrics ----->  {
-  timestamp: '2023-10-11T10:22:15.7761409Z',
-  topicId: 'joeengland-apitests-testing-f1-data',
-  topicName: 'f1-data',
-  bytesPerSecond: 8072,
   activeStreams: 1
 }
 ```

@@ -2,7 +2,7 @@
 
 An OAS3 API reference guides are available for HTTP/REST APIs. These are rendered using [Swagger](https://swagger.io/){target=_blank}. 
 
-The URLs for the API references are specific to your environment, so you can easily test out API calls on your environment using the API reference. You'll need to [get you environment ID](../platform/how-to/get-environment-id.md). The exception to this is the Portal API.
+The URLs for the API references are specific to your environment, so you can easily test out API calls on your environment using the API reference. You'll need to [get you environment ID](../platform/how-to/get-environment-id.md). The exception to this is the Portal API, which is account-wide.
 
 | API | API reference URL (Swagger documentation)|
 |---|---|

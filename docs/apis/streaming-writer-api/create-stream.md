@@ -12,7 +12,7 @@ To create a new stream, send a `POST` request to:
 
     /topics/${topicName}/streams
 
-You should replace `$\{topicName}` in the endpoint URL with the name of the [Topic](../../platform/glossary.md#topics) you wish to create the stream in. For example, if your topic is named "cars", your endpoint URL will be `/topics/cars/streams`.
+You should replace `${topicName}` in the endpoint URL with the name of the [Topic](../../platform/glossary.md#topics) you wish to create the stream in. For example, if your topic is named "cars", your endpoint URL will be `/topics/cars/streams`.
 
 ### Example request
 

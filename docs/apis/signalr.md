@@ -1,10 +1,14 @@
 # Set up SignalR
 
+[Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} enables real-time bi-directional communication between Quix and a client. The underlying transport used is either WebSockets or Long POlling, depending on the client's capabilities. 
+
+You'll use SignalR where you need high speed, real-time, communication between Quix and the client, as typically the request-response model of the HTTP/REST approach does not scale to this use case. 
+
 This page explains how to set up Microsoft SignalR.
 
 ## Installation
 
-You can install SignalR using `npm` or using a CDN.
+You can install SignalR using `npm` (for Node.js applications) or using a CDN (for web browser applications):
 
 === "npm"
 

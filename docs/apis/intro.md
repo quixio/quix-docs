@@ -9,7 +9,7 @@ The Quix Platform provides several APIs. These are:
 
 While [Quix Streams](../client-library-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
 
-* The client uses a language is not supported by Quix Streams (it supports Python and C# only)
+* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python and C# only)
 * There are resource constraints which mean you can't run Quix Streams
 * The nature of the client (for example, a web browser)
 
@@ -39,7 +39,7 @@ Streaming Reader uses Microsoft's [SignalR](https://learn.microsoft.com/en-us/as
 
 ## Portal API
 
-The [Portal API](portal-api/index.md) gives access to the Quix Portal interface enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deply, and monitor services.
+The [Portal API](portal-api/index.md) gives access to the Quix Portal interface enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deploy, and monitor services.
 
 [Read more about Portal API](portal-api/index.md)
 
@@ -47,18 +47,22 @@ The [Portal API](portal-api/index.md) gives access to the Quix Portal interface 
 
 The [Query API](query-api/index.md) enables you to fetch persisted data from Quix. You can use it for exploring the platform, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
 
+!!! note
+
+    Query API was previously known as Data Catalogue API. You may still see occasional references to the Data Catalogue API in the UI and docs.
+
 [Read more about Query API](query-api/index.md)
 
 ## Comparing the APIs
 
 Use cases for these APIs are shown in the following table:
 
-| API | Interface | Purpose | Typical use case |
-|---|---|---|---|
-| Streaming Writer | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client |
-| Streaming Reader | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client |
-| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments |
-| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly |
+| API | Interface | Purpose | Typical use case | Docs link |
+|---|---|---|---|----|
+| Streaming Writer API | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client | [Streaming Writer API](./streaming-writer-api/index.md) | 
+| Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](./streaming-reader-api/index.md) |
+| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](./portal-api/index.md) |
+| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly | [Query API](./query-api/index.md) |
 
 ## Next steps
 
@@ -68,10 +72,3 @@ Read the prerequisites and how to get the API references:
 * Get the [API references](api-references.md)
 * Learn how to form [HTTP requests](http-requests.md)
 * Set up [SignalR](signalr.md) (if using WebSockets rather than HTTP)
-
-Read about the API you're interested in:
-
-* Read more about [Streaming Writer](./streaming-writer-api/index.md)
-* Read more about [Streaming Reader](./streaming-reader-api/index.md)
-* Read more about [Portal API](./portal-api/index.md)
-* Read more about [Query API](./query-api/index.md)
