@@ -6,9 +6,31 @@ Welcome to the Quix developer documentation!
 
     **See [here](./platform/changes.md) for significant recent changes.**
 
-!!! tip
-    
-    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+## Get started
+
+If you're new to Quix, here are some resources to help get you started quickly.
+
+First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
+
+<div class="grid cards" markdown>
+
+- __Quickstart 🚀__
+
+    ---
+
+    Get data into Quix, and display it, in under 10 minutes.
+
+    [:octicons-arrow-right-24: Quickstart](./platform/quickstart.md)
+
+- __Quix Tour__
+
+    ---
+
+    Build a complete stream processing pipeline in under 30 minutes.
+
+    [:octicons-arrow-right-24: Quix Tour](./platform/quixtour/overview.md)
+
+</div>
 
 ## See Quix in action
 
@@ -50,63 +72,6 @@ See the following live demos and running pipelines:
 
 </div>
 
-## Get started
-
-If you're new to Quix, here are some resources to help get you started quickly.
-
-First, sign up for a [free account](https://portal.platform.quix.ai/self-sign-up){target=_blank}.
-
-<div class="grid cards" markdown>
-
-- __Quickstart__
-
-    ---
-
-    Get data into Quix, and display it, in under 10 minutes.
-
-    [:octicons-arrow-right-24: Quickstart](./platform/quickstart.md)
-
-- __Quix Tour__
-
-    ---
-
-    Build a complete stream processing pipeline in under 30 minutes.
-
-    [:octicons-arrow-right-24: Quix Tour](./platform/quixtour/overview.md)
-
-- __What is Quix?__
-
-    ---
-
-    New to Quix? Find out more!
-
-    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
-
-- __Glossary__
-
-    ---
-
-    List of Quix terms.
-
-    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
- 
-- __Ingest data__
-
-    ---
-
-    Read about some of the many ways you can get your data into Quix.
-
-    [:octicons-arrow-right-24: Ingest data](./platform/ingest-data.md)
-
--   __Help__
-
-    ---
-
-    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
-    
-    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
-
-</div>
 
 ## Tutorials
  
@@ -168,7 +133,7 @@ Read more about the Quix Streams Client Library and APIs.
 
     Stream data to Quix Kafka topics via HTTP with this API.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-writer-api/index.md)
 
 -   __Streaming Reader API__
 
@@ -176,23 +141,75 @@ Read more about the Quix Streams Client Library and APIs.
 
     Work with this API to receive live data in your Web applications from Quix Kafka topics via Websockets.
 
-    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/streaming-reader-api/index.md)
 
--   __Query API__
+-   __Portal API__
 
     ---
 
-    Query historical time series data in Quix using HTTP interface.
+    Automate creation and management of your project and pipeline.
 
-    [:octicons-arrow-right-24: Learn more](./apis/query-api/intro.md)
+    [:octicons-arrow-right-24: Learn more](./apis/portal-api/index.md)
+
+- __What is Quix?__
+
+    ---
+
+    New to Quix? Find out more!
+
+    [:octicons-arrow-right-24: What is Quix?](./platform/what-is-quix.md)
+
+- __Glossary__
+
+    ---
+
+    List of Quix terms.
+
+    [:octicons-arrow-right-24: Glossary](./platform/glossary.md)
+ 
+- __Ingest data__
+
+    ---
+
+    Read about some of the many ways you can get your data into Quix.
+
+    [:octicons-arrow-right-24: Ingest data](./platform/ingest-data.md)
+
+-   __Help__
+
+    ---
+
+    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+    
+    [:octicons-arrow-right-24: Join the Quix community forum](https://forum.quix.io/){target=_blank}
 
 </div>
 
 ## Documentation changelog
 
-The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+<div class="grid cards" markdown>
 
-This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
+-   __Changelog__
+
+    ---
+
+    The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+    This is in addition to general product changes which are summarized in the [changes documentation](./platform/changes.md).
+
+</div>
+
+## Secret tip ㊙️
+
+<div class="grid cards" markdown>
+
+-   __Hotkeys__
+
+    ---
+
+    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+
+</div>
 
 ## Contribute
 

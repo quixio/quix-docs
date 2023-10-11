@@ -23,7 +23,7 @@ The key ideas on this page:
 
 ## Fork the project repository
 
-Quix provides the image processing template project as a [public GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}. If you want to use this template as a starting point for your own project, then the best way to accomplish this is to fork the project. Using fork allows you to create a complete copy of the project, but also benefit from future bug fixes and improvements by using the upstream changes.
+Quix provides the image processing template project as a [public GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}. If you want to use this template as a starting point for your own project, then the best way to accomplish this is to fork the project. Using fork enables you to create a complete copy of the project, but also benefit from future bug fixes and improvements by using the upstream changes.
 
 To fork the repository:
 

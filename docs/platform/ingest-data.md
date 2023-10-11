@@ -140,8 +140,8 @@ See also [How to deploy a public service](../platform/how-to/deploy-public-page.
 
 Quix provides two APIs with an HTTP API interface:
 
-1. [Writer API](../apis/streaming-writer-api/intro.md)
-2. [Reader API](../apis/streaming-reader-api/intro.md)
+1. [Writer API](../apis/streaming-writer-api/index.md)
+2. [Reader API](../apis/streaming-reader-api/index.md)
 
 The Writer API is used to write data into the Quix Platform, that is, it is used by publishers. The Reader API is used to read data from the Quix Platform, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. The Reader and Writer APIs also provide a WebSockets interface, which is described in the [next section](#websockets).
 
@@ -175,7 +175,7 @@ As you can see there are other options such as generating Curl code that can be 
 
     The code samples generated are meant to provide you with a starting point from which you can build your own solutions. They provide a convenient way to see how the API works.
 
-Further information can be found in the [Writer API](../apis/streaming-writer-api/intro.md) and [Reader API](../apis/streaming-reader-api/intro.md) documentation.
+Further information can be found in the [Writer API](../apis/streaming-writer-api/index.md) and [Reader API](../apis/streaming-reader-api/index.md) documentation.
 
 ## WebSockets
 
@@ -348,7 +348,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../apis/streaming-reader-api/authenticate.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../platform/how-to/personal-access-token-pat.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
 
 ## Push data using Quix Streams
 
@@ -480,4 +480,4 @@ If you want some example code you can use as a starting point for connecting you
 
 Low-frequency data from REST APIs can be [polled](#polling) from Quix using a library such as `requests`. 
 
-Quix also provides the [streaming writer](../apis/streaming-writer-api/intro.md) and [streaming reader](../apis/streaming-reader-api/intro.md) APIs with both HTTP and WebSockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using ebSockets](#websockets), where a continuous connection is required.
+Quix also provides the [streaming writer](../apis/streaming-writer-api/index.md) and [streaming reader](../apis/streaming-reader-api/index.md) APIs with both HTTP and WebSockets interfaces. If a continous connection is not required you can use the HTTP interface. Faster data from web servers, browser clients, and IoT devices can interface [using ebSockets](#websockets), where a continuous connection is required.

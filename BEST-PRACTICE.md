@@ -56,7 +56,7 @@ The main left-hand navbar, or TOC, provides the main element of the information 
 3. **Client Library**. The Quix Streams client library provides a very effective way to write scalable real-time streaming applications. Using Quix Streams you can create solutions that work with Quix Platform, or with other services depending on your requirement. The `Client Library` section also includes API reference documentation generated from source code for both the Python and C# versions of Quix Streams.
 4. **APIs**. These are additional Quix APIs, other than those provided by Quix Streams. The documentation consists of general topics, as well as REST API references based on OAS3 documents.
 
-The longer topics can be navigated using the right-hand "on this page" TOC. This allows you to quickly navigate through the sections of a topic. It is important that topics are structured with the correct heading levels. There should only ever be one `h1` heading per topic, but there can be several `h2`s. Section headings below `h3` should be used sparingly, as they won't be displayed in the navigation, and could indicate the topic has become too convoluted. The solution can be to split the topic into multiple topics, or otherwise rethink the structure.
+The longer topics can be navigated using the right-hand "on this page" TOC. This enables you to quickly navigate through the sections of a topic. It is important that topics are structured with the correct heading levels. There should only ever be one `h1` heading per topic, but there can be several `h2`s. Section headings below `h3` should be used sparingly, as they won't be displayed in the navigation, and could indicate the topic has become too convoluted. The solution can be to split the topic into multiple topics, or otherwise rethink the structure.
 
 It's important that the end of the topic should not leave the reader hanging, so a well-written topic ideally ends with a "Next steps" section, where the reader can find suggested resources that enable their Quix learning journey to continue. 
 
@@ -66,7 +66,7 @@ As mentioned before, tutorials not only serve to inform, but to provide a learni
 
 **IMPORTANT:** Tutorials that fail, because they are not maintained, create the opposite to the required experience - they leave the reader confused, and create an unpleasant (not very fun) experience. They leave the reader feeling disengaged, and reluctant to explore further.
 
-As tutorials tend to be longer-form material, Quix uses the approach of splitting the tutorials up into *parts*. This allows the reader to attempt a part, leave it to one side should they so wish, and then return to continue with the tutorial when time permits. To help the tutorial be manageable, each part is further divided into steps. Steps are numbered to provide an additional source of reference, and make working through the procedure easier to track. 
+As tutorials tend to be longer-form material, Quix uses the approach of splitting the tutorials up into *parts*. This enables the reader to attempt a part, leave it to one side should they so wish, and then return to continue with the tutorial when time permits. To help the tutorial be manageable, each part is further divided into steps. Steps are numbered to provide an additional source of reference, and make working through the procedure easier to track. 
 
 The Quix technical writing team attempts to keep the structure of each tutorial consistent, so that the layout for readers feels familiar. An example of this structure can be found in the [Sentiment Analysis tutorial](https://docs.quix.io/platform/tutorials/sentiment-analysis/index.html). Writers should always try to follow this structure consistently. 
 
@@ -76,7 +76,7 @@ Another approach (and perhaps to be preferred), is to create a new separate tuto
 
 ## "Docs as code" and tooling
 
-Quix documentation uses a "docs as code" approach. What this means is the same tools that are used to manage code are used to manage documentation. There are numerous reasons for this. Primarily, it allows for easier contribution and participation, as tools and technologies, such as Git, GitHub, Markdown, issue trackers, and related workflows are familiar and widely adopted. 
+Quix documentation uses a "docs as code" approach. What this means is the same tools that are used to manage code are used to manage documentation. There are numerous reasons for this. Primarily, it enables easier contribution and participation, as tools and technologies, such as Git, GitHub, Markdown, issue trackers, and related workflows are familiar and widely adopted. 
 
 Quix uses GitHub as the repository for the Markdown files that make up the Quix technical documentation, and contributors can avail themselves of full revision history, clones and forks, PRs, PR reviews, branches, tagging, and so on. 
 
