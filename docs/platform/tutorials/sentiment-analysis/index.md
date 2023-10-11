@@ -36,7 +36,7 @@ Some of the technologies used by this template project are listed here.
 
 **Backend:** 
 
-* [Apache Kafka](https://kafka.apache.org/){target=_blank}
+* [Redpanda cloud](https://redpanda.com/redpanda-cloud){target=_blank}
 * [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
 * [Flask](https://flask.palletsprojects.com/en/2.3.x/#){target=_blank}
 * [pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html){target=_blank}
