@@ -1,6 +1,6 @@
 # Chat sentiment analysis
 
-In this tutorial you learn about a real-time chat sentiment analysis pipeline, using a [Quix template project](https://github.com/quixio/chat-demo-app){target=_blank}. 
+In this tutorial you learn about a real-time chat sentiment analysis application, using a [Quix template project](https://github.com/quixio/chat-demo-app){target=_blank}. 
 
 Sentiment analysis is performed on chat messages. The project includes a chat UI, where you can type chat messages. You can also connect to Twitch and perform sentiment analysis on large volumes of messages.
 
