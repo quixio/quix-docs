@@ -45,6 +45,25 @@ nav:
       - 'Configure deployments': 'platform/how-to/yaml-variables.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
+      - 'Computer vision': 
+        - platform/tutorials/computer-vision/index.md
+        - '1. Get the project': platform/tutorials/computer-vision/get-project.md
+        - '2. TfL camera feed': platform/tutorials/computer-vision/tfl-camera-feed.md
+        - '3. Frame grabber': platform/tutorials/computer-vision/tfl-frame-grabber.md
+        - '4. Object detection': platform/tutorials/computer-vision/object-detection.md
+        - '5. Web UI': platform/tutorials/computer-vision/web-ui.md
+        - '6. Other services': platform/tutorials/computer-vision/other-services.md
+        - '7. Add service': platform/tutorials/computer-vision/add-service.md
+        - '8. Summary': platform/tutorials/computer-vision/summary.md        
+      - 'Chat sentiment analysis': 
+        - platform/tutorials/sentiment-analysis/index.md
+        - '1. Get the project': platform/tutorials/sentiment-analysis/get-project.md
+        - '2. Try the UI': 'platform/tutorials/sentiment-analysis/try-the-ui.md'
+        - '3. UI service': 'platform/tutorials/sentiment-analysis/ui-service.md'
+        - '4. Sentiment analysis service': 'platform/tutorials/sentiment-analysis/sentiment-analysis-service.md'
+        - '5. Twitch service': 'platform/tutorials/sentiment-analysis/twitch-service.md'
+        - '6. Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
+        - '7. Summary': 'platform/tutorials/sentiment-analysis/summary.md'
       - 'Real-time ML predictions':
         - 'platform/tutorials/data-science/index.md'
         - '1. Bicycle data': 'platform/tutorials/data-science/1-bikedata.md'
@@ -60,25 +79,6 @@ nav:
         - 'Train your ML model': 'platform/tutorials/train-and-deploy-ml/train-ml.md'
         - 'Deploy your ML model': 'platform/tutorials/train-and-deploy-ml/deploy-ml.md'
         - 'Conclusion': 'platform/tutorials/train-and-deploy-ml/conclusion.md'
-      - 'Real-time image processing': 
-        - platform/tutorials/image-processing/index.md
-        - '1. Get the project': platform/tutorials/image-processing/get-project.md
-        - '2. TfL camera feed': platform/tutorials/image-processing/tfl-camera-feed.md
-        - '3. Frame grabber': platform/tutorials/image-processing/tfl-frame-grabber.md
-        - '4. Object detection': platform/tutorials/image-processing/object-detection.md
-        - '5. Web UI': platform/tutorials/image-processing/web-ui.md
-        - '6. Other services': platform/tutorials/image-processing/other-services.md
-        - '7. Add service': platform/tutorials/image-processing/add-service.md
-        - '8. Summary': platform/tutorials/image-processing/summary.md        
-      - 'Sentiment analysis': 
-        - platform/tutorials/sentiment-analysis/index.md
-        - '1. Get the project': platform/tutorials/sentiment-analysis/get-project.md
-        - '2. Try the UI': 'platform/tutorials/sentiment-analysis/try-the-ui.md'
-        - '3. UI service': 'platform/tutorials/sentiment-analysis/ui-service.md'
-        - '4. Sentiment analysis service': 'platform/tutorials/sentiment-analysis/sentiment-analysis-service.md'
-        - '5. Twitch service': 'platform/tutorials/sentiment-analysis/twitch-service.md'
-        - '6. Customize the UI': 'platform/tutorials/sentiment-analysis/customize-the-ui.md'
-        - '7. Summary': 'platform/tutorials/sentiment-analysis/summary.md'
       - 'Real-time event detection':
         - 'platform/tutorials/event-detection/index.md'
         - '1. Data acquisition': 'platform/tutorials/event-detection/data-acquisition.md'
@@ -140,6 +140,7 @@ plugins:
   - redirects:
       redirect_maps:
         'sdk-intro.md': 'client-library-intro.md'
+        'platform/intro.md': 'platform/what-is-quix.md'
         'sdk/quickstart.md': 'client-library/quickstart.md'
         'sdk/kafka.md': 'client-library/kafka.md'
         'sdk/features/streaming-context.md': 'client-library/features/streaming-context.md'
@@ -159,24 +160,23 @@ plugins:
         'sdk/versionmigration.md': 'client-library/versionmigration.md'
         'sdk/using.md': 'client-library/using.md'
         'sdk/introduction.md': 'client-library-intro.md'
-        'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/image-processing/index.md'
-        'platform/intro.md': 'platform/what-is-quix.md'
+        'platform/tutorials/imageProcessing/imageProcessing.md': 'platform/tutorials/computer-vision/index.md'
+        'platform/tutorials/image-processing/connect-video-tfl.md': 'platform/tutorials/computer-vision/tfl-camera-feed.md'
+        'platform/tutorials/image-processing/index.md': 'platform/tutorials/computer-vision/index.md'
         'platform/tutorials/train-and-deploy-ml/train-ml-model.md': 'platform/tutorials/train-and-deploy-ml/index.md'
         'platform/tutorials/data-science/data-science.md': 'platform/tutorials/data-science/index.md'
         'platform/tutorials/eventDetection/index.md': 'platform/tutorials/event-detection/index.md'
-        'platform/definitions.md': 'platform/glossary.md'
         'platform/tutorials/quick-start/quick-start.md': 'platform/quickstart.md'
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
-        'platform/tutorials/image-processing/connect-video-tfl.md': 'platform/tutorials/image-processing/tfl-camera-feed.md'
         'apis/data-catalogue-api/intro.md': 'apis/query-api/index.md'
         'apis/streaming-reader-api/intro.md': 'apis/streaming-reader-api/index.md'
         'apis/streaming-writer-api/intro.md': 'apis/streaming-writer-api/index.md'
         'apis/query-api/intro.md': 'apis/query-api/index.md'
         'apis/portal-api.md': 'apis/portal-api/index.md'
         'apis/index.md': 'apis/intro.md'
+        'platform/definitions.md': 'platform/glossary.md'
         
-
 theme:
   name: 'material'
   custom_dir: overrides

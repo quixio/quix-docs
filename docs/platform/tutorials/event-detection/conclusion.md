@@ -8,7 +8,7 @@ Congratulations, you have achieved a lot!
 
 Here are some suggested next steps to continue on your Quix learning journey:
 
-* Build a pipeline to perform [real-time sentiment analysis](../sentiment-analysis/index.md) on text, including high volume messages from Twitter.
+* Build a pipeline to perform [real-time chat sentiment analysis](../sentiment-analysis/index.md) on text, including high volume messages from Twitter.
 
 What will you build? Let us know! We’d love to feature your applicaton or use case in our [newsletter](https://www.quix.io/community/).
 
