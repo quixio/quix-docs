@@ -2,7 +2,7 @@
 
 Welcome to the Quix developer documentation!
 
-Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.
+<h3>Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.</h3>
 
 [Quickstart](./platform/quickstart.md){ .md-button .md-button--primary }
 [View project templates](https://quix.io/templates){ .md-button target=_blank}
@@ -43,38 +43,27 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
 Jump into one of our guides on how to build an event streaming application.
  
-<div class="grid cards" markdown>
+### Get your data into Quix
 
-- __Get your data into Quix__
 
-    ---
+Read about some of the many ways you can get your data into Quix, depending on your use case.
 
-    Read about some of the many ways you can get your data into Quix, depending on your use case.
+[Ingest data :octicons-arrow-right-24:](./platform/ingest-data.md)
 
-    [Ingest data :octicons-arrow-right-24:](./platform/ingest-data.md)
+### Build with our client library, Quix Streams
 
-- __Build with our client library, Quix Streams__
+Discover how to connect to Quix and build your event streaming applications fast, in Python, using Quix Streams.
 
-    ---
+[Develop fast in Python :octicons-arrow-right-24:](./client-library/connect.md)
 
-    Discover how to connect to Quix and build your event streaming applications fast, in Python, using Quix Streams.
+### Connect to Quix using ready-made connectors
 
-    [Develop fast in Python :octicons-arrow-right-24:](./client-library/connect.md)
+Discover how to connect your apps and services to Quix using our large selection of ready-to-go connectors.
 
-- __Connect to Quix using ready-made connectors__
+[See our connectors :octicons-arrow-right-24:](./platform/connectors/index.md)
 
-    ---
+### Help
 
-    Discover how to connect your apps and services to Quix using our large selection of ready-to-go connectors.
+If you need any help, please sign up to the Quix community forum, and chat with friendly developers.
 
-    [See our connectors :octicons-arrow-right-24:](./platform/connectors/index.md)
-
-- __Help__
-
-    ---
-
-    If you need any help, please sign up to the Quix community forum, and chat with friendly developers.
-    
-    [Join the Quix community forum :octicons-arrow-right-24:](https://forum.quix.io/){target=_blank}
-
-</div>
+[Join the Quix community forum :octicons-arrow-right-24:](https://forum.quix.io/){target=_blank}
