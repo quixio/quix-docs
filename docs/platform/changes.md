@@ -2,6 +2,10 @@
 
 The Quix Platform has recently undergone some substantial changes. These changes introduce some new terminology, and may also impact the way you currently work. This page provides an overview of the main changes.
 
+!!! tip
+
+    The documentation changelog can be found in the [documentation repository Wiki](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
 ## Main features of the update
 
 Quix now supports the ability to: 
