@@ -15,13 +15,13 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     [:octicons-arrow-right-24: Computer vision](./computer-vision/index.md)
 
 
--   __Chat sentiment Analysis__
+-   __Chat sentiment analysis__
 
     ---
     
     Build a chat sentiment analysis application from a project template.
 
-    [:octicons-arrow-right-24: Chat sentiment Analysis](./sentiment-analysis/index.md)
+    [:octicons-arrow-right-24: Chat sentiment analysis](./sentiment-analysis/index.md)
 
 -   __MATLAB and Simulink__
 
