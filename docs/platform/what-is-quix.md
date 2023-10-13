@@ -1,6 +1,6 @@
 # What is Quix?
 
-Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications. 
+Quix is a complete solution for building, deploying, and monitoring event streaming applications. 
 
 !!! important
 
