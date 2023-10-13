@@ -1,8 +1,6 @@
 # Quix Documentation
 
-Welcome to the Quix developer documentation!
-
-<p style="font-size: 1rem;">Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.</p>
+<p style="font-size: 1rem;">Quix is a complete solution for building, deploying, and monitoring event streaming applications.</p>
 
 <div>
 <a class="md-button md-button--primary" href="./platform/quickstart.html" style="margin-right:.5rem;">Quickstart</a>
