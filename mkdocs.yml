@@ -19,6 +19,7 @@ nav:
   - 'What is Quix?': 'platform/what-is-quix.md'
   - 'Ingest data': 'platform/ingest-data.md'
   - 'Glossary': 'platform/glossary.md'
+  - 'Contribute': 'contribute.md'
   - 'Quix Tour': 
     - 'Overview': 'platform/quixtour/overview.md'
     - '1. Ingest': 'platform/quixtour/ingest-push.md'

@@ -222,6 +222,12 @@ That concludes the Quickstart! In this Quickstart you've learned the following:
 * How to publish data into a Quix topic from the command line using Quix Streams.
 * How to view real-time data in a topic using the Quix Data Explorer.
 
+## Secret tip 🕵️‍♀️
+
+!!! tip
+
+    Our docs support hotkeys. Press ++slash++, ++s++, or ++f++ to activate search, ++p++ or ++comma++ to go to the previous page, ++n++ or ++period++ to go to the next page.
+
 ## Next steps
 
 Try the [Quix Tour](../platform/quixtour/overview.md) and build out a complete CPU overload detection pipeline.
