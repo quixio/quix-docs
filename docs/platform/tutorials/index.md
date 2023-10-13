@@ -4,70 +4,24 @@ The Quix tutorials provide you with experience of using Quix. They guide you in 
 
 Each tutorial is divided into parts, so that you can leave a tutorial at a convenient point, come back to it later, and continue where you left off.
 
-## For the data scientist
-
 <div class="grid cards" markdown>
 
--   __Data Science__
+-   __Computer vision__
 
     ---
     
-    Deploy a real-time **data science** application into a scalable self-maintained solution.
+    Use ML in real-time computer vision using London's 'Jam Cams'.
 
-    [:octicons-arrow-right-24: Data Science](./data-science/index.md)
+    [:octicons-arrow-right-24: Computer vision](./computer-vision/index.md)
 
 
--   __Sentiment Analysis__
-
-    ---
-    
-    Stream data from Twitter and build a sentiment analysis pipeline.
-
-    [:octicons-arrow-right-24: Sentiment Analysis](./sentiment-analysis/index.md)
-    
-</div>
-
-## For the ML engineer
-
-<div class="grid cards" markdown>
-
--   __ML Predictions__
+-   __Chat sentiment analysis__
 
     ---
     
-    Deploy a real-time data science application into a scalable self-maintained solution.
+    Build a chat sentiment analysis application from a project template.
 
-    [:octicons-arrow-right-24: ML Predictions](./data-science/index.md)
-
--   __ML Pipelines__
-
-    ---
-    
-    Extract data from Quix to train your ML model in Jupyter Notebook.
-    
-    [:octicons-arrow-right-24: ML Pipelines](./train-and-deploy-ml/index.md)
-    
--   __Image Processing__
-
-    ---
-    
-    Use ML in real-time image processing using London's 'Jam Cams'.
-
-    [:octicons-arrow-right-24: Image Processing](./image-processing/index.md)
-
--   __Event Detection__
-
-    ---
-    
-    Build a real-time event detection pipeline.
-
-    [:octicons-arrow-right-24: Event Detection](./event-detection/index.md)
-
-</div>
-
-## For the simulation engineer
-
-<div class="grid cards" markdown>
+    [:octicons-arrow-right-24: Chat sentiment analysis](./sentiment-analysis/index.md)
 
 -   __MATLAB and Simulink__
 
@@ -78,6 +32,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     [:octicons-arrow-right-24: MATLAB and Simulink](./matlab/matlab-and-simulink.md)
 
 </div>
+
 ## Need help?
 
 If you'd like some help with a tutorial, or advice on a suitable tutorial for your use case, feel free to ask in the [Quix Forum](https://forum.quix.io/){target=_blank}!

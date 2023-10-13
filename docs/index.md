@@ -1,4 +1,4 @@
-# Quix Documentation
+# Introduction to Quix
 
 <p style="font-size: 1rem;">Quix is a complete solution for building, deploying, and monitoring event streaming applications.</p>
 
@@ -37,7 +37,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
     
     Deploy a real-time computer vision application fast, using a project template.
 
-    [Computer vision :octicons-arrow-right-24:](./platform/tutorials/image-processing/index.md)
+    [Computer vision :octicons-arrow-right-24:](./platform/tutorials/computer-vision/index.md)
 
 </div>
 

@@ -153,7 +153,7 @@ Further, changes in this file in one environment can be merged into another envi
 
 An example pipeline is shown in the following screenshot:
 
-![Pipeline View](../platform/tutorials/image-processing/images/pipeline-overview-2.png)
+![Pipeline View](../platform/tutorials/computer-vision/images/pipeline-overview-2.png)
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 

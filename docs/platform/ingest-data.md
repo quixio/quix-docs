@@ -348,7 +348,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 
 This code uses the Reader API to read data from a Quix stream.
 
-The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../platform/how-to/personal-access-token-pat.md) for authentication, and also how to [set up SignalR](../apis/streaming-reader-api/signalr.md). 
+The Quix documentation explains how to obtain your [Quix environment ID](../platform/how-to/get-environment-id.md), [PAT token](../platform/how-to/personal-access-token-pat.md) for authentication, and also how to [set up SignalR](../apis/signalr.md). 
 
 ## Push data using Quix Streams
 
