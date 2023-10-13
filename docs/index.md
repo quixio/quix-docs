@@ -4,9 +4,8 @@ Welcome to the Quix developer documentation!
 
 Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.
 
-[Get free account](https://portal.platform.quix.ai/self-sign-up){ .md-button .md-button--primary target=_blank}
 [Quickstart](./platform/quickstart.md){ .md-button .md-button--primary }
-[View project templates](https://quix.io/templates){ .md-button .md-button--primary target=_blank}
+[View project templates](https://quix.io/templates){ .md-button target=_blank}
 
 ## Get started
 
