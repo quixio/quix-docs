@@ -2,10 +2,14 @@
 
 Welcome to the Quix developer documentation!
 
-<h3>Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.</h3>
+<p style="font-size: 1rem;">Quix is a complete end-to-end solution for building, deploying, and monitoring event streaming applications.</p>
 
-[Quickstart](./platform/quickstart.md){ .md-button .md-button--primary }
-[View project templates](https://quix.io/templates){ .md-button target=_blank}
+<div>
+<a class="md-button md-button--primary" href="./platform/quickstart.html" style="margin-right:.5rem;">Quickstart</a>
+
+<a class="md-button md-button" href="https://quix.io/templates" target="_blank" style="margin-right:.5rem;">View project templates</a>
+<br/>
+</div>
 
 ## Get started
 
