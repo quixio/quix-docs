@@ -13,7 +13,7 @@ repo_url: https://github.com/quixio/quix-docs
 edit_uri: tree/dev/docs
 
 nav:
-  - Intro: 'index.md'
+  - 'Introduction': 'index.md'
   - 'Recent changes 🔥': 'platform/changes.md'
   - 'Quickstart 🚀': 'platform/quickstart.md'
   - 'What is Quix?': 'platform/what-is-quix.md'
