@@ -102,7 +102,7 @@ nav:
     - 'Troubleshooting': 'platform/troubleshooting/troubleshooting.md'
     - 'Security': 'platform/security/security.md'
     - 'MLOps': 'platform/MLOps.md'
-  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
+#  - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
   - API:
     - 'Intro': 'apis/intro.md'
     - 'Prerequisites': 'apis/prerequisites.md'
@@ -136,7 +136,9 @@ plugins:
       cleanup: true
   - search:
       separator: '[\s\-\.]' 
-  - social
+  - social:
+      cards_layout_dir: layouts
+      cards_layout: custom
   - glightbox
   - redirects:
       redirect_maps:
