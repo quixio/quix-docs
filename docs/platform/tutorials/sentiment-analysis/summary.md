@@ -18,6 +18,6 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
 
-## Getting help
+## Get help
 
-If you need any assistance while following the tutorial, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
+If you have any further questions, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.

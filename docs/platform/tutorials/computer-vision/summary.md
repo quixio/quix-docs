@@ -11,10 +11,6 @@ In addition, you have see how in the Quix portal you can:
 * Learn how to examine the raw message data in the messages view
 * Examine and edit the code of a service
 
-## Getting help
-
-If you need any assistance, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
-
 ## Next Steps
 
 Here are some suggested next steps to continue on your Quix learning journey:
@@ -24,3 +20,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
 What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
+
+## Get help
+
+If you have any further questions, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
