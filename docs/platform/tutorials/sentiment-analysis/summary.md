@@ -5,8 +5,8 @@ In this tutorial you've learned:
 * How to fork a GitHub repository and then integrate it with Quix
 * Examined the code for several services in the pipeline
 * Learned that web apps can read and write to Quix topics using the [Quix Streaming APIs](../../../apis/intro.md)
-* Used the message view in the Quix UI to examine messages flowing on topics.
-* Created a customization to the UI on a feature environment (branch) and then seen how to merge that to develop
+* Used the message view in the Quix UI to examine messages flowing on topics
+* Created a customization to the UI on a feature environment (branch) and then seen how to merge that to the `tutorial` branch
 
 ## Next Steps
 

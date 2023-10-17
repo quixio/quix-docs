@@ -76,11 +76,7 @@ You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or
 
 ## The pipeline
 
-This is the message processing pipeline for this project:
-
-![The pipeline](./images/pipeline-view.png)
-
-The main services in the pipeline are:
+The main services in the [pipeline](https://portal.platform.quix.ai/pipeline?workspace=demo-chatappdemo-prod&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1qVTBRVE01TmtJNVJqSTNOVEpFUlVSRFF6WXdRVFF4TjBSRk56SkNNekpFUWpBNFFqazBSUSJ9.eyJodHRwczovL3F1aXguYWkvb3JnX2lkIjoiZGVtbyIsImh0dHBzOi8vcXVpeC5haS9vd25lcl9pZCI6ImF1dGgwfDI4YWQ4NWE4LWY1YjctNGFjNC1hZTVkLTVjYjY3OGIxYjA1MiIsImh0dHBzOi8vcXVpeC5haS90b2tlbl9pZCI6ImMzNzljNmVlLWNkMmYtNDExZC1iOGYyLTMyMDU0ZDc5MTY2YSIsImh0dHBzOi8vcXVpeC5haS9leHAiOiIxNzM3ODI5NDc5LjIyMyIsImlzcyI6Imh0dHBzOi8vYXV0aC5xdWl4LmFpLyIsInN1YiI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBQGNsaWVudHMiLCJhdWQiOiJxdWl4IiwiaWF0IjoxNjk1NzE2MDI4LCJleHAiOjE2OTgzMDgwMjgsImF6cCI6ImtyMXU4MGRqRllvUUZlb01nMGhqcXZia29lRkxFRDVBIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwicGVybWlzc2lvbnMiOltdfQ.Ndm0K2iNHPxDq1ohF-yb-6LzIqx_UY8Ptcq0kAwSNye12S3deX_eDkC4XqZqW2NoSLd3GsmWV9PZGetGGp2IlqshQFZtUMp6WP6hq917ZC1i8JFx93PAbY7NT_88nFDovVlaRcoTpWvI-03KbryLkAoB28c6qb3EFwjCWFBuy_yA4yjQ8uF0-AZ0R9Qi4IBaekXWqcgO0a91gVRg0oA_hnzJFoR-EnZ2G1ZSxtuVgnyyPuQTMUvzJuUT_IJTLzEB_kejX0pcXRZBIwHP8MWLB4mE5DtIdz4jm8WIA4eZJZ7ZCG4dk-adQwZ2BdkNknV5eEwRgRJL4ybaplkaDlR-dg){target_blank} are:
 
 1. *UI* - provides the chat UI, and shows the sentiment being applied to the chat messages.
 
@@ -102,7 +98,7 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 5. [Explore ther Twitch service](twitch-service.md) - you explore the service that interfaces Quix with Twitch using the [Twitch API](https://dev.twitch.tv/docs/api/){target=_blank}.
 
-6. [Customize the UI](customize-the-ui.md) - you carry out a simple customization to the chat UI on a feature branch, and then merge your changes onto the develop branch.
+6. [Customize the UI](customize-the-ui.md) - you carry out a simple customization to the chat UI on a feature branch, and then merge your changes onto the `tutorial` branch.
 
 7. [Summary](summary.md) - you are presented with a summary of the work you have completed.
 

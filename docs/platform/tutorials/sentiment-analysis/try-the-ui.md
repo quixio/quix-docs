@@ -8,31 +8,25 @@ In this part of the tutorial you try out the UI to get a feel for the project an
 
 ## Prerequisites
 
-You need your [workspace ID](../../how-to/get-environment-id.md) and a [PAT](../../how-to/personal-access-token-pat.md) to get the UI working. Once you have these, you'll need to access the code for the service, and set these values.
+!!! tip
 
-To do this, in the Applications list, click on the `Sentiment Demo UI` application. In the file `src/app/services/quix.service.ts`, locate the following code and replace the place holders with your values:
+    If you just want to try out the UI without performing the following steps, you can do that in the [deployed project](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target=_blank}.
 
-``` typescript
-/*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
-  /*WORKING LOCALLY? UPDATE THESE!*/
-  private workingLocally = false; // set to true if working locally
-  private token: string = '<your_pat>'; // Create a token in the Tokens menu and paste it here
-  public workspaceId: string = '<your_workspace_id>'; // Look in the URL for the Quix Portal your workspace ID is after 'workspace='
-```
+You need a [PAT](../../how-to/personal-access-token-pat.md) to get the UI working.
 
-Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target=_blank}.
+Once you have this, you'll need to create a secret, and then use this secret in the `bearer_token` environment variable.
+
+[Read about environment variables and secret management](../../how-to/environment-variables.md).
 
 ## Try out the UI in your Quix account
 
 Now try out the UI you just deployed. To do this:
 
-1. In the pipeline view find the UI service tile, as shown in the following screenshot:
+1. In the pipeline view find the UI service tile:
 
 	![Deployed UI tile](./images/web-ui-pipeline-segment.png){width=200px}
 
-2. In the service tile, click the external link icon to launch the UI in a new tab:
-
-	![The sentiment analysis demo page](./images/running-ui.png)
+2. In the service tile, click the external link icon to launch the UI in a new tab.
 
 3. Enter your username (it can be anything) and then type in some messages. Note that the typing indicator displays the sentiment as you type your message.
 

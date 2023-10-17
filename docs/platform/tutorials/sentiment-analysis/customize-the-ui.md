@@ -2,9 +2,9 @@
 
 In this lab you use everything you've learned so far, to add a customization to the pipeline. Specifically, you change the name of the chat room in the web UI.
 
-You develop this change on a feature branch, and then you create a PR to merge your new feature into the develop branch. 
+You develop this change on a feature branch, and then you create a PR to merge your new feature into the `tutorial` branch. 
 
-This is a common pattern for development - you can test your new service on the feature branch, and then test again on the develop branch, before final integration into the production `main` branch.
+This is a common pattern for development - you can test your new service on the feature branch, and then test again on the `tutorial` branch, before final integration into the production `main` branch.
 
 ## Create an environment
 
@@ -16,13 +16,11 @@ To create a new environment (and branch):
 
 2. Create a new environment called `Rename Chat Room`.
 
-3. Create a new branch called `rename-chat-room`. To do this, from the branch dropdown click `+ New branch` which displays the New branch dialog:
-
-    ![New branch](./images/new-branch.png)
+3. Create a new branch called `rename-chat-room`. To do this, from the branch dropdown click `+ New branch` which displays the New branch dialog.
 
     !!! important
 
-        Make sure you branch from the `develop` branch, not `main`, as you are going to merge your changes onto the `develop` branch.
+        Make sure you branch from the `tutorial` branch, not `main`, as you are going to merge your changes back into the `tutorial` branch.
 
 4. Complete creation of the environment using the default options.
 
@@ -68,21 +66,19 @@ At this point the redeployment will restart. You see the spinner as the service 
 
 ![New name](./images/new-name.png)
 
-Once you're happy with your change you can move on to merge this to the `develop` branch.
+Once you're happy with your change you can move on to merge this to the `tutorial` branch.
 
 ## Merge the feature
 
-Once you are sure that the changes on your feature branch are tested, you can then merge your changes onto the `develop`` branch. Here your changes undergo further tests before finally being merged into production. 
+Once you are sure that the changes on your feature branch are tested, you can then merge your changes onto the `tutorial` branch. Here your changes undergo further tests before finally being merged into production. 
 
-To merge your feature branch, `rename-chat-room` into `develop`:
+To merge your feature branch, `rename-chat-room` into `tutorial`:
 
 1. Select `Merge request` from the menu as shown:
 
     ![Merge request menu](./images/merge-request-menu.png)
 
-2. In the `Merge request` dialog, set the `rename-chat-room` branch to merge into the `develop` branch, as shown:
-
-    ![Merge request dialog](./images/merge-request-dialog.png)
+2. In the `Merge request` dialog, set the `rename-chat-room` branch to merge into the `tutorial` branch.
 
 You are going to create a pull request, rather than perform a direct merge. This enables you to have the PR reviewed in GitHub (or other Git provider). You are also going to do a squash and merge, as much of the feature branch history is not required.
 
@@ -106,13 +102,11 @@ To create the pull request:
 
         You can just merge, you don't have to squash and merge. You would then retain the complete commit history for your service while it was being developed. Squash and merge is used in this case by way of example, as the commit messages generated while the service was being developed were deemed to be not useful in this case.
 
-## Resync the Develop environment
+## Resync the environment
 
-You have now merged your new feature into the `develop` branch in the Git repository. Your Quix view in the Develop environment is now out of sync with the Git repository. If you click on your Develop environment in Quix, you'll see it is now a commit (the merge commit) behind:
+You have now merged your new feature into the `tutorial` branch in the Git repository. Your Quix view in the Tutorial environment is now out of sync with the Git repository. If you click on your Tutorial environment in Quix, you'll see it is now a commit (the merge commit) behind.
 
-![Develop behind](./images/develop-behind.png)
-
-You now need to make sure your Develop environment in Quix is synchronized with the Git repository. To do this:
+You now need to make sure your Tutorial environment in Quix is synchronized with the Git repository. To do this:
 
 1. Click on `Sync environment`. The `Sync environment` dialog is displayed.
 
@@ -120,7 +114,7 @@ You now need to make sure your Develop environment in Quix is synchronized with 
 
 3. Click `Go to pipeline`.
 
-Your new service will build and start in the Develop environment, where you can now carry out further testing. When you are satisfied this feature can be released tp production, then you would repeat the previous process to merge your changes to Production `main`.
+Your new service will build and start in the Tutorial environment, where you can now carry out further testing. When you are satisfied this feature can be released tp production, then you would repeat the previous process to merge your changes to Production `main`.
 
 ## 🏃‍♀️ Next step
 

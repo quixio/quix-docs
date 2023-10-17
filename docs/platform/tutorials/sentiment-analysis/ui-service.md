@@ -4,11 +4,7 @@ In this part of the tutorial you learn about the web UI service.
 
 ![Web UI pipeline](./images/web-ui-pipeline-segment.png)
 
-This provides the rather fancy interface for you to interact with this project.
-
-The following screenshot shows some chat taking place:
-
-![image processing web UI](./images/running-ui.png)
+This provides the UI for you to interact with this app.
 
 ## 💡 Key ideas
 
