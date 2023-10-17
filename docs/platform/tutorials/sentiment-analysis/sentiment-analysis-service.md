@@ -29,7 +29,7 @@ The sentiment analysis service subscribes to the `chat-messages` topic and perfo
 
 The drafts sentiment analysis service performs sentiment analysis on messages published to the `drafts` topic and publishes sentiment values to the `drafts_sentiment` topic. 
 
-The UI subscribes to these topics, and can then display the setiment values in the UI.
+The UI subscribes to these topics, and can then display the sentiment values in the UI.
 
 ## 👩‍🔬 Lab - Examine messages 
 
