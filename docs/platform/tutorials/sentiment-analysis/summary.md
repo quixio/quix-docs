@@ -1,8 +1,8 @@
 # Summary
 
-In this tutorial you've learned:
+In this tutorial you've:
 
-* How to fork a GitHub repository and then integrate it with Quix
+* Learned how to fork a GitHub repository and then integrate it with Quix
 * Examined the code for several services in the pipeline
 * Learned that web apps can read and write to Quix topics using the [Quix Streaming APIs](../../../apis/intro.md)
 * Used the message view in the Quix UI to examine messages flowing on topics
