@@ -114,7 +114,7 @@ You now need to make sure your Tutorial environment in Quix is synchronized with
 
 3. Click `Go to pipeline`.
 
-Your new service will build and start in the Tutorial environment, where you can now carry out further testing. When you are satisfied this feature can be released tp production, then you would repeat the previous process to merge your changes to Production `main`.
+Your new service will build and start in the Tutorial environment, where you can now carry out further testing. When you are satisfied this feature can be released to production, then you would repeat the previous process to merge your changes to Production `main`.
 
 ## 🏃‍♀️ Next step
 
