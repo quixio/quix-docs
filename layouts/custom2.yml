@@ -1,11 +1,3 @@
-definitions:
-
-- &page_title >-
-    {{ page.meta.get("title") or page.title }}
-  
-- &page_description >-
-    {{ page.meta.get("description") or "" }}
-
 size: { width: 1200, height: 630 }
 layers:
 #Set background image
@@ -27,7 +19,7 @@ layers:
   - size: { width: 768, height: 336 }
     offset: { x: 144, y: 126 }
     typography:
-      content: *page_title
+      content: "YO YO YO {{ page.title }}"
       overflow: shrink
       align: start
       color: white
@@ -37,19 +29,3 @@ layers:
       font:
         family: Inter
         style: SemiBold
-
-# TODO try to get page description on the social card too
-#Page title text
-  - size: { width: 768, height: 336 }
-    offset: { x: 144, y: 235 }
-    typography:
-      content: *page_description
-      overflow: shrink
-      align: start
-      color: lightgrey
-      line:
-        amount: 5
-        height: 2.5
-      font:
-        family: Inter
-        style: Normal

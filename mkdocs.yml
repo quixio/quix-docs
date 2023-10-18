@@ -138,7 +138,7 @@ plugins:
       separator: '[\s\-\.]' 
   - social:
       cards_layout_dir: layouts
-      cards_layout: custom
+      cards_layout: custom 
   - glightbox
   - redirects:
       redirect_maps:
