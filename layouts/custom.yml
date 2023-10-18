@@ -1,5 +1,4 @@
 definitions:
-
 - &page_title >-
     {{ page.meta.get("title") or page.title }}
   
