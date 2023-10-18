@@ -29,6 +29,7 @@ nav:
     - 'How To':
       - 'Create a project': 'platform/how-to/create-project.md'
       - 'Project structure': 'platform/how-to/project-structure.md'
+      - 'Create an environment': 'platform/how-to/create-environment.md'
       - 'Create an application': 'platform/how-to/create-application.md'
       - 'Get Environment ID': 'platform/how-to/get-environment-id.md'
       - 'Get streaming token': 'platform/how-to/streaming-token.md'
