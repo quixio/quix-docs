@@ -137,9 +137,7 @@ plugins:
       cleanup: true
   - search:
       separator: '[\s\-\.]' 
-  - social:
-      cards_layout_dir: layouts
-      cards_layout: custom 
+  - social
   - glightbox
   - redirects:
       redirect_maps:
