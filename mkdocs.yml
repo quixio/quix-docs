@@ -173,6 +173,8 @@ plugins:
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
         'apis/data-catalogue-api/intro.md': 'apis/query-api/index.md'
+        'apis/streaming-reader-api/authenticate.md': 'apis/prerequisites.md'
+        'apis/streaming-writer-api/authenticate.md': 'apis/prerequisites.md'
         'apis/streaming-reader-api/intro.md': 'apis/streaming-reader-api/index.md'
         'apis/streaming-writer-api/intro.md': 'apis/streaming-writer-api/index.md'
         'apis/query-api/intro.md': 'apis/query-api/index.md'

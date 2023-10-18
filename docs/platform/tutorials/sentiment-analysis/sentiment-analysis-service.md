@@ -2,18 +2,19 @@
 
 In this part of the tutorial you learn about the sentiment analysis service. 
 
-![Sentiment analysis](./images/sentiment-analysis-pipeline-segment.png)
-
 This service uses the Hugging Face model to calculate sentiment for messages, and these are then displayed on the web UI.
 
-There are two deployments here, one for messages, and one for draft messages.
+There are three deployed services here:
+
+1. Chat sentiment analysis
+2. Drafts sentiment analysis
+3. Twitch sentiment analysis
 
 ## 💡 Key ideas
 
 The key ideas on this page:
 
 * Hugging Face model is used to generate sentiment values
-* There are two sentiment analysis services - one for messages and one for draft messages
 * How to examine message formats
 
 ## What it does
@@ -28,7 +29,7 @@ The sentiment analysis service subscribes to the `chat-messages` topic and perfo
 
 The drafts sentiment analysis service performs sentiment analysis on messages published to the `drafts` topic and publishes sentiment values to the `drafts_sentiment` topic. 
 
-The UI subscribes to these topics, and can then display the setiment values in the UI.
+The UI subscribes to these topics, and can then display the sentiment values in the UI.
 
 ## 👩‍🔬 Lab - Examine messages 
 

@@ -2,8 +2,6 @@
 
 There are some additional services in the pipeline that provide useful functionality. These range from S3 storage of data to calculation of the maximum vehicles per day in a specific location.
 
-![Other services](./images/other-services-pipeline-segment.png)
-
 Briefly, these services are:
 
 * *Stream merge* - merges all the traffic cam streams into a single stream to make things easier to process in the UI.
