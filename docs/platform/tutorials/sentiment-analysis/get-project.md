@@ -29,7 +29,7 @@ To fork the repository:
 
 1. Navigate to the [Quix GitHub repository](https://github.com/quixio/chat-demo-app){target="_blank"}.
 
-2. Click the `Fork` button to fork the repo into your GitHub account (or equivalent Git provider if you don't have a GitHub account). Make sure you fork all branches, as you will be looking at the `develop` branch.
+2. Click the `Fork` button to fork the repo into your GitHub account (or equivalent Git provider if you don't have a GitHub account). Make sure you fork all branches, as you will be looking at the `tutorial` branch.
 
     !!! tip 
 
@@ -76,15 +76,15 @@ To link Quix to this forked repository:
 
 You now need to add an environment to your project. This is explained in the following section.
 
-## Create your Develop environment
+## Create your environment
 
-A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `develop` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Develop` environment mapped to the `develop` branch of the repository.
+A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `tutorial` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Tutorial` environment mapped to the `tutorial` branch of the repository.
 
-Now create an environment called `Develop` which uses the `develop` branch:
+Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
-1. Enter the environment name `Develop`.
+1. Enter the environment name `Tutorial`.
 
-2. Select the `develop` branch from the dropdown.
+2. Select the `tutorial` branch from the dropdown.
 
     Make sure the branch is protected, by making sure the `This branch is protected` checkbox is selected.
 

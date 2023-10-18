@@ -29,7 +29,7 @@ To fork the repository:
 
 1. Navigate to the [Quix GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}.
 
-2. Click the `Fork` button to fork the repo into your GitHub account (or equivalent Git provider if you don't have a GitHub account). Make sure you fork all branches, as you will be looking at the `develop` branch.
+2. Click the `Fork` button to fork the repo into your GitHub account (or equivalent Git provider if you don't have a GitHub account). Make sure you fork all branches, as you will be looking at the `tutorial` branch.
 
     !!! tip 
 
@@ -76,15 +76,15 @@ To link Quix to this forked repository:
 
 You now need to add an environment to your project. This is explained in the following section.
 
-## Create your Develop environment
+## Create your environment
 
-A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `develop` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Develop` environment mapped to the `develop` branch of the repository.
+A Quix project contains at least one branch. For the purposes of this tutorial you will examine the `tutorial` branch of the project. In a Quix project a branch is encapsulated in an environment. You'll create a `Tutorial` environment mapped to the `tutorial` branch of the repository.
 
-Now create an environment called `Develop` which uses the `develop` branch:
+Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
-1. Enter the environment name `Develop`.
+1. Enter the environment name `Tutorial`.
 
-2. Select the `develop` branch from the dropdown.
+2. Select the `tutorial` branch from the dropdown.
 
     Make sure the branch is protected, as shown in the following screenshot:
 
@@ -104,41 +104,40 @@ At this point you can wait a few minutes for the pipeline services to completely
 
 ## Configure credentials
 
-As the project uses Quix API credentials, you'll now need to configure your details for the services that require API keys.
+As the project uses Quix API credentials, you'll now need to configure your credentials for the services that require API keys. The main ones are:
+
+* TfL camera feed - TfL API key
+* Web UI - a bearer token ([PAT](../../how-to/personal-access-token-pat.md)) 
+
+You need to [create secrets](../../how-to/environment-variables.md#create-a-secret-variable) for these and then assign them to the appropriate [environment variables](../../how-to/environment-variables.md).
 
 ### TfL camera feed
 
-Open the service and edit the environment variable as shown here:
+To get this service to run, you'll need to configure it with your TfL API key.
 
-![TfL credentials](./images/tfl-credentials.png){width=60%}
+Create a new secret that contains your TfL API key. Now link that secret to the `tfl_api_key` environment variable in the TfL camera feed service.
+
+[Read more about environment variables and secret management](../../how-to/environment-variables.md).
 
 ### Web UI service
 
 Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target=_blank}.
 
-When testing the UI you might find Google Maps does not load correctly for you - this is because the code has the Quix Google Maps API key. To work around this, you can set the Google Maps API key to an empty string. Google maps will then default to "developer mode" - the map will display correctly, but will be watermarked with 'for developer use'. To do this, in the Applications list, click on the `TfL image processing UI` application.
+You'll need a [PAT](../../how-to/personal-access-token-pat.md) for the UI as it uses the Streaming ReaderAPI which needs to be authenticated. 
 
-To set the Google Maps API key to an empty string, you need to edit `src/app/app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to the following:
+Once you have your PAT copied to the clipboard, create a new secret to contain it. Then link that secret to `bearerToken` environment variable for the UI.
 
-``` typescript
-AgmCoreModule.forRoot({
-      apiKey: ''
-    }),
-```
-
-Also, you need your [workspace ID](../../how-to/get-environment-id.md) and a [PAT](../../how-to/personal-access-token-pat.md) to get the UI fully working. Once you have these, you'll need to access the code for the service, and set these values.
-
-In the file `src/app/services/quix.service.ts`, locate the following code, and replace the place holders with your values:
-
-``` typescript
-/*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
-  /*WORKING LOCALLY? UPDATE THESE!*/
-  private workingLocally = false; // set to true if working locally
-  private token: string = '<your_pat>'; // Create a token in the Tokens menu and paste it here
-  public workspaceId: string = '<your_workspace_id>'; // Look in the URL for the Quix Portal your workspace ID is after 'workspace='
-```
+[Read more about environment variables and secret management](../../how-to/environment-variables.md).
 
 Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
+
+When testing the UI you see "For development purposes only" displayed on the map. Optionally, if you have a Google Maps API key, you can avoid this.
+
+To add your own Google Maps API key you need to edit `src/app/app.module.ts` and modify the `apiKey` field in `AgmCoreModule.forRoot` to include your Google Maps API key:
+
+``` typescript
+AgmCoreModule.forRoot({apiKey: '<your_google_maps_api_key>'}),
+```
 
 ## See also
 
