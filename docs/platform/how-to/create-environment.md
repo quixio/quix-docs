@@ -58,8 +58,6 @@ You can also use the Confluent Cloud hosting option. You can read a detailed How
 
 The last step in creating an environment is to choose your data and streaming services option. 
 
-<!-- TODO: needs updating -->
-
 ![Data and streaming services](../images/how-to/create-environment/data-streaming-services.png){width=60%}
 
 There are two options here:
@@ -78,7 +76,7 @@ Persisted storage is when you enable persistence on a topic:
 
 ![Topic persistence](../images/how-to/create-environment/topic-persistence.png){width=80%}
 
-When this option is selected, data in the topic is persisted to a Quix database (InfluxDB). This data can then be queried using the [Query API](TODO), or played back into a topic using the [replay service](replay.md). 
+When this option is selected, data in the topic is persisted to a Quix database (InfluxDB). This data can then be queried using the [Query API](../../apis/query-api/intro.md), or played back into a topic using the [replay service](replay.md). 
 
 !!! note
 
@@ -90,9 +88,9 @@ Services that experience improved performance when selecting the "High performan
 
 * GitService - this is the service that synchronizes your Quix environment with the project's Git repository.
 * [Replay Service](replay.md) - enables replay of persisted data into a topic.
-* [Streaming Reader](TODO) - service that enables a client to subscribe to a Quix topic.
-* [Streaming Writer](TODO) - service that enables a client to publish to a Quix topic.
-* [Query API](TODO) - query data persisted in the Quix database.
+* [Streaming Reader](../../apis/streaming-reader-api/intro.md) - service that enables a client to subscribe to a Quix topic.
+* [Streaming Writer](../../apis/streaming-writer-api/intro.md) - service that enables a client to publish to a Quix topic.
+* [Query API](../../apis/query-api/intro.md) - query data persisted in the Quix database.
 
 Generally, if you notice sluggish performance in one of these services, it may mean for the volumes and frequency of data you are processing, you might need the High performance option.
 
@@ -109,4 +107,3 @@ High performance is designed for production environments.
 ## Next steps
 
 * [See the pricing page](https://quix.io/pricing){target=_blank}
-* [See account limits](TODO){target=_blank}
