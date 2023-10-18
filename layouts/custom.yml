@@ -1,0 +1,53 @@
+size: { width: 1200, height: 630 }
+layers:
+#Set background image
+  - background:
+      image: layouts/background.jpg
+
+#Docs URL text
+  - size: { width: 150, height: 30 }
+    offset: { x: 144, y: 64 }
+    typography:
+      content: quix.io/docs
+      align: start
+      color: "#FFFFFF66"
+      font:
+        family: Inter
+        style: SemiBold
+
+#Page title text
+  - size: { width: 768, height: 336 }
+    offset: { x: 144, y: 126 }
+    typography:
+      content: "{{ page.title }}"
+      overflow: shrink
+      align: start
+      color: white
+      line:
+        amount: 3
+        height: 1.2
+      font:
+        family: Inter
+        style: SemiBold
+
+## TODO try to get page description on the social card too
+# #Page title text
+#   - size: { width: 768, height: 336 }
+#     offset: { x: 144, y: 235 }
+#     typography:
+#       content: >-
+#         {%- if layout.description -%}
+#           {{ layout.description }}
+#         {%- else -%}
+#           No page desc
+#         {%- endif -%}
+        
+#       overflow: shrink
+#       align: start
+#       color: lightgrey
+#       line:
+#         amount: 3
+#         height: 2
+#       font:
+#         family: Inter
+#         style: SemiBold

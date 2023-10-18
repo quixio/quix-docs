@@ -29,6 +29,7 @@ nav:
     - 'How To':
       - 'Create a project': 'platform/how-to/create-project.md'
       - 'Project structure': 'platform/how-to/project-structure.md'
+      - 'Create an environment': 'platform/how-to/create-environment.md'
       - 'Create an application': 'platform/how-to/create-application.md'
       - 'Get Environment ID': 'platform/how-to/get-environment-id.md'
       - 'Get streaming token': 'platform/how-to/streaming-token.md'
@@ -136,7 +137,9 @@ plugins:
       cleanup: true
   - search:
       separator: '[\s\-\.]' 
-  - social
+  - social:
+      cards_layout_dir: layouts
+      cards_layout: custom
   - glightbox
   - redirects:
       redirect_maps:
@@ -171,6 +174,8 @@ plugins:
         'platform/how-to/use-sdk-token.md': 'platform/how-to/streaming-token.md'
         'platform/how-to/connect-to-quix.md': 'platform/ingest-data.md'
         'apis/data-catalogue-api/intro.md': 'apis/query-api/index.md'
+        'apis/streaming-reader-api/authenticate.md': 'apis/prerequisites.md'
+        'apis/streaming-writer-api/authenticate.md': 'apis/prerequisites.md'
         'apis/streaming-reader-api/intro.md': 'apis/streaming-reader-api/index.md'
         'apis/streaming-writer-api/intro.md': 'apis/streaming-writer-api/index.md'
         'apis/query-api/intro.md': 'apis/query-api/index.md'
