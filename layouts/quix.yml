@@ -61,7 +61,6 @@ layers:
         family: Inter
         style: SemiBold
 
-# TODO try to get page description on the social card too
 #Page title text
   - size: { width: 768, height: 336 }
     offset: { x: 144, y: 235 }
