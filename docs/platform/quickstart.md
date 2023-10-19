@@ -1,3 +1,8 @@
+---
+title: Quickstart
+description: Get started in under 10 minutes
+---
+
 # Quickstart
 
 This Quickstart is designed to show you how to get your data into Quix and display it, in **less than 10 minutes**.

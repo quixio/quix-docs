@@ -1,3 +1,7 @@
+---
+title: Recent changes
+---
+
 # Recent changes to Quix
 
 The Quix Platform has recently undergone some substantial changes. These changes introduce some new terminology, and may also impact the way you currently work. This page provides an overview of the main changes.

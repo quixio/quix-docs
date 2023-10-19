@@ -1,0 +1,78 @@
+definitions:
+- &page_title >-
+    {{ page.meta.get("title") or page.title }}
+  
+- &page_description >-
+    {{ page.meta.get("description") or "" }}
+
+- &page_title_with_site_name >-
+  {%- if not page.is_homepage -%}
+    {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+  {%- else -%}
+    {{ page.meta.get("title", page.title) }}
+  {%- endif -%}
+ 
+tags:
+
+  og:type: website
+  og:title: *page_title_with_site_name
+  og:description: *page_description
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+
+  twitter:card: summary_large_image
+  twitter:title: *page_title_with_site_name
+  twitter:description: *page_description
+  twitter:image: "{{ image.url }}"
+
+
+size: { width: 1200, height: 630 }
+layers:
+#Set background image
+  - background:
+      image: layouts/background.jpg
+
+#Docs URL text
+  - size: { width: 150, height: 30 }
+    offset: { x: 144, y: 64 }
+    typography:
+      content: quix.io/docs
+      align: start
+      color: "#FFFFFF66"
+      font:
+        family: Inter
+        style: SemiBold
+
+#Page title text
+  - size: { width: 768, height: 336 }
+    offset: { x: 144, y: 126 }
+    typography:
+      content: *page_title
+      overflow: shrink
+      align: start
+      color: white
+      line:
+        amount: 3
+        height: 1.2
+      font:
+        family: Inter
+        style: SemiBold
+
+# TODO try to get page description on the social card too
+#Page title text
+  - size: { width: 768, height: 336 }
+    offset: { x: 144, y: 235 }
+    typography:
+      content: *page_description
+      overflow: shrink
+      align: start
+      color: lightgrey
+      line:
+        amount: 5
+        height: 2.5
+      font:
+        family: Inter
+        style: Normal

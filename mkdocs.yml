@@ -139,7 +139,7 @@ plugins:
       separator: '[\s\-\.]' 
   - social:
       cards_layout_dir: layouts
-      cards_layout: custom
+      cards_layout: quix
   - glightbox
   - redirects:
       redirect_maps:
@@ -280,8 +280,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details:
   - pymdownx.highlight:
       anchor_linenums: true
