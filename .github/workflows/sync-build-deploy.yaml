@@ -58,6 +58,9 @@ jobs:
       # add 'social' to mkdocs.yml file under plugins
       - run: pip install cffi pillow cairosvg
 
+      # Material extension now part of mkdocs
+      - run: pip install mkdocs-material-extensions
+
       # add mkdocs-redirects
       # zoom images
       - name: Install mkdocs-redirects
