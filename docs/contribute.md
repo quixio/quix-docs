@@ -1,7 +1,3 @@
----
-description: We welcome contributions
----
-
 # Contribute
 
 <div class="grid cards" markdown>
