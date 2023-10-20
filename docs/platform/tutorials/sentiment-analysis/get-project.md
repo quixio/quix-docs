@@ -21,6 +21,10 @@ The key ideas on this page:
 * Pipeline view of project
 * Synchronizing an environment
 
+## Watch a video
+
+The computer vision tutorial has a [video on forking and creating the project](../computer-vision/get-project.md#watch-a-video). This is the same process as is used for the sentiment analysis project.
+
 ## Fork the project repository
 
 Quix provides the computer vision template project as a [public GitHub repository](https://github.com/quixio/chat-demo-app){target="_blank"}. If you want to use this template as a starting point for your own project, then the best way to accomplish this is to fork the project. Using fork enables you to create a complete copy of the project, but also benefit from future bug fixes and improvements by using the upstream changes.
