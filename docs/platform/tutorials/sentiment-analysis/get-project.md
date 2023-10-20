@@ -86,12 +86,6 @@ Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
 2. Select the `tutorial` branch from the dropdown.
 
-    Make sure the branch is protected, by making sure the `This branch is protected` checkbox is selected.
-
-    !!! tip
-
-        Making a branch protected ensures that developers cannot commit directly into the branch. Developers have to raise pull requests (PRs), which need to be approved before they can be merged into the protected branch.
-
 3. Click `Continue` and then select the Quix Broker and Standard storage options to complete creation of the environment, and the project.
 
 4. Go to the pipeline view. You will see that Quix is out of sync with the repository.
