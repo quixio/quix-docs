@@ -147,7 +147,7 @@ To add your own Google Maps API key you need to edit `src/app/app.module.ts` and
 AgmCoreModule.forRoot({apiKey: '<your_google_maps_api_key>'}),
 ```
 
-#### Other services
+### Other services
 
 Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
 
