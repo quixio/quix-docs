@@ -21,6 +21,12 @@ The key ideas on this page:
 * Pipeline view of project
 * Synchronizing an environment
 
+## Watch a video
+
+This video shows you how to fork the template project and create your project in Quix:
+
+<div style="position: relative; padding-bottom: 49.61664841182914%; height: 0;"><iframe src="https://www.loom.com/embed/f1a462a7db8a44429261df1c03b26c48?sid=1e9fbaef-0961-4ccb-a597-d823e3a08b64" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ## Fork the project repository
 
 Quix provides the computer vision template project as a [public GitHub repository](https://github.com/quixio/computer-vision-demo){target="_blank"}. If you want to use this template as a starting point for your own project, then the best way to accomplish this is to fork the project. Using fork enables you to create a complete copy of the project, but also benefit from future bug fixes and improvements by using the upstream changes.
@@ -36,6 +42,8 @@ To fork the repository:
         If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket, for example, you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case. Other providers support other options, check the documentation for your Git provider.
 
 ## Create your Quix project
+
+You can watch a video on how to create the project
 
 Now that you have a forked copy of the repository in your GitHub account, you can now link your Quix account to it. Doing this enables you to build and deploy the project in your Quix account, and examine the pipeline much more closely.
 
@@ -86,14 +94,6 @@ Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
 2. Select the `tutorial` branch from the dropdown.
 
-    Make sure the branch is protected, as shown in the following screenshot:
-
-    ![Protected branch](./images/protected-branch.png){width=70%}
-
-    !!! tip
-
-        Making a branch protected ensures that developers cannot commit directly into the branch. Developers have to raise pull requests (PRs), which need to be approved before they can be merged into the protected branch.
-
 3. Click `Continue` and then select the Quix Broker and Standard storage options to complete creation of the environment, and the project.
 
 4. Go to the pipeline view. You will see that Quix is out of sync with the repository.
@@ -119,6 +119,10 @@ Create a new secret that contains your TfL API key. Now link that secret to the 
 
 [Read more about environment variables and secret management](../../how-to/environment-variables.md).
 
+Watch the video:
+
+<div style="position: relative; padding-bottom: 50.11160714285714%; height: 0;"><iframe src="https://www.loom.com/embed/11baa3bdaf1c4c4cb4d2589f7f778a10?sid=199727a5-e12d-4b6f-a63e-732ff4690496" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ### Web UI service
 
 Note if you just want to try out the UI without performing the following steps, you can do that in the [demo](https://app-demo-computervisiondemo-prod.deployments.quix.ai/){target=_blank}.
@@ -129,7 +133,11 @@ Once you have your PAT copied to the clipboard, create a new secret to contain i
 
 [Read more about environment variables and secret management](../../how-to/environment-variables.md).
 
-Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
+Watch the video:
+
+<div style="position: relative; padding-bottom: 50.44843049327354%; height: 0;"><iframe src="https://www.loom.com/embed/ac276c49b5144102a364b9f1c04bedcf?sid=903a04cd-e5f7-4c97-a80e-27281a49c9dc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+#### Google Maps API key
 
 When testing the UI you see "For development purposes only" displayed on the map. Optionally, if you have a Google Maps API key, you can avoid this.
 
@@ -138,6 +146,10 @@ To add your own Google Maps API key you need to edit `src/app/app.module.ts` and
 ``` typescript
 AgmCoreModule.forRoot({apiKey: '<your_google_maps_api_key>'}),
 ```
+
+### Other services
+
+Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
 
 ## See also
 
