@@ -181,4 +181,4 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 
 * [Quickstart](../platform/quickstart.md) - get data into Quix and display it in less than 10 minutes
 * [Quix Tour](../platform/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
-* Watch [a video]((https://www.youtube.com/watch?v=0cr19MfATfY)) on the art of the possible with Quix
+* Watch [a video](https://www.youtube.com/watch?v=0cr19MfATfY){target=_blank} on the art of the possible with Quix
