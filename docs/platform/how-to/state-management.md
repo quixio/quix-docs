@@ -27,12 +27,12 @@ For example, the following code downloads a model file to the `state` folder. It
 ``` python
 import requests
 
-model = requests.get('https://acme.com/models/model1.pkl')
-f = open('./state/model1.pkl', 'w')
+model = requests.get('https://acme.com/models/model1.dat')
+f = open('./state/model1.dat', 'wb')
 f.write(model)
 f.close()
 ...
-f = open('./state/model1.pkl', 'r')
+f = open('./state/model1.dat', 'rb')
 ...
 ```
 
