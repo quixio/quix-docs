@@ -44,7 +44,7 @@ There is a small charge for storage for messages persisted in a topic:
 
 Quix has integrations with common Kafka hosting providers. There are three options here:
 
-1. [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/){target=_blank}
+1. [Confluent Cloud](https://www.confluent.io/confluent-cloud/){target=_blank}
 2. [Redpanda](https://redpanda.com/){target=_blank}
 3. [Aiven](https://console.aiven.io/signup){target=_blank}
 
