@@ -94,9 +94,6 @@ nav:
       - 'No code sentiment analysis': 'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
       - 'MATLAB and Simulink': 'platform/tutorials/matlab/matlab-and-simulink.md'
     - 'Code Samples': 'platform/samples/samples.md'
-    - 'Integrations':
-      - 'Kafka':
-        - 'Confluent': 'platform/integrations/kafka/confluent-cloud.md'   
     - 'Connectors':
       - platform/connectors/index.md
 #ConnectorsGetInsertedHere
@@ -182,6 +179,7 @@ plugins:
         'apis/portal-api.md': 'apis/portal-api/index.md'
         'apis/index.md': 'apis/intro.md'
         'platform/definitions.md': 'platform/glossary.md'
+        'platform/integrations/kafaka/confluent-cloud.md': 'platform/how-to/create-environment.md'
         
 theme:
   name: 'material'
