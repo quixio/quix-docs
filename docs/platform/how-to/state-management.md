@@ -1,14 +1,14 @@
 # State management
 
-When deploying a service it is possible for that service to maintain state between restarts. This can be done by enabling state management for the deployment. Enabling state management creates a storage area that can be used for storage of data and files, and this state is preserved between service restarts.
+When deploying a service, enabling state management enables the service to maintain its state between restarts by creating a storage area for data and files, ensuring persistence across service restarts.
 
 ## Enabling state management
 
-When you deploy a service, it is possible to enable state management: 
+Enable state management during service deployment if your code relies on state or expects files to persist across restarts:
 
 ![state management](../images/how-to/state/state-management.png){width=80%}
 
-This creates a `state` folder in the service. 
+Enabling state creates a `state` folder that can be accessed by your code. 
 
 !!! important
 
