@@ -84,21 +84,23 @@ To achieve these goals, Quix Portal includes the following features:
 
 Quix has the ability to create projects where all code and configuration is contained in a Git repository. This Git repository can be hosted by Quix (using Gitea), or on any third-party Git provider, such as GitHub, or Bitbucket, where you can configure the Quix SSH public key provided to you for Git provider authentication. This helps integrate Quix with your existing workflows.
 
-### Kafka integration
+### Kafka integrations
 
 Quix requires Kafka to provide streaming infrastructure for your solutions.
 
 When you create a new Quix environment, there are three hosting options:
 
 1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
-2. Self-Hosted Kafka - This is where you already have existing Kafka infrastructure that you use, and you want to enable Quix to provide the event stream processing platform on top of it. You can configure Quix to work with your existing Kafka infrastructure using this option.
-3. Confluent Cloud - if you use Confluent Cloud for your Kafka infrastructure, then you can configure Quix to connect to your existing Confluent Cloud account.
+2. Managed Kafka - use Quix integrations with common Kafka hosting providers such as Confluent Cloud, Redpanda, and Aiven.
+3. Self-Hosted Kafka - use your own Kafka installation, as long as the cluster is available on the Internet.
 
 This enables you to select a Kafka hosting option according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
 
 !!! tip
 
     To get your event streaming application to the testing stage as quickly as possible, the Quix-hosted Kafka option is recommended, as it requires zero configuration to get Kafka running. You can focus on your application code, without needing to do the up front work of creating a powerful scalable Kafka cluster, as that work has already been done for you by Quix.
+
+Read more about [selecting your broker option](./how-to/create-environment.md#broker-settings).
 
 ### Docker integration
 

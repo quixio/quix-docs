@@ -20,13 +20,15 @@ You can enter any suitable name for your environment. Examples could be: product
 
 An environment is always associated with a branch. You can select a branch that already exists (such as when you have connected your project to an existing Git repository), but you are also free to create any new branches you need - simply click `+ New branch` from the branch dropdown, in the `Environment settings` dialog.
 
-## Kafka hosting option
+## Broker settings
 
-There are three hosting options:
+You now choose the Kafka broker you use with Quix.
+
+There are three broker options:
 
 1. Quix broker
-2. Self-hosted
-3. Confluent Cloud
+2. Managed Kafka
+3. Self-hosted
 
 Each of these is described briefly in the following sections.
 
@@ -38,21 +40,23 @@ There is a small charge for storage for messages persisted in a topic:
 
 ![Topic storage](../images/how-to/create-environment/topic-storage.png){width=80%}
 
+### Managed Kafka
+
+Quix has integrations with common Kafka hosting providers. There are three options here:
+
+1. [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/){target=_blank}
+2. [Redpanda](https://redpanda.com/){target=_blank}
+3. [Aiven](https://console.aiven.io/signup){target=_blank}
+
+Select your managed broker option, and then follow the detailed setup guide provided to connect Quix to the broker.
+
 ### Self-hosted Kafka
 
-If you want to install and manage your own Kafka installation, you can do this too. You'll need to do more configuration, and be very familiar with details of Kafka hosting and configuration. Selecting this option presents you with a setup guide:
+If you want to install and manage your own Kafka installation, you can do this too, as long as the Kafka Cluster is available on the Internet. You'll need to do more configuration, and be very familiar with details of Kafka hosting and configuration. Selecting this option presents you with a setup guide:
 
 ![Self-hosted Kafka](../images/how-to/create-environment/self-hosted-kafka.png){width=90%}
 
 You also have the option to test your connection with the Kafka server before continuing.
-
-!!! tip
-
-    You could use any Kafka solution here, for example [Redpanda](https://redpanda.com/){target=_blank}.
-
-### Confluent Cloud
-
-You can also use the Confluent Cloud hosting option. You can read documentation on [connecting to Confluent Cloud](../integrations/kafka/confluent-cloud.md). It is assumed you're familiar with [Confluent Cloud](https://www.confluent.io/){target=_blank}.
 
 ## Data and streaming services
 
