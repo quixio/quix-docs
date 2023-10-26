@@ -46,7 +46,7 @@ Quix has integrations with common Kafka hosting providers. There are three optio
 
 1. [Confluent Cloud](https://www.confluent.io/confluent-cloud/){target=_blank}
 2. [Redpanda](https://redpanda.com/){target=_blank}
-3. [Aiven](https://console.aiven.io/signup){target=_blank}
+3. [Aiven](https://aiven.io/kafka){target=_blank}
 
 Select your managed broker option, and then follow the detailed setup guide provided to connect Quix to the broker.
 
