@@ -46,6 +46,7 @@ nav:
       - 'Testing using Quix data store': 'platform/how-to/testing-data-store.md'
       - 'Configure deployments': 'platform/how-to/yaml-variables.md'
       - 'State management': 'platform/how-to/state-management.md'
+      - 'Generating events': 'platform/how-to/timeseries-events.md'
     - 'Tutorials':
       - 'platform/tutorials/index.md'
       - 'Computer vision': 
