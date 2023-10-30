@@ -91,7 +91,7 @@ def on_dataframe_received_handler(stream_consumer: qx.StreamConsumer, df: pd.Dat
                 .publish()
 ```
 
-In the above code the event generating code has been removed for simplicity. Note that the average pressure for the event window is published to an output stream, so these values can be used by other services in the pipeline.
+In the above code, the event generating code has been removed for simplicity. Note that the average pressure for the event window is published to an output stream, so these values can be used by other services in the pipeline.
 
 ## Next steps
 
