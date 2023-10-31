@@ -1,6 +1,6 @@
-# Introduction
+# Overview
 
-As an alternative to [Quix Streams](../../client-library-intro.md), the Quix platform supports real-time data streaming over WebSockets (or Long Polling depending on client support). 
+As an alternative to Quix Streams, the Quix platform supports real-time data streaming over WebSockets (or Long Polling depending on client support). 
 
 Clients can receive updates on data and definitions for parameters and events, as they happen. 
 
