@@ -35,7 +35,7 @@ nav:
       - 'Code Samples': 'develop/code-samples.md'
       - 'Integrate your data':
         - 'develop/integrate-data/index.md'
-        - 'Prebuilt connector': 'develop/integrate-data/prebuilt-connector.md'
+        - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
         - 'Read CSV file': 'develop/integrate-data/read-csv.md'
         - 'Polling': 'develop/integrate-data/polling.md'
         - 'Inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
@@ -108,7 +108,6 @@ nav:
     - 'Currency Alerting': 'tutorials/currency-alerting/currency-alerting.md'
     - 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
     - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
-    - 'No code sentiment analysis': 'tutorials/nocode-sentiment/nocode-sentiment-analysis.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
   - 'Reference':
     - 'Connectors': 'connectors/index.md'
@@ -163,7 +162,7 @@ plugins:
         'platform/tutorials/data-science/index.md': 'tutorials/data-science/index.md'
         'platform/tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/data-stream-processing/data-stream-processing.md'
         'platform/tutorials/event-detection/index.md': 'tutorials/event-detection/index.md'
-        'platform/tutorials/matlab-and-simulink/matlab-and-simulink.md': 'tutorials/matlab-and-simulink/matlab-and-simulink.md'
+        'platform/tutorials/matlab/matlab-and-simulink.md': 'tutorials/matlab/matlab-and-simulink.md'
         'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md': 'tutorials/sentiment-analysis/index.md'
         'platform/tutorials/rss-tutorial/rss-processing-pipeline.md': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
         'platform/tutorials/sentiment-analysis/index.md': 'tutorials/sentiment-analysis/index.md'

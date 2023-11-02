@@ -52,6 +52,6 @@ In the Quix Portal, data teams can:
 
 Here are some suggested next steps to find out more about MLOps in Quix:
 
-* [Platform Quickstart](../platform/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
-* [Building real-time ML pipelines tutorial](../platform/tutorials/train-and-deploy-ml/index.md) - train and run an ML model in Quix.
-* [Building real-time ML predictions](../platform/tutorials/data-science/index.md) - use data science and ML to predict bicycle availability in New York.
+* [Platform Quickstart](../get-started/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
+* [Building real-time ML pipelines tutorial](../tutorials/train-and-deploy-ml/index.md) - train and run an ML model in Quix.
+* [Building real-time ML predictions](../tutorials/data-science/index.md) - use data science and ML to predict bicycle availability in New York.

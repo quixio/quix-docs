@@ -3,7 +3,7 @@
 <p style="font-size: 1rem;">Quix is a complete solution for building, deploying, and monitoring event streaming applications.</p>
 
 <div>
-<a class="md-button md-button--primary" href="./platform/quickstart.html" style="margin-right:.5rem;">Quickstart</a>
+<a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Quickstart</a>
 
 <a class="md-button md-button" href="https://quix.io/templates" target="_blank" style="margin-right:.5rem;">View project templates</a>
 <br/>
@@ -37,7 +37,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
     
     Learn how to create your own Quix project from scratch.
 
-    [Create a project :octicons-arrow-right-24:](./create/index.md)
+    [Create a project :octicons-arrow-right-24:](../create/index.md)
 
 - __Get started with a project template__
 

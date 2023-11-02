@@ -68,7 +68,7 @@ As mentioned before, tutorials not only serve to inform, but to provide a learni
 
 As tutorials tend to be longer-form material, Quix uses the approach of splitting the tutorials up into *parts*. This enables the reader to attempt a part, leave it to one side should they so wish, and then return to continue with the tutorial when time permits. To help the tutorial be manageable, each part is further divided into steps. Steps are numbered to provide an additional source of reference, and make working through the procedure easier to track. 
 
-The Quix technical writing team attempts to keep the structure of each tutorial consistent, so that the layout for readers feels familiar. An example of this structure can be found in the [Sentiment Analysis tutorial](https://docs.quix.io/platform/tutorials/sentiment-analysis/index.html). Writers should always try to follow this structure consistently. 
+The Quix technical writing team attempts to keep the structure of each tutorial consistent, so that the layout for readers feels familiar. An example of this structure can be found in the [Sentiment Analysis tutorial](https://docs.quix.io/docs/tutorials/sentiment-analysis/index.html). Writers should always try to follow this structure consistently. 
 
 Note this particular tutorial also includes optional parts. This is done to keep the main tutorial length reasonable - the longer the tutorial, the less likely the reader is to complete it, as they can get lost in the myriad steps and configurations. By keeping things as simple as possible, and providing optional parts as self-contained addendum, things are kept much more manageable. 
 

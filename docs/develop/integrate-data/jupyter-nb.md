@@ -4,7 +4,7 @@ In this documentation, you learn how to use Jupyter Notebook to analyze data per
 
 ## Why this is important
 
-Although Quix is a real-time platform, to build real-time in-memory models and data processing pipelines, you need to understand data first. To help with that, Quix offers the option to persist data in topics. This data can be accessed using the [Query API](../apis/query-api/index.md). This helps make data discovery and analysis easier.
+Although Quix is a real-time platform, to build real-time in-memory models and data processing pipelines, you need to understand data first. To help with that, Quix offers the option to persist data in topics. This data can be accessed using the [Query API](../../apis/query-api/index.md). This helps make data discovery and analysis easier.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ jupyter notebook
 
 Then create a new Python 3 notebook:
 
-![Jupyter new file](../images/jupyter-wb/new-file.png)
+![Jupyter new file](../../images/jupyter-wb/new-file.png)
 
 ## Connecting Jupyter Notebook to persisted data
 
@@ -44,15 +44,15 @@ You need to be logged into the platform for this. To import persisted data:
 
 5. Ensure **Python** is the selected language:
 
-	![Jupyter connect Python](../images/jupyter-wb/connect-python.png)
+	![Jupyter connect Python](../../images/jupyter-wb/connect-python.png)
 
 6. Copy the Python code to your Jupyter notebook and click `Run`:
 
-	![Jupyter results](../images/jupyter-wb/jupyter-results.png)
+	![Jupyter results](../../images/jupyter-wb/jupyter-results.png)
 
 !!! tip
 
-	If you want to use this generated code for a long time, replace the temporary token with a [Personal Access Token](../apis/portal-api/setup.md#personal-access-token-pat).
+	If you want to use this generated code for a long time, replace the temporary token with a [Personal Access Token](../../apis/portal-api/setup.md#personal-access-token-pat).
 
 ## Too much data
 

@@ -15,7 +15,7 @@ In addition, you have see how in the Quix portal you can:
 
 Here are some suggested next steps to continue on your Quix learning journey:
 
-* Build something with our [code samples](../../samples/samples.md). You could take the camera feed, frame grabber, and object detection code samples, and add your own service to these, for example add a custom UI, or a simple service that just logs vehicles for a road that you have a specific interest in (maybe you live there).
+* Build something with our [code samples](../../develop/code-samples.md). You could take the camera feed, frame grabber, and object detection code samples, and add your own service to these, for example add a custom UI, or a simple service that just logs vehicles for a road that you have a specific interest in (maybe you live there).
 * Try the [Chat sentiment analysis tutorial](../sentiment-analysis/index.md).
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 

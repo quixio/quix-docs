@@ -41,4 +41,4 @@ As you can see there are other options such as generating Curl code that can be 
 
     The code samples generated are meant to provide you with a starting point from which you can build your own solutions. They provide a convenient way to see how the API works.
 
-Further information can be found in the [Writer API](../../apis/streaming-writer-api/index.md) and [Reader API](../apis/../streaming-reader-api/index.md) documentation.
+Further information can be found in the [Writer API](../../apis/streaming-writer-api/index.md) and [Reader API](../../apis/streaming-reader-api/index.md) documentation.

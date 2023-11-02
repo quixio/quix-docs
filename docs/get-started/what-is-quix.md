@@ -48,7 +48,7 @@ Similarly, Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud
 
 This section describes the main technical components and architecture of Quix.
 
-![Quix Technical Architecture](./images/quix-technical-architecture.png)
+![Quix Technical Architecture](../images/quix-technical-architecture.png)
 
 ### Quix Portal
 
@@ -131,7 +131,7 @@ Quix provides several APIs to help you work with streaming data. These include:
 
 As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, [Quix Streams](../client-library-intro.md), to reduce development times, and provide advanced features such as automatic scaling through Streams.
 
-Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as [Kafka](../client-library/kafka.md), which are predominantly written in Java and Scala.
+Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as Kafka, which are predominantly written in Java and Scala.
 
 [Quix Streams](../client-library-intro.md) provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
 

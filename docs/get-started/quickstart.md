@@ -229,4 +229,4 @@ That concludes the Quickstart! In this Quickstart you've learned the following:
 
 ## Next steps
 
-Try the [Quix Tour](../platform/quixtour/index.md) and build out a complete CPU overload detection pipeline.
+Try the [Quix Tour](../get-started/quixtour/index.md) and build out a complete CPU overload detection pipeline.

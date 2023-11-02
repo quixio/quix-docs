@@ -58,11 +58,11 @@ this.quixService.initCompleted$.subscribe((topicName) => {
 });
 ```
 
-So, simplifying, after connection to the Quix topic, on a `ParameterDataReceived` event, the corresponding callback (event) handler is invoked. There are other events that can be subscribed to. You can read more about events and subscription in the [subscription and event documentation](../../../apis/streaming-reader-api/subscriptions.md).
+So, simplifying, after connection to the Quix topic, on a `ParameterDataReceived` event, the corresponding callback (event) handler is invoked. There are other events that can be subscribed to. You can read more about events and subscription in the [subscription and event documentation](../../apis/streaming-reader-api/subscriptions.md).
 
 !!! note
 
-    A web client can also write data into a Quix topic using the [Quix Streaming Writer API](../../../apis/streaming-writer-api/index.md), but in this app you only consume (read) data. 
+    A web client can also write data into a Quix topic using the [Quix Streaming Writer API](../../apis/streaming-writer-api/index.md), but in this app you only consume (read) data. 
 
 The data read from the topic is as follows:
 
@@ -112,7 +112,7 @@ The interesting thing here is that the detected object image to be displayed by 
 
 You learned how to explore the code for a service in previous parts of this tutorial. The web UI is a fairly standard web client using Angular. 
 
-For more details on using the Quix Streaming Reader API see the [API documentation](../../../apis/streaming-reader-api/index.md).
+For more details on using the Quix Streaming Reader API see the [API documentation](../../apis/streaming-reader-api/index.md).
 
 ## 👩‍🔬 Lab - Explore the UI 
 
@@ -130,7 +130,7 @@ Have fun!
 
 For more information refer to:
 
-* [Quix Streaming Reader API](../../../apis/streaming-reader-api/index.md) - read about the API used by clients external to Quix to read data from a Quix topic.
+* [Quix Streaming Reader API](../../apis/streaming-reader-api/index.md) - read about the API used by clients external to Quix to read data from a Quix topic.
 
 ## 🏃‍♀️ Next step
 

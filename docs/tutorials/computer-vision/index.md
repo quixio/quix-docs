@@ -100,7 +100,7 @@ There are several *main* stages in the [pipeline](https://portal.platform.quix.a
 
 4. *Stream merge* - merges the separate data streams (one for each camera) back into one, prior to sending to the UI.
 
-5. *Web UI* - a UI that displays: frames with the objects that have been identified, and a map with a count of objects at each camera's location. The web UI is a web client app that uses the [Quix Streaming Reader API](../../../apis/streaming-reader-api/index.md), to read data from a Quix topic.
+5. *Web UI* - a UI that displays: frames with the objects that have been identified, and a map with a count of objects at each camera's location. The web UI is a web client app that uses the [Quix Streaming Reader API](../../apis/streaming-reader-api/index.md), to read data from a Quix topic.
 
 There are also some additional services in the pipeline:
 

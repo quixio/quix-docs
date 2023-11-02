@@ -63,7 +63,7 @@ If you are looking for a bearer token to access the Quix APIs, such as the Porta
 
 ## How to use
 
-The streaming token is primarily used to authenticate the [Quix Streams client library](../../client-library-intro.md) TODO.
+The streaming token is primarily used to authenticate the [Quix Streams client library](../../client-library-intro.md).
 
 When using it with `QuixStreamingClient`, you no longer need to provide all broker credentials manually, they’ll be acquired when needed and set up automatically.
 
