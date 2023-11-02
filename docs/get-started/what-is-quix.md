@@ -62,7 +62,7 @@ To achieve these goals, Quix Portal includes the following features:
 
 * **Online IDE**: Develop and run your streaming applications directly in the browser without setting up a local environment.
 
-* **Code Samples**: Choose from the [prebuilt Code Samples](../develop/connectors.md) ready to run and deploy from the IDE.
+* **Code Samples**: Choose from the [prebuilt Code Samples](../connectors/index.md) ready to run and deploy from the IDE.
 
 * **One-click deployments**: Configure, deploy, and manage your streaming applications with a simple user interface.
  
@@ -108,11 +108,11 @@ When you develop your event streaming solution, you will build a pipeline of ser
 
 ## Interfacing with Quix
 
-There are [various ways](../develop/integrate-data/index.md) to connect your data to Quix. Quix provides a number of [connectors](../develop/connectors.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+There are [various ways](../develop/integrate-data/index.md) to connect your data to Quix. Quix provides a number of [connectors](../connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
 For a simple example of getting data from your laptop into Quix, see the [Quickstart](quickstart.md).
 
-Quix provides numerous standard [connectors](../develop/connectors.md) for both source, and destination functions. In addition a number of transforms are also available. 
+Quix provides numerous standard [connectors](../connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
 
 !!! tip
 

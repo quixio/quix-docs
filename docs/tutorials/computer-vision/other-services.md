@@ -239,7 +239,7 @@ This is the standard Quix code sample [AWS S3 destination connector](https://qui
 
 For more information refer to:
 
-* [Connectors](../../develop/connectors.md) - connectors, both source and destination.
+* [Connectors](../../connectors/index.md) - connectors, both source and destination.
 * [Quix Streams](../../../client-library-intro.md) - the client library.
 
 ## 🏃‍♀️ Next step

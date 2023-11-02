@@ -26,8 +26,8 @@ The most important thing to understand is how this service reads and writes data
 
 This is done through use of two APIs:
 
-* [Quix Streaming Reader API](../../../apis/streaming-reader-api/index.md)
-* [Quix Streaming Writer API](../../../apis/streaming-writer-api/index.md) 
+* [Quix Streaming Reader API](../../apis/streaming-reader-api/index.md)
+* [Quix Streaming Writer API](../../apis/streaming-writer-api/index.md) 
 
 The Streaming Writer is used to write both published and draft messages to the sentiment analysis service. Note the UI provides sentiment analysis of messages as they are being typed, that is, in the draft state, as they have not yet been sent to the chat room.
 

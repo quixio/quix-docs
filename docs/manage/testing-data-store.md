@@ -8,7 +8,7 @@ Quix provides a very simple way to persist data in a topic. Simply locate the to
 
 !!! important
 
-    You don't have to use the Quix data store. Quix provides numerous [connectors](../develop/connectors.md) for common database technologies, so you can always store your data in the database of your choice.
+    You don't have to use the Quix data store. Quix provides numerous [connectors](../connectors/index.md) for common database technologies, so you can always store your data in the database of your choice.
 
 ## Replay service
 

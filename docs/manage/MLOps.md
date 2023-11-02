@@ -35,7 +35,7 @@ In the Quix Portal you can:
 
 * Connect validated models to live output topics.
 * Connect models using the UI to form a pipeline. Pipelines consist of transforms connected together using input and output topics.
-* Work seamlessly with engineers to connect software services. You can leverage a number of prebuilt [connectors](../develop/connectors.md) to connect to common services.
+* Work seamlessly with engineers to connect software services. You can leverage a number of prebuilt [connectors](../connectors/index.md) to connect to common services.
 
 ## Deploy production models
 

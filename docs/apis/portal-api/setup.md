@@ -60,7 +60,7 @@ The environment ID is a combination of your organization and environment names, 
 
 You can also get the environment ID from Settings. Click `Settings` in the bottom-left corner of the portal, select the environment of interest. You can then copy the environment ID (previously known as the workspace ID) from the settings panel, as shown in the following screenshot:
 
-![Get environment ID from settings](../images/get-environment-id/get-environment-id-settings.png){width=80%}
+![Get environment ID from settings](../../images/get-environment-id/get-environment-id-settings.png){width=80%}
 
 ### Example environment ID
 
@@ -79,8 +79,8 @@ joeengland-apitests-testing
 The components of the environment ID are as follows:
 
 | joeengland | The name of the Quix account, known as the organization, in this case the personal account of Joe England |
-| apitests | The name of the [project](../get-started/glossary.md#project) |
-| testing | The name of the [environment](../get-started/glossary.md#environment) | 
+| apitests | The name of the project |
+| testing | The name of the environment | 
 
 Copy the value for `environment-id` and use it wherever you need an environment ID.
 
