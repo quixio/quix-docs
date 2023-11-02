@@ -6,6 +6,10 @@ This page describes how to create a new project, and populate it with two enviro
 
     You can create as many environments in a project as you need. You can mark them as protected, and name them as needed, to align with your own development processes. This how-to simply shows one example project.
 
+## Watch a video
+
+<div style="position: relative; padding-bottom: 51.839080459770116%; height: 0;"><iframe src="https://www.loom.com/embed/b4488be244834333aec56e1a35faf4db?sid=13c128de-df05-46b5-bb1f-03f6af3e7777" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ## Creating a project
 
 To do anything useful with Quix, you'll need at least one project, and one environment. You can think of a project as corresponding to a Git repository, and an environment as corresponding to Git branch within that repository. 

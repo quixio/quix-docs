@@ -62,7 +62,7 @@ An instance of an application running in the serverless environment. When you de
 
 The following screenshot shows the `New Deployment` dialog:
 
-![New Deployment](../images/deployment.png){width=80%}
+![New Deployment](../images/deploy/new-deployment-dialog.png){width=80%}
 
 ### CPU (cores)
 
@@ -211,6 +211,10 @@ A [WebSockets API](../apis/streaming-reader-api/index.md) used to stream any dat
 ## Streaming Writer API
 
 An [HTTP API](../apis/streaming-writer-api/index.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../reference/client-library-intro.md). Your application **writes** data into Quix Platform.
+
+## Template project
+
+A public project in GitHub that you can fork and import into Quix. See the [templates page](https://quix.io/templates){target=_blank}.
 
 ## Time series data
 

@@ -2,6 +2,12 @@
 
 TODO
 
-An entire Quix pipeline can be described by a `quix.yaml` file. This file is also used to configure resources used by the deployment.
+In this section of the documentation you learn about managing your projects.
 
-This enables Quix to quickly replicate an entire pipeline and configuration. For example, a pipeline created and tested in one branch, can be quickly duplicated in another branch. 
+- logs
+- data explorer
+- message viewer
+- persistence
+- replay service
+- query API
+- portal API

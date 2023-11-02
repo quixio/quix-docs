@@ -23,3 +23,9 @@ Note the path is the same as the application name.
 !!! tip
 
     When you create an application from a code sample, the comment added to the repository displays the code sample that was used as the starting point. In the previous example, the repository comment is "Created from Starter transformation".
+
+## Watch a video
+
+See how to create an application:
+
+<div style="position: relative; padding-bottom: 51.49769585253456%; height: 0;"><iframe src="https://www.loom.com/embed/dee01c5f7d0d4d338504c3c09dcd3181?sid=c4af0f1f-51e5-4ca3-9f01-8e9a4dc3a06e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>

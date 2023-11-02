@@ -38,7 +38,7 @@ To access your public facing service or web site you must enable `Public Access`
 
 2. If needed adjust the `URL prefix` to suit your needs.
 
-![Deployment dialog](../images/deployment-dialog.png){width=450px}
+![Deployment dialog](../images/deploy/deployment-dialog.png){width=450px}
 
 ## Security
 

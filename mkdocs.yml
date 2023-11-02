@@ -50,11 +50,11 @@ nav:
       - 'Generating events': 'develop/timeseries-events.md'
   - 'Deploy':
     - 'deploy/index.md'
-    - 'Deploy public services': 'deploy/deploy-public-page.md'
-    - 'Configure deployments': 'deploy/yaml-variables.md'
-    - 'Add environment variables': 'deploy/environment-variables.md'
+    - 'Environment variables': 'deploy/environment-variables.md'
     - 'Secrets management': 'deploy/secrets-management.md'
+    - 'YAML variables': 'deploy/yaml-variables.md'
     - 'State management': 'deploy/state-management.md'  
+    - 'Deploy public services': 'deploy/deploy-public-page.md'
   - 'Manage':
     - 'manage/index.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
