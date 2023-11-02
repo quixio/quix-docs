@@ -188,7 +188,7 @@ The standard `dockerfile` can't be used in this case. You need one that includes
 	def on_stream_received_handler(stream_consumer: qx.StreamConsumer):
 		# subscribe to new DataFrames being received
 		# if you aren't familiar with DataFrames there are other callbacks available
-		# refer to the docs here: https://docs.quix.io/sdk/subscribe.html
+		# refer to the docs here: https://quix.io/docs/reference/client-library/subscribe.html
 		stream_consumer.events.on_data_received = on_event_data_received_handler # register the event data callback
 		stream_consumer.timeseries.on_dataframe_received = on_dataframe_received_handler
 

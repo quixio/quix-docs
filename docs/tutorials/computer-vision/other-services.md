@@ -143,13 +143,13 @@ You can see the exact time window is recorded, along with the maximum vehicle co
 
 ![Road capacity](./images/road-capacity.png)
 
-This service uses [state](https://quix.io/docs/client-library/state-management.html), as you need to save the maximum count reached during the time window. 
+This service uses [state](../reference/client-library/state-management.md), as you need to save the maximum count reached during the time window. 
 
 ## Data buffer
 
 This service provides a one second data buffer. This reduces load on the Data API service. There are three input topics to the service, `max-vehicles`, `processed-images`, and `vehicle-counts`: and one output topic, `buffered-data`.
 
-See the documentation on [using buffers](https://quix.io/docs/client-library/publish.html#using-a-buffer).
+See the documentation on [using buffers](../reference/client-library/publish.md#using-a-buffer).
 
 ## Data API
 

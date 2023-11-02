@@ -44,7 +44,7 @@ The model can be modified at run time, and its state is preserved between servic
 
 ## Using state from Quix Streams
 
-If you have enabled state management for a service, then you can also use the [state management features](https://quix.io/docs/reference/client-library/state-management.html) of Quix Streams in that service. This enables you to store and retrieve data in various formats, and retain that state between service restarts. See the [documentation](https://quix.io/docs/reference/client-library/state-management.html) for further details.
+If you have enabled state management for a service, then you can also use the [state management features](../reference/client-library/state-management.md) of Quix Streams in that service. This enables you to store and retrieve data in various formats, and retain that state between service restarts. See the [documentation](../reference/client-library/state-management.md) for further details.
 
 ## Running Quix Streams locally
 
