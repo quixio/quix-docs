@@ -24,7 +24,7 @@ pip install python-dotenv
 
     If you're on Mac and using Homebrew, you may have multiple Python versions installed. In this case you may have to use the command `pip3` to install your modules. 
 
-You're going to use the [Quix Streams](../../client-library-intro.md) library to publish data into Quix Platform. This is just one of many ways to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../../connectors/index.md).
+You're going to use the [Quix Streams](../../reference/client-library-intro.md) library to publish data into Quix Platform. This is just one of many ways to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../../connectors/index.md).
 
 You use the `psutil` module to retrieve the CPU load on your laptop.
 

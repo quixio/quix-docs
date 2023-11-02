@@ -129,13 +129,13 @@ Quix provides several APIs to help you work with streaming data. These include:
 
 ### Quix Streams
 
-As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, [Quix Streams](../client-library-intro.md), to reduce development times, and provide advanced features such as automatic scaling through Streams.
+As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, Quix Streams, to reduce development times, and provide advanced features such as automatic scaling through Streams.
 
 Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as Kafka, which are predominantly written in Java and Scala.
 
-[Quix Streams](../client-library-intro.md) provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
+Quix Streams provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
 
-For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../client-library-intro.md).
+For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../reference/client-library-intro.md).
 
 ## Building with Quix
 

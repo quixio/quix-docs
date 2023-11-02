@@ -96,7 +96,7 @@ In the above code, the event generating code has been removed for simplicity. No
 ## Next steps
 
 * [Example code](https://github.com/quixio/tutorial-code/blob/main/generate-events/README.md){target=_blank} - the complete code for the example.
-* [Quix Streams](../client-library-intro.md) - documentation on data formats, publishing, and subscribing to topics.
+* [Quix Streams](../reference/client-library-intro.md) - documentation on data formats, publishing, and subscribing to topics.
 * [Quix Tour](../get-started/quixtour/index.md) - generates processing based on threshold triggering.
 * [Currency alerting](../tutorials/currency-alerting/currency-alerting.md) - tutorial on generating events based on a threshold.
 
