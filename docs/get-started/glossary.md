@@ -32,7 +32,7 @@ There are [many ways](../develop/integrate-data/index.md) to get data into Quix 
 
 ## Consumer
 
-Any project, container or application that [subscribes](https://quix.io/docs/reference/client-library/subscribe.html) to data in a topic.
+Any project, container or application that [subscribes](../reference/client-library/subscribe.md) to data in a topic.
 
 ## Consumer group
 
@@ -164,7 +164,7 @@ An [HTTP API](../apis/portal-api/index.md) used to interact with most portal-rel
 
 ## Producer
 
-Any project, container or application that [publishes](https://quix.io/docs/reference/client-library/publish.html) data to a topic.
+Any project, container or application that [publishes](../reference/client-library/publish.md) data to a topic.
 
 ## Project
 
