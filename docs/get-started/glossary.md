@@ -32,7 +32,7 @@ There are [many ways](../develop/integrate-data/index.md) to get data into Quix 
 
 ## Consumer
 
-Any project, container or application that [subscribes](https://quix.io/docs/client-library/subscribe.html) to data in a topic.
+Any project, container or application that [subscribes](https://quix.io/docs/reference/client-library/subscribe.html) to data in a topic.
 
 ## Consumer group
 
@@ -100,7 +100,7 @@ For example:
 
 Events are typically things that occur less frequently. They are streamed into the same topics as their related time series data, and act to provide some context to what is happening. For example, start and stop events typically mark the beginning and end of a data stream.
 
-Read more about [event data](../client-library/publish.md#eventdata-format).
+Read more about [event data](../reference/client-library/publish.md#eventdata-format).
 
 ## Job
 
@@ -120,7 +120,7 @@ Metadata typically has no time context, rather it exists as a constant throughou
 
 Metadata is key to data governance and becomes very useful in down-stream data processing and analytics.
 
-Read more about [Metadata](../client-library/publish.md#parameter-definitions).
+Read more about [Metadata](../reference/client-library/publish.md#parameter-definitions).
 
 ## Microservice
 
@@ -164,7 +164,7 @@ An [HTTP API](../apis/portal-api/index.md) used to interact with most portal-rel
 
 ## Producer
 
-Any project, container or application that [publishes](https://quix.io/docs/client-library/publish.html) data to a topic.
+Any project, container or application that [publishes](https://quix.io/docs/reference/client-library/publish.html) data to a topic.
 
 ## Project
 
@@ -224,7 +224,7 @@ For example:
 
 Referring back to topics as a grouping context: Quix recommends that each of these examples would be grouped into a single topic to maintain context.
 
-Read more about [time series data](../client-library/publish.md#timeseriesdata-format).
+Read more about [time series data](../reference/client-library/publish.md#timeseriesdata-format).
 
 ## Timestamp
 
@@ -232,7 +232,7 @@ A timestamp is the primary key for all data in a [stream](#stream).
 
 Quix supports nanosecond precision. Nanosecond precision is at the leading edge of real-time computing, and is primarily driven by innovation with hardware and networking technology.
 
-Read more about [timestamps](../client-library/publish.md#timestamps).
+Read more about [timestamps](../reference/client-library/publish.md#timestamps).
 
 ## Topic
 
@@ -253,4 +253,4 @@ Topics are key for scalability and good data governance. Use them to organize yo
 * Grouping incoming data by type or source
 * Maintaining separate topics for raw, clean, or processed data
 
-Read more about [topics](../client-library/publish.md#create-a-topic-producer).
+Read more about [topics](../reference/client-library/publish.md#create-a-topic-producer).
