@@ -148,7 +148,7 @@ jobs:
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Samples readme.md importer
-      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.15
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.16
       id: readme_importer
       with:
         LIBRARY_REPO_PATH: "samples"
