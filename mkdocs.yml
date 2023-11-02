@@ -110,7 +110,8 @@ nav:
     - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
   - 'Reference':
-    - 'Connectors': 'connectors/index.md'
+    - 'Connectors': 
+      - 'connectors/index.md'
 #ConnectorsGetInsertedHere
     - 'APIs':
       - 'APIs overview': 'apis/index.md'
