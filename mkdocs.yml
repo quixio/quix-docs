@@ -144,7 +144,7 @@ nav:
         - 'apis/portal-api/index.md'
         - 'Setup': 'apis/portal-api/setup.md'
         - 'HTTP requests': 'apis/portal-api/http-requests.md'
-    - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
+    - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
 
 plugins:
   - multirepo:
