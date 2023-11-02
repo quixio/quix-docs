@@ -158,6 +158,17 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
+        'platform/tutorials/computer-vision/index.md': 'tutorials/computer-vision/index.md'
+        'platform/tutorials/currency-alerting/currency-alerting.md': 'tutorials/currency-alerting/currency-alerting.md'
+        'platform/tutorials/data-science/index.md': 'tutorials/data-science/index.md'
+        'platform/tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/data-stream-processing/data-stream-processing.md'
+        'platform/tutorials/event-detection/index.md': 'tutorials/event-detection/index.md'
+        'platform/tutorials/matlab-and-simulink/matlab-and-simulink.md': 'tutorials/matlab-and-simulink/matlab-and-simulink.md'
+        'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md': 'tutorials/sentiment-analysis/index.md'
+        'platform/tutorials/rss-tutorial/rss-processing-pipeline.md': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
+        'platform/tutorials/sentiment-analysis/index.md': 'tutorials/sentiment-analysis/index.md'
+        'platform/tutorials/slack-alerting/slack-alerting.md': 'tutorials/slack-alerting/slack-alerting.md'
+        'platform/tutorials/train-and-deploy-ml/index.md': 'tutorials/train-and-deploy-ml/index.md'
         
 theme:
   name: 'material'
