@@ -1,4 +1,4 @@
-# Introduction to Quix
+# Welcome to Quix developer documentation
 
 <p style="font-size: 1rem;">Quix is a complete solution for building, deploying, and monitoring event streaming applications.</p>
 

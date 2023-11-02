@@ -1,4 +1,4 @@
-# Overview
+# Create your project
 
 In previous versions of Quix, each service was developed independently and had its code in its own Git repository. The problem with this approach was it was not possible to manage a complete pipeline with revision control. For the pipeline you could not have different branches for development or production, for example. 
 

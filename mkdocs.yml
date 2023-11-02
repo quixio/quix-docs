@@ -24,12 +24,12 @@ nav:
     - 'What is Quix?': 'get-started/what-is-quix.md'
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
-  - 'Create your project':
+  - 'Create':
       - 'create/index.md'
       - 'Create a project': 'create/create-project.md'
       - 'Project structure': 'create/project-structure.md'
       - 'Create an environment': 'create/create-environment.md'
-  - 'Develop your application':
+  - 'Develop':
       - 'develop/index.md'
       - 'Create an application': 'develop/create-application.md'
       - 'Code Samples': 'develop/code-samples.md'
@@ -48,14 +48,14 @@ nav:
         - 'Types of processing': 'develop/types-of-processing.md'
         - 'Types of transform': 'develop/types-of-transform.md'
       - 'Generating events': 'develop/timeseries-events.md'
-  - 'Deploy your service':
+  - 'Deploy':
     - 'deploy/index.md'
     - 'Deploy public services': 'deploy/deploy-public-page.md'
     - 'Configure deployments': 'deploy/yaml-variables.md'
     - 'Add environment variables': 'deploy/environment-variables.md'
     - 'Secrets management': 'deploy/secrets-management.md'
     - 'State management': 'deploy/state-management.md'  
-  - 'Manage your projects':
+  - 'Manage':
     - 'manage/index.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
     - 'Security': 'manage/security.md'
