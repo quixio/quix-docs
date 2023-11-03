@@ -114,12 +114,12 @@ jobs:
     # copy client-library readme to client-library intro.md
     - name: Copy and rename client library intro.md
       shell: bash
-      run: cp client-library/README.md docs/reference/client-library-intro.md
+      run: cp client-library/README.md docs/client-library-intro.md
 
     # copy client library images to client library intro.md
     - name: Copy Client Library Quix image
       shell: bash
-      run: cp client-library/images/quixstreams-banner.jpg docs/reference/assets/quixstreams-banner.jpg
+      run: cp client-library/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
 
     # copy client library images to docs/assets/client-library/
     - name: Copy client library waveform image
@@ -130,12 +130,12 @@ jobs:
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/reference/client-library-intro.md"
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/client-library-intro.md"
     
     # Change image paths from ./images to ./assets/client-library
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,./images,./assets/client-library/,g' docs/reference/client-library-intro.md"
+      run: "sed -i 's,./images,./assets/client-library/,g' docs/client-library-intro.md"
 
     # clone the library repo
     - name: Checkout Samples

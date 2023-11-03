@@ -167,7 +167,7 @@ To see the message format on the output topic of the service:
 
 For more information refer to:
 
-* [Quix Streams](../../reference/client-library-intro.md) - More about streams, publishing, consuming, events and much more. 
+* [Quix Streams](../../client-library-intro.md) - More about streams, publishing, consuming, events and much more. 
 
 ## 🏃‍♀️ Next step
 

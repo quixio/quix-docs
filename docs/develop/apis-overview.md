@@ -7,7 +7,7 @@ The Quix Platform provides several APIs. These are:
 * Portal API
 * Query API
 
-While [Quix Streams](../reference/client-library-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
+While [Quix Streams](../client-library-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
 
 * The client uses a language that is not supported by Quix Streams (Quix Streams supports Python and C# only)
 * There are resource constraints which mean you can't run Quix Streams
@@ -20,6 +20,17 @@ Portal API is useful for automating processes normally carried out manually in t
 Query API is useful for testing and examining data persisted into the Quix internal database.
 
 Each of these APIs is described in more detail in the following sections.
+
+## Comparing the APIs
+
+Use cases for these APIs are shown in the following table:
+
+| API | Interface | Purpose | Typical use case | Docs link |
+|---|---|---|---|----|
+| Streaming Writer API | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client | [Streaming Writer API](../apis/streaming-writer-api/index.md) | 
+| Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](../apis/streaming-reader-api/index.md) |
+| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](../apis/portal-api/index.md) |
+| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly | [Query API](../apis/query-api/index.md) |
 
 ## Streaming Writer API
 
@@ -52,14 +63,3 @@ The [Query API](../apis/query-api/index.md) enables you to fetch persisted data 
     Query API was previously known as Data Catalogue API. You may still see occasional references to the Data Catalogue API in the UI and docs.
 
 [Read more about Query API](../apis/query-api/index.md)
-
-## Comparing the APIs
-
-Use cases for these APIs are shown in the following table:
-
-| API | Interface | Purpose | Typical use case | Docs link |
-|---|---|---|---|----|
-| Streaming Writer API | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client | [Streaming Writer API](../apis/streaming-writer-api/index.md) | 
-| Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](../apis/streaming-reader-api/index.md) |
-| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](../apis/portal-api/index.md) |
-| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly | [Query API](../apis/query-api/index.md) |

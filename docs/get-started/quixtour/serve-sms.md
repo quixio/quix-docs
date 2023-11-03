@@ -123,4 +123,4 @@ You've now completed the Quix Tour. You've built a simple but complete stream pr
 To continue your Quix learning journey, you may want to consider some of the following resources:
 
 * [Computer Vision](../../tutorials/computer-vision/index.md)
-* [Quix Streams docs](../../reference/client-library-intro.md)
+* [Quix Streams docs](../../client-library-intro.md)

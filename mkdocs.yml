@@ -35,6 +35,10 @@ nav:
       - 'develop/index.md'
       - 'Create an application': 'develop/create-application.md'
       - 'Using Code Samples': 'develop/code-samples.md'
+      - 'Connectors': 
+        - 'connectors/index.md'
+#ConnectorsGetInsertedHere
+      - 'APIs overview': 'develop/apis-overview.md'
       - 'Integrate your data':
         - 'develop/integrate-data/index.md'
         - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
@@ -51,6 +55,19 @@ nav:
         - 'Types of processing': 'develop/types-of-processing.md'
         - 'Types of transform': 'develop/types-of-transform.md'
         - 'Generating events': 'develop/timeseries-events.md'
+      - 'Streaming Writer API': 
+        - 'apis/streaming-writer-api/index.md'
+        - 'Setup': 'apis/streaming-writer-api/setup.md'
+        - 'HTTP requests': 'apis/streaming-writer-api/http-requests.md'
+        - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
+        - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
+        - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
+        - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
+      - 'Streaming Reader API': 
+        - 'apis/streaming-reader-api/index.md'
+        - 'Setup': 'apis/streaming-reader-api/setup.md'
+        - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
+        - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
   - 'Deploy':
     - 'deploy/index.md'
     - 'Environment variables': 'deploy/environment-variables.md'
@@ -65,6 +82,21 @@ nav:
     - 'MLOps': 'manage/MLOps.md'
     - 'Using replay service': 'manage/replay.md'
     - 'Testing using Quix data store': 'manage/testing-data-store.md'
+    - 'Query API': 
+      - 'apis/query-api/index.md'
+      - 'Setup': 'apis/query-api/setup.md'
+      - 'HTTP requests': 'apis/query-api/http-requests.md'
+      - 'Paged streams': 'apis/query-api/streams-paged.md'
+      - 'Filtered streams': 'apis/query-api/streams-filtered.md'
+      - 'Streams with models': 'apis/query-api/streams-models.md'
+      - 'Raw data': 'apis/query-api/raw-data.md'
+      - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
+      - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
+      - 'Tag filtering': 'apis/query-api/filter-tags.md'
+    - 'Portal API': 
+      - 'apis/portal-api/index.md'
+      - 'Setup': 'apis/portal-api/setup.md'
+      - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Tutorials':
     - 'tutorials/index.md'
     - 'Computer vision': 
@@ -112,41 +144,7 @@ nav:
     - 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
     - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
-  - 'Reference':
-    - 'Connectors': 
-      - 'connectors/index.md'
-#ConnectorsGetInsertedHere
-    - 'APIs':
-      - 'APIs overview': 'apis/index.md'
-      - 'Streaming Writer API': 
-        - 'apis/streaming-writer-api/index.md'
-        - 'Setup': 'apis/streaming-writer-api/setup.md'
-        - 'HTTP requests': 'apis/streaming-writer-api/http-requests.md'
-        - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
-        - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
-        - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
-        - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
-      - 'Streaming Reader API': 
-        - 'apis/streaming-reader-api/index.md'
-        - 'Setup': 'apis/streaming-reader-api/setup.md'
-        - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
-        - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
-      - 'Query API': 
-        - 'apis/query-api/index.md'
-        - 'Setup': 'apis/query-api/setup.md'
-        - 'HTTP requests': 'apis/query-api/http-requests.md'
-        - 'Paged streams': 'apis/query-api/streams-paged.md'
-        - 'Filtered streams': 'apis/query-api/streams-filtered.md'
-        - 'Streams with models': 'apis/query-api/streams-models.md'
-        - 'Raw data': 'apis/query-api/raw-data.md'
-        - 'Aggregate data by time': 'apis/query-api/aggregate-time.md'
-        - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
-        - 'Tag filtering': 'apis/query-api/filter-tags.md'
-      - 'Portal API': 
-        - 'apis/portal-api/index.md'
-        - 'Setup': 'apis/portal-api/setup.md'
-        - 'HTTP requests': 'apis/portal-api/http-requests.md'
-    - 'Client Library': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
 
 plugins:
   - multirepo:

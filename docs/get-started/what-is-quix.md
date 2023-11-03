@@ -135,7 +135,7 @@ Python is the dominant language for data science, data engineering, and machine 
 
 Quix Streams provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
 
-For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../reference/client-library-intro.md).
+For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../client-library-intro.md).
 
 ## Building with Quix
 
