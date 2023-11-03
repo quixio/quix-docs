@@ -1,5 +1,7 @@
 # Develop your application
 
+This section of the documentation covers **developing your application**.
+
 Your data processing pipeline typically consistes of multiple applications working together. Each application represents the implementation of a source, transform, or destination. You develop your application in an environment (a branch in your project), but you can later merge these changes with other branches as required.
 
 For example, you might create a new source component to retrieve data from an external service, a transform to process this data, and then perhaps a destination, which could store data in a Postgres database. You might have another destination to display the data on a Streamlit dashboard. 

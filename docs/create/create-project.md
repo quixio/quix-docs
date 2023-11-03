@@ -104,9 +104,6 @@ When you select your `Production` environment, you will see that it is now flagg
 
 The pipeline in `Production` now reflects the work that was done in the `Develop` environment.
 
-## Next steps
+## 🏃‍♀️ Next step
 
-Here are some suggested next steps to help you continue your Quix learning journey:
-
-* Read about Quix projects, environments, and other terminology in the [Quix glossary](../get-started/glossary.md).
-* Go on the [Quix Tour](../get-started/quixtour/index.md).
+[Learn more about environments :material-arrow-right-circle:{ align=right }](./create-environment.md)

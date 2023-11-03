@@ -1,6 +1,6 @@
 # Using Quix Streams
 
-You can use Quix Streams to push and pull data to and from Quix. 
+You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data. 
 
 Some example code showing Quix Streams pushing data inot the platform is shown here:
 
@@ -86,3 +86,5 @@ You have two main options regarding how you rotate:
 !!! note
 
 	Only users with Admin role can rotate.
+
+* [Read more about Quix Streams](../../reference/client-library-intro.md)

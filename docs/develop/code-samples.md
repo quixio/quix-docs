@@ -1,5 +1,7 @@
 # Code Samples
 
+TODO - add a bit more about how you can create applications fast.
+
 The Quix Portal includes Quix Code Samples, a collection sample connectors (sources and destinations) and transforms, that you can use to start working with Quix.
 
 ![Code Samples](../images/code-samples.png)

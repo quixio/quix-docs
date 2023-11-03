@@ -2,6 +2,12 @@
 
 When you [create a project](create-project.md), you'll need to create at least one environment. This page describes how to create an environment in more detail.
 
+## Watch a video
+
+<div style="position: relative; padding-bottom: 51.549942594718715%; height: 0;"><iframe src="https://www.loom.com/embed/877ae703f0cf458f8827341549adce6c?sid=a1fed45f-b4a2-4442-8d9e-c981b6286fcb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## How to create a new environment
+
 There are several ways you can create a new environment, if you've not created one as part of creating the project. For example, you can do it from the top-level kebab menu:
 
 ![Create environment - kebab menu](../images/create-environment/create-environment-kebab-menu.png){width=60%}
@@ -108,6 +114,6 @@ Standard is designed for proof-of-concept, experimentation, and testing environm
 
 High performance is designed for production environments.
 
-## Next steps
+## 🏃‍♀️ Next step
 
-* [See the pricing page](https://quix.io/pricing){target=_blank}
+[Learn about protected environments :material-arrow-right-circle:{ align=right }](./protected-environment.md)
