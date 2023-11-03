@@ -34,22 +34,23 @@ nav:
   - 'Develop':
       - 'develop/index.md'
       - 'Create an application': 'develop/create-application.md'
-      - 'Code Samples': 'develop/code-samples.md'
+      - 'Using Code Samples': 'develop/code-samples.md'
       - 'Integrate your data':
         - 'develop/integrate-data/index.md'
         - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
         - 'Read CSV file': 'develop/integrate-data/read-csv.md'
         - 'Polling': 'develop/integrate-data/polling.md'
         - 'Inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
-        - 'Streaming API - HTTP': 'develop/integrate-data/streaming-http.md'
-        - 'Streaming API - SignalR': 'develop/integrate-data/streaming-signalr.md'
+        - 'External source': 'develop/integrate-data/external-source.md'
+        - 'External destination': 'develop/integrate-data/external-destination.md'
+        - 'Streaming APIs': 'develop/integrate-data/streaming-apis.md'
         - 'Quix Streams': 'develop/integrate-data/quix-streams.md'
         - 'Web app': 'develop/integrate-data/web-app.md'
         - 'Export to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
       - 'Process your data':
         - 'Types of processing': 'develop/types-of-processing.md'
         - 'Types of transform': 'develop/types-of-transform.md'
-      - 'Generating events': 'develop/timeseries-events.md'
+        - 'Generating events': 'develop/timeseries-events.md'
   - 'Deploy':
     - 'deploy/index.md'
     - 'Environment variables': 'deploy/environment-variables.md'
@@ -128,7 +129,6 @@ nav:
       - 'Streaming Reader API': 
         - 'apis/streaming-reader-api/index.md'
         - 'Setup': 'apis/streaming-reader-api/setup.md'
-        - 'HTTP requests': 'apis/streaming-reader-api/http-requests.md'
         - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
         - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
       - 'Query API': 

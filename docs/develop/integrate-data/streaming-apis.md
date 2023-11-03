@@ -1,6 +1,13 @@
-# Streaming Reader/Writer APIs - SignalR interface
+# Streaming APIs
 
-The Writer and Reader APIs offer a SignalR interface in addition to the [HTTP interface](streaming-http.md). 
+Quix provides two Streaming APIs to enable a client (JavaScript or Node.js code) to read from and write to a Quix topic:
+
+1. [Streaming Writer API](../../apis/streaming-writer-api/index.md)
+2. [Streaming Reader API](../../apis/streaming-reader-api/index.md)
+
+The Writer API is used to write data into Quix, that is, it is used by publishers. The Reader API is used to read data from Quix, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. 
+
+The Streaming Writer API offers both HTTP interface and a SignalR interface. The Streaming Reader API only offers a SignalR interface.
 
 !!! note
 
@@ -173,6 +180,4 @@ Code that could read mouse cursor position from a Quix stream is as follows:
 </html>
 ```
 
-This code uses the Reader API to read data from a Quix stream.
-
-The Quix documentation explains how to [set up](../../apis/streaming-writer-api/setup.md) the Streaming APIs. 
+This code uses the Streaming Reader API to read data from a Quix stream.
