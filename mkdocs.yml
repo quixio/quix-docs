@@ -185,6 +185,11 @@ plugins:
         'apis/portal-api/index.md': 'apis/portal-api/overview.md'
         'apis/query-api/index.md': 'apis/query-api/overview.md'
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
+        'client-library/quickstart.md': 'quix-streams/quickstart.md'
+        'platform/connectors/index.md': 'connectors/index.md'
+        'platform/howto/replay.md': 'manage/replay.md'
+        'client-library/connect.md': 'quix-streams/connect.md'
+
 
 theme:
   name: 'material'
