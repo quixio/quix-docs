@@ -108,7 +108,7 @@ When you develop your event streaming solution, you will build a pipeline of ser
 
 ## Interfacing with Quix
 
-There are [various ways](../develop/integrate-data/index.md) to connect your data to Quix. Quix provides a number of [connectors](../connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+There are [various ways](../develop/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
 For a simple example of getting data from your laptop into Quix, see the [Quickstart](quickstart.md).
 
@@ -122,10 +122,10 @@ Quix provides numerous standard [connectors](../connectors/index.md) for both so
 
 Quix provides several APIs to help you work with streaming data. These include:
 
-* [**Stream Writer API**](../apis/streaming-writer-api/index.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
-* [**Stream Reader API**](../apis/streaming-reader-api/index.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Query API**](../apis/query-api/index.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
-* [**Portal API**](../apis/portal-api/index.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
+* [**Stream Writer API**](../apis/streaming-writer-api/overview.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
+* [**Stream Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
+* [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
+* [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams
 
@@ -156,7 +156,7 @@ Further, changes in this file in one environment can be merged into another envi
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-You can see how to build a simple pipeline in the [Quix Tour](./quixtour/index.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
+You can see how to build a simple pipeline in the [Quix Tour](./quixtour/overview.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
 
 ### Multiple environments
 
@@ -176,5 +176,5 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 ## Next steps
 
 * [Quickstart](./quickstart.md) - get data into Quix and display it in less than 10 minutes
-* [Quix Tour](./quixtour/index.md) - build a complete pipeline in less than 30 minutes
+* [Quix Tour](./quixtour/overview.md) - build a complete pipeline in less than 30 minutes
 * Watch [a video](https://www.youtube.com/watch?v=0cr19MfATfY){target=_blank} on the art of the possible with Quix

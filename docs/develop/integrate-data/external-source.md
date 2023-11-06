@@ -32,4 +32,4 @@ The code samples generated are meant to provide you with a starting point from w
 
 ## Next steps
 
-Further information can be found in the [Streaming Writer API](../../apis/streaming-writer-api/index.md) documentation.
+Further information can be found in the [Streaming Writer API](../../apis/streaming-writer-api/overview.md) documentation.

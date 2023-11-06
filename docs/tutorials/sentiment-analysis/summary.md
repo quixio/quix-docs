@@ -12,7 +12,7 @@ In this tutorial you've:
 
 Here are some suggested next steps to continue on your Quix learning journey:
 
-* Try the [computer vision tutorial](../computer-vision/index.md).
+* Try the [computer vision tutorial](../computer-vision/overview.md).
 
 * If you decide to build your own connectors and apps, you can contribute to the [Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 

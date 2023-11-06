@@ -12,7 +12,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Use ML in real-time computer vision using London's 'Jam Cams'.
 
-    [:octicons-arrow-right-24: Computer vision](./computer-vision/index.md)
+    [:octicons-arrow-right-24: Computer vision](./computer-vision/overview.md)
 
 
 -   __Chat sentiment analysis__
@@ -21,7 +21,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Build a chat sentiment analysis application from a project template.
 
-    [:octicons-arrow-right-24: Chat sentiment analysis](./sentiment-analysis/index.md)
+    [:octicons-arrow-right-24: Chat sentiment analysis](./sentiment-analysis/overview.md)
 
 -   __MATLAB and Simulink__
 

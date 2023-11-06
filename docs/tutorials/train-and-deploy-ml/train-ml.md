@@ -10,7 +10,7 @@ This is just one approach that you might use if you are already familiar with Ju
 
 ## Install the required libraries
 
-You now need to install some Python libraries on your system. This is the system where you are running Jupyter Notebook. If you do not have Jupyter Notebook installed, please refer to the [prerequisites](./index.md#prerequisites) for this tutorial.
+You now need to install some Python libraries on your system. This is the system where you are running Jupyter Notebook. If you do not have Jupyter Notebook installed, please refer to the [prerequisites](./overview.md#prerequisites) for this tutorial.
 
 The following libraries are required to create the ML model and visualize your data. To install the libraries enter the following commands into a terminal on the system where you are running Jupyter Notebook:
 

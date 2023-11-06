@@ -17,7 +17,7 @@ nav:
     - 'Welcome': 'get-started/welcome.md'
     - 'Quickstart': 'get-started/quickstart.md'
     - 'Quix Tour': 
-      - 'get-started/quixtour/index.md'
+      - 'Overview': 'get-started/quixtour/overview.md'
       - '1. Ingest': 'get-started/quixtour/ingest-push.md'
       - '2. Process': 'get-started/quixtour/process-threshold.md'
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
@@ -25,22 +25,24 @@ nav:
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
   - 'Create':
-      - 'create/index.md'
+      - 'Overview': 'create/overview.md'
       - 'Create a project': 'create/create-project.md'
       - 'Create an environment': 'create/create-environment.md'
       - 'Protected environments': 'create/protected-environment.md'
       - 'Syncing an environment': 'create/syncing-environment.md'
       - 'Project structure': 'create/project-structure.md'
   - 'Develop':
-      - 'develop/index.md'
+      - 'Overview': 'develop/overview.md'
       - 'Create an application': 'develop/create-application.md'
+      - 'Authentication':
+        - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
+        - 'Streaming Token': 'develop/authentication/streaming-token.md'
       - 'Using Code Samples': 'develop/code-samples.md'
       - 'Connectors': 
         - 'connectors/index.md'
 #ConnectorsGetInsertedHere
-      - 'APIs overview': 'develop/apis-overview.md'
       - 'Integrate your data':
-        - 'develop/integrate-data/index.md'
+        - 'Overview': 'develop/integrate-data/overview.md'
         - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
         - 'Read CSV file': 'develop/integrate-data/read-csv.md'
         - 'Polling': 'develop/integrate-data/polling.md'
@@ -52,38 +54,41 @@ nav:
         - 'Web app': 'develop/integrate-data/web-app.md'
         - 'Export to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
       - 'Process your data':
-        - 'Types of processing': 'develop/types-of-processing.md'
-        - 'Types of transform': 'develop/types-of-transform.md'
-        - 'Generating events': 'develop/timeseries-events.md'
-      - 'Streaming Writer API': 
-        - 'apis/streaming-writer-api/index.md'
-        - 'Setup': 'apis/streaming-writer-api/setup.md'
-        - 'HTTP requests': 'apis/streaming-writer-api/http-requests.md'
-        - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
-        - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
-        - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
-        - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
-      - 'Streaming Reader API': 
-        - 'apis/streaming-reader-api/index.md'
-        - 'Setup': 'apis/streaming-reader-api/setup.md'
-        - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
-        - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
+        - 'Overview': 'develop/process/overview.md'
+        - 'Types of processing': 'develop/process/types-of-processing.md'
+        - 'Types of transform': 'develop/process/types-of-transform.md'
+        - 'Generating events': 'develop/process/timeseries-events.md'
+      - 'APIs': 
+        - 'Overview': 'develop/apis-overview.md'
+        - 'Streaming Writer API': 
+          - 'Overview': 'apis/streaming-writer-api/overview.md'
+          - 'Setup': 'apis/streaming-writer-api/setup.md'
+          - 'HTTP requests': 'apis/streaming-writer-api/http-requests.md'
+          - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
+          - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
+          - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
+          - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
+        - 'Streaming Reader API': 
+          - 'Overview': 'apis/streaming-reader-api/overview.md'
+          - 'Setup': 'apis/streaming-reader-api/setup.md'
+          - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
+          - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
   - 'Deploy':
-    - 'deploy/index.md'
+    - 'Overview': 'deploy/overview.md'
     - 'Environment variables': 'deploy/environment-variables.md'
     - 'Secrets management': 'deploy/secrets-management.md'
     - 'YAML variables': 'deploy/yaml-variables.md'
     - 'State management': 'deploy/state-management.md'  
     - 'Deploy public services': 'deploy/deploy-public-page.md'
   - 'Manage':
-    - 'manage/index.md'
+    - 'Overview': 'manage/overview.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
     - 'Security': 'manage/security.md'
     - 'MLOps': 'manage/MLOps.md'
     - 'Using replay service': 'manage/replay.md'
     - 'Testing using Quix data store': 'manage/testing-data-store.md'
     - 'Query API': 
-      - 'apis/query-api/index.md'
+      - 'Overview': 'apis/query-api/overview.md'
       - 'Setup': 'apis/query-api/setup.md'
       - 'HTTP requests': 'apis/query-api/http-requests.md'
       - 'Paged streams': 'apis/query-api/streams-paged.md'
@@ -94,13 +99,13 @@ nav:
       - 'Aggregate data by tags': 'apis/query-api/aggregate-tags.md'
       - 'Tag filtering': 'apis/query-api/filter-tags.md'
     - 'Portal API': 
-      - 'apis/portal-api/index.md'
+      - 'Overview': 'apis/portal-api/overview.md'
       - 'Setup': 'apis/portal-api/setup.md'
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Tutorials':
-    - 'tutorials/index.md'
+    - 'Overview': 'tutorials/overview.md'
     - 'Computer vision': 
-      - tutorials/computer-vision/index.md
+      - 'Overview': 'tutorials/computer-vision/overview.md'
       - '1. Get the project': tutorials/computer-vision/get-project.md
       - '2. TfL camera feed': tutorials/computer-vision/tfl-camera-feed.md
       - '3. Frame grabber': tutorials/computer-vision/tfl-frame-grabber.md
@@ -110,7 +115,7 @@ nav:
       - '7. Add service': tutorials/computer-vision/add-service.md
       - '8. Summary': tutorials/computer-vision/summary.md        
     - 'Chat sentiment analysis': 
-      - tutorials/sentiment-analysis/index.md
+      - 'Overview': 'tutorials/sentiment-analysis/overview.md'
       - '1. Get the project': tutorials/sentiment-analysis/get-project.md
       - '2. Try the UI': 'tutorials/sentiment-analysis/try-the-ui.md'
       - '3. UI service': 'tutorials/sentiment-analysis/ui-service.md'
@@ -119,7 +124,7 @@ nav:
       - '6. Customize the UI': 'tutorials/sentiment-analysis/customize-the-ui.md'
       - '7. Summary': 'tutorials/sentiment-analysis/summary.md'
     - 'Real-time ML predictions':
-      - 'tutorials/data-science/index.md'
+      - 'Overview': 'tutorials/data-science/overview.md'
       - '1. Bicycle data': 'tutorials/data-science/1-bikedata.md'
       - '2. Weather data': 'tutorials/data-science/2-weatherdata.md'
       - '3. Data views': 'tutorials/data-science/3-data.md'
@@ -127,14 +132,14 @@ nav:
       - '5. Run the model': 'tutorials/data-science/5-run.md'
       - '6. Conclusion': 'tutorials/data-science/6-conclusion.md'
     - 'Real-time ML pipelines':
-      - tutorials/train-and-deploy-ml/index.md
+      - 'Overview': 'tutorials/train-and-deploy-ml/overview.md'
       - 'Create your data': 'tutorials/train-and-deploy-ml/create-data.md'
       - 'Import data into Jupyter': 'tutorials/train-and-deploy-ml/import-data.md'
       - 'Train your ML model': 'tutorials/train-and-deploy-ml/train-ml.md'
       - 'Deploy your ML model': 'tutorials/train-and-deploy-ml/deploy-ml.md'
       - 'Conclusion': 'tutorials/train-and-deploy-ml/conclusion.md'
     - 'Real-time event detection':
-      - 'tutorials/event-detection/index.md'
+      - 'Overview': 'tutorials/event-detection/overview.md'
       - '1. Data acquisition': 'tutorials/event-detection/data-acquisition.md'
       - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
@@ -158,18 +163,29 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
-        'platform/tutorials/computer-vision/index.md': 'tutorials/computer-vision/index.md'
+        'contribute.md': 'get-started/contribute.md'
+        'platform/ingest-data.md': 'develop/overview.md'
+        'platform/quickstart.md': 'get-started/quickstart.md'
+        'platform/what-is-quix.md': 'get-started/what-is-quix.md'
+        'platform/glossary.md': 'get-started/glossary.md'
+        'platform/quixtour/overview.md': 'get-started/quixtour/overview.md'
+        'platform/tutorials/computer-vision/index.md': 'tutorials/computer-vision/overview.md'
         'platform/tutorials/currency-alerting/currency-alerting.md': 'tutorials/currency-alerting/currency-alerting.md'
-        'platform/tutorials/data-science/index.md': 'tutorials/data-science/index.md'
+        'platform/tutorials/data-science/index.md': 'tutorials/data-science/overview.md'
         'platform/tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/data-stream-processing/data-stream-processing.md'
-        'platform/tutorials/event-detection/index.md': 'tutorials/event-detection/index.md'
+        'platform/tutorials/event-detection/index.md': 'tutorials/event-detection/overview.md'
         'platform/tutorials/matlab/matlab-and-simulink.md': 'tutorials/matlab/matlab-and-simulink.md'
-        'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md': 'tutorials/sentiment-analysis/index.md'
+        'platform/tutorials/nocode-sentiment/nocode-sentiment-analysis.md': 'tutorials/sentiment-analysis/overview.md'
         'platform/tutorials/rss-tutorial/rss-processing-pipeline.md': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
-        'platform/tutorials/sentiment-analysis/index.md': 'tutorials/sentiment-analysis/index.md'
+        'platform/tutorials/sentiment-analysis/index.md': 'tutorials/sentiment-analysis/overview.md'
         'platform/tutorials/slack-alerting/slack-alerting.md': 'tutorials/slack-alerting/slack-alerting.md'
-        'platform/tutorials/train-and-deploy-ml/index.md': 'tutorials/train-and-deploy-ml/index.md'
-        
+        'platform/tutorials/train-and-deploy-ml/index.md': 'tutorials/train-and-deploy-ml/overview.md'
+        'apis/streaming-writer-api/index.md': 'apis/streaming-writer-api/overview.md'
+        'apis/streaming-reader-api/index.md': 'apis/streaming-reader-api/overview.md'
+        'apis/portal-api/index.md': 'apis/portal-api/overview.md'
+        'apis/query-api/index.md': 'apis/query-api/overview.md'
+        'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
+
 theme:
   name: 'material'
   custom_dir: overrides

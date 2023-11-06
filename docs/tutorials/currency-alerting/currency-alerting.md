@@ -199,8 +199,8 @@ Here's what you accomplished in this tutorial:
 
 To learn more, try one of these tutorials:
 
-* [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](../computer-vision/index.md)
-* [Perform chat sentiment analysis](../sentiment-analysis/index.md)
+* [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](../computer-vision/overview.md)
+* [Perform chat sentiment analysis](../sentiment-analysis/overview.md)
 * [Gather and processes data from an RSS feed and get an alert when specific criteria are met](../rss-tutorial/rss-processing-pipeline.md)
 
 

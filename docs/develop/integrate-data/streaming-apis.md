@@ -2,8 +2,8 @@
 
 Quix provides two Streaming APIs to enable a client (JavaScript or Node.js code) to read from and write to a Quix topic:
 
-1. [Streaming Writer API](../../apis/streaming-writer-api/index.md)
-2. [Streaming Reader API](../../apis/streaming-reader-api/index.md)
+1. [Streaming Writer API](../../apis/streaming-writer-api/overview.md)
+2. [Streaming Reader API](../../apis/streaming-reader-api/overview.md)
 
 The Writer API is used to write data into Quix, that is, it is used by publishers. The Reader API is used to read data from Quix, and is therefore used by consumers. These are used typically by external services such as web browser client code, or perhaps IoT devices. 
 

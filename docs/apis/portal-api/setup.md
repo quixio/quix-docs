@@ -40,7 +40,7 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 ## Get environment ID
 
-When using APIs you’ll need to obtain an ID based on a specific environment. For example, endpoints for the [Query API](../../apis/query-api/index.md) use a domain with the following pattern:
+When using APIs you’ll need to obtain an ID based on a specific environment. For example, endpoints for the [Query API](../../apis/query-api/overview.md) use a domain with the following pattern:
 
     https://telemetry-query-${environment-id}.platform.quix.ai/
 

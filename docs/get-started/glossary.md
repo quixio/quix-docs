@@ -12,7 +12,7 @@ A set of code in Quix Platform that can be edited, compiled, run, and deployed a
 
 Applications in Quix Platform exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
 
-Read more about [applications](../create/index.md).
+Read more about [applications](../create/overview.md).
 
 ## Binary data
 
@@ -28,7 +28,7 @@ Quix Platform contains a large number of [open source](https://github.com/quixio
 
 ## Connectors
 
-There are [many ways](../develop/integrate-data/index.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../connectors/index.md).
+There are [many ways](../develop/integrate-data/overview.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../connectors/index.md).
 
 ## Consumer
 
@@ -44,7 +44,7 @@ If the consumers (replicas) are not in a consumer group, then all messages are p
 
 Data ingestion is the means by which you get your data into Quix.
 
-Read more about [data ingestion](../develop/integrate-data/index.md).
+Read more about [data ingestion](../develop/integrate-data/overview.md).
 
 ## Data types
 
@@ -86,7 +86,7 @@ An environment is an entity that encapsulates a branch in your [project](#projec
 
 Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
 
-Read more about [environments](../create/index.md).
+Read more about [environments](../create/overview.md).
 
 ## Events
 
@@ -160,7 +160,7 @@ Applications implementing a source, transform, or destination, are connected tog
 
 ## Portal API
 
-An [HTTP API](../apis/portal-api/index.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
+An [HTTP API](../apis/portal-api/overview.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
 
 ## Producer
 
@@ -174,7 +174,7 @@ A project contains one or more [environments](#environment), so typically you cr
 
 ## Query API
 
-The [Query API](../apis/query-api/index.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
+The [Query API](../apis/query-api/overview.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
 ## Quix Portal
 
@@ -206,11 +206,11 @@ Read more about [streams](../quix-streams/features/streaming-context.md).
 
 ## Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/index.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
+A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/index.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
+An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
 
 ## Template project
 

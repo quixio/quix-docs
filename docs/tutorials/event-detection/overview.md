@@ -4,7 +4,7 @@ In this tutorial you learn how to build a real-time event detection pipeline. Ev
 
 You deploy a crash detection service to detect crashes in real time, and a UI to view the location of the incident.
 
-In this example the actual crash detection is performed using an ML model, pretrained with data from Quix. A [tutorial](../train-and-deploy-ml/index.md) is also available that demonstrates how to train a basic model with a small subset of data. You can collect more data to train your model using more scenarios to ensure it’s accurate enough for your use case.
+In this example the actual crash detection is performed using an ML model, pretrained with data from Quix. A [tutorial](../train-and-deploy-ml/overview.md) is also available that demonstrates how to train a basic model with a small subset of data. You can collect more data to train your model using more scenarios to ensure it’s accurate enough for your use case.
 
 Once you have completed this tutorial you see the following UI:
 

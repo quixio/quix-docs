@@ -1,10 +1,10 @@
 # Import data into Jupyter Notebook
 
-From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix data store](../../apis/query-api/index.md). 
+From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix data store](../../apis/query-api/overview.md). 
 
 ## Run Jupyter Notebook
 
-Make sure you have reviewed the [prerequisites](./index.md#prerequisites), and have Jupyter Notebook already installed.
+Make sure you have reviewed the [prerequisites](./overview.md#prerequisites), and have Jupyter Notebook already installed.
 
 1. Now run Jupyter Notebook by entering the following command into your terminal:
 

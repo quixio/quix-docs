@@ -12,9 +12,9 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * Visit the [Quix Code Samples GitHub](https://github.com/quixio/quix-samples){target=_blank}. If you decide to build your own connectors and apps, you can contribute something to the Quix Code Samples. Fork our Code Samples repo and submit your code, updates, and ideas.
 
-* [Chat sentiment analysis tutorial](../sentiment-analysis/index.md) - In this tutorial you learn how to build a chat sentiment analysis pipeline, capable of analyzing real-time chat.
+* [Chat sentiment analysis tutorial](../sentiment-analysis/overview.md) - In this tutorial you learn how to build a chat sentiment analysis pipeline, capable of analyzing real-time chat.
 
-* [Real-time Machine Learning (ML) predictions](../data-science/index.md) - In this tutorial you use data science to build a real-time bike availability pipeline.
+* [Real-time Machine Learning (ML) predictions](../data-science/overview.md) - In this tutorial you use data science to build a real-time bike availability pipeline.
 
 What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
 

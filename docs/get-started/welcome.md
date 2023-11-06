@@ -29,7 +29,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     Build a complete event streaming application in under 30 minutes.
 
-    [Quix Tour :octicons-arrow-right-24:](./quixtour/index.md)
+    [Quix Tour :octicons-arrow-right-24:](./quixtour/overview.md)
 
 - __Create a project from scratch__
 
@@ -37,7 +37,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
     
     Learn how to create your own Quix project from scratch.
 
-    [Create a project :octicons-arrow-right-24:](../create/index.md)
+    [Create a project :octicons-arrow-right-24:](../create/overview.md)
 
 - __Get started with a project template__
 
@@ -45,7 +45,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
     
     Deploy a real-time computer vision application fast, using a project template.
 
-    [Computer vision :octicons-arrow-right-24:](../tutorials/computer-vision/index.md)
+    [Computer vision :octicons-arrow-right-24:](../tutorials/computer-vision/overview.md)
 
 </div>
 

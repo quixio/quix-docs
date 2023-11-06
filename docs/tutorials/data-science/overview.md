@@ -26,7 +26,7 @@ This tutorial has the following prerequisites:
 
 	???- example "Want to learn it?"
 
-		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../../tutorials/train-and-deploy-ml/index.md).
+		If you don't already know how to train an ML model, follow our "How to train an ML model" tutorial [here](../../tutorials/train-and-deploy-ml/overview.md).
 
 		We take you through the process of getting the code to access the data, running the code in a Jupyter notebook, training the model and uploading your pickle file to the Quix Platform.
 

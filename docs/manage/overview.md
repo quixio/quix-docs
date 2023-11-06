@@ -46,7 +46,7 @@ Quix also has an additional capability called persistence. Enabling persistence 
 
 ![Enable persistence](../images/manage/topic-persistence.png)
 
-Enabling this feature persists topic data into a database for later retrieval using the [Query API](../apis/query-api/index.md), or for replay using the replay service. 
+Enabling this feature persists topic data into a database for later retrieval using the [Query API](../apis/query-api/overview.md), or for replay using the replay service. 
 
 The Query API is useful for testing and reviewing historical data. 
 
@@ -62,7 +62,7 @@ You can read more about the [replay service](./replay.md) in the docs.
 
 The Query API enables you to programmatically retrieve persisted data from the database.
 
-You can read more about the [Query API](../apis/query-api/index.md) in the docs.
+You can read more about the [Query API](../apis/query-api/overview.md) in the docs.
 
 ## Portal API
 
@@ -75,4 +75,4 @@ The Portal API enables you to programmatically control your Quix Portal, and mos
 * Topics
 * Users
 
-You can read more about the [Portal API](../apis/portal-api/index.md) in the docs, or view the [Swagger reference](https://portal-api.platform.quix.ai/swagger/index.html){target=_blank}.
+You can read more about the [Portal API](../apis/portal-api/overview.md) in the docs, or view the [Swagger reference](https://portal-api.platform.quix.ai/swagger/index.html){target=_blank}.
