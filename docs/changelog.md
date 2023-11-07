@@ -1,0 +1,43 @@
+# Quix product changelog
+
+* [2023-11-01-brokers](./changelogs/2023-11-01-brokers.md)
+* [2023-10-04-redpanda]()
+* [2023-10-03-byoc-hf]()
+* [2023-10-02-byoc]()
+* [2023-10-01-deployment-hf]()
+* [2023-09-07-ws-service-fix]()
+* [2023-09-06-ungated-fixes]()
+* [2023-09-05-v2-hf]()
+* [2023-09-05-v2]()
+* [2023-09-12-ws-service-hotfix]()
+* [2023-09-03-secrets-hf-2]()
+* [2023-09-02-secrets-hf]()
+* [2023-09-01-secrets]()
+* [2023-08-03-IaC-2-hf-2]()
+* [2023-08-02-IaC-2-hf]()
+* [2023-08-01-IaC-2]()
+* [2023-07-03-IaC-post-fixes]()
+* [2023-07-03-IaC]()
+* [2023-07-02-skip-hf]()
+* [2023-07-01-posthog]()
+* [2023-06-03-build-hotfix]()
+* [2023-06-02-frontend-hotfix]()
+* [2023-06-01-post-billing-fixes]()
+* [2023-05-02-billing]()
+* [2023-05-01-HF]()
+* [2023-04-01]()
+* [2023-02-03-hubspot-hotfix]()
+* [2023-02-03-HF2]()
+* [2023-02-03-HF1]()
+* [2023-02-03 (self-hosted kafka)]()
+* [2023-02-01-HOTFIX-3]()
+* [2023-02-02]()
+* [2023-02-01-HOTFIX]()
+* [2023-02-01]()
+* [2023-01-01]()
+
+---
+
+[Past release labels (Archived)]()
+
+---
