@@ -82,4 +82,4 @@ Quix adheres to ISO 27001, ensuring that the company applies systematic methodol
 
 For Quix's clients, the ISO 27001 certification assures a dependable security framework. This certification signals our dedication to data protection and the strength of our risk management practices, aiming to secure client data against potential threats.
 
-You can verify the validity of our ISO certificate by entering the certificate number 251068 using the [certification verification link](https://www.british-assessment.co.uk/verify-certification/).
+You can verify the validity of our ISO certificate by entering the certificate number 251068 using the [certification verification link](https://www.british-assessment.co.uk/verify-certification/){target=_blank}.
