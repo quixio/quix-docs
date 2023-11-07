@@ -2,12 +2,6 @@
 
 If you supply Tags with your parameter data, they will act as indexes, so they can be used to efficiently filter data.
 
-## Before you begin
-
-If you don’t already have any Stream data in your environment, you can use a Source from the [Code Samples](../../platform/samples/samples.md) to generate some.
-
-You'll need to obtain a [Personal Access Token](authenticate.md) to authenticate each request.
-
 ## Using tag filters
 
 When calling the `/parameters/data` endpoint, you can include a `tagFilters` property in your payload. This property references an array of objects, each with the following structure:

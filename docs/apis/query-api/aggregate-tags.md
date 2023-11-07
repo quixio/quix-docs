@@ -2,12 +2,6 @@
 
 If you need to compare data across different values for a given tag, you’ll want to group results by that tag. You can do so using the `/parameters/data` endpoint.
 
-## Before you begin
-
-If you don’t already have any stream data in your environment, you can use a Source from the [Code Samples](../../platform/samples/samples.md) to provide suitable data.
-
-You'll need to obtain a [Personal Access Token](authenticate.md) to authenticate each request.
-
 ## Using the groupBy property
 
 You can supply a list of Tags in the `groupBy` array to aggregate results by. For example, you could group a set of Speed readings by the LapNumber they occurred on using something like:

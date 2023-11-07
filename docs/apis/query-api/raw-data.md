@@ -2,12 +2,6 @@
 
 Access persisted raw data by specifyng the parameters you’re interested in. Add restrictions based on Stream or timings for finer-grained results.
 
-## Before you begin
-
-If you don’t already have any Stream data in your environment, you can use a Source from our [Code Samples](../../platform/samples/samples.md) generate some data.
-
-[Get a Personal Access Token](authenticate.md) to authenticate each request.
-
 ## Using the /parameters/data endpoint
 
 Raw telemetry data is available via the `/parameters/data` endpoint.

@@ -1,12 +1,6 @@
 # Paged streams
 
-You can fetch all streams within a [environment](../../platform/glossary.md#environment), across [topics](../../platform/glossary.md#topics) and locations, with a single call. If you’re working with a large number of streams, you can use pagination parameters to group the results into smaller pages.
-
-## Before you begin
-
-If you don’t already have any Stream data in your environment, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
-
-[Get a Personal Access Token](authenticate.md) to authenticate each request.
+You can fetch all streams within a environment, across topics and locations, with a single call. If you’re working with a large number of streams, you can use pagination parameters to group the results into smaller pages.
 
 ## Fetching all streams
 
