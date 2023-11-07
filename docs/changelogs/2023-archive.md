@@ -1,6 +1,6 @@
 # 2023 changelog archive
 
-## 2023-11-01-brokers | 2 NOVEMBER 2023
+## 2023-11-01-brokers | 2 November 2023
 
 💎 Enhancements 💎
 
