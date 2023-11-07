@@ -72,12 +72,14 @@ Restricted access ensures only colleagues in the necessary roles can work on the
 
 ## Compliance
 
-Quix is aiming to meet and exceed one of the most broadly recognised security standards.
+Quix is ISO-27001 certified, a widely recognised standard that sets forth the criteria for an information security management system (ISMS).
 
 ### ISO-27001
 
-ISO-27001 details IT security management systems and procedures. We are currently pursuing certification under this rigorous standard while actively working towards standardising our written policies and procedures.
+This standard provides a structured approach for implementing, operating, monitoring, and improving an ISMS.
 
-An ISO-27001 certification is a quick and easy way to judge the general security posture of an organisation. By obtaining this certification soon, we aim to demonstrate our commitment to information security.
+Quix adheres to ISO 27001, ensuring that the company applies systematic methodologies and a solid framework to identify, manage, and reduce information security risks. Certification in this standard indicates Quix's commitment to establishing international best practices in information security.
 
-We are aiming to complete the internal audit by October 2023 and obtain the certification by the end of the calendar year 2023.
+For Quix's clients, the ISO 27001 certification assures a dependable security framework. This certification signals our dedication to data protection and the strength of our risk management practices, aiming to secure client data against potential threats.
+
+You can verify the validity of our ISO certificate by entering the certificate number 251068 using the [certification verification link](https://www.british-assessment.co.uk/verify-certification/){target=_blank}.
