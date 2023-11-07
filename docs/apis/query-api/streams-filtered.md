@@ -2,12 +2,6 @@
 
 To fetch specific streams, you can include various filters with your request to the `/streams` endpoint.
 
-## Before you begin
-
-If you don’t already have any Stream data in your environment, you can use any Source from our [Code Samples](../../platform/samples/samples.md) to set some up.
-
-[Get a Personal Access Token](authenticate.md) to authenticate each request.
-
 ## Fetch a single stream via ID
 
 The most basic filter matches against a stream’s ID:

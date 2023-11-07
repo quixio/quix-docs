@@ -2,12 +2,6 @@
 
 You can downsample and upsample persisted data using the `/parameters/data` endpoint.
 
-## Before you begin
-
-If you don’t already have any Stream data in your environment, you can use a Source from the [Code Samples](../../platform/samples/samples.md) to provide suitable data.
-
-You'll need to obtain a [Personal Access Token](authenticate.md) to authenticate each request.
-
 ## Aggregating and interpolating
 
 The JSON payload can include a `groupByTime` property, an object with the following members:
