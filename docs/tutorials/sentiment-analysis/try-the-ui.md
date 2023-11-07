@@ -10,7 +10,7 @@ In this part of the tutorial you try out the UI to get a feel for the project an
 
 !!! tip
 
-    If you just want to try out the UI without performing the following steps, you can do that in the [deployed project](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.ai/chat){target=_blank}.
+    If you just want to try out the UI without performing the following steps, you can do that in the [deployed project](https://sentimentdemoui-demo-chatappdemo-prod.deployments.quix.io/chat){target=_blank}.
 
 You need a [PAT](../../apis/streaming-reader-api/setup.md#personal-access-token-pat) to get the UI working.
 

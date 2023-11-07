@@ -180,7 +180,7 @@ The [Query API](../apis/query-api/overview.md) is used to query persisted data. 
 
 Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
 
-Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
+Sign up for a [free account](https://portal.platform.quix.io/self-sign-up).
 
 ## Quix Streams
 

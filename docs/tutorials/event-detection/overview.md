@@ -14,7 +14,7 @@ The UI displays a map with the route being taken, various data values sent from 
 
 ## The parts of the tutorial
 
-This tutorial is divided into several parts to make it more a manageable learning experience. Feel free to complete the various parts at your own pace, your [Quix account](https://portal.platform.quix.ai/self-sign-up) is **free and credit renews each month**. The parts of this tutorial are as follows:
+This tutorial is divided into several parts to make it more a manageable learning experience. Feel free to complete the various parts at your own pace, your [Quix account](https://portal.platform.quix.io/self-sign-up) is **free and credit renews each month**. The parts of this tutorial are as follows:
 
 1. [**Data Acquisition**](./data-acquisition.md). Streaming data into the crash detection pipeline brings the solution to life. You have two options here, stream data live from your phone, or use some prerecorded CSV data based on the best option for your use case.
 

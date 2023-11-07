@@ -43,7 +43,7 @@ The pipeline you will implement:
 To complete the Quix Tour you'll need the following:
 
 1. [Python installed](https://www.python.org/downloads/){target=_blank} on your machine.
-2. A [free Quix account](https://portal.platform.quix.ai/self-sign-up).
+2. A [free Quix account](https://portal.platform.quix.io/self-sign-up).
 3. (Optional) A free [Vonage API account](https://developer.vonage.com/sign-up).
 
 ## 🏃‍♀️ Next step

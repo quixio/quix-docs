@@ -54,7 +54,7 @@ There may be various devices or apps posting data to your web app.
 A simple test of your web app can be performed with Curl, as shown in the following example:
 
 ```shell
-curl -X POST -H "Content-Type: application/json"  https://app-workspace-project-branch.deployments.quix.ai/data -d @data.json
+curl -X POST -H "Content-Type: application/json"  https://app-workspace-project-branch.deployments.quix.io/data -d @data.json
 ```
 
 In this example, `data.json` contains your JSON data, such as:

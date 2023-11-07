@@ -21,7 +21,7 @@ You can create a new Stream with an absolute minimum of effort by passing an emp
 === "Curl"
     
     ``` shell
-    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams" \
+    curl "https://${domain}.platform.quix.io/topics/${topicName}/streams" \
             -X POST \
             -H "Authorization: bearer ${token}" \
             -H "Content-Type: application/json" \
@@ -36,7 +36,7 @@ You can create a new Stream with an absolute minimum of effort by passing an emp
     const data = "{}";
 
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams',
         method: 'POST',
         headers: {
@@ -107,7 +107,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

@@ -89,7 +89,7 @@ The complete code for the Quickstart can be found in the [Quix Tutorials GitHub 
 To complete the Quickstart you'll need the following:
 
 1. [Python installed](https://www.python.org/downloads/){target=_blank} on your machine. Python version >= 3.6 < 4 is required for the Quix Streams client library.
-2. A [free Quix account](https://portal.platform.quix.ai/self-sign-up).
+2. A [free Quix account](https://portal.platform.quix.io/self-sign-up).
 
 ## 1. Install the Python modules
 

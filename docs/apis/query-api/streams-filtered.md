@@ -7,7 +7,7 @@ To fetch specific streams, you can include various filters with your request to 
 The most basic filter matches against a stream’s ID:
 
 ```bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"streamIds": ["302b1de3-2338-43cb-8148-3f0d6e8c0b8a"]}'
@@ -20,7 +20,7 @@ Note that you can supply multiple IDs in the `streamIds` array to match multiple
 The **location** of a stream defines its position in a hierarchy. A stream location looks just like a filesystem path. You can filter streams based on the start of this path, so you can easily find streams contained within any point in the hierarchy. For example, this query will find streams with a location of `/one` but it will also find streams with a `/one/two` location:
 
 ```bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"location": "/one"}'
@@ -37,7 +37,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
 You can filter streams based on their use of a given **parameter** with the `parameterIds` property. For example, to find all streams that contain at least one single occurence of `Gear` data:
 
 ```bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"parameterIds": [ "Gear"] }'
@@ -46,7 +46,7 @@ curl "https://${domain}.platform.quix.ai/streams" \
 You can filter based on the presence or absence of a certain stream **status**, for example, if the stream is `Open` or was `Interrupted`. The `includeStatuses` and `excludeStatuses` properties each take an array of values to act on. So to get all streams that aren’t Interrupted or Closed, use this query:
 
 ```bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"excludeStatuses": [ "Interrupted", "Closed" ]}'
@@ -108,7 +108,7 @@ Calls to the `/streams` endpoint can include an `ordering` property in the paylo
 For example, to sort all streams in ascending order by topic:
 
 ```bash
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"ordering": [{ "by": "topic", "direction": "asc" }]}'

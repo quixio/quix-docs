@@ -12,7 +12,7 @@ If you'd like to watch a video before stepping through this tutorial, you can vi
 
 To complete this tutorial you need the following:
 
-* A free [Quix account](https://portal.platform.quix.ai/self-sign-up/){target=_blank}.
+* A free [Quix account](https://portal.platform.quix.io/self-sign-up/){target=_blank}.
 * [Python3](https://www.python.org/downloads/){target=_blank} installed.
 * [Jupyter Notebook](https://jupyter.org/){target=_blank} to train your model and load data for training. See [How to work with Jupyter Notebook](../../develop/integrate-data/jupyter-nb.md) for further information.
 

@@ -29,13 +29,13 @@ Read the documentation on how to obtain your environment ID.
 The API endpoint URL has the following format:
 
 ```
-https://<api-name>-<environment-id>.platform.quix.ai/<action>
+https://<api-name>-<environment-id>.platform.quix.io/<action>
 ```
 
 So, for example, the endpoint URL for the streaming writer might resemble the following:
 
 ```
-https://writer-acme-weather.platform.quix.ai/<action>
+https://writer-acme-weather.platform.quix.io/<action>
 ```
 
 The API is `writer`, and the environment ID is `acme-weather`.
@@ -81,7 +81,7 @@ You should structure most of your requests to the API around this pattern:
 curl -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "@data.json" \
-     https://${api-name}-${environment-id}.platform.quix.ai/<action>
+     https://${api-name}-${environment-id}.platform.quix.io/<action>
 ```
 
 ## 🏃‍♀️ Next step
