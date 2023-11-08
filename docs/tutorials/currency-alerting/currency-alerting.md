@@ -30,7 +30,7 @@ The objective of this tutorial is to create a pipeline that resembles the follow
 
 The colors describe the role of the microservice that is being deployed. The possible roles are as follows:
 
-<div class="sq sq-blue"><span></span>Source — enables streaming of data into the Quix platform from any external source, such as an API or WebSocket.</div>
+<div class="sq sq-blue"><span></span>Source — enables streaming of data into Quix from any external source, such as an API or WebSocket.</div>
 <div class="sq sq-violet"><span></span>Transformation — implements the processing of data, for example, cleaning data or implementing a Machine Learning (ML) model.</div>
 <div class="sq sq-orange"><span></span> Destination — enables streaming of processed data to an external destination, such as a database or dashboard.</div>
 
@@ -47,7 +47,7 @@ To summarize this functionality:
 
 To set up the CoinAPI source, follow these steps:
 
-1. In the [Quix Portal](https://portal.platform.quix.ai/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
+1. In [Quix](https://portal.platform.quix.ai/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
 
 2. In the search box on the Code Samples page, enter "CoinAPI - Exchange Rate Feed".
    
@@ -193,7 +193,7 @@ Here's what you accomplished in this tutorial:
 
 ✅ You deployed three real-time serverless microservices: the CoinAPI source to read data from another platform, the Threshold Alert transformation to make decisions based on that data, and the Pushover destination to send push notifications to your phone.
 
-✅ You gained some experience in navigating the Quix platform, and learned how to deploy microservices without needing to write any code.
+✅ You gained some experience in navigating Quix, and learned how to deploy microservices without needing to write any code.
 
 ## Next steps
 
@@ -202,7 +202,6 @@ To learn more, try one of these tutorials:
 * [Build a live video processing pipeline using the Transport for London (TfL) traffic cameras and the YOLO ML model for object detection](../computer-vision/overview.md)
 * [Perform chat sentiment analysis](../sentiment-analysis/overview.md)
 * [Gather and processes data from an RSS feed and get an alert when specific criteria are met](../rss-tutorial/rss-processing-pipeline.md)
-
 
 !!! tip "Getting Help"
 

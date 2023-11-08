@@ -268,7 +268,7 @@ Follow these instructions to deploy the data source:
 
 7. Stop the code by clicking the same button you clicked to run it.
 
-8. You now deploy the code as a service, so it stays running when you navigate around the platform.
+8. You now deploy the code as a service, so it stays running when you navigate around in the UI.
 
 9. Click `Deploy`.
 

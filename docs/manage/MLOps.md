@@ -6,7 +6,7 @@ There are a number of barriers that prevent companies from successfully implemen
 
 Solving these challenges is a new field of expertise called [MLOps](https://en.wikipedia.org/wiki/MLOps){target=_blank}
 
-Quix have incorporated MLOps into the Quix Platform so that your data team has a seamless journey from concept to production. The key steps in the MLOps process are:
+Quix have incorporated MLOps into the Quix so that your data team has a seamless journey from concept to production. The key steps in the MLOps process are:
 
 1. Build and train models on historical data
 2. Test models on live data
@@ -52,6 +52,6 @@ In the Quix Portal, data teams can:
 
 Here are some suggested next steps to find out more about MLOps in Quix:
 
-* [Platform Quickstart](../get-started/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
+* [Quickstart](../get-started/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
 * [Building real-time ML pipelines tutorial](../tutorials/train-and-deploy-ml/overview.md) - train and run an ML model in Quix.
 * [Building real-time ML predictions](../tutorials/data-science/overview.md) - use data science and ML to predict bicycle availability in New York.

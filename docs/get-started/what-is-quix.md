@@ -29,11 +29,11 @@ The following sections take a look at the key components of creating your stream
 
 While this short introduction to Quix is intentionally brief, there are abundant links for more detailed information you can follow to increase your knowledge of Quix. Alternatively, simply drop into our [Community](https://forum.quix.io/){target=_blank} and ask any question you may have.
 
-## The Quix Platform
+## Quix Cloud
 
-The Quix Platform provides everything a developer needs to build industrial-strength event streaming applications. 
+Quix Cloud provides everything a developer needs to build industrial-strength event streaming applications. 
 
-The components that make up the Quix Platform enable developers to:
+The components that make up the Quix Cloud enable developers to:
 
 * Use a full web-based IDE with version control and logging, to build, deploy, and monitor their event streaming applications. 
 * Have abstracted access to underlying broker infrastructure, including fully-managed Kafka topics.

@@ -28,7 +28,7 @@ Having two keys lets you update your services without interruption, as both `Tok
 
 You have two main options regarding how you rotate:
 
-1. The easiest way to rotate comes with some service downtime. This assumes you do not directly set the token for your `QuixStreamingClient`, instead you let the platform take care of it for you by using the default environment variable. In this scenario all you have to do is rotate keys, stop and start all your deployments. Until a service is restarted it’ll try to communicate with the platform using the deactivated token. If you’re using local environments, those need to be updated manually.
+1. The easiest way to rotate comes with some service downtime. This assumes you do not directly set the token for your `QuixStreamingClient`, instead you let Quix take care of it for you by using the default environment variable. In this scenario all you have to do is rotate keys, stop and start all your deployments. Until a service is restarted it’ll try to communicate with Quix using the deactivated token. If you’re using local environments, those need to be updated manually.
 
 2. The alternative option is more complicated, but you can achieve no downtime. This requires you to set a new environment variable you control. This should point to the token to be used. Provide the value of this environment variable to `QuixStreamingClient` by passing it as an argument. Once you have that, set the value of this environment variable to `Token 2` and start your services. When you’re sure you replaced the tokens for all services, rotate your keys.
 

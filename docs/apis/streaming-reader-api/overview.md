@@ -1,6 +1,6 @@
 # Overview
 
-As an alternative to Quix Streams, the Quix platform supports real-time data streaming over WebSockets (or Long Polling depending on client support). 
+Quix supports real-time data streaming over WebSockets (or Long Polling depending on client support). 
 
 Clients can receive updates on data and definitions for parameters and events, as they happen. 
 
@@ -9,4 +9,3 @@ Streaming Reader API is typically used by clients written in languages not suppo
 !!! note
 
     The following examples use the Microsoft [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0){target=_blank} JavaScript client library.
-

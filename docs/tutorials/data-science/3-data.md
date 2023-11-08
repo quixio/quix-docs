@@ -1,8 +1,8 @@
 # View and store the data
 
-With the Quix Platform it's easy to visualize your data in a powerful and flexible way, you can see the data in real time, as well as viewing historical data.
+With Quix it's easy to visualize your data in a powerful and flexible way, you can see the data in real time, as well as viewing historical data.
 
-The Quix Platform was designed for real-time data, so if you want to see data-at-rest for any topic you must turn on data persistence for that specific topic. You'll do this in the [historical data](#historical-data) section.
+Quix was designed for real-time data, so if you want to see data-at-rest for any topic you must turn on data persistence for that specific topic. You'll do this in the [historical data](#historical-data) section.
 
 ## Real-time data
 

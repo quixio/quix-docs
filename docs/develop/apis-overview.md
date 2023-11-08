@@ -1,6 +1,6 @@
 # Quix APIs Overview
 
-The Quix Platform provides several APIs. These are:
+Quix provides several APIs. These are:
 
 * Streaming Writer API
 * Streaming Reader API
@@ -56,7 +56,7 @@ The [Portal API](../apis/portal-api/overview.md) gives access to the Quix Portal
 
 ## Query API
 
-The [Query API](../apis/query-api/overview.md) enables you to fetch persisted data from Quix. You can use it for exploring the platform, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
+The [Query API](../apis/query-api/overview.md) enables you to fetch persisted data from Quix. You can use it for exploring Quix, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
 
 !!! note
 
