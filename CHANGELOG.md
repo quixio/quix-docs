@@ -2,7 +2,7 @@
 
 ## 2023-11-01-brokers | 2nd November 2023
 
-💎 Enhancements 💎
+`IMPROVEMENTS`
 
 * Disabled billing/prices for BYOC users
 * Updated behavior of ***run*** button in applications for ungated users
@@ -17,7 +17,7 @@
 * Redacted logs that contain secrets
 * Made the PAT token field skinnier
 
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 * Data explorer
     * Search field was clearing when switching to live

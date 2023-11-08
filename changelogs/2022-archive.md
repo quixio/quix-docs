@@ -16,7 +16,7 @@
 
 * Allow users to save code as a project from the Library, even if they haven't completed the library item setup and configuration.
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * Several performance improvements across the platform.
 
@@ -64,7 +64,7 @@
 
 ## 1.42.0 | 2 SEPTEMBER, 2022
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * Added the capability to resize tables across the platform
 
@@ -122,7 +122,7 @@
 
 * List view updates are already automatically synced, but we’ve added a new refresh button just in case
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * We’ve updated the dialogs across the platform to have autofocus and key responsiveness. They now also share a consistent design
 
@@ -148,7 +148,7 @@
 
 ## 1.40.0 | 26 JULY, 2022
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * The topics screen has a new design so that it’s easier to use — let us know if you like it!
 
@@ -180,7 +180,7 @@
 
 ## 1.39.0 | 5 JULY, 2022
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * The live data preview can now handle an enormous number of parameters and streams so that your computer doesn’t sweat so much
 
@@ -208,7 +208,7 @@
 
 ## 1.38.0 | 27 JUNE, 2022
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * Copying error notification details now appends additional details to help identify issues faster
 
@@ -250,7 +250,7 @@
 
 * The live topic explorer now follows the leading edge of a topic instead of being limited to the current time. This lets you see data sent to a topic with times other than current, such as replays.
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * Improved documentation with new tutorials
 
@@ -294,7 +294,7 @@
 
 * You can now view parameter data in table format in addition to JSON in the live data view. This makes larger messages easier to understand.
 
-`IMPROVEMENT`
+`IMPROVEMENTS`
 
 * The edit deployment dialog has been redesigned to make it easier to use
 

@@ -1,8 +1,8 @@
 # 2023 changelog archive
 
-## 2023-11-01-brokers | 2 November 2023
+## 2023-11-01-brokers | 2 NOVEMBER 2023
 
-💎 Enhancements 💎
+`IMPROVEMENTS`
 
 - Disabled billing/prices for BYOC users
 - Updated behavior of *run* button in applications for ungated users
@@ -17,7 +17,7 @@
 - Redacted logs that contain secrets
 - Made the PAT token field skinnier
 
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 - Data explorer
     - Search field was clearing when switching to live
@@ -38,14 +38,14 @@
     - Changing to a locally-created branch was not displaying backend errors
     - Resolved various console errors caused by Front-End component interactions
 
-## 2023-10-04-redpanda | 25th October 2023
+## 2023-10-04-redpanda | 25 OCTOBER 2023
 
-🌱 New features 🌱
+`NEW FEATURES`
 
 - Environments
     - Brand new RedPanda and Aiven broker settings setup on the environment creation
 
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 - Environments
     - Fixed a bug where the High-Performance selection was forcing users to Enter payment for non-trial tiers
@@ -54,9 +54,9 @@
 - Pipeline
     - Fixed a bug where the Deployments URLs were not working on the Pipeline view
 
-## 2023-10-03-byoc-hf | 19th October 2023
+## 2023-10-03-byoc-hf | 19 OCTOBER 2023
 
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 - Replay Service
     - Tags present in a Parameter and Event at the same time were not replayed correctly on the Events side.
@@ -64,9 +64,9 @@
     - Fixed exception “The channel has been closed” in some race conditions during Topic closing.
     - Tags on events were not returned correctly when there were duplicate tag names
 
-## 2023-10-02-byoc | 18th October 2023
+## 2023-10-02-byoc | 18 OCTOBER 2023
 
-🌱 New features 🌱
+`NEW FEATURES`
 
 - Onboarding
     - Project/environment creation
@@ -74,7 +74,7 @@
         - optional advanced setup takes users to regular project & environment creation flow
     - “Upgrade” button on premium storage to allow users to sign up to serverless and select premium storage during onboarding
 
-💎 Enhancements 💎
+`IMPROVEMENTS`
 
 - Environment creation
     - Improved copy of storage settings → “Data and streaming services” and introductory text
@@ -116,7 +116,7 @@
     - Improved Git error handling during merges
     - Attached metadata information to the list of files returned by Git service
     
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 - Pipeline
     - Fixed a bug where topic metrics were frozen in certain stressed situations.
@@ -147,14 +147,14 @@
     - Fixed some CORS issues on Portal backend
     - Fixed an issue in the Update versions service where the workspace update was failing during Creation or Deletion of the workspace.
 
-## 2023-10-01-deployment-hf | 3rd October 2023
+## 2023-10-01-deployment-hf | 3 OCTOBER 2023
 
-💎 Enhancements 💎
+`IMPROVEMENTS`
 
 - Added unsaved changes dialogue to YAML variables
 - Pipeline cards for deployments now show number of replicas
 
-🦠 Bug Fixes 🦠
+`BUG FIXES`
 
 - Deployment dialogue was overwriting deployment config with default values when editing
 - “+ New environment” for users whose trials have run out was not showing correct dialogue
