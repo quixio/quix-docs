@@ -1,12 +1,12 @@
 # Streaming token
 
-A streaming token is a type of bearer token that can be used to authenticate your client library (Quix Streams) to access functionality necessary for streaming actions. Think of streaming tokens as a token you use to access the Quix Portal but with limited scope.
+A streaming token is a type of bearer token that can be used to authenticate your client library (Quix Streams) to access functionality necessary for streaming actions. Think of streaming tokens as a token you use to access Quix, but with limited scope.
 
 Each environment comes with one of these tokens, limited in use for that specific environment.
 
 ## How to find
 
-You can access these tokens by logging into the Quix Portal and clicking on `Settings` in the main left-hand navigation. Select your environment, and then click on `APIs and tokens` and then click on `Streaming Tokens`.
+You can access these tokens by logging into Quix and clicking on `Settings` in the main left-hand navigation. Select your environment, and then click on `APIs and tokens` and then click on `Streaming Tokens`.
 
 If you are looking for a bearer token to access the Quix APIs, such as the Portal API, you can select `Personal Access Tokens`. These are custom JWTs.
 

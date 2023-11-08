@@ -22,7 +22,7 @@ With this data you can stream, process and store any type of audio, image, video
 
 ## Code Samples
 
-Quix contains a large number of [open source](https://github.com/quixio/quix-samples){target=_blank} Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the Quix Portal by using the navigation menu as show here:
+Quix contains a large number of [open source](https://github.com/quixio/quix-samples){target=_blank} Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the UI by using the navigation menu as show here:
 
 ![Code Samples](../images/code-samples.png){height=30%}
 
@@ -136,9 +136,9 @@ A monorepo is a single repository that contains all code and configuration for a
 
 In Quix, the monorepo is known as a [project](#project).
 
-## Online IDE (Quix Portal)
+## Online IDE (Quix UI)
 
-See [Quix Portal](#quix-portal).
+See [Quix UI](#quix-ui).
 
 ## Partitions
 
@@ -176,9 +176,9 @@ A project contains one or more [environments](#environment), so typically you cr
 
 The [Query API](../apis/query-api/overview.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
-## Quix Portal
+## Quix UI
 
-Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense. It also provides general UI for deploying your code, and managing your projects and environments.
 
 Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
 

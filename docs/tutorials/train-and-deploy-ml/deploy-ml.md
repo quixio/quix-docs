@@ -8,7 +8,7 @@ You'll also use the Quix Data Explorer to visualize the braking prediction in re
 
 ## Create a transform
 
-Ensure you are logged into the Quix Portal, then follow these steps to create a transform that uses your model:
+Ensure you are logged into Quix, then follow these steps to create a transform that uses your model:
 
 1. Click `Code Samples` in the left-hand sidebar.
 

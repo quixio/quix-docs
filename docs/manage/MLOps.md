@@ -18,7 +18,7 @@ Each of these is described in the following sections.
 
 ## Build and train models on historical data
 
-In the Quix Portal you can:
+In Quix you can:
 
 * Write model code in Python using the Quix IDE, or download code and work on it in your own development environment.
 * Train models on historical data.
@@ -27,11 +27,11 @@ In the Quix Portal you can:
 
 ## Test models on live data
 
-In the Quix Portal you can connect models to live input topics to test them against live data sources. You can then review the results in the Data Explorer.
+In Quix you can connect models to live input topics to test them against live data sources. You can then review the results in the Data Explorer.
 
 ## Build a production pipeline
 
-In the Quix Portal you can:
+In Quix you can:
 
 * Connect validated models to live output topics.
 * Connect models using the UI to form a pipeline. Pipelines consist of transforms connected together using input and output topics.
@@ -39,11 +39,11 @@ In the Quix Portal you can:
 
 ## Deploy production models
 
-in the Quix Portal, with one click of the application's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
+In Quix, with one click of the application's `Deploy` button, and tweaking of the default configuration if required, data engineers can deploy their Python models to production, without support from software engineering or DevOps teams.
 
 ## Monitor production models
 
-In the Quix Portal, data teams can:
+In Quix, data teams can:
 
 * Ensure that components in a production pipeline operate correctly through the product lifecycle.
 * Build and deploy services that detect data drift or unexpected results.

@@ -44,7 +44,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
     <hr />
 
     <script>
-      const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
+      const token = "<your_pat_token>"; // Obtain your PAT token from Quix
       const environmentId = "<your_environment>";
       const topic = "websocket-topic";
       const streamId = "mouse-pos";
@@ -134,7 +134,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
     <button onclick="clearCanvas()">Clear canvas</button>
 
     <script>
-      const token = "<your_pat_token>"; // Obtain your PAT token from the Quix portal
+      const token = "<your_pat_token>"; // Obtain your PAT token from Quix
 
       // Set the environment and Topic
       const environmentId = "<your_environment>";

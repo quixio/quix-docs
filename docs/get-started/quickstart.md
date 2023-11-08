@@ -123,7 +123,7 @@ You'll need to create a project and an environment. You can watch a video on how
 
 You'll need a streaming token to connect your client code to your Quix environment:
 
-1. Log in to the Quix Portal and enter the `Develop` environment.
+1. Log in to Quix and enter the `Develop` environment.
 2. Click `Settings` and then click `Develop` again to display the environment settings.
 3. Click `APIs and tokens`.
 4. Click `Streaming Token`.
@@ -208,7 +208,7 @@ The code runs and, after creating the `cpu-load` topic, displays your CPU load. 
 
 ## 7. See the data in Quix
 
-1. Switch back to the Quix Portal and enter your `Develop` environment.
+1. Switch back to Quix and enter your `Develop` environment.
 2. Click on `Topics` in the main left-hand navigation.
 3. You see the `cpu-load` topic. Note the vertical green bars representing inbound data.
 4. Hover the mouse over the `Data` column. You see the tool tip text `View live data`.

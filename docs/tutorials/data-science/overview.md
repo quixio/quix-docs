@@ -31,7 +31,7 @@ This tutorial has the following prerequisites:
 		We take you through the process of getting the code to access the data, running the code in a Jupyter notebook, training the model and uploading your pickle file to Quix.
 
 
-2. You will need a Quix account and be logged into the [Quix Portal](https://portal.platform.quix.ai/workspaces){target=_blank}. 
+2. You will need a Quix account and be logged into [Quix](https://portal.platform.quix.ai/workspaces){target=_blank}. 
 
 	!!! tip 
 

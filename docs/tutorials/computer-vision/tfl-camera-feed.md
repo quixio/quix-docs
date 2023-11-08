@@ -124,7 +124,7 @@ This message is passed on to the next service in the pipeline, the frame grabber
 
 ## 👩‍🔬 Lab - Examine the data 
 
-In this section, you learn how to use the Quix Portal to examine the message data format. There are various ways of doing this, and several ways are shown in later parts of this tutorial. Having clarity on the message format enables better undertanding of the data flow in the pipeline.
+In this section, you learn how to use Quix to examine the message data format. There are various ways of doing this, and several ways are shown in later parts of this tutorial. Having clarity on the message format enables better undertanding of the data flow in the pipeline.
 
 To see the message format on the output topic of the service:
 

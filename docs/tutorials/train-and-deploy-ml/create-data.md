@@ -6,7 +6,7 @@ In this part of the tutorial you learn how to obtain some real-time data to work
 
 To make things a little easier, first create a **persisted topic** to receive the generated data. 
 
-1. Login to the Quix Portal. 
+1. Log in to Quix. 
 
 2. Click `Topics` on the left-hand menu.
 

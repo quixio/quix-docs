@@ -18,7 +18,7 @@ Each of these is described in the following sections.
 
 Useful information can also be found in the settings panels for your environment:
 
-1. Click `Settings` in the bottom left corner of the Quix portal.
+1. Click `Settings` in the bottom left corner of the UI.
 
 2. From `Project settings` select the environment you are working with.
 
@@ -34,7 +34,7 @@ Personal Access Tokens, or PATs, are bearer tokens that can be used to authentic
 
 To obtain a PAT, log in to Quix, and click on your profile icon in the top right corner, then click `Personal Access Tokens`. You can then generate a PAT with a lifetime suitable for your use case.
 
-Alternatively, log in to the Quix Portal, and click `Settings` in the main left-hand navigation. Then, for a specific environment, click `APIs and tokens`.
+Alternatively, log in to Quix, and click `Settings` in the main left-hand navigation. Then, for a specific environment, click `APIs and tokens`.
 
 In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to generate PATs, or a Streaming Token for use with the Quix Streams client library.
 

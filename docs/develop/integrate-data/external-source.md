@@ -4,7 +4,7 @@ One simple way to write data into a Quix topic, is to use the prebuilt connector
 
 To use the `External source` connector, step through the following procedure:
 
-1. In the Quix Portal click on `Code Samples` in the left-hand sidebar. 
+1. In the UI click on `Code Samples` in the left-hand sidebar. 
 
 2. Search for `External source`. 
 

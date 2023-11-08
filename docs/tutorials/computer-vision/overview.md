@@ -4,7 +4,7 @@ In this tutorial you learn about a real-time computer vision application, using 
 
 The project uses the Transport for London (TfL) traffic cameras, known as Jam Cams, as the video input. The [YOLO v8](https://docs.ultralytics.com/) machine learning model is used to identify various objects such as types of vehicles. Additional services count the vehicles and finally the data is displayed on a map which is part of the web UI that has been created for this project. 
 
-You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by the Quix Portal.
+You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 
 <div>
 <a class="md-button md-button--primary" href="https://app-demo-computervisiondemo-prod.deployments.quix.ai/" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
