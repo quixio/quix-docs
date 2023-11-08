@@ -5,7 +5,7 @@
 <div>
 <a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Quickstart</a>
 
-<a class="md-button md-button" href="https://quix.io/templates" target="_blank" style="margin-right:.5rem;">View project templates</a>
+<a class="md-button md-button" href="./project-templates.html" style="margin-right:.5rem;">View project templates</a>
 <br/>
 </div>
 
