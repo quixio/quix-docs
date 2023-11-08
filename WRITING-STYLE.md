@@ -56,8 +56,8 @@ Use the following guidelines regarding the company's name:
         * Quix CLI (coming soon)
         * Project Templates (legacy: blueprints) ungated experiences    
     * Quix Streams is our client library:
-            * A client library is a collection of code specific to one programming language.
-            * Quix currently offers Python and C# client libraries.
+        * A client library is a collection of code specific to one programming language.
+        * Quix currently offers Python and C# client libraries.
 
 ### Industry and Quix terms
 
