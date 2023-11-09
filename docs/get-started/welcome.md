@@ -43,9 +43,9 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
     
-    Deploy a real-time computer vision application fast, using a project template.
+    Dig deep into Quix using one of our project templates.
 
-    [Computer vision :octicons-arrow-right-24:](../tutorials/computer-vision/overview.md)
+    [Project templates :octicons-arrow-right-24:](../get-started/project-templates.md)
 
 </div>
 
