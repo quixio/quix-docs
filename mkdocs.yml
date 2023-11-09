@@ -1,5 +1,5 @@
 site_name: 'Quix Docs'
-site_description: 'Quix Developer Documentation. Includes documentation (tutorials, reference guides, how-tos, concepts) for Quix Platform, Quix Streams client library, and REST and websocket APIs.'
+site_description: 'Quix Developer Documentation. Includes documentation (guides, tutorials, references) for Quix Cloud, Quix Streams client library, and REST and websocket APIs.'
 site_author: 'Quix.io'
 site_url: 'https://quix.io/docs'
 

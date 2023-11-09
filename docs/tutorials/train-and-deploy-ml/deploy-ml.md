@@ -1,6 +1,6 @@
 # Deploy your ML model
 
-In this part of the tutorial, you deploy the Pickle file [containing your ML model](./train-ml.md) to the Quix Platform. Your ML code then uses this model to predict braking in real time. 
+In this part of the tutorial, you deploy the Pickle file [containing your ML model](./train-ml.md) to Quix. Your ML code then uses this model to predict braking in real time. 
 
 ![What you'll build](./images/run-live.png)
 
@@ -8,7 +8,7 @@ You'll also use the Quix Data Explorer to visualize the braking prediction in re
 
 ## Create a transform
 
-Ensure you are logged into the Quix Portal, then follow these steps to create a transform that uses your model:
+Ensure you are logged into Quix, then follow these steps to create a transform that uses your model:
 
 1. Click `Code Samples` in the left-hand sidebar.
 
@@ -181,6 +181,6 @@ You now see a graphical output for the prediction being output by the model as w
 
 !!! note
 
-	Don't forget the purpose of this tutorial was to show you how to deploy an ML model in Quix Platform, rather than to train an accurate model. So the prediction may not always match the actual brake value.
+	Don't forget the purpose of this tutorial was to show you how to deploy an ML model in Quix, rather than to train an accurate model. So the prediction may not always match the actual brake value.
 
 [Conclusion and next steps :material-arrow-right-circle:{ align=right }](conclusion.md)

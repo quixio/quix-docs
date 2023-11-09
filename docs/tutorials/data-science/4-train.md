@@ -1,6 +1,6 @@
 # Training data
 
-Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then you can train the model and use it in the Quix Platform where you can run it in real-time. 
+Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then you can train the model and use it in Quix where you can run it in real-time. 
 
 Follow along and learn how to retrieve historical data from your topics, so you can train your model.
 
@@ -87,7 +87,7 @@ To access historical data:
 
 ## Train the model
 
-At this point, you are collecting historical data and you know how to query it for use outside the Quix Platform to train your ML models.
+At this point, you are collecting historical data and you know how to query it for use outside Quix to train your ML models.
 
 ???- example "Need help training a model?"
 

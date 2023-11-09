@@ -46,7 +46,7 @@ Follow these steps:
 
 3. Click the `SCAN QR CODE` button at the top of the settings page. Now continue to follow these steps. When directed, in step #17, you will scan the QR code using the Quix Companion app.
 
-4. In the Quix Portal, click the user icon in the top right of the browser.
+4. In the Quix UI, click the user icon in the top right of the browser.
 
 	![Portal token menu](./images/token-menu.png){width=150px}
 
@@ -104,7 +104,7 @@ Follow these steps:
 
 Follow these steps to ensure that everything is working as expected:
 
-1. In the Quix Portal, navigate to `Data Explorer`.
+1. In the UI, navigate to `Data Explorer`.
 
 2. Ensure you are on the `Live data` tab.
 
@@ -268,7 +268,7 @@ Follow these instructions to deploy the data source:
 
 7. Stop the code by clicking the same button you clicked to run it.
 
-8. You now deploy the code as a service, so it stays running when you navigate around the platform.
+8. You now deploy the code as a service, so it stays running when you navigate around in the UI.
 
 9. Click `Deploy`.
 

@@ -1,6 +1,6 @@
 # Use Jupyter Notebook
 
-In this documentation, you learn how to use Jupyter Notebook to analyze data persisted in the Quix platform.
+In this documentation, you learn how to use Jupyter Notebook to analyze data persisted in Quix.
 
 ## Why this is important
 
@@ -8,7 +8,7 @@ Although Quix is a real-time platform, to build real-time in-memory models and d
 
 ## Prerequisites
 
-You'll need some data stored in the Quix platform. You can use any of the Quix [data sources](../../connectors/index.md) available in the Quix Code Samples. 
+You'll need some data stored in Quix. You can use any of the Quix [data sources](../../connectors/index.md) available in the Quix Code Samples. 
 
 You can also follow the onboarding process when you [sign-up to Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank}. This process helps you create a source.
 
@@ -32,7 +32,7 @@ Then create a new Python 3 notebook:
 
 The Quix web application has a Python code generator to help you connect your Jupyter notebook with Quix.
 
-You need to be logged into the platform for this. To import persisted data:
+You need to be logged into Quix for this. To import persisted data:
 
 1. Select an environment.
 

@@ -30,7 +30,7 @@ Note, the data is loaded into a pandas dataframe, and then published to the outp
 
 If you're not using pandas, you can write your own code to load data from a CSV file.
 
-The following code demonstrates loading data from a CSV file and adding the timestamp column, and only adding other data columns of interest. In addition, this code is designed to be run on the command line. This code reads a CSV file on, for example, your laptop, and pushes the data into Quix Platform, using the Quix Streams client library:
+The following code demonstrates loading data from a CSV file and adding the timestamp column, and only adding other data columns of interest. In addition, this code is designed to be run on the command line. This code reads a CSV file on, for example, your laptop, and pushes the data into Quix, using the Quix Streams client library:
 
 ``` python 
 # pip install quixstreams

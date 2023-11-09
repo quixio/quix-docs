@@ -1,6 +1,6 @@
 # Real-time Machine Learning (ML) pipelines
 
-In this tutorial, you learn how to extract data from Quix to train your Machine Learning (ML) model in Jupyter Notebook. You then learn how to deploy this model to the Quix Platform, so ML can be used to process your data in real time.
+In this tutorial, you learn how to extract data from Quix to train your Machine Learning (ML) model in Jupyter Notebook. You then learn how to deploy this model to Quix, so ML can be used to process your data in real time.
 
 ## Video
 
@@ -28,8 +28,8 @@ This tutorial is divided up into several parts, to make the learning experience 
 
 3. **Train your ML model** - You learn how to train an ML model. For this tutorial, this is done in Jupyter, but could also be done in Quix.
 
-4. **Deploy your ML model** - You learn how to deploy your ML model to the Quix Platform.
+4. **Deploy your ML model** - You learn how to deploy your ML model to Quix.
 
-5. **Summary** - In this [concluding](conclusion.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about the Quix Platform.
+5. **Summary** - In this [concluding](conclusion.md) part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
 
 [Get some data :material-arrow-right-circle:{ align=right }](./create-data.md)
