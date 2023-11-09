@@ -165,7 +165,7 @@ plugins:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
         'contribute.md': 'get-started/contribute.md'
-        'platform/changes.md': 'index.md'
+        'platform/changes.md': 'get-started/welcome.md'
         'platform/changes.md#environment': 'create/create-environment.md'
         'platform/ingest-data.md': 'develop/overview.md'
         'platform/quickstart.md': 'get-started/quickstart.md'
@@ -204,8 +204,8 @@ plugins:
         'apis/query-api/index.md': 'apis/query-api/overview.md'
         'platform/connectors/index.md': 'connectors/index.md'
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
-        'platform/howto/replay.md': 'manage/replay.md'
-        'platform/howto/create-project.md': 'create/create-project.md'
+        'platform/how-to/replay.md': 'manage/replay.md'
+        'platform/how-to/create-project.md': 'create/create-project.md'
         'client-library/quickstart.md': 'quix-streams/quickstart.md'
         'client-library/connect.md': 'quix-streams/connect.md'
 
