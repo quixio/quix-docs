@@ -6,7 +6,7 @@ This section contains solutions, fixes, hints and tips to help you solve the mos
 
 If data is not being received in a topic:
 
-* Ensure the Topic Name or Id is correct in Topics option of Quix Portal.
+* Ensure the Topic Name or Id is correct in Topics option of the Quix UI.
 
 * You can check the data in / out rates on the Topics tab.
 
@@ -28,7 +28,7 @@ The following must be correct:
 
   - Sdk Token
 
-These can all be found in Topics option of Quix Portal.
+These can all be found in Topics option of the Quix UI.
 
 ## Broker Transport Failure
 

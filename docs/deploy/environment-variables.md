@@ -1,6 +1,6 @@
-# How to add environment variables in Quix Platform
+# How to add environment variables in Quix
 
-In Quix Platform, it is possible to create new environment variables that your code can then access. This is useful for things like API keys, secrets, and passwords for other services that your code may need to access.
+In Quix, it is possible to create new environment variables that your code can then access. This is useful for things like API keys, secrets, and passwords for other services that your code may need to access.
 
 ## To create an environment variable
 

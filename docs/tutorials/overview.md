@@ -4,24 +4,41 @@ The Quix tutorials provide you with experience of using Quix. They guide you in 
 
 Each tutorial is divided into parts, so that you can leave a tutorial at a convenient point, come back to it later, and continue where you left off.
 
+Some tutorials use [project templates](../get-started/project-templates.md) - these are marked accordingly.
+
 <div class="grid cards" markdown>
 
 -   __Computer vision__
 
     ---
     
-    Use ML in real-time computer vision using London's 'Jam Cams'.
+    ![Computer vision pipeline](../images/project-templates/computer-vision-pipeline.png)
 
-    [:octicons-arrow-right-24: Computer vision](./computer-vision/overview.md)
+    `Project template`
 
+    Real-time computer vision using TfL's JamCams.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/computer-vision/overview.md)
 
 -   __Chat sentiment analysis__
 
     ---
     
-    Build a chat sentiment analysis application from a project template.
+    ![Chat sentiment analysis pipeline](../images/project-templates/chat-sentiment-pipeline.png)
 
-    [:octicons-arrow-right-24: Chat sentiment analysis](./sentiment-analysis/overview.md)
+    `Project template`
+
+    Chat application with sentiment analysis and typing indicator.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/sentiment-analysis/overview.md)
+
+-   __Train and deploy machine learning (ML)__
+
+    ---
+
+    Extract data from Quix to train your Machine Learning (ML) model in Jupyter Notebook, then deploy your solution in Quix.     
+
+    [Explore :octicons-arrow-right-24:](../tutorials/train-and-deploy-ml/overview.md)
 
 -   __MATLAB and Simulink__
 
@@ -29,7 +46,7 @@ Each tutorial is divided into parts, so that you can leave a tutorial at a conve
     
     Deploy real-time MATLAB transformations and Simulink models to Quix.
 
-    [:octicons-arrow-right-24: MATLAB and Simulink](./matlab/matlab-and-simulink.md)
+    [Explore :octicons-arrow-right-24:](../tutorials/matlab/matlab-and-simulink.md)
 
 </div>
 

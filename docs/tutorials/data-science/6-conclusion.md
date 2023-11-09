@@ -22,4 +22,4 @@ What will you build? Let us know! Quix would like to feature your application or
 
 ## Getting help
 
-If you need any assistance, we're here to help in [The Quix Forum](https://forum.quix.io/){target=_blank}. Introduce yourself and then ask any questions in [Quix Platform](https://forum.quix.io/c/quix-saas-platform/6){target=_blank}.
+If you need any assistance, we're here to help in [The Quix Forum](https://forum.quix.io/){target=_blank}. Introduce yourself and then ask any questions in [Quix](https://forum.quix.io/c/quix-saas-platform/6){target=_blank}.

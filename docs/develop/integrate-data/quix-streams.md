@@ -2,7 +2,7 @@
 
 You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data. 
 
-Some example code showing Quix Streams pushing data inot the platform is shown here:
+Some example code showing Quix Streams pushing data into Quix is shown here:
 
 ```python
 import psutil

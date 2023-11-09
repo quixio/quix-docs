@@ -33,11 +33,28 @@ Use the following guidelines regarding the company's name:
 * Possessive: Quix's technology
 * Plural: "multiple Quix deployments."
 * Quix is the name of our company
-    * Quix Portal is our product, which includes:
-        * Managed Kafka
-        * Serverless compute
-        * Quix data store
-        * APIs
+* Quix product:
+    * 'The whole thing" = Quix - one tool to build event streaming apps
+    * Components of Quix:
+        * Quix Cloud - Packaging of Quix SaaS that is fully managed and hosted on Quix owned and operated cloud infrastructure (the place where everything runs).
+        * Serverless - multi-tenant
+        * Dedicated - single-tenant
+        * Quix BYOC - Packaging of Quix SaaS designed for self-hosting on customer’s infrastructure
+        * Quix Event Streaming Application - (legacy: pipeline) a collection of applications and kafka topics that fulfill an event streaming component of an event-driven platform.
+        * Quix Kafka - Our specific installed version "flavour" of Kakfa vs Confluent Cloud (our "Confluent Integration"), Redpanda, Aiven.
+        * Quix Application: a service with a code project & a container
+        * Quix Connectors - Quix Applications that integrate data between external systems and Quix (sources, destinations)
+        * Quix Processors - Quix Applications that run code to transform data (transforms)
+        * Quix Containers - Quix Applications that act as auxiliary resources for an application
+        * Code Samples - Ready-to-run templates of code and service configuration to create your own Quix Services
+        * Quix Project - (legacy: workspace) one Git repository that contains all the code that you need to build and deploy an Event Streaming Application in multiple environments..
+
+    * CI/CD Features
+        * Quix Project Configuration - YAML files, they define workflow and setting and env variables as code. It describes your services, topics, and relations between them.
+        * Git Integration, Git (GitHub, Azure DevOps, GitLab) link to Quix Workspace.
+        * Quix Environments (staging, dev prod) - isolated infrastructure connected to a branch of your Git project
+        * Quix CLI (coming soon)
+        * Project Templates (legacy: blueprints) ungated experiences    
     * Quix Streams is our client library:
         * A client library is a collection of code specific to one programming language.
         * Quix currently offers Python and C# client libraries.

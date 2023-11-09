@@ -2,7 +2,7 @@
 
 There are [many ways](../../develop/integrate-data/overview.md) to get your data into Quix, a process usually known as ingestion or data integration. Data can be loaded using CSV files, by polling external web services, WebSockets and so on. The option you use depends on your use case.
 
-In this part of the Quix Tour, you'll learn how to send data into Quix using Quix Streams to publish data into a topic hosted in the Quix Platform. 
+In this part of the Quix Tour, you'll learn how to send data into Quix using Quix Streams to publish data into a topic hosted in Quix. 
 
 You'll write a short Python program to retrieve your CPU load and publish that data into a Quix topic in real time. 
 
@@ -24,7 +24,7 @@ pip install python-dotenv
 
     If you're on Mac and using Homebrew, you may have multiple Python versions installed. In this case you may have to use the command `pip3` to install your modules. 
 
-You're going to use the [Quix Streams](../../client-library-intro.md) library to publish data into Quix Platform. This is just one of many ways to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../../connectors/index.md).
+You're going to use the [Quix Streams](../../client-library-intro.md) library to publish data into Quix. This is just one of many ways to get your data into Quix. You could for example simply log into Quix and use one of our already available [connectors](../../connectors/index.md).
 
 You use the `psutil` module to retrieve the CPU load on your laptop.
 
@@ -42,7 +42,7 @@ You'll need to create a project and an environment. You can watch a video on how
 
 You'll need a streaming token to connect your client code to your Quix environment:
 
-1. Log in to the Quix Portal and enter the `Develop` environment.
+1. Log in to Quix and enter the `Develop` environment.
 2. Click `Settings` and then click `Develop` again to display the environment settings.
 3. Click `APIs and tokens`.
 4. Click `Streaming Token`.
@@ -127,7 +127,7 @@ The code runs and, after creating the `cpu-load` topic, displays your CPU load. 
 
 ## 7. Create an external source
 
-At this point you have an external program sending data into the Quix Platform, and it is writing into a topic. However, you can't currently see this in the Pipeline view. To help you visualize what you've created, you can add an external source component, to provide a visual entity in the pipeline view. To do this:
+At this point you have an external program sending data into Quix, and it is writing into a topic. However, you can't currently see this in the Pipeline view. To help you visualize what you've created, you can add an external source component, to provide a visual entity in the pipeline view. To do this:
 
 1. Click on `Code Samples`.
 2. Select the `Python`, `Source`, and `Basic templates` filters.

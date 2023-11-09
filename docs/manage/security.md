@@ -12,7 +12,7 @@ This document outlines how Quix helps customers configure, deploy and use the cl
 
 Securing your information starts with identity controls, no matter where your users are located. Quix enables you to manage users, streamline authentication using your identity provider, and assign roles. We give you the solutions to ensure that only the right people can access your company's information in Quix.
 
-OAuth is the protocol Quix uses when you auth against our platform using Google or your preferred Identity provider. Customers are responsible for integrating and managing their identity provider (for single sign-on and provisioning) as well as assigning roles in Quix.
+OAuth is the protocol Quix uses when you authenticate against our servers using Google or your preferred Identity provider. Customers are responsible for integrating and managing their identity provider (for single sign-on and provisioning) as well as assigning roles in Quix.
 
 Data in flight is protected with Authentication (OAuth 2.0 tokens, SASL, SSL Certificates), Authorisation (RBAC) and Encryption (TLS 1.2).
 
@@ -28,7 +28,7 @@ By default, Quix encrypts data at rest and data in transit as part of our founda
 
 ### Encryption
 
-Our preferred encryption is TLS 1.3, with 1.2 allowed as a fallback. We don't support TLS 1.1 or older in any part of our platform.
+Our preferred encryption is TLS 1.3, with 1.2 allowed as a fallback. We don't support TLS 1.1 or older in any part of Quix.
 
 Older cyphers are cryptographically unsafe. We do not serve or support unsafe and weak cyphers, ensuring that our posture is in line with your standards and expectations.
 
@@ -52,7 +52,7 @@ To give you even further protection and control, we architected Quix on independ
 
 Environments at Quix are hermetically sealed with no reused components between them. Development and Production environments are distinct entities with no cross-talk.
 
-The separation of these concerns enables us to deliver a Quix platform experience in a way that minimizes the chance of errors and mistakes and is a well-supported industry standard of software delivery.
+The separation of these concerns enables us to deliver a Quix experience in a way that minimizes the chance of errors and mistakes and is a well-supported industry standard of software delivery.
 
 In case you choose to host Quix on your platform, we recommend that you follow the same practices.
 
@@ -60,24 +60,26 @@ In case you choose to host Quix on your platform, we recommend that you follow t
 
 Firewalls in cloud-native infrastructure and applications work differently from how they used to in the days of monolithic apps running on bare metal servers stacked neatly in a server room.
 
-All networking technologies utilised during the delivery of the Quix Platform follow the principle of least privilege; we configure our security groups to only allow the minimum necessary traffic, and we configure our access lists to do the same. We follow industry best practices in architecting these safeguards and constantly monitor and audit them.
+All networking technologies utilised during the delivery of Quix follow the principle of least privilege; we configure our security groups to only allow the minimum necessary traffic, and we configure our access lists to do the same. We follow industry best practices in architecting these safeguards and constantly monitor and audit them.
 
 ## Employee access policies
 
 Quix employees access our key systems with multi-factor authentication enforced. This helps us verify the identity of the person accessing these services and reduce the chance of unauthorised access by way of compromised channels or devices.
 
-At Quix, systems that make up the Quix platform are only ever accessed when necessary and only by authorised personnel. We take our commitment to security and confidentiality seriously.
+At Quix, systems that make up Quix are only ever accessed when necessary and only by authorised personnel. We take our commitment to security and confidentiality seriously.
 
 Restricted access ensures only colleagues in the necessary roles can work on the underlying software and infrastructure stack. This, combined with audit trails built right into our processes and tooling helps us maintain the principle of least privilege, an important security practice.
 
 ## Compliance
 
-Quix is aiming to meet and exceed one of the most broadly recognised security standards.
+Quix is ISO-27001 certified, a widely recognised standard that sets forth the criteria for an information security management system (ISMS).
 
 ### ISO-27001
 
-ISO-27001 details IT security management systems and procedures. We are currently pursuing certification under this rigorous standard while actively working towards standardising our written policies and procedures.
+This standard provides a structured approach for implementing, operating, monitoring, and improving an ISMS.
 
-An ISO-27001 certification is a quick and easy way to judge the general security posture of an organisation. By obtaining this certification soon, we aim to demonstrate our commitment to information security.
+Quix adheres to ISO 27001, ensuring that the company applies systematic methodologies and a solid framework to identify, manage, and reduce information security risks. Certification in this standard indicates Quix's commitment to establishing international best practices in information security.
 
-We are aiming to complete the internal audit by October 2023 and obtain the certification by the end of the calendar year 2023.
+For Quix's clients, the ISO 27001 certification assures a dependable security framework. This certification signals our dedication to data protection and the strength of our risk management practices, aiming to secure client data against potential threats.
+
+You can verify the validity of our ISO certificate by entering the certificate number 251068 using the [certification verification link](https://www.british-assessment.co.uk/verify-certification/){target=_blank}.

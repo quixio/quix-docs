@@ -8,9 +8,9 @@ In addition to the Quix Streams client library, there are several APIs that you 
 
 ## Application
 
-A set of code in Quix Platform that can be edited, compiled, run, and deployed as one Docker image (configured using a `dockerfile`). 
+A set of code in Quix that can be edited, compiled, run, and deployed as one Docker image (configured using a `dockerfile`). 
 
-Applications in Quix Platform exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
+Applications in Quix exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
 
 Read more about [applications](../create/overview.md).
 
@@ -22,13 +22,13 @@ With this data you can stream, process and store any type of audio, image, video
 
 ## Code Samples
 
-Quix Platform contains a large number of [open source](https://github.com/quixio/quix-samples){target=_blank} Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the Quix Portal by using the navigation menu as show here:
+Quix contains a large number of [open source](https://github.com/quixio/quix-samples){target=_blank} Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the UI by using the navigation menu as show here:
 
 ![Code Samples](../images/code-samples.png){height=30%}
 
 ## Connectors
 
-There are [many ways](../develop/integrate-data/overview.md) to get data into Quix Platform. One option is to use the many connectors already provided by Quix. These can be viewed in Quix Platform by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../connectors/index.md).
+There are [many ways](../develop/integrate-data/overview.md) to get data into Quix. One option is to use the many connectors already provided by Quix. These can be viewed in Quix by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../connectors/index.md).
 
 ## Consumer
 
@@ -136,9 +136,9 @@ A monorepo is a single repository that contains all code and configuration for a
 
 In Quix, the monorepo is known as a [project](#project).
 
-## Online IDE (Quix Portal)
+## Online IDE (Quix UI)
 
-See [Quix Portal](#quix-portal).
+See [Quix UI](#quix-ui).
 
 ## Partitions
 
@@ -176,9 +176,9 @@ A project contains one or more [environments](#environment), so typically you cr
 
 The [Query API](../apis/query-api/overview.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
-## Quix Portal
+## Quix UI
 
-Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense.
+Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense. It also provides general UI for deploying your code, and managing your projects and environments.
 
 Sign up for a [free account](https://portal.platform.quix.ai/self-sign-up).
 
@@ -206,11 +206,11 @@ Read more about [streams](../quix-streams/features/streaming-context.md).
 
 ## Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix Platform.
+A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix.
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in the Quix platform. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix Platform.
+An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../client-library-intro.md). Your application **writes** data into Quix.
 
 ## Template project
 

@@ -22,4 +22,4 @@ You can become a contributor of our Code Samples by generating new samples or up
 
 !!! important
 
-    Note that when you use a public code sample in the Quix Portal, it is added to your private repository, so any changes you make can be kept private if you so wish. Of course, if you are working in a public repository, then any code samples you add or modify will also be public.
+    Note that when you use a public code sample in Quix, it is added to your private repository, so any changes you make can be kept private if you so wish. Of course, if you are working in a public repository, then any code samples you add or modify will also be public.
