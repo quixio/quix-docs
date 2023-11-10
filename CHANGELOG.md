@@ -1,6 +1,8 @@
 # Quix product changelog
 
-## 2023-11-01-brokers | 2nd November 2023
+## Latest release
+
+### 2023-11-01-brokers | 2nd November 2023
 
 `IMPROVEMENTS`
 
