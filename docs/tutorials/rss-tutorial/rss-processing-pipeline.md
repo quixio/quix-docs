@@ -141,4 +141,4 @@ haven’t lost all those precious live messages.
 
 ## Getting help
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

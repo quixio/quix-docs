@@ -23,4 +23,4 @@ What will you build? Let us know! We’d love to feature your application or use
 
 ## Get help
 
-If you have any further questions, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
+If you have any further questions, we're here to help in the [Quix Community](https://quix.io/slack-invite){target="_blank"}.

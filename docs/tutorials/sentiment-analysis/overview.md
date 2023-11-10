@@ -53,7 +53,7 @@ The complete code for this project can be found in the [Quix GitHub repository](
 
 ## Getting help
 
-If you need any assistance while following the tutorial, we're here to help in the [Quix forum](https://forum.quix.io/){target="_blank"}.
+If you need any assistance while following the tutorial, we're here to help in the [Quix Community](https://quix.io/slack-invite){target="_blank"}.
 
 ## Prerequisites
 
