@@ -1,6 +1,6 @@
 # 2022 changelog archive
 
-## 1.43.0 | 3 NOVEMBER, 2022
+## 1.43.0 | 3 NOVEMBER 2022
 
 `NEW FEATURES`
 
@@ -62,7 +62,7 @@
 
 * Fixed some issues updating logs in real time from Project IDE
 
-## 1.42.0 | 2 SEPTEMBER, 2022
+## 1.42.0 | 2 SEPTEMBER 2022
 
 `IMPROVEMENTS`
 
@@ -106,7 +106,7 @@
 
 * Fixed topics section in broker settings — you should now be able to rotate your tokens if you are an admin
 
-## 1.41.0 | 11 AUGUST, 2022
+## 1.41.0 | 11 AUGUST 2022
 
 `NEW FEATURES`
 
@@ -146,7 +146,7 @@
 
 * Several bugs in the data explorer and query builder are now fixed for a smoother user experience
 
-## 1.40.0 | 26 JULY, 2022
+## 1.40.0 | 26 JULY 2022
 
 `IMPROVEMENTS`
 
@@ -178,7 +178,7 @@
 
 * Deployment edit/create dialog no longer allows creating deployment without loading all details of the new version first. This primarily impacts slower connections.
 
-## 1.39.0 | 5 JULY, 2022
+## 1.39.0 | 5 JULY 2022
 
 `IMPROVEMENTS`
 
@@ -206,7 +206,7 @@
 
 * The waveform now works better with configurations that result in more data than what can be displayed
 
-## 1.38.0 | 27 JUNE, 2022
+## 1.38.0 | 27 JUNE 2022
 
 `IMPROVEMENTS`
 
@@ -240,7 +240,7 @@
 
 * Fixed project delete notification, which showed incorrect information
 
-## 1.37.0 | 15 JUNE, 2022
+## 1.37.0 | 15 JUNE 2022
 
 `NEW FEATURES`
 
@@ -286,7 +286,7 @@
 
 * Various small changes across the platform to improve the user experience
 
-## 1.36.0 | 18 MAY, 2022
+## 1.36.0 | 18 MAY 2022
 
 `NEW FEATURES`
 
