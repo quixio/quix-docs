@@ -87,7 +87,7 @@ Use the following guidelines for industry-standard terms, and Quix terms:
 * Historical data = data from the past; historic data = data that is significant to the development of a human or society.
 * Machine learning model, not machine-learning model. See [Microsoft's guide](https://docs.microsoft.com/en-us/windows/ai/windows-ml/what-is-a-machine-learning-model#:~:text=A%20machine%20learning%20model%20is,and%20learn%20from%20those%20data).
 * In-memory technologies, technologies that process data in memory
-* Quix refers to our external Slack community as "The Stream community" ("The" is always capitalized)
+* Quix refers to our external Slack community as "Quix Community"
 * Event-stream processing, not event stream processing
 * DevOps, never devops
 * Startup and scale-up
