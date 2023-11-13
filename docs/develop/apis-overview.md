@@ -1,6 +1,6 @@
 # Quix APIs Overview
 
-The Quix Platform provides several APIs. These are:
+Quix provides several APIs. These are:
 
 * Streaming Writer API
 * Streaming Reader API
@@ -15,7 +15,7 @@ While [Quix Streams](../client-library-intro.md) is the main client library for 
 
 In these situations Streaming Reader and Writer APIs can provide an alternative solution - for example, they can easily be accommodated in a modern web browser, or using most modern programming languages with an HTTP or SignalR client. 
 
-Portal API is useful for automating processes normally carried out manually in the Quix Portal.
+Portal API is useful for automating processes normally carried out manually in Quix.
 
 Query API is useful for testing and examining data persisted into the Quix internal database.
 
@@ -50,13 +50,13 @@ Streaming Reader uses Microsoft's [SignalR](https://learn.microsoft.com/en-us/as
 
 ## Portal API
 
-The [Portal API](../apis/portal-api/overview.md) gives access to the Quix Portal interface enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deploy, and monitor services.
+The [Portal API](../apis/portal-api/overview.md) gives access to Quix, enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deploy, and monitor services.
 
 [Read more about Portal API](../apis/portal-api/overview.md)
 
 ## Query API
 
-The [Query API](../apis/query-api/overview.md) enables you to fetch persisted data from Quix. You can use it for exploring the platform, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
+The [Query API](../apis/query-api/overview.md) enables you to fetch persisted data from Quix. You can use it for exploring Quix, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
 
 !!! note
 

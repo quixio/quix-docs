@@ -1,6 +1,6 @@
 # How to deploy a public service
 
-The Quix Platform enables you to deploy public-facing web pages and APIs.
+Quix enables you to deploy public-facing web pages and APIs.
 
 This how-to will help to explain the features and options and ensure projects containing public facing web pages and APIs are successful.
 

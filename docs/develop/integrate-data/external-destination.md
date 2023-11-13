@@ -4,7 +4,7 @@ One simple way to read data out of a Quix topic, is to use the prebuilt connecto
 
 To use the `External destination` connector, step through the following procedure:
 
-1. In the Quix Portal click on `Code Samples` in the left-hand sidebar. 
+1. In the UI click on `Code Samples` in the left-hand sidebar. 
 
 2. Search for `External destination`. 
 

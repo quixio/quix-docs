@@ -9,7 +9,7 @@ In the following sections you learn how to:
 1. Fork an existing project repository, in this case the computer vision template project.
 2. Create a new project (and environment) in Quix linked to your forked repository.
 
-In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for the Quix Portal.
+In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for Quix.
 
 ## 💡 Key ideas
 

@@ -27,13 +27,13 @@ The following sections take a look at the key components of creating your stream
 * Deploying (and scaling) pipelines
 * Monitoring and managing your data
 
-While this short introduction to Quix is intentionally brief, there are abundant links for more detailed information you can follow to increase your knowledge of Quix. Alternatively, simply drop into our [Community](https://forum.quix.io/){target=_blank} and ask any question you may have.
+While this short introduction to Quix is intentionally brief, there are abundant links for more detailed information you can follow to increase your knowledge of Quix. Alternatively, simply drop into the [Quix Community](https://quix.io/slack-invite){target=_blank} and ask any question you may have.
 
-## The Quix Platform
+## Quix Cloud
 
-The Quix Platform provides everything a developer needs to build industrial-strength event streaming applications. 
+Quix Cloud provides everything a developer needs to build industrial-strength event streaming applications. 
 
-The components that make up the Quix Platform enable developers to:
+The components that make up the Quix Cloud enable developers to:
 
 * Use a full web-based IDE with version control and logging, to build, deploy, and monitor their event streaming applications. 
 * Have abstracted access to underlying broker infrastructure, including fully-managed Kafka topics.
@@ -50,15 +50,15 @@ This section describes the main technical components and architecture of Quix.
 
 ![Quix Technical Architecture](../images/quix-technical-architecture.png)
 
-### Quix Portal
+### Quix UI
 
-**Quix Portal** strives to present an intuitive software experience that facilitates DevOps/MLOps best practices for development teams. The goals of Quix Portal are to:
+**Quix UI** strives to present an intuitive software experience that facilitates DevOps/MLOps best practices for development teams. The goals of the Quix UI are to:
 
 * Help a broad spectrum of developers access live data.
 * Help developers create and manage complex infrastructure and write application code without support from expert engineering teams.
 * Help to accelerate the development lifecycle by enabling developers to test and iterate code in an always-live environment.
 
-To achieve these goals, Quix Portal includes the following features:
+To achieve these goals, the Quix UI includes the following features:
 
 * **Online IDE**: Develop and run your streaming applications directly in the browser without setting up a local environment.
 
@@ -68,13 +68,11 @@ To achieve these goals, Quix Portal includes the following features:
  
 * **Monitoring tools**: Monitor the status and data flow of your streaming applications in real time.
 
-* **Broker management**: Create, delete, explore and configure your self-hosted message broker infrastructure from the Quix Portal.
+* **Broker management**: Create, delete, explore and configure your self-hosted message broker infrastructure from the UI.
 
 * **Pipeline view**: Visualize your pipeline architecture with the information provided from the deployment variables. You can also monitor your pipeline in real time.
 
 * **Data Explorer**: Explore live and historical data of your applications to test that your code is working as expected.
-
-**Watch the video to see the Quix web-based IDE**
 
 ### Git integration
 
@@ -104,7 +102,7 @@ When you create an application from a template in Quix, a Dockerfile is provided
 
 ### Infrastructure as code
 
-When you develop your event streaming solution, you will build a pipeline of services that can be viewed in the Quix Portal. Each service in the pipeline is individually coded, using a standard component, a modified template, or even completely from scratch. Depending on the use case, pipelines can be quite complex, and in the past, this has made them time consuming to recreate. Now Quix supports infrastructure as code. Your entire pipeline can be defined by a single `quix.yaml` file, and this file can be used to completely and easily reconstruct a pipeline from its corresponding repository.
+When you develop your event streaming solution, you will build a pipeline of services that can be viewed in Quix. Each service in the pipeline is individually coded, using a standard component, a modified template, or even completely from scratch. Depending on the use case, pipelines can be quite complex, and in the past, this has made them time consuming to recreate. Now Quix supports infrastructure as code. Your entire pipeline can be defined by a single `quix.yaml` file, and this file can be used to completely and easily reconstruct a pipeline from its corresponding repository.
 
 ## Interfacing with Quix
 
@@ -125,7 +123,7 @@ Quix provides several APIs to help you work with streaming data. These include:
 * [**Stream Writer API**](../apis/streaming-writer-api/overview.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
 * [**Stream Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
 * [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
-* [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix Portal tasks such as creating environments, topics, and deployments.
+* [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams
 

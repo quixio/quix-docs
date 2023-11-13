@@ -120,7 +120,7 @@ The code picks out several field values from the parameter data and
 combines them to form the desired Slack alert.
 
 Copy the code and paste it over the quix_function.py file in your
-application in the Quix portal.
+application in Quix.
 
 Save it by clicking `CTRL+S` or `Command + S` or click the tick in the
 top right.
@@ -141,4 +141,4 @@ haven’t lost all those precious live messages.
 
 ## Getting help
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

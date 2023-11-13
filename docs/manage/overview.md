@@ -66,7 +66,7 @@ You can read more about the [Query API](../apis/query-api/overview.md) in the do
 
 ## Portal API
 
-The Portal API enables you to programmatically control your Quix Portal, and most objects in it. Using the Portal API you can manage entities including:
+The Portal API enables you to programmatically control Quix, and most objects in it. Using the Portal API you can manage entities including:
 
 * Billing
 * Deployments

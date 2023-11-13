@@ -29,11 +29,11 @@ jupyter notebook
 
 ## Obtain the training data
 
-In the [previous part](./create-data.md) you generated some real-time data in the Quix Portal. 
+In the [previous part](./create-data.md) you generated some real-time data in Quix. 
 
-The Quix Portal has a code generator that can generate code to connect your Jupyter Notebook to Quix. To use the code generator to retrieve data from Quix and import it into your Notebook:
+Quix has a code generator that can generate code to connect your Jupyter Notebook to Quix. To use the code generator to retrieve data from Quix and import it into your Notebook:
 
-1. Make sure you are logged into the Quix Portal.
+1. Make sure you are logged into Quix.
 
 2. Select your Workspace (you probably only have one currently).
 

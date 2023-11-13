@@ -18,7 +18,7 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 ### Preparing a MATLAB function for deployment
 
-This section describes the process for packaging MATLAB functions for deployment. The application templates in the Quix Portal have pre-built MATLAB packages. To deploy the default packages without compiling them, go to [deploying a MATLAB function](#deploying-a-matlab-function) section.
+This section describes the process for packaging MATLAB functions for deployment. The application templates in Quix have pre-built MATLAB packages. To deploy the default packages without compiling them, go to [deploying a MATLAB function](#deploying-a-matlab-function) section.
 
  1. In MATLAB, create a new `*.m` file with the following function and save it as `rot.m`:
 	
@@ -48,7 +48,7 @@ This section describes the process for packaging MATLAB functions for deployment
 
 ### Deploying a MATLAB function
 
- 1. Sign in to your environment in the [Quix Portal](https://portal.platform.quix.io/){target=_blank}.
+ 1. Sign in to your environment in [Quix](https://portal.platform.quix.io/){target=_blank}.
 
  2. Click on the `Code Samples` in the left navigation panel, and search for `matlab` in the search box on the top left to filter code samples.
 
@@ -173,7 +173,7 @@ This tutorial uses MATLAB R2023a. Please refer to the [Working with different MA
 
 ### Deploying a Simulink model
 
- 1. Sign in to the environment on the [Quix Portal](https://portal.platform.quix.io/){target=_blank}.
+ 1. Sign in to the environment in [Quix](https://portal.platform.quix.io/){target=_blank}.
 
  2. Click on the `Code Samples` on the left navigation panel and search for `simulink` in the search bar on the top left to filter code samples (templates for MATLAB and Simulink are the same):
 

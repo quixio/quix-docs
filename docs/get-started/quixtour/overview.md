@@ -18,9 +18,9 @@ The complete code for the Quix Tour can be found in the [Quix Tutorials GitHub r
 
 The Quix Tour is split into three parts. These parts represent the typical stream processing **pipeline**:
 
-1. **Ingest** - this is where you get your data into Quix using one of [many methods](../../develop/integrate-data/overview.md). In Quix Platform this is typically implemented using a **Source**.
-2. **Process** - here you process your data in a manner depending on your use case. In Quix Platform this is implemented using a **Transform**.
-3. **Serve** - typically you display information, such as on real-time charts, or perhaps persist your data in a database. In Quix Platform this is implemented using a **Destination**.
+1. **Ingest** - this is where you get your data into Quix using one of [many methods](../../develop/integrate-data/overview.md). In Quix this is typically implemented using a **Source**.
+2. **Process** - here you process your data in a manner depending on your use case. In Quix this is implemented using a **Transform**.
+3. **Serve** - typically you display information, such as on real-time charts, or perhaps persist your data in a database. In Quix this is implemented using a **Destination**.
 
 This general stream processing architecture is illustrated in the following diagram:
 
@@ -30,7 +30,7 @@ This general stream processing architecture is illustrated in the following diag
 
 The pipeline you will implement:
 
-1. **Ingest** - you publish data from your laptop into Quix Platform using the Quix client library, Quix Streams. You're going to publish your real-time CPU load. You could alternatively publish data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../../connectors/index.md).
+1. **Ingest** - you publish data from your laptop into Quix using the Quix client library, Quix Streams. You're going to publish your real-time CPU load. You could alternatively publish data from a CSV file, or any other source required for your use case. If you needed to connect to an external service, you could alternatively use one of Quix's many [connectors](../../connectors/index.md).
 2. **Process** - in this step, you process your data. There are many [types of processing](../../develop/process/types-of-processing.md), one of which is the transform. There are many possible [types of transform](../../develop/process/types-of-transform.md). Here you create a transform that performs threshold detection. You publish a message to the transform's output topic. 
 3. **Serve** - when you receive a message indicating CPU load has exceeded the threshold you (optionally) send an SMS to the system administrator.
 
@@ -48,6 +48,6 @@ To complete the Quix Tour you'll need the following:
 
 ## 🏃‍♀️ Next step
 
-Get your data into Quix Platform!
+Get your data into Quix!
 
 [Ingest your data :material-arrow-right-circle:{ align=right }](./ingest-push.md)

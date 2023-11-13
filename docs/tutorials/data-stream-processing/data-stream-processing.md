@@ -18,7 +18,7 @@ By the end you will have:
 
 !!! tip 
     
-    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+    If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.
 
 ## Application architecture
 
@@ -59,7 +59,7 @@ This walk through covers the following:
 
 ## Getting Started
 
-Login to Quix and open your project, you get one project on the free tier, more on higher tiers. A Quix project is a container to help you manage all the data, topics, models and services related to a single solution so we advise using a new, clean one for this tutorial.
+Log in to Quix and open your project, you get one project on the free tier, more on higher tiers. A Quix project is a container to help you manage all the data, topics, models and services related to a single solution so we advise using a new, clean one for this tutorial.
 
 ### Code Samples
 
@@ -263,4 +263,4 @@ With the microservices for control and input processing deployed along with the 
 
 ## Getting help
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

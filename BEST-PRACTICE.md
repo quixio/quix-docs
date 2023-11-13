@@ -49,12 +49,14 @@ The Quix documentation search facility is incremental - you start typing your se
 
 Good navigation is **critical** to effective TBW. Once a reader finds themselves in the Quix documentation, they need to be able to quickly orientate themselves on the page and in the documentation set overall.
 
-The main left-hand navbar, or TOC, provides the main element of the information architecture, and is purposely organized into the following top-level hierarchy:
+The main left-hand navbar, or TOC, provides the main element of the information architecture, and is purposely organized into the following top-level hierarchy, based around the developer journey:
 
-1. **Landing page and Quickstart**. The idea here is to quickly orientate the reader. From the landing page they can jump to key pieces of documentation. The Quickstart provides an easy way to "dip a toe" into Quix, and try the product out. The Quickstart is divided into two parts: one aimed at all users, and one specifically targeting developers.
-2. **Quix Platform**. This is the main Quix product, and consists of the SaaS offering, UI, pipelines, deployments, and pre-built connectors and transforms. Concepts, How-Tos and Tutorials for Quix Platform are contained in here.
-3. **Client Library**. The Quix Streams client library provides a very effective way to write scalable real-time streaming applications. Using Quix Streams you can create solutions that work with Quix Platform, or with other services depending on your requirement. The `Client Library` section also includes API reference documentation generated from source code for both the Python and C# versions of Quix Streams.
-4. **APIs**. These are additional Quix APIs, other than those provided by Quix Streams. The documentation consists of general topics, as well as REST API references based on OAS3 documents.
+1. Get started - you're new to Quix and went to get up and running quickly.
+2. Create your project - you need to have a project to do anything in Quix.
+3. Develop your application - this is the job or service that will actually do the work.
+4. Deploy your application - you're now ready to deploy the application so it can be used.
+5. Manage your projects/pipelines - a typical event streaming app consists of a collections of services (or jobs) connected in a pipeline. 
+6. Quix Streams - the client library, as a stand-alone product it is displayed as a top level item.
 
 The longer topics can be navigated using the right-hand "on this page" TOC. This enables you to quickly navigate through the sections of a topic. It is important that topics are structured with the correct heading levels. There should only ever be one `h1` heading per topic, but there can be several `h2`s. Section headings below `h3` should be used sparingly, as they won't be displayed in the navigation, and could indicate the topic has become too convoluted. The solution can be to split the topic into multiple topics, or otherwise rethink the structure.
 
@@ -92,7 +94,7 @@ The key tooling used for the Quix documentation includes:
 
 Quix uses multiple (currently two) repositories to manage the Quix documentation, these are:
 
-1. [Quix Docs](https://github.com/quixio/quix-docs) - this is the repository for general docs, Quix Platform docs, and API docs.
+1. [Quix Docs](https://github.com/quixio/quix-docs) - this is the repository for general docs, Quix Cloud docs, and API docs.
 2. [Quix Streams](https://github.com/quixio/quix-streams) - a stand-alone repository for Quix Streams, including all Quix Streams documentation.
 
 Quix uses the MkDocs [multirepo plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin) to import a complete repo and make it part of a documentation set. Quix uses this to import the Quix Streams documentation stored in the Quix Streams repo.
@@ -120,4 +122,4 @@ There are also books that cover best practices in great depth:
 
 ## Get in touch
 
-* If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+* If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

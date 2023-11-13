@@ -60,7 +60,7 @@ In reality, you’ll have far more data in the stored data, so you’ll want to 
 
   - `to`
 
-Each stream you create has a unique ID. You can view the ID of a persisted via the Data section of the Quix Portal. Supply a list of stream IDs to restrict fetched data to just those streams:
+Each stream you create has a unique ID. You can view the ID of a persisted via the Data section of the UI. Supply a list of stream IDs to restrict fetched data to just those streams:
 
 ```json
 {

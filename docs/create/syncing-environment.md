@@ -8,7 +8,7 @@ You can always review the changes that will be made to your `quix.yaml` file, be
 
 The rules around manual and automatic synchronization are:
 
-1. Operations performed in the Quix portal should not cause "out of sync", as those operations are automatically saved to the Git repository. This is the case for both Quix-managed and third-party hosted Git.
+1. Operations performed in Quix should not cause "out of sync", as those operations are automatically saved to the Git repository. This is the case for both Quix-managed and third-party hosted Git.
 2. The exception to this is the case of YAML variables. When variables are created, if those are included in the `quix.yaml`, you will need to perform manual synchronization. You are prompted if this is required.
 3. If you change the `quix.yaml` in the Git repository, then you may get "out of sync". The `quix.yaml` file currently only includes topics and deployments.
 

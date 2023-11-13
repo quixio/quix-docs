@@ -1,6 +1,6 @@
 # Conclusion
 
-In this tutorial you've learned how to use Quix to generate real-time data. You've also learned how to import that data into Jupyter Notebook using the Quix code generator. You then saw how to deploy your ML model to the Quix Platform, and visualize its output in real time.
+In this tutorial you've learned how to use Quix to generate real-time data. You've also learned how to import that data into Jupyter Notebook using the Quix code generator. You then saw how to deploy your ML model to Quix, and visualize its output in real time.
 
 ![Data explorer](./images/visualize-result.png)
 
@@ -20,4 +20,4 @@ What will you build? Let us know! We’d love to feature your application or use
 
 ## Getting help
 
-If you need any assistance, we're here to help in [The Stream](https://join.slack.com/t/stream-processing/shared_invite/zt-13t2qa6ea-9jdiDBXbnE7aHMBOgMt~8g){target=_blank}, our free Slack community. Introduce yourself and then ask any questions in `quix-help`.
+If you need any assistance, we're here to help in the [Quix Community](https://quix.io/slack-invite){target=_blank}.

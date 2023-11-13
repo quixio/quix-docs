@@ -5,7 +5,7 @@
 <div>
 <a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Quickstart</a>
 
-<a class="md-button md-button" href="https://quix.io/templates" target="_blank" style="margin-right:.5rem;">View project templates</a>
+<a class="md-button md-button" href="./project-templates.html" style="margin-right:.5rem;">View project templates</a>
 <br/>
 </div>
 
@@ -43,9 +43,9 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
     
-    Deploy a real-time computer vision application fast, using a project template.
+    Dig deep into Quix using one of our project templates.
 
-    [Computer vision :octicons-arrow-right-24:](../tutorials/computer-vision/overview.md)
+    [Project templates :octicons-arrow-right-24:](../get-started/project-templates.md)
 
 </div>
 
@@ -80,9 +80,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    If you need any help, please sign up to the Quix community forum, and chat with friendly developers.
+    If you need any help, please sign up to the Quix Community Slack channel, and chat with friendly developers.
 
-    [Join the Quix community forum :octicons-arrow-right-24:](https://forum.quix.io/){target=_blank}
+    [Join the Quix Community :octicons-arrow-right-24:](https://quix.io/slack-invite){target=_blank}
 </div>
-
-

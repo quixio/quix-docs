@@ -24,6 +24,6 @@ This tutorial is divided into several parts to make it more a manageable learnin
 
 !!! tip
 
-	If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+	If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.
 
 [Data acquisition :material-arrow-right-circle:{ align=right }](./data-acquisition.md)

@@ -46,6 +46,6 @@ If you are part of the Quix technical writing team, or you contribute frequently
 
 ## Getting in touch
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/).
+If you need any help, please sign up to the [Quix community](https://quix.io/slack-invite).
 
 Thanks!
