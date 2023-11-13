@@ -58,4 +58,4 @@ In this case the model file is stored in the cloud, and simply downloaded prior 
 
 ## Contact
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

@@ -14,4 +14,4 @@ What will you build? Let us know! We’d love to feature your applicaton or use 
 
 ## Getting help
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.
