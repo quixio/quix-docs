@@ -11,6 +11,10 @@ To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-
 
 You can find detailed information on docs releases in the [docs repo Wiki page](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
 
+## Docs internal processes
+
+Docs team internal processes are described in [this document](DOCS-INTERNAL.md).
+
 ## Contributing
 
 If you would like to contribute to the docs, there are two main ways:
