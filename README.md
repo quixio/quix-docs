@@ -13,7 +13,7 @@ You can find detailed information on docs releases in the [docs repo Wiki page](
 
 ## Docs internal processes
 
-Docs team internal processes are described in [this document]().
+Docs team internal processes are described in [this document](DOCS-INTERNAL.md).
 
 ## Contributing
 
