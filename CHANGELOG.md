@@ -1,5 +1,7 @@
 # Quix product changelog
 
+This is the changelog for the current year. Changelogs for previous years can be found [here](#changelog-archives).
+
 ## 2023-11-02-brokers-hf | 10 NOVEMBER 2023
 
 `BUG FIXES`
