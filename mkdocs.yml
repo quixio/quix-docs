@@ -105,6 +105,17 @@ nav:
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
+    - 'Clickstream analysis': 
+      - 'Overview': 'tutorials/clickstream/overview.md'
+      - 'Get the project': 'tutorials/clickstream/get-project.md'
+      - 'Clickstream producer': 'tutorials/clickstream/clickstream-producer.md'
+      - 'Data ingestion': 'tutorials/clickstream/data-ingestion.md'
+      - 'Data enrichment': 'tutorials/clickstream/data-enrichment.md'
+      - 'Data aggregation': 'tutorials/clickstream/data-aggregation.md'
+      - 'Event detection': 'tutorials/clickstream/event-detection.md'
+      - 'Webshop frontend': 'tutorials/clickstream/webshop-frontend.md'
+      - 'Real-time dashboard': 'tutorials/clickstream/realtime-dashboard.md'
+      - 'Summary': 'tutorials/clickstream/summary.md'
     - 'Computer vision': 
       - 'Overview': 'tutorials/computer-vision/overview.md'
       - '1. Get the project': tutorials/computer-vision/get-project.md
