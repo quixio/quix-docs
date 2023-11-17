@@ -25,7 +25,7 @@ Below is an example payload demonstrating how to set a single item of metadata. 
   - curl
     
     ```shell
-    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}" \
+    curl "https://${domain}.platform.quix.io/topics/${topicName}/streams/${streamId}" \
          -X PUT \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
@@ -40,7 +40,7 @@ Below is an example payload demonstrating how to set a single item of metadata. 
     const data = JSON.stringify({ metadata: { fruit: "apple" }});
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams/' + streamId,
         method: 'PUT',
         headers: {
@@ -85,7 +85,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

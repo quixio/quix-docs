@@ -10,7 +10,7 @@ Although Quix is a real-time platform, to build real-time in-memory models and d
 
 You'll need some data stored in Quix. You can use any of the Quix [data sources](../../connectors/index.md) available in the Quix Code Samples. 
 
-You can also follow the onboarding process when you [sign-up to Quix](https://portal.platform.quix.ai/self-sign-up?xlink=docs){target=_blank}. This process helps you create a source.
+You can also follow the onboarding process when you [sign-up to Quix](https://portal.platform.quix.io/self-sign-up?xlink=docs){target=_blank}. This process helps you create a source.
 
 You also need Python 3 environment set up in your local environment.
 

@@ -34,7 +34,7 @@ This example call adds a single event to a stream. The event has an example valu
 === "curl"
     
     ```shell
-    curl -i "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/events/data" \
+    curl -i "https://${domain}.platform.quix.io/topics/${topicName}/streams/${streamId}/events/data" \
          -H "Authorization: bearer ${token}" \
          -H "Content-Type: application/json" \
          -d '[{
@@ -62,7 +62,7 @@ This example call adds a single event to a stream. The event has an example valu
     });
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams/' + streamId + '/events/data',
         method: 'POST',
         headers: {
@@ -97,7 +97,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

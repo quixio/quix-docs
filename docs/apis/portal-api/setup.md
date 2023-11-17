@@ -2,7 +2,7 @@
 
 To use the APIs you'll typically need the following:
 
-1. [Sign up to Quix](https://portal.platform.quix.ai/self-sign-up).
+1. [Sign up to Quix](https://portal.platform.quix.io/self-sign-up).
 
 2. Obtain a Personal Access Token - you need this to authenticate requests.
 
@@ -42,19 +42,19 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 When using APIs you’ll need to obtain an ID based on a specific environment. For example, endpoints for the [Query API](../../apis/query-api/overview.md) use a domain with the following pattern:
 
-    https://telemetry-query-${environment-id}.platform.quix.ai/
+    https://telemetry-query-${environment-id}.platform.quix.io/
 
 The environment ID is a combination of your organization and environment names, converted to URL friendly values. 
 
 ### Obtain your environment ID from the URL
 
-1.  Go to the [Portal home](https://portal.platform.quix.ai/){target=_blank}.
+1.  Go to the [Portal home](https://portal.platform.quix.io/){target=_blank}.
 
 2.  Locate the environment you’re interested in and open it.
 
 3.  At this point, take note of the URL. It will be in the form:
 
-    https://portal.platform.quix.ai/home?workspace={environment-id}
+    https://portal.platform.quix.io/home?workspace={environment-id}
 
 ### Obtain environment ID from settings
 
@@ -67,7 +67,7 @@ You can also get the environment ID from Settings. Click `Settings` in the botto
 Given the following URL for the environment:
 
 ```
-https://portal.platform.quix.ai/pipeline?workspace=joeengland-apitests-testing
+https://portal.platform.quix.io/pipeline?workspace=joeengland-apitests-testing
 ```
 
 The environment ID is:
@@ -86,7 +86,7 @@ Copy the value for `environment-id` and use it wherever you need an environment 
 
 !!! note
 
-    The `workspace=` parameter in the URL `https://portal.platform.quix.ai/home?workspace={environment-id}` is there for legacy reasons, and does in fact indicate an environment.
+    The `workspace=` parameter in the URL `https://portal.platform.quix.io/home?workspace={environment-id}` is there for legacy reasons, and does in fact indicate an environment.
 
 ## API reference documentation
 
@@ -96,10 +96,10 @@ The URLs for the API references are specific to your environment, so you can eas
 
 | API | API reference URL (Swagger documentation)|
 |---|---|
-| Streaming Writer | https://writer-`<environment-id>`.platform.quix.ai/swagger |
+| Streaming Writer | https://writer-`<environment-id>`.platform.quix.io/swagger |
 | Streaming Reader | No HTTP/REST interface - SignalR (WebSockets or Long Polling)|
-| Portal | https://portal-api.platform.quix.ai/swagger |
-| Query | https://telemetry-query-`<environment-id>`.platform.quix.ai/swagger |
+| Portal | https://portal-api.platform.quix.io/swagger |
+| Query | https://telemetry-query-`<environment-id>`.platform.quix.io/swagger |
 
 Replace `<environment-id>` with your environment ID.
 

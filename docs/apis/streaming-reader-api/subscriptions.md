@@ -74,7 +74,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.io/hub", options)
       .build();
 
 // Establish connection 
@@ -138,7 +138,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.io/hub", options)
       .build();
 
 // Establish connection 
@@ -194,7 +194,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.io/hub", options)
       .build();
 
 // Establish connection 
@@ -214,7 +214,7 @@ connection.start().then(() => {
 Might produce the following output:
 
 ``` shell
-[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.platform.quix.ai/hub?id=o9Ctg5zdQ7aAzdQ2Cz4eMw.
+[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.platform.quix.io/hub?id=o9Ctg5zdQ7aAzdQ2Cz4eMw.
 Connected to Quix.
 stream ----->  {
   streamId: '0a23798f-7d75-413d-9031-8d8386c2f8c7',
@@ -347,7 +347,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.io/hub", options)
       .build();
 
 // Establish connection 
@@ -395,7 +395,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.ai/hub", options)
+      .withUrl("https://reader-joeengland-apitests-testing.platform.quix.io/hub", options)
       .build();
 
 // Establish connection 

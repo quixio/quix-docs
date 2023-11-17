@@ -75,4 +75,4 @@ The Portal API enables you to programmatically control Quix, and most objects in
 * Topics
 * Users
 
-You can read more about the [Portal API](../apis/portal-api/overview.md) in the docs, or view the [Swagger reference](https://portal-api.platform.quix.ai/swagger/index.html){target=_blank}.
+You can read more about the [Portal API](../apis/portal-api/overview.md) in the docs, or view the [Swagger reference](https://portal-api.platform.quix.io/swagger/index.html){target=_blank}.

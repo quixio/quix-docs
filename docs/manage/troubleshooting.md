@@ -36,7 +36,7 @@ If you have deployed a service or job and the logs mention *broker transport fai
 
 Also check the broker address list. You should have these by default:
 
-kafka-k1.quix.ai:9093,kafka-k2.quix.ai:9093,kafka-k3.quix.ai:9093
+kafka-k1.quix.io:9093,kafka-k2.quix.io:9093,kafka-k3.quix.io:9093
 
 ## 401 Error
 
@@ -50,15 +50,15 @@ The APIs that require a valid bearer token are:
 
 1.  Portal API
 
-    - https://portal-api.platform.quix.ai/swagger/index.html
+    - https://portal-api.platform.quix.io/swagger/index.html
 
 2.  Streaming Writer API
 
-    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.ai/index.html
+    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/index.html
         
 3.  Telemetry Query API
 
-    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.ai/swagger/index.html
+    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/swagger/index.html
     
 ## Error Handling in the client library callbacks
 

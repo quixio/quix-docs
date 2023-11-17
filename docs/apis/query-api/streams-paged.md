@@ -13,7 +13,7 @@ The `/streams` endpoint provides read access to all streams within the environme
 ### Example request
 
 ```shell
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "{}"
@@ -61,7 +61,7 @@ For example, to group all streams in pages of 10 and receive the 2nd page, use t
 ### Example request
 
 ```shell
-curl "https://${domain}.platform.quix.ai/streams" \
+curl "https://${domain}.platform.quix.io/streams" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{"paging":{"index": 1,"length": 10}}'
