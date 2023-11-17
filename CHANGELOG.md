@@ -2,6 +2,47 @@
 
 This is the changelog for the current year. Changelogs for previous years can be found [here](#changelog-archives).
 
+## 2023-11-03-promocode | 16 NOVEMBER 2023
+
+`NEW FEATURES`
+
+- Data explorer: Multi-clause selection for “where” and “group by”
+- Replays: Ability to specify start/end timestamps
+- Promotional code redemption feature added to the billing page
+
+`IMPROVEMENTS`
+
+- Improved performance of Topics page using virtual scrolling and reducing the amount metrics subscriptions.
+- Added new option on Topics page to filter out External topics from the list
+- Improved performance of Topics synchronization with external brokers.
+- Introduced a tooltip that displays backend error for environments that failed to create
+- Improved various CTA loading states
+- Improved general performance when running/stopping deployments
+- Maintain the selected side nav option when switching between environments
+- Platform domain migration from .ai to .io
+- Several improvements for BYOC installations
+- Added * feature to permissions system Scopes
+
+`BUG FIXES`
+
+- Fixed a bug building deployments that use Open Computer Vision library
+- Fixed a bug where IDE Sessions were not detecting errors when installing Python dependencies
+- Fixed a bug where some environments get stuck in a Pull-and-push mechanism indefinitely
+- Fixed intermittent “Session ApplicationID not found” errors when using online IDE
+- Fixed a bug where binary storage for Persisted streams was not working properly for stream/parameters Id’s containing special characters
+- Broker test validation was not detecting some permissions issues reading Topic descriptions
+- Topic synchronization exceptions on the Environment creation were letting the environment in an Error state
+- Billing page was not visible for some Admin users
+- Topic Replication Factor was not populated correctly when synchronizing topics from external brokers
+- Deployment details weren’t updating the url when navigating through lineage
+- Some drawers weren’t closing when a user clicked away
+- Branches created externally were not immediately selectable from the change branch dialog of an environment.
+- Some Git errors were not cleaned properly after recovering connectivity with the server.
+- Topics dropdown icon was misaligned
+- Unable to open an application that was renamed
+- Disabled replays for streams with no data
+- Fixed docs links throughout the platform
+
 ## 2023-11-02-brokers-hf | 10 NOVEMBER 2023
 
 `BUG FIXES`
