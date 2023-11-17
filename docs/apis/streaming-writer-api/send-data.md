@@ -39,7 +39,7 @@ Any data types that are unused can be omitted. An example request is as follows:
 === "curl"
     
     ``` bash
-    curl "https://${domain}.platform.quix.ai/topics/${topicName}/streams/${streamId}/parameters/data" \
+    curl "https://${domain}.platform.quix.io/topics/${topicName}/streams/${streamId}/parameters/data" \
         -X POST \
         -H "Authorization: Bearer ${token}" \
         -H "Content-Type: application/json" \
@@ -66,7 +66,7 @@ Any data types that are unused can be omitted. An example request is as follows:
     });
     
     const options = {
-        hostname: domain + '.platform.quix.ai',
+        hostname: domain + '.platform.quix.io',
         path: '/topics/' + topicName + '/streams/' + streamId + '/parameters/data',
         method: 'POST',
         headers: {
@@ -101,7 +101,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://writer-" + environmentId + ".platform.quix.ai/hub", options)
+    .withUrl("https://writer-" + environmentId + ".platform.quix.io/hub", options)
     .build();
 
 // Establish connection

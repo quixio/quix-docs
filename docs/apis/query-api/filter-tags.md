@@ -66,7 +66,7 @@ Each object in the `tagFilters` array can support the following `operator` value
 `Like` and `NotLike` perform a regular expression match, so you can search by pattern. For example, to get the Speed parameter values tagged with a LapNumber which is either 2 or 4, you can use the expression `^\[24\]\\.` to match values 2.0 and 4.0:
 
 ```bash
-curl "https://telemetry-query-testing-quickstart.platform.quix.ai/parameters/data" \
+curl "https://telemetry-query-testing-quickstart.platform.quix.io/parameters/data" \
      -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d '{

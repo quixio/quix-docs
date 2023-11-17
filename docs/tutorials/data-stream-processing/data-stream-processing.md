@@ -18,7 +18,7 @@ By the end you will have:
 
 !!! tip 
     
-    If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+    If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.
 
 ## Application architecture
 
@@ -263,4 +263,4 @@ With the microservices for control and input processing deployed along with the 
 
 ## Getting help
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/){target=_blank}.
+If you need any help, please sign up to the [Quix Community](https://quix.io/slack-invite){target=_blank}.

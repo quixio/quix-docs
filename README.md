@@ -5,11 +5,15 @@
 
 This repository is the source content for the Quix documentation that is published on the web at https://quix.io/docs. The source files for the documentation are in GitHub-flavoured Markdown, with the additions supported by our tooling, [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
-To get a free Quix account, [sign up](https://portal.platform.quix.ai/self-sign-up).
+To get a free Quix account, [sign up](https://portal.platform.quix.io/self-sign-up).
 
 ## Docs releases
 
 You can find detailed information on docs releases in the [docs repo Wiki page](https://github.com/quixio/quix-docs/wiki/Docs-Releases).
+
+## Docs internal processes
+
+Docs team internal processes are described in [this document](DOCS-INTERNAL.md).
 
 ## Contributing
 
@@ -46,6 +50,6 @@ If you are part of the Quix technical writing team, or you contribute frequently
 
 ## Getting in touch
 
-If you need any help, please sign up to the [Quix community forum](https://forum.quix.io/).
+If you need any help, please sign up to the [Quix community](https://quix.io/slack-invite).
 
 Thanks!

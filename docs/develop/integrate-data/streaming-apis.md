@@ -63,7 +63,7 @@ Some example code that shows how to connect to Quix and write data into a Quix s
 
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(
-          "https://writer-" + environmentId + ".platform.quix.ai/hub",
+          "https://writer-" + environmentId + ".platform.quix.io/hub",
           options
         )
         .build();
@@ -149,7 +149,7 @@ Code that could read mouse cursor position from a Quix stream is as follows:
       };
 
       const connection = new signalR.HubConnectionBuilder()
-        .withUrl(`https://reader-${environmentId}.platform.quix.ai/hub`, options)
+        .withUrl(`https://reader-${environmentId}.platform.quix.io/hub`, options)
         .build();
 
       connection.start().then(() => {

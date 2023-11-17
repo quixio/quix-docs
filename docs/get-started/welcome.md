@@ -80,9 +80,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    If you need any help, please sign up to the Quix community forum, and chat with friendly developers.
+    If you need any help, please sign up to the Quix Community Slack channel, and chat with friendly developers.
 
-    [Join the Quix community forum :octicons-arrow-right-24:](https://forum.quix.io/){target=_blank}
+    [Join the Quix Community :octicons-arrow-right-24:](https://quix.io/slack-invite){target=_blank}
 </div>
-
-

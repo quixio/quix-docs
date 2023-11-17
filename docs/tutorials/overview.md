@@ -52,4 +52,4 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
 
 ## Need help?
 
-If you'd like some help with a tutorial, or advice on a suitable tutorial for your use case, feel free to ask in the [Quix Forum](https://forum.quix.io/){target=_blank}!
+If you'd like some help with a tutorial, or advice on a suitable tutorial for your use case, feel free to ask in the [Quix Community](https://quix.io/slack-invite){target=_blank}!
