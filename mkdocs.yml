@@ -152,7 +152,7 @@ nav:
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
   - 'Quix Kafka Libraries':
     - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
-    - '*NEW* Quix Streams - Streaming DataFrames (alpha)': '!import https://github.com/quixio/quix-streams?branch=sdf-quix-docs'
+    - 'Streaming DataFrame': '!import https://github.com/quixio/quix-streams?branch=sdf-quix-docs'
 
 plugins:
   - multirepo:
