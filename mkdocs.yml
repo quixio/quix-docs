@@ -150,9 +150,9 @@ nav:
     - 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
     - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
-  - 'Quix Streams Kafka Libraries':
+  - 'Quix Streams Kafka Library':
     - 'v0.5': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
-    - 'v2.0': '!import https://github.com/quixio/quix-streams?branch=sdf-quix-docs'
+    - 'v2.0': '!import https://github.com/quixio/quix-streams?branch=main'
 
 plugins:
   - multirepo:
