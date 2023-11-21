@@ -8,6 +8,8 @@ It reads data from Redis Cloud and displays it in real time. The data displayed 
 
 The code in this service is entirely in Python. 
 
-Once the charts are laid out, they are updated every one second in real time by reading the data from Redis Cloud and then using it to populate the charts.
+Once the charts are laid out, they are updated every one second in real time by reading the data from Redis Cloud, and then using it to populate the charts.
 
+## 🏃‍♀️ Next step
 
+[Part 9 - Lab :material-arrow-right-circle:{ align=right }](TODO)

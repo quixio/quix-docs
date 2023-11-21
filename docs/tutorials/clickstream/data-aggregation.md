@@ -1,10 +1,8 @@
 # Data aggregation
 
-This service subscribes to the `enriched-click-data` topic. Any data received is aggregated, and the results written to Redis. These aggregations are then consumed by a Streamlit dashboard (Real-time dashboard) for visualization and analysis.
+This service subscribes to the `enriched-click-data` topic. Any data received is aggregated, and the results written to Redis Cloud. These aggregations are then consumed by a Streamlit dashboard (Real-time dashboard) for visualization and analysis. [RocksDB](https://rocksdb.org/) is used to hold state for the aggregation calculations.
 
-RocksDB is used to hold state
-
-Real-time dashboard displays:
+The real-time dashboard displays:
 
 * Visitors in the last 15 minutes
 * Sessions in the last 8 hours
@@ -15,9 +13,9 @@ Real-time dashboard displays:
 * State machine log (useful for troubleshooting)
 * Raw data view
 
-## Last hour
+## Last hour of data
 
-The last hour of data. Data format is:
+For the last hour of data the data format is:
 
 ``` python
 columns = {
@@ -40,11 +38,11 @@ columns = {
 initial_df = pd.DataFrame(columns)
 ```
 
-For each new dataframe received:
+For each new dataframe received, the following is performed in the data handler routine:
 
-1. `last_hour_read` is read from the database.
+1. `last_hour_read` is read from the database (RocksDB).
 2. Dataframe is concatenated on the accumulated data in `last_hour_data`. 
-3. `last_hour_read` is written back to the database.
+3. `last_hour_read` is written back to the database (RocksDB).
 
 ``` python
 def on_dataframe_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
@@ -57,18 +55,18 @@ def on_dataframe_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
 
 ## Last eight hours
 
-The last eight hours of data. Data format is:
+For the last eight hours of data, the data format is:
 
 ``` python
 db["eight_hours_aggregation"] = pd.DataFrame(columns=["datetime", "userId", "count"])
 ```
 
-For each new dataframe received:
+For each new dataframe received, the following is performed in the data handler routine:
 
-1. `eight_hours_aggregation` is read from then database.
+1. `eight_hours_aggregation` is read from then database (RocksDB).
 2. Data is aggregated (every 30 minutes based on datetime and userId) to give a count of sessions for each datetime, for example, Datetime: 15:00, Count: 159.
 3. Concatenated onto `eight_hours_aggregation`.
-4. `eight_hours_aggregation` is written back to the database.
+4. `eight_hours_aggregation` is written back to the database (RocksDB).
 
 ``` python
 def on_dataframe_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
@@ -81,6 +79,8 @@ def on_dataframe_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
                                .groupby(['datetime', 'userId']).sum().reset_index())
     db["eight_hours_aggregation"] = eight_hours_aggregation
 ```
+
+## Writing aggregations to Redis Cloud
 
 Aggregations are sent to Redis Cloud using a background Thread that runs every one second. The data written to Redis Cloud is:
 
@@ -135,4 +135,8 @@ def send_data_to_redis():
             print("Error in sender thread", e)
 ```
 
-Note, there a simple Python function to calculate each of these items (see the code for details).
+Note, there a simple Python function to calculate each of these items (see the code for more details).
+
+## 🏃‍♀️ Next step
+
+[Part 6 - Event detection :material-arrow-right-circle:{ align=right }](./event-detection.md)

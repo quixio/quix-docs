@@ -1,8 +1,20 @@
 # Data ingestion
 
-This job loads product and user data and writes the information to Redis Cloud. The product data is used to populate the online store. User data is used later to trigger special offers targeting a specific demographic.
+This application runs as a job and loads product and user data from JSON files and writes the information to Redis Cloud. The product data is used to populate the online store. User data is used later to trigger special offers targeting a specific demographic.
 
-The product and user data is loaded from JSON files. 
+## Data format
+
+You'll now investigate the format for the data ingested by the job.
+
+1. Click `Applications` in the main left-hand navigation. You'll see a list of Applications in the environment:
+
+    ![Clickstream Applications](../../images/project-templates/clickstream-applications.png)
+
+2. Click `Data ingestion` to load the code view.
+
+3. In the `Application files` panel you can see all the files for the application. There are the two data files that are loaded: `users.json` and `products.json`.
+
+4. Click on a data file to investigate the format.
 
 Each product data item has the following format:
 
@@ -30,3 +42,24 @@ Each user data item has the following format:
 The additional user data of gender and birthday is used later to trigger a special offer tailored to a specific demographic.
 
 Users are identified by a UUID.
+
+The code is relatively simple for this application. For example, here's the code to load the product data and write it to Redis:
+
+``` python
+# Read products from products.tsv and store the category in Redis
+def load_products():
+    products = pd.read_json('products.json')
+    pipe = r.pipeline()
+
+    for index, row in products.iterrows():
+        key = f'product:{row["id"]}'
+        pipe.hset(key, 'cat', row['category'])
+        pipe.hset(key, 'title', row['title'])
+
+    pipe.execute()
+    print(f"Imported {len(products)} products")
+```
+
+## 🏃‍♀️ Next step
+
+[Part 4 - Data enrichment :material-arrow-right-circle:{ align=right }](./data-enrichment.md)

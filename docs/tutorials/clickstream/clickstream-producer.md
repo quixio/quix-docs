@@ -101,3 +101,6 @@ Feel free to explore the code further.
 
 * [Read a CSV file](../../develop/integrate-data/read-csv.md)
 
+## 🏃‍♀️ Next step
+
+[Part 3 - Data ingestion :material-arrow-right-circle:{ align=right }](./data-ingestion.md)
