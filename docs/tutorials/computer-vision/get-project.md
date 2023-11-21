@@ -9,7 +9,7 @@ In the following sections you learn how to:
 1. Fork an existing project repository, in this case the computer vision template project.
 2. Create a new project (and environment) in Quix linked to your forked repository.
 
-In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for Quix.
+In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, in order to view code, examine data structures, and get a practical feel for Quix.
 
 ## 💡 Key ideas
 
@@ -42,8 +42,6 @@ To fork the repository:
         If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket, for example, you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case. Other providers support other options, check the documentation for your Git provider.
 
 ## Create your Quix project
-
-You can watch a video on how to create the project
 
 Now that you have a forked copy of the repository in your GitHub account, you can now link your Quix account to it. Doing this enables you to build and deploy the project in your Quix account, and examine the pipeline much more closely.
 

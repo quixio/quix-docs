@@ -1,6 +1,6 @@
 # Get the project
 
-While you can see the [deployed project running in Quix](TODO){target=_blank}, it can be useful to learn how to get a project up and running in Quix. 
+While you can see the [deployed project running in Quix](https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}, it can be useful to learn how to get a project up and running in your own Quix account. 
 
 Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your forked copy of the project. 
 
@@ -9,9 +9,9 @@ With a forked copy of the repository, you can also receive upstream bug fixes an
 In the following sections you learn how to:
 
 1. Fork an existing project repository, in this case the computer vision template project.
-2. Create a new project (and environment) in Quix linked to your forked repository.
+2. Create a new project (and environment) in Quix, linked to your forked repository.
 
-In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, viewing code, examining data structures, and getting a practical feel for Quix.
+In later parts of the tutorial you explore the project pipeline using the Quix data explorer and other tools, in order to view code, examine data structures, and get a practical feel for Quix.
 
 ## 💡 Key ideas
 
@@ -25,9 +25,11 @@ The key ideas on this page:
 
 ## Watch a video
 
-This video shows you how to fork the template project and create your project in Quix:
+This video shows you how to fork a template project and create your project in Quix:
 
 <div style="position: relative; padding-bottom: 49.61664841182914%; height: 0;"><iframe src="https://www.loom.com/embed/f1a462a7db8a44429261df1c03b26c48?sid=1e9fbaef-0961-4ccb-a597-d823e3a08b64" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Note, this is for another template project, but the process is the same.
 
 ## Fork the project repository
 
@@ -48,8 +50,6 @@ To fork the repository:
     If you don't have GitHub account you can use another Git provider, such as GitLab or Bitbucket. If using Bitbucket, for example, you could import the repository - this would act as a clone (a static snapshot) of the repository. This is a simple option for Bitbucket, but you would not receive upstream changes from the original repository once the repository has been imported. You would however have a copy of the project you could then modify to suit your use case. Other providers support other options, check the documentation for your Git provider.
 
 ## Create your Quix project
-
-You can watch a video on how to create the project
 
 Now that you have a forked copy of the repository in your GitHub account, you can now link your Quix account to it. Doing this enables you to build and deploy the project in your Quix account, and examine the pipeline much more closely.
 
@@ -110,6 +110,8 @@ At this point you can wait a few minutes for the pipeline services to completely
 
 ## Configure credentials
 
+You'll need to configure the following credentials for each service that needs them:
+
 | Environment Variable (secret) | Service(s) | Description|
 |---|---|---|
 | `redis_host` | Data ingestion, Real-time dashboard, Data aggregation, Data enrichment, Event detection | Host URL for Redis Cloud database |
@@ -120,10 +122,6 @@ At this point you can wait a few minutes for the pipeline services to completely
 
 You need to [create secrets](../../deploy/secrets-management.md) for these and then assign them to the appropriate [environment variables](../../deploy/environment-variables.md).
 
-### Other services
-
-Other optional services may require similar configuration, for example, the Quix Amazon S3 connector service requires your S3 credentials if you want to use it.
-
 ## 🏃‍♀️ Next step
 
-[Part 2 - TODO :material-arrow-right-circle:{ align=right }](TODO)
+[Part 2 - Clickstream producer :material-arrow-right-circle:{ align=right }](clickstream-producer.md)

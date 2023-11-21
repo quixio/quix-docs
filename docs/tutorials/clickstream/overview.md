@@ -4,16 +4,14 @@ In this tutorial you learn about a project template that analyzes a clickstream 
 
 This tutorial uses a [Quix template project](https://github.com/quixio/template-clickstream){target=_blank}.
 
-![TODO pipeline]()
-
-The project uses TODO
+![Clickstream analysis pipeline](../../images/project-templates/clickstream-pipeline.png)
 
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 
 <div>
-<a class="md-button md-button--primary" href="TODO" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
+<a class="md-button md-button--primary" href="https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
 
-<a class="md-button md-button" href="TODO" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
+<a class="md-button md-button" href="https://demo-webshop-frontend-demo-clickstreamanalysis-prod.deployments.quix.ai/" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
 
 <br/>
 </div>
@@ -30,7 +28,7 @@ Some of the technologies used by this template project are listed here.
 
 **Backend:** 
 
-* [Confluent Cloud](https://www.confluent.io/lp/confluent-cloud/){target=_blank}
+* [Redpanda Cloud](https://redpanda.com/redpanda-cloud){target=_blank}
 * [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
 * [Redis Cloud](https://redis.com/redis-enterprise-cloud/overview/){target=_blank}
 * [RocksDB](https://rocksdb.org/){target=_blank}
@@ -68,11 +66,9 @@ You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or
 
     While this tutorial uses an external Git account, Quix can also provide a Quix-hosted Git solution using Gitea for your own projects. You can watch a video on [how to create a project using Quix-hosted Git](https://www.loom.com/share/b4488be244834333aec56e1a35faf4db?sid=a9aa124a-a2b0-45f1-a756-11b4395d0efc){target=_blank}.
 
-If you want to use the Quix AWS S3 service (optional), you'll need to provide your credentials for accessing AWS S3.
-
 ## The pipeline
 
-There are several *main* stages in the [pipeline](TODO){target=_blank}:
+There are several *main* stages in the [pipeline](https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}:
 
 1. *Clickstream producer* - loads clickstream data from a CSV file. This represents user interactions with a shopping website over a period of 15 days. This runs as a service and the CSV file is automatically read repeatedly.
 2. *Data aggregation* - this service reads enriched data, performs various aggregations, and writes the results to Redis Cloud. These aggregations are then consumed by a Streamlit dashboard for visualization and analysis.
@@ -86,7 +82,7 @@ More details are provided on all these services later in the tutorial.
 
 ## Topics
 
-The following topics are present in the project:
+The following Kafka topics are present in the project:
 
 | Topic | Description | Producer service | Consumer service(s)
 |---|---|---|---|
@@ -99,10 +95,11 @@ The following topics are present in the project:
 This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
 1. [Get the project](get-project.md) - you get the project up and running in your Quix account. 
+2. [Clickstream producer](clickstream-producer.md) - take a look at the clickstream producer service.
 
 ...
 
-8. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
+x. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
 
 ## 🏃‍♀️ Next step
 
