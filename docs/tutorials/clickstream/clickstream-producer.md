@@ -80,7 +80,22 @@ There are many ways to view the code for the application (which is then deployed
 
 You'll now be in the code view with the **version of the deployed code** displayed.
 
-TODO - some more explanation of code
+If you review the code, you'll see that the CSV file is read on a background thread, and data published to streams based on the `userId`:
+
+``` python
+stream_producer = producer_topic.get_or_create_stream(row['userId'])
+stream_producer.timeseries.publish(df_row)
+```
+
+If you keep the original timing of the data, that is respected, although the delays are kept within 0 and 10 seconds. If `keep_timing` is `False` then a delay of 200ms is used between publishing data:
+
+``` python
+if not keep_timing:
+    # Don't want to keep the original timing or no timestamp? That's ok, just sleep for 200ms
+    time.sleep(0.2)
+```
+
+Feel free to explore the code further.
 
 ## Further reading
 
