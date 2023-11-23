@@ -96,10 +96,14 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 1. [Get the project](get-project.md) - you get the project up and running in your Quix account. 
 2. [Clickstream producer](clickstream-producer.md) - take a look at the clickstream producer service.
-
-...
-
-x. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
+3. [Data ingestion](./data-ingestion.md) - data ingestion job. Loads products and users from JSON files into Redis Cloud.
+4. [Data enrichment](./data-enrichment.md) - this service enriches the clickstream data with product category, and additional user information.
+5. [Data aggregation](./data-aggregation.md) - performs various aggregations on the data and adds them to Redis Cloud. RocksDB is used to hold state.
+6. [Event detection](./event-detection.md) - implements a simple state machine that detects when conditions for an offer have been met.
+7. [Webshop frontend](./webshop-frontend.md) - the UI for the online shop.
+8. [Real-time dashboard](./realtime-dashboard.md) - a very useful real-time dashboard implementation using Streamlit.
+9. [Lab: change offer](./change-offer.md) - in this part you customize the event detection service.
+10. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
 
 ## 🏃‍♀️ Next step
 
