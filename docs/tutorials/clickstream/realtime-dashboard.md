@@ -12,4 +12,4 @@ Once the charts are laid out, they are updated every one second in real time by 
 
 ## 🏃‍♀️ Next step
 
-[Part 9 - Lab :material-arrow-right-circle:{ align=right }](TODO)
+[Part 9 - Lab :material-arrow-right-circle:{ align=right }](./change-offer.md)
