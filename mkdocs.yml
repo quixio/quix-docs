@@ -208,9 +208,12 @@ plugins:
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
         'platform/how-to/replay.md': 'manage/replay.md'
         'platform/how-to/create-project.md': 'create/create-project.md'
-        'client-library/quickstart.md': 'quix-streams/quickstart.md'
-        'client-library/connect.md': 'quix-streams/connect.md'
         'client-library-intro.md': 'quix-streams/client-library-intro.md'
+        'client-library/quickstart.md': 'quix-streams/v0-5-stable/quickstart.md'
+        'client-library/connect.md': 'quix-streams/v0-5-stable/connect.md'
+        'quix-streams/subscribe.md': 'quix-streams/v0-5-stable/subscribe.md'
+        'quix-streams/publish.md': 'quix-streams/v0-5-stable/publish.md'
+        'quix-streams/state-management.md': 'quix-streams/v0-5-stable/state-management.md'
 
 theme:
   name: 'material'
