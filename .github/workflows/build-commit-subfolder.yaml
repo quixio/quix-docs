@@ -119,7 +119,7 @@ jobs:
     # copy client library images to client library intro.md
     - name: Copy Client Library Quix image
       shell: bash
-      run: cp client-library/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
+      run: cp client-library/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
 
     # copy client library images to docs/assets/client-library/
     - name: Copy client library waveform image
