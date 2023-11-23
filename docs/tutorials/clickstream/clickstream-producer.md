@@ -1,6 +1,6 @@
 # Clickstream producer
 
-In this project, clickstream data is read from a CSV file. This data represents fifteen days of shopping data gathered from a real online store. 
+In this project the clickstream data is read from a CSV file. This data represents fifteen days of shopping data gathered from a real online store. 
 
 ![pipline section](../../images/project-templates/clickstream-pipeline-section-producer.png)
 

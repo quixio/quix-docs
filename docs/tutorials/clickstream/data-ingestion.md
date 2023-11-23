@@ -20,13 +20,13 @@ Each product data item has the following format:
 
 ``` json
 {
-        "id": "VD55181667",
-        "category": "books",
-        "title": "Chronicles of the Ancient Forest by John Smith",
-        "description": "Immerse yourself in the captivating world created by John Smith. Chronicles of the Ancient Forest takes you on a journey through an ancient forest filled with mystery and wonder. A must-read for fans of fantasy and adventure.",
-        "image": "VD55181667.png",
-        "price": 92.04
-    }
+    "id": "VD55181667",
+    "category": "books",
+    "title": "Chronicles of the Ancient Forest by John Smith",
+    "description": "Immerse yourself in the captivating world created by John Smith. Chronicles of the Ancient Forest takes you on a journey through an ancient forest filled with mystery and wonder. A must-read for fans of fantasy and adventure.",
+    "image": "VD55181667.png",
+    "price": 92.04
+}
 ```
 
 Each user data item has the following format:

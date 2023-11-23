@@ -115,7 +115,7 @@ nav:
       - '6. Event detection': 'tutorials/clickstream/event-detection.md'
       - '7. Webshop frontend': 'tutorials/clickstream/webshop-frontend.md'
       - '8. Real-time dashboard': 'tutorials/clickstream/realtime-dashboard.md'
-      - '9. Lab': 'tutorials/clickstream/lab.md'
+      - '9. Lab: change offer': 'tutorials/clickstream/change-offer.md'
       - '10. Summary': 'tutorials/clickstream/summary.md'
     - 'Computer vision': 
       - 'Overview': 'tutorials/computer-vision/overview.md'
