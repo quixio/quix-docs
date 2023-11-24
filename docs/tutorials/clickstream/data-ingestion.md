@@ -2,6 +2,8 @@
 
 This application runs as a job and loads product and user data from JSON files and writes the information to Redis Cloud. The product data is used to populate the online store. User data is used later to trigger special offers targeting a specific demographic.
 
+![Data ingestion](./images/data-ingestion-pipeline-segment.png)
+
 ## Data format
 
 You'll now investigate the format for the data ingested by the job.

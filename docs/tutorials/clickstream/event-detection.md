@@ -2,6 +2,8 @@
 
 This service monitors the user behavior in real time, using a simple state machine. The idea is the state machine detects when conditions for a offer should be triggered. The offer is tailored to the user demographic.
 
+![Event detection](./images/event-detection-pipeline-segment.png)
+
 ## Offer logic
 
 The offer logic is implemented in the `process_dataframe` method, and first of all cleans data to avoid storing unnecessary data in memory - it cleans page refreshes and ignores all actions that are not considered for the offers.

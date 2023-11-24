@@ -13,6 +13,8 @@ The real-time dashboard displays:
 * State machine log (useful for troubleshooting)
 * Raw data view
 
+![Data aggregation](./images/data-aggregation-pipeline-segment.png)
+
 ## Last hour of data
 
 For the last hour of data the data format is:

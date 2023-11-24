@@ -2,6 +2,8 @@
 
 This service is used to enrich the clickstream data with the product category, and the visitor's gender, birthday, and age. This data is obtained from Redis Cloud, which is populated by the data ingestion job.
 
+![Data enrichment](./images/data-enrichment-pipeline-segment.png)
+
 The service subscribes to the `click-data` topic, enriches the data, and then publishes it to  the `enriched-click-data` topic.
 
 The enriched data format:

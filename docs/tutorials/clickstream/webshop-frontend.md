@@ -2,6 +2,10 @@
 
 This service implements the webshop frontend. 
 
+![Webshop frontend](./images/webshop-frontend-pipeline-segment.png)
+
+You can select age and gender, and browse various products in the online shop. The UI is shown here:
+
 ![Webshop frontend](./images/webshop-frontend.png)
 
 ## Topics
