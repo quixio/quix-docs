@@ -152,7 +152,7 @@ nav:
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
   - 'Quix Streams':
     - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
-    - 'v2.0+ (alpha)': '!import https://github.com/quixio/quix-streams?branch=main'
+    - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
 
 plugins:
   - multirepo:
