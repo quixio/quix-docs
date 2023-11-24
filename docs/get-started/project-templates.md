@@ -6,7 +6,7 @@ Project templates also provide a starting point for your own projects - our proj
 
 <div class="grid cards" markdown>
 
-- __Computer Vision__
+- __Computer vision__
 
     ---
 
@@ -26,7 +26,7 @@ Project templates also provide a starting point for your own projects - our proj
 
     [Explore :octicons-arrow-right-24:](../tutorials/sentiment-analysis/overview.md)
 
--   __Clickstream analysis__
+- __Clickstream analysis__
 
     ---
     
