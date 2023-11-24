@@ -4,7 +4,7 @@ In this tutorial you learn about a project template that analyzes a clickstream 
 
 This tutorial uses a [Quix template project](https://github.com/quixio/template-clickstream){target=_blank}.
 
-![Clickstream analysis pipeline](../../images/project-templates/clickstream-pipeline.png)
+![Clickstream analysis pipeline](./images/clickstream-pipeline.png)
 
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 

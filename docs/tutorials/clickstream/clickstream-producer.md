@@ -2,7 +2,7 @@
 
 In this project the clickstream data is read from a CSV file. This data represents fifteen days of shopping data gathered from a real online store. 
 
-![pipline section](../../images/project-templates/clickstream-pipeline-section-producer.png)
+![pipline section](./images/clickstream-pipeline-section-producer.png)
 
 ## Data published
 
@@ -20,7 +20,7 @@ This service runs continually, reloading the data from the CSV file. There's als
 
 If you click `Topics` in the main left-hand navigation you see the topics in the environment:
 
-![Clickstream Topics](../../images/project-templates/clickstream-topics.png)
+![Clickstream Topics](./images/clickstream-topics.png)
 
 Click in the `Data` area to view live data. This takes you into the Quix data explorer. You can then select the stream and parameter data you'd like to explore. You can then view this data in either the `Table` or `Messages` view.
 
@@ -62,7 +62,7 @@ The Quix data explorer is a very useful tool for debugging and monitoring your p
 
 In the left-hand main navigation, click `Deployments` to see all the deployed services and jobs in the environment:
 
-![Clickstream deployments](../../images/project-templates/clickstream-deployments.png)
+![Clickstream deployments](./images/clickstream-deployments.png)
 
 Click `Clickstream producer` to select the deployment. This takes you to an extremely useful screen where you can:
 
@@ -76,7 +76,7 @@ Click `Clickstream producer` to select the deployment. This takes you to an extr
 
 There are many ways to view the code for the application (which is then deployed as a job or service). The quickest way from the current screen is to click the area shown:
 
-![Go to code view](../../images/project-templates/clickstream-deployment-code-view.png)
+![Go to code view](./images/clickstream-deployment-code-view.png)
 
 You'll now be in the code view with the **version of the deployed code** displayed.
 

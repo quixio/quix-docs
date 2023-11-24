@@ -2,7 +2,7 @@
 
 This service implements the webshop frontend. 
 
-![Webshop frontend](../../images/project-templates/webshop-frontend.png)
+![Webshop frontend](./images/webshop-frontend.png)
 
 ## Topics
 

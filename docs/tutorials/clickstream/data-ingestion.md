@@ -8,7 +8,7 @@ You'll now investigate the format for the data ingested by the job.
 
 1. Click `Applications` in the main left-hand navigation. You'll see a list of Applications in the environment:
 
-    ![Clickstream Applications](../../images/project-templates/clickstream-applications.png)
+    ![Clickstream Applications](./images/clickstream-applications.png)
 
 2. Click `Data ingestion` to load the code view.
 
