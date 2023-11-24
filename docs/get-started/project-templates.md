@@ -26,4 +26,16 @@ Project templates also provide a starting point for your own projects - our proj
 
     [Explore :octicons-arrow-right-24:](../tutorials/sentiment-analysis/overview.md)
 
+-   __Clickstream analysis__
+
+    ---
+    
+    ![Clickstream analysis pipeline](../images/project-templates/clickstream-analysis-pipeline.png)
+
+    `Project template`
+
+    Clickstream analysis for online shop data. Features real-time dashboard and web shop user interface.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/clickstream/overview.md)
+
 </div>
