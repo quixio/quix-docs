@@ -8,3 +8,8 @@ package-lock.json
 package.json
 .cache
 temp_dir/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
