@@ -106,11 +106,11 @@ Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
 5. Click the `Sync` button to synchronize the environment, and then click `Go to pipeline`. You will see the pipeline building.
 
-At this point you can wait a few minutes for the pipeline services to completely build and start running.
+At this point you can wait a few minutes for the pipeline services to completely build and start running. You'll see that some services are restarting, and if you check the logs you'll see that certain credentials are required for those services. In particular, access to Redis is required, and the webshop frontend requires a [PAT](../../develop/authentication/personal-access-token.md) too. Stop the services that aren't starting correctly and then configure the credentials as described in the next section.
 
 ## Configure credentials
 
-You'll need to configure the following credentials for each service that needs them:
+You'll need to configure the following credentials for each Quix service that needs them:
 
 | Environment Variable (secret) | Service(s) | Description|
 |---|---|---|
@@ -120,7 +120,30 @@ You'll need to configure the following credentials for each service that needs t
 | `redis_password` | Data ingestion, Real-time dashboard, Data aggregation, Data enrichment, Event detection | Password for the Redis Cloud database - found from Security section |
 | `bearer_token` | Webshop frontend | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs |
 
-You need to [create secrets](../../deploy/secrets-management.md) for these and then assign them to the appropriate [environment variables](../../deploy/environment-variables.md).
+The above is a list of environment variables that are configured as secrets (rather than, for example, free text variables). After you've forked your project, you will see a "missing secret" error for each environment variable that does not have its secret value configured.
+
+You need to [create secrets](../../deploy/secrets-management.md) for these and then assign them to the corresponding [environment variables](../../deploy/environment-variables.md).
+
+To create the secrets:
+
+1. Click on Settings in the botton left-hand corner of the Quix UI.
+
+2. Scroll down to the bottom of the screen and click on `Secrets management`.
+
+3. In the `Secrets management` dialog, click `+ New secret` and use this to create the following secrets (key value pairs) based on your Redis account:
+
+    * `redis_host`
+    * `redis_port`
+    * `redis_username`
+    * `redis_password`
+
+4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../develop/authentication/personal-access-token.md).
+
+These secrets are then automatically assigned to their corresponding environment variables.
+
+If you have named your secrets slightly differently to the environment variable names, you can still assign the secrets to environment variables by using the dropdown in the Deployment dialog:
+
+![Secrets dropdown](./images/assign-secret-dropdown.png)
 
 ## 🏃‍♀️ Next step
 

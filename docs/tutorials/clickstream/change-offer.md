@@ -83,7 +83,7 @@ Now that you've modified the code, you'll now test your changes:
 
 1. Tag your changes, for example as `change-offer-v1`.
 
-2. Click the `Redeploy` button and select your changed version from the `Version tag` drop down.
+2. Click the `Redeploy` button and select your changed version from the `Version tag` dropdown.
 
 3. Once the `Event detection` service is running again, reload the web shop. 
 

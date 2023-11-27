@@ -2,7 +2,7 @@
 
 In this tutorial you learn about a project template that analyzes a clickstream in real time, and generates events based on behavior. You use Python, rather than kSQL to perform aggregations and implement event logic based on user behavior.
 
-This tutorial uses a [Quix template project](https://github.com/quixio/template-clickstream){target=_blank}.
+This tutorial uses the [Quix Clickstream analysis template project](https://github.com/quixio/template-clickstream){target=_blank}.
 
 ![Clickstream analysis pipeline](./images/clickstream-pipeline.png)
 
