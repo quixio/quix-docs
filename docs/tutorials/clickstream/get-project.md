@@ -106,7 +106,7 @@ Now create an environment called `Tutorial` which uses the `tutorial` branch:
 
 5. Click the `Sync` button to synchronize the environment, and then click `Go to pipeline`. You will see the pipeline building.
 
-At this point you can wait a few minutes for the pipeline services to completely build and start running. You'll see that some services are restarting, and if you check the logs you'll see that certain credentials are required for those services. In particular, access to Redis is required, and the webshop frontend requires a [PAT](../../develop/authentication/personal-access-token.md) too. Stop the services that aren't starting correctly and then configure the credentials as described in the next section.
+At this point you can wait a few minutes for the pipeline services to completely build and start running. You'll see that some services are restarting, and if you check the logs you'll see that certain credentials are required for those services. In particular, access to Redis is required, and the webshop frontend requires a [PAT](../../develop/authentication/personal-access-token.md) too. Stop the services that aren't starting correctly, and then configure the credentials as described in the next section.
 
 ## Configure credentials
 
