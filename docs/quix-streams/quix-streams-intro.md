@@ -1,0 +1,1 @@
+This file is replaced with the Quix Streams (latest) README.md file during the build
