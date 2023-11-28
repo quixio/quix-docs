@@ -6,7 +6,7 @@ Project templates also provide a starting point for your own projects - our proj
 
 <div class="grid cards" markdown>
 
-- __Computer Vision__
+- __Computer vision__
 
     ---
 
@@ -25,5 +25,15 @@ Project templates also provide a starting point for your own projects - our proj
     A project template that implements a chat application with sentiment analysis.
 
     [Explore :octicons-arrow-right-24:](../tutorials/sentiment-analysis/overview.md)
+
+- __Clickstream analysis__
+
+    ---
+    
+    ![Clickstream analysis pipeline](../images/project-templates/clickstream-analysis-pipeline.png)
+
+    Clickstream analysis for online shop data. Features real-time dashboard and web shop user interface.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/clickstream/overview.md)
 
 </div>

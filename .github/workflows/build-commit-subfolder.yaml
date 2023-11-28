@@ -102,7 +102,7 @@ jobs:
     #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
     #   id: extract_branch
       
-    # checkout client library files
+    ###### checkout client library files - legacy version
     - name: Checkout Client Library
       uses: actions/checkout@v3
       with:
@@ -114,12 +114,12 @@ jobs:
     # copy client-library readme to client-library intro.md
     - name: Copy and rename client library intro.md
       shell: bash
-      run: cp client-library/README.md docs/client-library-intro.md
+      run: cp client-library/README.md docs/quix-streams/client-library-intro.md
 
     # copy client library images to client library intro.md
     - name: Copy Client Library Quix image
       shell: bash
-      run: cp client-library/images/quixstreams-banner.jpg docs/assets/quixstreams-banner.jpg
+      run: cp client-library/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
 
     # copy client library images to docs/assets/client-library/
     - name: Copy client library waveform image
@@ -130,12 +130,50 @@ jobs:
     # sed -i 's/old-text/new-text/g' input.txt
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/client-library-intro.md"
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/quix-streams/client-library-intro.md"
     
     # Change image paths from ./images to ./assets/client-library
     - name: Update intro.md
       shell: bash
-      run: "sed -i 's,./images,./assets/client-library/,g' docs/client-library-intro.md"
+      run: "sed -i 's,./images,./assets/client-library/,g' docs/quix-streams/client-library-intro.md"
+
+    ###### checkout client library files - latest version
+    # Requires mkdocs.yml in quix streams repo to have Introduction: quix-streams-intro.md
+    - name: Checkout Client Library
+      uses: actions/checkout@v3
+      with:
+        repository: 'quixio/quix-streams'
+        ref: 'main' # when a dev branch exists we can get the dev content
+        #ref: '{{ steps.extract_branch.outputs.branch }}'
+        path: 'quix-streams'
+
+    # copy client-library readme to quix-streams-intro.md
+    - name: Copy and rename client library intro.md
+      shell: bash
+      run: cp quix-streams/README.md docs/quix-streams/quix-streams-intro.md
+
+    # copy client library images to client library intro.md
+    - name: Copy Client Library Quix image
+      shell: bash
+      run: cp quix-streams/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
+
+    # copy client library images to docs/assets/client-library/
+    - name: Copy client library waveform image
+      shell: bash
+      run: cp -r quix-streams/images/. docs/assets/quix-streams/
+
+    # Change image URL in the copied file to new location 
+    # sed -i 's/old-text/new-text/g' input.txt
+    - name: Update intro.md
+      shell: bash
+      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/quix-streams/quix-streams-intro.md"
+    
+    # Change image paths from ./images to ./assets/client-library
+    - name: Update intro.md
+      shell: bash
+      run: "sed -i 's,./images,./assets/quix-streams/,g' docs/quix-streams/quix-streams-intro.md"
+
+    ###
 
     # clone the library repo
     - name: Checkout Samples

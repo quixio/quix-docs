@@ -105,6 +105,18 @@ nav:
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
+    - 'Clickstream analysis': 
+      - 'Overview': 'tutorials/clickstream/overview.md'
+      - '1. Get the project': 'tutorials/clickstream/get-project.md'
+      - '2. Clickstream producer': 'tutorials/clickstream/clickstream-producer.md'
+      - '3. Data ingestion': 'tutorials/clickstream/data-ingestion.md'
+      - '4. Data enrichment': 'tutorials/clickstream/data-enrichment.md'
+      - '5. Data aggregation': 'tutorials/clickstream/data-aggregation.md'
+      - '6. Event detection': 'tutorials/clickstream/event-detection.md'
+      - '7. Webshop frontend': 'tutorials/clickstream/webshop-frontend.md'
+      - '8. Real-time dashboard': 'tutorials/clickstream/realtime-dashboard.md'
+      - '9. Lab: change offer': 'tutorials/clickstream/change-offer.md'
+      - '10. Summary': 'tutorials/clickstream/summary.md'
     - 'Computer vision': 
       - 'Overview': 'tutorials/computer-vision/overview.md'
       - '1. Get the project': tutorials/computer-vision/get-project.md
@@ -150,7 +162,20 @@ nav:
     - 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
     - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
+  - 'Quix Streams':
+    - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
+    - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
+
+
+# Exclude build scripts from v2.0+
+exclude_docs: |
+  quix-streams/v2-0-latest/build/*
+
+
+# Use custom hook to create redirects for 0.5 docs
+hooks:
+- hooks/redirect_0_5_urls.py
+
 
 plugins:
   - multirepo:
@@ -206,14 +231,18 @@ plugins:
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
         'platform/how-to/replay.md': 'manage/replay.md'
         'platform/how-to/create-project.md': 'create/create-project.md'
-        'client-library/quickstart.md': 'quix-streams/quickstart.md'
-        'client-library/connect.md': 'quix-streams/connect.md'
+        'client-library-intro.md': 'quix-streams/client-library-intro.md'
+#        'client-library/quickstart.md': 'quix-streams/v0-5-stable/quickstart.md'
+#        'client-library/connect.md': 'quix-streams/v0-5-stable/connect.md'
+#        'quix-streams/subscribe.md': 'quix-streams/v0-5-stable/subscribe.md'
+#        'quix-streams/publish.md': 'quix-streams/v0-5-stable/publish.md'
+#        'quix-streams/state-management.md': 'quix-streams/v0-5-stable/state-management.md'
 
 theme:
   name: 'material'
   custom_dir: overrides
-  features:
-    - content.code.copy
+#  features:
+
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
@@ -238,6 +267,7 @@ theme:
         name: Switch to light mode
   
   features:
+  - content.code.copy
   - navigation.instant     # Instant loading pages.
 #  - navigation.sections    # Render top sections as groups.
   - navigation.top         # Adds a "Back to top" that is shown when scrolling up.
