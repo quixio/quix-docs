@@ -105,6 +105,18 @@ nav:
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
+    - 'Predictive maintenance': 
+      - 'Overview': 'tutorials/predictive-maintenance/overview.md'
+      - '1. Get the project': 'tutorials/predictive-maintenance/get-project.md'
+      - '2. Data generator': 'tutorials/predictive-maintenance/data-generator.md'
+      - '3. Down sampling': 'tutorials/predictive-maintenance/downsampling.md'
+      - '4. Forecast service': 'tutorials/predictive-maintenance/forecast-service.md'
+      - '5. Alert service': 'tutorials/predictive-maintenance/alert-service.md'
+      - '6. InfluxDB - raw data': 'tutorials/predictive-maintenance/influxdb-raw-data.md'
+      - '7. InfluxDB - alerts': 'tutorials/predictive-maintenance/influxdb-alerts.md'
+      - '8. Printers dashboard': 'tutorials/predictive-maintenance/printers-dashboard.md'
+      - '9. Lab: TODO': 'tutorials/predictive-maintenance/TODO.md'
+      - '10. Summary': 'tutorials/predictive-maintenance/summary.md'
     - 'Clickstream analysis': 
       - 'Overview': 'tutorials/clickstream/overview.md'
       - '1. Get the project': 'tutorials/clickstream/get-project.md'
