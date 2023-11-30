@@ -77,6 +77,34 @@ These alerts are subscribed to by the Printers dashboard service, and the alerts
 
 ![Alerts](./images/alerts-display.png)
 
+## Check the log messages
+
+It can be very useful to check the logs for a service. To do this from the pipeline view:
+
+1. Click on Alert Service in the pipeline view.
+
+2. Click the `Logs` tab.
+
+You can now view the log messages:
+
+![Log messages](./images/alert-service-logging.png)
+
+## View the message format
+
+You can also view the actual messages being transferred through the service:
+
+1. Click the `Messages` tab.
+
+2. You can now select either the input or oputput topic as required from the topic drop down:
+
+    ![Topic drop down](./images/messages-topic-dropdown.png)
+
+3. You can now explore the messages. Click on a message to display it:
+
+    ![Message format](./images/message-format.png)
+
+  Make sure you click the `Live` tab to continue viewing live messages.
+
 ## 🏃‍♀️ Next step
 
 [Part 6 - InfluxDB raw data service :material-arrow-right-circle:{ align=right }](./influxdb-raw-data.md)
