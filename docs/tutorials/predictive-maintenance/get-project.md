@@ -147,4 +147,4 @@ If you have named your secrets slightly differently to the environment variable 
 
 ## 🏃‍♀️ Next step
 
-[Part 2 - Clickstream producer service :material-arrow-right-circle:{ align=right }](TODO)
+[Part 2 - Data generator service :material-arrow-right-circle:{ align=right }](./data-generator.md)

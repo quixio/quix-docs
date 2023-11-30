@@ -53,6 +53,16 @@ To get started make sure you have a [free Quix account](https://portal.platform.
 
 You'll need a [free InfluxDB](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank} account to try this out in your Quix account.
 
+## Pushover 
+
+If you want to implement the optional lab task to add phone alerts to your pipeline, you will need to sign up for a free [Pushover](https://pushover.net/signup){target=_blank} account. 
+
+Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and generate an API token. 
+
+This enables you to send notifications to your phone. 
+
+Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
+
 ### Git provider
 
 You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](){target=_blank}.
@@ -68,8 +78,10 @@ There are several *main* stages in the [pipeline](TODO){target=_blank}:
 1. *Data generator* - generates the temperature data for a fleet of 3D printers.
 2. *Downsampling* - downsamples data from one second to one minute.
 3. *Forecast* - uses the `scikit-learn`library to predict 3D printer temperature.
-4. *Alert* -  
-5. **
+4. *Alerts* - triggers alerts if thresholds are exceeded for current temperature data, and forecast data.  
+5. *InfluxDB - raw data* - stores the downsampled data in InfluxDB for permanent storage.
+6. *InfluxDB - alerts* - stores the alert messages in InfluxDB for permanent storage.
+7. *Printers dashboard* - dipslays the temperature data for the specified data, including predicted ambient (enclosure) temperature.
 
 More details are provided on all these services later in the tutorial.
 
@@ -90,7 +102,23 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 1. [Get the project](get-project.md) - you get the project up and running in your Quix account. 
 
-x. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
+2. [Data generator](./data-generator.md) - you explore the data generator service, including generated message format and application code.
+
+3. [Downsampling](./downsampling.md) - you see how data is downsampled from 1 second to 1 minute using buffering and aggregation.
+
+4. [Forecast](./forecast-service.md) - you learn that the `scikit-learn` library is used to make a prediction of ambient temperature using a linear regression algorithm.
+
+5. [Alerts](./alert-service.md) - you learn how this service generates alerts based on thresholds held in environment variables.
+
+6. [InfluxDB - raw data](./influxdb-raw-data.md) - you see how InfluxDB is used to permanently store downsampled printer temperature data.
+
+7. [InfluxDB - alerts](./influxdb-alerts.md) - you see how InfluxDB is used to permanently store alert messages.
+
+8. [Printers dashboard](./printers-dashboard.md) - you learn how Streaming Reader API can enable your web app to subscribe to messages published to Quix topics. 
+
+9. [Lab: add phone alerts](./phone-alerts.md) - you add a phone alerts service to your pipeline, using the Pushover service, and the Quix ready-to-use Pushover connector.
+
+10. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
 
 ## 🏃‍♀️ Next step
 
