@@ -35,7 +35,9 @@ Some of the technologies used by this template project are listed here.
 
 **Frontend:** 
 
-* [Grafana](https://grafana.com/grafana/){target=_blank}
+* [Angular](https://angular.io/){target=_blank}
+* [Typescript](https://www.typescriptlang.org/){target=_blank}
+* [Microsoft SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/){target=_blank}
 
 ## GitHub repository
 

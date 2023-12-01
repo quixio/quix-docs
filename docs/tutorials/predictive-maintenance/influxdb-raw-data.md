@@ -1,10 +1,10 @@
 # InfluxDB - raw data
 
-Writes the downsampled data to InfluxDB database for permanent storage.
+This service uses the standard Quix InfluxDB 3.0 [connector](../../connectors/index.md). This connector enables the service to subscribe to messages on a Quix topic to be stored in InfluxDB.
 
 ![InfluxDB raw data pipeline segment](./images/influxdb-raw-data-pipeline-segment.png)
 
-This service makes use of the the standard InfluxDB destination [connector](../../connectors/index.md).
+In this pipeline the connector subscribes to the `downsampled-3d-printer-data` topic, and writes these messages into InfluxDB for permanent storage.
 
 ## Query the data in InfluxDB
 

@@ -87,7 +87,7 @@ def on_event_data_received_handler(stream_consumer: qx.StreamConsumer, data: qx.
 
 Commit your changes.
 
-### Test your changes
+### Test the service
 
 Now that you've modified the code, you'll now test your changes:
 
