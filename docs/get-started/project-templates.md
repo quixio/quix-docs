@@ -36,4 +36,14 @@ Project templates also provide a starting point for your own projects - our proj
 
     [Explore :octicons-arrow-right-24:](../tutorials/clickstream/overview.md)
 
+- __Predictive maintenance__
+
+    ---
+    
+    ![Predictive maintenance pipeline](../images/project-templates/predictive-maintenance-pipeline.png)
+
+    Predicts failures in 3D printers.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/predictive-maintenance/overview.md)
+
 </div>

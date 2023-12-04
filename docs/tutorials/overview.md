@@ -44,6 +44,18 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
 
     [Explore :octicons-arrow-right-24:](../tutorials/clickstream/overview.md)
 
+-   __Predictive maintenance__
+
+    ---
+    
+    ![Predictive maintenance pipeline](../images/project-templates/predictive-maintenance-pipeline.png)
+
+    `Project template`
+
+    Predicts failures in 3D printers.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/predictive-maintenance/overview.md)
+
 -   __Train and deploy machine learning (ML)__
 
     ---
