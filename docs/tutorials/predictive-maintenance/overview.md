@@ -9,9 +9,9 @@ This tutorial uses the [Quix predictive maintenance template project](https://gi
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 
 <div>
-<a class="md-button md-button--primary" href="TODO" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
+<a class="md-button md-button--primary" href="https://portal.platform.quix.io/pipeline?workspace=demo-predictivemaintenance-production&token=pat-b88b3caf912641a1b0fa8b47b262868b" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
 
-<a class="md-button md-button" href="TODO" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
+<a class="md-button md-button" href="https://dash-demo-predictivemaintenance-production.deployments.quix.io/?_ga=2.114191879.1628320822.1701679251-1544698923.1686060578" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
 
 <br/>
 </div>
@@ -75,7 +75,7 @@ You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or
 
 ## The pipeline
 
-There are several *main* stages in the [pipeline](TODO){target=_blank}:
+There are several *main* stages in the [pipeline](https://portal.platform.quix.io/pipeline?workspace=demo-predictivemaintenance-production&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}:
 
 1. *Data generator* - generates the temperature data for a fleet of 3D printers.
 2. *Downsampling* - downsamples data from one second to one minute.

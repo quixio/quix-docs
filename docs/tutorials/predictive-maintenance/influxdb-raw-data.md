@@ -8,7 +8,11 @@ In this pipeline the connector subscribes to the `downsampled-3d-printer-data` t
 
 ## Query the data in InfluxDB
 
-TODO (need working tutorial branch) - show data in InfluxDB
+Log into your InfluxDB account. Go to the data explorer, select the Measurement `Data`, and then construct a query to examine the data being stored in your database. For example:
+
+![InfluxDB - Data](./images/influxdb_data.png)
+
+Explore the table of data to ensure you are familiar with the data stored.
 
 ## 🏃‍♀️ Next step
 

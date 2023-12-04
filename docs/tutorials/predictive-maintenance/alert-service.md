@@ -31,12 +31,6 @@ Note there are different alert types, with the message format for the `no-alert`
 }
 ```
 
-An example of the `over-now` alert message format:
-
-``` json
-TODO
-```
-
 An example of the `under-now` alert message format:
 
 ``` json

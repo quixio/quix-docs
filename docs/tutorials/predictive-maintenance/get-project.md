@@ -1,6 +1,6 @@
 # Get the project
 
-While you can see the [deployed project running in Quix](TODO){target=_blank}, it can be useful to learn how to get a project up and running in your own Quix account. 
+While you can see the [deployed project running in Quix](https://portal.platform.quix.io/pipeline?workspace=demo-predictivemaintenance-production&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}, it can be useful to learn how to get a project up and running in your own Quix account. 
 
 Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your forked copy of the project. 
 
@@ -59,7 +59,7 @@ To link Quix to this forked repository:
 
 2. Click `+ Create project`.
 
-3. Give your project a name. For example, "Clickstream".
+3. Give your project a name. For example, "3D Printers".
 
 4. Select `Connect to your own Git repo`, and follow the setup guide for your provider.
 
@@ -144,6 +144,10 @@ These secrets are then automatically assigned to their corresponding environment
 If you have named your secrets slightly differently to the environment variable names, you can still assign the secrets to environment variables by using the dropdown in the Deployment dialog:
 
 ![Secrets dropdown](./images/assign-secret-dropdown.png)assign
+
+!!! note
+
+    You will need to restart services (if they are running) where you have just added a secret.
 
 ## 🏃‍♀️ Next step
 
