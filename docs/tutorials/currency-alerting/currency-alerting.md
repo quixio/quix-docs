@@ -145,13 +145,13 @@ This microservice reads from the `currency-rate-alerts` topic and whenever a new
 
 It also reads the contents of the message and enriches the notification with details on how the threshold was crossed, that is, whether the price is moving up or down.
 
-To set up the push nonfiction microservice, follow these steps:
+To set up the push notification microservice, follow these steps:
 
 1. Click on the `Code Samples` icon in the left-hand navigation.
 
 2. In the search box on the Code Samples page, enter "Pushover".
    
-      You will see the `Threshold Alert` sample appear in the search results: 
+      You will see the `Pushover Output` sample appear in the search results: 
       
       ![Pushover Notifications](./images/library-pushover.png "Pushover Notifications")
 
