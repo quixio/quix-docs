@@ -75,7 +75,7 @@ You're only interested in forecast over temperature alerts, which have the messa
 
 So you are looking for an `Id` of `over-forecast`.
 
-You only want to publish the alert message to the poutput topic if it has the correct ID. Modify the event handler to the following:
+You only want to publish the alert message to the output topic if it has the correct ID. Modify the event handler to the following:
 
 ``` python
 def on_event_data_received_handler(stream_consumer: qx.StreamConsumer, data: qx.EventData):
@@ -99,11 +99,9 @@ Now that you've modified the code, you'll now test your changes:
 
 ## Add the Pushover destination
 
-In this section you create a destination service that sends a push notification when an alert condition occurs. 
+In this section you create a destination service that sends a push notification to your phone when an alert condition occurs. 
 
-This microservice reads from the `ambient-alerts` topic and whenever a new message arrives, it sends a push notification to the Pushover app on your mobile phone.
-
-It also reads the contents of the message and enriches the notification with details on how the threshold was crossed, that is, whether the price is moving up or down.
+This service subscribes to the `ambient-alerts` topic and whenever a new message arrives, it sends a push notification to the Pushover app on your mobile phone.
 
 To set up the push notification service, follow these steps:
 

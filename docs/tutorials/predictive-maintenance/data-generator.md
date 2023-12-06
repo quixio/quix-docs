@@ -4,17 +4,11 @@ This service generates temperature data simulating one or more 3D printers. It s
 
 ![data generator pipeline segment](./images/data-generator-pipeline-segment.png)
 
-Each "virtual" printer is continuously printing in 8 hour cycles. For each printer, the enclosure temperature is programmed to drop below the minimum threshold at approximately 1h27m, 3h27m, 5h27m and 7h27m into the print. So each print will have four failure points.
+For each printer, the enclosure temperature is programmed to decrease starting at the 4 hour point. It will drop below the minimum threshold of 45°C at 5h:47m — the failure point.
 
-Since the data is running at ten times normal speed, the print lasts 48 minutes and a failure occurs approximately every 00h 08m 50s.
+The simulation speed is 10x actual spped, so the temperature will start to drop at approximately 24 minutes and cross the minimum threshold at around 34m 44s.
 
 When printing with a heat-sensitive material such as ABS (Acrylonitrile Butadiene Styrene), it’s important to ensure that the temperatures remain stable.
-
-This service simulates real-time data readouts for all three of a 3D printer’s temperature sensors for an 8-hour ABS print.
-
-In this simulation, the enclosure temperature starts to drop below the minimum threshold at 1h27m, 3h27m, 5h27m and 7h27m.
-
-You’ll want to know about this before it drops below the acceptable lower temperature threshold for ABS.
 
 The [forecasting algorithm](./forecast-service.md) that attempts to estimate when this is going to happen, and displays the alert on a dashboard.
 
@@ -95,13 +89,17 @@ Review the code, you'll see that data is generated for each printer, and each pr
 
 ``` python
 tasks = []
+printer_data = generate_data()
+
+# Distribute all printers over the data length
+delay_seconds = int(os.environ['datalength']) / replay_speed / number_of_printers
 
 for i in range(number_of_printers):
     # Set stream ID or leave parameters empty to get stream ID generated.
     name = f"Printer {i + 1}"  # We don't want a Printer 0, so start at 1
 
-    # Start sending data, each printer will start 5 minutes after the previous one
-    tasks.append(asyncio.create_task(generate_data_and_close_stream_async(topic_producer, name, i * 300)))
+    # Start sending data, each printer will start with some delay after the previous one
+    tasks.append(asyncio.create_task(generate_data_and_close_stream_async(topic_producer, name, printer_data.copy(), delay_seconds * i)))
 
 await asyncio.gather(*tasks)
 ```

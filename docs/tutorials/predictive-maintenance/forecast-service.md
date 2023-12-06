@@ -45,7 +45,7 @@ The forecast data format is:
 
 ## Prediction algorithm
 
-The work of the prediction is carried out by the scikit-learn library, using a quadratic polynomial (second order) linear regression algorithm:
+The work of the prediction is carried out by the `scikit-learn` library, using a quadratic polynomial (second order) linear regression algorithm:
 
 ``` python
 forecast_input = df[parameter_name]

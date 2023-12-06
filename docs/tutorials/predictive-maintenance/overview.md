@@ -1,6 +1,6 @@
 # Predictive maintenance
 
-In this tutorial you learn about a project template that demonstrates real-time predictive analytics. It simulates three temperature sensors on a fleet of 3D printers. It predicts temperature for the printers using 
+In this tutorial you learn about a project template that demonstrates real-time predictive analytics. It simulates three temperature sensors on a fleet of 3D printers. It predicts temperature for the printers using the `scikit-learn` library.
 
 This tutorial uses the [Quix predictive maintenance template project](https://github.com/quixio/template-predictive-maintenance){target=_blank}.
 
@@ -49,13 +49,13 @@ If you need any assistance while following the tutorial, we're here to help in t
 
 ## Prerequisites
 
-To get started make sure you have a [free Quix account](https://portal.platform.quix.ai/self-sign-up).
+To get started make sure you have a [free Quix account](https://portal.platform.quix.ai/self-sign-up){target="_blank"}.
 
 ### InfluxDB
 
 You'll need a [free InfluxDB](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank} account to try this out in your Quix account.
 
-## Pushover 
+### Pushover 
 
 If you want to implement the optional lab task to add phone alerts to your pipeline, you will need to sign up for a free [Pushover](https://pushover.net/signup){target=_blank} account. 
 
@@ -81,8 +81,8 @@ There are several *main* stages in the [pipeline](https://portal.platform.quix.i
 2. *Downsampling* - downsamples data from one second to one minute.
 3. *Forecast* - uses the `scikit-learn`library to predict 3D printer temperature.
 4. *Alerts* - triggers alerts if thresholds are exceeded for current temperature data, and forecast data.  
-5. *InfluxDB - raw data* - stores the downsampled data in InfluxDB for permanent storage.
-6. *InfluxDB - alerts* - stores the alert messages in InfluxDB for permanent storage.
+5. *InfluxDB - raw data* - writes the downsampled data to InfluxDB for permanent storage.
+6. *InfluxDB - alerts* - writes the alert messages to InfluxDB for permanent storage.
 7. *Printers dashboard* - dipslays the temperature data for the specified data, including predicted ambient (enclosure) temperature.
 
 More details are provided on all these services later in the tutorial.
@@ -120,7 +120,7 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 9. [Lab: add phone alerts](./phone-alerts.md) - you add a phone alerts service to your pipeline, using the Pushover service, and the Quix ready-to-use Pushover connector.
 
-10. [Summary](summary.md). In this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
+10. [Summary](summary.md) - in this concluding part you are presented with a summary of the work you have completed, and also some next steps for more advanced learning about Quix.
 
 ## 🏃‍♀️ Next step
 
