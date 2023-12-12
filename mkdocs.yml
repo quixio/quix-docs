@@ -81,6 +81,12 @@ nav:
     - 'YAML variables': 'deploy/yaml-variables.md'
     - 'State management': 'deploy/state-management.md'  
     - 'Deploy public services': 'deploy/deploy-public-page.md'
+    - 'Bring your own cluster':
+      - 'Overview': 'deploy/byoc/overview.md'
+      - 'Requirements': 'deploy/byoc/requirements.md'
+      - 'Installation': 'deploy/byoc/installation.md'
+      - 'BYOC vs. Cloud': 'deploy/byoc/byoc-vs-cloud.md'
+      - 'Release filtering': 'deploy/byoc/release-filtering.md'
   - 'Manage':
     - 'Overview': 'manage/overview.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
@@ -342,6 +348,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
