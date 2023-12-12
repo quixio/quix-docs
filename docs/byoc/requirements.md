@@ -15,18 +15,18 @@ To ensure the success of the installation process, the following essential requi
 
 ## Kubernetes cluster minimum requirements
 - AMD64 architecture.[^1]
-- Three nodes with at least 2 CPU cores and 16GB of RAM each[^2].
+- Multiple nodes with 6 cpu cores and 48GB RAM total.[^2].
 - Kubernetes version 1.24.1 or later.
 - A container runtime capable of handling Linux containers, MongoDB and Kafka. (containerd, cri-o etc.)
 - A storage class capable of handling dynamic provisioning of Persistent Volumes. (nfs with nfs-subdir-external-provisioner, Ceph, Longhorn, EBS/EFS, azurefile, Google filestore, Isilon etc)
 - One standard RWX storage class and one standard RWO storage class.
 - The ability of exposing services outside of the Kubernetes cluster. (either LoadBalancer compatible Load Balancer or NodePorts)
-- Network ingres and egress permissive enough for the kubelet to pull platform containers from the Quix Container Registry.
+- Network ingress and egress permissive enough for the kubelet to pull platform containers from the Quix Container Registry.
 
 ## Kubernetes cluster recommended requirements
 - Everything in the minimum requirements
 - Three separate control plane nodes (or managed control plane) for high availability and easy maintenance.
-- A nodepool sufficient for your requirements, but at least 16GB of RAM and 4 CPU cores each.
+- A nodepool sufficient for your requirements, but at least 40 CPU cores and 200GB memory total.
 - Kubernetes version 1.28 or later.
 - Optional: Premium RWO storage class
 - A Load Balancer capable of exposing a LoadBalancer type service (such as AWS ELB or MetalLB)
@@ -50,4 +50,4 @@ Follow the [installation](installation.md) process to find out how to install th
     We are excited about ARM64 cpus as well! They are fast becoming a serious contender for building distributed computational platforms, especially on AWS. Unfortunately, some of our dependencies are not yet available for aarch64 and therefore we are not able to ship Quix for aarch64 Kubernetes clusters. When we do, this document will change. You are welcome to run the installation scripts and the container delivering them on aarch64 computers from the native image.
 
 [^2]:
-    We recommend nodes at least 16GB of RAM each to err on the safe side. Quix has been tested on 3 x 8GB nodes and has been found to work well. This however leaves very little room for your other workloads and isn't an experience we wish for you to have with Quix.
+    We recommend nodes at least 16GB of RAM each node to err on the safe side. Quix has been tested on 3 x 8GB nodes and has been found to work well. This however leaves very little room for your other workloads and isn't a production experience we wish for you to have with Quix.

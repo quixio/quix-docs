@@ -6,8 +6,7 @@ ArgoCD does not natively support picking and choosing the parts of an applicatio
 
 A filter is a powerful tool you can use to determine what versions of our services or chart to accept or reject, based on multiple possible criteria.
 
-We ship ArgoCD with our BYOC distribution, and if you should choose to deploy it, with it we provide the functionality to define what releases you accept. We recommend this for testing purposes or to comply with version constraints of your underlying infrastructure.
-
+Our BYOC distribution comes bundled with ArgoCD. If you decide to deploy it, you'll gain the ability to specify which releases are acceptable. This feature is particularly useful for testing or adhering to the version constraints of your underlying infrastructure.
 
 ## How do I use filters?
 
@@ -51,7 +50,7 @@ auth:
     value: "1"
 ```
 
-Any release chart rejected because of the `platform_release` filter will cause the entire chart to be rejected. This means that if you reject a release because of the `platform_release` filter, the entire chart will be rejected, even if the `auth` filter would have accepted it.
+Any release chart rejected because of the `platform_release` service matching a filter will cause the entire chart to be rejected. This happens even if the `auth` filter would have accepted the auth service otherwise. Platform_release supersedes individual service filters.
 
 A rejected service (or chart) will not be deployed to your environment either at the time of us pushing it to the branch your environment is subscribed to, or at the time of your environment syncing with the branch. If you wish to install a release anyway, you may at any time change your filter and manually sync your ArgoCD Quix application.
 
