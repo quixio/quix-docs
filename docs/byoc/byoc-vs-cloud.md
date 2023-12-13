@@ -4,7 +4,7 @@ Our cloud offering is a great way to work with the Quix Platform for most use ca
 
 BYOC goes one step further than cloud by offering all the powers of the Quix Platform, along with the ability to control and scale the underlying services, infrastructure to fit your needs. 
 
-When hosting your own Quix platform, you are in full control of how all parts operate. We provide safe and sane defaults, but it is ready to fit your exact use case.
+When hosting your own Quix platform, you are in full control of how all its parts operate. We provide safe and sane defaults, but it is ready to be configured to fit your exact use case.
 
 | | Quix Cloud | Quix BYOC |
 |----|----|----|
