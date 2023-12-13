@@ -7,8 +7,8 @@ The short story of deployment is as follows:
 1. Create a [Kubernetes cluster](#1-create-a-kubernetes-cluster)
 2. Obtain a Quix Container Registry [API key](#2-obtain-an-api-key-to-pull-quix-platform-containers) to pull Quix Platform containers
 3. Obtain a copy of the Quix Platform [BYOC installer](#3-obtain-a-copy-of-the-quix-platform-byoc-installer-ansible-recipe--docker-image) (Ansible Recipe + Docker Image)
-4. [Prepare Secrets](#5-prepare-secrets-and-platform-configuration) and platform configuration
-5. Run the [installer container](#4-run-the-installer-container)
+4. [Prepare Secrets](#4-prepare-secrets-and-platform-configuration) and platform configuration
+5. Run the [installer container](#5-run-the-installer-container)
 6. [Push Secrets](#6-push-secrets-and-platform-configuration-to-the-cluster) and platform configuration to the cluster
 7. Optional: [Initialise ArgoCD](#7-optional-initialise-argocd)
 8. [Install Quix Platform](#8-install-quix-platform) for the first time
@@ -42,7 +42,7 @@ If ArgoCD is used -- of which we supply an opinionated installation, if you choo
 The container is built and tested with Docker. On any system capable of running Docker, you can run the installer with the following command:
 
 ```bash
-./quixplatform container quix -V 1.1.1
+./quixplatform container quix -V 1.1.2
 ```
 
 This will run the Quix Platform Installer using the Quix Platform CLI tool provided to you ahead of the installation process. 

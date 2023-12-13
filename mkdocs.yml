@@ -81,12 +81,7 @@ nav:
     - 'YAML variables': 'deploy/yaml-variables.md'
     - 'State management': 'deploy/state-management.md'  
     - 'Deploy public services': 'deploy/deploy-public-page.md'
-  - 'Bring your own cluster':
-    - 'Overview': 'byoc/overview.md'
-    - 'Requirements': 'byoc/requirements.md'
-    - 'Installation': 'byoc/installation.md'
-    - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
-    - 'Release filtering': 'byoc/release-filtering.md'
+
   - 'Manage':
     - 'Overview': 'manage/overview.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
@@ -183,6 +178,12 @@ nav:
   - 'Quix Streams':
     - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
     - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Bring your own cluster':
+    - 'Overview': 'byoc/overview.md'
+    - 'Requirements': 'byoc/requirements.md'
+    - 'Installation': 'byoc/installation.md'
+    - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+    - 'Release filtering': 'byoc/release-filtering.md'
 
 
 # Exclude build scripts from v2.0+
