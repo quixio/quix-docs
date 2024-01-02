@@ -2,6 +2,68 @@
 
 This is the changelog for the current year. Changelogs for previous years can be found [here](#changelog-archives).
 
+## 2023-12-02-fe-bugs | 11 DECEMBER 2023
+
+`IMPROVEMENTS`
+
+- Organisation Homepage
+    - Sorting environments in Project cards based on status - moved “non-ready” envs to the bottom
+- Applications
+    - IDE no longer scrolls to the top after committing changes to a file
+- Deployments
+    - Improved “skipped” message in *Messages* tab - (we made it sound like we threw your topic messages in the bin)
+- Code Samples
+    - If searching with a filter applied yields no results: empty state message and CTA changed to *clear* applied filters
+    - Enabled “+ Add new” button in topic input field
+    - Various loading spinners on CTAs to improve click-action feedback
+- YAML
+    - Improved supplementary message on syncing with 0 changes to inform user that no changes are made during sync
+    - Editing YAML retains carat position (if you click on the yaml section you want to edit before you click edit, then we take you there)
+
+`BUG FIXES`
+
+- Organisation Homepage
+    - Prevent “undefined” repository issue when switching in and out of projects too quickly
+    - Prevent “login required” error in ungated experience
+- Data Explorer
+    - Waveform was disappearing if you came from *Live data*
+- “Topic created” notifications weren’t taking the user to the *Topics* page
+- Deployments
+    - Deployment dialogue sliders for *CPU* and *Memory* were using the wrong increments
+    - *CPU* and *Memory* metrics weren’t cleared when switching to a stopped deployment
+    - Destinations were appearing as Transformations in *Lineage* views
+- Pipeline
+    - Changing topic on a deployment wasn’t updating the pipeline view
+    - Adding replays from placeholders didn’t use the correct topic
+    - Link for *Public URL* on deployment cards weren’t pointing to the *Public URL*
+- Applications
+    - Uploading and replacing file wasn’t working
+    - Progress bars on *replays* in the *Lineage* tab weren’t moving
+    - Heartbeat connection was not reconnecting after disconnection, and it was calling to a V1 endpoint
+    - Topics being created when user was adding variables
+- YAML
+    - *YAML* was appearing in edit mode when *YAML* was loading
+    - Switching environments when viewing the *YAML* was not updating the environment variables in the *variables* tab
+    - Error in sync dialogue was clipping code
+- Various component-interaction console errors
+- Error messages in various dialogues were persisted
+- Updated tab names related to domain changes
+- Various UI width fixes
+
+## 2023-12-01-f1 | 7 DECEMBER 2023
+
+`IMPROVEMENTS`
+
+- Deleting old trial workspaces 7 days after disabling
+
+## 2023-12-01-freetier | 6 DECEMBER 2023
+
+`IMPROVEMENTS`
+
+- Increase quotas for free and base tier
+- Update trial expired email and delete trials according to that
+- Remove unneeded IDE PVCs possibly costing lot
+
 ## 2023-11-03-promocode | 16 NOVEMBER 2023
 
 `NEW FEATURES`
