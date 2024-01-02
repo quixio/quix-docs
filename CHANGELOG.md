@@ -6,8 +6,8 @@ This is the changelog for the current year. Changelogs for previous years can be
 
 `IMPROVEMENTS`
 
-- Organisation Homepage
-    - Sorting environments in Project cards based on status - moved “non-ready” envs to the bottom
+- Organization Homepage
+    - Sorting environments in Project cards based on status - moved “non-ready” environments to the bottom
 - Applications
     - IDE no longer scrolls to the top after committing changes to a file
 - Deployments
@@ -18,11 +18,11 @@ This is the changelog for the current year. Changelogs for previous years can be
     - Various loading spinners on CTAs to improve click-action feedback
 - YAML
     - Improved supplementary message on syncing with 0 changes to inform user that no changes are made during sync
-    - Editing YAML retains carat position (if you click on the yaml section you want to edit before you click edit, then we take you there)
+    - Editing YAML retains carat position (if you click on the YAML section you want to edit before you click edit, then we take you there)
 
 `BUG FIXES`
 
-- Organisation Homepage
+- Organization Homepage
     - Prevent “undefined” repository issue when switching in and out of projects too quickly
     - Prevent “login required” error in ungated experience
 - Data Explorer
@@ -39,7 +39,7 @@ This is the changelog for the current year. Changelogs for previous years can be
 - Applications
     - Uploading and replacing file wasn’t working
     - Progress bars on *replays* in the *Lineage* tab weren’t moving
-    - Heartbeat connection was not reconnecting after disconnection, and it was calling to a V1 endpoint
+    - Heartbeat connection was not reconnecting after disconnection, and it was calling a V1 endpoint
     - Topics being created when user was adding variables
 - YAML
     - *YAML* was appearing in edit mode when *YAML* was loading
@@ -145,7 +145,7 @@ This is the changelog for the current year. Changelogs for previous years can be
     - -1 retention in topics was setting as -60000.
 - Platform
     - Workspaces were stuck in “creating”/”updating” status
-    - Topic quota logic caused external topics and topics that failed to create to count towards organisation quotas
+    - Topic quota logic caused external topics and topics that failed to create to count towards organization quotas
     - StreamPackageType changed so icons for data types in messages weren’t being displayed correctly
     - Changing to a locally-created branch was not displaying backend errors
     - Resolved various console errors caused by Front-End component interactions
@@ -213,7 +213,7 @@ This is the changelog for the current year. Changelogs for previous years can be
     - Improved YAML parsing to maintain the order of elements during merging and syncronization.
     - YAML variables definition in the code can now be composed by a combination of text or multiple variables. (ex: “{variable1}-sometext-{variable2}”)
     - Loader on branch dropdown when switching branches for an environment
-    - New organisation homepage Projects/Environments counters
+    - New organization homepage Projects/Environments counters
 - Other
     - Autofocus behavior improvements to input fields on onboarding
     - Improved FE performance by changing the way angular components are interacted with
@@ -435,7 +435,7 @@ Second release under tag release/2023-10-01-deployment-hf-2:
 - Internal:
     - Added a new updater service system that simplifies the release process
     - Increased resources for some of the Workspace services by default to improve the stability for standard workspaces, and Added some Requests configuration for Premium workspaces
-    - New Quota system introducing new quotas per organisation
+    - New Quota system introducing new quotas per organization
     - New payment modal explaining serverless when a user clicks on payment CTAs
 
 `BUG FIXES`
@@ -504,7 +504,7 @@ Second release under tag release/2023-10-01-deployment-hf-2:
     - Refresh button to get latest changes from git
     - Confirmation dialogue when deleting a branch
     - Dependencies are installed upon opening the application
-- Inviting a user to an organisation now displays a “pending” or “error” status
+- Inviting a user to an organization now displays a “pending” or “error” status
 - README files are selected by default in *Code Samples*
 - Deployments are no longer auto-focused after deploying (it was getting annoying)
 - Minor enhancements in dropdown behavior during query selection in the data explorer
@@ -590,7 +590,7 @@ Second release under tag release/2023-10-01-deployment-hf-2:
 - Topic cards in the deployment details now show a “creating” status if the topic isn’t ready yet
 - Clicking “Edit code” in a code sample takes you directly to a newly created application (V2 ONLY)
 - Added “client.id” property to some of our services to track Quix Kafka usage on external providers like Confluent.
-- Added the ability to set special Quotas per Organisation
+- Added the ability to set special Quotas per Organization
 - Improved internal Quix reports with more information
 - Deployment details
     - Replica display is now based on deployment type (job/service). Running a job multiple times no longer displays replicas of previous jobs.
