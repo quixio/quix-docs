@@ -4,8 +4,15 @@
 
 Quix currently supports the following connectors for InfluxDB:
 
-* InfluxDB 2.0 source - enables you to get data from InfluxDB v2 into Quix
-* InfluxDB 3.0 source - enables you to get data from InfluxDB v3 into Quix
-* InfluxDB 3.0 destination - enables you to publish data from Quix into InfluxDB v3
+| Influx version | Connector type | Description |
+|----|----|----|
+| [InfluxDB 2.0](https://github.com/quixio/quix-samples/tree/main/python/sources/InfluxDB-2.0){target=_blank} | Source | Enables you to publish data from InfluxDB v2 into a Quix topic. |
+| [InfluxDB 3.0](https://github.com/quixio/quix-samples/tree/main/python/sources/InfluxDB){target=_blank} | Source | Enables you to publish data from an InfluxDB v3 bucket into a Quix topic. |
+| [InfluxDB 3.0](https://github.com/quixio/quix-samples/tree/main/python/destinations/InfluxDB){target=_blank} | Destination | Enables you to publish data from a Quix topic into an InfluxDB v3 bucket. |
 
 Note if you want to move data from InfluxDB v2 to v3 you could use the v2 source and v3 destination to do this.
+
+<div>
+<a class="md-button md-button--primary" href="../influxdb/quickstart.html" style="margin-right:.5rem;">Try the Quickstart</a>
+<br/>
+</div>
