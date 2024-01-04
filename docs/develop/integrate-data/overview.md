@@ -26,4 +26,4 @@ When using the Streaming Writer API you can use the HTTP interface if a continou
 
 ## See also
 
-There is also a [section](../../integrations/overview.md) in this documentation providing more information on specific integrations you can use for products such as InfluxDB.
+There is also a [section](../../integrations/overview.md) in this documentation providing more information on specific integrations you can use for connecting Quix with products such as InfluxDB.
