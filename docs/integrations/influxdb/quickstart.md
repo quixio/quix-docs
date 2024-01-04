@@ -129,4 +129,9 @@ Data is being read from InfluxDB by the Quix connector, and then published to th
 
 ## Summary
 
-TBD
+In this quickstart you have learned how to get data into InfluxDB from Quix, and also how to get data out of InfluxDB, using the Quix InfluxDB v3 connectors, without needing to write any code. You've also learned how to view data on a Quix topic in real time.
+
+## Next steps
+
+* [See other methods for integrating your data](../../develop/integrate-data/overview.md)
+* [Try a tutorial](../../tutorials/overview.md)
