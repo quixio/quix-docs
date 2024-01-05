@@ -164,6 +164,7 @@ In this guide you have learned how to configure Telegraf to publish data directl
 ## Next steps
 
 * Learn how to build a complete [Python stream processing pipeline](../../get-started/quixtour/overview.md)
-* Obtain an [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
 * Read about [Streaming Writer](../../apis/streaming-writer-api/overview.md)
 * Try one of our [tutorials](../../tutorials/overview.md)
+* Obtain an [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
+* Read the comprehensive [Telegraf documentation](https://docs.influxdata.com/telegraf/v1/){target=_blank}
