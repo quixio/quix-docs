@@ -53,7 +53,7 @@ taginclude = ["app",
     "topic"]
 
 # URL is the address to send metrics to
-url = "https://writer-<your-org>-<your-environment>-production.platform.quix.io/topics/<your-topic>/streams/<your-stream>/events/<event-name>/value"
+url = "https://writer-<org>-<project>-<environment>.platform.quix.io/topics/topic>/streams/<stream>/events/<event>/value"
 
 # Timeout for HTTP message
 timeout = "5s"
