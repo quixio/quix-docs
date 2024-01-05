@@ -69,7 +69,9 @@ data_format = "json"
 Authorization = "bearer pat-83f7<snipped>b34"
 ```
 
-Some of the configuration above is self-explanatory, the data is to be POSTed using HTTP for example. The Quix-specific configurations are explained in the following sections.
+Some of the configuration above is self-explanatory. For example, the data is to be POSTed using HTTP, so `method` is `POST`. 
+
+The Quix-specific configurations are explained in the following sections.
 
 ### URL
 
