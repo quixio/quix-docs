@@ -103,6 +103,11 @@ nav:
       - 'Overview': 'apis/portal-api/overview.md'
       - 'Setup': 'apis/portal-api/setup.md'
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
+  - 'Integrations':
+    - 'Overview': 'integrations/overview.md'
+    - 'InfluxDB':
+        - 'Overview': integrations/influxdb/overview.md
+        - 'Quickstart': integrations/influxdb/quickstart.md
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
     - 'Predictive maintenance': 
