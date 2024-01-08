@@ -12,7 +12,7 @@ Our BYOC distribution comes bundled with ArgoCD. If you decide to deploy it, you
 
 A Release filter is a Configmap containing a YAML file, which describes the conditions under which a release should be accepted or rejected.
 
-By default the filter is empty, and your platform will deploy any release your platform subscribes to, to your environment automatically.
+By default the filter is empty, and your platform will deploy any release to which your platform subscribes, to your environment automatically.
 
 The following example shows the various ways in which you may filter releases:
 ```yaml

@@ -29,13 +29,13 @@ To ensure the success of the installation process, the following essential requi
 - Three separate control plane nodes (or managed control plane) for high availability and easy maintenance.
 - A nodepool sufficient for your requirements, but at least 40 CPU cores and 200GB memory total.
 - Kubernetes version 1.28 or later.
-- Optional: Premium RWO storage class
+- Optional: additional Premium RWO storage class
 - A Load Balancer capable of exposing a LoadBalancer type service (such as AWS ELB or MetalLB)
 
 
 !!! warning
 
-    You may re-use existing services, such as Kafka and MongoDB. If you do not, Quix BYOC will install its own versions of these services. Your underlying infrastructure must be able to run these services, which may require enabling AVX, AVX2 and XSAVE instructions on your CPU, or passed through for it in the Hypervisor. This is not a default in some hypervisors and may be the source of issues.
+    You may re-use existing services, such as Kafka and MongoDB. If you do not, Quix BYOC will install its own versions of these services. Your underlying infrastructure must be able to run these services, which may require enabling AVX, AVX2 and XSAVE instructions on your CPU, or passed through for it in the Hypervisor. This is not the default in some hypervisors and may be the source of issues.
 
 ## Support requirements
 
@@ -48,7 +48,7 @@ Follow the [installation](installation.md) process to find out how to install th
 
 
 [^1]: 
-    We are excited about ARM64 cpus as well! They are fast becoming a serious contender for building distributed computational platforms, especially on AWS. Unfortunately, some of our dependencies are not yet available for aarch64 and therefore we are not able to ship Quix for aarch64 Kubernetes clusters. When we do, this document will change. You are welcome to run the installation scripts and the container delivering them on aarch64 computers from the native image.
+    We are excited about ARM64 CPUs as well! They are fast becoming a serious contender for building distributed computational platforms, especially on AWS. Unfortunately, some of our dependencies are not yet available for aarch64 and therefore prevent us from shipping Quix for aarch64 Kubernetes clusters. When we do, this document will change. You are welcome to run the installation scripts and the container delivering them on aarch64 computers from the native multi-arch image.
 
 [^2]:
     We recommend nodes at least 16GB of RAM each node to err on the safe side. Quix has been tested on 3 x 8GB nodes and has been found to work well. This however leaves very little room for your other workloads and isn't a production experience we wish for you to have with Quix.

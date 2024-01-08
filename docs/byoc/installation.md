@@ -81,9 +81,9 @@ The following lines are of particular interest:
     targetRevision: stable
     path: releases/
 ```
-These define what release 'stream' your environment is subscribed to. When running ArgoCD connected to our release branches, any updates we deploy to the repository your environment follows will be automatically applied, based on GitOps principles. There's a [little more to it](release-filtering.md), but generally speaking your environment will deploy the latest version of the platform, unless you specify otherwise in the `init-scripts/quix-version-filter.yaml` file.
+These define what release 'stream' your environment is subscribed to. When running ArgoCD connected to our release branches, any updates we deploy to the repository your environment follows will be automatically applied, based on GitOps principles. There's a [little more to it](release-filtering.md), but generally speaking your environment will deploy the latest version of the platform, unless you specify otherwise.
 
-Any release by us will have been put through our QA process and validated. That said, we operate multiple branches to allow testing leading-edge features on your test environments before they are added to the stable branch.
+Any software package we release for the BYOC offering will have been put through our QA process and validated. That said, we operate multiple external branches to facilitate testing leading-edge features on your test environments before we add them to the stable branch.
 
 
 ```bash
