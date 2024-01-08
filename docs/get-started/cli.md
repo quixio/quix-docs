@@ -20,13 +20,41 @@ You can authenticate by either logging into Quix Cloud, or using a [Personal Acc
 
 ## Workspace ID
 
-You're required to specify `workspaceId` for some commands. To obtain this, you can log into Quix Cloud, and check the address bar in your browser, for example, after clicking on topics, you would see similar to the following in the address bar:
+You're required to specify `workspaceId` for some commands. 
 
-```
-https://portal.platform.quix.io/topics?workspace=myorg-myproject-myenv
-```
+There are two ways to obtain this:
 
-Note the workspace is a concatenation of three things:
+1. Log into Quix Cloud
+
+    You can log into Quix Cloud, and check the address bar in your browser, for example, after clicking on topics, you would see similar to the following in the address bar:
+
+    ```
+    https://portal.platform.quix.io/topics?workspace=myorg-myproject-myenv
+    ```
+
+2. Using the CLI
+
+    Run the following command:
+
+    ```
+    quix environment get
+    ```
+
+    This lists all workspaces in the organization, and displays the workspace ID, along with the following:
+
+    * Name
+    * Broker
+    * Storage
+    * Status
+    * Version
+
+    !!! note
+
+        Workspaces come in two main versions, 1 and 2. Version 1 workspaces should be considered deprecated.
+
+### Workspace ID format
+
+Note the workspace ID is a concatenation of three things:
 
 * Your organization
 * Your project
@@ -72,7 +100,7 @@ quix application get myorg-myproject-myenv
 
 ## Obtaining output in JSON format
 
-You can return your results as JSON, rather than in tabular form. For example to return a list of topics in an environment in JSON format:
+You can return your results as JSON, rather than in tabular form. For example, to return a list of topics in an environment in JSON format:
 
 ```
 quix topic get myorg-myproject-myenv --output json
