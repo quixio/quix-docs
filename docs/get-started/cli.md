@@ -78,7 +78,7 @@ You can return your results as JSON, rather than in tabular form. For example to
 quix topic get myorg-myproject-myenv --output json
 ```
 
-With some practice, you will find the usage is similar for most commands.
+With some practice, you will find the usage follows a similar pattern for most commands.
 
 ## Managing permissions
 
