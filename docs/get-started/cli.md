@@ -70,7 +70,15 @@ To list all your applications (in your environment):
 quix application get myorg-myproject-myenv
 ```
 
-The usage is similar for most commands.
+## Obtaining output in JSON format
+
+You can return your results as JSON, rather than in tabular form. For example to return a list of topics in an environment in JSON format:
+
+```
+quix topic get myorg-myproject-myenv --output json
+```
+
+With some practice, you will find the usage is similar for most commands.
 
 ## Managing permissions
 
