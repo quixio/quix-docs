@@ -32,7 +32,7 @@ Note the workspace is a concatenation of three things:
 * Your project
 * Your environment
 
-Note that some commands are global, butn some are specific to an environment, and require a workspace ID.
+Note that some commands are global, but some are specific to an environment, and require a workspace ID.
 
 ## Examples
 
