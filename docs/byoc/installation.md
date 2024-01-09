@@ -11,7 +11,7 @@ The summary of the deployment procedure is as follows:
 7. Optional: [Initialize ArgoCD](#7-optional-initialize-argocd)
 8. [Install Quix Platform](#8-install-quix-platform) for the first time
 
-This is explained in more detail in the following step-by-step guide:
+This is explained in more detail in the following step-by-step guide.
 
 ## 1. Create a Kubernetes cluster
 
