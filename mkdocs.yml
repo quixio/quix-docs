@@ -108,6 +108,8 @@ nav:
     - 'InfluxDB':
         - 'Overview': integrations/influxdb/overview.md
         - 'Quickstart': integrations/influxdb/quickstart.md
+        - 'Guides': 
+          - 'Using Telegraf': integrations/influxdb/telegraf.md
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
     - 'Predictive maintenance': 
