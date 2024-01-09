@@ -184,17 +184,20 @@ nav:
   - 'Quix Streams':
     - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
     - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
-
+  - 'Bring Your Own Cluster (BYOC)':
+    - 'Overview': 'byoc/overview.md'
+    - 'Requirements': 'byoc/requirements.md'
+    - 'Installation': 'byoc/installation.md'
+    - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+    - 'Release filtering': 'byoc/release-filtering.md'
 
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
 
-
 # Use custom hook to create redirects for 0.5 docs
 hooks:
 - hooks/redirect_0_5_urls.py
-
 
 plugins:
   - multirepo:
@@ -349,6 +352,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
