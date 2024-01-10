@@ -72,6 +72,35 @@ There are two ways to obtain this:
 
 Note that some Quix CLI commands are global, but some are specific to an environment, and require a workspace ID to be specified.
 
+## Quix v1 and v2 terminology
+
+The CLI currently uses some v1 terminology. The following table compares v1 and v2 terminology:
+
+| v1 | v2 |
+|----|----|
+| Organization | Organization |
+| Repositories | Projects |
+| Workspaces | Environments |
+| Projects | Applications |
+
+## Getting help
+
+Typing just `quix` results in basic usage information being displayed. You can also receive help by typing `quix --help`.
+
+To obtain more help on a specific command use the `--help` option, for example:
+
+```
+quix permissions --help
+```
+
+This displays the subcommands available. There is also help for subcommands:
+
+```
+quix permissions set --help
+```
+
+This displays the options for the `set` subcommand.
+
 ## Examples
 
 The general form of the CLI usage is:
@@ -79,8 +108,6 @@ The general form of the CLI usage is:
 ```
 quix command [subcommand] [options]
 ```
-
-Typing just `quix` results in basic usage information being displayed. You can also receive help by typing `quix --help`.
 
 ### Listing deployments
 
@@ -246,7 +273,7 @@ For example:
 quix permissions set ebf47187-ed00-4190-bc34-f0054e8b2640 -p "[{ Repository:53d7ee3c-7a8c-4ddc-97b2-e3cd2484d7b1, Viewer }, { Workspace:quixdev-tony-testio, Viewer }]"
 ```
 
-This sets the following permissions:
+This sets the following permissions for the specified repository and workspace:
 
 | Scope | Role |
 |---|---|
