@@ -72,16 +72,14 @@ There are two ways to obtain this:
 
 Note that some Quix CLI commands are global, but some are specific to an environment, and require a workspace ID to be specified.
 
-## Quix v1 and v2 terminology
+## Terminology
 
-The CLI currently uses some v1 terminology. The following table compares v1 and v2 terminology:
+The CLI currently uses some terminology that is different to the current UI. The following table compares CLI and UI terminology:
 
-| v1 | v2 |
+| CLI | UI |
 |----|----|
-| Organization | Organization |
 | Repositories | Projects |
 | Workspaces | Environments |
-| Projects | Applications |
 
 ## Getting help
 
@@ -145,11 +143,15 @@ quix topic get your-workspace-id --output json
 
 With some practice, you will find the usage follows a similar pattern for most commands.
 
+!!! tip
+
+    The JSON output displays additional information not available in the table view. This is done to make the table view simpler. For full information use the JSON output option.
+
 ## Context
 
 A context defines which system your CLI connects to - by default this is the Quix production cloud. If you are using BYOC, you need to `add` and then `use` a context. 
 
-A context has a URL associated with it. For example, the URL associated with the default context is `portal-api.quix.io`.
+A context has a URL associated with it. For example, the URL associated with the default context is `portal-api.platform.quix.io`.
 
 For example, to create a context `byoc`, you would use:
 
@@ -177,13 +179,11 @@ You can manage permissions for a user in a Quix organization using the CLI.
 
 Scope can be one of:
 
-* `organisation`
-* `repository`
-* `workspace`
+* `Organisation`
+* `Repository`
+* `Workspace`
 
-Scope is hierarchical. For example, if you assign a user a role at the `organisation` level, it will also apply to all repositories and workspaces in that organization. If you assign a user a role at the `repository` level, it will also apply to all workspaces in that repository.
-
-Note that in v2 terminology, a project corresponds to a repository, and an environment corresponds to a workspace.
+Scope is hierarchical. For example, if you assign a user a role at the `Organisation` level, it will also apply to all repositories and workspaces in that organization. If you assign a user a role at the `Repository` level, it will also apply to all workspaces in that repository.
 
 ### Role
 
@@ -191,13 +191,27 @@ Role can be one of:
 
 * Admin - complete control
 * Editor - sync, permissions, logs, start/stop deployments
-* Viewer - View only
+* Viewer - view only
 
 Roles are assigned to specific users.
 
 ### Users
 
 Users of Quix have assigned roles and scopes, which can be changed using the CLI.
+
+To get the current user (yourself), you can use:
+
+```
+quix users current
+```
+
+This returns your:
+
+* User ID
+* Email
+* First name
+* Last name
+* Status
 
 To obtain a complete list of users in an organization, use the following command:
 
@@ -232,7 +246,7 @@ quix permissions get
 You can reduce the list using:
 
 ```
-quix permissions get | tony
+quix permissions get | grep tony
 ```
 
 This returns:
@@ -255,11 +269,39 @@ This returns:
   Organisation:quixdev │ Admin
 ```
 
-The scope and role are clearly displayed.
+The scope and role are clearly displayed. 
+
+You can also obtain the raw permissions string, which can ease the process of later setting new permissions. To do this use the `--raw` option:
+
+```
+quix permissions get ebf47187-ed00-4190-bc34-f0054e8b2640 --raw
+```
+
+This returns permissions in the raw format, rather than the tabular format:
+
+```
+[{ Repository:53d7ee3c-7a8c-4ddc-97b2-e3cd2484d7b1, Viewer }, { Workspace:quixdev-test, Viewer }]
+```
 
 ### Setting permissions
 
-You can set permissions for a user using the `quix permissions set` command. You need to specify the permission assignments using the `-p` option.
+To edit a user's permissions you can use the `edit` command. For example:
+
+```
+quix permissions edit ebf47187-ed00-4190-bc34-f0054e8b2640 --scope Organisation:quixdev --role Admin
+```
+
+You can also remove a permission using `quix permissions delete`, for example:
+
+```
+quix permissions delete ebf47187-ed00-4190-bc34-f0054e8b2640 --scope Workspace:quixdev-test 
+```
+
+!!! note
+
+    Note that a Permission is {Scope, Role}, where `Scope` can be considered the key. When using `delete`, `Scope` is used as the key to identify the permission to be removed.  
+
+You can also set permissions for a user using the `quix permissions set` command. You need to specify the permission assignments using the `-p` option.
 
 Note the format of the permission assignments generally is:
 
@@ -270,7 +312,7 @@ Note the format of the permission assignments generally is:
 For example:
 
 ```
-quix permissions set ebf47187-ed00-4190-bc34-f0054e8b2640 -p "[{ Repository:53d7ee3c-7a8c-4ddc-97b2-e3cd2484d7b1, Viewer }, { Workspace:quixdev-tony-testio, Viewer }]"
+quix permissions set ebf47187-ed00-4190-bc34-f0054e8b2640 -p "[{ Repository:53d7ee3c-7a8c-4ddc-97b2-e3cd2484d7b1, Viewer }, { Workspace:quixdev-test, Viewer }]"
 ```
 
 This sets the following permissions for the specified repository and workspace:
