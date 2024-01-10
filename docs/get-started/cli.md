@@ -228,7 +228,7 @@ quix users get | grep tony
 This returns:
 
 ```
-ebf47187-ed00-4190-bc34-f0054e8b2640 │ tony@ │ Tony  │ B │ Activ │ 01/09
+ebf47187-ed00-4190-bc34-f0054e8b2640 │ tony@do │ Tony  │ Bedfo │ Activ │ 01/09
 ```
 
 This shows the User ID.
@@ -264,9 +264,9 @@ quix permissions get ebf47187-ed00-4190-bc34-f0054e8b2640
 This returns:
 
 ```
-   Scope               │ Role   
- ──────────────────────┼─────── 
-  Organisation:quixdev │ Admin
+Scope                 │ Role   
+──────────────────────┼─────── 
+Organisation:quixdev  │ Admin
 ```
 
 The scope and role are clearly displayed. 
