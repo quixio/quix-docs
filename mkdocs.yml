@@ -22,6 +22,7 @@ nav:
       - '2. Process': 'get-started/quixtour/process-threshold.md'
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
     - 'Project templates': 'get-started/project-templates.md'
+    - 'Quix CLI': 'get-started/cli.md'
     - 'What is Quix?': 'get-started/what-is-quix.md'
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
@@ -103,6 +104,13 @@ nav:
       - 'Overview': 'apis/portal-api/overview.md'
       - 'Setup': 'apis/portal-api/setup.md'
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
+  - 'Integrations':
+    - 'Overview': 'integrations/overview.md'
+    - 'InfluxDB':
+        - 'Overview': integrations/influxdb/overview.md
+        - 'Quickstart': integrations/influxdb/quickstart.md
+        - 'Guides': 
+          - 'Using Telegraf': integrations/influxdb/telegraf.md
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
     - 'Predictive maintenance': 
@@ -177,17 +185,20 @@ nav:
   - 'Quix Streams':
     - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
     - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
-
+  - 'Bring Your Own Cluster (BYOC)':
+    - 'Overview': 'byoc/overview.md'
+    - 'Requirements': 'byoc/requirements.md'
+    - 'Installation': 'byoc/installation.md'
+    - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+    - 'Release filtering': 'byoc/release-filtering.md'
 
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
 
-
 # Use custom hook to create redirects for 0.5 docs
 hooks:
 - hooks/redirect_0_5_urls.py
-
 
 plugins:
   - multirepo:
@@ -342,6 +353,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys

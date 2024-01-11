@@ -23,3 +23,7 @@ Low-frequency data from REST APIs can be polled from Quix using a library such a
 Quix also provides the [Streaming Writer API](../../apis/streaming-writer-api/overview.md) and the [Streaming Reader API](../../apis/streaming-reader-api/overview.md). 
 
 When using the Streaming Writer API you can use the HTTP interface if a continous connection is not required. Faster data from web servers, browser clients, and IoT devices can interface using the SignalR interface, which can use WebSockets or Long Polling (depending on client support), where a continuous connection is required.
+
+## See also
+
+There is also a [section](../../integrations/overview.md) in this documentation providing more information on specific integrations you can use for connecting Quix with products such as InfluxDB.
