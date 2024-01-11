@@ -22,6 +22,7 @@ nav:
       - '2. Process': 'get-started/quixtour/process-threshold.md'
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
     - 'Project templates': 'get-started/project-templates.md'
+    - 'Quix CLI': 'get-started/cli.md'
     - 'What is Quix?': 'get-started/what-is-quix.md'
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
