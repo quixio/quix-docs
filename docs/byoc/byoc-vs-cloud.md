@@ -8,7 +8,7 @@ When hosting your own Quix platform, you are in full control of how all its part
 |----|----|----|
 | Analyze data streams | Yes   | Yes |
 | Quickly deploy real-time apps | Yes   | Yes |
-| ISO 27001 certified | Yes   | No[^1] |
+| ISO 27001 certified | Yes   | Yes[^1] |
 | You store the data | No | Yes[^2] |
 | On-premise cost savings | No | Possible[^3] |
 | Consume cloud reservations | No | Possible[^3] |
@@ -18,9 +18,9 @@ When hosting your own Quix platform, you are in full control of how all its part
 | Can be scaled to your needs | Yes | Yes |
 
 [^1]:
-    The process of creating Quix deliverables continues to be ISO 27001 certified. This means that the containers and services inside them that you receive as part of the BYOC offering are built to stringent security standards. You can expect them to follow best industry practices and safe defaults. 
-    
-    Once you install them on your environment, they become part of your processes and fall under your data security policies. Therefore these software packages may or may not be ISO (and ISO27001 specifically) compliant when deployed outside of Quix Cloud.
+    The process of creating Quix deliverables is ISO27001 certified. This means that the software and services you receive as part of the BYOC package are ISO certified and built to stringent security standards. You can expect them to follow best industry practices and safe defaults.
+
+    Once you install Quix BYOC on your environment, it becomes part of your processes and fall under your data security policies.
 
 [^2]:
     Exclusively. Quix BYOC Enterprise Editions are self-contained. _Only_ you store your data.
