@@ -18,7 +18,7 @@ When hosting your own Quix platform, you are in full control of how all its part
 | Can be scaled to your needs | Yes | Yes |
 
 [^1]:
-    The process of creating Quix deliverables is ISO27001 certified. This means that the software and services you receive as part of the BYOC package are ISO certified and built to stringent security standards. You can expect them to follow best industry practices and safe defaults.
+    The process of creating Quix deliverables is ISO 27001 certified. This means that the software and services you receive as part of the BYOC package are ISO certified and built to stringent security standards. You can expect them to follow best industry practices and safe defaults.
 
     Once you install Quix BYOC on your environment, it becomes part of your processes and fall under your data security policies.
 
