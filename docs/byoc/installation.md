@@ -25,6 +25,8 @@ Quix recommends a production ready Kubernetes cluster, with HA control plane and
 
 In this step you will be receiving a username / API token and docker registry URL. These will be provided to you by Quix before you start the installation process.
 
+&nbsp;&nbsp;&nbsp;&nbsp;[Contact sales](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
+
 ## 3. Obtain a copy of the Quix Platform BYOC installer (Ansible Recipe + Docker Image)
 
 With the provided API key you can download the installer from our private Container Registry. The installer is a Docker image that contains an Ansible recipe and all the required dependencies to run it. This way you don't need to install Ansible (and its particular Python version dependencies), Helm and all the other programs and libraries required to run the installer. We have packaged it all to offer a turn-key, convenient experience.
