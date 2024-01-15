@@ -55,7 +55,7 @@ There are two ways to obtain this:
     Run the following command:
 
     ```
-    quix workspaces get
+    quix workspaces list
     ```
 
     This lists all workspaces in the organization, and displays the workspace ID, along with the following:
@@ -112,7 +112,7 @@ quix command [subcommand] [options]
 To list all your deployments you would use:
 
 ```
-quix deployments get --workspaceId your-workspace-id
+quix deployments list your-workspace-id
 ```
 
 The information returned includes:
@@ -130,7 +130,7 @@ The information returned includes:
 To list all your applications (in your environment):
 
 ```
-quix applications get your-workspace-id
+quix applications list your-workspace-id
 ```
 
 ## Obtaining output in JSON format
@@ -138,7 +138,7 @@ quix applications get your-workspace-id
 You can return your results as JSON, rather than in tabular form. For example, to return a list of topics in an environment in JSON format:
 
 ```
-quix topic get your-workspace-id --output json
+quix topics list your-workspace-id --output json
 ```
 
 With some practice, you will find the usage follows a similar pattern for most commands.
@@ -168,7 +168,7 @@ quix contexts use byoc
 To list your available contexts, use the following:
 
 ```
-quix contexts get
+quix contexts list
 ```
 
 ## Managing permissions
@@ -190,6 +190,7 @@ Scope is hierarchical. For example, if you assign a user a role at the `Organisa
 Role can be one of:
 
 * Admin - complete control
+* Manager - complete control except editing users, billing and organisation
 * Editor - sync, permissions, logs, start/stop deployments
 * Viewer - view only
 
@@ -216,13 +217,13 @@ This returns your:
 To obtain a complete list of users in an organization, use the following command:
 
 ```
-quix users get
+quix users list
 ```
 
 To narrow down the returned list:
 
 ```
-quix users get | grep tony
+quix users list | grep tony
 ```
 
 This returns:
@@ -240,13 +241,13 @@ You can also use the CLI to explore permissions.
 To get a complete list of users and their permissions:
 
 ```
-quix permissions get
+quix permissions list
 ```
 
 You can reduce the list using:
 
 ```
-quix permissions get | grep tony
+quix permissions list | grep tony
 ```
 
 This returns:
@@ -324,7 +325,7 @@ This sets the following permissions for the specified repository and workspace:
 
 !!! tip
 
-    Repository IDs can be found by typing `quix repositories get`.
+    Repository IDs can be found by typing `quix repositories list`.
 
 
 
