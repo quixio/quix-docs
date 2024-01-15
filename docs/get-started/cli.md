@@ -189,10 +189,10 @@ Scope is hierarchical. For example, if you assign a user a role at the `Organisa
 
 Role can be one of:
 
-* Admin - complete control
-* Manager - complete control except editing users, billing and organisation
-* Editor - sync, permissions, logs, start/stop deployments
-* Viewer - view only
+* Admin - Total control over all organizational aspects, user management, and system settings.
+* Manager - Moderate administrative capabilities, with access to manage profiles, workspaces, and content.
+* Editor - Limited editing rights, able to update workspaces and content, with restricted management access.
+* Viewer - Basic viewing permissions for profiles, content, and workspace information, without editing rights.
 
 Roles are assigned to specific users.
 
