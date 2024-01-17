@@ -8,9 +8,9 @@ The requirements are designed to ensure that the platform will run effectively a
 
 To ensure the success of the installation process, the following essential requirements must be fulfilled:
 
-- For running the installer: A computer capable of running Linux containers. It may be either a physical or a virtual machine. This computer should run Linux, MacOS, or Windows (using Docker Desktop or WSL), and it may have either an aarch64 (arm64, Apple Silicon in most cases) or amd64 architecture. This will only be used to run the installation scripts.
+- For running the installer: A computer capable of running Linux containers. It may be either a physical or a virtual machine. This computer should run Linux, MacOS, or Windows (using Docker Desktop or WSL), and it may have either an aarch64 (ARM64, Apple Silicon in most cases) or AMD64 architecture. This will only be used to run the installation scripts.
 - For running the installer: A kubectl client that has already been configured to communicate with this cluster. This client must be able to communicate with the cluster from the computer running the installation scripts. 
-- To run the platform: A Kubernetes cluster that has already been set up.
+- To run the platform: An AMD64 Kubernetes cluster that has already been set up.
 - Sufficient permissions to create a service account, manage limited tokens, and create new namespaces and other resources.
 
 ## Kubernetes cluster minimum requirements
