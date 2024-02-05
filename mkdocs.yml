@@ -15,6 +15,7 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
+    - 'What is Quix?': 'get-started/what-is-quix.md'
     - 'Quickstart': 'get-started/quickstart.md'
     - 'Quix Tour': 
       - 'Overview': 'get-started/quixtour/overview.md'
@@ -23,7 +24,6 @@ nav:
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
     - 'Project templates': 'get-started/project-templates.md'
     - 'Quix CLI': 'get-started/cli.md'
-    - 'What is Quix?': 'get-started/what-is-quix.md'
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
   - 'Create':
