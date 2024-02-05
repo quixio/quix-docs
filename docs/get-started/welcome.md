@@ -5,7 +5,7 @@ description: Streamline Python stream processing with powerful, user-friendly to
 
 # Quix developer docs: Python stream processing simplified
 
-<p style="font-size: 1rem;">Quix is a complete platform for building, deploying, and monitoring event streaming applications.</p>
+<p style="font-size: 1rem;">Quix is a complete platform for building, deploying, and monitoring Python stream processing pipelines.</p>
 
 <div>
 <a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Quickstart</a>
@@ -32,7 +32,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    Build a complete event streaming application in under 30 minutes.
+    Build a complete Python stream processing application in under 30 minutes.
 
     [Quix Tour :octicons-arrow-right-24:](./quixtour/overview.md)
 
