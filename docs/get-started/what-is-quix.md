@@ -64,7 +64,7 @@ Similarly, Quix provides Quix-hosted Kafka, but you can also use Confluent Cloud
 
 This section describes the main technical components and architecture of Quix.
 
-![Quix Technical Architecture](../images/quix-technical-architecture.png)
+![Quix Technical Architecture](../images/quix-technical-architecture.jpg)
 
 ### Quix UI
 
