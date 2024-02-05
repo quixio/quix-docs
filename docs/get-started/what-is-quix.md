@@ -32,7 +32,7 @@ Briefly, here's how you would build a stream processing pipeline with Quix:
 
 Quix is designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your streaming data pipelines.
 
-Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for streaming data, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
+Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for data streaming, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
 
 The following sections take a look at the key components of creating your streaming data solutions:
 
@@ -134,7 +134,7 @@ For a simple example of getting data from your laptop into Quix, see the [Quicks
 
 ### Connectors
 
-Quix provides numerous standard [connectors](../connectors/index.md) for both source, and destination functions. In addition a number of transforms are also available. 
+Quix provides numerous standard [connectors](../connectors/index.md) for both source, and destination functions. These enable you to easily stream data in and out of Quix. In addition, a number of prebuilt data transforms to perform processing on your streaming data are also available. 
 
 !!! tip
 
@@ -151,11 +151,9 @@ Quix provides several APIs to help you work with streaming data. These include:
 
 ### Quix Streams
 
-As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, Quix Streams, to reduce development times, and provide advanced features such as automatic scaling through Streams.
+As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, Quix Streams, to reduce development times, and provide advanced features such as automatic scaling through Streams. Quix Streams is somewhat similar to Kafka Streams, in the sense that both libraries process data from a Kafka topic. However, unlike Kafka Streams, Quix Streams enables you to process data using pure Python.
 
 Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as Kafka, which are predominantly written in Java and Scala.
-
-Quix Streams provides Python and C# developers with a client library that abstracts the complexities of building streaming applications.
 
 For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../quix-streams/quix-streams-intro.md).
 
