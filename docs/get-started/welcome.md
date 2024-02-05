@@ -1,5 +1,5 @@
 ---
-title: Quix developer docs: Python stream processing simplified
+title: Quix developer docs - Python stream processing simplified
 description: Streamline Python stream processing with powerful, user-friendly tools for developers provided by Quix. Get started in minutes with the Quix docs.
 ---
 
