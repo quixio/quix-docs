@@ -50,7 +50,7 @@ If you're new to Quix, here are some resources to help get you started quickly.
     
     Learn about Quix Streams, the open source Python stream processing library for Quix.
 
-    [Project templates :octicons-arrow-right-24:](../quix-streams/quix-streams-intro.md)
+    [Quix Streams :octicons-arrow-right-24:](../quix-streams/quix-streams-intro.md)
 
 </div>
 
