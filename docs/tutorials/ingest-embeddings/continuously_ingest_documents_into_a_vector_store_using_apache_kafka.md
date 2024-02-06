@@ -292,7 +292,7 @@ sdf = sdf.update(lambda row: ingest_vectors(row))
 app.run(sdf)
 ```
 
-### Run a test query on the ingested vectors
+### 1.5 Run a test query on the ingested vectors
 
 Use Qdrant to do a basic similarity seach to make sure the vectors have been ingested properly and are matching in the expected way.
 
