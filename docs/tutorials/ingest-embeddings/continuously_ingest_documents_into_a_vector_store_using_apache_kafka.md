@@ -315,7 +315,7 @@ If everything went to plan, "*Dune*" should be top match for the query "*books l
 
 Now let's suppose we update our catalog to with more books to acommodate all those who are looking for similar items. We want the vector store to be updated as soon as the new book entries are entered in the main catalog database. This will ensure we get as many good matches (and hopefully purchases) as possible without any delays.
 
-# 2. Second ingestion pass
+## 2. Second ingestion pass
 
 We're going to stream the sample data from a CSV again—but in production scenario, these items would be added incrementally as changes to the product catalog are detected and streamed to Apache Kafka as they occur.
 
