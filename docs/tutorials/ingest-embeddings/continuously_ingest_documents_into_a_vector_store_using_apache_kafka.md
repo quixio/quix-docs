@@ -24,7 +24,7 @@ Dependencies include:the Quix Streams library, Qdrant library, and the sentence 
 !pip install quixstreams==2.1.2a qdrant-client>=1.1.1 sentence-transformers pandas
 ```
 
-### 3. Download and setup Kafka and Zookeeper instances
+### 2. Download and setup Kafka and Zookeeper instances
 
 Using the default configurations (provided by Apache Kafka) for spinning up the instances.
 
@@ -41,7 +41,7 @@ Using the default configurations (provided by Apache Kafka) for spinning up the 
 !sleep 10
 ```
 
-### 4. Check that the Kafka Daemons are running
+### 3. Check that the Kafka Daemons are running
 
 Show the running daemon processes by filtering the list for the keyword "java" while excluding the grep process itself
 
@@ -50,7 +50,7 @@ Show the running daemon processes by filtering the list for the keyword "java" w
 !ps aux | grep -E '[j]ava'
 ```
 
-### 5. Import all the libraries and set some constants
+### 4. Import all the libraries and set some constants
 
 Import the required libraries including Quix and Qdrant and set some constants for frequently used variables.
 
