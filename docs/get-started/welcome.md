@@ -1,6 +1,6 @@
-# Welcome to Quix developer documentation
+# Quix developer docs
 
-<p style="font-size: 1rem;">Quix is a complete solution for building, deploying, and monitoring event streaming applications.</p>
+<p style="font-size: 1rem;">Quix is a complete platform for building, deploying, and monitoring stream processing pipelines.</p>
 
 <div>
 <a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Quickstart</a>
@@ -27,17 +27,9 @@ If you're new to Quix, here are some resources to help get you started quickly.
 
     ---
 
-    Build a complete event streaming application in under 30 minutes.
+    Build a complete Python stream processing application in under 30 minutes.
 
     [Quix Tour :octicons-arrow-right-24:](./quixtour/overview.md)
-
-- __Create a project from scratch__
-
-    ---
-    
-    Learn how to create your own Quix project from scratch.
-
-    [Create a project :octicons-arrow-right-24:](../create/overview.md)
 
 - __Get started with a project template__
 
@@ -46,6 +38,14 @@ If you're new to Quix, here are some resources to help get you started quickly.
     Dig deep into Quix using one of our project templates.
 
     [Project templates :octicons-arrow-right-24:](../get-started/project-templates.md)
+
+- __Learn about Quix Streams__
+
+    ---
+    
+    Learn about Quix Streams, the open source Python stream processing library for Quix.
+
+    [Quix Streams :octicons-arrow-right-24:](../quix-streams/quix-streams-intro.md)
 
 </div>
 
