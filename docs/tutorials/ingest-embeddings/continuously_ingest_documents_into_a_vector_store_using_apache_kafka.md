@@ -3,12 +3,14 @@
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/quixio/tutorial-code/blob/main/notebooks/Continuously_ingest_documents_into_a_vector_store_using_Apache_Kafka.ipynb)
 
 Stream data from a CSV (simulating CDC or "Change Data Capture") and ingest it into a vector store: for semantic search.
+
 ![colab-pipeline.png](images/quix-pipeline.png)
+
 This demo features the following open source libraries:
 
 * **Quix Streams** to produce data to, and consume data from, Apache Kafka.
 
-* **Qdrant** to create a database to store embeddings and for basic similarity search
+* **Qdrant** to create a database to store embeddings and for basic similarity search.
 
 
 ## Setup
@@ -17,24 +19,22 @@ Install the libraries and Apache Kafka, then start the Kafka servers.
 
 ### 1. Install the main dependencies
 
-Dependencies include:the Quix Streams library, Qdrant library, and the sentence transformers library (we'll use the default sentence transformers embedding model).
+Dependencies include: the Quix Streams library, Qdrant library, and the sentence transformers library (you'll use the default sentence transformers embedding model):
 
-```{python}
-
+```python
 !pip install quixstreams==2.1.2a qdrant-client>=1.1.1 sentence-transformers pandas
 ```
 
 ### 2. Download and setup Kafka and Zookeeper instances
 
-Using the default configurations (provided by Apache Kafka) for spinning up the instances.
+Using the default configurations (provided by Apache Kafka) for spinning up the instances:
 
-```{python}
+```python
 !curl -sSOL https://dlcdn.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
 !tar -xzf kafka_2.13-3.6.1.tgz
 ```
 
-```{python}
-
+```python
 !./kafka_2.13-3.6.1/bin/zookeeper-server-start.sh -daemon ./kafka_2.13-3.6.1/config/zookeeper.properties
 !./kafka_2.13-3.6.1/bin/kafka-server-start.sh -daemon ./kafka_2.13-3.6.1/config/server.properties
 !echo "Waiting for 10 secs until kafka and zookeeper services are up and running"
@@ -43,18 +43,17 @@ Using the default configurations (provided by Apache Kafka) for spinning up the 
 
 ### 3. Check that the Kafka Daemons are running
 
-Show the running daemon processes by filtering the list for the keyword "java" while excluding the grep process itself
+Show the running daemon processes by filtering the list for the keyword "java" while excluding the grep process itself:
 
-```{python}
-
+```python
 !ps aux | grep -E '[j]ava'
 ```
 
 ### 4. Import all the libraries and set some constants
 
-Import the required libraries including Quix and Qdrant and set some constants for frequently used variables.
+Import the required libraries including Quix and Qdrant and set some constants for frequently used variables:
 
-```{python}
+```python
 import json
 import time
 import uuid
@@ -75,14 +74,14 @@ collectionname = "book-catalog"
 
 ## 1. First ingestion pass
 
-* In the first pass, we'll add some initial entries to a "book-catalog" vector store via Kafka, then search the vector store to check that the data was ingested correctly.
-* In the second round we'll go through the whole process again (albeit faster) with new data, and see how the matches change for the same search query.
+* In the first pass, you'll add some initial entries to a "book-catalog" vector store via Kafka, then search the vector store to check that the data was ingested correctly.
+* In the second round you'll go through the whole process again (albeit faster) with new data, and see how the matches change for the same search query.
 
 ### 1.1 Create data
 
-Create sample data and dump it to CSV (so we can get used to producing to Kafka from a CSV file in the next steps)
+Create sample data and dump it to CSV (so you can get used to producing to Kafka from a CSV file in the next steps):
 
-```{python}
+```python
 # Let's create a dataset based on sci-fi books.
 documents = [
   { "name": "The Time Machine", "description": "A man travels through time and witnesses the evolution of humanity.", "author": "H.G. Wells", "year": 1895 },
@@ -108,9 +107,9 @@ df.to_csv('documents.csv')
 
 ### 1.2 Initialize the Quix Producer to send the docs to Kafka
 
-Load the CSV file back in again and interate through it with the Quix Producer.
+Load the CSV file back in again and interate through it with the Quix Producer:
 
-```{python}
+```python
 df = pd.read_csv('/content/documents.csv')
 outputtopicname = docs_topic_name
 offsetlimit = len(df)-2
@@ -144,21 +143,22 @@ with Producer(
 ### 1.3 Consume and enrich the data
 
 Create a Quix Consumer/Producer to:
- 1. **Consume**: read the docs from the docs topic, create embeddings for each doc
- 3. **Enrich**: add the embeddings to docs data
- 4. **Produce**: write the enriched data to a downstream vectors topic
 
-Set the input/output topics and initialize the embedding model
+1. **Consume**: read the docs from the docs topic, create embeddings for each doc
+2. **Enrich**: add the embeddings to docs data
+3. **Produce**: write the enriched data to a downstream vectors topic
 
-```{python}
+Set the input/output topics and initialize the embedding model:
+
+```python
 inputtopicname = docs_topic_name
 outputtopicname = vectors_topic_name
 encoder = SentenceTransformer('all-MiniLM-L6-v2') # Model to create embeddings
 ```
 
-Define the embedding function
+Define the embedding function:
 
-```{python}
+```python
 def create_embeddings(row):
     text = row['doc_descr']
     embeddings = encoder.encode(text)
@@ -169,9 +169,9 @@ def create_embeddings(row):
     return embedding_list
 ```
 
-Start the transformation process (consume->enrich->produce)
+Start the transformation process (consume->enrich->produce):
 
-```{python}
+```python
 # Create a special stop condition just for this Notebook (otherwise the cell will run indefinitely)
 print(f"Using offset limit {offsetlimit}")
 def on_message_processed(topic, partition, offset):
@@ -218,13 +218,13 @@ app.run(sdf)
 Create a Quix "Sink" Consumer with Qdrant as a data sink.
 
 The consumer:
- 1. reads the embeddings from the vectors topic
- 2. writes each embedding to the vector db along with the original text.
 
-Initialize Qdrant
+1. reads the embeddings from the vectors topic
+2. writes each embedding to the vector db along with the original text.
 
-```{python}
+Initialize Qdrant:
 
+```python
 print(f"Using collection name {collectionname}")
 # Initialize the vector db
 qdrant = QdrantClient(path=f"./{collectionname}") # persist a Qdrant DB on the filesystem
@@ -240,9 +240,9 @@ qdrant.recreate_collection(
 print("(re)created collection")
 ```
 
-Define the ingestion function
+Define the ingestion function:
 
-```{python}
+```python
 def ingest_vectors(row):
 
   single_record = models.PointStruct(
@@ -259,9 +259,9 @@ def ingest_vectors(row):
   print(f'Ingested vector entry id: "{row["doc_uuid"]}"...')
 ```
 
-Start the consumer process (consume->sink)
+Start the consumer process (consume->sink):
 
-```{python}
+```python
 inputtopicname = vectors_topic_name
 
 # Create a special stop condition just for this Notebook (otherwise the cell will run indefinitely)
@@ -294,10 +294,9 @@ app.run(sdf)
 
 ### 1.5 Run a test query on the ingested vectors
 
-Use Qdrant to do a basic similarity seach to make sure the vectors have been ingested properly and are matching in the expected way.
+Use Qdrant to do a basic similarity seach to make sure the vectors have been ingested properly and are matching in the expected way:
 
-```{python}
-
+```python
 query = "books like star wars" # Leave the test query as-is for the first attempt
 
 hits = qdrant.search(
@@ -311,17 +310,17 @@ for hit in hits:
   print(hit.payload['doc_name'], " | ", hit.payload['doc_descr'], "score:", hit.score)
 ```
 
-If everything went to plan, "*Dune*" should be top match for the query "*books like star wars*". This makes sense, since Dune is kind of like Star Wars (depending on who you ask). We can guess it matched because planet" is semantically close to "star" and "struggles" is semantically close to "wars".
+If everything went to plan, "*Dune*" should be top match for the query "*books like star wars*". This makes sense, since Dune is kind of like Star Wars (depending on who you ask). You can guess it matched because planet" is semantically close to "star" and "struggles" is semantically close to "wars".
 
-Now let's suppose we update our catalog to with more books to acommodate all those who are looking for similar items. We want the vector store to be updated as soon as the new book entries are entered in the main catalog database. This will ensure we get as many good matches (and hopefully purchases) as possible without any delays.
+Now let's suppose you update your catalog with more books to acommodate all those who are looking for similar items. You want the vector store to be updated as soon as the new book entries are entered in the main catalog database. This will ensure we get as many good matches (and hopefully purchases) as possible without any delays.
 
 ## 2. Second ingestion pass
 
-We're going to stream the sample data from a CSV again—but in production scenario, these items would be added incrementally as changes to the product catalog are detected and streamed to Apache Kafka as they occur.
+You're going to stream the sample data from a CSV again—but in production scenario, these items would be added incrementally as changes to the product catalog are detected and streamed to Apache Kafka as they occur.
 
 ### 2.1 Add more data
 
-```{python}
+```python
 documents = [
   {"name": "Childhood's End", "description": "A peaceful alien invasion leads to the end of humanity's childhood.", "author": "Arthur C. Clarke", "year": 1953 },
   {"name": "The Day of the Triffids", "description": "After a meteor shower blinds most of the population, aggressive plant life starts taking over.", "author": "John Wyndham", "year": 1951 },
@@ -350,7 +349,7 @@ df.to_csv('documents.csv')
 
 ### 2.2 Produce more data to the docs topic
 
-```{python}
+```python
 df = pd.read_csv('/content/documents.csv')
 outputtopicname = docs_topic_name
 offsetlimit2 = len(df)
@@ -382,10 +381,9 @@ with Producer(
         )
 ```
 
-### 2.3 Consume, Enrich and produce again
+### 2.3 Consume, enrich and produce again
 
-
-```{python}
+```python
 inputtopicname = docs_topic_name
 outputtopicname = vectors_topic_name
 
@@ -430,13 +428,12 @@ sdf = sdf.to_topic(output_topic)
 
 app.run(sdf)
 
-
 # STOP THIS CELL MANUALLY WHEN THE BOOK ENTRIES HAVE BEEN ENRICHED WITH EMBEDDINGS
 ```
 
 ### 2.4 Consume the new embeddings and update the vector store
 
-```{python}
+```python
 inputtopicname = vectors_topic_name
 
 # Create a special stop condition just for this Notebook (otherwise the cell will run indefinitely)
@@ -471,8 +468,7 @@ app.run(sdf)
 
 ### 2.5 Run the same search again
 
-```{python}
-
+```python
 print(f"Searching with query '{query}'...\n\n")
 
 hits = qdrant.search(
@@ -486,26 +482,25 @@ for hit in hits:
   print(hit.payload['doc_name'], " | ", hit.payload['doc_descr'], "score:", hit.score)
 ```
 
-
 *Expected top match: "Old Man's War".*
 
 Dune has now been knocked off the top slot as the most accurate match by our new arrival "Old Man's War". Is this tale of geriatric combat going to appeal more to star wars fans? It's debatable.
 
-But,  in terms of matching, we can certainly understand why it received a higher score. The "term" war is almost a direct hit, and "interstellar" is probably semantically closer to the search term "star" than "planet".
+But, in terms of matching, we can certainly understand why it received a higher score. The "term" war is almost a direct hit, and "interstellar" is probably semantically closer to the search term "star" than "planet".
 
 ## Lessons learned
 
 The point of this excercise was not to delve into the matching logic behind sematic search, rather how we can use Apache Kafka to keep data up-to-date.
 
-Indeed, keeping the underlying data fresh is a crucial component to search quality. We saw how we were able to give the user more semantically accurate search results by updating the vector store.
+Indeed, keeping the underlying data fresh is a crucial component to search quality. You saw how we were able to give the user more semantically accurate search results by updating the vector store.
 
-We could have just updated the vector store manually, by embedding the contents of the CSV and writing to the vector store in batches. Yet this introduces several questions such as:
+You could have just updated the vector store manually, by embedding the contents of the CSV and writing to the vector store in batches. Yet this introduces several questions such as:
 
 * How does this work in a production ecommerce scenario where your product catalog is changing constantly?
 * How do you organize your batches and what is an acceptable delay between the product arriving in the catalog and it matching user search queries?
 
 If you set up an event-based system where embeddings are created and ingested as soon as data is entered (for example via CDC), you dont have to deal with these questions, which is why Apache Kafka is so popular.
 
-* To learn more about CDC, see Confluents article "[Succeeding with Change Data Capture](https://www.confluent.io/blog/how-change-data-capture-works-patterns-solutions-implementation/)".
+## Next steps
 
-
+To learn more about CDC, see Confluent's article [Succeeding with Change Data Capture](https://www.confluent.io/blog/how-change-data-capture-works-patterns-solutions-implementation/).
