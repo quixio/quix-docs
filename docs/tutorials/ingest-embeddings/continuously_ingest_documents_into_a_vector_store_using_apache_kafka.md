@@ -490,7 +490,7 @@ But, in terms of matching, you can certainly understand why it received a higher
 
 ## Lessons learned
 
-The point of this tutorial was not to delve into the matching logic behind sematic search, rather how you can use Apache Kafka to keep data up-to-date.
+The point of this tutorial was not to delve into the matching logic behind semantic search, rather how you can use Apache Kafka to keep data up-to-date.
 
 Indeed, keeping the underlying data fresh is a crucial component to search quality. You saw how to give the user more semantically accurate search results by updating the vector store.
 
