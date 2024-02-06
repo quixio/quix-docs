@@ -1,10 +1,6 @@
----
-title: Continuously ingest documents into a vector store using Apache Kafka
-jupyter: python3
----
 # Continuously ingest documents into a vector store using Apache Kafka
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1mIEQsnr0Savm3X9mwdEwUN0SrEojlwJw?usp=sharing)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/quixio/tutorial-code/blob/main/notebooks/Continuously_ingest_documents_into_a_vector_store_using_Apache_Kafka.ipynb)
 
 Stream data from a CSV (simulating CDC or "Change Data Capture") and ingest it into a vector store: for semantic search.
 ![colab-pipeline.png](images/quix-pipeline.png)
