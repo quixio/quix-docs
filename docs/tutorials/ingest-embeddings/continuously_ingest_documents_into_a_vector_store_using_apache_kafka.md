@@ -486,20 +486,20 @@ for hit in hits:
 
 Dune has now been knocked off the top slot as the most accurate match by our new arrival "Old Man's War". Is this tale of geriatric combat going to appeal more to star wars fans? It's debatable.
 
-But, in terms of matching, we can certainly understand why it received a higher score. The "term" war is almost a direct hit, and "interstellar" is probably semantically closer to the search term "star" than "planet".
+But, in terms of matching, you can certainly understand why it received a higher score. The term "war" is almost a direct hit, and "interstellar" is probably semantically closer to the search term "star" than "planet".
 
 ## Lessons learned
 
-The point of this excercise was not to delve into the matching logic behind sematic search, rather how we can use Apache Kafka to keep data up-to-date.
+The point of this tutorial was not to delve into the matching logic behind sematic search, rather how you can use Apache Kafka to keep data up-to-date.
 
-Indeed, keeping the underlying data fresh is a crucial component to search quality. You saw how we were able to give the user more semantically accurate search results by updating the vector store.
+Indeed, keeping the underlying data fresh is a crucial component to search quality. You saw how to give the user more semantically accurate search results by updating the vector store.
 
 You could have just updated the vector store manually, by embedding the contents of the CSV and writing to the vector store in batches. Yet this introduces several questions such as:
 
 * How does this work in a production ecommerce scenario where your product catalog is changing constantly?
 * How do you organize your batches and what is an acceptable delay between the product arriving in the catalog and it matching user search queries?
 
-If you set up an event-based system where embeddings are created and ingested as soon as data is entered (for example via CDC), you dont have to deal with these questions, which is why Apache Kafka is so popular.
+If you set up an event-based system where embeddings are created and ingested as soon as data is entered (for example via CDC), you don't have to deal with these questions, which is why Apache Kafka is so popular.
 
 ## Next steps
 
