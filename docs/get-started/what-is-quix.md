@@ -19,9 +19,9 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 
     [Sign up for free](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 
-## Quix in brief
+## Python stream processing in brief
 
-Briefly, here's how you would build a stream processing pipeline with Quix:
+Briefly, here's how you would build a Python stream processing pipeline with Quix:
 
 1. Configure data sources and destinations (see [connectors](#connectors)). 
 2. Write your stream processing application in Python using [Quix Streams](../quix-streams/quix-streams-intro.md), an open source stream processing library. 
