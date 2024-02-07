@@ -1,4 +1,4 @@
-# 2022 changelog archive
+# Quix product 2022 changelog archive
 
 ## 1.43.0 | 3 NOVEMBER 2022
 
