@@ -3,7 +3,7 @@ title: What is Quix?
 description: Quix is a complete solution for building, deploying, and monitoring stream processing pipelines with Python, Docker, Kafka, and Git.
 ---
 
-# What is Quix?
+# Quix: Python stream processing made simple
 
 Quix is a complete platform for building, deploying, and monitoring streaming data pipelines. It enables software developers, data scientists, and data engineers who use Python to focus on app development and extracting value from real-time data pipelines, rather than dealing with the underlying infrastructure. 
 
