@@ -1,6 +1,8 @@
 ---
 title: Replacing Flux with Quix Streams
 description: Shows how to use Quix Streams to replace Flux to perform filtering, aggregations, downsampling, and conversion of complex data to JSON.
+search:
+  boost: 3
 ---
 
 # Replacing Flux with Quix Streams

@@ -1,6 +1,8 @@
 ---
 title: Using Telegraf to get data into Quix
 description: A guide demonstrating how to get data into Quix using Telegraf.
+search:
+  boost: 3
 ---
 
 # Using Telegraf to get data into Quix

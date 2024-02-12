@@ -1,6 +1,8 @@
 ---
 title: InfluxDB quickstart guide
 description: Shows how to get up and running building an ETL pipeline with Quix, Quix Streams, and InfluxDB.
+search:
+  boost: 3
 ---
 
 # Quickstart
