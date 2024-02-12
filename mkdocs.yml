@@ -26,14 +26,14 @@ nav:
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
     - 'Contribute': 'get-started/contribute.md'
-  - 'Create':
+  - 'Create your project':
     - 'Overview': 'create/overview.md'
     - 'Create a project': 'create/create-project.md'
     - 'Create an environment': 'create/create-environment.md'
     - 'Protected environments': 'create/protected-environment.md'
     - 'Syncing an environment': 'create/syncing-environment.md'
     - 'Project structure': 'create/project-structure.md'
-  - 'Develop':
+  - 'Develop a pipeline':
     - 'Overview': 'develop/overview.md'
     - 'Create an application': 'develop/create-application.md'
     - 'Authentication':
@@ -75,14 +75,14 @@ nav:
         - 'Setup': 'apis/streaming-reader-api/setup.md'
         - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
         - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
-  - 'Deploy':
+  - 'Deploy a pipeline':
     - 'Overview': 'deploy/overview.md'
     - 'Environment variables': 'deploy/environment-variables.md'
     - 'Secrets management': 'deploy/secrets-management.md'
     - 'YAML variables': 'deploy/yaml-variables.md'
     - 'State management': 'deploy/state-management.md'  
     - 'Deploy public services': 'deploy/deploy-public-page.md'
-  - 'Manage':
+  - 'Manage your pipelines':
     - 'Overview': 'manage/overview.md'
     - 'Troubleshooting': 'manage/troubleshooting.md'
     - 'Security': 'manage/security.md'
@@ -106,13 +106,24 @@ nav:
       - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Integrations':
     - 'Overview': 'integrations/overview.md'
-    - 'InfluxDB':
-        - 'Overview': integrations/influxdb/overview.md
-        - 'Quickstart': integrations/influxdb/quickstart.md
+    - 'Brokers':
+      - 'Overview': integrations/brokers/overview.md
+      - 'Broker settings': integrations/brokers/broker-settings.md
+      - 'Quix': integrations/brokers/quix.md
+      - 'Confluent': integrations/brokers/confluent.md
+      - 'Redpanda': integrations/brokers/redpanda.md
+      - 'Aiven': integrations/brokers/aiven.md
+      - 'Upstash': integrations/brokers/upstash.md
+    - 'Databases':
+      - 'InfluxDB':
+        - 'Overview': integrations/databases/influxdb/overview.md
+        - 'Quickstart': integrations/databases/influxdb/quickstart.md
         - 'Guides': 
-          - 'Using Telegraf': integrations/influxdb/telegraf.md
+          - 'Using Telegraf': integrations/databases/influxdb/telegraf.md
+          - 'Replacing Flux': integrations/databases/influxdb/replacing-flux.md
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
+    - 'Vector Store Embeddings': 'tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md'
     - 'Predictive maintenance': 
       - 'Overview': 'tutorials/predictive-maintenance/overview.md'
       - '1. Get the project': 'tutorials/predictive-maintenance/get-project.md'
@@ -177,14 +188,15 @@ nav:
       - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-    - 'RSS Processing': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
     - 'Currency Alerting': 'tutorials/currency-alerting/currency-alerting.md'
-    - 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
-    - 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
     - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
-    - 'Vector Store Embeddings': 'tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md'
+    # These tutorials are commented out due to lack of updates / testing
+    #- 'RSS Processing': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
+    #- 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
+    #- 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
   - 'Quix Streams':
-    - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
+    # Stable version commented out as people were getting versions confused (as predicted)
+    #- 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
     - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
@@ -261,6 +273,10 @@ plugins:
 #        'quix-streams/subscribe.md': 'quix-streams/v0-5-stable/subscribe.md'
 #        'quix-streams/publish.md': 'quix-streams/v0-5-stable/publish.md'
 #        'quix-streams/state-management.md': 'quix-streams/v0-5-stable/state-management.md'
+        'integrations/influxdb/overview.md': 'integrations/databases/influxdb/overview.md'
+        'integrations/influxdb/quickstart.md': 'integrations/databases/influxdb/quickstart.md'
+        'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'
+        'integrations/influxdb/replacing-flux.md': 'integrations/databases/influxdb/replacing-flux.md'
 
 theme:
   name: 'material'

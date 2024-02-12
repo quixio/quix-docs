@@ -4,5 +4,10 @@ This section of the documentation provides more detailed information on integrat
 
 | Product| Type | Documentation |
 |----|----|----|
-| InfluxDB | Time series database | [Overview](./influxdb/overview.md), [Quickstart](./influxdb/quickstart.md) |
+| Confluent | Kafka broker | [Guide](./brokers/confluent.md) |
+| Redpanda | Kafka broker | [Guide](./brokers/redpanda.md) |
+| Aiven | Kafka broker | [Guide](./brokers/aiven.md) |
+| Upstash | Kafka broker | [Guide](./brokers/upstash.md) |
+| InfluxDB | Time series database | [Overview](./databases/influxdb/overview.md) |
 
+See also the [Quix connectors](../connectors/index.md).
