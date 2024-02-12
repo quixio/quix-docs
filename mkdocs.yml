@@ -195,8 +195,7 @@ nav:
     #- 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
     #- 'Slack Alerting': 'tutorials/slack-alerting/slack-alerting.md'
   - 'Quix Streams':
-    # Stable version commented out as people were getting versions confused (as predicted)
-    #- 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
+    - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
     - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
