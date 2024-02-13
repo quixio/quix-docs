@@ -7,7 +7,7 @@ search:
 
 # Replacing Flux with Quix Streams
 
-You can use Quix Streams as a [replacement for Flux](https://docs.influxdata.com/influxdb/v2/process-data/common-tasks/){target=_blank} to process your time series data in conjunction with InfluxDB. 
+You can use [Quix Streams](../../../quix-streams/quix-streams-intro.md) as a [replacement for Flux](https://docs.influxdata.com/influxdb/v2/process-data/common-tasks/){target=_blank} to process your time series data in conjunction with InfluxDB. 
 
 You can write any transformation logic you need for your use case, using Python, and the Quix Streams library. Quix Streams has many powerful operations built in, including filtering, aggregation, and windowing.
 
@@ -169,3 +169,7 @@ if __name__ == "__main__":
 Notice that the Quix deserializer has been replaced by the JSON deserializer.
 
 This would read data on the topic in Quix time series format, and publish the data converted to JSON format.
+
+## Next steps
+
+* See the [Quix Streams documentation](../../../quix-streams/quix-streams-intro.md).
