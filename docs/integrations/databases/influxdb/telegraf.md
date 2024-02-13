@@ -97,7 +97,7 @@ Note that the URL has the format `https://writer-<org>-<project>-<environment>.p
 
 The easiest way to obtain the base of the URL is to go to `Settings` in Quix and then select `APIs and tokens` as shown in the following screenshot:
 
-![APIs and tokens](../../images/integrations/apis-and-tokens.png)
+![APIs and tokens](../../../images/integrations/apis-and-tokens.png)
 
 Use the copy button to copy the Streaming Writer API Swagger doc endpoint. You will get something similar to the following:
 
