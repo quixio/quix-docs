@@ -1,6 +1,6 @@
 ---
 title: Replacing Flux with Quix Streams
-description: Shows how to use Quix Streams to replace Flux to perform filtering, aggregations, downsampling, and conversion of complex data to JSON.
+description: Shows how to use Quix Streams and Python to replace Flux to perform filtering, aggregations, downsampling, and conversion of complex data to JSON.
 search:
   boost: 3
 ---
@@ -9,7 +9,7 @@ search:
 
 You can use Quix Streams as a [replacement for Flux](https://docs.influxdata.com/influxdb/v2/process-data/common-tasks/){target=_blank} to process your time series data in conjunction with InfluxDB. 
 
-You can add any transformation logic you need for your use case. Quix Streams has many powerful operations built in.
+You can write any transformation logic you need for your use case, using Python, and the Quix Streams library. Quix Streams has many powerful operations built in, including filtering, aggregation, and windowing.
 
 ## Downsampling data using Quix Streams
 
