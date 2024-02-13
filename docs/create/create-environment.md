@@ -33,7 +33,7 @@ You now choose the Kafka broker you use with Quix.
 There are three broker options:
 
 1. Quix broker
-2. Managed Kafka
+2. Managed Kafka (using a broker provider)
 3. Self-hosted
 
 Each of these is described briefly in the following sections.
@@ -53,6 +53,7 @@ Quix has integrations with common Kafka hosting providers. There are three optio
 1. [Confluent Cloud](https://www.confluent.io/confluent-cloud/){target=_blank}
 2. [Redpanda](https://redpanda.com/){target=_blank}
 3. [Aiven](https://aiven.io/kafka){target=_blank}
+4. [Upstash](https://upstash.com/){target=_blank}
 
 Select your managed broker option, and then follow the detailed setup guide provided to connect Quix to the broker.
 
@@ -63,6 +64,10 @@ If you want to install and manage your own Kafka installation, you can do this t
 ![Self-hosted Kafka](../images/create-environment/self-hosted-kafka.png){width=90%}
 
 You also have the option to test your connection with the Kafka server before continuing.
+
+### Broker setup guides
+
+As well as the guides built into Quix Cloud to help set up your broker, there are also some setup guides in the [Integrations documentation](../integrations/brokers/overview.md).
 
 ## Data and streaming services
 

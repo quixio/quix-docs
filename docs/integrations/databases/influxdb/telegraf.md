@@ -1,3 +1,10 @@
+---
+title: Using Telegraf to get data into Quix
+description: A guide demonstrating how to get data into Quix using Telegraf.
+search:
+  boost: 3
+---
+
 # Using Telegraf to get data into Quix
 
 [Telegraf](https://docs.influxdata.com/telegraf/v1/){target=_blank} is an agent that collects and sends metrics and events from databases, systems, and IoT sensors, to configured outputs. One such output is Quix. This guide shows you how to configure Telegraf to send data of interest to a Quix topic.
@@ -9,7 +16,7 @@ This guide assumes you have the following:
 * A free [Quix account](https://portal.platform.quix.ai/self-sign-up){target="_blank"}.
 * Telegraf [installed](https://docs.influxdata.com/telegraf/v1/install/){target=_blank}.
 
-You also need to [create a project](../../create/create-project.md) with an environment.
+You also need to [create a project](../../../create/create-project.md) with an environment.
 
 ## Create a Telegraf configuration file
 
@@ -75,7 +82,7 @@ The Quix-specific configurations are explained in the following sections.
 
 ### URL
 
-The `url` configuration points to the [Quix Streaming Writer](../../apis/streaming-writer-api/overview.md) HTTP endpoint. This enables data to be published to the specified topic and stream using HTTP. 
+The `url` configuration points to the [Quix Streaming Writer](../../../apis/streaming-writer-api/overview.md) HTTP endpoint. This enables data to be published to the specified topic and stream using HTTP. 
 
 Note that the URL has the format `https://writer-<org>-<project>-<environment>.platform.quix.io/topics/<topic>/streams/<stream>/events/<event>/value`, where:
 
@@ -90,7 +97,7 @@ Note that the URL has the format `https://writer-<org>-<project>-<environment>.p
 
 The easiest way to obtain the base of the URL is to go to `Settings` in Quix and then select `APIs and tokens` as shown in the following screenshot:
 
-![APIs and tokens](../../images/integrations/apis-and-tokens.png)
+![APIs and tokens](../../../images/integrations/apis-and-tokens.png)
 
 Use the copy button to copy the Streaming Writer API Swagger doc endpoint. You will get something similar to the following:
 
@@ -151,7 +158,7 @@ Now that Telegraf is running, it is publishing data to the specified Quix topic.
 
 In the main left-hand menu select `Data explorer`. Make sure `Live data` is selected. You then need to select your topic, stream, and event(s) of interest. Then, as this is event data, select the `Table` view, and click on an event to see its content, as shown in the following screenshot:
 
-![Telegraf metrics](../../images/integrations/telegraf-data-explorer.png)
+![Telegraf metrics](../../../images/integrations/telegraf-data-explorer.png)
 
 !!! tip
 
@@ -159,12 +166,12 @@ In the main left-hand menu select `Data explorer`. Make sure `Live data` is sele
 
 ## Summary
 
-In this guide you have learned how to configure Telegraf to publish data directly into a Quix topic. You have also learned how to examine this data using the Quix data explorer. Of course, once data is in a Quix topic, you can build a complete [Python stream processing pipeline](../../get-started/quixtour/overview.md) around it, and persist your processed data in a time series database such as [InfluxDB](overview.md). 
+In this guide you have learned how to configure Telegraf to publish data directly into a Quix topic. You have also learned how to examine this data using the Quix data explorer. Of course, once data is in a Quix topic, you can build a complete [Python stream processing pipeline](../../../get-started/quixtour/overview.md) around it, and persist your processed data in a time series database such as [InfluxDB](overview.md). 
 
 ## Next steps
 
-* Learn how to build a complete [Python stream processing pipeline](../../get-started/quixtour/overview.md)
-* Read about [Streaming Writer](../../apis/streaming-writer-api/overview.md)
-* Try one of our [tutorials](../../tutorials/overview.md)
+* Learn how to build a complete [Python stream processing pipeline](../../../get-started/quixtour/overview.md)
+* Read about [Streaming Writer](../../../apis/streaming-writer-api/overview.md)
+* Try one of our [tutorials](../../../tutorials/overview.md)
 * Obtain an [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
 * Read the comprehensive [Telegraf documentation](https://docs.influxdata.com/telegraf/v1/){target=_blank}
