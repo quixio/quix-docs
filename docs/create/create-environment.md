@@ -65,6 +65,10 @@ If you want to install and manage your own Kafka installation, you can do this t
 
 You also have the option to test your connection with the Kafka server before continuing.
 
+### Broker setup guides
+
+As well as the guides built into Quix Cloud to help set up your broker, there are also some setup guides in the [Integrations documentation](../integrations/brokers/overview.md).
+
 ## Data and streaming services
 
 The last step in creating an environment is to choose your data and streaming services option. 

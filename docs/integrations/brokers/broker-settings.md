@@ -9,3 +9,7 @@ When you create an environment in Quix, you are presented with the `Broker setti
 When connecting to a provider, each option comes with its own setup guide. Simply follow the instructions in the setup guide to connect Quix to your preferred broker. For example:
 
 ![Redpanda setup guide](../../images/integrations/brokers/redpanda-setup-guide.png)
+
+## See also
+
+* [Create an environment](../../create/create-environment.md)
