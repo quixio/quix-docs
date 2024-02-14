@@ -1,5 +1,5 @@
 ---
-title: What is Quix?
+title: Quix - Python stream processing made simple
 description: Quix is a complete solution for building, deploying, and monitoring stream processing pipelines with Python, Docker, Kafka, and Git.
 ---
 
@@ -24,7 +24,7 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 Briefly, here's how you would build a Python stream processing pipeline with Quix:
 
 1. Configure data sources and destinations (see [connectors](#connectors)). 
-2. Write your stream processing application in Python using [Quix Streams](../quix-streams/quix-streams-intro.md), an open source stream processing library. 
+2. Write your stream processing application in Python using [Quix Streams](../quix-streams/quix-streams-intro.md), an open source stream processing client library. 
 3. Deploy your application to production. The application takes input data from a source and transforms it. When stream processing is finished, output data is sent to a destination system.
 4. Use Quix’s built-in observability tools to continuously monitor your pipeline and quickly identify any issues. 
 
@@ -102,15 +102,15 @@ Quix has the ability to create projects where all code and configuration is cont
 
 ### Kafka integrations
 
-Quix requires Kafka to provide streaming infrastructure for your solutions.
+Quix requires a Kafka broker (or a broker compatible with the Apache Kafka broker) to provide streaming infrastructure for your solutions.
 
-When you create a new Quix environment, there are three hosting options:
+When you create a new Quix environment, there are three Kafka [broker hosting options](../create/create-environment.md#broker-settings):
 
-1. Quix Broker - Quix hosts Kafka for you. This is the simplest option as Quix provides hosting and configuration.
-2. Managed Kafka - use Quix integrations with common Kafka hosting providers such as Confluent Cloud, Redpanda, and Aiven.
-3. Self-Hosted Kafka - use your own Kafka installation, as long as the cluster is available on the Internet.
+1. Quix Broker - Quix hosts Apache Kafka for you. This is the simplest option as Quix provides hosting and configuration.
+2. Managed Kafka - use Quix integrations with common Kafka broker hosting providers such as Confluent Cloud, Redpanda, Aiven, and Upstash.
+3. Self-Hosted Kafka - use your own Apache Kafka broker installation, as long as the cluster is available on the Internet.
 
-This enables you to select a Kafka hosting option according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
+This enables you to select a Kafka broker hosting option according to requirements. For example, your production environment may be hosted on your own Kafka infrastructure, while your develop environment is hosted by Quix.
 
 !!! tip
 
@@ -151,13 +151,19 @@ Quix provides several APIs to help you work with streaming data. These include:
 
 ### Quix Streams
 
-As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete client library, Quix Streams, to reduce development times, and provide advanced features such as automatic scaling through Streams. Quix Streams is somewhat similar to Kafka Streams, in the sense that both libraries process data from a Kafka topic. However, unlike Kafka Streams, Quix Streams enables you to process data using pure Python.
+As you will notice as you explore the various open source code samples and connectors that come with Quix, Quix also provides a complete Python client library, Quix Streams, to reduce development times, and provide advanced features such as automatic scaling through Streams. 
+
+Using Quix Streams you can rapidly build a Python client that implements your stream processing use case.
+
+Quix Streams is somewhat similar to Kafka Streams, in the sense that both libraries process data from a Kafka topic. However, unlike Kafka Streams, Quix Streams enables you to process data using pure Python.
 
 Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as Kafka, which are predominantly written in Java and Scala.
 
-For Python developers, Quix Streams can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../quix-streams/quix-streams-intro.md).
+For Python developers, the Quix Streams client library can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../quix-streams/quix-streams-intro.md).
 
-## Building with Quix
+Quix streams is an open source Python library, and the [GitHub repository](https://github.com/quixio/quix-streams){target=_blank} contains all code and documentation.
+
+## Building Python stream processing pipelines with Quix
 
 The basic flow that pipelines follow is ingestion, processing, and serving of data. These correlate to source, transform, and destination components within Quix.
 
