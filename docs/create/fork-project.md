@@ -75,7 +75,7 @@ To link Quix to this forked repository:
 
     The setup guide for GitHub is shown here:
             
-    ![Git seup guide](../../images/git-setup-guide.png)
+    ![Git seup guide](../images/git-setup-guide.png)
 
 5. Assuming you are connecting to a GitHub account, you'll now need to copy the SSH key provided by Quix into your GitHub account. See the setup guide for further details.
 
@@ -83,7 +83,7 @@ To link Quix to this forked repository:
 
         It is recommended that you create a new user in your Git provider for managing your Quix projects. You are reminded of this when you create a project (the notice is shown in the following screenshot).
 
-    ![Create new user](../../images/create-new-github-user.png)
+    ![Create new user](../images/create-new-github-user.png)
 
 6. Click `Validate` to test the connection between Quix and GitHub. 
 
