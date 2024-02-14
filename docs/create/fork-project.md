@@ -11,16 +11,6 @@ In the following sections you learn how to:
 1. Fork an existing project repository.
 2. Create a new project (and environment) in Quix, linked to your forked repository.
 
-## 💡 Key ideas
-
-The key ideas on this page:
-
-* Forking a public template project repository
-* Connecting Quix to an external Git repository, in this case the forked repository
-* Quix projects, environments, and applications
-* Pipeline view of project
-* Synchronizing an environment
-
 ## Watch a video
 
 This video shows you how to fork a template project and create your project in Quix:
