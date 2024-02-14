@@ -127,7 +127,7 @@ nav:
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
     - 'Vector Store Embeddings': 'tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md'
-    - 'InfluxDB alerting': 'tutorials/influxdb-alerting.md'
+    - 'InfluxDB alerting': 'tutorials/influxdb-alerting/influxdb-alerting.md'
     - 'Predictive maintenance': 
       - 'Overview': 'tutorials/predictive-maintenance/overview.md'
       - '1. Get the project': 'tutorials/predictive-maintenance/get-project.md'
