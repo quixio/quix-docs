@@ -29,6 +29,8 @@ nav:
   - 'Using Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
+      - 'Clone a project': 'create/clone-project.md'
+      - 'Fork a project': 'create/fork-project.md'
       - 'Create a project': 'create/create-project.md'
       - 'Create an environment': 'create/create-environment.md'
       - 'Protected environments': 'create/protected-environment.md'
