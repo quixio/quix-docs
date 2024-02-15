@@ -13,7 +13,7 @@ To complete this tutorial you'll need to:
 
 !!! tip
 
-    It would help if you've already tried the [InfluxDB quickstart](../../integrations/databases/influxdb/quickstart.md). This would give you some insight into the standard InfluxDB connectors, and some simple transforms.
+    Completing the [InfluxDB quickstart](../../integrations/databases/influxdb/quickstart.md) before embarking on this tutorial is not essential, but is highly recommended.
 
 ## Write the client code
 
@@ -197,6 +197,70 @@ You have now concluded the first part of the pipeline, where you learned how to 
 In the next part of the tutorial you build a pipline with an InfluxDB source (this queries InfluxDB using polling for new data), add a threshold detection transform, and add an alerting service.
 
 ## Add an InfluxDB source connector
+
+You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). Make sure the input to the destination is the `cpu-load-transform` topic. You can reuse your `INFLUXDB_ORG` and `INFLUXDB_TOKEN`secrets, and set the other variables to the same as you used when setting up the InfluxDB destination connector. 
+
+Set is `task_interval` - you can set this to `1s` (one second) to ensure you see any new data promptly (this make testing a little easier as you don't need to wait too long for updates). 
+
+Add a new topic `influxdb-cpu-load` for the configured output topic. This will help avoid confusion with the topics you created in the Quickstart.
+
+When you have completed the configuration, deploy the service.
+
+## Add a threshold detection transform
+
+You now add a transform to detect when CPU threshold is exceeded. Click `Add new` and locate the `Starter transformation SDF` again. 
+
+![Add transform](./images/add-transform-to-source.png)
+
+You can use the defaults, or rename your transform to something like `CPU Threshold`. 
+
+Then click on `Edit code`. You can rename the output topic to `cpu-threshold-transform`.
+
+You'll add new code to `main.py`.
+
+``` python
+import os
+from quixstreams import Application, State
+from quixstreams.models.serializers.quix import QuixDeserializer, QuixTimeseriesSerializer
+
+def threshold_detect(row):
+    if row['CPULoad'] > 20:
+        print ('CPU overload')
+
+app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+
+input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
+output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSerializer())
+
+sdf = app.dataframe(input_topic)
+sdf = sdf.update(threshold_detect)
+sdf = sdf.to_topic(output_topic)
+
+if __name__ == "__main__":
+    app.run(sdf)
+```
+
+Here, a very simple function checks if the inbound data contains a CPU load above a fixed limit (set to 20 here for ease of testing).
+
+Note the data is unchanged, it is simply published as is to the output for now.
+
+You can test the application is running by loading some heavy weight apps on your laptop. You'll see messages printed to the console if the threshold is exceeded:
+
+!!! note
+
+    This is a just an example approach. It would perhaps be better to put the threshold detection in the first pipeline, to detect this issue in real time. This code could easily be added to the conversion transform you created earlier. In this case you are querying the database for problematic values, just to show an alternative approach.
+
+## Downsampling with an aggregation
+
+While CPU spikes might be acceptable in the short term, they might be more conncerning if such levels are sustained over a longer period of time. For detecting such a condition, an aggregation using a tumbling window could be implemented. Let's say you want to raise an alert if the CPU level exceeds a certain average level over say five minutes. You could use code such as the following:
+
+``` python
+
+```
+
+## Add an alerting service
+
+TBD
 
 
 
