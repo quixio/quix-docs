@@ -1,6 +1,6 @@
 # Downsampling with an aggregation
 
-While CPU spikes might be acceptable in the short term, they might be more conncerning if such levels are sustained over a longer period of time. For detecting such a condition, an aggregation using a tumbling window could be implemented. Let's say you want to raise an alert if the CPU level exceeds a certain average level over say five minutes. You could use code such as the following:
+While CPU spikes might be acceptable in the short term, they might be more concerning if such levels are sustained over a longer period of time. For detecting such a condition, an aggregation using a tumbling window could be implemented. Let's say you want to raise an alert if the CPU level exceeds a certain average level over say five minutes. You could use code such as the following:
 
 ``` python
 import os
