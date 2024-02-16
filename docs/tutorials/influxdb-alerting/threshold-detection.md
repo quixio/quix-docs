@@ -36,7 +36,7 @@ Here, a very simple function checks if the inbound data contains a CPU load abov
 
 Note the data is unchanged, it is simply published as is to the output for now.
 
-You can test the application is running by loading some heavy weight apps on your laptop. You'll see messages printed to the console if the threshold is exceeded:
+You can test the application is running by loading some CPU intensive apps on your laptop. You'll see messages printed to the console if the threshold is exceeded:
 
 !!! note
 
