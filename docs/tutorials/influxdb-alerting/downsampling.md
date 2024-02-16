@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
 Note the threshold values and time for the tumbling window were chosen as quite low values to make testing easier.
 
-The code has been modified to write take an average of the CPU load over the time span of the tumbling window. If this average is greater than the threshold, then a JSON object containing the start and end times of the window, and the CPU average value. This can be passed to further services as required. The output JSON has the following format:
+The code has been modified to take an average of the CPU load over the time span of the tumbling window. If this average is greater than the threshold, then a JSON object containing the start and end times of the window, and the CPU average value. This can be passed to further services as required. The output JSON has the following format:
 
 ``` json
 {
