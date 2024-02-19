@@ -29,6 +29,8 @@ nav:
   - 'Using Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
+      - 'Clone a project': 'create/clone-project.md'
+      - 'Fork a project': 'create/fork-project.md'
       - 'Create a project': 'create/create-project.md'
       - 'Create an environment': 'create/create-environment.md'
       - 'Protected environments': 'create/protected-environment.md'
@@ -108,22 +110,35 @@ nav:
   - 'Integrations':
     - 'Overview': 'integrations/overview.md'
     - 'Brokers':
-      - 'Overview': integrations/brokers/overview.md
-      - 'Broker settings': integrations/brokers/broker-settings.md
-      - 'Quix': integrations/brokers/quix.md
-      - 'Confluent': integrations/brokers/confluent.md
-      - 'Redpanda': integrations/brokers/redpanda.md
-      - 'Aiven': integrations/brokers/aiven.md
-      - 'Upstash': integrations/brokers/upstash.md
+      - 'Overview': 'integrations/brokers/overview.md'
+      - 'Broker settings': 'integrations/brokers/broker-settings.md'
+      - 'Quix': 'integrations/brokers/quix.md'
+      - 'Confluent': 'integrations/brokers/confluent.md'
+      - 'Redpanda': 'integrations/brokers/redpanda.md'
+      - 'Aiven': 'integrations/brokers/aiven.md'
+      - 'Upstash': 'integrations/brokers/upstash.md'
     - 'Databases':
       - 'InfluxDB':
-        - 'Overview': integrations/databases/influxdb/overview.md
-        - 'Quickstart': integrations/databases/influxdb/quickstart.md
+        - 'Overview': 'integrations/databases/influxdb/overview.md'
+        - 'Quickstart': 'integrations/databases/influxdb/quickstart.md'
         - 'Guides': 
-          - 'Using Telegraf': integrations/databases/influxdb/telegraf.md
-          - 'Replacing Flux': integrations/databases/influxdb/replacing-flux.md
+          - 'Using Telegraf': 'integrations/databases/influxdb/telegraf.md'
+          - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
+          - 'Alerting': 'integrations/databases/influxdb/replacing-flux.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
+    - 'InfluxDB alerting': 
+      - 'Overview': 'tutorials/influxdb-alerting/overview.md'
+      - '1. Write the Python client': 'tutorials/influxdb-alerting/python-client.md'
+      - '2. Create an external source': 'tutorials/influxdb-alerting/external-source.md'
+      - '3. Develop a transform': 'tutorials/influxdb-alerting/create-transform.md'
+      - '4. Examine your data': 'tutorials/influxdb-alerting/data-explorer.md'
+      - '5. Add InfluxDB destination': 'tutorials/influxdb-alerting/influxdb-destination.md'
+      - '6. Add InfluxDB source': 'tutorials/influxdb-alerting/influxdb-source.md'
+      - '7. Add threshold detection': 'tutorials/influxdb-alerting/threshold-detection.md'
+      - '8. Downsample your data': 'tutorials/influxdb-alerting/downsampling.md'
+      - '9. Add PagerDuty alerting': 'tutorials/influxdb-alerting/add-alerting.md'
+      - '10. Summary': 'tutorials/influxdb-alerting/summary.md'
     - 'Vector Store Embeddings': 'tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md'
     - 'Predictive maintenance': 
       - 'Overview': 'tutorials/predictive-maintenance/overview.md'
