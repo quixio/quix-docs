@@ -243,7 +243,6 @@ plugins:
         'index.md': 'get-started/welcome.md'
         'contribute.md': 'get-started/contribute.md'
         'platform/changes.md': 'get-started/welcome.md'
-        'platform/changes.md#environment': 'create/create-environment.md'
         'platform/ingest-data.md': 'develop/overview.md'
         'platform/quickstart.md': 'get-started/quickstart.md'
         'platform/what-is-quix.md': 'get-started/what-is-quix.md'
