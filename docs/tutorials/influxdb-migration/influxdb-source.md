@@ -52,6 +52,6 @@ When you have completed the configuration, deploy the service.
 
 ## 🏃‍♀️ Next step
 
-[Part 4 - Install the InfluxDB v3 destination :material-arrow-right-circle:{ align=right }](./TODO)
+[Part 4 - Install the InfluxDB v3 destination :material-arrow-right-circle:{ align=right }](./influxdb-destination.md)
 
 
