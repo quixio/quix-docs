@@ -14,12 +14,12 @@ If you're just curious, click the box below to see the complete code.
 ??? example "Push CPU load data to Quix"
 
     ```python
-    # pip install psutil
-    # pip install quixstreams
-    import psutil
-    import time
+    import psutil, time, os
     from quixstreams import Application
     from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
+
+    from dotenv import load_dotenv
+    load_dotenv()
 
     def get_cpu_load():
         cpu_load = psutil.cpu_percent(interval=1)
@@ -39,7 +39,7 @@ If you're just curious, click the box below to see the complete code.
             cpu_load = get_cpu_load()
             print("CPU load: ", cpu_load)
             timestamp = int(time.time_ns())
-            message = {"Timestamp": timestamp, "CPULoad": cpu_load}
+            message = {"Timestamp": timestamp, "CPU_Load": cpu_load}
             with producer:
                 serialized_value = serializer(
                     value=message, ctx=SerializationContext(topic=output_topic.name)
@@ -71,6 +71,7 @@ Once you have Python installed, open up a terminal, and install the following mo
 ```
 pip install quixstreams
 pip install psutil
+pip install python-dotenv
 ```
 
 !!! tip
@@ -91,7 +92,7 @@ You can also read the documentation on how to [create a project](../create/creat
 
 ## 3. Set your environment variables
 
-First, in order to use Quix Streams on the command line (as opposed to working in Quix Cloud), you need to set the following environment variables:
+You need to set the following environment variables:
 
 * `Quix__Sdk__Token`
 * `Quix__Portal__Api`
@@ -100,17 +101,12 @@ Note, these variables use **double** underscores.
 
 To obtain these values you can go to `Settings` in your environment, and then click on the `APIs and tokens tab`. You can obtain the `Streaming Token` and the Portal API URL from there.
 
-Set the environment variables using the method **recommended for your system**, for example on macOS or Unix you could set the variables as follows:
+Create a `.env` file containing your environment variables:
 
 ```
-#!/usr/bin/env bash                                                                          
-export Quix__Sdk__Token="sdk-12345"
-export Quix__Portal__Api="portal-api.platform.quix.io"
-echo $Quix__Sdk__Token
-echo $Quix__Portal__Api
+Quix__Sdk__Token="sdk-12345"
+Quix__Portal__Api="portal-api.platform.quix.io"
 ```
-
-You could add these lines (without the shebang) to your Bash or Zsh resource file, for example, `.bash_profile`, so they are always available during development.
 
 !!! note
 
@@ -125,10 +121,13 @@ Create a new file called `cpu_load.py`, and copy and paste in the following code
 ``` python 
 # pip install psutil
 # pip install quixstreams
-import psutil
-import time
+# pip install python-dotenv
+import psutil, time, os
 from quixstreams import Application
 from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
+
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
@@ -148,7 +147,7 @@ def main():
         cpu_load = get_cpu_load()
         print("CPU load: ", cpu_load)
         timestamp = int(time.time_ns())
-        message = {"Timestamp": timestamp, "CPULoad": cpu_load}
+        message = {"Timestamp": timestamp, "CPU_Load": cpu_load}
         with producer:
             serialized_value = serializer(
                 value=message, ctx=SerializationContext(topic=output_topic.name)
@@ -165,6 +164,8 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print('Exiting due to keyboard interrupt')
 ```
+
+Note that Quix Streams reads the necessary environment variables for you.
 
 ## 5. Run your code
 
@@ -193,10 +194,10 @@ To view your data in the data explorer in Quix Cloud:
 3. You see the `cpu-load` topic. Note the vertical green bars representing inbound data.
 4. Hover the mouse over the `Data` column. You see the tool tip text `View live data`.
 5. Click the mouse where the tool tip text is displayed. You are taken to the Quix Data Explorer in a new tab.
-6. Under `SELECT STREAMS` select the box `Quickstart CPU Load - Server 1`.
+6. Under `SELECT STREAMS` select the box `server-1-cpu`.
 7. Under `SELECT PARAMETERS OR EVENTS` select `CPU_Load`. 
 
-Your real-time CPU load is displayed as a waveform. You can also take a look at the table view, and the message view. 
+Click the `Messages` tab to see the inbound data. 
 
 ## Conclusion
 
