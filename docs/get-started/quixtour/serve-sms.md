@@ -2,10 +2,6 @@
 
 In this part of the tour you'll learn how to create a simple destination. This destination sends an SMS alert to a systems administrator when a CPU spike data frame arrives.
 
-## Watch the video
-
-<div style="position: relative; padding-bottom: 61.87845303867403%; height: 0;"><iframe src="https://www.loom.com/embed/940b085f130847fb8893e885907b1f4a?sid=6359001c-9f17-4e1e-b8a9-7ecd2d2f20db" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 ## Prerequisites
 
 If you've completed this tutorial so far, you should have all the prerequisites already installed.
@@ -27,56 +23,7 @@ To create the SMS alert destination:
 9. Replace all the code in `main.py` with the following:
 
     ```python
-    import quixstreams as qx
-    import os
-    import pandas as pd
-
-    # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
-    send_sms_bool = False 
-    if send_sms_bool:
-        import vonage # add vonage module to requirements.txt to pip install it
-        vonage_key = os.environ["VONAGE_API_KEY"]
-        vonage_secret = os.environ["VONAGE_API_SECRET"]
-        to_number = os.environ["TO_NUMBER"]
-
-        client = vonage.Client(key=vonage_key, secret=vonage_secret)
-        sms = vonage.Sms(client)
-
-    # function to send an SMS
-    def send_sms(message):
-        print("Sending SMS message to admin...")
-        responseData = sms.send_message(
-            {
-                "from": "Vonage APIs",
-                "to": to_number,
-                "text": message,
-            }
-        )
-
-        if responseData["messages"][0]["status"] == "0":
-            print("Message sent successfully. Admin Alerted.")
-        else:
-            print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
-        return
-
-    client = qx.QuixStreamingClient()
-
-    topic_consumer = client.get_topic_consumer(topic_id_or_name = os.environ["input"],
-                                            consumer_group = "empty-destination")
-
-    def on_dataframe_received_handler(stream_consumer: qx.StreamConsumer, df: pd.DataFrame):
-        print('Spike dataframe received!')
-        cpu_load = df['CPU_Load'][0]
-        msg = f"Warning! CPU spike of {cpu_load} detected."
-        if send_sms_bool is True:
-            send_sms(msg)
-
-    def on_stream_received_handler(stream_consumer: qx.StreamConsumer):
-        stream_consumer.timeseries.on_dataframe_received = on_dataframe_received_handler
-
-    topic_consumer.on_stream_received = on_stream_received_handler
-    print("Listening to streams. Press CTRL-C to exit.")
-    qx.App.run()
+    TODO
     ```
 
 ## Send an SMS (optional)
@@ -91,13 +38,10 @@ If you want to send an alert SMS follow these steps:
 
     | Variable name | Variable type |
     |----|----|
-    | VONAGE_API_KEY | `text - hidden` |
-    | VONAGE_API_SECRET | `text - hidden` |
-    | TO_NUMBER | `text - hidden` |
+    | VONAGE_API_KEY | `secret` |
+    | VONAGE_API_SECRET | `secret` |
+    | TO_NUMBER | `secret` |
     
-    !!! tip
-
-        You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
             
     See also [how to add environment variables](../../deploy/environment-variables.md).
 
@@ -122,5 +66,5 @@ You've now completed the Quix Tour. You've built a simple but complete stream pr
 
 To continue your Quix learning journey, you may want to consider some of the following resources:
 
-* [Computer Vision](../../tutorials/computer-vision/overview.md)
-* [Quix Streams docs](../../quix-streams/client-library-intro.md)
+* [Quix Streams docs](../../quix-streams/quix-streams-intro.md)
+* [InfluxDB alerting tutorial](../../tutorials/influxdb-alerting/overview.md)

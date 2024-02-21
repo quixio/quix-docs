@@ -19,7 +19,7 @@ nav:
     - 'Quickstart': 'get-started/quickstart.md'
     - 'Quix Tour': 
       - 'Overview': 'get-started/quixtour/overview.md'
-      - '1. Ingest': 'get-started/quixtour/ingest-push.md'
+      - '1. Ingest': 'get-started/quixtour/external-source.md'
       - '2. Process': 'get-started/quixtour/process-threshold.md'
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
     - 'Project templates': 'get-started/project-templates.md'
