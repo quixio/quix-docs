@@ -21,7 +21,7 @@ The pipeline you implement in this tour:
 
     !!! note
 
-        You completed this part already in the [Quickstart](../quickstart.md)**.
+        You completed this part already in the [Quickstart](../quickstart.md).
 
 2. **Process** - in this step, you process your data. There are many [types of processing](../../develop/process/types-of-processing.md), one of which is the transform. There are many possible [types of transform](../../develop/process/types-of-transform.md). Here you create a transform that performs threshold detection. You publish a message to the transform's output topic. 
 
