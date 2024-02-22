@@ -22,8 +22,53 @@ To create the SMS alert destination:
 8. In the project view click on `main.py` to edit it.
 9. Replace all the code in `main.py` with the following:
 
-    ```python
-    TODO
+    ``` python
+    from quixstreams import Application
+    import os
+
+    send_sms_bool = False # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
+    if send_sms_bool:
+        import vonage # add vonage module to requirements.txt to pip install it
+        vonage_key = os.environ["VONAGE_API_KEY"]
+        vonage_secret = os.environ["VONAGE_API_SECRET"]
+        to_number = os.environ["TO_NUMBER"]
+
+        client = vonage.Client(key=vonage_key, secret=vonage_secret)
+        sms = vonage.Sms(client)
+
+    # function to send an SMS
+    def send_sms(message):
+        print("Sending SMS message to admin...")
+        responseData = sms.send_message(
+            {
+                "from": "Vonage APIs",
+                "to": to_number,
+                "text": message,
+            }
+        )
+
+        if responseData["messages"][0]["status"] == "0":
+            print("Message sent successfully. Admin Alerted.")
+        else:
+            print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
+        return
+
+    def send_alert(row):
+        cpu_load = row['CPU_Load']
+        print("Warning! CPU spike of {} detected.".format(cpu_load))
+        msg = f"Warning! CPU spike of {cpu_load} detected."
+        if send_sms_bool is True:
+            send_sms(msg)    
+
+    app = Application.Quix("sms-alert-destination", auto_offset_reset = "latest")
+
+    input_topic = app.topic(os.environ["input"])
+    sdf = app.dataframe(input_topic)
+    sdf = sdf.update(send_alert)
+    sdf = sdf.update(lambda row: print(row))
+
+    if __name__ == "__main__":
+        app.run(sdf)    
     ```
 
 ## Send an SMS (optional)
@@ -60,7 +105,7 @@ Again generate a CPU spike by opening several large applications on your laptop.
 
 ## Conclusion
 
-You've now completed the Quix Tour. You've built a simple but complete stream processing pipeline. 
+You've now completed the Quix Tour. You've built a simple but complete stream processing pipeline. You can resuse the transform code, with some modifications, in your own projects. With a small amount of work, the SMS service you created could be turned into a general purpose SMS alaerting module, using the Vonage APIs. It could also be adapted to build out other alerting services, such as [PagerDuty](../../tutorials/influxdb-alerting/add-alerting.md).
 
 ## Next steps
 
