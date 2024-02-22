@@ -111,7 +111,7 @@ Using what you have learned in previous parts of this tutorial, check the format
 
 For more information refer to:
 
-* [Quix Streams](../../quix-streams/client-library-intro.md) - More about streams, publishing, consuming, events and much more. 
+* [Quix Streams](../../quix-streams/quix-streams-intro.md) - More about streams, publishing, consuming, events and much more. 
 
 ## 🏃‍♀️ Next step
 

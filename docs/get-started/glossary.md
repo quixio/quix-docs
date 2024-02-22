@@ -54,7 +54,7 @@ Quix supports time series data, events, metadata, and blobs with the following d
 * String (UTF-8)
 * Binary data (blobs)
 
-Read more about [data types](../quix-streams/client-library-intro.md#multiple-data-types).
+Read more about [data types](../quix-streams/quix-streams-intro.md#multiple-data-types).
 
 ## Deployment
 
@@ -184,7 +184,7 @@ Sign up for a [free account](https://portal.platform.quix.io/self-sign-up).
 
 ## Quix Streams
 
-[Quix Streams](../quix-streams/client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
+[Quix Streams](../quix-streams/quix-streams-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## Service
 
@@ -210,7 +210,7 @@ A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any 
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../quix-streams/client-library-intro.md). Your application **writes** data into Quix.
+An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../quix-streams/quix-streams-intro.md). Your application **writes** data into Quix.
 
 ## Template project
 

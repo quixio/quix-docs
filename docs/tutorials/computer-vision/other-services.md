@@ -240,7 +240,7 @@ This is the standard Quix code sample [AWS S3 destination connector](https://qui
 For more information refer to:
 
 * [Connectors](../../connectors/index.md) - connectors, both source and destination.
-* [Quix Streams](../../quix-streams/client-library-intro.md) - the client library.
+* [Quix Streams](../../quix-streams/quix-streams-intro.md) - the client library.
 
 ## 🏃‍♀️ Next step
 

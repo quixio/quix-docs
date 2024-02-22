@@ -7,7 +7,7 @@ However, you can't currently see this in the Pipeline view. To help you visualiz
 To add an external source:
 
 1. Click on `Code Samples`.
-2. Select the `Python`, `Source`, and `Basic templates` filters.
+2. Select the `Source`, and `Basic templates` filters.
 3. On the `External Source` sample, click `Add external source`.
 4. Give the component a name, such as "Laptop CPU Load".
 5. For output topic select `cpu-load`.
