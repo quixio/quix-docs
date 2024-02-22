@@ -1,4 +1,4 @@
-# Add an alerting service
+# Add an alerting service using PagerDuty
 
 To add a PagerDuty alerting service to your pipeline:
 

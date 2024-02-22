@@ -1,4 +1,4 @@
-# Add a threshold detection transform
+# Add a CPU load threshold detection transform
 
 You now add a transform to detect when CPU threshold is exceeded. Click `Add new` and locate the `Starter transformation SDF` again. 
 
