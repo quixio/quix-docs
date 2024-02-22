@@ -85,8 +85,7 @@ If you want to send an alert SMS follow these steps:
     | VONAGE_API_KEY | `secret` |
     | VONAGE_API_SECRET | `secret` |
     | TO_NUMBER | `secret` |
-    
-            
+               
     See also [how to add environment variables](../../deploy/environment-variables.md).
 
 4. You now need to add the `vonage` module to the `requirements.txt` file in your project. Click to open it and add a line for `vonage`. This ensures the module is built into the deployment.
