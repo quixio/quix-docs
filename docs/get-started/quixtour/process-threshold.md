@@ -16,19 +16,50 @@ To create the threshold detection transform:
 8. In the project view click on `main.py` to edit it.
 9. Replace all the code in `main.py` with the following:
 
-    ```python
-    TODO
+    ``` python
+    import os
+    from quixstreams import Application
+    from quixstreams.models.serializers.quix import JSONDeserializer, JSONSerializer
+
+    def threshold_detect(row):
+        if row['CPU_Load'] > 20:
+            print ('CPU spike: ', row['CPU_Load'])
+            return row
+        else:
+            return None
+
+    app = Application.Quix("threshold-transform", auto_offset_reset="latest")
+    input_topic = app.topic(os.environ["input"], value_deserializer=JSONDeserializer())
+    output_topic = app.topic(os.environ["output"], value_serializer=JSONSerializer())
+
+    sdf = app.dataframe(input_topic)
+    sdf = sdf.apply(threshold_detect)
+    sdf = sdf.filter(lambda row: row != None)
+    sdf = sdf.update(lambda row: print(row))
+    sdf = sdf.to_topic(output_topic)
+
+    if __name__ == "__main__":
+        app.run(sdf)    
     ```
 
-11. Tag the project as `process-v1` and deploy as a service (watch the [video](#watch-the-video) if you're not sure how to do this).
+11. Tag the project as `process-v1` and deploy as a service.
 12. Monitor the logs for the deployed process.
+
+    ??? example "Understand the code"
+
+        There is a simple function, `threshold_detect` that examines a row, inspects the CPU load, and if it exceeds the threshold prints a message and returns a row, or in the case where there is no CPU spike, returns `None` (the `else` is just added to make this explicit).
+
+        Rows with a value of `None` are then filtered from the stream, before the row is published to the output topic.
+
+        The outcome is that only events where the CPU load threshold is exceeded are published to the output, for further processing in the next stage of the pipeline. 
+
 
 ## Generate a CPU spike
 
-You can generate a CPU spike by starting up several large applications. In the logs you will see a message similar to the following when a spike is detected:
+You can generate a CPU spike by starting up several CPU intensive applications. In the logs you will see a message similar to the following when a spike is detected:
 
 ```
-CPU spike of 71% detected!
+CPU spike: 71%
 ```
 
 ## 🏃‍♀️ Next step
