@@ -201,14 +201,13 @@ jobs:
           shift
           for path; do
             local filename=$(basename "$path")
-            echo "${indent}- $filename"
+            # echo "${indent}- $filename"
             if [ "$filename" == "mkdocs.yml" ]; then
               echo "mkdocs.yml found at $path. Contents:"
               cat "$path"
-              exit 0
             fi
             if [ -d "$path" ]; then
-              print_files "  $indent" "$path"/*
+              # print_files "  $indent" "$path"/*
             fi
           done
         }
