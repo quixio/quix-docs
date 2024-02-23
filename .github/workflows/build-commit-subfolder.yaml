@@ -196,11 +196,18 @@ jobs:
 
     - name: Crawl and print file hierarchy
       run: |
-        echo "File hierarchy:"
-        find . -type d -print0 | while read -d '' -r dir; do
-          files=("$dir"/*)
-          printf "%5d files in directory %s\n" "${#files[@]}" "$dir"
-        done
+        print_files() {
+          local indent="$1"
+          shift
+          for path; do
+            local filename=$(basename "$path")
+            echo "${indent}- $filename"
+            if [ -d "$path" ]; then
+              print_files "  $indent" "$path"/*
+            fi
+          done
+        }
+        print_files "" *
 
     - name: Output Importer Logs
       run: |
