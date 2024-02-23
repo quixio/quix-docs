@@ -25,7 +25,6 @@ nav:
     - 'Project templates': 'get-started/project-templates.md'
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
-    #- 'Contribute': 'get-started/contribute.md'
   - 'Using Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
