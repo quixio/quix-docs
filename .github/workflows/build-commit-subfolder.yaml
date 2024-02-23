@@ -194,8 +194,13 @@ jobs:
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         README_DEST: "docs/library_readmes/connectors"
 
-    - name: Print yaml file contents
-      run: cat mkdocs.yaml
+    - name: Crawl and print file hierarchy
+      run: |
+        echo "File hierarchy:"
+        find . -type d -print0 | while read -d '' -r dir; do
+          files=("$dir"/*)
+          printf "%5d files in directory %s\n" "${#files[@]}" "$dir"
+        done
 
     - name: Output Importer Logs
       run: |
