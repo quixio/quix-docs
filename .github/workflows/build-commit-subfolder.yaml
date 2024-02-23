@@ -194,6 +194,9 @@ jobs:
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         README_DEST: "docs/library_readmes/connectors"
 
+    - name: Print yaml file contents
+      run: cat mkdocs.yaml
+
     - name: Output Importer Logs
       run: |
         for i in ${{ steps.readme_importer.outputs.logs }}; do
