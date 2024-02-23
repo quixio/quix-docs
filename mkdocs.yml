@@ -127,7 +127,14 @@ nav:
           - 'Alerting': 'integrations/databases/influxdb/alerting.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
-    - 'InfluxDB alerting': 
+    - 'Migrating InfluxDB v2 to v3': 
+      - 'Overview': 'tutorials/influxdb-migration/overview.md'
+      - '1. Install InfluxDB v2': 'tutorials/influxdb-migration/influxdb-v2-install.md'
+      - '2. Get the project': 'tutorials/influxdb-migration/get-project.md'
+      - '3. Add InfluxDB v2 source': 'tutorials/influxdb-migration/influxdb-source.md'
+      - '4. Add InfluxDB v3 destination': 'tutorials/influxdb-migration/influxdb-destination.md'
+      - '5. Summary': 'tutorials/influxdb-migration/summary.md'
+    - 'InfluxDB event detection and alerting': 
       - 'Overview': 'tutorials/influxdb-alerting/overview.md'
       - '1. Write the Python client': 'tutorials/influxdb-alerting/python-client.md'
       - '2. Create an external source': 'tutorials/influxdb-alerting/external-source.md'
@@ -139,13 +146,6 @@ nav:
       - '8. Downsample your data': 'tutorials/influxdb-alerting/downsampling.md'
       - '9. Add PagerDuty alerting': 'tutorials/influxdb-alerting/add-alerting.md'
       - '10. Summary': 'tutorials/influxdb-alerting/summary.md'
-    - 'InfluxDB migration': 
-      - 'Overview': 'tutorials/influxdb-migration/overview.md'
-      - '1. Install InfluxDB v2': 'tutorials/influxdb-migration/influxdb-v2-install.md'
-      - '2. Get the project': 'tutorials/influxdb-migration/get-project.md'
-      - '3. Add InfluxDB v2 source': 'tutorials/influxdb-migration/influxdb-source.md'
-      - '4. Add InfluxDB v3 destination': 'tutorials/influxdb-migration/influxdb-destination.md'
-      - '5. Summary': 'tutorials/influxdb-migration/summary.md'
     - 'Vector Store Embeddings': 'tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md'
     - 'Predictive maintenance': 
       - 'Overview': 'tutorials/predictive-maintenance/overview.md'

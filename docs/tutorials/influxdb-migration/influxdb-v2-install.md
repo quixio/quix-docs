@@ -1,6 +1,6 @@
 # Install InfluxDB v2
 
-In this step you install InfluxDB v2 locally and write some test data to a bucket.
+In this *optional* step you install InfluxDB v2 locally and write some test data to a bucket.
 
 !!! important
 
@@ -48,7 +48,7 @@ Note that in the above code, the bucket was called `telemetry`.
 
 ## Write data continuously
 
-You can modify this code to create a client that writes data continually.
+You can modify this code to create a client that writes data continuously.
 
 Create a new bucket called `servermetrics` and then write and run the following InfluxDB client:
 
@@ -93,6 +93,8 @@ You can query your data in InfluxDB v2:
 ![Query CPU load](./images/influxdb-cpu-load.png)
 
 At this point you have a working InfluxDB v2 installation plus some data to migrate to InfluxDB v3.
+
+You can now expose your InfluxDB v2 ports using a tool such as [ngrok](https://ngrok.com/){target=_blank} to be able to connect your local install to Quix. Alternatively, you can host your install on [Railway](https://railway.app/){target=_blank}.
 
 ## 🏃‍♀️ Next step
 

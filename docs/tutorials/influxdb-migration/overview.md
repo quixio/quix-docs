@@ -25,7 +25,6 @@ If you need any assistance while following the tutorial, we're here to help in t
 To complete this tutorial you'll need to:
 
 * [Obtain a free Quix account](https://portal.platform.quix.io/self-sign-up)
-* [Create a project in Quix Cloud](../../create/create-project.md)
 * [InfluxDB v2](https://www.influxdata.com/downloads/){target=_blank} (Cloud or self-hosted)
 * [InfluxDB v3 Cloud](https://docs.influxdata.com/influxdb/cloud/sign-up/){target=_blank}
 
@@ -43,7 +42,7 @@ Here's the pipeline you build:
 
 This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
-1. [Optional - Install InfluxDB v2](./install-influxdb-v2.md) - in this step you install InfluxDB v2 locally. If you already have an InfluxDB v2 installation, you can use that instead.
+1. [Optional - Install InfluxDB v2](./influxdb-v2-install.md) - in this step you install InfluxDB v2 locally. If you already have an InfluxDB v2 installation, you can use that instead.
 
 2. [Clone the template project](./get-project.md) - you clone the template project into Quix Cloud.
 
@@ -55,4 +54,4 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 ## 🏃‍♀️ Next step
 
-[Part 1 - Install InfluxDB v2 :material-arrow-right-circle:{ align=right }](./install-influxdb-v2.md)
+[Part 1 - Install InfluxDB v2 :material-arrow-right-circle:{ align=right }](./influxdb-v2-install.md)
