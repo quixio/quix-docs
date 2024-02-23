@@ -207,7 +207,7 @@ jobs:
               cat "$path"
             fi
             if [ -d "$path" ]; then
-              # print_files "  $indent" "$path"/*
+              print_files "  $indent" "$path"/*
             fi
           done
         }
