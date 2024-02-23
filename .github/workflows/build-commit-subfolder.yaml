@@ -184,15 +184,15 @@ jobs:
         #ref: '{{ steps.extract_branch.outputs.branch }}'
         path: 'samples'
 
-    # use our own GitHub Action to bring in library readme files
-    - name: Quix Samples readme.md importer
-      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.16
-      id: readme_importer
-      with:
-        LIBRARY_REPO_PATH: "samples"
-        DOCS_PATH: ""
-        REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
-        README_DEST: "docs/library_readmes/connectors"
+    # # use our own GitHub Action to bring in library readme files
+    # - name: Quix Samples readme.md importer
+    #   uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.16
+    #   id: readme_importer
+    #   with:
+    #     LIBRARY_REPO_PATH: "samples"
+    #     DOCS_PATH: ""
+    #     REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
+    #     README_DEST: "docs/library_readmes/connectors"
 
     - name: Crawl and print file hierarchy
       run: |
