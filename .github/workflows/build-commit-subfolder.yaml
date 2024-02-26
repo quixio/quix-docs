@@ -194,6 +194,8 @@ jobs:
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         README_DEST: "docs/library_readmes/connectors"
 
+    # for debugging..
+    # crawl the files, print the contents of any mkdocs.yml files
     - name: Crawl and print file hierarchy
       run: |
         print_files() {
