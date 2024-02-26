@@ -197,6 +197,7 @@ jobs:
           REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
           CONNECTORS_TAG: "Connectors"
           NAV_INDENT_SPACES: "4"
+          CONNECTORS_TITLE_REPLACEMENT: "[//]: <> (#connectors_tile_replacement)"
 
       - name: Output Importer Logs
         run: |
