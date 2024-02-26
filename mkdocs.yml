@@ -104,7 +104,7 @@ nav:
         - 'Setup': 'apis/portal-api/setup.md'
         - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Connectors': 
-    - 'connectors/index.md'
+    - 'connectors/index.md':
 #ConnectorsGetInsertedHere
   - 'Integrations':
     - 'Overview': 'integrations/overview.md'
