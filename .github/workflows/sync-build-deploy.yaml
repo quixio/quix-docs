@@ -189,13 +189,14 @@ jobs:
 
       # use our own GitHub Action to bring in library readme files
       - name: Quix Samples readme.md importer
-        uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.16
+        uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.17
         id: readme_importer
         with:
           LIBRARY_REPO_PATH: "samples"
           DOCS_PATH: ""
           REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
-          README_DEST: "docs/library_readmes/connectors"
+          CONNECTORS_TAG: "Connectors"
+          NAV_INDENT_SPACES: "4"
 
       - name: Output Importer Logs
         run: |
