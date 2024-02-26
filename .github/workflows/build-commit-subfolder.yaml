@@ -196,8 +196,6 @@ jobs:
         NAV_INDENT_SPACES: "4"
 
     # for debugging..
-    # crawl the files, print the contents of any mkdocs.yml files
-    # for debugging..
     # crawl the files, print the contents of specific files
     - name: Crawl and print file hierarchy
       run: |
@@ -209,7 +207,7 @@ jobs:
           for path; do
             local filename=$(basename "$path")
             # check if filename is in filenames
-            if printf '%s\n' "${filenames[@]}" | grep -q -P "^$filename$"; then
+            if [[ " ${filenames[@]} " =~ " ${filename} " ]]; then
               echo "$filename found at $path. Contents:"
               cat "$path"
             fi
