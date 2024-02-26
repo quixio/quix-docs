@@ -194,6 +194,7 @@ jobs:
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         CONNECTORS_TAG: "Connectors"
         NAV_INDENT_SPACES: "4"
+        CONNECTORS_TITLE_REPLACEMENT: "[//]: <> (#connectors_tile_replacement)"
 
     # for debugging..
     # crawl the files, print the contents of specific files
