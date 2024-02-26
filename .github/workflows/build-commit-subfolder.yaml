@@ -197,16 +197,20 @@ jobs:
 
     # for debugging..
     # crawl the files, print the contents of any mkdocs.yml files
+    # for debugging..
+    # crawl the files, print the contents of specific files
     - name: Crawl and print file hierarchy
       run: |
         print_files() {
           local indent="$1"
           shift
+          # specify the filenames you want to print
+          local filenames=("index.html" "index.md" "mkdocs.yml")
           for path; do
             local filename=$(basename "$path")
-            # echo "${indent}- $filename"
-            if [ "$filename" == "mkdocs.yml" ]; then
-              echo "mkdocs.yml found at $path. Contents:"
+            # check if filename is in filenames
+            if printf '%s\n' "${filenames[@]}" | grep -q -P "^$filename$"; then
+              echo "$filename found at $path. Contents:"
               cat "$path"
             fi
             if [ -d "$path" ]; then
