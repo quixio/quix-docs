@@ -40,6 +40,7 @@ nav:
       - 'Overview': 'develop/overview.md'
       - 'Create an application': 'develop/create-application.md'
       - 'Authentication':
+        - 'Authenticating Quix Streams': 'develop/authentication/quix-streams.md'
         - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
         - 'Streaming Token': 'develop/authentication/streaming-token.md'
       - 'Using Code Samples': 'develop/code-samples.md'
