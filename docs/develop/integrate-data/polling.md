@@ -26,7 +26,6 @@ while True:
         serialized_value = serializer(
             value=json_response, ctx=SerializationContext(topic=output_topic.name)
         )
-        print("produce")
         producer.produce(
             topic=output_topic.name,
             key="polling-sample",
