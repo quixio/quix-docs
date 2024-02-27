@@ -43,9 +43,6 @@ nav:
         - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
         - 'Streaming Token': 'develop/authentication/streaming-token.md'
       - 'Using Code Samples': 'develop/code-samples.md'
-      - 'Connectors': 
-        - 'connectors/index.md'
-#ConnectorsGetInsertedHere
       - 'Integrate your data':
         - 'Overview': 'develop/integrate-data/overview.md'
         - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
@@ -107,6 +104,9 @@ nav:
         - 'Overview': 'apis/portal-api/overview.md'
         - 'Setup': 'apis/portal-api/setup.md'
         - 'HTTP requests': 'apis/portal-api/http-requests.md'
+  - 'Connectors':
+    - 'Index': 'connectors/index.md'
+#ConnectorsGetInsertedHere
   - 'Integrations':
     - 'Overview': 'integrations/overview.md'
     - 'Brokers':
@@ -243,7 +243,6 @@ plugins:
         'index.md': 'get-started/welcome.md'
         'contribute.md': 'get-started/contribute.md'
         'platform/changes.md': 'get-started/welcome.md'
-        'platform/changes.md#environment': 'create/create-environment.md'
         'platform/ingest-data.md': 'develop/overview.md'
         'platform/quickstart.md': 'get-started/quickstart.md'
         'platform/what-is-quix.md': 'get-started/what-is-quix.md'
@@ -335,7 +334,6 @@ theme:
   - content.tabs.link
   - content.code.annotate  # code annotations
   - content.action.view    # view page source
-  - content.code.copy
   
   icon:
     logo: 'material/library'
