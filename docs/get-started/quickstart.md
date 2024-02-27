@@ -23,7 +23,12 @@ If you're just curious, click the box below to see the complete code.
 
     def get_cpu_load():
         cpu_load = psutil.cpu_percent(interval=1)
-        return cpu_load
+        memory = psutil.swap_memory()
+        return {
+            "cpu_load": cpu_load,
+            "memory": memory._asdict(),
+            "timestamp": int(time.time_ns()),
+        }
 
     app = Application.Quix(
         consumer_group="cpu_load", 
@@ -38,11 +43,9 @@ If you're just curious, click the box below to see the complete code.
         while True:
             cpu_load = get_cpu_load()
             print("CPU load: ", cpu_load)
-            timestamp = int(time.time_ns())
-            message = {"Timestamp": timestamp, "CPU_Load": cpu_load}
             with producer:
                 serialized_value = serializer(
-                    value=message, ctx=SerializationContext(topic=output_topic.name)
+                    value=cpu_load, ctx=SerializationContext(topic=output_topic.name)
                 )
                 producer.produce(
                     topic=output_topic.name,
@@ -54,7 +57,7 @@ If you're just curious, click the box below to see the complete code.
         try:
             main()
         except KeyboardInterrupt:
-            print('Exiting due to keyboard interrupt')
+            print('Exiting due to keyboard interrupt')    
     ```
 
 ## Prerequisites
@@ -131,7 +134,12 @@ load_dotenv()
 
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
-    return cpu_load
+    memory = psutil.swap_memory()
+    return {
+        "cpu_load": cpu_load,
+        "memory": memory._asdict(),
+        "timestamp": int(time.time_ns()),
+    }
 
 app = Application.Quix(
     consumer_group="cpu_load", 
@@ -146,11 +154,9 @@ def main():
     while True:
         cpu_load = get_cpu_load()
         print("CPU load: ", cpu_load)
-        timestamp = int(time.time_ns())
-        message = {"Timestamp": timestamp, "CPU_Load": cpu_load}
         with producer:
             serialized_value = serializer(
-                value=message, ctx=SerializationContext(topic=output_topic.name)
+                value=cpu_load, ctx=SerializationContext(topic=output_topic.name)
             )
             producer.produce(
                 topic=output_topic.name,
@@ -162,7 +168,7 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        print('Exiting due to keyboard interrupt')
+        print('Exiting due to keyboard interrupt')    
 ```
 
 Note that Quix Streams reads the necessary environment variables for you.
@@ -210,4 +216,4 @@ That concludes the Quickstart! In this Quickstart you've learned the following:
 
 ## Next steps
 
-Try the [Quix Tour](../get-started/quixtour/overview.md) and build out a complete CPU overload detection pipeline.
+Try the [Quix Tour](./quixtour/overview.md) and build out a complete CPU overload detection pipeline.
