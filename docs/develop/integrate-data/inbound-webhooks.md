@@ -22,10 +22,10 @@ serializer = JSONSerializer()
 output_topic = app.topic(os.environ["output"])
 producer = app.get_producer()
 
-app = Flask("Sample Webhook")
+flask_app = Flask("Sample Webhook")
 
 # this is unauthenticated, anyone could post anything to you!
-@app.route("/webhook", methods=['POST'])
+@flask_app.route("/webhook", methods=['POST'])
 def webhook():
     
     # get the shared secret from environment variables
@@ -62,7 +62,7 @@ print("CONNECTED!")
 # qx.App.run(debug=True, host="0.0.0.0", port=80)
 
 # use waitress instead for production
-serve(app, host='0.0.0.0', port = 80)
+serve(flask_app, host='0.0.0.0', port = 80)
 ```
 
 !!! note
