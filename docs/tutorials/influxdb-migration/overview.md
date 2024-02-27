@@ -32,6 +32,10 @@ To complete this tutorial you'll need to:
 
     Completing the [InfluxDB quickstart](../../integrations/databases/influxdb/quickstart.md) before embarking on this tutorial is not essential, but is highly recommended.
 
+## GitHub repository
+
+There is a [GitHub repository](https://github.com/quixio/template-influxv2-to-v3){target=_blank}, containing all the code for this template project.
+
 ## The pipeline
 
 Here's the pipeline you build:
@@ -44,7 +48,7 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 1. [Optional - Install InfluxDB v2](./influxdb-v2-install.md) - in this step you install InfluxDB v2 locally. If you already have an InfluxDB v2 installation, you can use that instead.
 
-2. [Clone the template project](./get-project.md) - you clone the template project into Quix Cloud.
+2. [Create the project](./create-project.md) - create a project in Quix Cloud.
 
 3. [Add an InfluxDB v2 source](./influxdb-source.md) - you add a Quix InfluxDB source connector to your pipeline. This is used to get data into a Quix topic.
 

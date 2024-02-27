@@ -94,8 +94,8 @@ You can query your data in InfluxDB v2:
 
 At this point you have a working InfluxDB v2 installation plus some data to migrate to InfluxDB v3.
 
-You can now expose your InfluxDB v2 ports using a tool such as [ngrok](https://ngrok.com/){target=_blank} to be able to connect your local install to Quix. Alternatively, you can host your install on [Railway](https://railway.app/){target=_blank}.
+You can now expose your InfluxDB v2 ports using a tool such as [ngrok](https://ngrok.com/){target=_blank} to be able to connect your local install to Quix. Alternatively, you can host your install on [Railway](https://railway.app/){target=_blank}. You can read documentation on [how to host InfluxDB in Railway](https://github.com/sector-fi/InfluxDB){target=_blank}.
 
 ## 🏃‍♀️ Next step
 
-[Part 2 - Clone the template project :material-arrow-right-circle:{ align=right }](./get-project.md)
+[Part 2 - Create the project :material-arrow-right-circle:{ align=right }](./create-project.md)

@@ -11,11 +11,13 @@ You'll need to configure the following credentials for your source connector:
 | Environment Variable | Description|
 |---|---|
 | `output` | Output topic. Add a new topic called `influxdb-v2-data`. |
-| `INFLUXDB_DATABASE` | Database name in InfluxDB where data should be stored. In InfluxDB this is also called a bucket. |
+| `INFLUXDB_DATABASE` | Database name in InfluxDB where the data is stored. In InfluxDB this is also called a bucket. |
 | `INFLUXDB_HOST` | Host address for the InfluxDB instance. Default: `eu-central-1-1.aws.cloud2.influxdata.com`. |
 | `INFLUXDB_ORG` | Organization name in InfluxDB. |
 | `INFLUXDB_TOKEN` | Authentication token to access InfluxDB. Configure as a secret type, so that your token is never revealed. |
 | `task_interval` | The polling period for queries of the database. Set this to `1s` (one second) to ensure you see any new data promptly (this make testing a little easier as you don't need to wait too long for updates). |
+
+To see more documentation on these variables, and examples, you can refer to the [detailed README](https://github.com/quixio/template-influxv2-to-v3?tab=readme-ov-file#influxdb-v2-source){target=_blank}.
 
 !!! tip
 
