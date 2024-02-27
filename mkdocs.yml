@@ -63,7 +63,7 @@ nav:
         - 'Types of processing': 'develop/process/types-of-processing.md'
         - 'Types of transform': 'develop/process/types-of-transform.md'
         - 'Generating events': 'develop/process/timeseries-events.md'
-      - 'APIs': 
+      - 'Using Quix Streaming APIs': 
         - 'Overview': 'develop/apis-overview.md'
         - 'Streaming Writer API': 
           - 'Overview': 'apis/streaming-writer-api/overview.md'
