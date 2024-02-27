@@ -53,15 +53,15 @@ To create the SMS alert destination:
         return
 
     def send_alert(row):
-        cpu_load = row['CPU_Load']
+        cpu_load = row['cpu_load']
         print("Warning! CPU spike of {} detected.".format(cpu_load))
         msg = f"Warning! CPU spike of {cpu_load} detected."
         if send_sms_bool is True:
             send_sms(msg)    
 
     app = Application.Quix("sms-alert-destination", auto_offset_reset = "latest")
-
     input_topic = app.topic(os.environ["input"])
+    
     sdf = app.dataframe(input_topic)
     sdf = sdf.update(send_alert)
     sdf = sdf.update(lambda row: print(row))
