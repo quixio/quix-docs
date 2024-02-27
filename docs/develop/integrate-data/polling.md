@@ -14,7 +14,6 @@ app = Application.Quix(
 
 serializer = JSONSerializer()
 output_topic = app.topic(os.environ["output"])
-print(output_topic.name)
 producer = app.get_producer()
 
 while True:

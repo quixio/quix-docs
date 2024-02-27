@@ -60,7 +60,7 @@ def main():
             )
             producer.produce(
                 topic=output_topic.name,
-                key="polling-sample",
+                key="csv-sample",
                 value=serialized_value
             )
             time.sleep(1)
