@@ -20,7 +20,6 @@ producer = app.get_producer()
 while True:
     response = requests.get("https://random-data-api.com/api/v2/users")
     json_response = response.json()
-    print(json_response)
 
     with producer:
         serialized_value = serializer(
