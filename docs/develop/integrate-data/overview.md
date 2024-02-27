@@ -1,16 +1,23 @@
 # Integrate your data with Quix
 
-There are various ways to ingest data into Quix, as well as write data out from Quix to external products and services. The main methods are listed here:
+There are various ways to ingest data into Quix, as well as write data out from Quix to external products and services. The main methods are listed here.
 
-1. Using a prebuilt connector
+To ingest data:
+
+1. Using a prebuilt source connector
 2. Read data from a CSV file
 3. Polling
 4. Inbound webhooks
 5. External source
-6. External destination
-7. Streaming APIs
-8. Using Quix Streams
-9. Using a web app
+6. Streaming APIs
+7. Using Quix Streams
+8. Using a web app
+
+To publish data:
+
+1. Using a prebuilt destination connector
+2. External destination
+
 
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described in the following sections.
 

@@ -1,4 +1,4 @@
-# Polling
+# Polling a REST API service
 
 If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. By way of example, the following code demonstrates the idea:
 

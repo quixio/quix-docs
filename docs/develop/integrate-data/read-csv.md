@@ -1,4 +1,4 @@
-# Read data from a CSV file
+# Reading data from a CSV file
 
 A common source of data is a CSV file. As well as prebuilt code samples that can be modified to suit your own purposes, it is possible to write you own code to load data in from CSV files. 
 

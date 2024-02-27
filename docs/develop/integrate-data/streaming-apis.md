@@ -1,4 +1,4 @@
-# Streaming APIs
+# Using the Quix Streaming APIs
 
 Quix provides two Streaming APIs to enable a client (JavaScript or Node.js code) to read from and write to a Quix topic:
 

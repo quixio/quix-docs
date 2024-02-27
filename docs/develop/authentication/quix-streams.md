@@ -18,4 +18,4 @@ load_dotenv()
 
 !!! tip
 
-    If developieng your application in Quix Cloud, these variables are set for you automatically, so you don't need to load them from a `.env` file.
+    If developing your application in Quix Cloud, these variables are set for you automatically, so you don't need to load them from a `.env` file.

@@ -1,4 +1,4 @@
-# Post data to a Quix web app
+# Posting data to a Quix web app
 
 You may have a web app, either hosted in Quix, or elsewhere (say on Glitch), that receives data that you want to process in Quix. In either case, data can be posted using HTTP `POST` methods (or other HTTP methods) to the web app, and then this data published to a Quix topic using Quix Streams.
 

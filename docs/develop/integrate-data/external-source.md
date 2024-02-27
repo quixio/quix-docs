@@ -1,4 +1,4 @@
-# External source
+# Using an external source
 
 One simple way to write data into a Quix topic, is to use the prebuilt connector called `External source`. 
 
