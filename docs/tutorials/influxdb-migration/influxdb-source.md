@@ -19,6 +19,16 @@ You'll need to configure the following credentials for your source connector:
 
 To see more documentation on these variables, and examples, you can refer to the [detailed README](https://github.com/quixio/template-influxv2-to-v3?tab=readme-ov-file#influxdb-v2-source){target=_blank}.
 
+??? "InfluxDB terminology"
+
+    | InfluxDB | General database |
+    |---|---|
+    | Bucket | Database |
+    | Measurement | Table |
+    | Point | Row |
+    | Field | Column |
+    | Tag | Metadata |
+
 !!! tip
 
     If you need help on [configuring environment variables](../../deploy/environment-variables.md) or [secrets](../../deploy/secrets-management.md), the please refer to the documentation.

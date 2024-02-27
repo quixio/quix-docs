@@ -46,13 +46,13 @@ Here's the pipeline you build:
 
 This tutorial is divided up into several parts, to make it a more manageable learning experience. The parts are summarized here:
 
-1. [Optional - Install InfluxDB v2](./influxdb-v2-install.md) - in this step you install InfluxDB v2 locally. If you already have an InfluxDB v2 installation, you can use that instead.
+1. [Install InfluxDB v2](./influxdb-v2-install.md) - in this **optional** step you install InfluxDB v2 locally. If you already have an InfluxDB v2 installation, you can use that instead. If you'd rather just test things out locally first, the follow this step.
 
-2. [Create the project](./create-project.md) - create a project in Quix Cloud.
+2. [Create the project](./create-project.md) - create a project in Quix Cloud. You learn how to create the complete pipeline in this tutorial, but you can also [fork the project](../../create/fork-project.md) or [clone the project](../../create/clone-project.md).
 
-3. [Add an InfluxDB v2 source](./influxdb-source.md) - you add a Quix InfluxDB source connector to your pipeline. This is used to get data into a Quix topic.
+3. [Add an InfluxDB v2 source](./influxdb-source.md) - assuming you are building the pipeline yourself, you add a Quix InfluxDB source connector to your pipeline. This is used to get data into a Quix topic.
 
-4. [Add an InfluxDB v3 destination](./influxdb-destination.md) - you add a Quix InfluxDB destination connector to your pipeline. This enables you to publish data from Quix to InfluxDB v3.
+4. [Add an InfluxDB v3 destination](./influxdb-destination.md) - you add a Quix InfluxDB destination connector to your pipeline. This enables you to publish data from Quix to InfluxDB v3. You then query your InfluxDB v3 database to ensure the data has been migrated correctly.
 
 5. [Summary](./summary.md) - conclusion and next steps.
 

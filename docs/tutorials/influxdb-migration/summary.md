@@ -4,4 +4,6 @@ In this tutorial you have learned how to migrate data from an InfluxDB v2 databa
 
 ## Next steps
 
+Read the [InfluxDB integration](../../integrations/databases/influxdb/overview.md) section of the Quix documentation.
+
 Try an in-depth tutorial that steps you through setting up pipelines using Quix, Quix Streams, InfluxDB, and [PagerDuty for alerting](../../tutorials/influxdb-alerting/overview.md).
