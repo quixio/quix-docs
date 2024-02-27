@@ -56,7 +56,7 @@ nav:
         - 'External source': 'develop/integrate-data/external-source.md'
         - 'External destination': 'develop/integrate-data/external-destination.md'
         - 'Streaming APIs': 'develop/integrate-data/streaming-apis.md'
-        - 'Quix Streams': 'develop/integrate-data/quix-streams.md'
+        - 'Using Quix Streams to ingest data': 'develop/integrate-data/quix-streams.md'
         - 'Web app': 'develop/integrate-data/web-app.md'
         - 'Export to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
       - 'Process your data':

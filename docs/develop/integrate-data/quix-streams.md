@@ -1,4 +1,4 @@
-# Using Quix Streams
+# Using Quix Streams to ingest data
 
 You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data. 
 
