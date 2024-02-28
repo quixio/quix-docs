@@ -172,7 +172,7 @@ The [Query API](../apis/query-api/overview.md) is used to query persisted data. 
 
 ## Quix UI
 
-Quix provides an online Integrated Development Environment (IDE) for Python and C# projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense. It also provides general UI for deploying your code, and managing your projects and environments.
+Quix provides an online Integrated Development Environment (IDE) for Python projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense. It also provides general UI for deploying your code, and managing your projects and environments.
 
 Sign up for a [free account](https://portal.platform.quix.io/self-sign-up).
 

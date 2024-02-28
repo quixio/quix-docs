@@ -1,9 +1,10 @@
-# Inbound webhooks
+# Handling inbound webhooks
 
 Many services generate webhooks when certain events occur, and you may want to get these webhooks and their data into Quix. As Quix services can be deployed as web services, they can receive inbound webhooks easily. You simply handle the webhook in the required way, perhaps using an existing connector as a guide. For example, the Segment connector handles webhooks from the Segment service in the following way:
 
 ``` python
-import quixstreams as qx
+from quixstreams import Application
+from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
 from flask import Flask, request
 from datetime import datetime
 from waitress import serve
@@ -12,20 +13,19 @@ import json
 import hmac
 import hashlib
 
-# Quix injects credentials automatically to the client. 
-# Alternatively, you can always pass an SDK token manually as an argument.
-client = qx.QuixStreamingClient()
+app = Application.Quix(
+    consumer_group="sample_webhook_group",
+    auto_create_topics=True,
+)
 
-# Open the output topic where to write data out
-producer_topic = client.get_topic_producer(os.environ["output"])
+serializer = JSONSerializer()
+output_topic = app.topic(os.environ["output"])
+producer = app.get_producer()
 
-stream = producer_topic.create_stream()
-stream.properties.name = "Segment Data"
-
-app = Flask("Segment Webhook")
+flask_app = Flask("Sample Webhook")
 
 # this is unauthenticated, anyone could post anything to you!
-@app.route("/webhook", methods=['POST'])
+@flask_app.route("/webhook", methods=['POST'])
 def webhook():
     
     # get the shared secret from environment variables
@@ -44,10 +44,15 @@ def webhook():
         # if they don't match its no bueno
         return "ERROR", 401
     
-    # if they do then fly me to the moon
-    stream.events.add_timestamp(datetime.now())\
-        .add_value(request.json["type"], json.dumps(request.json))\
-        .publish()
+    with producer:
+        serialized_value = serializer(
+            value=request.json, ctx=SerializationContext(topic=output_topic.name)                                              
+        )
+        producer.produce(
+            topic=output_topic.name,
+            key="sample-webhook",
+            value=serialized_value
+        )
 
     return "OK", 200
 
@@ -57,7 +62,7 @@ print("CONNECTED!")
 # qx.App.run(debug=True, host="0.0.0.0", port=80)
 
 # use waitress instead for production
-serve(app, host='0.0.0.0', port = 80)
+serve(flask_app, host='0.0.0.0', port = 80)
 ```
 
 !!! note

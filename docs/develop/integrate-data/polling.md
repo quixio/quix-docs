@@ -1,27 +1,34 @@
-# Polling
+# Polling a REST API service
 
 If there's an existing REST API you want to pull data from, you can write a Quix connector that polls the REST API. By way of example, the following code demonstrates the idea:
 
 ``` python
-import quixstreams as qx
-import time
-import os
-import requests
-import pandas as pd
+from quixstreams import Application
+from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
+import time, os, requests
 
-client = qx.QuixStreamingClient()
+app = Application.Quix(
+    consumer_group="sample_consumer_group",
+    auto_create_topics=True,
+)
 
-topic_producer = client.get_topic_producer(topic_id_or_name = os.environ["output"])
-
-stream = topic_producer.create_stream()
-stream.properties.name = "Users Stream"
+serializer = JSONSerializer()
+output_topic = app.topic(os.environ["output"])
+producer = app.get_producer()
 
 while True:
     response = requests.get("https://random-data-api.com/api/v2/users")
     json_response = response.json()
-    df = pd.json_normalize(json_response)
-    print(df)
-    stream.timeseries.publish(df)
+
+    with producer:
+        serialized_value = serializer(
+            value=json_response, ctx=SerializationContext(topic=output_topic.name)
+        )
+        producer.produce(
+            topic=output_topic.name,
+            key="polling-sample",
+            value=serialized_value
+        )
     time.sleep(4)
 ```
 

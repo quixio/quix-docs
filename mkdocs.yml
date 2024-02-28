@@ -19,7 +19,7 @@ nav:
     - 'Quickstart': 'get-started/quickstart.md'
     - 'Quix Tour': 
       - 'Overview': 'get-started/quixtour/overview.md'
-      - '1. Ingest': 'get-started/quixtour/ingest-push.md'
+      - '1. Ingest': 'get-started/quixtour/external-source.md'
       - '2. Process': 'get-started/quixtour/process-threshold.md'
       - '3. Serve': 'get-started/quixtour/serve-sms.md'
     - 'Project templates': 'get-started/project-templates.md'
@@ -40,27 +40,30 @@ nav:
       - 'Overview': 'develop/overview.md'
       - 'Create an application': 'develop/create-application.md'
       - 'Authentication':
+        - 'Authenticating Quix Streams': 'develop/authentication/quix-streams.md'
         - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
         - 'Streaming Token': 'develop/authentication/streaming-token.md'
       - 'Using Code Samples': 'develop/code-samples.md'
-      - 'Integrate your data':
+      - 'Ingest your data - source':
         - 'Overview': 'develop/integrate-data/overview.md'
-        - 'Prebuilt connectors': 'develop/integrate-data/prebuilt-connector.md'
-        - 'Read CSV file': 'develop/integrate-data/read-csv.md'
-        - 'Polling': 'develop/integrate-data/polling.md'
-        - 'Inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
-        - 'External source': 'develop/integrate-data/external-source.md'
-        - 'External destination': 'develop/integrate-data/external-destination.md'
-        - 'Streaming APIs': 'develop/integrate-data/streaming-apis.md'
-        - 'Quix Streams': 'develop/integrate-data/quix-streams.md'
-        - 'Web app': 'develop/integrate-data/web-app.md'
-        - 'Export to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
+        - 'Using a prebuilt source connector': 'develop/integrate-data/prebuilt-connector.md'
+        - 'Reading a CSV file': 'develop/integrate-data/read-csv.md'
+        - 'Polling a REST API': 'develop/integrate-data/polling.md'
+        - 'Handling inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
+        - 'Using an external source': 'develop/integrate-data/external-source.md'
+        - 'Using the Quix Streaming APIs': 'develop/integrate-data/streaming-apis.md'
+        - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
+        - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
+      - 'Publish your data - sink':
+        - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
+        - 'Using an external destination': 'develop/integrate-data/external-destination.md'
+        - 'Exporting Quix data to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
       - 'Process your data':
         - 'Overview': 'develop/process/overview.md'
         - 'Types of processing': 'develop/process/types-of-processing.md'
         - 'Types of transform': 'develop/process/types-of-transform.md'
         - 'Generating events': 'develop/process/timeseries-events.md'
-      - 'APIs': 
+      - 'Using Quix Streaming APIs': 
         - 'Overview': 'develop/apis-overview.md'
         - 'Streaming Writer API': 
           - 'Overview': 'apis/streaming-writer-api/overview.md'
@@ -284,6 +287,7 @@ plugins:
         'integrations/influxdb/quickstart.md': 'integrations/databases/influxdb/quickstart.md'
         'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'
         'integrations/influxdb/replacing-flux.md': 'integrations/databases/influxdb/replacing-flux.md'
+        'platform/how-to/use-sdk-token.md': 'develop/authentication/streaming-token.md'
 
 theme:
   name: 'material'

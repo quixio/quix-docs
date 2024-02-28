@@ -9,7 +9,7 @@ Quix provides several APIs. These are:
 
 While [Quix Streams](../quix-streams-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
 
-* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python and C# only)
+* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python only)
 * There are resource constraints which mean you can't run Quix Streams
 * The nature of the client (for example, a web browser)
 
