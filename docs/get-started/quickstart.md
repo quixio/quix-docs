@@ -91,6 +91,52 @@ You'll need to create a project and an environment. You can watch a video on how
 
 <div style="position: relative; padding-bottom: 59.726027397260275%; height: 0;"><iframe src="https://www.loom.com/embed/6056fffa4f0e49799ed24a54496ae81a?sid=4475117c-41c3-462b-9550-4c33dae5da2a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+??? "transcript"
+
+    0:01 Hello, welcome to the Quick Start. In this first video in the series, I'll show you how to get started by creating your project and your first environment.
+    
+    0:12 Now, in the latest versions of Quick, you can't really get very far or do anything useful without creating a project.
+
+    0:18 For example, if you want to get started by creating a project, you can create a project. Very simply, a project roughly corresponds to a Git repository, and then within that project, you're going to create one or more environments that roughly correspond to a Git branch in that Git repository.
+
+    0:37 Environments also contain other configurations. Information such as your Kafka hosting option and also your storage requirements. So let's get straight into it and create the project.
+
+    0:51 Click on new project and then give your project a name. In this case, I'm going to call it quick start video.
+
+    1:08 Now we specify our git repository. You can use a quicks hosted repository, which uses gitty. However, you can also use an external git repository.
+
+    1:20 Any repository. Repository that supports SSH keys can be used. So, for example, GitLab, GitHub, Bitbucket, and so on, can all be used.
+    
+    1:30 I'm just going to go for the simple option and get quicks to manage my git repository for me. So having selected that, I will click on create project.
+    
+    1:45 That takes us into the environment settings wizard. We can specify the environment name. Now, typically, that will be things like develop, production, staging, testing, whatever suits your development processes.
+
+    2:01 So for the purposes of the quick start, I'm just going to call this environment develop, and I need to create a branch for this as well.
+
+    2:13 I don't want to use the main branch from my develop environment. So in here, I'm going to select new branch and create a dev branch.
+
+    2:21 To go with my development environment, I am going to branch off of main for this and go ahead and create the branch.
+
+    2:30 I don't need to protect this branch because I want to make changes directly to the develop branch as part of my development process.
+
+    2:40 If I were to protect branch, I would have to update it using merge requests. So for example, typically your production environment might correspond to the main branch and that may well be protected.
+
+    2:55 And this is to prevent people committing changes directly into production. So having set the environment name and specified the environment branch, I'm going to click continue.
+
+    3:09 Now I can select my Kafka hosting option. The simplest being to just let Quix host and scale everything for you.
+    
+    3:18 So I'm going to go for that option. You could, however, use your own self hosted Kafka, where you could connect to Confluent Cloud.
+
+    3:28 So I'm ready to click continue on that. Now, if you have topics where you persist the data into a database that requires a storage option.
+
+    3:44 For most purposes, the standard option is sufficient. If you're going to have a lot of persisted topics, you might need to go for the premium option.
+
+    3:56 But for the quick start, I'm just going to go with a standard storage option and click create a environment. Okay, so now that environment will be created.
+
+    4:10 So I will end this video here and see you in the next video where we'll continue the quick start journey.
+
+    4:18 Thanks for watching and see you in the next video.
+
 You can also read the documentation on how to [create a project](../create/create-project.md) and [environment](../create/create-environment.md).
 
 ## 3. Set your environment variables
