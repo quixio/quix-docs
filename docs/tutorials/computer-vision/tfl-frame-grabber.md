@@ -124,7 +124,7 @@ Here you see the timestamp, geolocation information, and the binary data of the 
 
 For more information refer to:
 
-* [Quix Streams](../../quix-streams/client-library-intro.md) - More about streams, publishing, consuming, event data, time series data, and much more. 
+* [Quix Streams](../../quix-streams/quix-streams-intro.md) - More about streams, publishing, consuming, event data, time series data, and much more. 
 * [OpenCV](https://opencv.org/){target=_blank} - More on how to use the OpenCV library.
 
 ## 🏃‍♀️ Next step
