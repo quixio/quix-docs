@@ -74,11 +74,11 @@ While this tutorial uses an external Git account, Quix can also provide a Quix-h
 
 ??? "Transcript"
 
-    0:01 Hi there, welcome to this video on creating a quick project. I should point out before I get into this video that I'm using the beta development environment at Quicks and so what you see may be slightly different when you're testing Quicks.
+    0:01 Hi there, welcome to this video on creating a quick project. I should point out before I get into this video that I'm using the beta development environment at Quix and so what you see may be slightly different when you're testing Quicks.
 
     0:21 Okay, so having said that I'll get straight into creating a new project. You can see this button over here. I'm going to click that to create a new project.
 
-    0:33 The new workflow in Quicks starts with creating a project. Everything is done inside a project. Generally speaking, I'm simplifying it quite a lot.
+    0:33 The new workflow in Quix starts with creating a project. Everything is done inside a project. Generally speaking, I'm simplifying it quite a lot.
 
     0:44 A project corresponds to a Git repository. So everything that you create, including your pipeline configuration and so on, will be stored in a Git repository.
 
@@ -94,7 +94,7 @@ While this tutorial uses an external Git account, Quix can also provide a Quix-h
 
     1:47 The other option is to use an external provider. So for example, you could use GitLab, GitHub, Bitbucket and so on.
 
-    1:57 You can use any provider that supports the use of an SS. H key. For the purposes of this video, I'm going to keep it simple for now and just use the Quicks manage Git.
+    1:57 You can use any provider that supports the use of an SS. H key. For the purposes of this video, I'm going to keep it simple for now and just use the Quix manage Git.
 
     2:11 So I'm now ready to create the project. Now every project will have at least one environment and usually several environments.
 

@@ -188,11 +188,11 @@ You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd29
 
 ??? "Transcript"
 
-    0:00 Hello, welcome to the Quicks Tor. In this short video I'll give you a quick overview of the pipeline that you're going to be building in the Quicks Tor.
+    0:00 Hello, welcome to the Quix Tour. In this short video I'll give you a quick overview of the pipeline that you're going to be building in the Quix Tour.
 
-    0:12 The material in the Quicks Tor is divided up into three stages which corresponds to a, ,hippical processing pipeline. The first stage is the ingestion phase where you get your data into Quicks Platform.
+    0:12 The material in the Quix Tour is divided up into three stages which corresponds to a, ,hippical processing pipeline. The first stage is the ingestion phase where you get your data into Quix Platform.
 
-    0:29 The second stage is process where you process your data. And finally you serve that data. In terms of a Quicks Pipeline, ,corresponds to these three elements here.
+    0:29 The second stage is process where you process your data. And finally you serve that data. In terms of a Quix Pipeline, ,corresponds to these three elements here.
 
     0:44 A source which is coded in blue. A transform which is coded in purple. And a destination which is coded in orange.
 
@@ -220,7 +220,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 
 ??? "Transcript"
 
-    0:01 Hello, welcome to the quicks quick start. In this short video I'll give you a few tips to help you get through the quick start.
+    0:01 Hello, welcome to the Quix quick start. In this short video I'll give you a few tips to help you get through the quick start.
 
     0:11 First thing I'll show you is how to get your streaming token which you'll need for your command line program that you're going to build.
 
@@ -242,7 +242,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 
     2:21 I can look at the table view, which shows me the CPU load and table format in real time. Or I can look at the messages view where I can see individual messages such as stream metadata message or the actual inbound data.
 
-    2:41 If I click here, you can see the message Jason. Okay, that's it for this short video. Thanks very much for watching and see you in the next video.
+    2:41 If I click here, you can see the message JSON. Okay, that's it for this short video. Thanks very much for watching and see you in the next video.
 
 ## Next steps
 

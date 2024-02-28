@@ -103,11 +103,11 @@ You'll need to create a project and an environment. You can watch a video on how
 
     0:51 Click on new project and then give your project a name. In this case, I'm going to call it quick start video.
 
-    1:08 Now we specify our git repository. You can use a quicks hosted repository, which uses gitty. However, you can also use an external git repository.
+    1:08 Now we specify our git repository. You can use a Quix hosted repository, which uses gitty. However, you can also use an external git repository.
 
     1:20 Any repository. Repository that supports SSH keys can be used. So, for example, GitLab, GitHub, Bitbucket, and so on, can all be used.
     
-    1:30 I'm just going to go for the simple option and get quicks to manage my git repository for me. So having selected that, I will click on create project.
+    1:30 I'm just going to go for the simple option and get Quix to manage my git repository for me. So having selected that, I will click on create project.
     
     1:45 That takes us into the environment settings wizard. We can specify the environment name. Now, typically, that will be things like develop, production, staging, testing, whatever suits your development processes.
 

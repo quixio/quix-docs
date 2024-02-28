@@ -37,7 +37,7 @@ This video shows you how to fork a template project and create your project in Q
 
     02:14 And the way that you work with these is you fork them into your own GitHub or you might have another provider like Mercurial.
 
-    02:25 For example, GitLab, but you'll fork the project, this public project into your own GitHub account. So I have a Git account here on GitHub and I'm going to fork this public repo into here and then I'm going to connect quicks to my repo.
+    02:25 For example, GitLab, but you'll fork the project, this public project into your own GitHub account. So I have a Git account here on GitHub and I'm going to fork this public repo into here and then I'm going to connect Quix to my repo.
 
     02:50 So let's start by forking repo. Now the main thing that you need to do here is you you're going to need all the branches.
 
@@ -53,7 +53,7 @@ This video shows you how to fork a template project and create your project in Q
 
     04:22 But what I recommend is you create a new project. And the reason that I suggest that is because we're going to be linking to our external repository.
 
-    04:30 So let's do that now. Let's give the project a name. I'm just going to call it computer vision. And in some projects you you do want Quicks to just handle the git side of things for you.
+    04:30 So let's do that now. Let's give the project a name. I'm just going to call it computer vision. And in some projects you you do want Quix to just handle the git side of things for you.
 
     04:51 But in this case, because we're connecting to a template project, we're going to, well, going to be using a template project, we're going to connect to our own GitHub repository.
 
@@ -61,7 +61,7 @@ This video shows you how to fork a template project and create your project in Q
 
     05:18 So if I go into here, I can get the, the. URL for this and just copy that and then go back to here and put this in here like that.
 
-    05:36 Then Quicks gives you. And a public an SSH public key, which we're going to need to use to allow Quicks to connect to our GitHub account.
+    05:36 Then Quix gives you. And a public an SSH public key, which we're going to need to use to allow Quix to connect to our GitHub account.
 
     05:50 So I copy that to the clipboard and then I'm going to do. Is go back to my get accounts. I'll go into settings and then SSH keys, create a new SSH key called computer vision.
 
@@ -79,7 +79,7 @@ This video shows you how to fork a template project and create your project in Q
 
     07:48 So we'll see that in a minute. So the environment name is tutorial and that corresponds to the tutorial branch which I've selected here and that was just one of the many branches in the GitHub repay that we cloned or, sorry, forked.
 
-    08:04 So let's continue now. For the purposes of the tutorial we can just use the quicks broker. You don't, I mean you could connect to something like Red Panda or Confluent Cloud, but we'll just get quicks to host Kafka for you.
+    08:04 So let's continue now. For the purposes of the tutorial we can just use the Quix broker. You don't, I mean you could connect to something like Red Panda or Confluent Cloud, but we'll just get Quix to host Kafka for you.
 
     08:20 It works because that's really, really simple to do. So just click continue. Then you have a choice between standard data and string services and high performance.
 
@@ -93,7 +93,7 @@ This video shows you how to fork a template project and create your project in Q
 
     09:26 And you can see kind of our pipeline is almost ready to go, but what we're going to need to do is we're going to need to sync this environment up.
 
-    09:39 So what's, what this is really saying is that what we're seeing in quicks at the moment is different to what we have in the repository that this is connected to.
+    09:39 So what's, what this is really saying is that what we're seeing in Quix at the moment is different to what we have in the repository that this is connected to.
 
     09:56 So we need to sync it up. We need to synchronize and make them the same and we can just do that by clicking the sync button and this is going to, I mean this is covered in other documentation, but essentially this is going to bring in the configuration.
 

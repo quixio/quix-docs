@@ -66,7 +66,7 @@ If you make changes to an unprotected environment in the Quix "view", then the e
 
     4:56 If we hover over it, we get the tool tip that says the production environment is out of sync. Now, what does that mean?
 
-    5:06 Well, it means that Quicks has recognized that what's in this pipeline does not correspond to what's in the corresponding branch in the Git repository.
+    5:06 Well, it means that Quix has recognized that what's in this pipeline does not correspond to what's in the corresponding branch in the Git repository.
 
     5:18 So it knows that the pipeline view and the Git repository are not, that now out of sync. So the question is, how do we synchronize this view so that it reflects what's in the Git repository?
 

@@ -24,15 +24,15 @@ You can watch a video on YAML variables here:
 
   01:28 Now remember we can't make changes to the production environment directly. So we'll need to make our changes in develop and then merge them across.
 
-  01:39 So let's do that. I'm going to go back to develop. Now a very key point in quicks in this iteration of quicks is the idea of a yaml file, a quicks yaml file.
+  01:39 So let's do that. I'm going to go back to develop. Now a very key point in Quix in this iteration of Quix is the idea of a yaml file, a Quix yaml file.
 
-  01:52 The quicks yaml file, which we're going to have a look at in a second, basically defines the entire pipeline. So with the, if you just have that single yaml file, quicks yaml file, you can reproduce the complete pipeline.
+  01:52 The Quix yaml file, which we're going to have a look at in a second, basically defines the entire pipeline. So with the, if you just have that single yaml file, Quix yaml file, you can reproduce the complete pipeline.
 
   02:10 So all the applications in the pipeline configurations and so on. So in this video, we're just going to look at some of the yaml variables.
 
-  02:21 And we'll look at the yaml file, the quicks yaml file in much more detail in subsequent videos. But for now, let's focus on these variables that we can use to differently configure different environments.
+  02:21 And we'll look at the yaml file, the Quix yaml file in much more detail in subsequent videos. But for now, let's focus on these variables that we can use to differently configure different environments.
 
-  02:38 So I'm going to click on yaml. And I can see here the quicks.yaml file and you can see from the comment here that it says this file describes the data pipeline and configuration of resources of a quicks project.
+  02:38 So I'm going to click on yaml. And I can see here the quicks.yaml file and you can see from the comment here that it says this file describes the data pipeline and configuration of resources of a Quix project.
 
   02:55 So it's essentially everything in this pipeline is. It's all defined here. Now the other thing that we can look at here is the yaml variables.
 
@@ -94,7 +94,7 @@ You can watch a video on YAML variables here:
 
   10:08 Main. Check the animal. We can see the change has been reflected. So now let's go back to the quick view of things and see what's going on there.
 
-  10:23 So I'll go into. So the production environment. And now you can see that quicks has detected all I'm out of sync with what's in the get repository.
+  10:23 So I'll go into. So the production environment. And now you can see that Quix has detected all I'm out of sync with what's in the get repository.
 
   10:33 So it knows that this environment needs to be synced with get repository because we just merged some changes from dev to main.
 
