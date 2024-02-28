@@ -1,4 +1,4 @@
-# External destination
+# Using an external destination
 
 One simple way to read data out of a Quix topic, is to use the prebuilt connector called `External destination`.
 

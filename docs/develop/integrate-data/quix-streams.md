@@ -1,50 +1,54 @@
-# Using Quix Streams
+# Using Quix Streams to ingest data
 
 You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data. 
 
 Some example code showing Quix Streams pushing data into Quix is shown here:
 
 ```python
-import psutil
-import quixstreams as qx
-from dotenv import load_dotenv
-import time
-import datetime
-import os
+import psutil, time, os
+from quixstreams import Application
+from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
 
+from dotenv import load_dotenv
 load_dotenv()
-token = os.getenv("STREAMING_TOKEN")
 
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
-    return cpu_load
+    memory = psutil.swap_memory()
+    return {
+        "cpu_load": cpu_load,
+        "memory": memory._asdict(),
+        "timestamp": int(time.time_ns()),
+    }
 
-# Obtain client library token from portal
-client = qx.QuixStreamingClient(token)
+app = Application.Quix(
+    consumer_group="cpu_load", 
+    auto_create_topics=True,
+)
 
-# Open a topic to publish data to
-topic_producer = client.get_topic_producer("cpu-load")
-
-stream = topic_producer.create_stream()
-stream.properties.name = "Quickstart CPU Load - Server 1"
-stream.timeseries.buffer.time_span_in_milliseconds = 100   # Send data in 100 ms chunks
+serializer = JSONSerializer()
+output_topic = app.topic("cpu-load")
+producer = app.get_producer()
 
 def main():
-    try:
-        while True:
-            cpu_load = get_cpu_load()
-            print(f"CPU Load: {cpu_load}%")
-            stream.timeseries \
-                .buffer \ 
-                .add_timestamp(datetime.datetime.utcnow()) \
-                .add_value("CPU_Load", cpu_load) \
-                .publish()
-    except KeyboardInterrupt:
-        print("Closing stream")
-        stream.close()
+    while True:
+        cpu_load = get_cpu_load()
+        print("CPU load: ", cpu_load)
+        with producer:
+            serialized_value = serializer(
+                value=cpu_load, ctx=SerializationContext(topic=output_topic.name)
+            )
+            producer.produce(
+                topic=output_topic.name,
+                key="server-1-cpu",
+                value=serialized_value
+            )
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Exiting due to keyboard interrupt')
 ```
 
 You need to obtain a [streaming token](../authentication/streaming-token.md) from within Quix.

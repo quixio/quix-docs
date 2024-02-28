@@ -4,7 +4,7 @@ Quix supports real-time data streaming over WebSockets (or Long Polling dependin
 
 Clients can receive updates on data and definitions for parameters and events, as they happen. 
 
-Streaming Reader API is typically used by clients written in languages not supported by Quix Streams (which supports Python and C#), or by other web services and clients that need to subscribe to data from a Quix topic.
+Streaming Reader API is typically used by clients written in languages not supported by Quix Streams (which supports Python only), or by other web services and clients that need to subscribe to data from a Quix topic.
 
 !!! note
 
