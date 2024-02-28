@@ -182,7 +182,25 @@ Further, changes in this file in one environment can be merged into another envi
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-You can see how to build a simple pipeline in the [Quix Tour](./quixtour/overview.md). You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
+You can see how to build a simple pipeline in the [Quix Tour](./quixtour/overview.md). 
+
+You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
+
+??? "Transcript"
+
+    0:00 Hello, welcome to the Quicks Tor. In this short video I'll give you a quick overview of the pipeline that you're going to be building in the Quicks Tor.
+
+    0:12 The material in the Quicks Tor is divided up into three stages which corresponds to a, ,hippical processing pipeline. The first stage is the ingestion phase where you get your data into Quicks Platform.
+
+    0:29 The second stage is process where you process your data. And finally you serve that data. In terms of a Quicks Pipeline, ,corresponds to these three elements here.
+
+    0:44 A source which is coded in blue. A transform which is coded in purple. And a destination which is coded in orange.
+
+    0:56 This source is an external source which represents a command line. And a command line program running on your laptop that publishes CPU load data into Quix platform.
+
+    1:08 We then have a simple transform that detects if the CPU load exceeds a certain threshold. Finally, we can log that information either, ,to a database or in our case just to the screen.
+
+    1:24 And optionally send an alert SMS to the systems administrator. Okay, that's it. Enjoy the Quix tool. See you in the next video.
 
 ### Multiple environments
 
@@ -199,6 +217,32 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 * CLI - a powerful command line interface (see the [CLI documentation](../get-started/cli.md)).
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
+
+??? "Transcript"
+
+    0:01 Hello, welcome to the quicks quick start. In this short video I'll give you a few tips to help you get through the quick start.
+
+    0:11 First thing I'll show you is how to get your streaming token which you'll need for your command line program that you're going to build.
+
+    0:19 So to do that we click on settings then APIs and tokens and then streaming token. Then copy your streaming token to the clipboard then you can paste that into your.env file for your command line program to read.
+
+    0:47 Then once you've done that you can run the command line program. So obviously I have run this program before the first time you run this program you will see that the topic is automatically.
+
+    1:00 Created for you. So now the command line program is printing out CPU load on my computer. And publishing that data to the CPU load topic inside the quix platform.
+
+    1:16 So if we go back to platform. And click on topics. You can see these green bars represent inbound data. Here's the topic name CPU load.
+
+    1:37 If I click in the view live data. You can see the tool tip comes up. I'm taken to the data explorer where I can view live data.
+
+    1:49 I can select a topic in this case. I only have one topic. The stream. There's one string in this case.
+
+    1:58 And the parameter that I want to look at. Once I've done that, you can see that the the waveform view I see a graph of the CPU load against time.
+
+    2:11 And down here in the bottom right corner, I can see that these green bars represent inbound data. The other thing I can do here is.
+
+    2:21 I can look at the table view, which shows me the CPU load and table format in real time. Or I can look at the messages view where I can see individual messages such as stream metadata message or the actual inbound data.
+
+    2:41 If I click here, you can see the message Jason. Okay, that's it for this short video. Thanks very much for watching and see you in the next video.
 
 ## Next steps
 
