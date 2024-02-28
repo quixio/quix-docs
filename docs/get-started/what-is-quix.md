@@ -24,7 +24,7 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 Briefly, here's how you would build a Python stream processing pipeline with Quix:
 
 1. Configure data sources and destinations (see [connectors](#connectors)). 
-2. Write your stream processing application in Python using [Quix Streams](../quix-streams/quix-streams-intro.md), an open source stream processing client library. 
+2. Write your stream processing application in Python using [Quix Streams](../quix-streams-intro.md), an open source stream processing client library. 
 3. Deploy your application to production. The application takes input data from a source and transforms it. When stream processing is finished, output data is sent to a destination system.
 4. Use Quix’s built-in observability tools to continuously monitor your pipeline and quickly identify any issues. 
 
@@ -159,7 +159,7 @@ Quix Streams is somewhat similar to Kafka Streams, in the sense that both librar
 
 Python is the dominant language for data science, data engineering, and machine learning, but it needs to be interfaced carefully with streaming technologies, such as Kafka, which are predominantly written in Java and Scala.
 
-For Python developers, the Quix Streams client library can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../quix-streams/quix-streams-intro.md).
+For Python developers, the Quix Streams client library can provide streaming data packaged in a data frame, so you can write data processing logic and connect it directly to the abstracted broker. Developers can read about the most important streaming concepts in the [Quix Streams introduction](../quix-streams-intro.md).
 
 Quix streams is an open source Python library, and the [GitHub repository](https://github.com/quixio/quix-streams){target=_blank} contains all code and documentation.
 

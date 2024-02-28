@@ -25,7 +25,7 @@ nav:
     - 'Project templates': 'get-started/project-templates.md'
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
-    #- 'Contribute': 'get-started/contribute.md'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Using Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
@@ -211,9 +211,6 @@ nav:
     #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
     #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
     #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-  - 'Quix Streams':
-    - 'v0.5 (stable)': '!import https://github.com/quixio/quix-streams?branch=release/v0.5'
-    - 'v2.0+ (latest)': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
@@ -282,12 +279,7 @@ plugins:
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
         'platform/how-to/replay.md': 'manage/replay.md'
         'platform/how-to/create-project.md': 'create/create-project.md'
-        'client-library-intro.md': 'quix-streams/client-library-intro.md'
-#        'client-library/quickstart.md': 'quix-streams/v0-5-stable/quickstart.md'
-#        'client-library/connect.md': 'quix-streams/v0-5-stable/connect.md'
-#        'quix-streams/subscribe.md': 'quix-streams/v0-5-stable/subscribe.md'
-#        'quix-streams/publish.md': 'quix-streams/v0-5-stable/publish.md'
-#        'quix-streams/state-management.md': 'quix-streams/v0-5-stable/state-management.md'
+        'client-library-intro.md': 'quix-streams-intro.md'
         'integrations/influxdb/overview.md': 'integrations/databases/influxdb/overview.md'
         'integrations/influxdb/quickstart.md': 'integrations/databases/influxdb/quickstart.md'
         'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'

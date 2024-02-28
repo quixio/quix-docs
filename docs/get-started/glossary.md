@@ -32,7 +32,7 @@ There are [many ways](../develop/integrate-data/overview.md) to get data into Qu
 
 ## Consumer
 
-Any project, container or application that [subscribes](../quix-streams/v0-5-stable/subscribe.md) to data in a topic.
+Any project, container or application that subscribes to data in a topic.
 
 ## Consumer group
 
@@ -53,8 +53,6 @@ Quix supports time series data, events, metadata, and blobs with the following d
 * Numeric (double precision)
 * String (UTF-8)
 * Binary data (blobs)
-
-Read more about [data types](../quix-streams/client-library-intro.md#multiple-data-types).
 
 ## Deployment
 
@@ -100,8 +98,6 @@ For example:
 
 Events are typically things that occur less frequently. They are streamed into the same topics as their related time series data, and act to provide some context to what is happening. For example, start and stop events typically mark the beginning and end of a data stream.
 
-Read more about [event data](../quix-streams/v0-5-stable/publish.md#eventdata-format).
-
 ## Job
 
 Any application code that is run once. For example, use a job to run a batch import of data from an existing data store, such as a CSV file, database, or data lake.
@@ -119,8 +115,6 @@ For example:
 Metadata typically has no time context, rather it exists as a constant throughout one or more streams. For example, your metadata could be the configuration of a car that is sold from a dealership (such as engine size, transmission type, wheel size, tyre model etc); you could create a stream every time that car is driven by the owner, but the engine size and transmission type won’t change.
 
 Metadata is key to data governance and becomes very useful in down-stream data processing and analytics.
-
-Read more about [Metadata](../quix-streams/v0-5-stable/publish.md#parameter-definitions).
 
 ## Microservice
 
@@ -164,7 +158,7 @@ An [HTTP API](../apis/portal-api/overview.md) used to interact with most portal-
 
 ## Producer
 
-Any project, container or application that [publishes](../quix-streams/v0-5-stable/publish.md) data to a topic.
+Any project, container or application that publishes data to a topic.
 
 ## Project
 
@@ -184,7 +178,7 @@ Sign up for a [free account](https://portal.platform.quix.io/self-sign-up).
 
 ## Quix Streams
 
-[Quix Streams](../quix-streams/client-library-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
+[Quix Streams](../quix-streams-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## Service
 
@@ -202,7 +196,7 @@ A stream is a collection of data (time series data, events, binary blobs and met
 * One game session for one player
 * One flight for one aeroplane
 
-Read more about [streams](../quix-streams/v0-5-stable/features/streaming-context.md).
+Read more about [streams](../quix-streams-intro.md).
 
 ## Streaming Reader API
 
@@ -210,7 +204,7 @@ A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any 
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../quix-streams/client-library-intro.md). Your application **writes** data into Quix.
+An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../quix-streams-intro.md). Your application **writes** data into Quix.
 
 ## Template project
 
@@ -218,7 +212,7 @@ A public project in GitHub that you can fork and import into Quix. See the [temp
 
 ## Time series data
 
-Tine-series data consists of values that change over time. Quix Streams supports numeric and string values.
+Time-series data consists of values that change over time. Quix Streams supports numeric and string values.
 
 For example:
 
@@ -228,15 +222,11 @@ For example:
 
 Referring back to topics as a grouping context: Quix recommends that each of these examples would be grouped into a single topic to maintain context.
 
-Read more about [time series data](../quix-streams/v0-5-stable/publish.md#timeseriesdata-format).
-
 ## Timestamp
 
 A timestamp is the primary key for all data in a [stream](#stream).
 
 Quix supports nanosecond precision. Nanosecond precision is at the leading edge of real-time computing, and is primarily driven by innovation with hardware and networking technology.
-
-Read more about [timestamps](../quix-streams/v0-5-stable/publish.md#timestamps).
 
 ## Topic
 
@@ -256,5 +246,3 @@ Topics are key for scalability and good data governance. Use them to organize yo
 
 * Grouping incoming data by type or source
 * Maintaining separate topics for raw, clean, or processed data
-
-Read more about [topics](../quix-streams/v0-5-stable/publish.md#create-a-topic-producer).
