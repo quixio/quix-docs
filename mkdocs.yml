@@ -26,7 +26,7 @@ nav:
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
-  - 'Using Quix Cloud':
+  - 'Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
       - 'Clone a project': 'create/clone-project.md'
