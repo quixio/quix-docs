@@ -107,32 +107,6 @@ jobs:
           #ref: '{{ steps.extract_branch.outputs.branch }}'
           path: 'quix-streams'
 
-      # copy client-library readme to quix-streams-intro.md
-      - name: Copy and rename client library intro.md
-        shell: bash
-        run: cp quix-streams/README.md docs/quix-streams-intro.md
-
-      # copy client library images to client library intro.md
-      - name: Copy Client Library Quix image
-        shell: bash
-        run: cp quix-streams/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
-
-      # copy client library images to docs/assets/client-library/
-      - name: Copy client library waveform image
-        shell: bash
-        run: cp -r quix-streams/images/. docs/assets/quix-streams/
-
-      # Change image URL in the copied file to new location 
-      # sed -i 's/old-text/new-text/g' input.txt
-      - name: Update intro.md
-        shell: bash
-        run: "sed -i 's,https://github.com/quixio/quix-streams/blob/main/images,./assets,g' docs/quix-streams-intro.md"
-      
-      # Change image paths from ./images to ./assets/client-library
-      - name: Update intro.md
-        shell: bash
-        run: "sed -i 's,./images,./assets/quix-streams/,g' docs/quix-streams-intro.md"
-
       ###
 
       ####################################################
