@@ -6,6 +6,35 @@ When you [create a project](create-project.md), you'll need to create at least o
 
 <div style="position: relative; padding-bottom: 51.549942594718715%; height: 0;"><iframe src="https://www.loom.com/embed/877ae703f0cf458f8827341549adce6c?sid=a1fed45f-b4a2-4442-8d9e-c981b6286fcb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+??? "Transcript"
+
+    0:01 Hi, welcome back. In this video I'll show you how to create an additional environment. In the last video you went through the creation of a project and the first environment.
+
+    0:15 If you remember we created the production environment which corresponds to the first environment. We're going to go through the main branch.
+
+    0:23 What I'm going to do in this video is create an additional environment called develop which will correspond to the dev branch in our project.
+
+    0:33 Now as far as ways that you can do that you can for example click new environment. Or you can go into the project.
+
+    0:44 At the top here you will see any environments that you have in this project. If you want to create an additional environment you can just click here and then you environment.
+
+    1:03 So as I was saying earlier I'm going to create create a develop environment. And that's going to correspond to the dev branch.
+
+    1:13 So I'll need to create the dev branch. So I'm just going to create a new branch. Dev and I'm branching off main branch for dev.
+
+    1:26 So I can just go ahead now and create the branch. This branch isn't going to be protected. My main branch has protected, but I'm going to do the bulk of my work in dev.
+
+    1:41 And then when I'm ready to put that work in into production, I'll need to create a pull request and then get that pull request approved and merged.
+
+    1:54 I'll show you how to do that in another video. So for now, let's just continue. Following configuration is pretty much the same as we saw in the first video.
+
+    2:06 So I'll quickly go through this to create the new environment. So you can see now the dev environment has been created.
+
+    2:19 So that's it for creating a new environment. Remember, there's always more than one way to do these things. But with a bit of exploration and playing around, you, you can find the different ways of and the most convenient way for you of creating the environment.
+
+    2:36 Okay. That's it for this video. See you in the next video.
+
+
 ## How to create a new environment
 
 There are several ways you can create a new environment, if you've not created one as part of creating the project. For example, you can do it from the top-level kebab menu:
