@@ -98,7 +98,6 @@ jobs:
       #   id: extract_branch
         
       ###### checkout client library files - latest version
-      # Requires mkdocs.yml in quix streams repo to have Introduction: quix-streams-intro.md
       - name: Checkout Client Library
         uses: actions/checkout@v3
         with:

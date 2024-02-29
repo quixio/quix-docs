@@ -53,4 +53,4 @@ if __name__ == '__main__':
 
 You need to obtain a [streaming token](../authentication/streaming-token.md) from within Quix.
 
-* [Read more about Quix Streams](../../quix-streams-intro.md)
+* [Read more about Quix Streams](https://quix.io/docs/quix-streams/introduction.html)

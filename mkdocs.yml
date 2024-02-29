@@ -282,7 +282,7 @@ plugins:
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
         'platform/how-to/replay.md': 'manage/replay.md'
         'platform/how-to/create-project.md': 'create/create-project.md'
-        'client-library-intro.md': 'quix-streams-intro.md'
+        'client-library-intro.md': 'quix-streams/introduction.md'
         'integrations/influxdb/overview.md': 'integrations/databases/influxdb/overview.md'
         'integrations/influxdb/quickstart.md': 'integrations/databases/influxdb/quickstart.md'
         'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'

@@ -7,13 +7,13 @@ search:
 
 # Replacing Flux with Quix Streams
 
-You can use [Quix Streams](../../../quix-streams-intro.md) as a [replacement for Flux](https://docs.influxdata.com/influxdb/v2/process-data/common-tasks/){target=_blank} to process your time series data in conjunction with InfluxDB. 
+You can use [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) as a [replacement for Flux](https://docs.influxdata.com/influxdb/v2/process-data/common-tasks/){target=_blank} to process your time series data in conjunction with InfluxDB. 
 
 You can write any transformation logic you need for your use case, using Python, and the Quix Streams library. Quix Streams has many powerful operations built in, including filtering, aggregation, and windowing.
 
 ## Downsampling data using Quix Streams
 
-Downsampling data involves performing some type of aggregation. Quix Streams has several [aggregation functions built in](../../../quix-streams-intro.md):
+Downsampling data involves performing some type of aggregation. Quix Streams has several [aggregation functions built in](https://quix.io/docs/quix-streams/introduction.html):
 
 * `min()` - to get a minimum value within a window
 * `max()` - to get a maximum value within a window
@@ -72,7 +72,7 @@ To set a time window of one week:
 sdf = sdf.tumbling_window(timedelta(weeks=1)).mean().final()
 ```
 
-See the [Quix Streams documentation](../../../quix-streams-intro.md) for more information.
+See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduction.html) for more information.
 
 ## Filtering messages using Quix Streams
 
@@ -172,4 +172,4 @@ This would read data on the topic in Quix time series format, and publish the da
 
 ## Next steps
 
-* See the [Quix Streams documentation](../../../quix-streams-intro.md).
+* See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduction.html).

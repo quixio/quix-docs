@@ -128,7 +128,7 @@ For example you may encounter a *ModuleNotFoundError*:
 ModuleNotFoundError: No module named 'quixstreams'
 ```
 
-For information on using the Quix Client Library please check out this [section](../quix-streams-intro.md) in the client library documentation.
+For information on using the Quix Client Library please check out this [section](https://quix.io/docs/quix-streams/introduction.html) in the client library documentation.
 
 ## Jupyter Notebooks
 

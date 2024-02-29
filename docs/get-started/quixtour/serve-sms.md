@@ -109,5 +109,5 @@ You've now completed the Quix Tour. You've built a simple but complete stream pr
 
 To continue your Quix learning journey, you may want to consider some of the following resources:
 
-* [Quix Streams docs](../../quix-streams-intro.md)
+* [Quix Streams docs](https://quix.io/docs/quix-streams/introduction.html)
 * [InfluxDB alerting tutorial](../../tutorials/influxdb-alerting/overview.md)

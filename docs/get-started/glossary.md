@@ -178,7 +178,7 @@ Sign up for a [free account](https://portal.platform.quix.io/self-sign-up).
 
 ## Quix Streams
 
-[Quix Streams](../quix-streams-intro.md) is the main **client library** used to send and receive real-time data in your streaming applications.
+[Quix Streams](https://quix.io/docs/quix-streams/introduction.html) is the main **client library** used to send and receive real-time data in your streaming applications.
 
 ## Service
 
@@ -196,7 +196,7 @@ A stream is a collection of data (time series data, events, binary blobs and met
 * One game session for one player
 * One flight for one aeroplane
 
-Read more about [streams](../quix-streams-intro.md).
+Read more about [streams](https://quix.io/docs/quix-streams/introduction.html).
 
 ## Streaming Reader API
 
@@ -204,7 +204,7 @@ A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any 
 
 ## Streaming Writer API
 
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](../quix-streams-intro.md). Your application **writes** data into Quix.
+An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](https://quix.io/docs/quix-streams/introduction.html). Your application **writes** data into Quix.
 
 ## Template project
 
