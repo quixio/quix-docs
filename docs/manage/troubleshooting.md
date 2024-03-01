@@ -36,7 +36,9 @@ If you have deployed a service or job and the logs mention *broker transport fai
 
 Also check the broker address list. You should have these by default:
 
+```
 kafka-k1.quix.io:9093,kafka-k2.quix.io:9093,kafka-k3.quix.io:9093
+```
 
 ## 401 Error
 
@@ -60,44 +62,6 @@ The APIs that require a valid bearer token are:
 
     - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/swagger/index.html
     
-## Error Handling in the client library callbacks
-
-Errors generated in the client library callback can be swallowed or hard to read. To prevent this and make it easier to determine the root cause you should use a [traceback](https://docs.python.org/3/library/traceback.html){target=_blank}
-
-Begin by importing traceback
-
-```python
-import traceback
-```
-
-Then, inside the client library callback where you might have an issue place code similar to this:
-
-```python
-def read_stream(new_stream: StreamReader):
-
-    def on_parameter_data_handler(data: ParameterData):
-        try:
-            data.timestamps[19191919] # this does not exist
-
-        except Exception:
-            print(traceback.format_exc())
-
-    new_stream.parameters.create_buffer().on_read += on_parameter_data_handler
-
-input_topic.on_stream_received += read_stream
-```
-
-Notice that the try clause is within the handler and the except clause prints a formatted exception (below)
-
-```python
-Traceback (most recent call last):
-  File "main.py", line 20, in on_parameter_data_handler
-    data.timestamps[19191919]
-  File "/usr/local/lib/python3.8/dist-packages/quixstreaming/models/netlist.py", line 22, in __getitem__
-    item = self.__wrapped[key]
-IndexError: list index out of range
-```
-
 ## Service keeps failing and restarting
 
 If your service continually fails and restarts you will not be able to view the logs. Redeploy your service as a job instead. This will allow you to inspect the logs and get a better idea about what is happening.

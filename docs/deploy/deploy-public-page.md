@@ -10,7 +10,7 @@ In our Code Samples you can find our `Web API Template` which demonstrates how t
 
 There are also examples dashboard and web/UI examples using `Dash`, `Streamlit` and `Angular`.
 
-![Code Samples](../images/library.png){width=500px}
+![Code Samples](../images/code-samples-dashboard.png)
 
 ## The code
 
@@ -21,11 +21,13 @@ Please ensure your service is hosted on `0.0.0.0` and uses port `80`.
 Examples of this for various languages are:
 
  - Node.js which can be used to host [Dash/Plotly](https://plotly.com/dash/){target="_blank"} apps and any JavaScript-based websites:
+
     ```js
     app.run_server(debug=False, host="0.0.0.0", port=80)
     ```
 
  - For Streamlit (just set the port in `main.py`)
+
     ```sh
     sys.argv = ["streamlit", "run", "streamlit_file.py", "--server.port=80"]
     ```
