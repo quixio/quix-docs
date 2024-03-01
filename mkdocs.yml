@@ -130,7 +130,7 @@ nav:
     - 'Migrating InfluxDB v2 to v3': 
       - 'Overview': 'tutorials/influxdb-migration/overview.md'
       - '1. Install InfluxDB v2': 'tutorials/influxdb-migration/influxdb-v2-install.md'
-      - '2. Get the project': 'tutorials/influxdb-migration/get-project.md'
+      - '2. Create the project': 'tutorials/influxdb-migration/create-project.md'
       - '3. Add InfluxDB v2 source': 'tutorials/influxdb-migration/influxdb-source.md'
       - '4. Add InfluxDB v3 destination': 'tutorials/influxdb-migration/influxdb-destination.md'
       - '5. Summary': 'tutorials/influxdb-migration/summary.md'
