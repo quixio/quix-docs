@@ -1,6 +1,6 @@
 ---
 title: Quix - Python stream processing made simple
-description: Quix is a complete solution for building, deploying, and monitoring stream processing pipelines with Python, Docker, Kafka, and Git.
+description: Quix brings DataFrames and the Python ecosystem to stream processing. Stateful, scalable and fault tolerant. No wrappers. No JVM. No cross-language debugging.
 ---
 
 # Quix: Python stream processing made simple
