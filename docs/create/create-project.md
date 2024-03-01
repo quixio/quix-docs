@@ -10,6 +10,80 @@ This page describes how to create a new project, and populate it with two enviro
 
 <div style="position: relative; padding-bottom: 51.839080459770116%; height: 0;"><iframe src="https://www.loom.com/embed/b4488be244834333aec56e1a35faf4db?sid=13c128de-df05-46b5-bb1f-03f6af3e7777" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+??? "Transcript"
+
+    0:01 Hi there, welcome to this video on creating a quick project. I should point out before I get into this video that I'm using the beta development environment at Quix and so what you see may be slightly different when you're testing Quicks.
+
+    0:21 Okay, so having said that I'll get straight into creating a new project. You can see this button over here. I'm going to click that to create a new project.
+
+    0:33 The new workflow in Quix starts with creating a project. Everything is done inside a project. Generally speaking, I'm simplifying it quite a lot.
+
+    0:44 A project corresponds to a Git repository. So everything that you create, including your pipeline configuration and so on, will be stored in a Git repository.
+
+    0:59 So I'll give my project a name and I'll call it video project. And the first thing I need to do is specify where this Git repository is going to be.
+
+    1:12 Now, the simplest option is to get quick to do all the work for you and just create the Git repository.
+
+    1:21 And the second thing I need to do is a product called gitty to host the Git repository. So we can do that for you.
+
+    1:27 It all happens in the background. And as you'll see in later videos, you have complete control about what happens in that repository.
+
+    1:37 You can review pull requests and do, merges and all of those normal things that you would do in a Git workflow.
+
+    1:47 The other option is to use an external provider. So for example, you could use GitLab, GitHub, Bitbucket and so on.
+
+    1:57 You can use any provider that supports the use of an SS. H key. For the purposes of this video, I'm going to keep it simple for now and just use the Quix manage Git.
+
+    2:11 So I'm now ready to create the project. Now every project will have at least one environment and usually several environments.
+
+    2:28 So what is an environment? An environment roughly corresponds to a branch in your Git repository, but there's a specific for an environment.
+
+    2:41 As well as you'll see as we go through this dialogue. But the first thing we need to do is give our environment a name.
+
+    2:52 So I'm going to name it. Based on the typical development workflow, so usually we'd have production. Branch or environment and you might have staging and development.
+
+    3:09 So I'm going to create the production environment and as I was saying earlier, that's going to roughly correspond to a branch.
+
+    3:17 So in this next section, we're going to specify the, ,branch that this environment corresponds to and I want production to correspond to the main branch.
+
+    3:30 And so there's nothing really I need to do here. I could create a new branch if I wanted to, ,but I want to use the default branch which is main.
+
+    3:41 The other, thing that I can do here is protect this branch and what that means is that prevents developers from merging or committing content, making changes directly to the main branch.
+
+    3:58 In order to change the main branch you'll have to raise, a pull request, a git pull request and that would have to be reviewed and approved and then merged in the usual way.
+
+    4:13 So we definitely want that because for production we don't want changes being made directly. So I'm protecting that and you'll, We'll see later how we go about taking changes that we've made and say the develop branch or the dev branch and merge those into the main branch.
+
+    4:32 I'll cover that in another video. So for now let's just click continue. Now for each environment that you create you can specify how you want to host Kafka.
+
+    4:45 Now as you probably know Quix uses Kafka as its broker. And you have several options here. You if you want the simplest option and most convenient option is to just let Quix do all the hard work for you.
+
+    5:01 We will create them. Kafka broker and you don't need to do any configuration. We just do it all for you.
+
+    5:08 We make sure that scales nicely as well. We use Kubernetes and you know as I say it's the least. It's it's the quickest option especially.
+
+    5:22 If you're testing things out, but there are other options as you can see here. You can use your own self hosted Kafka or you can connect to a Confluent Cloud and we'll cover those options in later videos.
+
+    5:39 So for now, I'm just going to go with the simplest option and click. Continue. The other thing that you'll need to do here is specify the storage option for the environment.
+
+    5:51 So the key thing to point out at this point is we were talking about environments as corresponding to a branch in get.
+
+    6:02 That is true, but it's also these other things like the Kafka options that you select and also the storage options.
+
+    6:11 Now the storage option that you're selecting here is for any data that you might possess. So in Quix it's possible to persist the data that's published to topics.
+
+    6:27 You can store that using our something called the data catalog and if you store, if you persist your topics and store the messages that are in the topics.
+
+    6:43 In our storage facilities, then there's a small charge associated with that. However, you don't have to persist topics. You can use external database solutions for storage of your data.
+
+    7:01 So you can use. Some of our standard connectors or even write your own connector to connect to more or less any database technology that you want.
+
+    7:11 The other thing that's stored here is metadata associated with messages. So for now, I'm just going to choose the standard option and create.
+
+    7:23 The environment. Okay, that's it. We'll wait for the project and the environment to be created. And then we'll have a look at what's in there in subsequent videos.
+
+    7:42 Okay, thanks for watching. And see you in the next video.
+
 ## Creating a project
 
 To do anything useful with Quix, you'll need at least one project, and one environment. You can think of a project as corresponding to a Git repository, and an environment as corresponding to Git branch within that repository. 
