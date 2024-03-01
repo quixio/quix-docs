@@ -10,7 +10,7 @@ In our Code Samples you can find our `Web API Template` which demonstrates how t
 
 There are also examples dashboard and web/UI examples using `Dash`, `Streamlit` and `Angular`.
 
-![Code Samples](../images/code-samples-dashboard.png){width=500px}
+![Code Samples](../images/code-samples-dashboard.png)
 
 ## The code
 
