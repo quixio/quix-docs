@@ -25,7 +25,7 @@ nav:
     - 'Project templates': 'get-started/project-templates.md'
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=tony-docs-test'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix Cloud':
     - '1. Create your project':
       - 'Overview': 'create/overview.md'
