@@ -5,11 +5,11 @@ from mkdocs.structure.files import Files
 @mkdocs.plugins.event_priority(-100)
 def on_files(files: Files, config):
     """
-    Redirect URLs "quix-streams/***" to "quix-streams/v0-5-stable/***"
+    Redirect URLs "quix-streams/v2-0-latest/***" to "quix-streams/***"
     using "redirects" plugin
     """
-    new_prefix = "quix-streams/v0-5-stable/"
-    old_prefix = "quix-streams/"
+    new_prefix = "quix-streams/"
+    old_prefix = "quix-streams/v2-0-latest/"
 
     redirect_plugin = config.get("plugins", {}).get("redirects")
     redirects = redirect_plugin.config.get("redirect_maps", {})

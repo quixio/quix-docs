@@ -20,16 +20,30 @@ To create the threshold detection transform:
     from quixstreams import Application
     import os
 
-    app = Application.Quix("threshold-transform", auto_offset_reset="latest")
+    
+    # Create an Application
+    # It will get the SDK token from environment variables to connect to Quix Kafka
+    app = Application.Quix(consumer_group="threshold-transform", auto_offset_reset="latest")
+
+    # Define input and output topics
     input_topic = app.topic(os.environ["input"], value_deserializer='json')
     output_topic = app.topic(os.environ["output"], value_serializer='json')
 
+    # Create a StreamingDataFrame to process data
     sdf = app.dataframe(input_topic)
+
+    # Filter messages with "cpu_load" > 20
     sdf = sdf[sdf["cpu_load"] > 20]
+
+    # Print filtered messages to the console
     sdf = sdf.update(lambda row: print(row))
+
+    # Send messages to the output topic
     sdf = sdf.to_topic(output_topic)
 
+
     if __name__ == "__main__":
+        # Run the Application
         app.run(sdf)
     ```
 

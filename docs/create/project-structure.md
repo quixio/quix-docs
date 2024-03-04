@@ -97,7 +97,7 @@ This defines the build environment used to create the container image that will 
 
 As well as the `app.yaml` the application folder also contains the actual code for the service, in this case in `main.py` - the complete Python code for the application.
 
-There is also a `requirements.txt` file - this is the standard Python file that lists modules to be installed. In this case there is only one requirement that is "pip installed" as part of the build process, the [Quix Streams client library](../quix-streams/quix-streams-intro.md).
+There is also a `requirements.txt` file - this is the standard Python file that lists modules to be installed. In this case there is only one requirement that is "pip installed" as part of the build process, the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html).
 
 Any data files required by the application can also be located in the application's folder. In this example there is a `demo-data.csv` file that is loaded by the application code.
 
