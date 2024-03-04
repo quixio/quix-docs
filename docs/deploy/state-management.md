@@ -44,27 +44,38 @@ The model can be modified at run time, and its state is preserved between servic
 
 ## Using state from Quix Streams
 
-If you have enabled state management for a service, then you can also use the [state management features](../quix-streams/v0-5-stable/state-management.md) of Quix Streams in that service. This enables you to store and retrieve data in various formats, and retain that state between service restarts. See the [documentation](../quix-streams/v0-5-stable/state-management.md) for further details.
+If you have enabled state management for a service, then you can also use the state management features of Quix Streams in that service. This enables you to store and retrieve data in various formats, and retain that state between service restarts. See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduction.html) for further details.
 
 ## Running Quix Streams locally
 
 If you are running Quix Streams locally, rather than using it as part of a deployed service in the cloud, then the `state` folder is created automatically for you when you use state management features of the library. For example, if you ran the following code locally:
 
 ``` python
-from quixstreams import LocalFileStorage
+from quixstreams import Application, State
+from dotenv import load_dotenv
 
-storage = LocalFileStorage()
-storage.clear()
+def count_messages(value: dict, state: State):
+    total = state.get('total', default=0)
+    print('total: --> ', total)
+    total += 1
+    state.set('total', total)
+    return {**value, 'total': total}
 
-storage.set("KEY1", 12.51)
-storage.set("KEY2", "str")
-storage.set("KEY3", True)
-storage.set("KEY4", False)
+load_dotenv()
+
+app = Application.Quix(
+    consumer_group="cpu_load", 
+    auto_create_topics=True,
+)
+
+topic = app.topic('cpu-load')
+sdf = app.dataframe(topic)
+sdf = sdf.apply(count_messages, stateful=True)
+app.run(sdf)
 ```
 
-Then you would see the `state` folder and its contents:
+Then you would see the `state` folder is created locally, and you receive a logging message such as:
 
 ```
-$ ls state
-key1 key2 key3 key4
+Initializing state directory at "/Users/freddy/sdf-test/state/freddy-example-prod-cpu_load"
 ```

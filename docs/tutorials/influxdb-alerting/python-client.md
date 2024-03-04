@@ -13,17 +13,16 @@ Note, these variables use **double** underscores.
 
 To obtain these values you can go to `Settings` in your environment, and then click on the `APIs and tokens tab`. You can obtain the `Streaming Token` and the Portal API URL from there.
 
-Set the environment variables using the method recommended for your system, for example on macOS or Unix you could set the variables as follows:
+Create a `.env` file containing your environment variables:
 
 ```
-#!/usr/bin/env bash                                                                          
-export Quix__Sdk__Token="sdk-12345"
-export Quix__Portal__Api="portal-api.platform.quix.io"
-echo $Quix__Sdk__Token
-echo $Quix__Portal__Api
+Quix__Sdk__Token="sdk-12345"
+Quix__Portal__Api="portal-api.platform.quix.io"
 ```
 
-You could add these lines (without the shebang) to your Bash or Zsh resource file, for example, `.bash_profile`, so they are always available during development.
+!!! note
+
+    The SDK token and streaming token are the same thing. The SDK token is now called the streaming token in the UI.
 
 ## Add the Python code
 
@@ -34,6 +33,9 @@ import psutil
 import time
 from quixstreams import Application
 from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
+
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)

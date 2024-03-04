@@ -143,13 +143,11 @@ You can see the exact time window is recorded, along with the maximum vehicle co
 
 ![Road capacity](./images/road-capacity.png)
 
-This service uses [state](../../quix-streams/v0-5-stable/state-management.md), as you need to save the maximum count reached during the time window. 
+This service uses state, as you need to save the maximum count reached during the time window. 
 
 ## Data buffer
 
 This service provides a one second data buffer. This reduces load on the Data API service. There are three input topics to the service, `max-vehicles`, `processed-images`, and `vehicle-counts`: and one output topic, `buffered-data`.
-
-See the documentation on [using buffers](../../quix-streams/v0-5-stable/publish.md#using-a-buffer).
 
 ## Data API
 
@@ -240,7 +238,7 @@ This is the standard Quix code sample [AWS S3 destination connector](https://qui
 For more information refer to:
 
 * [Connectors](../../connectors/index.md) - connectors, both source and destination.
-* [Quix Streams](../../quix-streams/client-library-intro.md) - the client library.
+* [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) - the client library.
 
 ## 🏃‍♀️ Next step
 

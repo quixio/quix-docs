@@ -1,4 +1,4 @@
-# Use Jupyter Notebook
+# Exporting Quix data to Jupyter Notebook
 
 In this documentation, you learn how to use Jupyter Notebook to analyze data persisted in Quix.
 

@@ -42,8 +42,6 @@ def on_dataframe_received_handler(originating_stream: qx.StreamConsumer, df: pd.
     stream_producer.timeseries.buffer.publish(df)
 ```
 
-You can read more about using buffers in the [buffer documentation](https://quix.io/docs/quix-streams/v0-5-stable/subscribe.html#using-a-buffer).
-
 The aggregated data is published to the output stream (one stream for each printer).
 
 The output topic for the service is `downsampled-3d-printer-data`. Other services such as the Forecast service, and the InfluxDB raw data storage service subscribe to this topic.

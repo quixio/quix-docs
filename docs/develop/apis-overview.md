@@ -7,9 +7,9 @@ Quix provides several APIs. These are:
 * Portal API
 * Query API
 
-While [Quix Streams](../quix-streams/client-library-intro.md) is the main client library for Quix, there are certain use cases where you need an alternative:
+While [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) is the main client library for Quix, there are certain use cases where you need an alternative:
 
-* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python and C# only)
+* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python only)
 * There are resource constraints which mean you can't run Quix Streams
 * The nature of the client (for example, a web browser)
 

@@ -17,7 +17,7 @@ In the second part you'll get data from InfluxDB and publish it into a Quix topi
 
 ![InfluxDB quickstart complete pipeline](../../../images/integrations/influxdb-quickstart-pipeline.png)
 
-This demonstrates various aspects of building a typical ETL processing pipeline, where you extract data, transform it in some way, and then save it to a database. This quickstart demonstrates both saving data to InfluxDB and querying data from InfluxDB, using Quix and [Quix Streams](../../../quix-streams/quix-streams-intro.md).
+This demonstrates various aspects of building a typical ETL processing pipeline, where you extract data, transform it in some way, and then save it to a database. This quickstart demonstrates both saving data to InfluxDB and querying data from InfluxDB, using Quix and [Quix Streams](https://quix.io/docs/quix-streams/introduction.html).
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ You'll now add a simple transformation to your pipeline.
 
 2. In the filters select `Python`, `Transformation`, and `Basic Templates`.
 
-3. Click `Preview code` for `Starter transformation SDF`. This is the starter tranformation using the new [Quix Streams v2 client library](../../../quix-streams/quix-streams-intro.md).
+3. Click `Preview code` for `Starter transformation SDF`. This is the starter tranformation using the new [Quix Streams v2 client library](https://quix.io/docs/quix-streams/introduction.html).
 
 4. Click `Edit code`, and then `Save` to save the application to your repository.
 

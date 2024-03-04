@@ -1,4 +1,4 @@
-# Use a prebuilt connector
+# Using a prebuilt source connector
 
 This is the easiest method, as no code needs to be written, and there is usually only minor configuration required to get a Quix connector up and running. For example, Quix provides connectors for many common services such as Postgres, Twilio, Streamlit, and so on.
 

@@ -101,44 +101,8 @@ jobs:
     #   shell: bash
     #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
     #   id: extract_branch
-      
-    ###### checkout client library files - legacy version
-    - name: Checkout Client Library
-      uses: actions/checkout@v3
-      with:
-        repository: 'quixio/quix-streams'
-        ref: 'release/v0.5' # when a dev branch exists we can get the dev content
-        #ref: '{{ steps.extract_branch.outputs.branch }}'
-        path: 'client-library'
-
-    # copy client-library readme to client-library intro.md
-    - name: Copy and rename client library intro.md
-      shell: bash
-      run: cp client-library/README.md docs/quix-streams/client-library-intro.md
-
-    # copy client library images to client library intro.md
-    - name: Copy Client Library Quix image
-      shell: bash
-      run: cp client-library/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
-
-    # copy client library images to docs/assets/client-library/
-    - name: Copy client library waveform image
-      shell: bash
-      run: cp -r client-library/images/. docs/assets/client-library/
-
-    # Change image URL in the copied file to new location 
-    # sed -i 's/old-text/new-text/g' input.txt
-    - name: Update intro.md
-      shell: bash
-      run: "sed -i 's,https://github.com/quixio/.github/blob/main/profile,./assets,g' docs/quix-streams/client-library-intro.md"
-    
-    # Change image paths from ./images to ./assets/client-library
-    - name: Update intro.md
-      shell: bash
-      run: "sed -i 's,./images,./assets/client-library/,g' docs/quix-streams/client-library-intro.md"
 
     ###### checkout client library files - latest version
-    # Requires mkdocs.yml in quix streams repo to have Introduction: quix-streams-intro.md
     - name: Checkout Client Library
       uses: actions/checkout@v3
       with:
@@ -146,32 +110,6 @@ jobs:
         ref: 'main' # when a dev branch exists we can get the dev content
         #ref: '{{ steps.extract_branch.outputs.branch }}'
         path: 'quix-streams'
-
-    # copy client-library readme to quix-streams-intro.md
-    - name: Copy and rename client library intro.md
-      shell: bash
-      run: cp quix-streams/README.md docs/quix-streams/quix-streams-intro.md
-
-    # copy client library images to client library intro.md
-    - name: Copy Client Library Quix image
-      shell: bash
-      run: cp quix-streams/images/quixstreams-banner.jpg docs/quix-streams/assets/quixstreams-banner.jpg
-
-    # copy client library images to docs/assets/client-library/
-    - name: Copy client library waveform image
-      shell: bash
-      run: cp -r quix-streams/images/. docs/assets/quix-streams/
-
-    # Change image URL in the copied file to new location 
-    # sed -i 's/old-text/new-text/g' input.txt
-    - name: Update intro.md
-      shell: bash
-      run: "sed -i 's,https://github.com/quixio/quix-streams/blob/main/images,./assets,g' docs/quix-streams/quix-streams-intro.md"
-    
-    # Change image paths from ./images to ./assets/client-library
-    - name: Update intro.md
-      shell: bash
-      run: "sed -i 's,./images,./assets/quix-streams/,g' docs/quix-streams/quix-streams-intro.md"
 
     ###
 
@@ -186,13 +124,38 @@ jobs:
 
     # use our own GitHub Action to bring in library readme files
     - name: Quix Samples readme.md importer
-      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.16
+      uses: quixio/LibraryToMKDocsReadmeMergeAction@v2.17
       id: readme_importer
       with:
         LIBRARY_REPO_PATH: "samples"
         DOCS_PATH: ""
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
-        README_DEST: "docs/library_readmes/connectors"
+        CONNECTORS_TAG: "Connectors"
+        NAV_INDENT_SPACES: "4"
+        CONNECTORS_TITLE_REPLACEMENT: "[//]: <> (#connectors_tile_replacement)"
+
+    # for debugging..
+    # crawl the files, print the contents of specific files
+    - name: Crawl and print file hierarchy
+      run: |
+        print_files() {
+          local indent="$1"
+          shift
+          # specify the filenames you want to print
+          local filenames=("index.html" "index.md" "mkdocs.yml")
+          for path; do
+            local filename=$(basename "$path")
+            # check if filename is in filenames
+            if [[ " ${filenames[@]} " =~ " ${filename} " ]]; then
+              echo "$filename found at $path. Contents:"
+              cat "$path"
+            fi
+            if [ -d "$path" ]; then
+              print_files "  $indent" "$path"/*
+            fi
+          done
+        }
+        print_files "" *
 
     - name: Output Importer Logs
       run: |
