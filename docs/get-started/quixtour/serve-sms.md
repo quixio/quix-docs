@@ -6,7 +6,7 @@ In this part of the tour you'll learn how to create a simple destination. This d
 
 If you've completed this tutorial so far, you should have all the prerequisites already installed.
 
-**Optionally:** You can sign up for a [free Vonage account](https://developer.vonage.com/sign-up), to be able to send an SMS. If you would like to try this, simply set `send_sms_bool = True` in the `main.py` code you create later, to switch this feature **on**.
+**Optionally:** You can sign up for a [free Vonage account](https://developer.vonage.com/sign-up), to be able to send an SMS. If you would like to try this, simply set `SEND_SMS = True` in the `main.py` code you create later, to switch this feature **on**.
 
 ## Create the destination
 
@@ -25,9 +25,14 @@ To create the SMS alert destination:
     from quixstreams import Application
     import os
 
-    send_sms_bool = False # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
-    if send_sms_bool:
-        import vonage # add vonage module to requirements.txt to pip install it
+    # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
+    SEND_SMS = False 
+
+
+    if SEND_SMS:
+        # Configure Vonage API
+        # add vonage module to requirements.txt to pip install it
+        import vonage 
         vonage_key = os.environ["VONAGE_API_KEY"]
         vonage_secret = os.environ["VONAGE_API_SECRET"]
         to_number = os.environ["TO_NUMBER"]
@@ -35,10 +40,13 @@ To create the SMS alert destination:
         client = vonage.Client(key=vonage_key, secret=vonage_secret)
         sms = vonage.Sms(client)
 
-    # function to send an SMS
+
     def send_sms(message):
+        """
+        Send an SMS using Vonage API
+        """
         print("Sending SMS message to admin...")
-        responseData = sms.send_message(
+        response_data = sms.send_message(
             {
                 "from": "Vonage APIs",
                 "to": to_number,
@@ -46,27 +54,42 @@ To create the SMS alert destination:
             }
         )
 
-        if responseData["messages"][0]["status"] == "0":
+        if response_data["messages"][0]["status"] == "0":
             print("Message sent successfully. Admin Alerted.")
         else:
-            print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
+            print(f"Message failed with error: {response_data['messages'][0]['error-text']}")
         return
 
+
     def send_alert(row):
+        """
+        Trigger a CPU spike alert and send an SMS notification
+        """
         cpu_load = row['cpu_load']
         print("Warning! CPU spike of {} detected.".format(cpu_load))
         msg = f"Warning! CPU spike of {cpu_load} detected."
-        if send_sms_bool is True:
+        if SEND_SMS:
             send_sms(msg)    
 
-    app = Application.Quix("sms-alert-destination", auto_offset_reset = "latest")
+    # Create an Application
+    # It will get the SDK token from environment variables to connect to Quix Kafka
+    app = Application.Quix(consumer_group="sms-alert-destination", auto_offset_reset="latest")
+
+    # Define an input topic
     input_topic = app.topic(os.environ["input"])
     
+    # Create a StreamingDataFrame to process data
     sdf = app.dataframe(input_topic)
+
+    # Trigger the "send_alert" function for each incoming message
     sdf = sdf.update(send_alert)
+
+    # Print incoming messages to the console
     sdf = sdf.update(lambda row: print(row))
 
+
     if __name__ == "__main__":
+        # Run the Application
         app.run(sdf)    
     ```
 
@@ -76,7 +99,7 @@ This section is **optional**.
 
 If you want to send an alert SMS follow these steps:
 
-1. Change the variable `send_sms_bool` to `True` in your `main.py`.
+1. Change the variable `SEND_SMS` to `True` in your `main.py`.
 2. In the `Environment variables` panel, click `+ Add`. The `Add Variable` dialog is displayed. 
 3. Complete the information for the following environment variables (you obtain these from your Vonage developer dashboard):
 
