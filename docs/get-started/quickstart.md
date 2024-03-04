@@ -21,7 +21,23 @@ If you're just curious, click the box below to see the complete code.
     from dotenv import load_dotenv
     load_dotenv()
 
+
+    # Create an Application
+    # It will use the SDK token from environment variables to connect to Quix Kafka
+    # and ensure the topics are created
+    app = Application.Quix(auto_create_topics=True)
+
+    # Define serializer to serialize outgoing messages to JSON
+    serializer = JSONSerializer()
+    
+    # Define output topic
+    output_topic = app.topic("cpu-load")
+    
+
     def get_cpu_load():
+        """
+        Get the current CPU and memory usage
+        """
         cpu_load = psutil.cpu_percent(interval=1)
         memory = psutil.swap_memory()
         return {
@@ -30,23 +46,21 @@ If you're just curious, click the box below to see the complete code.
             "timestamp": int(time.time_ns()),
         }
 
-    app = Application.Quix(
-        consumer_group="cpu_load", 
-        auto_create_topics=True,
-    )
-
-    serializer = JSONSerializer()
-    output_topic = app.topic("cpu-load")
-    producer = app.get_producer()
-
     def main():
-        while True:
-            cpu_load = get_cpu_load()
-            print("CPU load: ", cpu_load)
-            with producer:
+        # Create a Producer to send data to the topic
+        with app.get_producer() as producer:
+            while True:
+                
+                # Get the current CPU and memory usage
+                cpu_load = get_cpu_load()
+                print("CPU load: ", cpu_load)
+
+                # Serialize data to bytes in JSON format
                 serialized_value = serializer(
                     value=cpu_load, ctx=SerializationContext(topic=output_topic.name)
                 )
+
+                # Produce message to the topic
                 producer.produce(
                     topic=output_topic.name,
                     key="server-1-cpu",
@@ -72,9 +86,7 @@ To complete the Quickstart you'll need the following:
 Once you have Python installed, open up a terminal, and install the following modules using `pip`:
 
 ```
-pip install quixstreams
-pip install psutil
-pip install python-dotenv
+pip install quixstreams psutil python-dotenv
 ```
 
 !!! tip
@@ -144,17 +156,15 @@ You can also read the documentation on how to [create a project](../create/creat
 You need to set the following environment variables:
 
 * `Quix__Sdk__Token`
-* `Quix__Portal__Api`
 
 Note, these variables use **double** underscores.
 
-To obtain these values you can go to `Settings` in your environment, and then click on the `APIs and tokens tab`. You can obtain the `Streaming Token` and the Portal API URL from there.
+To obtain these values you can go to `Settings` in your environment, and then click on the `APIs and tokens` tab. You can obtain the `Streaming Token` from there.
 
 Create a `.env` file containing your environment variables:
 
 ```
-Quix__Sdk__Token="sdk-12345"
-Quix__Portal__Api="portal-api.platform.quix.io"
+Quix__Sdk__Token="<your SDK token>"
 ```
 
 !!! note
@@ -168,9 +178,7 @@ You now write the Python code that runs on your computer, and publishes your CPU
 Create a new file called `cpu_load.py`, and copy and paste in the following code, and then save the file:
 
 ``` python 
-# pip install psutil
-# pip install quixstreams
-# pip install python-dotenv
+# pip install psutil quixstreams python-dotenv
 import psutil, time, os
 from quixstreams import Application
 from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
@@ -178,7 +186,23 @@ from quixstreams.models.serializers.quix import JSONSerializer, SerializationCon
 from dotenv import load_dotenv
 load_dotenv()
 
+
+# Create an Application
+# It will use the SDK token from environment variables to connect to Quix Kafka
+# and ensure the topics are created
+app = Application.Quix(auto_create_topics=True)
+
+# Define a serializer to serialize outgoing messages to JSON
+serializer = JSONSerializer()
+
+# Define an output topic
+output_topic = app.topic("cpu-load")
+
+
 def get_cpu_load():
+    """
+    Get the current CPU and memory usage
+    """
     cpu_load = psutil.cpu_percent(interval=1)
     memory = psutil.swap_memory()
     return {
@@ -187,23 +211,21 @@ def get_cpu_load():
         "timestamp": int(time.time_ns()),
     }
 
-app = Application.Quix(
-    consumer_group="cpu_load", 
-    auto_create_topics=True,
-)
-
-serializer = JSONSerializer()
-output_topic = app.topic("cpu-load")
-producer = app.get_producer()
-
 def main():
-    while True:
-        cpu_load = get_cpu_load()
-        print("CPU load: ", cpu_load)
-        with producer:
+    # Create a Producer to send data to the topic
+    with app.get_producer() as producer:
+        while True:
+            
+            # Get the current CPU and memory usage
+            cpu_load = get_cpu_load()
+            print("CPU load: ", cpu_load)
+
+            # Serialize data to bytes in JSON format
             serialized_value = serializer(
                 value=cpu_load, ctx=SerializationContext(topic=output_topic.name)
             )
+
+            # Produce message to the topic
             producer.produce(
                 topic=output_topic.name,
                 key="server-1-cpu",
