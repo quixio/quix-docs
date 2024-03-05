@@ -167,7 +167,7 @@ Data collection consists of the following:
 
 The stream processing pipeline can be implemented in Quix using Python and the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html):
 
-* **Data Ingestion**: Website events and user data are ingested into a real-time stream processing platform such as Quix. Read the [data integration](../develop/integrate-data/overview.md) documentation.
+* **Data ingestion**: Website events and user data are ingested into a real-time stream processing platform such as Quix. Read the [data integration](../develop/integrate-data/overview.md) documentation.
 
 * **Real-time analytics**: Stream processing algorithms analyze incoming data streams to monitor website performance metrics such as page load times, bounce rates, and conversion rates in real-time.
 
@@ -277,7 +277,7 @@ Data collection consists of the following:
 
 The stream processing pipeline can be implemented in Quix using Python and the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html):
 
-* **Data Ingestion**: Sensor data and machine data are ingested into a stream processing platform such as Quix. Read the [data integration](../develop/integrate-data/overview.md) documentation.
+* **Data ingestion**: Sensor data and machine data are ingested into a stream processing platform such as Quix. Read the [data integration](../develop/integrate-data/overview.md) documentation.
 
 * **Real-time analysis**: Stream processing algorithms continuously analyze incoming data streams to detect anomalies, deviations from normal operating conditions, and potential equipment failures.
 

@@ -12,9 +12,9 @@ Here are some key features of Kafka:
 
 * **High throughput and low latency**: Kafka is optimized for high throughput and low latency, making it suitable for real-time stream processing applications.
 
-* **Persistent Storage**: Kafka persists messages to disk, providing durability and enabling message replay in case of failures or system crashes.
+* **Persistent storage**: Kafka persists messages to disk, providing durability and enabling message replay in case of failures or system crashes.
 
-* **Stream Processing**: Quix includes the Quix Streams client library that enables developers to build stream processing applications in Python, that leverage Kafka, enabling real-time data processing and analytics.
+* **Stream processing**: Quix includes the Quix Streams client library that enables developers to build stream processing applications in Python, that leverage Kafka, enabling real-time data processing and analytics.
 
 * **Integration**: Kafka has robust integration capabilities, supporting connectors for integrating with various data sources and sinks such as databases, messaging systems, and analytics platforms.
 
@@ -30,7 +30,7 @@ Kafka is extensively used in stream processing due to its ability to handle real
 
 * **Stream processing topologies**: With Quix Streams for Kafka, developers can define stream processing topologies that describe how data flows through the system. Topologies can include operations like filtering, mapping, aggregating, joining, windowing, and more.
 
-* **State Management**: Quix Streams handles state management transparently for developers. It provides mechanisms for managing and updating state within stream processing applications, enabling functionalities such as session windows, windowed aggregations, and joins.
+* **State management**: Quix Streams handles state management transparently for developers. It provides mechanisms for managing and updating state within stream processing applications, enabling functionalities such as session windows, windowed aggregations, and joins.
 
 * **Fault tolerance**: Kafka ensures fault tolerance in stream processing applications by providing features such as data replication, partitioning, and consumer group coordination. In case of failures, Kafka automatically rebalances tasks and restores state from Kafka topics.
 
