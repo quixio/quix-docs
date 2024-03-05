@@ -29,7 +29,7 @@ With Quix, you can perform stream processing much more easily, as all necessary 
 
 As an alternative to having Quix host your stream processing infrastructure, you can easily [connect](../connectors/index.md) with third-party providers, or [integrate](../integrations/overview.md) Quix with your existing stream processing infrastructure.
 
-The following sections review some common stream processing use cases.
+The following sections review some common stream processing use cases. See also the [templates gallery](https://quix.io/templates){target=_blank} for more examples.
 
 ## Use Case: Real-time telemetry analysis for F1 racing
 
