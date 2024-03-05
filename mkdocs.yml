@@ -16,6 +16,8 @@ nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
     - 'What is Quix?': 'get-started/what-is-quix.md'
+    - 'Why stream processing?': 'get-started/why-stream-processing.md'
+    - 'What is Kafka?': 'get-started/what-is-kafka.md'
     - 'Quickstart': 'get-started/quickstart.md'
     - 'Quix Tour': 
       - 'Overview': 'get-started/quixtour/overview.md'
@@ -44,20 +46,21 @@ nav:
         - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
         - 'Streaming Token': 'develop/authentication/streaming-token.md'
       - 'Using Code Samples': 'develop/code-samples.md'
-      - 'Ingest your data - source':
+      - 'Integrate your data': 
         - 'Overview': 'develop/integrate-data/overview.md'
-        - 'Using a prebuilt source connector': 'develop/integrate-data/prebuilt-connector.md'
-        - 'Reading a CSV file': 'develop/integrate-data/read-csv.md'
-        - 'Polling a REST API': 'develop/integrate-data/polling.md'
-        - 'Handling inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
-        - 'Using an external source': 'develop/integrate-data/external-source.md'
-        - 'Using the Quix Streaming APIs': 'develop/integrate-data/streaming-apis.md'
-        - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
-        - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
-      - 'Publish your data - sink':
-        - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
-        - 'Using an external destination': 'develop/integrate-data/external-destination.md'
-        - 'Exporting Quix data to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
+        - 'Ingest your data - source':
+          - 'Using a prebuilt source connector': 'develop/integrate-data/prebuilt-connector.md'
+          - 'Reading a CSV file': 'develop/integrate-data/read-csv.md'
+          - 'Polling a REST API': 'develop/integrate-data/polling.md'
+          - 'Handling inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
+          - 'Using an external source': 'develop/integrate-data/external-source.md'
+          - 'Using the Quix Streaming APIs': 'develop/integrate-data/streaming-apis.md'
+          - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
+          - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
+        - 'Publish your data - sink':
+          - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
+          - 'Using an external destination': 'develop/integrate-data/external-destination.md'
+          - 'Exporting Quix data to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
       - 'Process your data':
         - 'Overview': 'develop/process/overview.md'
         - 'Types of processing': 'develop/process/types-of-processing.md'
