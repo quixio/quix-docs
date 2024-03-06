@@ -36,7 +36,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
 <div class="grid cards" markdown>
 
-- __Create your project__
+- __1. Create your project__
 
     ---
 
@@ -44,7 +44,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     [Create a project :octicons-arrow-right-24:](../create/overview.md)
 
-- __Develop your application__
+- __2. Develop your application__
 
     ---
 
@@ -52,7 +52,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     [Develop your application :octicons-arrow-right-24:](../develop/overview.md)
 
-- __Deploy your application__
+- __3. Deploy your application__
 
     ---
     
@@ -60,7 +60,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     [Deploy your application :octicons-arrow-right-24:](../deploy/overview.md)
 
-- __Manage your pipeline__
+- __4. Manage your pipeline__
 
     ---
     
