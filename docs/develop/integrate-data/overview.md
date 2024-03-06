@@ -18,7 +18,6 @@ To publish data:
 1. Using a prebuilt destination connector
 2. External destination
 
-
 The particular method you use depends on the nature of the service you're trying to interface with Quix. Each of these methods is described in the following sections.
 
 There are various ways to connect to Quix, and how you do so depends on the nature of the service and data you are connecting. In many cases Quix has a [suitable connector](../../connectors/index.md) you can use with minor configuration. 
@@ -31,6 +30,6 @@ Quix also provides the [Streaming Writer API](../../apis/streaming-writer-api/ov
 
 When using the Streaming Writer API you can use the HTTP interface if a continous connection is not required. Faster data from web servers, browser clients, and IoT devices can interface using the SignalR interface, which can use WebSockets or Long Polling (depending on client support), where a continuous connection is required.
 
-## See also
+## Integrations
 
 There is also a [section](../../integrations/overview.md) in this documentation providing more information on specific integrations you can use for connecting Quix with products such as InfluxDB.
