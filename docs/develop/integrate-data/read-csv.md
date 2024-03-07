@@ -36,55 +36,61 @@ Quix__Sdk__Token="<your_streaming_token>"
 The following code reads a CSV file from your laptop, and publishes the data into a Quix topic, using the Quix Streams client library:
 
 ``` python 
-# pip install quixstreams
-# pip install python-dotenv
-from quixstreams import Application
-from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
-import time
-import datetime
-import os
+# pip install quixstreams python-dotenv
 import csv
+import os
+import time
+
 from dotenv import load_dotenv
 
-def load_csv(csv_file):
+from quixstreams import Application
+
+# Load environment variables from the ".env" file
+load_dotenv()
+
+# Create an Application to connect to the Quix broker with SDK token
+app = Application.Quix(
+    consumer_group="sample_consumer_group",
+    auto_create_topics=True,
+)
+
+# Define an output topic with JSON serialization
+output_topic = app.topic(os.environ["output"], value_serializer="json")
+
+# Path to a CSV file with data
+USERS_FILE = "user-data.csv"
+
+
+def load_csv(path: str):
     rows = []
-    with open(csv_file, 'r') as file:
+    with open(path, "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
             rows.append(row)
     return rows
 
+
 def main():
-    load_dotenv()
-    users_file = "user-data.csv"
-    users = load_csv(users_file)
+    # Load data from the CSV file
+    users = load_csv(USERS_FILE)
 
-    app = Application.Quix(
-        consumer_group="sample_consumer_group",
-        auto_create_topics=True,
-    )
-
-    serializer = JSONSerializer()
-    output_topic = app.topic(os.environ["output"])
-    print(output_topic.name)
-    producer = app.get_producer()
-
-    print('Writing CSV data to stream...')
-    try:
+    print(f'Writing CSV data to the "{output_topic.name}" topic ...')
+    with app.get_producer() as producer:
         for user in users:
-            # Publish data to output topic
-            serialized_value = serializer(
-                value=user, ctx=SerializationContext(topic=output_topic.name)
-            )
+            # Serialize data into bytes before producing
+            message = output_topic.serialize(value=user, key="csv-sample")
+            # Send data to the output topic
             producer.produce(
                 topic=output_topic.name,
-                key="csv-sample",
-                value=serialized_value
+                key=message.key,
+                value=message.value,
             )
             time.sleep(1)
-    except KeyboardInterrupt:        
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
         print("Quitting")
-    
-if __name__ == '__main__':
-    main()
 ```
