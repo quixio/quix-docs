@@ -18,7 +18,6 @@ Changelogs for previous years can be found [here](#changelog-archives).
 - Topics
     - Topic detail view: Users can explore information and data on a centralized topic view.
     - Topic messages browser: Added new options to query data of the topic from Newest, Oldest, or Custom Kafka offsets.
-    - ~~Topic consumer groups view: New view to query topic consumer groups information including “End offsets”, “Lag” and “Progress” of the consumer.~~
 - Deployments
     - Real-time build logs: view build logs in real time during the build process.
 - Users
