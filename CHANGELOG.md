@@ -1,6 +1,8 @@
 # Quix product changelog
 
-This is the changelog for the current year. 
+This is the product changelog for the current year. 
+
+See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
 ## Changelog archives
 
@@ -8,6 +10,125 @@ Changelogs for previous years can be found [here](#changelog-archives).
 
 * [2022](./changelogs/2022-archive.md)
 * [2023](./changelogs/2023-archive.md)
+
+## 2024-03-01-topic-details | 04 March 2024
+
+`NEW FEATURES`
+
+- Topics
+    - Topic detail view: Users can explore information and data on a centralized topic view.
+    - Topic messages browser: Added new options to query data of the topic from Newest, Oldest, or Custom Kafka offsets.
+    - ~~Topic consumer groups view: New view to query topic consumer groups information including “End offsets”, “Lag” and “Progress” of the consumer.~~
+- Deployments
+    - Real-time build logs: view build logs in real time during the build process.
+- Users
+    - Audit information: admin users can now get audit information of users actions via Quix CLI
+- Other
+    - Added Upstash broker type on the available message brokers integrations
+
+`IMPROVEMENTS`
+
+- Topics
+    - Checkbox for toggling *Topics* view to filter by `Compacted topics`
+- Code samples library
+    - Added support for secrets input type in Code samples library items
+- Personal Access Tokens
+    - Sort by state: active/expired/revoked
+    - Added ability to update token permissions via Quix CLI
+- Applications
+    - User can now modify `app.yaml` from the IDE
+- Secrets
+    - Added *unsaved changes* modal
+    - Updated error UI of invalid secrets
+- Deployment Details
+    - Error icon for when application associated with deployment does not exist
+    - Use `RAW` icon for messages with unknown types
+- YAML
+    - Added Default column on YAML variables so that they can be used on a Project-wide scope
+    - Added `latest` version support for Deployment. Sync process will keep the deployment updated with the latest version of the code available in the branch of the environment.
+    - Starting/stopping a `service` deployment no longer creates a commit in the YAML
+        - Use `DesiredStatus: Running` or `DesiredStatus: Stopped` to define the default running status
+- Pipeline
+    - Pipeline boundaries updated to prevent user getting lost
+- Users
+    - Return email verification link on sign up: Icon in user table, that contains email verification link, when inviting users to an organisation.
+    - Landing page for when a user is not an authorized user of the portal
+    - Added validation when creating a Personal Access Token
+    - Hide user update notifications
+    - Remove email from url when redirecting from the signup confirmation
+    - Added timezone to maintenance page
+- Other
+    - Improved Git service behavior when dealing with big files. Now it will fail before filling the memory of the service.
+    - Reduced the number of calls Git service is doing to the remote relying now more on manual pulls instead of periodic pulls.
+    - Printing full errors returned by *GIT*
+    - Drag supported on onboarding carousel
+    - Disabling/deleting an environment doesn’t kick you out of a *Project* anymore
+    - Pressing `enter` key in dialogues now invoke primary CTA
+    - Reinstated middle-click functionality for links (to open in a new tab)
+    - Alignment of variables displayed in *Applications* and *Deployment details*
+    - Added *Environment name* to error notifications to idenfity which *Environment* the error originated from
+    - Updated external Kafka setup guides
+    - Minor UI styling and alignment fixes
+    - Minor spelling and grammar fixes
+    - Added loading spinners on various CTAs to improve visiblity of click feedback
+
+`BUG FIXES`
+
+- Applications
+    - Modifying a variable now loads app.yaml file again
+    - Switching to a V1 project was trying to call V2 endpoint
+    - Switching to another environment was trying to open the same application in the other environment (returns error if the application doesn’t exist)
+    - Clear *secret key* input field when switching application vairable to a *secret*.
+    - Send session setup with `force` when user clicks “Install dependencies”
+    - `Run` should not move vertical scroll in the code editor
+- YAML
+    - Disable editor when saving changes
+- Topics
+    - Changing retention to a non-numerical value causes the field to be empty
+    - If topic update/create fails, users were unable to revert their changes
+    - Fixed an issue when deleting and recreating a topic using the same name
+- Data explorer
+    - Query selector
+        - switching topic causes the selected streams to disappear but look selected
+        - Location dropdown selection was behaving weirdly
+        - Double `x` icon in stream selection
+        - *Persist* option disappears if it triggers *out-of-sync* modal
+        - If *search* returns no results, *next* button is disabled, even if there are streams selected (The modal thinks nothing is selected)
+        - If *search* returns no results, the empty-state text displayed was incorrect
+    - Code is not resizing when resizing the panel
+    - Toggling *aggregation* sometimes rendered an empty waveform
+- Code samples
+    - *Create* *application* was calling *projects* (v1) endpoint
+- Pipeline
+    - Disable sync button for ungated users
+    - Draft applications with no input and output were not visible
+- Deployment details
+    - Previous logs from a crashed deployment were not retrieved correctly
+    - Clicking cancel on a docker file download caused it to be stuck in a loading state
+    - Clicking *edit code* was navigating to latest version, not the deployed version
+    - Missing tooltip when topic metrics were loading
+    - Deploying was not navigating user to deployment details
+    - Paginated scrolling in logs were not working
+    - Refreshing the page in an external source/destination was rendering a blank screen
+- Deployment modal
+    - “Missing secret” still visible, even after adding said missing secret
+    - Disabling statesize should not trigger a `Reducing StateSize is not allowed` error
+- Ungated demo
+    - Urls weren’t navigating user directly to a workspace
+    - Disable sync button on header
+    - Banner height was pushing content off the screen
+    - Cloning a template while logged into the platform in another tab cause the other tab to reload in a half-ungated state
+- Persisted data
+    - Dialogue was not appearing when *unpersisting* a topic
+    - Updated empty state and disabled next &
+- Users
+    - Disable email field if you are editing your own user
+    - *Disable account* dialogue CTA was stuck in loading state
+    - UI getting stuck on loading screen during onboarding
+    - Removed link to *billing* on “Payment confirmed” modal during onboarding
+- Other
+    - Various external links fixed
+    - Local storage issues causing `undefined` for repository/workspace ID arguments in network calls
 
 ## 2024-01-06 | 30 JANUARY 2024
 
