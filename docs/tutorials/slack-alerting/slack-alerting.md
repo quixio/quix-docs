@@ -1,5 +1,9 @@
 # Sending TFL BikePoint availability alerts to Slack
 
+!!! warning
+
+    This tutorial is out of date.
+
 ## Aim
 
 In this tutorial you will learn how to use Quix to create event driven notifications in real-time. In this example we’ll connect to the Transport for London BikePoint API and send availability alerts to Slack using Slacks Webhooks.
