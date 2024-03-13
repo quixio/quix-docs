@@ -197,14 +197,14 @@ nav:
 #      - '5. Twitch service': 'tutorials/sentiment-analysis/twitch-service.md'
 #      - '6. Customize the UI': 'tutorials/sentiment-analysis/customize-the-ui.md'
 #      - '7. Summary': 'tutorials/sentiment-analysis/summary.md'
-    - 'Real-time ML predictions':
-      - 'Overview': 'tutorials/data-science/overview.md'
-      - '1. Bicycle data': 'tutorials/data-science/1-bikedata.md'
-      - '2. Weather data': 'tutorials/data-science/2-weatherdata.md'
-      - '3. Data views': 'tutorials/data-science/3-data.md'
-      - '4. Get training data': 'tutorials/data-science/4-train.md'
-      - '5. Run the model': 'tutorials/data-science/5-run.md'
-      - '6. Conclusion': 'tutorials/data-science/6-conclusion.md'
+#    - 'Real-time ML predictions':
+#      - 'Overview': 'tutorials/data-science/overview.md'
+#      - '1. Bicycle data': 'tutorials/data-science/1-bikedata.md'
+#      - '2. Weather data': 'tutorials/data-science/2-weatherdata.md'
+#      - '3. Data views': 'tutorials/data-science/3-data.md'
+#      - '4. Get training data': 'tutorials/data-science/4-train.md'
+#      - '5. Run the model': 'tutorials/data-science/5-run.md'
+#      - '6. Conclusion': 'tutorials/data-science/6-conclusion.md'
 #    - 'Real-time ML pipelines':
 #      - 'Overview': 'tutorials/train-and-deploy-ml/overview.md'
 #      - 'Create your data': 'tutorials/train-and-deploy-ml/create-data.md'
@@ -213,7 +213,7 @@ nav:
 #      - 'Deploy your ML model': 'tutorials/train-and-deploy-ml/deploy-ml.md'
 #      - 'Conclusion': 'tutorials/train-and-deploy-ml/conclusion.md'
 #    - 'Currency Alerting': 'tutorials/currency-alerting/currency-alerting.md'
-    - 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
+    #- 'MATLAB and Simulink': 'tutorials/matlab/matlab-and-simulink.md'
     # These tutorials are commented out due to lack of updates / testing - warning has been added to overview
     #- 'RSS Processing': 'tutorials/rss-tutorial/rss-processing-pipeline.md'
     #- 'Data Stream Processing': 'tutorials/data-stream-processing/data-stream-processing.md'
