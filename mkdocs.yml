@@ -133,6 +133,7 @@ nav:
           - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
           - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
           - 'Alerting': 'integrations/databases/influxdb/alerting.md'
+          - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
     - 'Migrating InfluxDB v2 to v3': 

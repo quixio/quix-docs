@@ -14,7 +14,7 @@ You'll need a streaming token to authenticate with Quix if you're going to run a
 
     In Quix Cloud, the streaming token is automatically set in the project environment.
 
-Once you [get your streaming token]((../../develop/authentication/streaming-token.md)), you can subsequently load it from a suitable `.env` file:
+Once you [get your streaming token](../../develop/authentication/streaming-token.md), you can subsequently load it from a suitable `.env` file:
 
 ```
 Quix__Sdk__Token="<your_streaming_token>"
