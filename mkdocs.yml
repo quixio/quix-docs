@@ -131,6 +131,7 @@ nav:
         - 'Guides': 
           - 'Using Telegraf': 'integrations/databases/influxdb/telegraf.md'
           - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
+          - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
           - 'Alerting': 'integrations/databases/influxdb/alerting.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
