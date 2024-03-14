@@ -11,7 +11,23 @@ Changelogs for previous years can be found [here](#changelog-archives).
 * [2022](./changelogs/2022-archive.md)
 * [2023](./changelogs/2023-archive.md)
 
-## 2024-03-01-topic-details | 04 March 2024
+## 2024-03-02-topic-details-hf | 13 MARCH 2024
+
+`IMPROVEMENTS`
+
+- Topics
+    - Improved performance and memory consumption in Topics message browser feature
+
+`BUG FIXES`
+
+- Fixed "Missing 're-captcha-response' header" error
+- Non-admin users were losing some permissions after editing their name
+- Fixed an error where Users couldn't modify their name
+- Topics message browser feature was not showing RAW messages produced by Quix Streams v2
+- Fixed some errors caused by some Deployment builds being deleted prematurely
+- Fixed an error where users couldn’t introduce new YAML variables in quix.yaml before creating the variable in the environment.
+
+## 2024-03-01-topic-details | 04 MARCH 2024
 
 `NEW FEATURES`
 
