@@ -1,5 +1,9 @@
 # Real-time Machine Learning (ML) predictions
 
+!!! warning
+
+    This tutorial is out of date.
+
 In this tutorial you will learn how to deploy a real-time **data science** application into a scalable self-maintained solution. You create a service that predicts bicycle availability in New York, by building the raw data ingestion pipelines, Extract Transform Load (ETL), and predictions.
 
 ## Aim

@@ -8,6 +8,35 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
 
 <div class="grid cards" markdown>
 
+-   __InfluxDB migration__
+
+    ---
+    
+    Migrate from InfluxDB v2 to v3 using Quix.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/influxdb-migration/overview.md)
+
+-   __InfluxDB alerting__
+
+    ---
+    
+    InfluxDB event detection and alerting using PagerDuty.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/influxdb-alerting/overview.md)
+
+-   __Vector Store Embeddings__
+
+    ---
+
+    Stream data from a CSV (simulating CDC or "Change Data Capture") and ingest it into a vector store: for semantic search.    
+
+    [Explore :octicons-arrow-right-24:](../tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md)
+
+</div>
+
+<!-- old tutorials landing page - these tutorials are out of date or reference out of date templates
+<div class="grid cards" markdown>
+
 -   __Computer vision__
 
     ---
@@ -73,6 +102,7 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
     [Explore :octicons-arrow-right-24:](../tutorials/matlab/matlab-and-simulink.md)
 
 </div>
+-->
 
 ## Need help?
 
