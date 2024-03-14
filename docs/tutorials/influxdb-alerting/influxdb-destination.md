@@ -1,23 +1,17 @@
 # Add an InfluxDB destination connector
 
-You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). Make sure the input to the destination is the `cpu-load-transform` topic.
+Now add an InfluxDB destination. 
 
-![InfluxDB query](./images/influxdb-query.png)
+!!! tip
+    
+    You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). 
 
-Configure the connector with your InfluxDB credentials. Deploy your connector.
+Make sure the input to the destination is the `cpu-load` topic. 
 
-Your pipeline now looks like this:
+Configure the connector with your InfluxDB credentials. Deploy your connector. Raw CPU load data is stored in InfluxDB.
 
-![InfluxDB alerting pipeline](./images/influxdb-alerting-pipeline.png)
-
-You can now log into your InfluxDB Cloud account and query your bucket for data. The following screenshot shows the results for a typical query:
-
-![InfluxDB query](./images/influxdb-query.png)
-
-You have now concluded the first part of the pipeline, where you learned how to get data into Quix, transform it, and stream that data to InfluxDB. You saw that very little code and configuration was required, and you worked in Python.
-
-In the next part of the tutorial you build a pipline with an InfluxDB source (this queries InfluxDB using polling for new data), add a threshold detection transform, and add an alerting service.
+You can now log into your InfluxDB Cloud account and query your bucket for data. 
 
 ## 🏃‍♀️ Next step
 
-[Part 6 - Add InfluxDB source :material-arrow-right-circle:{ align=right }](./influxdb-source.md)
+[Part 4 - Add threshold detection :material-arrow-right-circle:{ align=right }](./threshold-detection.md)
