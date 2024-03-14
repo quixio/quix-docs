@@ -2,7 +2,7 @@
 
 You'll now add a destination that provides alerting. The following screenshot illustrates what the new service will look like, when added into your pipeline:
 
-    ![Pipeline](./images/alerting-pipeline.png)
+![Pipeline](./images/alerting-pipeline.png)
 
 To add a PagerDuty alerting destination to your pipeline:
 
