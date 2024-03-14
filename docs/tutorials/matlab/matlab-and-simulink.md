@@ -2,7 +2,7 @@
 
 !!! warning
 
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v1.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
+    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
 
 MATLAB and Simulink by MathWorks play an important role in scientific computing and Model-based Design in academic and industrial applications of science and technology. Ability to deploy MATLAB and Simulink applications with Quix enables engineers, scientists and researchers to develop, test, deploy and orchestrate large clusters of stream processing applications at scale.
 

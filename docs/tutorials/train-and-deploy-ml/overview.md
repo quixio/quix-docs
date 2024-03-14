@@ -2,7 +2,7 @@
 
 !!! warning
 
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v1.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
+    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
 
 In this tutorial, you learn how to extract data from Quix to train your Machine Learning (ML) model in Jupyter Notebook. You then learn how to deploy this model to Quix, so ML can be used to process your data in real time.
 
