@@ -137,7 +137,7 @@ nav:
           - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
   - 'Tutorials':
     - 'Overview': 'tutorials/overview.md'
-    - 'Event detection and alerting': 
+    - 'Event detection and alerting featuring InfluxDB and PagerDuty': 
       - 'Overview': 'tutorials/influxdb-alerting/overview.md'
       - '1. Write the Python client': 'tutorials/influxdb-alerting/python-client.md'
       - '2. Add an external source': 'tutorials/influxdb-alerting/external-source.md'
