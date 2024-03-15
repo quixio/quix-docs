@@ -39,7 +39,17 @@ if __name__ == "__main__":
 
 Here, a very simple filter function checks if the inbound data contains a CPU load above a fixed limit (set to 20 here for ease of testing). The filter filters in all rows where CPU is over the threshold.
 
-You can test the application is running by loading some CPU intensive apps on your laptop.
+You can test the application is running by loading some CPU intensive apps on your laptop. When the threshold is exceeed it will send a message of the following format to the output topic:
+
+``` json
+{
+  "alert": {
+    "timestamp": 1710501507863622000,
+    "title": "CPU overload",
+    "message": "CPU value is 35.5"
+  }
+}
+```
 
 ## Windowing
 
@@ -70,7 +80,7 @@ sdf = sdf.apply(lambda row: {
     "alert": {
         "timestamp": row["end"],
         "title": "CPU overload",
-        "message": f"CPU {row["value"]} for duration of {row["window_duration_s"]} seconds."
+        "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
     }
 })
 
@@ -107,7 +117,7 @@ Replace the code in `main.py` with the windowing code, if you want to test that 
         
         is_alert_sent_state = state.get("is_alert_sent", False)
         
-        if row["value"] > 20:
+        if row["cpu_load"] > 20:
             if not is_alert_sent_state:
                 state.set("is_alert_sent", True)
                 return True        
@@ -125,7 +135,7 @@ Replace the code in `main.py` with the windowing code, if you want to test that 
         "alert": {
             "timestamp": row["end"],
             "title": "CPU overload",
-            "message": f"CPU {row["value"]} for duration of {row["window_duration_s"]} seconds."
+            "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
         }
     })
 

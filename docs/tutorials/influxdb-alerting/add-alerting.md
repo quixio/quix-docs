@@ -56,9 +56,8 @@ To add a PagerDuty alerting destination to your pipeline:
 
     def pg_message(row):
         alert_title = "CPU Threshold Alert"
-        alert_msg = "Average CPU load has reached " + str(row["value"]) + " %"
         print("Sending PagerDuty alert")
-        send_alert(alert_title, alert_msg)    
+        send_alert(alert_title, row["alert"]["message"])    
         return
 
     app = Application.Quix("pagerduty-v1", auto_offset_reset="latest")

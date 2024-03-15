@@ -13,6 +13,9 @@ import time
 import json
 from quixstreams import Application
 
+from dotenv import load_dotenv
+load_dotenv()
+
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
     return cpu_load
