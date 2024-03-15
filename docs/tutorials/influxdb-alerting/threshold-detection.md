@@ -1,47 +1,151 @@
 # Add a CPU load threshold detection transform
 
-You now add a transform to detect when CPU threshold is exceeded. Click `Add new` and locate the `Starter transformation SDF` again. 
-
-![Add transform](./images/add-transform-to-source.png)
+You now add a transform to detect when CPU threshold is exceeded. Click `Add new` on the output of your external source, and add the `Starter transformation SDF`. 
 
 You can use the defaults, or rename your transform to something like `CPU Threshold`. 
 
 Then click on `Edit code`. You can rename the output topic to `cpu-threshold-transform`.
 
-You'll add new code to `main.py`.
+You'll replace the code in `main.py` with the following:
 
 ``` python
 import os
-from quixstreams import Application, State
-from quixstreams.models.serializers.quix import QuixDeserializer, QuixTimeseriesSerializer
-
-def threshold_detect(row):
-    if row['CPULoad'] > 20:
-        print ('CPU overload')
+from quixstreams import Application
 
 app = Application.Quix("transformation-v1", auto_offset_reset="latest")
 
-input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSerializer())
+input_topic = app.topic(os.environ["input"])
+output_topic = app.topic(os.environ["output"])
 
 sdf = app.dataframe(input_topic)
-sdf = sdf.update(threshold_detect)
+
+# Filter in all rows where CPU load is over 20.
+sdf = sdf.filter(lambda row: row["cpu_load"] > 20)
+
+# Produce message payload with alert.
+sdf = sdf.apply(lambda row: {
+    "alert": {
+        "timestamp": row["timestamp"],
+        "title": "CPU overload",
+        "message": "CPU value is " + row["cpu_load"]
+    }
+})
+
 sdf = sdf.to_topic(output_topic)
 
 if __name__ == "__main__":
     app.run(sdf)
 ```
 
-Here, a very simple function checks if the inbound data contains a CPU load above a fixed limit (set to 20 here for ease of testing).
+Here, a very simple filter function checks if the inbound data contains a CPU load above a fixed limit (set to 20 here for ease of testing). The filter filters in all rows where CPU is over the threshold.
 
-Note the data is unchanged, it is simply published as is to the output for now.
+You can test the application is running by loading some CPU intensive apps on your laptop. When the threshold is exceeed it will send a message of the following format to the output topic:
 
-You can test the application is running by loading some CPU intensive apps on your laptop. You'll see messages printed to the console if the threshold is exceeded:
+``` json
+{
+  "alert": {
+    "timestamp": 1710501507863622000,
+    "title": "CPU overload",
+    "message": "CPU value is 35.5"
+  }
+}
+```
 
-!!! note
+## Windowing
 
-    This is a just an example approach. It would perhaps be better to put the threshold detection in the first pipeline, to detect this issue in real time. This code could easily be added to the conversion transform you created earlier. In this case you are querying the database for problematic values, just to show an alternative approach.
+While CPU spikes might be acceptable in the short term, they might be more concerning if such levels are sustained over a longer period of time. For detecting such a condition, an aggregation using a tumbling window could be implemented. Let's say you want to raise an alert if the CPU level exceeds a certain average level over some time period. You could use a time-based windowing function such as illustrated by the following code example:
+
+``` python
+import os
+from quixstreams import Application
+from datetime import timedelta
+
+app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+
+input_topic = app.topic(os.environ["input"])
+output_topic = app.topic(os.environ["output"])
+
+sdf = app.dataframe(input_topic)
+
+sdf = sdf.apply(lambda row: row["cpu_load"]) \
+    .tumbling_window(timedelta(seconds=10)).mean().final()
+
+# Filter all rows where CPU load is over 20.
+sdf = sdf.filter(lambda row: row["cpu_load"] > 20)
+
+sdf["window_duration_s"] = (sdf["end"] - sdf["start"]) / 1000
+
+# Produce message payload with alert.
+sdf = sdf.apply(lambda row: {
+    "alert": {
+        "timestamp": row["end"],
+        "title": "CPU overload",
+        "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
+    }
+})
+
+sdf = sdf.to_topic(output_topic)
+
+if __name__ == "__main__":
+    app.run(sdf)
+```
+
+Replace the code in `main.py` with the windowing code, if you want to test that out.
+
+??? "Advanced version"
+
+    Version of code that sends the alert only once:
+
+    ``` python
+    import os
+    from quixstreams import Application, State
+    from datetime import timedelta
+
+    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+
+    input_topic = app.topic(os.environ["input"])
+    output_topic = app.topic(os.environ["output"])
+
+    sdf = app.dataframe(input_topic)
+
+    sdf = sdf.apply(lambda row: row["cpu_load"]) \
+        .tumbling_window(timedelta(seconds=10)).mean().final()
+
+    sdf["window_duration_s"] = (sdf["end"] - sdf["start"]) / 1000
+
+    def is_alert(row: dict, state: State):
+        
+        is_alert_sent_state = state.get("is_alert_sent", False)
+        
+        if row["cpu_load"] > 20:
+            if not is_alert_sent_state:
+                state.set("is_alert_sent", True)
+                return True        
+            else:
+                return False
+        else:
+            state.set("is_alert_sent", False)
+            return False
+            
+
+    sdf = sdf.filter(is_alert, stateful=True)
+
+    # Produce message payload with alert.
+    sdf = sdf.apply(lambda row: {
+        "alert": {
+            "timestamp": row["end"],
+            "title": "CPU overload",
+            "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
+        }
+    })
+
+    sdf = sdf.to_topic(output_topic)
+
+    if __name__ == "__main__":
+        app.run(sdf)
+    ```
+
 
 ## 🏃‍♀️ Next step
 
-[Part 8 - Downsample your data :material-arrow-right-circle:{ align=right }](./downsampling.md)
+[Part 5 - Add PagerDuty alerting :material-arrow-right-circle:{ align=right }](./add-alerting.md)

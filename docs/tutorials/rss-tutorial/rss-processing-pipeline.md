@@ -1,5 +1,9 @@
 # RSS Processing
 
+!!! warning
+
+    This tutorial is out of date.
+
 ## RSS processing pipeline
 
 This tutorial explains how to build a pipeline that gathers and

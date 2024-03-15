@@ -1,5 +1,9 @@
 # Real-time event detection
 
+!!! warning
+
+    This tutorial is out of date.
+
 In this tutorial you learn how to build a real-time event detection pipeline. Events are simulated crashes or accidents that could occur while driving or cycling. 
 
 You deploy a crash detection service to detect crashes in real time, and a UI to view the location of the incident.
