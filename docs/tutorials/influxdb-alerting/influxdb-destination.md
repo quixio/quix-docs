@@ -1,23 +1,25 @@
 # Add an InfluxDB destination connector
 
-You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). Make sure the input to the destination is the `cpu-load-transform` topic.
+Now add an InfluxDB destination. In this case you'll subscribe to data coming from the external source (CPU load data from your laptop in this case) and then write it directly to InfluxDB for persistence.
 
-![InfluxDB query](./images/influxdb-query.png)
+!!! tip
+    
+    You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). 
 
-Configure the connector with your InfluxDB credentials. Deploy your connector.
+Make sure the input to the destination is the `cpu-load` topic. 
 
-Your pipeline now looks like this:
+Configure the connector with your InfluxDB credentials. Deploy your connector. Raw CPU load data is stored in InfluxDB.
 
-![InfluxDB alerting pipeline](./images/influxdb-alerting-pipeline.png)
+You can now log into your InfluxDB Cloud account and query your bucket for data. 
 
-You can now log into your InfluxDB Cloud account and query your bucket for data. The following screenshot shows the results for a typical query:
+## Optional filtering
 
-![InfluxDB query](./images/influxdb-query.png)
+In this case you connected your InfluxDB destination (sink) directly to the External Source. All inbound data is therefore written to InfluxDB. In some cases you may prefer to filter the data before writing it to InfluxDB. To do this simply add a transform to the output of the External Source, add the filtering code suitable for your use case, and then connect the InfluxDB destination to the output of your transform. See the next step for an [example on how to do a filtering tranasform](./threshold-detection.md), should you need to refilter data before writing it to InfluxDB.
 
-You have now concluded the first part of the pipeline, where you learned how to get data into Quix, transform it, and stream that data to InfluxDB. You saw that very little code and configuration was required, and you worked in Python.
+## Optional reading back from InfluxDB
 
-In the next part of the tutorial you build a pipline with an InfluxDB source (this queries InfluxDB using polling for new data), add a threshold detection transform, and add an alerting service.
+You could optionally add an InfluxDB source connector to your pipeline. You learned how to do this in the [InfluxDB Quickstart](../../integrations/databases/influxdb/quickstart.md). This would enable you to read data from your InfluxDB database, and publish it to a topic of your choice. Once data is published to a topic, you can add any additional processing required by connecting transforms you develop in Python to this topic. For a detailed example of this see the [Predictive maintenance tutorial](../predictive-maintenance/overview.md).
 
 ## 🏃‍♀️ Next step
 
-[Part 6 - Add InfluxDB source :material-arrow-right-circle:{ align=right }](./influxdb-source.md)
+[Part 4 - Add threshold detection :material-arrow-right-circle:{ align=right }](./threshold-detection.md)

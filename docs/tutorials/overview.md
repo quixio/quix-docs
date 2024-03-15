@@ -8,6 +8,14 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
 
 <div class="grid cards" markdown>
 
+-   __Event detection and alerting__
+
+    ---
+    
+    Event detection and alerting featuring InfluxDB and PagerDuty.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/influxdb-alerting/overview.md)
+
 -   __InfluxDB migration__
 
     ---
@@ -15,14 +23,6 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
     Migrate from InfluxDB v2 to v3 using Quix.
 
     [Explore :octicons-arrow-right-24:](../tutorials/influxdb-migration/overview.md)
-
--   __InfluxDB alerting__
-
-    ---
-    
-    InfluxDB event detection and alerting using PagerDuty.
-
-    [Explore :octicons-arrow-right-24:](../tutorials/influxdb-alerting/overview.md)
 
 -   __Vector Store Embeddings__
 

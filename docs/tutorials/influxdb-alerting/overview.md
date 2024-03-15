@@ -1,6 +1,8 @@
-# Alerting with InfluxDB, Quix Streams and PagerDuty
+# Event detection and alerting featuring InfluxDB and PagerDuty
 
 In this tutorial you learn how to create a CPU overload alerting pipeline with Quix, Quix Streams, InfluxDB, and PagerDuty.
+
+You gather CPU data from your laptop, and store this directly in InfluxDB. You also add a real-time event detection transform to detect if your CPU exceeds a threshold value, and if so, sends an alert to PagerDuty.
 
 !!! note
 
@@ -38,23 +40,15 @@ This tutorial is divided up into several parts, to make it a more manageable lea
 
 1. [Write the Python client](./python-client.md) - you write a command-line program using Quix Streams to get CPU load data into your pipeline.
 
-2. [Create an external source](./external-source.md) - you create an external source - this enables your command-line program to be visible in the pipeline.
+2. [Add an external source](./external-source.md) - you add an external source - this enables your command-line program to be visible in the pipeline.
 
-3. [Develop a transform](./create-transform.md) - you write a transform to convert inbound JSON data to a Quix format to be compatible with our InfluxDB connector and Quix data explorer.
+3. [Add an InfluxDB destination](./influxdb-destination.md) - you add a Quix InfluxDB destination connector (sink) to your pipeline. CPU load data is stored directly in InfluxDB.
 
-4. [Examine your data](./data-explorer.md) - you use Quix data explorer to examine the data produced by your transform.
+4. [Create a threshold detection transform](./threshold-detection.md) - you develop a threshold detection transform. This determines if a CPU load threshold has been exceeded, and if so publishes a message to the output topic.
 
-5. [Add an InfluxDB destination](./influxdb-destination.md) - you add a Quix InfluxDB destination connector to your pipeline.
+5. [Create an alerting sink](./add-alerting.md) - adds alerting using PagerDuty. You add a PagerDuty destination (sink) to the pipeline. If a message is received by the sink, a message is sent to PagerDuty.
 
-6. [Add an InfluxDB source](./influxdb-source.md) - you add a Quix InfluxDB source connector to your pipeline.
-
-7. [Add threshold detection](./threshold-detection.md) - you add a threshold detection transform.
-
-8. [Downsample your data](./downsampling.md) - you use an aggregation to downsample your data.
-
-9. [Add alerting](./add-alerting.md) - add alerting using PagerDuty.
-
-10. [Summary](./summary.md) - conclusion and next steps.
+6. [Summary](./summary.md) - conclusion and next steps.
 
 ## 🏃‍♀️ Next step
 
