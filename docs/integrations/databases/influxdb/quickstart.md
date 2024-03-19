@@ -68,13 +68,12 @@ You'll now add a simple transformation to your pipeline.
 
     ``` python
     import os
-    from quixstreams import Application, State
-    from quixstreams.models.serializers.quix import QuixDeserializer, QuixTimeseriesSerializer
+    from quixstreams import Application
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    app = Application.Quix()
 
-    input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-    output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSerializer())
+    input_topic = app.topic(os.environ["input"])
+    output_topic = app.topic(os.environ["output"])
 
     # Read from input topic
     sdf = app.dataframe(input_topic)
@@ -91,7 +90,7 @@ You'll now add a simple transformation to your pipeline.
         app.run(sdf)
     ```
 
-    This transform simply reads messages from the input topic, prints them to the console, and then publishes the messages to the output topic. You will leave the code as it is for now to keep things simple.
+    This transform simply reads messages from the input topic, prints them to the console, and then publishes the messages to the output topic. You will leave the code as it is for now to keep things simple, but you could add code to perform any operation such as data validation, filtering, windowing, aggregation, and so on.
 
 6. Click `Deploy` to deploy your transformation.
 
@@ -119,11 +118,12 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         |----|----|
         | `input` | This should be set to `processed-telemetry`, if not already set. |
         | `INFLUXDB_HOST` | Your Influx host. Example: `https://us-east-1-1.aws.cloud2.influxdata.com/` |
-        | `INFLUXDB_TOKEN` | Your all-access token generated in Influx. Example: `z7E<snip>Og==` |
+        | `INFLUXDB_TOKEN` | Your all-access token generated in Influx. This variable needs to be of type `secret`, so your token is not revealed. Example: `z7E<snip>Og==` |
         | `INFLUXDB_ORG` | In your Influx account you can see your available organizations. Example: `Docs` |
         | `INFLUXDB_DATABASE` | The InfluxDB bucket, in this case `f1-data` |
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
         | `INFLUXDB_MEASUREMENT_NAME` | The "table" name, in this case `f1-data`. |
+        | `CONSUMER_GROUP_NAME` | Consumer group name, for example `influxdb-sink`. |
 
 5. Click the `Run` button to test connection with the database. If no errors occur, proceed to the next step, or otherwise check you have configured your environment variables correctly.
 
@@ -216,21 +216,17 @@ You'll now add a transform service to your Influx query to calculate the average
     ```python
     import os
     from quixstreams import Application, State
-    from quixstreams.models.serializers.quix import QuixDeserializer, JSONSerializer
     from datetime import timedelta
 
-    def my_func(row):
-        return row['Speed']
-
     app = Application.Quix("transformation-v1", auto_offset_reset="latest")
-    input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-    output_topic = app.topic(os.environ["output"], value_serializer=JSONSerializer())
+    input_topic = app.topic(os.environ["input"])
+    output_topic = app.topic(os.environ["output"])
 
     # Read from input topic
     sdf = app.dataframe(input_topic)
 
-    # Put transformation logic here.
-    sdf = sdf.apply(my_func)
+    # Calculate average speed over 10 second window
+    sdf = sdf[sdf["Speed"]]
     sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()
 
     # Print every row
