@@ -40,26 +40,22 @@ The following code reads a CSV file from your laptop, and publishes the data int
 import csv
 import os
 import time
+import json
 
 from dotenv import load_dotenv
-
 from quixstreams import Application
 
 # Load environment variables from the ".env" file
 load_dotenv()
 
 # Create an Application to connect to the Quix broker with SDK token
-app = Application.Quix(
-    consumer_group="sample_consumer_group",
-    auto_create_topics=True,
-)
+app = Application.Quix()
 
-# Define an output topic with JSON serialization
-output_topic = app.topic(os.environ["output"], value_serializer="json")
+# Define an output topic
+output_topic = app.topic(os.environ["output"])
 
 # Path to a CSV file with data
 USERS_FILE = "user-data.csv"
-
 
 def load_csv(path: str):
     rows = []
@@ -77,13 +73,11 @@ def main():
     print(f'Writing CSV data to the "{output_topic.name}" topic ...')
     with app.get_producer() as producer:
         for user in users:
-            # Serialize data into bytes before producing
-            message = output_topic.serialize(value=user, key="csv-sample")
             # Send data to the output topic
             producer.produce(
                 topic=output_topic.name,
-                key=message.key,
-                value=message.value,
+                key="users-csv",
+                value=json.dumps(user),
             )
             time.sleep(1)
 

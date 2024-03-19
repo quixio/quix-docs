@@ -28,7 +28,6 @@ To create the SMS alert destination:
     # Set this to True if you want to actually send an SMS (you'll need a free Vonage account)
     SEND_SMS = False 
 
-
     if SEND_SMS:
         # Configure Vonage API
         # add vonage module to requirements.txt to pip install it
@@ -39,7 +38,6 @@ To create the SMS alert destination:
 
         client = vonage.Client(key=vonage_key, secret=vonage_secret)
         sms = vonage.Sms(client)
-
 
     def send_sms(message):
         """
@@ -55,21 +53,19 @@ To create the SMS alert destination:
         )
 
         if response_data["messages"][0]["status"] == "0":
-            print("Message sent successfully. Admin Alerted.")
+            print("Message sent successfully.")
         else:
             print(f"Message failed with error: {response_data['messages'][0]['error-text']}")
         return
-
 
     def send_alert(row):
         """
         Trigger a CPU spike alert and send an SMS notification
         """
-        cpu_load = row['cpu_load']
-        print("Warning! CPU spike of {} detected.".format(cpu_load))
-        msg = f"Warning! CPU spike of {cpu_load} detected."
         if SEND_SMS:
-            send_sms(msg)    
+            send_sms(row["alert"]["message"])
+        else:
+            print(row["alert"]["message"])   
 
     # Create an Application
     # It will get the SDK token from environment variables to connect to Quix Kafka
@@ -83,10 +79,6 @@ To create the SMS alert destination:
 
     # Trigger the "send_alert" function for each incoming message
     sdf = sdf.update(send_alert)
-
-    # Print incoming messages to the console
-    sdf = sdf.update(lambda row: print(row))
-
 
     if __name__ == "__main__":
         # Run the Application

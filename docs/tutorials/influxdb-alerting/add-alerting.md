@@ -23,7 +23,9 @@ To add a PagerDuty alerting destination to your pipeline:
     from typing import Dict
     from typing import Optional
     from quixstreams import Application
-    
+
+    USE_PAGER_DUTY = False
+
     def build_alert(title: str, alert_body: str, dedup: str) -> Dict[str, Any]:
         routing_key = os.environ["PAGERDUTY_ROUTING_KEY"]
         return {
@@ -33,7 +35,7 @@ To add a PagerDuty alerting destination to your pipeline:
             "payload": {
                 "summary": title,
                 "source": "custom_event",
-                "severity": "critical",
+                "severity": alert_body["severity"],
                 "custom_details": {
                     "alert_body": alert_body,
                 },
@@ -41,6 +43,7 @@ To add a PagerDuty alerting destination to your pipeline:
         }
 
     def send_alert(title: str, alert_body: str, dedup: Optional[str] = None) -> None:
+        print("Alert body: --> ", alert_body)
         # If no dedup is given, use epoch timestamp
         if dedup is None:
             dedup = str(datetime.utcnow().timestamp())
@@ -55,9 +58,11 @@ To add a PagerDuty alerting destination to your pipeline:
         print("Alert response: {}".format(result.read()))
 
     def pg_message(row):
-        alert_title = "CPU Threshold Alert"
-        print("Sending PagerDuty alert")
-        send_alert(alert_title, row["alert"]["message"])    
+        if USE_PAGER_DUTY:
+            print("Sending PagerDuty alert")
+            send_alert(row["alert"]["title"], row["alert"])  
+        else:
+            print(row["alert"])  
         return
 
     app = Application.Quix("pagerduty-v1", auto_offset_reset="latest")

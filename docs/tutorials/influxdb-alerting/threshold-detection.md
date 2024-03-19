@@ -27,7 +27,8 @@ sdf = sdf.apply(lambda row: {
     "alert": {
         "timestamp": row["timestamp"],
         "title": "CPU overload",
-        "message": "CPU value is " + row["cpu_load"]
+        "severity": "Critical",
+        "message": "CPU value is " + str(row["cpu_load"])
     }
 })
 
