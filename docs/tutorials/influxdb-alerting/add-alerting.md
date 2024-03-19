@@ -43,7 +43,6 @@ To add a PagerDuty alerting destination to your pipeline:
         }
 
     def send_alert(title: str, alert_body: str, dedup: Optional[str] = None) -> None:
-        print("Alert body: --> ", alert_body)
         # If no dedup is given, use epoch timestamp
         if dedup is None:
             dedup = str(datetime.utcnow().timestamp())
