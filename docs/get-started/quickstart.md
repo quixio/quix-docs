@@ -124,7 +124,7 @@ output_topic = app.topic("cpu-load")
     
 def get_cpu_load():
     """
-        Get the current CPU and memory usage
+    Get the current CPU and memory usage
     """
     cpu_load = psutil.cpu_percent(interval=1)
     memory = psutil.swap_memory()
