@@ -24,7 +24,7 @@ To add a PagerDuty alerting destination to your pipeline:
     from typing import Optional
     from quixstreams import Application
 
-    USE_PAGER_DUTY = False
+    USE_PAGER_DUTY = True # Set to False if you just want to log messages to the console
 
     def build_alert(title: str, alert_body: str, dedup: str) -> Dict[str, Any]:
         routing_key = os.environ["PAGERDUTY_ROUTING_KEY"]
