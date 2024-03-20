@@ -43,6 +43,9 @@ To create the threshold detection transform:
         }
     })
 
+    # Print filtered messages to the console
+    sdf = sdf.update(lambda row: print(row))
+
     # Send messages to the output topic
     sdf = sdf.to_topic(output_topic)
 
