@@ -26,23 +26,16 @@ To add a PagerDuty alerting destination to your pipeline:
 
     USE_PAGER_DUTY = True # Set to False if you just want to log messages to the console
 
-    def build_alert(title: str, alert_body: str, dedup: str) -> Dict[str, Any]:
+    def build_alert(row: str, dedup: str) -> Dict[str, Any]:
         routing_key = os.environ["PAGERDUTY_ROUTING_KEY"]
         return {
             "routing_key": routing_key,
             "event_action": "trigger",
             "dedup_key": dedup,
-            "payload": {
-                "summary": title,
-                "source": "custom_event",
-                "severity": alert_body["severity"],
-                "custom_details": {
-                    "alert_body": alert_body,
-                },
-            },
+            "payload": row
         }
 
-    def send_alert(title: str, alert_body: str, dedup: Optional[str] = None) -> None:
+    def send_alert(row: str, dedup: Optional[str] = None) -> None:
         # If no dedup is given, use epoch timestamp
         if dedup is None:
             dedup = str(datetime.utcnow().timestamp())
@@ -50,7 +43,8 @@ To add a PagerDuty alerting destination to your pipeline:
         route = "/v2/enqueue"
 
         conn = HTTPSConnection(host=url, port=443)
-        conn.request("POST", route, json.dumps(build_alert(title, alert_body, dedup)))
+        msg = json.dumps(build_alert(row, dedup))
+        conn.request("POST", route, msg)
         result = conn.getresponse()
 
         print("Alert status: {}".format(result.status))
@@ -59,9 +53,9 @@ To add a PagerDuty alerting destination to your pipeline:
     def pg_message(row):
         if USE_PAGER_DUTY:
             print("Sending PagerDuty alert")
-            send_alert(row["alert"]["title"], row["alert"])  
+            send_alert(row)  
         else:
-            print(row["alert"])  
+            print(row)  
         return
 
     app = Application.Quix("pagerduty-v1", auto_offset_reset="latest")
