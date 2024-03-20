@@ -35,15 +35,9 @@ To create the threshold detection transform:
     sdf = sdf.filter(lambda row: row["cpu_load"] > 20)
 
     # Produce message payload with alert.
-    sdf = sdf.apply(lambda row: {
-        "alert": {
-            "timestamp": row["timestamp"],
-            "title": "CPU overload",
-            "message": "CPU value is " + row["cpu_load"]
-        }
-    })
+    sdf = sdf.apply(lambda row: "CPU value is " + str(row["cpu_load"]))
 
-    # Print filtered messages to the console
+    # Print messages to the console
     sdf = sdf.update(lambda row: print(row))
 
     # Send messages to the output topic
