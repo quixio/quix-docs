@@ -63,10 +63,8 @@ To create the SMS alert destination:
         Trigger a CPU spike alert and send an SMS notification
         """
         if SEND_SMS:
-            send_sms(row["alert"]["message"])
-        else:
-            print(row["alert"]["message"])   
-
+            send_sms(row)
+    
     # Create an Application
     # It will get the SDK token from environment variables to connect to Quix Kafka
     app = Application.Quix(consumer_group="sms-alert-destination", auto_offset_reset="latest")
@@ -79,6 +77,9 @@ To create the SMS alert destination:
 
     # Trigger the "send_alert" function for each incoming message
     sdf = sdf.update(send_alert)
+
+    # Print messages to the console
+    sdf = sdf.update(lambda row: print(row))
 
     if __name__ == "__main__":
         # Run the Application
