@@ -299,6 +299,7 @@ plugins:
         'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'
         'integrations/influxdb/replacing-flux.md': 'integrations/databases/influxdb/replacing-flux.md'
         'platform/how-to/use-sdk-token.md': 'develop/authentication/streaming-token.md'
+        'platform/get-started/quixtour/ingest-push.md': 'platform/get-started/quixtour/external-source.md'
 
 theme:
   name: 'material'
