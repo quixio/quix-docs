@@ -38,7 +38,7 @@ output_topic = app.topic(os.environ["output"])
 sdf = app.dataframe(input_topic)
 
 # Filter in Speed
-sdf = sdf[sdf["Speed"]]
+sdf = sdf[["Speed"]]
 
 # Calculate mean of speed over 10 second tumbling window
 sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()

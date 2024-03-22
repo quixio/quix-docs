@@ -222,7 +222,7 @@ You'll now add a transform service to your Influx query to calculate the average
     sdf = app.dataframe(input_topic)
 
     # Filter in messages containing speed values
-    sdf = sdf[sdf["Speed"]]
+    sdf = sdf[["Speed"]]
     # Calculate average speed over 10 second window
     sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()
 
