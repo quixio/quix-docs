@@ -26,7 +26,7 @@ To complete this quickstart you will need:
 * A free [Quix account](https://portal.platform.quix.ai/self-sign-up){target="_blank"}.
 * An [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}.
 
-You also need to [create a project](../../../create/create-project.md) with an environment.
+You also need to [create a project](../../../create/create-project.md) with an environment, or simply use your default environment.
 
 ## Create your InfluxDB bucket
 
@@ -34,7 +34,9 @@ Log into your InfluxDB account and create a new bucket called `f1-data`.
 
 ## Obtain your InfluxDB token
 
-In the InfluxDB token manager, generate an API token for this project. All "all access" token can be created. Also provide a useful description such as "Quix Quickstart F1 Data". Save the token securely for later use.
+In the InfluxDB token manager, generate an API token for this project. 
+
+An "all access" token can be created. Also provide a useful description such as "Quix Quickstart F1 Data". **Save the token securely for later use**.
 
 ## Create your demo data source in Quix
 
@@ -118,7 +120,7 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         |----|----|
         | `input` | This should be set to `processed-telemetry`, if not already set. |
         | `INFLUXDB_HOST` | Your Influx host. Example: `https://us-east-1-1.aws.cloud2.influxdata.com/` |
-        | `INFLUXDB_TOKEN` | Your all-access token generated in Influx. This variable needs to be of type `secret`, so your token is not revealed. Example: `z7E<snip>Og==` |
+        | `INFLUXDB_TOKEN` | Your all-access token generated in Influx. **This variable needs to be of type `secret`, so your token is not revealed**. Example: `z7E<snip>Og==` |
         | `INFLUXDB_ORG` | In your Influx account you can see your available organizations. Example: `Docs` |
         | `INFLUXDB_DATABASE` | The InfluxDB bucket, in this case `f1-data` |
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
@@ -167,7 +169,7 @@ You now add an InfluxDB **source** to enable you to query data from InfluxDB and
 
     !!! important
     
-        For the default output topic, `influxdb`, you need to make sure that topic is created. You can do this once you click edit variable. Accept the defaults in the `New topic` dialog. Also, the database is the bucket you created previously, `f1-data`. The measurement is also `f1-data`. For convenience, you can set the `task_interval` to `1s` - this enables data to come through more quickly, as data changed in the last one second is published to the output topic. You can reuse the secrets you set earlier for `INFLUXDB_TOKEN`, and `INFLUXDB_ORG`. 
+        For the default output topic, `influxdb`, you need to make sure that topic is created. You can do this once you click edit variable. Accept the defaults in the `New topic` dialog. Also, the database is the bucket you created previously, `f1-data`. The measurement is also `f1-data`. For convenience, you can set the `task_interval` to `1s` - this enables data to come through more quickly, as data changed in the last one second is published to the output topic. You can reuse the InfluxDB credentials you set previously. 
 
 5. Click the `Run` button to test connection with the database. You will see `query success` in the console if the connection is working. If no errors occur proceed to the next step, or otherwise check you have configured your environment variables correctly.
 
@@ -185,17 +187,11 @@ You now add an InfluxDB **source** to enable you to query data from InfluxDB and
 
 You can now explore data queried from InfluxDB and published to the Quix topic `influxdb` by the connector.
 
-1. In the main left-hand menu, click on `Data explorer`.
+1. In the main left-hand menu, click on `Topics`.
 
-2. Click `Live data`, then select the topic, which is the output topic for the connector, `influxdb`.
+2. Click the `influxdb` topic.
 
-3. Select the `influxdb-query` stream.
-
-4. Select the parameters of interest, for example, `Brake`, `EngineRPM`, and `Gear`.
-
-5. Select the Waveform view. The selected data is displayed in real time:
-
-    ![real-time waveform display](../../../images/integrations/influxdb-data-explorer.png)
+3. You can now see the live messages. Click on a message to display it.
 
 Data is being queried from InfluxDB by the Quix connector, and then published to the Quix topic, `influxdb`. The Quix data explorer is then used to display this data in real time.
 
@@ -215,18 +211,19 @@ You'll now add a transform service to your Influx query to calculate the average
 
     ```python
     import os
-    from quixstreams import Application, State
+    from quixstreams import Application
     from datetime import timedelta
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    app = Application.Quix("window-transform", auto_offset_reset="latest")
     input_topic = app.topic(os.environ["input"])
     output_topic = app.topic(os.environ["output"])
 
     # Read from input topic
     sdf = app.dataframe(input_topic)
 
-    # Calculate average speed over 10 second window
+    # Filter in messages containing speed values
     sdf = sdf[sdf["Speed"]]
+    # Calculate average speed over 10 second window
     sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()
 
     # Print every row
