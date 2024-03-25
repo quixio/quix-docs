@@ -1,9 +1,9 @@
 ---
-title: Quix Developer Documentation
+title: Quix Docs
 description: Welcome to the Quix Developer documentation. This documentation includes guides, tutorials, and API references for using Quix Cloud, Quix Streams, and Quix Bring Your Own Cluster (BYOC).
 ---
 
-# Quix developer docs
+# Quix docs
 
 <p style="font-size: 1rem;">Quix is a complete platform for building, deploying, and monitoring stream processing pipelines.</p>
 
