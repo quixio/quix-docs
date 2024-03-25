@@ -22,17 +22,15 @@ def get_cpu_load():
 
 app = Application.Quix()
 output_topic = app.topic(os.environ["output"])
-producer = app.get_producer()
 
 def main():
-    while True:
-        
-        cpu_load = get_cpu_load()
-        print("CPU load: ", cpu_load)
-        timestamp = int(time.time_ns()) # Quix timestamp is nano seconds
-        message = {"timestamp": timestamp, "cpu_load": cpu_load}
-        
-        with producer:
+    with app.get_producer() as producer:
+        while True:        
+            cpu_load = get_cpu_load()
+            print("CPU load: ", cpu_load)
+            timestamp = int(time.time_ns()) # Quix timestamp is nano seconds
+            message = {"timestamp": timestamp, "cpu_load": cpu_load}
+                
             producer.produce(
                 topic=output_topic.name,
                 key="server-1-cpu",
@@ -46,30 +44,18 @@ if __name__ == '__main__':
         print('Exiting due to keyboard interrupt')
 ```
 
-## Set environment variables
+## Get your SDK token
 
-If you're not using the CLI, then in order to use Quix Streams on the command line (as opposed to working in Quix Cloud), you need to set the following environment variables:
+To obtain your token, go to `Settings` in your default environment, and then click on the `APIs and tokens` tab. You can obtain the `Streaming Token` from there.
 
-* `Quix__Sdk__Token`
-* `Quix__Portal__Api`
+## Set your token
 
-Note, these variables use **double** underscores.
+You need to set the `Quix__Sdk__Token` environment variable. 
 
-To obtain these values you can go to `Settings` in your environment, and then click on the `APIs and tokens tab`. You can obtain the `Streaming Token` and the Portal API URL from there.
-
-Create a `.env` file containing your environment variables:
+Make a directory for your project and in it create a `.env` file:
 
 ```
-Quix__Sdk__Token="sdk-12345"
-Quix__Portal__Api="portal-api.platform.quix.io"
-```
-
-You'd then need to add the following lines near the top of your code:
-
-``` python
-# Load env variables from .env
-from dotenv import load_dotenv
-load_dotenv()
+Quix__Sdk__Token="<your SDK token>"
 ```
 
 !!! note
