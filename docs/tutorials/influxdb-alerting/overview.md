@@ -1,3 +1,8 @@
+---
+title: Event detection and alerting
+description: How to create a CPU overload alerting pipeline with Quix, Quix Streams, InfluxDB, and PagerDuty.
+---
+
 # Event detection and alerting featuring InfluxDB and PagerDuty
 
 In this tutorial you learn how to create a CPU overload alerting pipeline with Quix, Quix Streams, InfluxDB, and PagerDuty.

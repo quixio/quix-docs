@@ -1,3 +1,8 @@
+---
+title: What is Kafka?
+description: Quix uses a Kafka broker at its core.
+---
+
 # What is Kafka?
 
 Kafka is an open-source distributed event streaming platform originally developed by LinkedIn and later open-sourced as an Apache Software Foundation project. It is designed to handle real-time data feeds with high throughput and low latency. Kafka is used for building real-time data pipelines and [stream processing](./why-stream-processing.md) applications.
