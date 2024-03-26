@@ -1,3 +1,8 @@
+---
+title: Deploy your application
+description: Deploy your application as a service in the pipeline.
+---
+
 # Deploy your application
 
 This section of the documentation covers how to **deploy and scale your application**. 

@@ -1,5 +1,7 @@
 ---
+title: Quix CLI
 status: new
+description: The Quix Command-Line Interface.
 ---
 
 # Quix Command-Line Interface (CLI)
