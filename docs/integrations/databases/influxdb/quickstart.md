@@ -141,7 +141,7 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
         | `INFLUXDB_MEASUREMENT_NAME` | The "table" name, in this case `f1-data`. |
         | `CONSUMER_GROUP_NAME` | Consumer group name, for example `influxdb-sink`. |
-        | `TIMESTAMP_COLUMN` | Leave blank. |
+        | `TIMESTAMP_COLUMN` | A timestamp field with the time in nanoseconds. |
 
 5. Click the `Run` button to test connection with the database. If no errors occur, proceed to the next step, or otherwise check you have configured your environment variables correctly.
 
