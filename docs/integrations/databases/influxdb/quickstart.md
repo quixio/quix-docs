@@ -9,7 +9,7 @@ search:
 
 This quickstart shows you how to integrate Quix with InfluxDB using our standard [connectors](../../../connectors/index.md).
 
-In the first part of this quickstart, you'll read time series data, transform it, and then publish it to InfluxDB.
+In the first part of this quickstart, you'll read F1 car telemetry data, transform it, and then publish it to InfluxDB.
 
 In the second part you'll get data from InfluxDB and publish it into a Quix topic, explore that data in real time.
 
@@ -159,7 +159,7 @@ You will now check that your InfluxDB database is receiving data.
 
 2. Under `Measurement` select `f1-data` and click `Run`. You see the data stored in InfluxDB.
 
-You have successfully processed time series data and published it from Quix to InfluxDB.
+You have successfully processed F1 car telemetry data and published it from Quix to InfluxDB.
 
 !!! note
 
