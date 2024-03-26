@@ -22,28 +22,25 @@ Downsampling data involves performing some type of aggregation. Quix Streams has
 * `count()` - to count the number of values within a window
 * `reduce()` - to perform custom aggregations using "reducer" and "initializer" functions
 
-For example, you can easily calculate average over tumbling or hopping windows. The following example shows filtering and calculating an average of vehicle speed using a tumbling window:
+For example, you can easily calculate average over tumbling or hopping windows. The following example shows **filtering** and **calculating an average** of vehicle speed using a tumbling window:
 
 ``` python
 import os
 from quixstreams import Application, State
-from quixstreams.models.serializers.quix import QuixDeserializer, JSONSerializer
 from datetime import timedelta
 
-def my_func(row):
-    return row['Speed']
-
 app = Application.Quix("transformation-v1", auto_offset_reset="latest")
-input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-output_topic = app.topic(os.environ["output"], value_serializer=JSONSerializer())
+
+input_topic = app.topic(os.environ["input"])
+output_topic = app.topic(os.environ["output"])
 
 # Read from input topic
 sdf = app.dataframe(input_topic)
 
-# Put transformation logic here.
-sdf = sdf.filter(lambda row: 'Speed' in row)
-sdf = sdf.filter(lambda row: row['Speed'] != None)
-sdf = sdf.apply(my_func)
+# Filter in Speed
+sdf = sdf[["Speed"]]
+
+# Calculate mean of speed over 10 second tumbling window
 sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()
 
 # Print every row
@@ -55,8 +52,6 @@ sdf = sdf.to_topic(output_topic)
 if __name__ == "__main__":
     app.run(sdf)
 ```
-
-The `filter` function is used to filter any rows where `Speed` is not present, or where `Speed` has a value of `None`. This prevents errors when calculating aggregations.
 
 This would publish average speed to the output topic, and that could then be used as the basis of further processing, or simply stored in InfluxDB.
 
@@ -74,101 +69,79 @@ sdf = sdf.tumbling_window(timedelta(weeks=1)).mean().final()
 
 See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduction.html) for more information.
 
-## Filtering messages using Quix Streams
+## Converting data
 
-You have seen an example of filtering data from the stream of messages using the `filter` function. You can also do this by modifying the `StreamingDataFrame` data structure, rather than using the `filter` function, as shown in the following example:
+Sometimes you need to convert data from one format to another. This can be done with great flexibility in Python. For example, in IoT applications, some smart devices send data in [MessagePack](https://msgpack.org/){target=_blank} format. For example, here's the CPU example from the [Quix Quickstart](../../../get-started/quickstart.md) converted to pack data in MessagePack format:
+
+``` python
+import psutil, time, os, msgpack
+from quixstreams import Application
+
+from dotenv import load_dotenv
+load_dotenv()
+
+app = Application.Quix()
+
+output_topic = app.topic("cpu-load", value_serializer="bytes")
+    
+def get_cpu_load():
+    cpu_load = psutil.cpu_percent(interval=1)
+    memory = psutil.swap_memory()
+    return {
+        "cpu_load": cpu_load,
+        "memory": memory._asdict(),
+        "timestamp": int(time.time_ns()),
+    }
+
+def main():
+    with app.get_producer() as producer:
+        while True:                
+            message = get_cpu_load()
+            packed_message = msgpack.packb(message) # pack data in MessagePack format
+            
+            producer.produce(
+            topic=output_topic.name,
+                key="server-1-cpu",
+                value=packed_message
+            )
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Exiting due to keyboard interrupt')    
+```
+
+Quix Streams is able to handle binary data as bytes. It publishes packed data to the output topic in binary MessagePack format.
+
+In Quix, a transform to convert this data to JSON would be:
 
 ``` python
 import os
-from quixstreams import Application, State
-from quixstreams.models.serializers.quix import QuixDeserializer, JSONSerializer
+from quixstreams import Application
+import msgpack
+
+from dotenv import load_dotenv
+load_dotenv()
+
+def unpack(row):
+    return msgpack.unpackb(row)
 
 app = Application.Quix("transformation-v1", auto_offset_reset="latest")
 
-input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-output_topic = app.topic(os.environ["output"], value_serializer=JSONSerializer())
+input_topic = app.topic(os.environ["input"], value_deserializer="bytes")
+output_topic = app.topic(os.environ["output"], value_serializer="json")
 
-# Read from input topic
 sdf = app.dataframe(input_topic)
-
-# Put transformation logic.
-sdf = sdf.filter(lambda row: 'Speed' in row)
-sdf = sdf.filter(lambda row: row['Speed'] != None)
-sdf = sdf[["Timestamp", "Speed", "EngineRPM"]]
+sdf = sdf.apply(unpack)
 sdf = sdf.update(lambda row: print(row))
-
-# Publish to output topic
 sdf = sdf.to_topic(output_topic)
 
 if __name__ == "__main__":
     app.run(sdf)
 ```
 
-The following code drops all columns in the row, other than those specified:
-
-```python
-sdf = sdf[["Timestamp", "Speed", "EngineRPM"]]
-```
-
-Only certain data needs to be published to the output topic - just `Timestamp`, `Speed`, and `EngineRPM` are required in this use case. 
-
-## Converting time series data to simple JSON format
-
-In a simple Quix transform you might subscribe to, and publish, data in Quix format, for example:
-
-``` python
-import os
-from quixstreams import Application, State
-from quixstreams.models.serializers.quix import QuixDeserializer, QuixTimeseriesSerializer
-
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
-
-input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSerializer())
-
-sdf = app.dataframe(input_topic)
-
-# Put transformation logic here. 
-
-# Print every row
-sdf = sdf.update(lambda row: print(row))
-
-sdf = sdf.to_topic(output_topic)
-
-if __name__ == "__main__":
-    app.run(sdf)
-```
-
-In this example, data is subscribed to and published using Quix format. 
-
-You can easily convert from the Quix format to a simple JSON format (or the other way around) using serializers and deserializers built into Quix Streams, for example, to convert from Quix format to a simple JSON format, you could modify the above code to the following:
-
-``` python
-import os
-from quixstreams import Application, State
-from quixstreams.models.serializers.quix import QuixDeserializer, JSONSerializer
-
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
-
-input_topic = app.topic(os.environ["input"], value_deserializer=QuixDeserializer())
-output_topic = app.topic(os.environ["output"], value_serializer=JSONSerializer())
-
-sdf = app.dataframe(input_topic)
-
-# Put transformation logic here.    
-
-# Print every row
-sdf = sdf.update(lambda row: print(row))
-
-sdf = sdf.to_topic(output_topic)
-
-if __name__ == "__main__":
-    app.run(sdf)
-```
-
-Notice that the Quix deserializer has been replaced by the JSON deserializer.
-
-This would read data on the topic in Quix time series format, and publish the data converted to JSON format.
+Data is consumed in MessagePack format, and produced in JSON format, for onward processing by the pipeline. This example demonstrates the very flexible approach to data conversion that a fully featured programming language such as Python provides.
 
 ## Next steps
 
