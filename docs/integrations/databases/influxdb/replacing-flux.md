@@ -141,7 +141,7 @@ if __name__ == "__main__":
     try:
         app.run(sdf)
     except Exception as e:
-        logger.exception("An error occurred while running the application.", e)
+        logger.exception("An error occurred while running the application. {e}")
 ```
 
 Data is consumed in MessagePack format, and produced in JSON format, for onward processing by the pipeline. This example demonstrates the very flexible approach to data conversion that a fully featured programming language such as Python provides.
