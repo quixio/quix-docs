@@ -7,7 +7,7 @@ definitions:
 
 - &page_title_with_site_name >-
   {%- if not page.is_homepage -%}
-    {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+    {{ config.site_name }} - {{ page.meta.get("title", page.title) }}
   {%- else -%}
     {{ page.meta.get("title", page.title) }}
   {%- endif -%}
