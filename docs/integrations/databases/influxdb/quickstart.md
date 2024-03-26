@@ -9,15 +9,13 @@ search:
 
 This quickstart shows you how to integrate Quix with InfluxDB using our standard [connectors](../../../connectors/index.md).
 
-In the first part of this quickstart, you'll read time series data, transform it, and then publish it to InfluxDB:
+In the first part of this quickstart, you'll read time series data, transform it, and then publish it to InfluxDB.
 
-![InfluxDB pipeline - part 1](../../../images/integrations/influxdb-pipeline-destination.png)
+In the second part you'll get data from InfluxDB and publish it into a Quix topic, explore that data in real time.
 
-In the second part you'll get data from InfluxDB and publish it into a Quix topic, explore that data in real time, and then finally add a tumbling window averaging service to the data queried from InfluxDB:
+This demonstrates various aspects of building a typical ETL processing pipeline, where you extract data, transform it in some way, and then save it to a database. 
 
-![InfluxDB quickstart complete pipeline](../../../images/integrations/influxdb-quickstart-pipeline.png)
-
-This demonstrates various aspects of building a typical ETL processing pipeline, where you extract data, transform it in some way, and then save it to a database. This quickstart demonstrates both saving data to InfluxDB and querying data from InfluxDB, using Quix and [Quix Streams](https://quix.io/docs/quix-streams/introduction.html).
+This quickstart demonstrates both saving data to InfluxDB and querying data from InfluxDB, using Quix standard connectors, and [Quix Streams](https://quix.io/docs/quix-streams/introduction.html).
 
 ## Prerequisites
 
@@ -66,33 +64,50 @@ You'll now add a simple transformation to your pipeline.
 
 5. Edit the environment variables so that the input topic is `f1-data`, and the output topic is `processed-telemetry`. The `processed-telemetry` topic needs to be created. You can use the `Add new` button in the `Edit variable` dialog to do this.
 
-    By default the `main.py` code of the transformation looks like the following:
+    Modify the `main.py` code of the transformation to the following:
 
     ``` python
     import os
     from quixstreams import Application
+    from datetime import timedelta
 
-    app = Application.Quix()
+    # for local dev, load env vars from a .env file
+    from dotenv import load_dotenv
+    load_dotenv()
 
+    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+
+    # JSON deserializers/serializers used by default
     input_topic = app.topic(os.environ["input"])
     output_topic = app.topic(os.environ["output"])
 
-    # Read from input topic
+    # consume from nput topic
     sdf = app.dataframe(input_topic)
 
-    # Put transformation logic here.
+    # filter in all rows where Speed is present and speed is not None
+    sdf = sdf.filter(lambda row: row["Speed"] and row["Speed"] != None )
 
-    # Print every row
+    # calculate average speed using 15 second tumbling window
+    sdf = sdf.apply(lambda row: row["Speed"]) \
+        .tumbling_window(timedelta(seconds=15)).mean().final() \
+            .apply(lambda value: {
+                'AverageSpeed': value['value']
+                })
+    
+    # print every row
     sdf = sdf.update(lambda row: print(row))
 
-    # Publish to output topic
+    # publish to output topic
     sdf = sdf.to_topic(output_topic)
 
     if __name__ == "__main__":
-        app.run(sdf)
+        try:
+            app.run(sdf)
+        except Exception as e:
+            print(f"An error occurred while running the application. {e}")        
     ```
 
-    This transform simply reads messages from the input topic, prints them to the console, and then publishes the messages to the output topic. You will leave the code as it is for now to keep things simple, but you could add code to perform any operation such as data validation, filtering, windowing, aggregation, and so on.
+    This transform calculates the average speed of the F1 car using a 15 second tumbling window and writes this data to the output topic.
 
 6. Click `Deploy` to deploy your transformation.
 
@@ -126,6 +141,7 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
         | `INFLUXDB_MEASUREMENT_NAME` | The "table" name, in this case `f1-data`. |
         | `CONSUMER_GROUP_NAME` | Consumer group name, for example `influxdb-sink`. |
+        | `TIMESTAMP_COLUMN` | Leave blank. |
 
 5. Click the `Run` button to test connection with the database. If no errors occur, proceed to the next step, or otherwise check you have configured your environment variables correctly.
 
@@ -141,9 +157,7 @@ You will now check that your InfluxDB database is receiving data.
 
 1. In InfluxDB switch to the Explorer and in the schema browser select the `f1-data` bucket. 
 
-2. Under `Measurement` select `f1-data` and click `Run`. You can see the stored data:
-
-    ![stored data](../../../images/integrations/influxdb-f1-data-results.png)
+2. Under `Measurement` select `f1-data` and click `Run`. You see the data stored in InfluxDB.
 
 You have successfully processed time series data and published it from Quix to InfluxDB.
 
@@ -153,13 +167,9 @@ You have successfully processed time series data and published it from Quix to I
 
 ## Add an InfluxDB source
 
-In this part of the quickstart you'll extend the pipeline by adding an InfluxDB source connector and a tumbling window processing transform for the data queried from the InfluxDB database. The pipeline segment you add is shown in the following screenshot:
-
-![InfluxDB pipeline second part](../../../images/integrations/influxdb-pipeline-second-part.png)
-
 You now add an InfluxDB **source** to enable you to query data from InfluxDB and publish it to a Quix topic.
 
-1. In the pipeline view, in  the top right click the `Add new` button and then select `Source`.
+1. In the pipeline view, in the top right click the `Add new` button and then select `Source`.
 
 2. Type "Influx" into the search bar and click `Preview code` for the InfluxDB 3.0 connector.
 
@@ -175,13 +185,7 @@ You now add an InfluxDB **source** to enable you to query data from InfluxDB and
 
 6. Click `Deploy` and leave the settings at their defaults to build and deploy your InfluxDB connector. The connector will then query data from InfluxDB and publish it to the Quix output topic, once the build completes.
 
-7. Switch back to the pipeline view:
-
-    ![Pipeline view](../../../images/integrations/influxdb-pipeline.png)
-
-    !!! tip
-
-        The green arrows in the pipeline view indicate data is being received. If no data is being received, the arrows are gray.
+7. Switch back to the pipeline view.
 
 ## Explore the data from InfluxDB in real time
 
@@ -195,72 +199,11 @@ You can now explore data queried from InfluxDB and published to the Quix topic `
 
 Data is being queried from InfluxDB by the Quix connector, and then published to the Quix topic, `influxdb`. The Quix data explorer is then used to display this data in real time.
 
-## Calculating the average speed using Quix Streams
-
-You'll now add a transform service to your Influx query to calculate the average speed of the race car.
-
-1. Click `Add new` to add a transformation on the output of your InfluxDB source:
-
-    ![Add new transform](../../../images/integrations/influxdb-source-add-transform.png)
-
-2. As before, use the `Starter transformation SDF` transform as your starting point.
-
-3. Ensure that the input topic is `influxdb` and the output topic is `average-speed`. Use the `Add new` button as you've already seen to create the new `average-speed` topic.
-
-4. Edit `main.py` and replace the existing code with the following code:
-
-    ```python
-    import os
-    from quixstreams import Application
-    from datetime import timedelta
-
-    app = Application.Quix("window-transform", auto_offset_reset="latest")
-    input_topic = app.topic(os.environ["input"])
-    output_topic = app.topic(os.environ["output"])
-
-    # Read from input topic
-    sdf = app.dataframe(input_topic)
-
-    # Filter in messages containing speed values
-    sdf = sdf[["Speed"]]
-    # Calculate average speed over 10 second window
-    sdf = sdf.tumbling_window(timedelta(seconds=10)).mean().final()
-
-    # Print every row
-    sdf = sdf.update(lambda row: print(row))
-
-    # Publish to output topic
-    sdf = sdf.to_topic(output_topic)
-
-    if __name__ == "__main__":
-        app.run(sdf)
-    ```
-
-    This code uses a tumbling window to calculate the average speed of the vehicle. The tumbling window is set to a ten second window so you do not have to wait minutes to see a result.
-
-    This example code also uses the JSON serializer for publishing simple JSON data to the output topic, rather than the more complex Quix format data. The data published to the `average-speed` topic is simply JSON data of the following format:
-
-    ```json
-    {
-        "start": 1707744610000,
-        "end": 1707744620000,
-        "value": 185.12
-    }
-    ```
-
-    The `value` field is the average calculated by the `mean` function applied to the specified tumbling window.
-
-5. Check the data on the output topic using the `Messages` tab:
-
-    ![Average speed message](../../../images/integrations/influxdb-messages-tab-average-speed.png)
-
-This concludes the quickstart.
-
 ## Summary
 
-In this quickstart you have learned how to publish data to InfluxDB from Quix, and also how to query data from InfluxDB, using the standard Quix InfluxDB v3 connectors. 
+In this quickstart you have learned how to publish data to InfluxDB, and also how to read data from InfluxDB. You also learned the basics of adding a simple transform to your stream processing pipeline.
 
-You've also learned how to view data in a Quix topic in real time, using the Quix data explorer. Finally you saw how to add a simple transform to process data queried from InfluxDB, in this use case you calculated a simple mean for a time-based tumbling window.
+You also learned how to view the messages in a Quix topic in real time, using the Quix data explorer. 
 
 ## Next steps
 
