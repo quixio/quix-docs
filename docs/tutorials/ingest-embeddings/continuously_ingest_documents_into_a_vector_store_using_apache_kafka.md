@@ -1,3 +1,8 @@
+---
+title: Ingest into a vector store
+description: Continuously ingest documents into a vector store using Apache Kafka.
+---
+
 # Continuously ingest documents into a vector store using Apache Kafka
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/quixio/tutorial-code/blob/main/notebooks/Continuously_ingest_documents_into_a_vector_store_using_Apache_Kafka.ipynb)

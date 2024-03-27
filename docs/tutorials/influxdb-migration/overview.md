@@ -1,3 +1,8 @@
+---
+title: Migrating InfluxDB v2 to v3 using Quix
+description: Migrate your data from InfluxDB v2 to InfluxDB v3 using Quix.
+---
+
 # Migrating InfluxDB v2 to v3 using Quix
 
 In this tutorial you learn how to migrate your data from InfluxDB v2 to InfluxDB v3 using Quix.

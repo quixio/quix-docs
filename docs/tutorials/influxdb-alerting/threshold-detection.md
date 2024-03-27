@@ -22,12 +22,14 @@ sdf = app.dataframe(input_topic)
 # Filter in all rows where CPU load is over 20.
 sdf = sdf.filter(lambda row: row["cpu_load"] > 20)
 
-# Produce message payload with alert.
+# Build an alert payload
 sdf = sdf.apply(lambda row: {
-    "alert": {
+    "summary": "CPU overload",
+    "source": "custom_event",
+    "severity": "critical",
+    "custom_details": {
         "timestamp": row["timestamp"],
-        "title": "CPU overload",
-        "message": "CPU value is " + row["cpu_load"]
+        "message": "CPU value is " + str(row["cpu_load"])
     }
 })
 
@@ -39,14 +41,16 @@ if __name__ == "__main__":
 
 Here, a very simple filter function checks if the inbound data contains a CPU load above a fixed limit (set to 20 here for ease of testing). The filter filters in all rows where CPU is over the threshold.
 
-You can test the application is running by loading some CPU intensive apps on your laptop. When the threshold is exceeed it will send a message of the following format to the output topic:
+You can test the application is running by loading some CPU intensive apps on your laptop. When the threshold is exceeded it will send a message of the following format to the output topic:
 
 ``` json
 {
-  "alert": {
-    "timestamp": 1710501507863622000,
-    "title": "CPU overload",
-    "message": "CPU value is 35.5"
+  "summary": "CPU overload",
+  "source": "custom_event",
+  "severity": "critical",
+  "custom_details": {
+    "timestamp": 1710947291392758000,
+    "message": "CPU value is 25.1"
   }
 }
 ```
@@ -77,9 +81,11 @@ sdf["window_duration_s"] = (sdf["end"] - sdf["start"]) / 1000
 
 # Produce message payload with alert.
 sdf = sdf.apply(lambda row: {
-    "alert": {
+    "summary": "Windowed CPU overload",
+    "source": "custom_event",
+    "severity": "critical",
+    "custom_details": {
         "timestamp": row["end"],
-        "title": "CPU overload",
         "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
     }
 })
@@ -132,10 +138,12 @@ Replace the code in `main.py` with the windowing code, if you want to test that 
 
     # Produce message payload with alert.
     sdf = sdf.apply(lambda row: {
-        "alert": {
-            "timestamp": row["end"],
-            "title": "CPU overload",
-            "message": f"CPU {row["cpu_load"]} for duration of {row["window_duration_s"]} seconds."
+        "summary": "CPU overload",
+        "source": "custom_event",
+        "severity": "critical",
+        "custom_details": {
+            "timestamp": row["timestamp"],
+            "message": "CPU value is " + str(row["cpu_load"])
         }
     })
 
@@ -144,7 +152,6 @@ Replace the code in `main.py` with the windowing code, if you want to test that 
     if __name__ == "__main__":
         app.run(sdf)
     ```
-
 
 ## 🏃‍♀️ Next step
 

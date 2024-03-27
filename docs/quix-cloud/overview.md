@@ -1,3 +1,8 @@
+---
+title: Quix Cloud
+description: Quix Cloud provides everything a developer needs to build industrial-strength stream processing applications.
+---
+
 # Quix Cloud
 
 Quix Cloud provides everything a developer needs to build industrial-strength stream processing applications. 

@@ -1,3 +1,8 @@
+---
+title: Quix Tutorials
+description: Step-by-step tutorials providing a learning experience.
+---
+
 # Tutorials
  
 The Quix tutorials provide you with experience of using Quix. They guide you in a step-by-step manner through a practical use case. 

@@ -1,3 +1,8 @@
+---
+title: Manage projects
+description: Managing your projects, pipelines, and applications.
+---
+
 # Manage your projects
 
 This section of the documentation covers **managing your projects, pipelines, and applications**.
