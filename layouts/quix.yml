@@ -43,7 +43,7 @@ layers:
       align: start
       color: "#FFFFFF66"
       font:
-        family: Inter
+        family: Roboto
         style: SemiBold
 
 #Page title text
@@ -58,7 +58,7 @@ layers:
         amount: 3
         height: 1.2
       font:
-        family: Inter
+        family: Roboto
         style: SemiBold
 
 #Page title text
@@ -73,5 +73,5 @@ layers:
         amount: 5
         height: 2.5
       font:
-        family: Inter
+        family: Roboto
         style: Normal
