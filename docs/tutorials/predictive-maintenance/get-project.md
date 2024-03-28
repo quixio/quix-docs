@@ -18,32 +18,26 @@ You'll need to configure the following credentials for each Quix service that ne
 | `INFLUXDB_HOST` | InfluxDB raw data, InfluxDB alerts | Host address for the InfluxDB instance. Default: `eu-central-1-1.aws.cloud2.influxdata.com`. |
 | `INFLUXDB_ORG` | InfluxDB raw data, InfluxDB alerts | Organization name in InfluxDB. |
 | `INFLUXDB_TOKEN` | InfluxDB raw data, InfluxDB alerts | Authentication token to access InfluxDB. |
+| `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
+| `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
+| `CONSUMER_GROUP_NAME` | The name of the consumer group to use when consuming from Kafka. |
 | `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs. |
 
-The above is a list of environment variables that are configured as secrets (rather than, for example, free text variables). After you've forked your project, you will see a "missing secret" error for each environment variable that does not have its secret value configured.
+The above is a list of environment variables that you are going to configure.
 
-You need to [create secrets](../../deploy/secrets-management.md) for these and then assign them to the corresponding [environment variables](../../deploy/environment-variables.md).
+For `INFLUXDB_TOKEN`, you need to [create a secret](../../deploy/secrets-management.md) to assign to the corresponding [environment variables](../../deploy/environment-variables.md).
 
-To create the secrets:
+To create the secret:
 
 1. Click on Settings in the botton left-hand corner of the Quix UI.
 
 2. Scroll down to the bottom of the screen and click on `Secrets management`.
 
-3. In the `Secrets management` dialog, click `+ New secret` and use this to create the following secrets (key value pairs) based on your InfluxDB account:
-
-    * `INFLUXDB_DATABASE`
-    * `INFLUXDB_HOST`
-    * `INFLUXDB_ORG`
-    * `INFLUXDB_TOKEN`
+3. In the `Secrets management` dialog, click `+ New secret` and use this to create the `INFLUXDB_TOKEN` secret, and assign it to the `INFLUXDB_TOKEN` variable.
 
 4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../develop/authentication/personal-access-token.md).
 
-These secrets are then automatically assigned to their corresponding environment variables.
-
-If you have named your secrets slightly differently to the environment variable names, you can still assign the secrets to environment variables by using the dropdown in the Deployment dialog:
-
-![Secrets dropdown](./images/assign-secret-dropdown.png)assign
+These secrets are then assigned to their corresponding environment variables.
 
 !!! note
 
