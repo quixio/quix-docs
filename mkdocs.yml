@@ -28,7 +28,7 @@ nav:
 #    - 'Project templates': 'get-started/project-templates.md'
     - 'Quix CLI': 'get-started/cli.md'
     - 'Glossary': 'get-started/glossary.md'
-#  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - '1. Create your project':
@@ -111,7 +111,7 @@ nav:
       - 'Portal API': 
         - 'Overview': 'apis/portal-api/overview.md'
         - 'Setup': 'apis/portal-api/setup.md'
-#        - 'HTTP requests': 'apis/portal-api/http-requests.md'
+        - 'HTTP requests': 'apis/portal-api/http-requests.md'
   - 'Connectors':
     - 'Index': 'connectors/index.md'
 #ConnectorsGetInsertedHere
