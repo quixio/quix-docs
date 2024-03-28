@@ -244,9 +244,9 @@ plugins:
       cleanup: true
   - search:
       separator: '[\s\-\.]' 
-  - social:
-      cards_layout_dir: layouts
-      cards_layout: quix
+#  - social:
+#      cards_layout_dir: layouts
+#      cards_layout: quix
   - glightbox
   - redirects:
       redirect_maps:
