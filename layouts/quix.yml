@@ -7,7 +7,7 @@ definitions:
 
 - &page_title_with_site_name >-
   {%- if not page.is_homepage -%}
-    {{ config.site_name }} - {{ page.meta.get("title", page.title) }}
+    {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
   {%- else -%}
     {{ page.meta.get("title", page.title) }}
   {%- endif -%}
@@ -43,7 +43,7 @@ layers:
       align: start
       color: "#FFFFFF66"
       font:
-        family: Roboto
+        family: Inter
         style: SemiBold
 
 #Page title text
@@ -58,7 +58,7 @@ layers:
         amount: 3
         height: 1.2
       font:
-        family: Roboto
+        family: Inter
         style: SemiBold
 
 #Page title text
@@ -73,5 +73,5 @@ layers:
         amount: 5
         height: 2.5
       font:
-        family: Roboto
+        family: Inter
         style: Normal
