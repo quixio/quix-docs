@@ -108,6 +108,9 @@ nav:
         - 'Overview': 'apis/portal-api/overview.md'
         - 'Setup': 'apis/portal-api/setup.md'
         - 'HTTP requests': 'apis/portal-api/http-requests.md'
+  - 'Connectors':
+    - 'Index': 'connectors/index.md'
+#ConnectorsGetInsertedHere
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
@@ -230,9 +233,6 @@ nav:
             - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
             - 'Alerting': 'integrations/databases/influxdb/alerting.md'
             - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
-    - 'Connectors':
-      - 'Index': 'connectors/index.md'
-  #ConnectorsGetInsertedHere
 
 # Exclude build scripts from v2.0+
 exclude_docs: |
