@@ -15,7 +15,6 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Installation': 'get-started/install.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
@@ -349,7 +348,7 @@ theme:
   features:
   - content.code.copy
   - navigation.instant     # Instant loading pages.
-#  - navigation.sections    # Render top sections as groups.
+  - navigation.sections    # Render top sections as groups.
   - navigation.top         # Adds a "Back to top" that is shown when scrolling up.
   - navigation.tracking    # Updates the url with highlighted section anchor.
   - navigation.indexes     # Documents can be directly attached to sections
