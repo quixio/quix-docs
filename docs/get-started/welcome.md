@@ -3,7 +3,7 @@ title: Welcome
 description: Welcome to the Quix Developer documentation. This documentation includes guides, tutorials, and API references for using Quix Cloud, Quix Streams, and Quix Bring Your Own Cluster (BYOC).
 ---
 
-# Quix developer docs
+# Welcome
 
 <p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines.</p>
 
