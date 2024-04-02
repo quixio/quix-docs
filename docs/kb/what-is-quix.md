@@ -130,7 +130,7 @@ When you develop your Python stream processing applications, you build a pipelin
 
 There are [various ways](../develop/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
-For a simple example of getting data from your laptop into Quix, see the [Quickstart](quickstart.md).
+For a simple example of getting data from your laptop into Quix, see the [Quickstart](../quix-cloud/quickstart.md).
 
 ### Connectors
 
@@ -182,7 +182,7 @@ Further, changes in this file in one environment can be merged into another envi
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-You can see how to build a simple pipeline in the [Quix Tour](./quixtour/overview.md). 
+You can see how to build a simple pipeline in the [Quix Tour](../quix-cloud/quixtour/overview.md). 
 
 You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
 
@@ -214,7 +214,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 * Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
 * CPU monitor - you can monitor the CPU utilization of your deployment in real time.
 * Memory monitor - you can monitor the memory usage of the deployment in real time.
-* CLI - a powerful command line interface (see the [CLI documentation](../get-started/cli.md)).
+* CLI - a powerful command line interface (see the [CLI documentation](../kb/cli.md)).
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 
@@ -246,6 +246,6 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 
 ## Next steps
 
-* [Quickstart](./quickstart.md) - get data into Quix and display it in less than 10 minutes
-* [Quix Tour](./quixtour/overview.md) - build a complete pipeline in less than 30 minutes
+* [Quickstart](../quix-cloud/quickstart.md) - get data into Quix and display it in less than 10 minutes
+* [Quix Tour](../quix-cloud/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
 * Watch [a video](https://www.youtube.com/watch?v=0cr19MfATfY){target=_blank} on the art of the possible with Quix

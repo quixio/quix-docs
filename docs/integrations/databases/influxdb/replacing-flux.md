@@ -71,7 +71,7 @@ See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduct
 
 ## Converting data
 
-Sometimes you need to convert data from one format to another. This can be done with great flexibility in Python. For example, in IoT applications, some smart devices send data in [MessagePack](https://msgpack.org/){target=_blank} format. For example, here's the CPU example from the [Quix Quickstart](../../../get-started/quickstart.md) converted to pack data in MessagePack format:
+Sometimes you need to convert data from one format to another. This can be done with great flexibility in Python. For example, in IoT applications, some smart devices send data in [MessagePack](https://msgpack.org/){target=_blank} format. For example, here's the CPU example from the [Quix Quickstart](../../../quix-cloud/quickstart.md) converted to pack data in MessagePack format:
 
 ``` python
 import psutil, time, os, msgpack

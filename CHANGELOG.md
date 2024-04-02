@@ -195,7 +195,7 @@ Changelogs for previous years can be found [here](#changelog-archives).
     - Available the first version of the Quix CLI
     - Try it out from here: https://github.com/quixio/quix-cli
 - Permission system (CLI only)
-    - New permission system allowing granular permission using roles such as Admin, Manager, Editor and Viewer on platform resources like Environments and Projects. More information here: https://quix.io/docs/get-started/cli.html#setting-permissions
+    - New permission system allowing granular permission using roles such as Admin, Manager, Editor and Viewer on platform resources like Environments and Projects. More information here: https://quix.io/docs/kb/cli.html#setting-permissions
 - Added support for Git-Submodules on our Git integration
 - Private Code Samples support for BYOC clusters
 - Project settings refactor

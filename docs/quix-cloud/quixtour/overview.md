@@ -27,7 +27,7 @@ The pipeline you implement in this tour:
 
 !!! note
 
-    The components in the pipeline are connected together by [Kafka topics](../what-is-kafka.md).
+    The components in the pipeline are connected together by [Kafka topics](../../kb/what-is-kafka.md).
 
 ## 🏃‍♀️ Next step
 
