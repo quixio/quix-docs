@@ -12,10 +12,10 @@ Set up a local Kafka broker. You can follow [this quickstart](https://kafka.apac
 import psutil, time, json
 from quixstreams import Application
 
-# Connect to your local Kafka broker
+# connect to your local Kafka broker
 app = Application(broker_address="localhost:9092", consumer_group="producer-v1")
 
-# Define output topic
+# define output topic
 output_topic = app.topic("cpu-load")
 
 def get_cpu_load():
@@ -73,10 +73,13 @@ app = Application(
     auto_offset_reset="earliest",
 )
 
-cpu_topic = app.topic(name="cpu-load", value_deserializer="json")
+# create input topic
+cpu_topic = app.topic(name="cpu-load")
 
+# create a streaming dataframe
 sdf = app.dataframe(topic=cpu_topic)
 
+# print all rows
 sdf = sdf.update(lambda row: print(row))
 
 if __name__ == "__main__":
