@@ -1,6 +1,6 @@
 # Explore Quix Streams
 
-Continue the journey you already started.
+Here you'll explore Quix Streams v2 by creating a producer to publish messages to a topic in your local Kafka broker . You'll then create a consumer to subscribe to messages on that topic. Finally, you'll perform some simple real-time processing on the streaming data.
 
 ## Set up a local Kafka broker
 
