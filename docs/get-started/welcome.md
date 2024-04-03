@@ -57,5 +57,6 @@ You are now consuming data from the `demo-onboarding-prod-chat` topic.
 
 * [Continue your journey](./explore.md) on the command line.
 * Step through the Quix Streams [Quickstart](https://quix.io/docs/quix-streams/quickstart.html).
+* Step through the [Quix Streams tutorials](https://quix.io/docs/quix-streams/tutorials/index.html).
 * Try [Quix Cloud for free](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 * Need help? Join the [Quix Community](https://quix.io/slack-invite){target=_blank}.
