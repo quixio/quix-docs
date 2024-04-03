@@ -75,7 +75,7 @@ You'll now add a simple transformation to your pipeline.
     from dotenv import load_dotenv
     load_dotenv()
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    app = Application.Quix("transformation-v1", auto_offset_reset="earliest")
 
     # JSON deserializers/serializers used by default
     input_topic = app.topic(os.environ["input"])
@@ -84,14 +84,12 @@ You'll now add a simple transformation to your pipeline.
     # consume from nput topic
     sdf = app.dataframe(input_topic)
 
-    # filter in all rows where Speed is present and speed is not None
-    sdf = sdf.filter(lambda row: row["Speed"] and row["Speed"] != None )
-
     # calculate average speed using 15 second tumbling window
     sdf = sdf.apply(lambda row: row["Speed"]) \
         .tumbling_window(timedelta(seconds=15)).mean().final() \
             .apply(lambda value: {
-                'AverageSpeed': value['value']
+                'average-speed': value['value'],
+                'time': value['end']
                 })
     
     # print every row
@@ -101,10 +99,7 @@ You'll now add a simple transformation to your pipeline.
     sdf = sdf.to_topic(output_topic)
 
     if __name__ == "__main__":
-        try:
-            app.run(sdf)
-        except Exception as e:
-            print(f"An error occurred while running the application. {e}")        
+        app.run(sdf)
     ```
 
     This transform calculates the average speed of the F1 car using a 15 second tumbling window and writes this data to the output topic.
