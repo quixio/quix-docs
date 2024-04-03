@@ -5,27 +5,7 @@ description: Welcome to the Quix Developer documentation. This documentation inc
 
 # Welcome
 
-<p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines.</p>
-
-<div class="grid cards" markdown>
-
-- __Get started with the command line__
-
-    ---
-
-    Get started using Quix, right on your command line.
-
-    [Go! :octicons-arrow-right-24:](#step-1-install-quix-streams)
-
-- __Get started with Quix Cloud__
-
-    ---
-
-    Build a complete Python stream processing application in under 10 minutes in Quix Cloud.
-
-    [Quickstart :octicons-arrow-right-24:](../quix-cloud/quickstart.md)
-
-</div>
+<p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines. You develop your pipeline services in Python, and deploy them to containers managed in Kubernetes with a single click. You can develop and manage services on the command line, and also manage and visualize your pipelines in Quix Cloud.</p>
 
 ## Step 1. Install Quix Streams
 
@@ -63,7 +43,7 @@ sdf = sdf.update(lambda row: print(row))
 app.run(sdf)
 ```
 
-Save the code as qs.py
+Save the code as `qs.py`.
 
 ## Step 4. Run the code
 
@@ -75,14 +55,7 @@ You are now consuming data from the `demo-onboarding-prod-chat` topic.
 
 ## Next steps
 
-See more detail about this application in the Quix Streams [Quickstart](https://quix.io/docs/quix-streams/quickstart.html).
-
-<div class="grid cards" markdown>
-- __Need some help?__
-
-    ---
-
-    If you need any help, please sign up to the Quix Community Slack channel, and chat with friendly developers.
-
-    [Join the Quix Community :octicons-arrow-right-24:](https://quix.io/slack-invite){target=_blank}
-</div>
+* [Continue your journey](./explore.md) on the command line.
+* Step through the Quix Streams [Quickstart](https://quix.io/docs/quix-streams/quickstart.html).
+* Try [Quix Cloud for free](https://portal.platform.quix.io/self-sign-up){target=_blank}.
+* Need help? Join the [Quix Community](https://quix.io/slack-invite){target=_blank}.

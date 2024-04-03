@@ -15,6 +15,7 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
+    - 'Explore Quix Streams': 'get-started/explore.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
@@ -108,8 +109,8 @@ nav:
           - 'Overview': 'apis/portal-api/overview.md'
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
-#  - 'Connectors':
-#    - 'Index': 'connectors/index.md'
+  - 'Connectors':
+    - 'Index': 'connectors/index.md'
 #ConnectorsGetInsertedHere
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
