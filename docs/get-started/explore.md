@@ -1,12 +1,20 @@
 # Explore Quix Streams
 
-Here you'll explore Quix Streams v2 by creating a producer to publish messages to a topic in your local Kafka broker . You'll then create a consumer to subscribe to messages on that topic. Finally, you'll perform some simple real-time processing on the streaming data.
+Here you'll explore Quix Streams v2 a bit more by creating a producer to publish messages to a topic in your local Kafka broker. You'll then create a processor that subscribes to messages on that topic and processes that data in real time.
 
-## Set up a local Kafka broker
+The steps are:
+
+1. [Set up a local Kafka broker](#step-1-set-up-a-local-kafka-broker)
+2. [Write your producer (source) code](#step-2-write-your-producer-code)
+3. [Run your producer code](#step-3-run-your-producer-code)
+4. [Process your data](#step-4-process-your-data-in-real-time)
+5. [Run your processor (transform) code](#step-5-run-your-processor-transform-code)
+
+## Step 1: Set up a local Kafka broker
 
 Set up a local Kafka broker. You can follow [this quickstart](https://kafka.apache.org/quickstart) to install Apache Kafka.
 
-## Write your producer code
+## Step 2: Write your producer code
 
 ``` python
 import psutil, time, json
@@ -19,9 +27,6 @@ app = Application(broker_address="localhost:9092", consumer_group="producer-v1")
 output_topic = app.topic("cpu-load")
 
 def get_cpu_load():
-    """
-    Get the current CPU and memory usage
-    """
     cpu_load = psutil.cpu_percent(interval=1)
     memory = psutil.swap_memory()
     return {
@@ -52,9 +57,9 @@ if __name__ == '__main__':
         print('Exiting due to keyboard interrupt')
 ```
 
-Save this file as `producer.py`.
+Save the code to a file named `producer.py`.
 
-## Run your producer code
+## Step 3: Run your producer code
 
 ``` python
 python3 producer.py
@@ -62,76 +67,27 @@ python3 producer.py
 
 You are now producing data into the `cpu-load` topic.
 
-## Write your consumer code
+## Step 4: Process your data in real time
+
+The following processor code subscribes to messages on the `cpu-load` topic and processes the data in real time. In this case a tumbling window of twenty seconds is used to calculate the average CPU load:
 
 ``` python
 from quixstreams import Application
+from datetime import timedelta
 
 app = Application(
     broker_address="localhost:9092",
-    consumer_group="consumer-v1",
-    auto_offset_reset="earliest",
-)
-
-# create input topic
-cpu_topic = app.topic(name="cpu-load")
-
-# create a streaming dataframe
-sdf = app.dataframe(topic=cpu_topic)
-
-# print all rows
-sdf = sdf.update(lambda row: print(row))
-
-if __name__ == "__main__":
-    app.run(sdf)
-```
-
-Save as `consumer.py`.
-
-## Run your consumer code
-
-In a new shell tab, run your consumer code:
-
-```
-python3 consumer.py
-```
-
-You'll see messages from the `cpu-load` topic:
-
-``` json
-{
-    "cpu_load": 10.3,
-    "memory": {
-        "total": 0,
-        "used": 0,
-        "free": 0,
-        "percent": 0,
-        "sin": 79110373376,
-        "sout": 332414976
-    },
-    "timestamp": 1712148720884867000
-}
-```
-
-You'll notice the messages in the topic are in the JSON format.
-
-## Find average CPU load
-
-Change your consumer code to add a tumbling window:
-
-``` python
-from quixstreams import Application
-import 
-
-app = Application(
-    broker_address="localhost:9092",
-    consumer_group="consumer-v1",
+    consumer_group="transform-v1",
     auto_offset_reset="earliest",
 )
 
 cpu_topic = app.topic(name="cpu-load", value_deserializer="json")
 
-sdf = app.dataframe(topic=cpu_topic)
+input_topic = app.topic("cpu-load")
+output_topic = app.topic("average-cpu-load")
+
+# read messages from the input topic
+sdf = app.dataframe(topic=input_topic)
 
 # calculate average cpu load over 20 seconds tumbling window
 sdf = sdf.apply(lambda row: row["cpu_load"]) \
@@ -141,13 +97,27 @@ sdf = sdf.apply(lambda row: row["cpu_load"]) \
             'time': value['end']
             })
 
+# print every row
 sdf = sdf.update(lambda row: print(row))
+
+# publish to output topic
+sdf = sdf.to_topic(output_topic)
 
 if __name__ == "__main__":
     app.run(sdf)
 ```
 
-This will produce messages in the format:
+Save the code to a file named `transform.py`.
+
+## Step 5: Run your processor (transform) code
+
+In a **new shell tab**, run your consumer code:
+
+```
+python3 transform.py
+```
+
+This will produce messages with the format on the putput topic:
 
 ``` json
 {
@@ -156,8 +126,11 @@ This will produce messages in the format:
 }
 ```
 
+You'll notice the messages in the topic are in the JSON format.
+
 ## Next steps
 
+* Continue on the command line by [using the Quix CLI](./cli.md).
 * Read the [Quix Streams docs](https://quix.io/docs/quix-streams/introduction.html).
 * Try [Quix Cloud for free](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 * Need help? Join the [Quix Community](https://quix.io/slack-invite){target=_blank}.
