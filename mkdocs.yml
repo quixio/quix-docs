@@ -15,8 +15,13 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Explore Quix Streams': 'get-started/explore.md'
-    - 'Quix CLI': 'get-started/cli.md'
+    - 'Installation':
+      - 'Use command line': 'get-started/install.md'
+    - 'Tutorials':
+      - 'Produce data': 'get-started/produce.md'
+      - 'Consume data': 'get-started/consume.md'
+      - 'Process data': 'get-started/process.md'
+      - 'Build a pipeline': 'get-started/build-cli.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
@@ -315,7 +320,6 @@ plugins:
         'get-started/what-is-quix.md': 'kb/what-is-quix.md'
         'get-started/why-stream-processing.md': 'kb/why-stream-processing.md'
         'get-started/what-is-kafka.md': 'kb/what-is-kafka.md'
-        'get-started/cli.md': 'kb/cli.md'
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
 

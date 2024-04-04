@@ -1,6 +1,6 @@
-# Using the Quix CLI
+# Build a pipeline using Quix CLI
 
-In previous sections of the documentation you explored using Quix Streams. You now continue on your command-line journey by installing the Quix CLI, and then using it to connect with Quix Cloud.
+In previous sections of the documentation you explored using Quix Streams. You now continue on your command-line journey by installing the Quix CLI, and then using it to connect with Quix Cloud. You create a simple project on the command line, and sync it with your Quix Cloud pipeline view.
 
 ## Step 1: Install Quix CLI
 
@@ -8,7 +8,7 @@ In previous sections of the documentation you explored using Quix Streams. You n
 curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
 ```
 
-For fruther details on installation see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
+For further details on installation see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
 ## Step 2: Sign up to Quix Cloud for free
 
@@ -75,15 +75,16 @@ In this step you create a project in Quix Cloud from your Git repository.
 
 1. Enter Quix Cloud.
 2. Create a new project.
-3. Link the project to your Git repository using the guide.
+3. Select your Git provider.
+4. Link the project to your Git repository using the guide provided for your chosen Git provider.
 4. Sync Quix Cloud to your project by clicking the `Sync environment` button.
 
 ## Step 11: See your pipeline running
 
-Go to pipeline view, and see your pipeline, with your Starter transformation.
+Go to pipeline view, and see your pipeline running, with your Starter transformation.
 
 ![Pipeline running](../images/starter-transform.png)
 
 ## Next steps
 
-* 
+* TODO
