@@ -17,6 +17,8 @@ nav:
     - 'Welcome': 'get-started/welcome.md'
     - 'Installation':
       - 'Use command line': 'get-started/install.md'
+    - 'Fundamentals':
+      - 'Basic concepts': 'get-started/basic-concepts.md'
     - 'Tutorials':
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
