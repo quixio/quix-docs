@@ -75,13 +75,14 @@ You'll now add a simple transformation to your pipeline.
     from dotenv import load_dotenv
     load_dotenv()
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="earliest")
+    # create a quix application
+    app = Application()
 
     # JSON deserializers/serializers used by default
     input_topic = app.topic(os.environ["input"])
     output_topic = app.topic(os.environ["output"])
 
-    # consume from nput topic
+    # consume from input topic
     sdf = app.dataframe(input_topic)
 
     # calculate average speed using 15 second tumbling window
@@ -134,6 +135,7 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         | `INFLUXDB_ORG` | In your Influx account you can see your available organizations. Example: `Docs` |
         | `INFLUXDB_DATABASE` | The InfluxDB bucket, in this case `f1-data` |
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
+        | `INFLUXDB_FIELD_KEYS` | Enter `['average-speed']`. This is an array of the fields from the inbound message you want to write to the database. |
         | `INFLUXDB_MEASUREMENT_NAME` | The "table" name, in this case `f1-data`. |
         | `CONSUMER_GROUP_NAME` | Consumer group name, for example `influxdb-sink`. |
         | `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
