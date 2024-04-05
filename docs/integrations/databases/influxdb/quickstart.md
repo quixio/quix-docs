@@ -75,23 +75,22 @@ You'll now add a simple transformation to your pipeline.
     from dotenv import load_dotenv
     load_dotenv()
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    # create a quix application
+    app = Application()
 
     # JSON deserializers/serializers used by default
     input_topic = app.topic(os.environ["input"])
     output_topic = app.topic(os.environ["output"])
 
-    # consume from nput topic
+    # consume from input topic
     sdf = app.dataframe(input_topic)
-
-    # filter in all rows where Speed is present and speed is not None
-    sdf = sdf.filter(lambda row: row["Speed"] and row["Speed"] != None )
 
     # calculate average speed using 15 second tumbling window
     sdf = sdf.apply(lambda row: row["Speed"]) \
         .tumbling_window(timedelta(seconds=15)).mean().final() \
             .apply(lambda value: {
-                'AverageSpeed': value['value']
+                'average-speed': value['value'],
+                'time': value['end']
                 })
     
     # print every row
@@ -101,10 +100,7 @@ You'll now add a simple transformation to your pipeline.
     sdf = sdf.to_topic(output_topic)
 
     if __name__ == "__main__":
-        try:
-            app.run(sdf)
-        except Exception as e:
-            print(f"An error occurred while running the application. {e}")        
+        app.run(sdf)
     ```
 
     This transform calculates the average speed of the F1 car using a 15 second tumbling window and writes this data to the output topic.
@@ -139,6 +135,7 @@ You can now add an InfluxDB **destination** to enable you to publish data from a
         | `INFLUXDB_ORG` | In your Influx account you can see your available organizations. Example: `Docs` |
         | `INFLUXDB_DATABASE` | The InfluxDB bucket, in this case `f1-data` |
         | `INFLUXDB_TAG_COLUMNS` | Leave as default, `['tag1', 'tag2']`. |
+        | `INFLUXDB_FIELD_KEYS` | Enter `['average-speed']`. This is an array of the fields from the inbound message you want to write to the database. |
         | `INFLUXDB_MEASUREMENT_NAME` | The "table" name, in this case `f1-data`. |
         | `CONSUMER_GROUP_NAME` | Consumer group name, for example `influxdb-sink`. |
         | `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
