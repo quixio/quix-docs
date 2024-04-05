@@ -147,11 +147,14 @@ nav:
     - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
     - 'Release filtering': 'byoc/release-filtering.md'
   - 'Knowledge base':
-    - 'What is Quix?': 'kb/what-is-quix.md'
-    - 'Why stream processing?': 'kb/why-stream-processing.md'
-    - 'What is Kafka?': 'kb/what-is-kafka.md'
-    - 'Quix CLI': 'kb/cli.md'
-    - 'Glossary': 'kb/glossary.md'
+    - 'Guides':
+      - 'What is Quix?': 'kb/what-is-quix.md'
+      - 'Why stream processing?': 'kb/why-stream-processing.md'
+      - 'What is Kafka?': 'kb/what-is-kafka.md'
+    - 'Reference':
+      - 'Quix CLI': 'kb/cli.md'
+      - 'Glossary': 'kb/glossary.md'
+      - 'Contribute': 'kb/contribute.md'
     - 'Tutorials':
       - 'Overview': 'tutorials/overview.md'
       - 'Event detection and alerting featuring InfluxDB and PagerDuty': 
@@ -241,7 +244,6 @@ nav:
       #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-    - 'Contribute': 'kb/contribute.md'
 
 # Exclude build scripts from v2.0+
 exclude_docs: |
