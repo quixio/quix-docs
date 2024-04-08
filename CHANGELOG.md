@@ -11,6 +11,14 @@ Changelogs for previous years can be found [here](#changelog-archives).
 * [2022](./changelogs/2022-archive.md)
 * [2023](./changelogs/2023-archive.md)
 
+## 2024-04-02 | 08 APRIL 2024
+
+`BUG FIXES`
+
+- Secrets were being filtered by environment
+- Variables weren't updating in the deployments dialogue
+- External topics weren't being recognised by new deployments
+
 ## 2024-03-02-topic-details-hf | 13 MARCH 2024
 
 `IMPROVEMENTS`
