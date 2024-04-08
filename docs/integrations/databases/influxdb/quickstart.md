@@ -75,7 +75,7 @@ You'll now add a simple transformation to your pipeline.
     from dotenv import load_dotenv
     load_dotenv()
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    app = Application()
 
     # JSON deserializers/serializers used by default
     input_topic = app.topic(os.environ["input"])

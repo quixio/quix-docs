@@ -67,7 +67,7 @@ To create the SMS alert destination:
     
     # Create an Application
     # It will get the SDK token from environment variables to connect to Quix Kafka
-    app = Application.Quix(consumer_group="sms-alert-destination", auto_offset_reset="latest")
+    app = Application()
 
     # Define an input topic
     input_topic = app.topic(os.environ["input"])

@@ -29,7 +29,7 @@ import os
 from quixstreams import Application, State
 from datetime import timedelta
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
@@ -80,7 +80,7 @@ from quixstreams import Application
 from dotenv import load_dotenv
 load_dotenv()
 
-app = Application.Quix()
+app = Application()
 
 output_topic = app.topic("cpu-load", value_serializer="bytes")
     
@@ -127,7 +127,7 @@ load_dotenv()
 def unpack(row):
     return msgpack.unpackb(row)
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"], value_deserializer="bytes")
 output_topic = app.topic(os.environ["output"], value_serializer="json")

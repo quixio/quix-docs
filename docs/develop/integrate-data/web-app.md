@@ -18,10 +18,7 @@ from datetime import datetime
 from waitress import serve
 import os, json
 
-app = Application.Quix(
-    consumer_group="sample_consumer_group",
-    auto_create_topics=True,
-)
+app = Application()
 
 serializer = JSONSerializer()
 output_topic = app.topic(os.environ["output"])

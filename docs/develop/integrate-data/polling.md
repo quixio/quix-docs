@@ -7,10 +7,7 @@ from quixstreams import Application
 from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
 import time, os, requests
 
-app = Application.Quix(
-    consumer_group="sample_consumer_group",
-    auto_create_topics=True,
-)
+app = Application()
 
 serializer = JSONSerializer()
 output_topic = app.topic(os.environ["output"])

@@ -22,7 +22,7 @@ To create the threshold detection transform:
 
     # Create an Application
     # It will get the SDK token from environment variables to connect to Quix Kafka
-    app = Application.Quix(consumer_group="threshold-transform", auto_offset_reset="latest")
+    app = Application()
 
     # Define input and output topics
     input_topic = app.topic(os.environ["input"])
