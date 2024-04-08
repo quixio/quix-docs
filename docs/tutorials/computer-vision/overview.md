@@ -1,9 +1,5 @@
 # Computer vision
 
-!!! warning
-
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
-
 In this tutorial you learn about a real-time computer vision application, using a [Quix template project](https://github.com/quixio/computer-vision-demo){target=_blank}.
 
 ![Computer vision pipeline](../../images/project-templates/computer-vision-pipeline.png)

@@ -1,6 +1,6 @@
 # Produce data
 
-Here you'll explore Quix Streams v2 a bit more by creating a producer to publish messages to a topic in your local Kafka broker. You'll then create a consumer that subscribes to messages on that topic and prints the messages.
+Here you'll explore Quix Streams a bit more by creating a producer to publish messages to a topic in your local Kafka broker. You'll then create a consumer that subscribes to messages on that topic and prints the messages.
 
 This page assumes you have already [installed Quix Streams](./install.md).
 

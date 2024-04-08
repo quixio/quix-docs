@@ -1,9 +1,5 @@
 # Predictive maintenance
 
-!!! warning
-
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
-
 In this tutorial you learn about a project template that demonstrates real-time predictive analytics. It simulates three temperature sensors on a fleet of 3D printers. It predicts temperature for the printers using the `scikit-learn` library.
 
 This tutorial uses the [Quix predictive maintenance template project](https://github.com/quixio/template-predictive-maintenance){target=_blank}.

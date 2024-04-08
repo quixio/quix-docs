@@ -1,6 +1,6 @@
 # Summary
 
-In this tutorial you have learned how to build a pipeline to get your laptop CPU load data into InfluxDB using Quix Streams v2. 
+In this tutorial you have learned how to build a pipeline to get your laptop CPU load data into InfluxDB using Quix Streams. 
 
 You have also seen how to add threshold detection to your pipeline, and built a PagerDuty destination to make sure alerts go to the engineer on duty.
 
