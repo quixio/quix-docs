@@ -17,8 +17,10 @@ nav:
     - 'Welcome': 'get-started/welcome.md'
     - 'Installation':
       - 'Use command line': 'get-started/install.md'
-    - 'Fundamentals':
-      - 'Basic concepts': 'get-started/basic-concepts.md'
+    - 'Core concepts':
+      - 'get-started/streaming.md'
+      - 'get-started/stream-processing.md'
+      - 'get-started/stream-processing-pipelines.md'
     - 'Tutorials':
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
