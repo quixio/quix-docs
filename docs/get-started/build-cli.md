@@ -8,7 +8,7 @@ In previous sections of the documentation you explored using Quix Streams. You n
 curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
 ```
 
-For further details on installation see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
+For further details on installation, including instructions for Microsoft Windows, see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
 ## Step 2: Sign up to Quix Cloud for free
 
