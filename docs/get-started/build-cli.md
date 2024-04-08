@@ -28,10 +28,10 @@ Create a Git repo where you can store your files, for example you could use GitH
 
 ## Step 5: Clone your Git repo into your local project directory
 
-For example, if your project is `cli-app`:
+For example, if your GitHub repo is named `cli-app`:
 
 ```
-git clone <url-to-git-repo>/cli-app
+git clone <url-to-git>/cli-app
 cd cli-app
 ```
 
