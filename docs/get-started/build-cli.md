@@ -85,4 +85,4 @@ Go to pipeline view, and see your pipeline running, with your Starter transforma
 
 ## Next steps
 
-* TODO
+* [Read the Quix CLI documentation](../kb/cli.md).
