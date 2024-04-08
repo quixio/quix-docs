@@ -1,6 +1,6 @@
 # Add a CPU load threshold detection transform
 
-You now add a transform to detect when CPU threshold is exceeded. Click `Add new` on the output of your external source, and add the `Starter transformation SDF`. 
+You now add a transform to detect when CPU threshold is exceeded. Click `Add new` on the output of your external source, and add the `Starter transformation`. 
 
 You can use the defaults, or rename your transform to something like `CPU Threshold`. 
 

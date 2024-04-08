@@ -55,12 +55,12 @@ Save the code to a file named `transform.py`.
     * Connect to the Kafka broker.
     * Configure the input topic to consume data from.
     * Configure the output topic to publish processed data to.
-    * Define the SDF processing pipeline:
+    * Define the Streaming DataFrame (SDF) processing pipeline:
         * Read message from the input topic.
         * Calculate the average CPU load over a 20 seconds tumbling window.
         * Print every row.
         * Write message to the output topic.
-    * Run the Quix app, using SDF to process messages. 
+    * Run the Quix app, using Streaming DataFrame (SDF) to process messages. 
 
 ## Step 2: Run your processor (transform) code
 
