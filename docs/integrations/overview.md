@@ -3,7 +3,7 @@ title: Integrations
 description: Information on integrating with partner products.
 ---
 
-# Overview
+# Overview - Integrations
 
 This section of the documentation provides more detailed information on integrating with partner products.
 

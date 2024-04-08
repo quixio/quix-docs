@@ -1,4 +1,4 @@
-# Overview
+# Quix Tour
 
 Welcome to the Quix Tour! 
 

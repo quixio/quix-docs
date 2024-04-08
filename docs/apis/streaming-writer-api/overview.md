@@ -3,7 +3,7 @@ title: Streaming Writer API
 description: Streaming Writer API supports real-time data streaming over HTTP or WebSockets.
 ---
 
-# Overview
+# Overview - Streaming Writer API
 
 The Streaming Writer API enables you to stream data into a Quix topic using HTTP endpoints or Microsoft's [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} technology. You can use the Streaming Writer API from any language or web client with an HTTP (REST) or WebSockets interface. 
 
