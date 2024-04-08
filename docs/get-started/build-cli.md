@@ -17,7 +17,7 @@ Sign up [here](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 ## Step 3: Log in using the CLI
 
 ```
-quix login <your-pat>
+quix login
 ```
 
 If you're not logged into Cloud, you'll be prompted to log in.
