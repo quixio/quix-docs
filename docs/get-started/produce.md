@@ -17,9 +17,10 @@ from quixstreams import Application
 # connect to your local Kafka broker
 app = Application(broker_address="localhost:9092", consumer_group="producer-v1")
 
-# define output topic
+# configure the output topic to publish data to
 output_topic = app.topic("cpu-load")
 
+# get the cpu load (and memory usage)
 def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
     memory = psutil.swap_memory()
@@ -30,14 +31,14 @@ def get_cpu_load():
     }
 
 def main():
-    # Create a Producer to send data to the topic
+    # create a Producer to send data to the topic
     with app.get_producer() as producer:
         while True:                
             # Get the current CPU and memory usage
             message = get_cpu_load()
             print("CPU load: ", message["cpu_load"])
 
-            # Produce message to the topic
+            # publish a message to the output topic
             producer.produce(
             topic=output_topic.name,
                 key="server-1-cpu",
@@ -59,7 +60,7 @@ Save the code to a file named `producer.py`.
 python3 producer.py
 ```
 
-You are now publishing data into the `cpu-load` topic.
+You are now publishing data into the `cpu-load` topic. You'll next create a consumer to consume these messages.
 
 ## Next step
 

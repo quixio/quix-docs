@@ -11,21 +11,24 @@ from quixstreams import Application
 from datetime import timedelta
 import json
 
+# connect to your local Kafka broker
 app = Application(
     broker_address="localhost:9092",
     consumer_group="consume-v1",
     auto_offset_reset="earliest",
 )
 
+# configure the input topic to subscribe to (you'll read data from this topic)
 input_topic = app.topic("cpu-load")
 
-# read messages from the input topic
+# consume (read) messages from the input topic
 sdf = app.dataframe(topic=input_topic)
 
 # print every row
 sdf = sdf.update(lambda row: print(json.dumps(row)))
 
 if __name__ == "__main__":
+    # run the application and process all inbound messages using the sdf pipeline
     app.run(sdf)
 ```
 
@@ -39,7 +42,7 @@ python3 consumer.py
 
 You are now subscribing to data on the `cpu-load` topic.
 
-Messages are printed out as JSON:
+Each message received is printed out as JSON:
 
 ``` json
 {
