@@ -16,7 +16,7 @@ Sign up [here](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 
 !!! tip 
 
-    If you are prompted to create a project, please just create one with the default (1-click) option. You won't be using it in this tutorial, as you'll be creating a project based on a Git repository in a later step.
+    If you are prompted to create a project, you can stop at this point, and proceed to the next step in this tutorial. You will come back to complete the project creation wizard at a later step, because you are going to base your Quix project on a Git project you are yet to create.
 
 ## Step 3: Log in using the CLI
 
@@ -75,8 +75,8 @@ This updates your `quix.yaml` project file, and pushes all changes to your Git r
 
 In this step you create a project in Quix Cloud from your Git repository.
 
-1. Enter Quix Cloud.
-2. Create a new project.
+1. Return to Quix Cloud.
+2. Select `Quix advanced configuration` to continue creation of your project.
 3. Select your Git provider.
 4. Link the project to your Git repository using the guide provided for your chosen Git provider.
 4. Sync Quix Cloud to your project by clicking the `Sync environment` button.
