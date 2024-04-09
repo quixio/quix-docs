@@ -11,6 +11,14 @@ Changelogs for previous years can be found [here](#changelog-archives).
 * [2022](./changelogs/2022-archive.md)
 * [2023](./changelogs/2023-archive.md)
 
+## 2024-04-02 | 08 APRIL 2024
+
+`BUG FIXES`
+
+- Secrets were being filtered by environment
+- Variables weren't updating in the deployments dialogue
+- External topics weren't being recognised by new deployments
+
 ## 2024-03-02-topic-details-hf | 13 MARCH 2024
 
 `IMPROVEMENTS`
@@ -195,7 +203,7 @@ Changelogs for previous years can be found [here](#changelog-archives).
     - Available the first version of the Quix CLI
     - Try it out from here: https://github.com/quixio/quix-cli
 - Permission system (CLI only)
-    - New permission system allowing granular permission using roles such as Admin, Manager, Editor and Viewer on platform resources like Environments and Projects. More information here: https://quix.io/docs/get-started/cli.html#setting-permissions
+    - New permission system allowing granular permission using roles such as Admin, Manager, Editor and Viewer on platform resources like Environments and Projects. More information here: https://quix.io/docs/kb/cli.html#setting-permissions
 - Added support for Git-Submodules on our Git integration
 - Private Code Samples support for BYOC clusters
 - Project settings refactor

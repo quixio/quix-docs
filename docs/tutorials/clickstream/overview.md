@@ -1,9 +1,5 @@
 # Clickstream analysis
 
-!!! warning
-
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
-
 In this tutorial you learn about a project template that analyzes a clickstream in real time, and generates events based on behavior. You use Python, rather than kSQL to perform aggregations and implement event logic based on user behavior.
 
 This tutorial uses the [Quix Clickstream analysis template project](https://github.com/quixio/template-clickstream){target=_blank}.

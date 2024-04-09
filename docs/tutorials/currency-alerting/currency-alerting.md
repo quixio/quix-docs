@@ -1,9 +1,5 @@
 # Currency alerting
 
-!!! warning
-
-    This tutorial uses a template that is implemented with a deprecated version of Quix Streams (v0.5). For a tutorial that uses [Quix Streams v2](https://quix.io/docs/quix-streams/introduction.html) read the [InfluxDB alerting tutorial](../influxdb-alerting/overview.md).
-
 In this tutorial you will learn how to build a real-time streaming pipeline that sends push notifications to your phone when the Bitcoin price reaches a certain threshold.
 
 ## Learning objectives

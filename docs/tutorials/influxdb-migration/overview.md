@@ -11,14 +11,10 @@ In this tutorial you learn how to migrate your data from InfluxDB v2 to InfluxDB
 
     This assumes you have an existing InfluxDB v2 with data you want to migrate. However, there is an optional step which shows you how to install InfluxDB v2 locally, and write some test data to it. You can then use this to complete the tutorial.
 
-!!! note
-
-    This tutorial uses Quix Streams v2.
-
 ## Technologies used
 
 * [Quix Cloud](https://quix.io/){target=_blank}
-* [Quix Streams v2](https://github.com/quixio/quix-streams){target=_blank}
+* [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
 * [InfluxDB](https://influxdata.com){target=_blank}
 
 ## Getting help

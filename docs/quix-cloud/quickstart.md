@@ -21,7 +21,7 @@ If you're just curious, click the box below to see the complete code.
     # Create an Application
     # It will use the SDK token from environment variables to connect to Quix Kafka
     # and ensure the topics are created
-    app = Application.Quix()
+    app = Application()
 
     # Define output topic
     output_topic = app.topic("cpu-load")
@@ -117,7 +117,7 @@ load_dotenv()
 # Create an Application
 # It will use the SDK token from environment variables to connect to Quix Kafka
 # and ensure the topics are created
-app = Application.Quix()
+app = Application()
 
 # Define output topic
 output_topic = app.topic("cpu-load")

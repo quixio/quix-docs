@@ -32,6 +32,7 @@ You'll need to configure the following variables for your source connector:
 | `INFLUXDB_HOST` | Host address for the InfluxDB instance. Default: `eu-central-1-1.aws.cloud2.influxdata.com`. |
 | `INFLUXDB_ORG` | Organization name in InfluxDB. |
 | `INFLUXDB_TOKEN` | Authentication token to access InfluxDB. Configure as a secret type, so that your token is never revealed. |
+| `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
 | `task_interval` | The polling period for queries of the database. Set this to `1s` (one second) to ensure you see any new data promptly (this make testing a little easier as you don't need to wait too long for updates). |
 
 !!! tip
@@ -51,6 +52,10 @@ You'll need to configure the following variables for your destination connector:
 | `INFLUXDB_TOKEN` | Authentication token to access InfluxDB. Configure as a secret type, so that your token is never revealed. |
 | `INFLUXDB_FIELD_KEYS` | These are the columns of rows of data that you want to write to the InfluxDB v3 database. |
 | `INFLUXDB_TAG_KEYS` | The metadata that you want to write to the InfluxDB v3 database. |
+| `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
+| `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
+| `CONSUMER_GROUP_NAME` | The name of the consumer group to use when consuming from Kafka. |
+
 
 !!! tip
 
@@ -58,7 +63,7 @@ You'll need to configure the following variables for your destination connector:
 
 ## See also
 
-If you are new to Quix you could try our [Quickstart](../../../get-started/quickstart.md) and then complete the [Quix Tour](../../../get-started/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
+If you are new to Quix you could try our [Quickstart](../../../quix-cloud/quickstart.md) and then complete the [Quix Tour](../../../quix-cloud/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
 
 There is an [in-depth step-by-step tutorial](../../../tutorials/influxdb-migration/overview.md) available on migrating InfluxDB v2 data to InfluxDB v3.
 
