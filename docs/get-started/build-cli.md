@@ -16,7 +16,7 @@ Sign up [here](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 
 !!! tip 
 
-    If you are prompted to create a project, please just create a default configuration project (1-click) option. You won't be using it in this tutorial, as you'll be creating a project based on a Git repository in a later step.
+    If you are prompted to create a project, please just create one with the default (1-click) option. You won't be using it in this tutorial, as you'll be creating a project based on a Git repository in a later step.
 
 ## Step 3: Log in using the CLI
 
