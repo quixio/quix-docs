@@ -5,7 +5,7 @@ search:
   boost: 3
 ---
 
-# Overview
+# Overview - InfluxDB
 
 [InfluxDB](https://www.influxdata.com/products/influxdb-overview/){target=_blank} is an open-source time series database. It is used for storage and retrieval of time series and event data in fields such as operations monitoring, application metrics, Internet of Things (IoT) sensor data, and real-time analytics.    
 

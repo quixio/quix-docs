@@ -36,7 +36,7 @@ Now generate the actual data for use later in the tutorial by completing the fol
 
 5. Make sure `Topic` is set to `f1-data` and then click `Deploy`.
 
-Once this service is deployed it will run as a [job](../../get-started/glossary.md#job) and generate real-time data to the `f1-data`, and this will be persisted. 
+Once this service is deployed it will run as a [job](../../kb/glossary.md#job) and generate real-time data to the `f1-data`, and this will be persisted. 
 
 This data is retrieved later in this tutorial using Python code that uses the [Query API](../../apis/query-api/overview.md), generated for you by Quix.
 

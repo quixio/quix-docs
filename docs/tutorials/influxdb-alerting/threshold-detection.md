@@ -1,6 +1,6 @@
 # Add a CPU load threshold detection transform
 
-You now add a transform to detect when CPU threshold is exceeded. Click `Add new` on the output of your external source, and add the `Starter transformation SDF`. 
+You now add a transform to detect when CPU threshold is exceeded. Click `Add new` on the output of your external source, and add the `Starter transformation`. 
 
 You can use the defaults, or rename your transform to something like `CPU Threshold`. 
 
@@ -12,7 +12,7 @@ You'll replace the code in `main.py` with the following:
 import os
 from quixstreams import Application
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
@@ -64,7 +64,7 @@ import os
 from quixstreams import Application
 from datetime import timedelta
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
@@ -107,7 +107,7 @@ Replace the code in `main.py` with the windowing code, if you want to test that 
     from quixstreams import Application, State
     from datetime import timedelta
 
-    app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+    app = Application()
 
     input_topic = app.topic(os.environ["input"])
     output_topic = app.topic(os.environ["output"])

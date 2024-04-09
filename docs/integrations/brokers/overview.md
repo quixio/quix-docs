@@ -3,7 +3,7 @@ title: Brokers for Quix
 description: Brokers that can be used with Quix.
 ---
 
-# Overview
+# Overview - Brokers
 
 While Quix has Kafka built in, it is also possible to use a third-party Quix broker, on a per-environment basis. You can have different brokers servicing different environments.
 

@@ -47,7 +47,8 @@ layers:
         style: SemiBold
 
 #Page title text
-  - size: { width: 768, height: 336 }
+#  - size: { width: 768, height: 336 }
+  - size: { width: 768, height: 190 }
     offset: { x: 144, y: 126 }
     typography:
       content: *page_title
@@ -61,9 +62,10 @@ layers:
         family: Inter
         style: SemiBold
 
-#Page title text
+#Page description text
   - size: { width: 768, height: 336 }
-    offset: { x: 144, y: 235 }
+#    offset: { x: 144, y: 235 }
+    offset: { x: 144, y: 245 }
     typography:
       content: *page_description
       overflow: shrink

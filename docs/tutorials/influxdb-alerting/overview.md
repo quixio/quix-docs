@@ -9,14 +9,10 @@ In this tutorial you learn how to create a CPU overload alerting pipeline with Q
 
 You gather CPU data from your laptop, and store this directly in InfluxDB. You also add a real-time event detection transform to detect if your CPU exceeds a threshold value, and if so, sends an alert to PagerDuty.
 
-!!! note
-
-    This tutorial uses Quix Streams v2.
-
 ## Technologies used
 
 * [Quix Cloud](https://quix.io/){target=_blank}
-* [Quix Streams v2](https://github.com/quixio/quix-streams){target=_blank}
+* [Quix Streams](https://github.com/quixio/quix-streams){target=_blank}
 * [InfluxDB](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
 * [PagerDuty](https://www.pagerduty.com/){target=_blank}
 
@@ -30,7 +26,7 @@ To complete this tutorial you'll need to:
 
 * [Obtain a free Quix account](https://portal.platform.quix.io/self-sign-up)
 * [Create a project in Quix Cloud](../../create/create-project.md)
-* [Install Quix Streams v2](https://github.com/quixio/quix-streams?tab=readme-ov-file#install-quix-streams){target=_blank}
+* [Install Quix Streams](https://github.com/quixio/quix-streams?tab=readme-ov-file#install-quix-streams){target=_blank}
 * Optionally sign up for [PagerDuty](https://www.pagerduty.com/){target=_blank} (to send alerts)
 
 !!! tip

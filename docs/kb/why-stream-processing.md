@@ -1,6 +1,6 @@
 ---
 title: Why use stream processing?
-description: This page describes some of the benefits of the stream processing approach, and somne typical use cases.
+description: This page describes some of the benefits of the stream processing approach, and some typical use cases.
 ---
 
 # Why use stream processing?

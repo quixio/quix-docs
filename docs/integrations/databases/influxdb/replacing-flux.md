@@ -29,7 +29,7 @@ import os
 from quixstreams import Application, State
 from datetime import timedelta
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
@@ -71,7 +71,7 @@ See the [Quix Streams documentation](https://quix.io/docs/quix-streams/introduct
 
 ## Converting data
 
-Sometimes you need to convert data from one format to another. This can be done with great flexibility in Python. For example, in IoT applications, some smart devices send data in [MessagePack](https://msgpack.org/){target=_blank} format. For example, here's the CPU example from the [Quix Quickstart](../../../get-started/quickstart.md) converted to pack data in MessagePack format:
+Sometimes you need to convert data from one format to another. This can be done with great flexibility in Python. For example, in IoT applications, some smart devices send data in [MessagePack](https://msgpack.org/){target=_blank} format. For example, here's the CPU example from the [Quix Quickstart](../../../quix-cloud/quickstart.md) converted to pack data in MessagePack format:
 
 ``` python
 import psutil, time, os, msgpack
@@ -80,7 +80,7 @@ from quixstreams import Application
 from dotenv import load_dotenv
 load_dotenv()
 
-app = Application.Quix()
+app = Application()
 
 output_topic = app.topic("cpu-load", value_serializer="bytes")
     
@@ -127,7 +127,7 @@ load_dotenv()
 def unpack(row):
     return msgpack.unpackb(row)
 
-app = Application.Quix("transformation-v1", auto_offset_reset="latest")
+app = Application()
 
 input_topic = app.topic(os.environ["input"], value_deserializer="bytes")
 output_topic = app.topic(os.environ["output"], value_serializer="json")

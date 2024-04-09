@@ -58,7 +58,7 @@ To add a PagerDuty alerting destination to your pipeline:
             print(row)  
         return
 
-    app = Application.Quix("pagerduty-v1", auto_offset_reset="latest")
+    app = Application()
     input_topic = app.topic(os.environ["input"])
 
     sdf = app.dataframe(input_topic)

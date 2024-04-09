@@ -21,10 +21,7 @@ def get_cpu_load():
         "timestamp": int(time.time_ns()),
     }
 
-app = Application.Quix(
-    consumer_group="cpu_load", 
-    auto_create_topics=True,
-)
+app = Application()
 
 serializer = JSONSerializer()
 output_topic = app.topic("cpu-load")

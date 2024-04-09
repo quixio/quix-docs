@@ -13,10 +13,7 @@ import json
 import hmac
 import hashlib
 
-app = Application.Quix(
-    consumer_group="sample_webhook_group",
-    auto_create_topics=True,
-)
+app = Application()
 
 serializer = JSONSerializer()
 output_topic = app.topic(os.environ["output"])

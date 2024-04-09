@@ -20,7 +20,7 @@ def get_cpu_load():
     cpu_load = psutil.cpu_percent(interval=1)
     return cpu_load
 
-app = Application.Quix()
+app = Application()
 output_topic = app.topic(os.environ["output"])
 
 def main():

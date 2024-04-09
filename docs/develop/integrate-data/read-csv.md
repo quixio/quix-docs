@@ -49,7 +49,7 @@ from quixstreams import Application
 load_dotenv()
 
 # Create an Application to connect to the Quix broker with SDK token
-app = Application.Quix()
+app = Application()
 
 # Define an output topic
 output_topic = app.topic(os.environ["output"])

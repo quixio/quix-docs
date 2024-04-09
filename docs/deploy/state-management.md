@@ -63,10 +63,7 @@ def count_messages(value: dict, state: State):
 
 load_dotenv()
 
-app = Application.Quix(
-    consumer_group="cpu_load", 
-    auto_create_topics=True,
-)
+app = Application()
 
 topic = app.topic('cpu-load')
 sdf = app.dataframe(topic)
