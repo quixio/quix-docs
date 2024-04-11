@@ -19,6 +19,82 @@ Changelogs for previous years can be found [here](#changelog-archives).
 - Variables weren't updating in the deployments dialogue
 - External topics weren't being recognised by new deployments
 
+## 2024-04-01 | 01 APRIL 2024
+
+`NEW FEATURES`
+
+- `Latest` feature allows users to indicate deployments that should always be using the latest version of application code
+    - Changes in Deployment dialog (`latest` by default now)
+    - Sync header for when deployments tagged to use `Latest` are outdated due to updates in their respective *Application*
+    - Version label showing `Latest`, `Outdated`, or pinned version number
+    - Pipeline deployment cards to indicate useage of `Latest` versions and outdated deployments
+    - Sync process to update outdated deployments to `latest` versions
+- YAML
+    - New header to centralize Environment information, YAML and status
+- CLI
+    - New Local development CLI commands
+        - `quix local init`: Generates initial quix files based on the existing repo (app.yaml, quix.yaml, dockerfile)
+        - `quix local variables`: Performs Application variables related operations including import / export to .env files.
+        - `quix local applications`: Manage Applications locally (create, list)
+        - `quix local deployments`: Manages Deployments locally (quix.yaml)
+        - `quix local deploy`: Deploy an application locally (quix.yaml), push code and syncronize to remote in a single command
+        - `quix use`: Sets the default environment of your context (interactive)
+    - Removed colors from json outputs for better integrations with external tools
+- Code samples
+    - Refactored samples library to use latest version of Quix Streams (>2.0)
+    - Cleaned some non-relevant library items
+- Topics
+    - Topic “Consumers” tab: New view to query topic consumer groups information including “End offsets”, “Lag” and “Progress” of the consumer.
+
+`IMPROVEMENTS`
+
+- Applications
+    - Removed branch dropdown selector for simplified workflow after `latest` feature release
+- Deployments
+    - Improved performance on Deployments list page
+- Templates
+    - Cloning a template is now using `latest` version feature instead of pinned version
+- Topics
+    - Added support for Quix Streams (>2.0) Json messages on Live view - Waveform / Table
+    - Added support for Quix Streams (>2.0) Json messages on Persistance feature
+    - Removed SDK topics from Topic lists and YAML tracking
+    - Messages tab
+        - Increased debounce for custom offset field to prevent overload of network calls to retreive data
+        - Placeholder for messages JSON viewer if the data is of an invalid format
+- Pipeline
+    - Pipeline empty state CTA for *Demo Data* takes you directly to the *deploy* page
+    - Topic arrows now take you directly to the *Topic* *details* page
+- Code Samples
+    - Library item CTA updated to `Save to your repo`
+- Data Explorer
+    - Location dropdowns display full path of file tree
+- Other
+    - Exceptions are now returned when trying to validate an external git during *Project* creation
+    - Improved websocket reconnections
+    - Implemented more loading states to CTAs
+
+`BUG FIXES`
+
+- Deployments
+    - Fixed a bug where Logs view was stuck in “Retreiving metrics” state when the deployment was not producing logs.
+    - Downloading build logs was not working in some edge cases
+    - Switching to stopped deployment from lineage was showing build logs of previous deployment
+    - Deployment logs weren’t loading due to short timeout duration
+- YAML
+    - Disable `Edit code` button when page is loading
+    - Fixed an issue with the Sync process when a Deployment was not containing any variable
+- Applications
+    - Fixed “file not found” issue for files defined in *app.yaml* that don’t exist in the application
+- Topics
+    - `Retry` CTA for failed topic creation was not sending original topic config
+    - Lock icon was missing in *Topic details* page for external topics
+    - *Topic detail* lineage was sometimes displaying deployment on the wrong side
+- Pipeline
+    - Topic was missing when creating an *application* from the pipeline placeholder cards
+- Other
+    - Minor UI fixes to components
+    - Various console errors cleaned up
+
 ## 2024-03-02-topic-details-hf | 13 MARCH 2024
 
 `IMPROVEMENTS`
