@@ -1,15 +1,8 @@
-# Quix product changelog
+# Quix Cloud changelog
 
-This is the product changelog for the current year. 
+This is the Quix Cloud changelog for the current year. 
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
-
-## Changelog archives
-
-Changelogs for previous years can be found [here](#changelog-archives).
-
-* [2022](./changelogs/2022-archive.md)
-* [2023](./changelogs/2023-archive.md)
 
 ## 2024-04-02 | 08 APRIL 2024
 
@@ -389,3 +382,10 @@ Changelogs for previous years can be found [here](#changelog-archives).
     - Error messages kept visible in various dialogues of the UI
     - Restricted some reserved organization names that were causing issues in some internal services
     - Various UI width fixes
+ 
+## Changelog archives
+
+Changelogs for previous years can be found [here](#changelog-archives).
+
+* [2022](./changelogs/2022-archive.md)
+* [2023](./changelogs/2023-archive.md)
