@@ -25,7 +25,13 @@ nav:
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
-      - 'Build a pipeline': 'get-started/build-cli.md'
+      - 'Build a pipeline': 
+        - 'Create a project': 'get-started/cli-create-project.md'
+        - 'Add a source': 'get-started/cli-add-source.md'
+        - 'Add a transform': 'get-started/cli-add-transform.md'
+        - 'Add a destination': 'get-started/cli-add-destination.md'
+        - 'Sync to Cloud': 'get-started/cli-sync-to-cloud.md'
+
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
@@ -328,7 +334,7 @@ plugins:
         'get-started/what-is-kafka.md': 'kb/what-is-kafka.md'
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
-
+        'get-started/build-cli.md' : 'get-started/cli-create-project.md'
 
 theme:
   name: 'material'
