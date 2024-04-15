@@ -35,12 +35,19 @@ If you're not logged into Cloud, you'll be prompted to log in.
 To sync your application, change into the `F1 demo data` directory and enter:
 
 ```
-quix local deploy --push --sync
+quix local deploy --push --sync --override-with-default-values
 ```
 
-This updates your `quix.yaml` project file, and pushes all changes to your Git repository.
+This updates your `quix.yaml` project file, and pushes all changes to your Git repository. This also makes sure your Quix environment is synched with the corresponding Git repository, and that your changes to default values in the local `app.yaml` files are also reflected in the Quix environment.
 
 ## Step 5: See your pipeline running
 
 In Quix Cloud, go to pipeline view, and see your pipeline running, with your F1 demo data source running.
 
+![CLI pipeline](../images/cli-pipeline.png)
+
+## Next steps
+
+* []()
+* []()
+* []()
