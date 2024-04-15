@@ -26,6 +26,7 @@ nav:
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
       - 'Build a pipeline': 
+        - 'Overview': 'get-started/cli-build-pipeline.md'
         - 'Create a project': 'get-started/cli-create-project.md'
         - 'Add a source': 'get-started/cli-add-source.md'
         - 'Add a transform': 'get-started/cli-add-transform.md'
