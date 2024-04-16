@@ -14,7 +14,7 @@ The [forecasting algorithm](./forecast-service.md) that attempts to estimate whe
 
 ## Data published
 
-The generated data is published to the `3d-printer-data` topic:
+The generated data is published to the `json-3d-printer-data` topic:
 
 * Ambient temperature
 * Ambient temperature with fluctuations
@@ -33,35 +33,13 @@ If you look at the messages in the `Messages` view, you'll see data has the foll
 
 ``` json
 {
-  "Epoch": 0,
-  "Timestamps": [
-    1701277527000000000
-  ],
-  "NumericValues": {
-    "hotend_temperature": [
-      250.8167407832582
-    ],
-    "bed_temperature": [
-      106.9299672495977
-    ],
-    "ambient_temperature": [
-      36.92387946005222
-    ],
-    "fluctuated_ambient_temperature": [
-      36.92387946005222
-    ]
-  },
-  "StringValues": {
-    "original_timestamp": [
-      "2023-11-29 17:05:27"
-    ]
-  },
-  "BinaryValues": {},
-  "TagValues": {
-    "printer": [
-      "Printer 72"
-    ]
-  }
+  "hotend_temperature": 249.52922614294954,
+  "bed_temperature": 110.12854118355098,
+  "ambient_temperature": 38.70099292962708,
+  "fluctuated_ambient_temperature": 38.70099292962708,
+  "timestamp": "2024-04-16T17:07:03.717628",
+  "original_timestamp": "2024-04-16T17:07:03.717628",
+  "printer": "Printer 33"
 }
 ```
 
@@ -91,15 +69,15 @@ Review the code, you'll see that data is generated for each printer, and each pr
 tasks = []
 printer_data = generate_data()
 
-# Distribute all printers over the data length
-delay_seconds = int(os.environ['datalength']) / replay_speed / number_of_printers
+# Distribute all printers over the data length (defaults to 60 seconds)
+delay_seconds = get_data_length() / replay_speed / number_of_printers
 
 for i in range(number_of_printers):
-    # Set stream ID or leave parameters empty to get stream ID generated.
+    # Set MessageKey/StreamID or leave parameters empty to get a generated message key.
     name = f"Printer {i + 1}"  # We don't want a Printer 0, so start at 1
 
     # Start sending data, each printer will start with some delay after the previous one
-    tasks.append(asyncio.create_task(generate_data_and_close_stream_async(topic_producer, name, printer_data.copy(), delay_seconds * i)))
+    tasks.append(asyncio.create_task(generate_data_async(topic, producer, name, printer_data.copy(), int(delay_seconds * i))))
 
 await asyncio.gather(*tasks)
 ```

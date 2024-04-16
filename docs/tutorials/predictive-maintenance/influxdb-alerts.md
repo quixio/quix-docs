@@ -4,7 +4,7 @@ This service uses the standard Quix InfluxDB 3.0 [connector](../../connectors/in
 
 ![InfluxDB raw data pipeline segment](./images/influxdb-alerts-pipeline-segment.png)
 
-In this pipeline the connector subscribes to the `alerts` topic, and writes these messages into InfluxDB for permanent storage.
+In this pipeline the connector subscribes to the `json-alerts` topic, and writes these messages into InfluxDB for permanent storage.
 
 
 ## Query the data in InfluxDB
@@ -17,4 +17,5 @@ Explore the table of data to ensure you are familiar with the data stored.
 
 ## 🏃‍♀️ Next step
 
-[Part 8 - Printers dashboard :material-arrow-right-circle:{ align=right }](./printers-dashboard.md)
+<!-- [Part 8 - Printers dashboard :material-arrow-right-circle:{ align=right }](./printers-dashboard.md) -->
+[Part 8 - Summary :material-arrow-right-circle:{ align=right }](./summary.md)

@@ -4,47 +4,60 @@ This service reduces the sampling rate of data from one per second to one per mi
 
 ![Downsampling pipeline segment](./images/downsampling-pipeline-segment.png)
 
-The service uses a buffer to buffer data for one minute before releasing. 
+Data is aggreagted using a 10 second tumbling window:
 
 ``` python
-# buffer 1 minute of data
-buffer_configuration = qx.TimeseriesBufferConfiguration()
-buffer_configuration.time_span_in_milliseconds = 1 * 60 * 1000
+# create a tumbling window of 10 seconds
+# use the reducer and initializer configured above
+# get the 'final' values for the window once the window is closed.
+sdf = (
+    sdf.tumbling_window(timedelta(seconds=10))
+    .reduce(reducer=reducer, initializer=initializer)
+    .final()
+)
 ```
 
-During the buffering the data is aggregated in the dataframe handler:
+The initializer and reducxer are shown here:
 
 ``` python
-def on_dataframe_received_handler(originating_stream: qx.StreamConsumer, df: pd.DataFrame):
-    if originating_stream.properties.name is not None and stream_producer.properties.name is None:
-        stream_producer.properties.name = originating_stream.properties.name + "-down-sampled"
+def reducer(state: dict, value: dict) -> dict:
+    """
+    'reducer' will be called for every message except the first.
+    We add the values to sum them so we can later divide by the 
+    count to get an average.
+    """
 
-    # Identify numeric and string columns
-    numeric_columns = [col for col in df.columns if not col.startswith('TAG__') and
-                        col not in ['time', 'timestamp', 'original_timestamp', 'date_time']]
-    string_columns = [col for col in df.columns if col.startswith('TAG__')]
+    state['sum_hotend_temperature'] += value['hotend_temperature']
+    state['sum_bed_temperature'] += value['bed_temperature']
+    state['sum_ambient_temperature'] += value['ambient_temperature']
+    state['sum_fluctuated_ambient_temperature'] += value['fluctuated_ambient_temperature']
+    state['sum_count'] += 1
+    return state
 
-    # Create an aggregation dictionary for numeric columns
-    numeric_aggregation = {col: 'mean' for col in numeric_columns}
+def initializer(value: dict) -> dict:
+    """
+    'initializer' will be called only for the first message.
+    This is the time to create and initialize the state for 
+    use in the reducer funciton.
+    """
 
-    # Create an aggregation dictionary for string columns (keeping the last value)
-    string_aggregation = {col: 'last' for col in string_columns}
-
-    # Merge the two aggregation dictionaries
-    aggregation_dict = {**numeric_aggregation, **string_aggregation}
-
-    df["timestamp"] = pd.to_datetime(df["timestamp"])
-
-    # resample and get the mean of the input data
-    df = df.set_index("timestamp").resample('1min').agg(aggregation_dict).reset_index()
-
-    # Send filtered data to output topic
-    stream_producer.timeseries.buffer.publish(df)
+    return {
+        'sum_hotend_temperature': value['hotend_temperature'],
+        'sum_bed_temperature': value['bed_temperature'],
+        'sum_ambient_temperature': value['ambient_temperature'],
+        'sum_fluctuated_ambient_temperature': value['fluctuated_ambient_temperature'],
+        'sum_timestamp': value['timestamp'],
+        'sum_original_timestamp': value['original_timestamp'],
+        'sum_printer': value['printer'],
+        'sum_count': 1
+    }
 ```
 
-The aggregated data is published to the output stream (one stream for each printer).
+The result is tyhat the mean is calculated for the temperatures over the period of the tumbling window.
 
-The output topic for the service is `downsampled-3d-printer-data`. Other services such as the Forecast service, and the InfluxDB raw data storage service subscribe to this topic.
+The aggregated data is published to the output topic.
+
+The output topic for the service is `json-downsampled-3d-printer-data`. Other services such as the Forecast service, and the InfluxDB raw data storage service subscribe to this topic.
 
 ## 🏃‍♀️ Next step
 
