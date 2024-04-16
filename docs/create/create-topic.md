@@ -1,16 +1,16 @@
 # Create a topic
 
-Typically, when you deply a configured service, topics will be created automatically for you, with default settings. However, you can create topics manually and configure the topic settings.
+Typically, when you deploy a configured service, topics will be created automatically for you, with default settings. However, you can create topics manually and configure the topic settings.
 
 To create a topic:
 
-1. On the right-hand main menu, click `Topics`.
+1. On the left-hand main menu, click `Topics`.
 2. In the top right of the screen click `+ New topic`. The `New topic` dialog is displayed:
 
     ![New topic dialog](../images/new-topic-dialog.png)
 
 3. Give your topic a suitable name.
-4. If you want to set some specific parameters for the topic, click `Advanced settings` to display the panel with configurable parameters for your broker.
+4. If you want to set some specific parameters for the topic, click `Advanced settings` to display the panel with [configurable parameters](#advanced-settings) for your broker.
 5. Once you've configured your topic, click `Create`.
 
 The system will then create the topic, which might take a few moments.
@@ -27,4 +27,4 @@ The parameters in the `Advanced settings` panel are as follows:
 
 ## To change the advanced settings
 
-In the `Topics` view, hover over the topic you want to edit until the kebab menu (vertical dots) is display. Click the kebab menu, and then select `Edit topic`. Change your configuration as required. Click `Save` and your changes are applied to the topic.
+In the `Topics` view, hover over the topic you want to edit until the kebab menu (vertical dots) is displayed. Click the kebab menu, and then select `Edit topic`. Change your configuration as required. Click `Save` and your changes are applied to the topic.
