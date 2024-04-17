@@ -4,18 +4,9 @@ Sometimes you want a Quix Streams client to initially use one environment, and t
 
 In Quix Streams a [streaming token](../develop/authentication/streaming-token.md) is used to authenticate Quix Streams with a specific environment. Each streaming token is scoped to one environment - this is the environment in which it is obtained. For example, if you obtain the token from your production envuironment, then it is scoped to work only with that environment.
 
-If your client needs to connect to different environments, then you can store your tokens in a `.env` file and select the token based on which environment you want to connect to. 
+## Using the CLI to select an environment
 
-For example, a `.env` file would contain:
-
-```
-# Streaming token for production environment
-#Quix__Sdk__Token="sdk-12..ef"
-# Streaming token for testing environment
-Quix__Sdk__Token="sdk-49..a5"
-```
-
-In this example the client will connect to the testing environment.
+If your client needs to connect to different environments, then you can use the Quix CLI select the environment you want to connect to. First you can use the `quix context use` command to select your context. You might want to connect to a local broker for testing and development, and then subsequently switch to a different context such as a production server in Quix Cloud. Then, use the command `quix use` to select the required project, and then select the environment within that project you want to connect to. This will set the local environment appropriately for you.
 
 Alternatively, you can specify the SDK token directly in your client code. This is done when creating the `Application` object in your Quix Streams client, for example:
 
@@ -23,7 +14,13 @@ Alternatively, you can specify the SDK token directly in your client code. This 
 Application(quix_sdk_token="sdk-49..a5")
 ```
 
-This value overrides the `Quix__Sdk__Token` environment variable.
+This value overrides the `Quix__Sdk__Token` environment variable, which is set for you automatically when running code in Quix Cloud, or any local environment you may have set through using Quix CLI or environment files or variables.
+
+## Topic names across multiple environments
+
+Topics have a topic name and a topic ID. The topic name is a short textual name which may be the same across multiple environments. The topic ID uniquely identifies the topic across all organizations, projects, and environments. 
+
+As streaming tokens are scoped to a specific environment, it means you can specify a topic name, even if that same topic name is used across multiple environments. This is because the topic ID is automatically used for you, based on the streaming token used. For example, if you had a topic called `f1-data` in production and development environments, you could simply use the topic name of `f1-data` in your code, regardless of the environment you're connecting to. In production, the topic ID might be `orgname-projectname-prod-f1-data`, and in development it might be `orgname-projectname-dev-f1-data`, however, the correct topic ID is automatically used by Quix Streams, as the environment is identified in the token, and therefore the correct prefix to the topic name can be generated.
 
 !!! tip
 

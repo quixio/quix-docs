@@ -4,24 +4,9 @@ A streaming token is a type of bearer token that can be used to authenticate you
 
 !!! important
 
-	Each Quix environment comes with one of these tokens, limited in use to that specific environment. If your client needs to connect to different environments, say for testing purposes, then you can store your tokens in a `.env` file and select the token based on which environment you want to connect to. A `.env` file would contain:
+	Each Quix environment comes with one of these tokens, limited in use to that specific environment. For example, if you obtain a streaming token from your production environment, the the streaming token is scoped to only authenticate connection of the client to the production environment.
 
-	```
-	# Token for production environment
-	#Quix__Sdk__Token="sdk-12..ef"
-	# Token for testing environment
-	Quix__Sdk__Token="sdk-49..a5"
-	```
-
-	In the previous example the client is configured to connect to the testing environment.
-	
-	Alternatively, you can specify the SDK token directly. This is done when creating the `Application` object in your Quix Streams client, for example:
-
-	``` python
-	Application(quix_sdk_token="sdk-49..a5")
-	```
-
-	This value overrides the `Quix__Sdk__Token` environment variable.
+As streaming tokens are scoped to a specific environment, it means you can specify a topic name, even if that same topic name is used across multiple environments. This is because the topic ID is automatically used for you, based on the streaming token used. For example, if you had a topic called `f1-data` in production and development environments, you could simply use the topic name of `f1-data` in your code, regardless of the environment you're connecting to. In production, the topic ID might be `orgname-projectname-prod-f1-data`, and in development it might be `orgname-projectname-dev-f1-data`, however, the correct topic ID is automatically used by Quix Streams, as the environment is identified in the token, and therefore the correct prefix to the topic name can be generated.
 
 ## How to get a streaming token
 
