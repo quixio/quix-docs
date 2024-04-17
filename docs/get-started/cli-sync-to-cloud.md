@@ -46,8 +46,6 @@ In Quix Cloud, go to pipeline view, and see your pipeline running, with your F1 
 
 ![CLI pipeline](../images/cli-pipeline.png)
 
-## Next steps
+## Next step
 
-* []()
-* []()
-* []()
+* [CLI reference guide](../kb/cli.md)
