@@ -104,6 +104,7 @@ nav:
         - 'MLOps': 'manage/MLOps.md'
         - 'Using replay service': 'manage/replay.md'
         - 'Testing using Quix data store': 'manage/testing-data-store.md'
+        - 'Testing multiple environments': 'manage/testing-environments.md'
         - 'Query API': 
           - 'Overview': 'apis/query-api/overview.md'
           - 'Setup': 'apis/query-api/setup.md'

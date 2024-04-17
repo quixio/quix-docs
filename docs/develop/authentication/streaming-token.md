@@ -2,7 +2,26 @@
 
 A streaming token is a type of bearer token that can be used to authenticate your client library (Quix Streams) to access functionality necessary for streaming actions. Think of streaming tokens as a token you use to access Quix, but with limited scope.
 
-Each environment comes with one of these tokens, limited in use for that specific environment.
+!!! important
+
+	Each Quix environment comes with one of these tokens, limited in use to that specific environment. If your client needs to connect to different environments, say for testing purposes, then you can store your tokens in a `.env` file and select the token based on which environment you want to connect to. A `.env` file would contain:
+
+	```
+	# Token for production environment
+	#Quix__Sdk__Token="sdk-12..ef"
+	# Token for testing environment
+	Quix__Sdk__Token="sdk-49..a5"
+	```
+
+	In the previous example the client is configured to connect to the testing environment.
+	
+	Alternatively, you can specify the SDK token directly. This is done when creating the `Application` object in your Quix Streams client, for example:
+
+	``` python
+	Application(quix_sdk_token="sdk-49..a5")
+	```
+
+	This value overrides the `Quix__Sdk__Token` environment variable.
 
 ## How to find
 
