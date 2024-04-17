@@ -1,6 +1,6 @@
 # Testing multiple environments
 
-Sometimes you want a Quix Streams client to initially use one environemtn, and then configure it to work with another environment. This is sometimes done to test different environments. This can be achieved by simply changing the streaming token, also known as the SDK token, used to authenticate your Quix Streams client.
+Sometimes you want a Quix Streams client to initially use one environment, and then configure it to work with another environment. This is sometimes done to test different environments. This can be achieved by simply changing the streaming token used to authenticate your Quix Streams client.
 
 In Quix Streams a [streaming token](../develop/authentication/streaming-token.md) is used to authenticate Quix Streams with a specific environment. Each streaming token is scoped to one environment - this is the environment in which it is obtained. For example, if you obtain the token from your production envuironment, then it is scoped to work only with that environment.
 
@@ -15,7 +15,7 @@ For example, a `.env` file would contain:
 Quix__Sdk__Token="sdk-49..a5"
 ```
 
-In the previous example the client is configured to connect to the testing environment.
+In this example the client will connect to the testing environment.
 
 Alternatively, you can specify the SDK token directly in your client code. This is done when creating the `Application` object in your Quix Streams client, for example:
 
