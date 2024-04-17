@@ -1,6 +1,6 @@
 # Streaming token
 
-A streaming token is a type of bearer token that can be used to authenticate your client library (Quix Streams) to access functionality necessary for streaming actions. Think of streaming tokens as a token you use to access Quix, but with limited scope.
+A streaming token is a type of bearer token that can be used to authenticate your client library (Quix Streams) to access functionality necessary for streaming actions. Think of a streaming token as a token you use to access Quix, but with limited scope.
 
 !!! important
 
@@ -23,13 +23,13 @@ A streaming token is a type of bearer token that can be used to authenticate you
 
 	This value overrides the `Quix__Sdk__Token` environment variable.
 
-## How to find
+## How to get a streaming token
 
 You can access these tokens by logging into Quix and clicking on `Settings` in the main left-hand navigation. Select your environment, and then click on `APIs and tokens` and then click on `Streaming Tokens`.
 
 If you are looking for a bearer token to access the Quix APIs, such as the Portal API, you can select `Personal Access Tokens`. These are custom JWTs.
 
-## How to use
+## How to use a streaming token
 
 The streaming token is primarily used to authenticate the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html).
 
@@ -39,7 +39,7 @@ When using Quix Streams in Quix Cloud, you no longer need to provide all broker 
 
 	Streaming  tokens do not have an expiration date. Treat them as you would a password. If you think they’re exposed, rotate them.
 
-## Rotating
+## Rotating your token
 
 If you suspect your streaming token may have been exposed, best practice is to rotate it. Within the `Streaming token` dialog, click `rotate them` to display the `Rotating streaming tokens` dialog. Two tokens are then displayed.
 
