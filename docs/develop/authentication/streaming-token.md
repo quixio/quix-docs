@@ -39,3 +39,7 @@ You have two main options regarding how you rotate:
 !!! note
 
 	Only users with Admin role can rotate.
+
+## See also
+
+* [Testing multiple environments](../../manage/testing-environments.md)
