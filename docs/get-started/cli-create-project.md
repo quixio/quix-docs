@@ -7,10 +7,6 @@ description: You install the Quix CLI and create a simple project, with a pipeli
 
 In previous sections of the documentation you explored using Quix Streams. You now continue your journey on the command line by installing the Quix CLI, and then using it to connect with Quix Cloud. From your Git repository, you create a simple project on the command line, add a data source application, and then sync it with your Quix Cloud pipeline view.
 
-!!! tip
-
-    If you'd rather use the cloud, sign up to [Quix Cloud for free](https://portal.platform.quix.io/self-sign-up){target=_blank}, and then build a stream processing pipeline with Quix Streams and Quix Cloud in under ten minutes.
-
 ## Step 1: Create a Git repository
 
 Create a Git repo where you can store your files, for example you could use GitHub. Create a repo initialized with a `README.md` file, so it can be cloned more easily. 
