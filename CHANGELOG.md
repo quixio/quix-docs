@@ -4,6 +4,84 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+## 2024-04-03-performance | 17 APRIL 2024
+
+`NEW FEATURES`
+
+- Deployments
+    - Add the ability to expose ports internally in the pipeline via YAML
+    
+        ```jsx
+        deployments:
+          - name: Demo Data
+            ...
+            network:
+              serviceName: MyServiceInternalName
+              ports:
+                - port: 8080
+                  targetPort: 4000
+        ```
+    
+- CLI
+    - New Local development CLI commands
+        - `quix local ide`:  Sets up everything needed for local development of your application and opens your local IDE
+        - `quix context broker`:  New set of commands to manage local broker configuration including the ability to switch between Cloud and Local broker.
+    - Improvements on Local development CLI commands
+        - `quix local variables`: Added basic and interactive CRUD operations for application variables
+        - `quix local applications create`: Added interactive application creation with highlighted items and filter selection
+        - `quix local deploy`: Improved command behaviour and warnings when dealing with versions and sync operations afecting other parts of the pipeline.
+        - `quix local application convert`: Add new command to convert from app.yaml to library.json and viceversa to help on Code samples library development.
+        - Other improvements:
+            - Added interactive application selection in several commands when the current folder is not an application
+            - Improved json outputs when returning a single object for better integrations with external tools
+            - Improved .env file local IDE integration to remove the need of using dotenv library in the code
+            - Added support for PyCharm IDE (`quix local init`, `quix local ide`)
+            - Added `--all` option to `quix local deploy` command to allow to redeploy all the applications that have a deployment already existing in the pipeline
+
+`IMPROVEMENTS`
+
+- Builds
+    - Performance improvements on build process time
+- Environments
+    - Added “Change environment branch” option to Environment header
+- Topics
+    - Performance improvements on topic list loading time
+    - Added new filter “Show SDK topics” to expose special Quix Streams SDF managed topics and allow to delete them manually
+- YAML
+    - Performance improvements on Sync process
+    - Improved environment status UI component when the YAML doesn’t exist but the user modifies YAML variables.
+- Pipeline
+    - Performance improvements on Pipeline loading times
+- Deployments
+    - Performance improvements on Deployment list loading time
+    - Added replica identifier as injected environment variable `Quix__Deployment__ReplicaName`
+    - Switch to deployment logs automatically after build process finishes and the deployments starts
+- Other
+    - Improved general user feedback when clicking between options
+    - Improved PAT tokens empty states
+    
+`BUG FIXES`
+
+- Topics
+    - Fixed a null reference exception when the YAML wasn’t containing topic configuration and the user tried to edit it from the UI.
+    - Fixed a bug when Quix Streams was trying to create changelog topics on a Protected environment.
+    - Data was not shown properly when switching from Waveform view to Table view and the live data was paused.
+    - Partition filter was not working properly when using Live messages on Messages tab.
+    - Fixed a bug were some messages with timestamp properties were producing unexpected behaviors on Waveform and Table view features.
+- IDE
+    - Fixed several bugs when managing secrets from the Application variables editor
+    - Now the IDE is preventing to download files bigger than 2MB to protect the UI.
+    - Fixed a bug where the files were not selected correctly after leaving the editor without saving.
+- YAML
+    - Using YAML variables in topic names or deployment names was causing an exception on Sync process
+- Deployments
+    - Fixed a bug where the Edit deployment dialog was not loaded with the correct data correctly in some edge cases
+- Other
+    - Fixed a bug when switching environments where some websocket were not connecting properly to the environment.
+    - Fixed a bug on Ungated demos where the banner was dissapearing after refreshing the page.
+    - Copy button on Clone repository options was not copying to clipboard properly.
+    - Some issues and inconsistencies fixed in several UI components
+
 ## 2024-04-02 | 08 APRIL 2024
 
 `BUG FIXES`
