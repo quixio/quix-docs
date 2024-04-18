@@ -1,5 +1,7 @@
 # Sync to Quix Cloud
 
+In this section you sync your local project with Quix Cloud.
+
 ## Step 1: Sign up to Quix Cloud for free
 
 Sign up [here](https://portal.platform.quix.io/self-sign-up){target=_blank}.
@@ -18,7 +20,6 @@ In this step you create a project in Quix Cloud based on your Git repository.
 If you need help on creating a project, you can [read the documentation](../create/create-project.md).
 
 When you've created the project, switch back to the command line.
-
 
 ## Step 3: Log in using the CLI
 
