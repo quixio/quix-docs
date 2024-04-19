@@ -17,7 +17,7 @@ The [Quix CLI](https://github.com/quixio/quix-cli){target=_blank} is a powerful 
 
 View information about the CLI in the [GitHub repository](https://github.com/quixio/quix-cli){target=_blank}.
 
-## next steps
+## Next steps
 
 * [Step through a tutorial](./cli-build-pipeline.md)
 * [Read the reference guide](./cli-reference.md)

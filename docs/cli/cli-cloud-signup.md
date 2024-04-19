@@ -10,10 +10,11 @@ When you log into Quix Cloud, you'll be prompted to create a project.
 
 In this step you create a project in Quix Cloud based on your Git repository.
 
-1. Select `Quix advanced configuration` to continue creation of your project.
-2. Select your Git provider (for example, GitHub).
-3. Link the Quix project to your Git repository using the **setup guide** provided for your chosen Git provider.
-4. Use PROD for your environment, and make sure the `main` branch is selected.
+1. Give you project a suitable name, such as `Simple Pipeline`.
+2. Select `Quix advanced configuration` to continue creation of your project.
+3. Select your Git provider (for example, GitHub).
+4. Link the Quix project to your Git repository using the **setup guide** provided for your chosen Git provider.
+5. Use PROD for your environment, and make sure the `main` branch is selected.
 
 If you need help on creating a project, you can [read the documentation](../create/create-project.md).
 

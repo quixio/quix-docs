@@ -34,11 +34,9 @@ Run your source which will publish data to the `f1-data` topic. In the source ap
 python3 main.py
 ```
 
-If you get an error, you most likely need to create your local `.env` file, which you can do as before with `quix local variables export`.
-
 !!! tip
 
-    The required topic(s) are created. If your program creates a timeout error, it means the topic(s) are still being created. Simply wait a few moments and then try running the program again.
+    The required topic(s) are created. If your program generates a timeout error, it means the topic(s) are still being created. Simply wait a few moments and then try running the program again.
 
 You can leave your code running, create a new shell tab, and proceed to the next step.
 

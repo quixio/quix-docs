@@ -1,12 +1,12 @@
 # Add a transform
 
-Now add a transform using the CLI:
+Now add a transform using the CLI. In you project directory run the command:
 
 ```
 quix local app create starter-transformation
 ```
 
-This creates a starter transformation for you. Alternatively, you could type `quix local app create` and then interactively select the starter transform. You saw an example of this when adding the demo data source. You can call the transform `transform`, or any other name you like.
+This creates a starter transformation for you. Alternatively, you could type `quix local app create` and then interactively select the starter transform. You saw an example of this interactivity when adding the demo data source. You can call the transform `transform`, or any other name you like.
 
 ## Modify the transform code
 
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     app.run(sdf)
 ```
 
-This generates a message with the following format every 30 seconds:
+This publishes a message to the output topic, with the following format, every 30 seconds:
 
 ``` json
 {'average-speed': 249.04918032786884, 'time': 1713518340000}
@@ -117,7 +117,7 @@ This reads the `transform` topic (the output of your transformer) and prints out
 
 !!! tip
 
-    In your test program, you could have obtained the topic to read from the local `.env` file, rather than hard coding it, you'd load it with code similar to the following: `topic = app.topic(os.environ["output"])`.
+    In your test program, you could have loaded the topic to read from the local `.env` file, rather than hard coding it. You'd load it with code such as the following: `topic = app.topic(os.environ["output"])`. This would enable you perhaps use the same test code in multiple applications, without needed to edit the code to change the topic name.
 
 ## Next step
 
