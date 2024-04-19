@@ -10,7 +10,7 @@ This creates a starter destination for you. Alternatively, you could type `quix 
 
 ## Review the destination code
 
-The destination code is as follows:
+Replace the destination code completely with the following new code:
 
 ``` python
 from quixstreams import Application
@@ -19,39 +19,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# you decide what happens here!
-def sink(message):
-    value = message['mykey']
-    # write_to_db(value) # implement your logic to write data or send alerts etc
-
-    # for more help using QuixStreams see the docs:
-    # https://quix.io/docs/quix-streams/introduction.html
-
-app = Application.Quix("destination-v1", auto_offset_reset = "latest")
-
-input_topic = app.topic(os.environ["input"])
-
-sdf = app.dataframe(input_topic)
-
-# call the sink function for every message received.
-sdf = sdf.update(sink)
-
-# you can print the data row if you want to see what's going on.
-sdf = sdf.update(lambda row: print(row))
-
-if __name__ == "__main__":
-    app.run(sdf)
-```
-
-Modify this as follows:
-
-``` python
-from quixstreams import Application
-import os
-
-from dotenv import load_dotenv
-load_dotenv()
-
+# called for every message
 def sink(message):
     print("Average speed is: ", message['average-speed'])
     print("Timestamp at end of window is: ", message['time'])    
@@ -65,7 +33,15 @@ if __name__ == "__main__":
     app.run(sdf)
 ```
 
-The code is very simple, it just prints out the components of the message individually. You could perform any processing you want here, such as persisting the data, or displaying values on a real-time chart.
+The code just prints out the components of the message individually. You could perform any processing you want here, such as persisting the data, or displaying values on a real-time chart.
+
+## Edit requirements.txt
+
+Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.1:
+
+```
+quixstreams>=2.4.1
+```
 
 ## Test your destination code
 

@@ -88,6 +88,14 @@ There are a couple of ways you can set the input topic of the transform, but a s
 
 You can then edit the `.env` file so that the input topic is `f1-data`.
 
+## Edit requirements.txt
+
+Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.1:
+
+```
+quixstreams>=2.4.1
+```
+
 ## Run your transform
 
 Now run your transform. In the transform application directory:
