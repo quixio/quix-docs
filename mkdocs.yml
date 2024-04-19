@@ -36,6 +36,7 @@ nav:
       - 'Add a transform': 'cli/cli-add-transform.md'
       - 'Add a destination': 'cli/cli-add-destination.md'
       - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
+    - 'Reference guide': 'cli/cli-reference.md'
 
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'

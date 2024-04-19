@@ -1,5 +1,3 @@
-# CLI Reference guide
-
 ---
 title: Quix CLI Reference Guide
 description: The Quix Command-Line Interface reference guide.
