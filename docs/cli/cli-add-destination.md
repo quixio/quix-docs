@@ -10,6 +10,10 @@ This creates a starter destination for you. Alternatively, you could type `quix 
 
 You are now ready to synchronize everything with Quix Cloud, and run your complete pipeline as a set of dockerized services in a cluster managed by Kubernetes, with nothing more than a single command. This is described in the next step.
 
+!!! important
+
+    Before you proceed to the next step, make sure you stop all your local code running.
+
 ## Next step
 
 * [Sync to Cloud](./cli-sync-to-cloud.md)

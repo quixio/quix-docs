@@ -1,11 +1,13 @@
 ---
-title: Create a project
+title: Create a Git project
 description: You install the Quix CLI and create a simple project, with a pipeline consisting of one data source application, which you then sync up with Quix Cloud.
 ---
 
-# Create a project
+# Create a Git project
 
-In previous sections of the documentation you explored using Quix Streams. You now continue your journey on the command line by installing the Quix CLI, and then using it to connect with Quix Cloud. From your Git repository, you create a simple project on the command line, add a data source application, and then sync it with your Quix Cloud pipeline view.
+In previous sections of the documentation you explored using Quix Streams. You now continue your journey on the command line by installing the Quix CLI, and then using it to connect with Quix Cloud. 
+
+From your Git repository, you create a simple project on the command line, add a data source application, along with a transform and destination, test it, and then sync it with your Quix Cloud pipeline view.
 
 ## Step 1: Create a Git repository
 
@@ -40,4 +42,4 @@ This initializes your Quix project with a `quix.yaml` file, which describes your
 
 ## Next step
 
-* [Add a source](./cli-add-source.md)
+* [Sign up to Cloud](./cli-cloud-signup.md)

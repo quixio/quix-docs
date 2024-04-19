@@ -214,7 +214,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 * Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
 * CPU monitor - you can monitor the CPU utilization of your deployment in real time.
 * Memory monitor - you can monitor the memory usage of the deployment in real time.
-* CLI - a powerful command line interface (see the [CLI documentation](../kb/cli.md)).
+* CLI - a powerful command line interface, see the [CLI documentation](../cli/overview.md).
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 

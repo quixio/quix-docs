@@ -25,13 +25,17 @@ nav:
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
-      - 'Build a pipeline': 
-        - 'Overview': 'get-started/cli-build-pipeline.md'
-        - 'Create a project': 'get-started/cli-create-project.md'
-        - 'Add a source': 'get-started/cli-add-source.md'
-        - 'Add a transform': 'get-started/cli-add-transform.md'
-        - 'Add a destination': 'get-started/cli-add-destination.md'
-        - 'Sync to Cloud': 'get-started/cli-sync-to-cloud.md'
+      - 'CLI quickstart': 'get-started/cli-quickstart.md'
+  - 'Quix CLI':
+    - 'Overview': 'cli/overview.md'
+    - 'Build a pipeline': 
+      - 'Overview': 'cli/cli-build-pipeline.md'
+      - 'Create a project': 'cli/cli-create-project.md'
+      - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
+      - 'Add a source': 'cli/cli-add-source.md'
+      - 'Add a transform': 'cli/cli-add-transform.md'
+      - 'Add a destination': 'cli/cli-add-destination.md'
+      - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
 
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
@@ -161,7 +165,6 @@ nav:
       - 'Why stream processing?': 'kb/why-stream-processing.md'
       - 'What is Kafka?': 'kb/what-is-kafka.md'
     - 'Reference':
-      - 'Quix CLI': 'kb/cli.md'
       - 'Glossary': 'kb/glossary.md'
       - 'Contribute': 'kb/contribute.md'
     - 'Tutorials':
@@ -335,7 +338,7 @@ plugins:
         'get-started/what-is-kafka.md': 'kb/what-is-kafka.md'
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
-        'get-started/build-cli.md' : 'get-started/cli-create-project.md'
+        'get-started/build-cli.md' : 'get-started/cli-quickstart.md'
 
 theme:
   name: 'material'
