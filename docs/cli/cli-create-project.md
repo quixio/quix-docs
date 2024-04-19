@@ -30,6 +30,10 @@ curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
 
 For further details on installation, including instructions for Microsoft Windows, see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
+!!! tip
+
+    To update Quix CLI just run `quix update` to get the latest version of Quix CLI.
+
 ## Step 4: Initialize your project as a Quix project
 
 In your Git project directory, enter:
