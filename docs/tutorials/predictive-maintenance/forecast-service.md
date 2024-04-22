@@ -4,7 +4,7 @@ Generates a forecast for the temperature data received from the input topic. Thi
 
 ![Forecast pipeline segment](./images/forecast-pipeline-segment.png)
 
-The forecast is made using the downsampled data as the input, and using the scikit-learn library. The forecasts are published to the `forecast` topic. The Alert service and Printers dashboard service both subscribe to this topic.
+The forecast is made using the downsampled data as the input, and using the scikit-learn library. The forecasts are published to the `json-forecast` topic. <!-- The Alert service and Printers dashboard service both subscribe to this topic.--> The Alert service subscribes to this topic.
 
 ## Data format
 
@@ -12,34 +12,8 @@ The forecast data format is:
 
 ```json
 {
-  "Epoch": 0,
-  "Timestamps": [
-    1701284880000000000,
-    1701284940000000000,
-    1701285000000000000,
-    ...
-    1701313620000000000
-  ],
-  "NumericValues": {
-    "forecast_fluctuated_ambient_temperature": [
-      42.35418149532191,
-      42.43955555085827,
-      42.52524883234062,
-      ...
-      119.79365961797913
-    ]
-  },
-  "StringValues": {},
-  "BinaryValues": {},
-  "TagValues": {
-    "printer": [
-      "Printer 19-down-sampled",
-      "Printer 19-down-sampled",
-      "Printer 19-down-sampled",
-      ...
-      "Printer 19-down-sampled"
-    ]
-  }
+  "timestamp": "2024-04-16 18:03:20",
+  "forecast": 72.21788743081183
 }
 ```
 
@@ -48,7 +22,7 @@ The forecast data format is:
 The work of the prediction is carried out by the `scikit-learn` library, using a quadratic polynomial (second order) linear regression algorithm:
 
 ``` python
-forecast_input = df[parameter_name]
+forecast_input = list(map(lambda row: row["mean_fluctuated_ambient_temperature"], rows))
 
 # Define the degree of the polynomial regression model
 degree = 2
@@ -59,8 +33,17 @@ model.fit(np.array(range(len(forecast_input))).reshape(-1, 1), forecast_input)
 # Forecast the future values
 forecast_array = np.array(range(len(forecast_input), len(forecast_input) + forecast_length)).reshape(-1, 1)
 forecast_values = model.predict(forecast_array)
-# Create a DataFrame for the forecast
-fcast = pd.DataFrame(forecast_values, columns=[forecast_label])
+
+result = []
+timestamp = rows[-1]["timestamp"]
+
+for value in forecast_values:
+    timestamp += 60 * 1000
+    result.append({
+        "timestamp": timestamp,
+        "forecast": float(value)
+    })
+return result
 ```
 
 ## 🏃‍♀️ Next step
