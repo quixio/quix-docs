@@ -19,8 +19,11 @@ Here are some suggested next steps to continue on your Quix learning journey:
 * Try the [Chat sentiment analysis tutorial](../sentiment-analysis/overview.md).
 * If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
 
-What will you build? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
+What will you create? Let us know! We’d love to feature your application or use case in our [newsletter](https://www.quix.io/community/).
 
 ## Get help
 
 If you have any further questions, we're here to help in the [Quix Community](https://quix.io/slack-invite){target="_blank"}.
+
+This is line is for training purposes only.
+
