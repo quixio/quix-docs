@@ -10,6 +10,10 @@ curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
 
 For further details on installation, including instructions for Microsoft Windows, see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
+!!! tip
+
+    To update Quix CLI just run `quix update` to get the latest version of Quix CLI.
+
 ## Step 2: Sign up to Quix Cloud for free
 
 Sign up [here](https://portal.platform.quix.io/self-sign-up){target=_blank}.
@@ -87,6 +91,6 @@ Go to pipeline view, and see your pipeline running, with your Starter transforma
 
 ![Pipeline running](../images/starter-transform.png)
 
-## Next steps
+## Next step
 
-* [Read the Quix CLI documentation](../kb/cli.md).
+* [See the CLI docs](../cli/overview.md)

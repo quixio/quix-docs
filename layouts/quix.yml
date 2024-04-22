@@ -36,20 +36,20 @@ layers:
       image: layouts/background.jpg
 
 #Docs URL text
-  - size: { width: 150, height: 30 }
-    offset: { x: 144, y: 64 }
+  - size: { width: 160, height: 36 }
+    offset: { x: 200, y: 64 }
     typography:
       content: quix.io/docs
-      align: start
+      overflow: shrink
+      align: start center
       color: "#FFFFFF66"
       font:
         family: Inter
         style: SemiBold
 
 #Page title text
-#  - size: { width: 768, height: 336 }
-  - size: { width: 768, height: 190 }
-    offset: { x: 144, y: 126 }
+  - size: { width: 800, height: 240 }
+    offset: { x: 144, y: 136 }
     typography:
       content: *page_title
       overflow: shrink
@@ -57,23 +57,22 @@ layers:
       color: white
       line:
         amount: 3
-        height: 1.2
+        height: 1.25
       font:
         family: Inter
         style: SemiBold
 
 #Page description text
-  - size: { width: 768, height: 336 }
-#    offset: { x: 144, y: 235 }
-    offset: { x: 144, y: 245 }
+  - size: { width: 800, height: 144 }
+    offset: { x: 144, y: 422 }
     typography:
       content: *page_description
-      overflow: shrink
-      align: start
-      color: lightgrey
+      overflow: truncate
+      align: start bottom
+      color: white
       line:
-        amount: 5
-        height: 2.5
+        amount: 3
+        height: 1.5
       font:
         family: Inter
-        style: Normal
+        style: Regular
