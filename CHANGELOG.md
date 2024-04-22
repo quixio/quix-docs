@@ -1,15 +1,86 @@
-# Quix product changelog
+# Quix Cloud changelog
 
-This is the product changelog for the current year. 
+This is the Quix Cloud changelog for the current year. 
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
-## Changelog archives
+## 2024-04-03-performance | 17 APRIL 2024
 
-Changelogs for previous years can be found [here](#changelog-archives).
+`NEW FEATURES`
 
-* [2022](./changelogs/2022-archive.md)
-* [2023](./changelogs/2023-archive.md)
+- Deployments
+    - Add the ability to expose ports internally in the pipeline via YAML
+    
+        ```jsx
+        deployments:
+          - name: Demo Data
+            ...
+            network:
+              serviceName: MyServiceInternalName
+              ports:
+                - port: 8080
+                  targetPort: 4000
+        ```
+    
+- CLI
+    - New Local development CLI commands
+        - `quix local ide`:  Sets up everything needed for local development of your application and opens your local IDE
+        - `quix context broker`:  New set of commands to manage local broker configuration including the ability to switch between Cloud and Local broker.
+    - Improvements on Local development CLI commands
+        - `quix local variables`: Added basic and interactive CRUD operations for application variables
+        - `quix local applications create`: Added interactive application creation with highlighted items and filter selection
+        - `quix local deploy`: Improved command behaviour and warnings when dealing with versions and sync operations afecting other parts of the pipeline.
+        - `quix local application convert`: Add new command to convert from app.yaml to library.json and viceversa to help on Code samples library development.
+        - Other improvements:
+            - Added interactive application selection in several commands when the current folder is not an application
+            - Improved json outputs when returning a single object for better integrations with external tools
+            - Improved .env file local IDE integration to remove the need of using dotenv library in the code
+            - Added support for PyCharm IDE (`quix local init`, `quix local ide`)
+            - Added `--all` option to `quix local deploy` command to allow to redeploy all the applications that have a deployment already existing in the pipeline
+
+`IMPROVEMENTS`
+
+- Builds
+    - Performance improvements on build process time
+- Environments
+    - Added “Change environment branch” option to Environment header
+- Topics
+    - Performance improvements on topic list loading time
+    - Added new filter “Show SDK topics” to expose special Quix Streams SDF managed topics and allow to delete them manually
+- YAML
+    - Performance improvements on Sync process
+    - Improved environment status UI component when the YAML doesn’t exist but the user modifies YAML variables.
+- Pipeline
+    - Performance improvements on Pipeline loading times
+- Deployments
+    - Performance improvements on Deployment list loading time
+    - Added replica identifier as injected environment variable `Quix__Deployment__ReplicaName`
+    - Switch to deployment logs automatically after build process finishes and the deployments starts
+- Other
+    - Improved general user feedback when clicking between options
+    - Improved PAT tokens empty states
+    
+`BUG FIXES`
+
+- Topics
+    - Fixed a null reference exception when the YAML wasn’t containing topic configuration and the user tried to edit it from the UI.
+    - Fixed a bug when Quix Streams was trying to create changelog topics on a Protected environment.
+    - Data was not shown properly when switching from Waveform view to Table view and the live data was paused.
+    - Partition filter was not working properly when using Live messages on Messages tab.
+    - Fixed a bug were some messages with timestamp properties were producing unexpected behaviors on Waveform and Table view features.
+- IDE
+    - Fixed several bugs when managing secrets from the Application variables editor
+    - Now the IDE is preventing to download files bigger than 2MB to protect the UI.
+    - Fixed a bug where the files were not selected correctly after leaving the editor without saving.
+- YAML
+    - Using YAML variables in topic names or deployment names was causing an exception on Sync process
+- Deployments
+    - Fixed a bug where the Edit deployment dialog was not loaded with the correct data correctly in some edge cases
+- Other
+    - Fixed a bug when switching environments where some websocket were not connecting properly to the environment.
+    - Fixed a bug on Ungated demos where the banner was dissapearing after refreshing the page.
+    - Copy button on Clone repository options was not copying to clipboard properly.
+    - Some issues and inconsistencies fixed in several UI components
 
 ## 2024-04-02 | 08 APRIL 2024
 
@@ -18,6 +89,82 @@ Changelogs for previous years can be found [here](#changelog-archives).
 - Secrets were being filtered by environment
 - Variables weren't updating in the deployments dialogue
 - External topics weren't being recognised by new deployments
+
+## 2024-04-01 | 01 APRIL 2024
+
+`NEW FEATURES`
+
+- `Latest` feature allows users to indicate deployments that should always be using the latest version of application code
+    - Changes in Deployment dialog (`latest` by default now)
+    - Sync header for when deployments tagged to use `Latest` are outdated due to updates in their respective *Application*
+    - Version label showing `Latest`, `Outdated`, or pinned version number
+    - Pipeline deployment cards to indicate useage of `Latest` versions and outdated deployments
+    - Sync process to update outdated deployments to `latest` versions
+- YAML
+    - New header to centralize Environment information, YAML and status
+- CLI
+    - New Local development CLI commands
+        - `quix local init`: Generates initial quix files based on the existing repo (app.yaml, quix.yaml, dockerfile)
+        - `quix local variables`: Performs Application variables related operations including import / export to .env files.
+        - `quix local applications`: Manage Applications locally (create, list)
+        - `quix local deployments`: Manages Deployments locally (quix.yaml)
+        - `quix local deploy`: Deploy an application locally (quix.yaml), push code and syncronize to remote in a single command
+        - `quix use`: Sets the default environment of your context (interactive)
+    - Removed colors from json outputs for better integrations with external tools
+- Code samples
+    - Refactored samples library to use latest version of Quix Streams (>2.0)
+    - Cleaned some non-relevant library items
+- Topics
+    - Topic “Consumers” tab: New view to query topic consumer groups information including “End offsets”, “Lag” and “Progress” of the consumer.
+
+`IMPROVEMENTS`
+
+- Applications
+    - Removed branch dropdown selector for simplified workflow after `latest` feature release
+- Deployments
+    - Improved performance on Deployments list page
+- Templates
+    - Cloning a template is now using `latest` version feature instead of pinned version
+- Topics
+    - Added support for Quix Streams (>2.0) Json messages on Live view - Waveform / Table
+    - Added support for Quix Streams (>2.0) Json messages on Persistance feature
+    - Removed SDK topics from Topic lists and YAML tracking
+    - Messages tab
+        - Increased debounce for custom offset field to prevent overload of network calls to retreive data
+        - Placeholder for messages JSON viewer if the data is of an invalid format
+- Pipeline
+    - Pipeline empty state CTA for *Demo Data* takes you directly to the *deploy* page
+    - Topic arrows now take you directly to the *Topic* *details* page
+- Code Samples
+    - Library item CTA updated to `Save to your repo`
+- Data Explorer
+    - Location dropdowns display full path of file tree
+- Other
+    - Exceptions are now returned when trying to validate an external git during *Project* creation
+    - Improved websocket reconnections
+    - Implemented more loading states to CTAs
+
+`BUG FIXES`
+
+- Deployments
+    - Fixed a bug where Logs view was stuck in “Retreiving metrics” state when the deployment was not producing logs.
+    - Downloading build logs was not working in some edge cases
+    - Switching to stopped deployment from lineage was showing build logs of previous deployment
+    - Deployment logs weren’t loading due to short timeout duration
+- YAML
+    - Disable `Edit code` button when page is loading
+    - Fixed an issue with the Sync process when a Deployment was not containing any variable
+- Applications
+    - Fixed “file not found” issue for files defined in *app.yaml* that don’t exist in the application
+- Topics
+    - `Retry` CTA for failed topic creation was not sending original topic config
+    - Lock icon was missing in *Topic details* page for external topics
+    - *Topic detail* lineage was sometimes displaying deployment on the wrong side
+- Pipeline
+    - Topic was missing when creating an *application* from the pipeline placeholder cards
+- Other
+    - Minor UI fixes to components
+    - Various console errors cleaned up
 
 ## 2024-03-02-topic-details-hf | 13 MARCH 2024
 
@@ -313,3 +460,10 @@ Changelogs for previous years can be found [here](#changelog-archives).
     - Error messages kept visible in various dialogues of the UI
     - Restricted some reserved organization names that were causing issues in some internal services
     - Various UI width fixes
+ 
+## Changelog archives
+
+Changelogs for previous years can be found [here](#changelog-archives).
+
+* [2022](./changelogs/2022-archive.md)
+* [2023](./changelogs/2023-archive.md)

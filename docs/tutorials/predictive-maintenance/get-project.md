@@ -1,6 +1,6 @@
 # Get the project
 
-While you can see the [deployed project running in Quix](https://portal.platform.quix.io/pipeline?token=pat-7381f57aaee34adf95382c3a60df6306&workspace=demo-predictivemaintenance-production){target=_blank}, it can be useful to learn how to get a project up and running in your own Quix account. 
+Here you learn how to copy the template project. 
 
 Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your copy of the project. 
 
@@ -21,7 +21,7 @@ You'll need to configure the following credentials for each Quix service that ne
 | `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
 | `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
 | `CONSUMER_GROUP_NAME` | The name of the consumer group to use when consuming from Kafka. |
-| `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs. |
+<!--| `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs. |-->
 
 The above is a list of environment variables that you are going to configure.
 
@@ -35,7 +35,9 @@ To create the secret:
 
 3. In the `Secrets management` dialog, click `+ New secret` and use this to create the `INFLUXDB_TOKEN` secret, and assign it to the `INFLUXDB_TOKEN` variable.
 
+<!-->
 4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../develop/authentication/personal-access-token.md).
+-->
 
 These secrets are then assigned to their corresponding environment variables.
 

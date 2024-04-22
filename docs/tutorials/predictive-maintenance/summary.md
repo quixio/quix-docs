@@ -16,9 +16,11 @@ In addition, you have seen how in Quix you can:
 Here are some suggested next steps to continue on your Quix learning journey:
 
 * Build something with our [Code Samples](../../develop/code-samples.md).
+
+<!-- These are now out of date, as the templates need to be updating to QS v2
 * Try the [Clickstream analysis tutorial](../clickstream/overview.md).
 * Try the [Computer vision tutorial](../computer-vision/overview.md).
-* If you decide to build your own connectors and apps, you can contribute something to the Code Samples. Visit the [GitHub Code Samples repository](https://github.com/quixio/quix-samples){target=_blank}. Fork our Code Samples repo and submit your code, updates, and ideas.
+-->
 
 ## Get help
 

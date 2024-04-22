@@ -56,33 +56,26 @@ To add a filter transformation service:
 
 You'll now edit the code to implement the functionality you require.
 
-Modify your input topic to be `alerts`, and the output topic to be a new topic `ambient-alerts` (you'll need to use the `New topic` button to create this).
+Modify your input topic to be `json-alerts`, and the output topic to be a new topic `ambient-alerts` (you'll need to use the `New topic` button to create this).
 
 You're only interested in forecast over temperature alerts, which have the message format:
 
 ``` json
-[
-  {
-    "Timestamp": 1701348695725335000,
-    "Tags": {
-      "TAG__printer": "Printer 11-down-sampled - Forecast"
-    },
-    "Id": "over-forecast",
-    "Value": "{\"status\": \"over-forecast\", \"parameter_name\": \"forecast_fluctuated_ambient_temperature\", \"alert_temperature\": 55.00501762733715, \"alert_timestamp\": 1.70137236e+18, \"message\": \"'Ambient temperature' is forecasted to go over 55\\u00baC in 6:34:24.\"}"
-  }
-]
+{
+  "status": "over-forecast",
+  "parameter_name": "ambient_temperature",
+  "alert_temperature": 72.82717847141305,
+  "timestamp": "2024-04-16 10:42:40",
+  "message": "'Ambient temperature' is forecasted to go over 73ºC at 2024-04-16 10:42:40."
+}
 ```
 
-So you are looking for an `Id` of `over-forecast`.
+So you are looking for an `status` of `over-forecast`.
 
 You only want to publish the alert message to the output topic if it has the correct ID. Modify the event handler to the following:
 
 ``` python
-def on_event_data_received_handler(stream_consumer: qx.StreamConsumer, data: qx.EventData):
-    if data.id == 'over-forecast':
-        print(data)
-        stream_producer = topic_producer.get_or_create_stream(stream_id = stream_consumer.stream_id)
-        stream_producer.events.publish(data)
+# if status == over-forecast then send alert
 ```
 
 Commit your changes.
@@ -97,6 +90,7 @@ Now that you've modified the code, you'll now test your changes:
 
 3. Once the `Alerts Filter` service is running, you are ready to proceed to the next step. 
 
+<!-- This destination no longer exists, so for now remove this page of the tutorial -->
 ## Add the Pushover destination
 
 In this section you create a destination service that sends a push notification to your phone when an alert condition occurs. 
@@ -134,25 +128,6 @@ To set up the push notification service, follow these steps:
 You will shortly start receiving Pushover notifications on your phone, as shown here:
 
 ![Pushover Notification Example](./images/pushover-notification.png){width=60%}
-
-If you want to change the message received you can edit the `quix_function.py` code in the Pushover destination:
-
-``` python
-# Callback triggered for each new event
-def on_event_data_handler(self, stream_consumer: qx.StreamConsumer, data: qx.EventData):
-    print(data)
-
-    # send your push message
-    try:
-        pushmsg = {'token': self.apitoken,
-                    'user': self.userkey,
-                    'message': 'An event has been detected'}
-        requests.post(self.baseurl, json = pushmsg)
-    except Exception as e:
-        print(f"Error connecting to push API: {e}")
-```
-
-Change "An event has been detected" to anything you like.
 
 !!! note
 
@@ -213,5 +188,6 @@ Your new service builds and starts in the Tutorial environment, where you can no
 
 ## 🏃‍♀️ Next step
 
-[Part 10 - Summary :material-arrow-right-circle:{ align=right }](summary.md)
+<!-- [Part 10 - Summary :material-arrow-right-circle:{ align=right }](summary.md) -->
+[Part 9 - Summary :material-arrow-right-circle:{ align=right }](summary.md)
 

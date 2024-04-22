@@ -4,7 +4,7 @@ This service uses the standard Quix InfluxDB 3.0 [connector](../../connectors/in
 
 ![InfluxDB raw data pipeline segment](./images/influxdb-raw-data-pipeline-segment.png)
 
-In this pipeline the connector subscribes to the `downsampled-3d-printer-data` topic, and writes these messages into InfluxDB for permanent storage.
+In this pipeline the connector subscribes to the `json-downsampled-3d-printer-data` topic, and writes these messages into InfluxDB for permanent storage.
 
 ## Query the data in InfluxDB
 
