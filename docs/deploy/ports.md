@@ -1,6 +1,6 @@
 # Configuring network ports
 
-It is possible to configure the network ports of services running in Quix projects, in order to expose service ports to other services running in the same Quix environment. For example, if a service by default uses port 80, and you want the service to be accessible internally running on port 8080, you can configure the deployed service accordingly.
+It is possible to configure the network ports of services running in Quix projects, in order to expose service ports to other services running in the same Quix environment. 
 
 In the `quix.yaml` you add configuration in the `deployments` section:
 
@@ -17,10 +17,9 @@ deployments:
           targetPort: 8080
 ```
 
-In this example, two service ports are explosed as port 8080 on the host machine.
+In this example, an application running on port 8080 in the container is exposed on ports 80 and 81 as service name `MyServiceInternalName`, with endpoints `http://MyServiceInternalName:80` and `http://MyServiceInternalName:81`. 
 
 | Property | Description |
 |---|---|
-| `port` | The port the service uses internally. |
-| `targetPort` | The port that the service docker container uses. |
-
+| `port` | The port the service exposes to the internal network. |
+| `targetPort` | The port that the application running in the container uses. |
