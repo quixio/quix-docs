@@ -60,7 +60,7 @@ nav:
         - 'Syncing an environment': 'create/syncing-environment.md'
         - 'Project structure': 'create/project-structure.md'
         - 'Create a topic': 'create/create-topic.md'
-      - '2. Develop a pipeline':
+      - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
         - 'Authentication':
@@ -103,11 +103,12 @@ nav:
             - 'Setup': 'apis/streaming-reader-api/setup.md'
             - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
             - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
-      - '3. Deploy a pipeline':
+      - '3. Deploy a service':
         - 'Overview': 'deploy/overview.md'
         - 'Environment variables': 'deploy/environment-variables.md'
         - 'Secrets management': 'deploy/secrets-management.md'
         - 'YAML variables': 'deploy/yaml-variables.md'
+        - 'Configuring network ports': 'deploy/ports.md'  
         - 'State management': 'deploy/state-management.md'  
         - 'Deploy public services': 'deploy/deploy-public-page.md'
       - '4. Manage your pipelines':
