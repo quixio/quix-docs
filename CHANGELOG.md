@@ -4,6 +4,15 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+## 2024-04-04-performance-hf | 18 APRIL 2024
+
+`BUG FIXES`
+
+- Topics
+    - Fixed a bug were Consumer groups option was not working the first time you entered to the topic view
+- Other
+    - Enabled anonymous access to library endpoint for non private repositories
+
 ## 2024-04-03-performance | 17 APRIL 2024
 
 `NEW FEATURES`
@@ -16,10 +25,9 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
           - name: Demo Data
             ...
             network:
-              serviceName: MyServiceInternalName
-              ports:
-                - port: 8080
-                  targetPort: 4000
+                serviceName: flasky
+                port: 8000
+                targetPort: 8080
         ```
     
 - CLI
