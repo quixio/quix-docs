@@ -22,4 +22,4 @@ In this example, an application running on port 8080 in the container is exposed
 | Property | Description |
 |---|---|
 | `port` | The port the service exposes to the internal network. |
-| `targetPort` | The port that the application running in the container uses. |
+| `targetPort` | The port that the application running in the container uses. This property is optional. If you don't specify it, the specified ports are exposed without redirection. |
