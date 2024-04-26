@@ -46,6 +46,10 @@ The CLI currently uses some terminology that is different to the current UI. The
 
 Typing just `quix` results in basic usage information being displayed. You can also receive help by typing `quix --help`.
 
+!!! tip
+
+    For less typing you can use the `-h` option, rather than the `--help` option.
+
 To obtain more help on a specific command use the `--help` option, for example:
 
 ```
@@ -59,6 +63,14 @@ quix permissions set --help
 ```
 
 This displays the options for the `set` subcommand.
+
+## Interactive commands
+
+Some commands are interactive, in that once you type them you will be taken into an interactive menu where you can select further information. For example, if you type `quix use` and hit enter, you are provided with a list of environments, and you can then select the one you want to connect to.
+
+!!! tip
+
+    All commands without mandatory arguments are interactive. 
 
 ## Examples
 
