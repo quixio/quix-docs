@@ -64,6 +64,17 @@ quix permissions set --help
 
 This displays the options for the `set` subcommand.
 
+## Command aliases
+
+Most commands have an alias. These are indicated in the alias section of the help. For example, `quix context -h` displays the help for `context`. This shows the `Alias` section: 
+
+```
+Aliases:
+  contexts, context, ctx
+```
+
+Any of the aliases can be used.
+
 ## Interactive commands
 
 Some commands are interactive, in that once you type them you will be taken into an interactive menu where you can select further information. For example, if you type `quix use` and hit enter, you are provided with a list of environments, and you can then select the one you want to connect to.
@@ -130,9 +141,9 @@ With some practice, you will find the usage follows a similar pattern for most c
 
     The JSON output displays additional information not available in the table view. This is done to make the table view simpler. For full information use the JSON output option.
 
-## Context
+## CLI Context
 
-A context defines which system your CLI connects to - by default this is the Quix production cloud. If you are using BYOC, you need to `add` and then `use` a context. 
+A context defines which system your CLI connects to - by default this is the Quix production cloud. If you are using BYOC, you need to `create` and then `use` a context. 
 
 A context has a URL associated with it. For example, the URL associated with the default context is `portal-api.platform.quix.io`.
 
