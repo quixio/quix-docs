@@ -61,3 +61,11 @@ The main features are described in the following table:
 ## Redeploying a service
 
 If you subsequently edit your service code (application) and then click `Redeploy`, you are presented with the `Edit deployment` dialog. The same options previously mentioned are displayed in the dialog. Change the deployment settings as required (perhaps to allocate more resources, or use the latest or a pinned version of the code), and then click `Redeploy`.
+
+## Working on the command line
+
+If you are working on the command line and want to deploy local applications, you can use the `quix local deploy --push --sync` command. The `--sync` option includes a sync between your pipeline (as viewed in Quix Cloud) and the project repository. This command also prompts you to include other applications that need to be synched if required. The deployments use the settings specified in the `deployments` section of the project's `quix.yaml` file.
+
+To sync a remote (cloud-based) environment you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
+
+See the [Quix reference guide](../cli/cli-reference.md) for more about working on the command line.
