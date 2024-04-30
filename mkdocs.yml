@@ -28,15 +28,17 @@ nav:
       - 'CLI quickstart': 'get-started/cli-quickstart.md'
   - 'Quix CLI':
     - 'Overview': 'cli/overview.md'
-    - 'Build a pipeline': 
-      - 'Overview': 'cli/cli-build-pipeline.md'
-      - 'Create a project': 'cli/cli-create-project.md'
-      - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
-      - 'Add a source': 'cli/cli-add-source.md'
-      - 'Add a transform': 'cli/cli-add-transform.md'
-      - 'Add a destination': 'cli/cli-add-destination.md'
-      - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
     - 'Reference guide': 'cli/cli-reference.md'
+    - 'Tutorials': 
+      - 'Build a pipeline': 
+        - 'Overview': 'cli/cli-build-pipeline.md'
+        - 'Create a project': 'cli/cli-create-project.md'
+        - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
+        - 'Add a source': 'cli/cli-add-source.md'
+        - 'Add a transform': 'cli/cli-add-transform.md'
+        - 'Add a destination': 'cli/cli-add-destination.md'
+        - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
+      - 'Using the CLI with a template': 'cli/cli-template.md'
 
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
@@ -60,7 +62,7 @@ nav:
         - 'Syncing an environment': 'create/syncing-environment.md'
         - 'Project structure': 'create/project-structure.md'
         - 'Create a topic': 'create/create-topic.md'
-      - '2. Develop a pipeline':
+      - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
         - 'Authentication':
@@ -103,11 +105,12 @@ nav:
             - 'Setup': 'apis/streaming-reader-api/setup.md'
             - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
             - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
-      - '3. Deploy a pipeline':
+      - '3. Deploy a service':
         - 'Overview': 'deploy/overview.md'
         - 'Environment variables': 'deploy/environment-variables.md'
         - 'Secrets management': 'deploy/secrets-management.md'
         - 'YAML variables': 'deploy/yaml-variables.md'
+        - 'Configuring network ports': 'deploy/ports.md'  
         - 'State management': 'deploy/state-management.md'  
         - 'Deploy public services': 'deploy/deploy-public-page.md'
       - '4. Manage your pipelines':

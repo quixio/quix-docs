@@ -4,6 +4,30 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+## 2024-04-05-performance-hf2 | 24 APRIL 2024
+
+`BUG FIXES`
+
+- Deployments
+    - Fixed a bug where multiple network ports exposure was not working properly
+- Topics
+    - Fixed an issue where Topic updates were not applied correctly to the broker
+    - Fixed an error of “topic already exists” when a topic is created after a period of being deleted
+- Other
+    - Fixed an issue deleting streams due to some special characters included in the stream id
+    - Fixed memory leak on persistence service
+    - Fixed memory leak on live data service
+    - Fixed a bug where environment creation errors were not propagated properly to the end user
+
+## 2024-04-04-performance-hf | 18 APRIL 2024
+
+`BUG FIXES`
+
+- Topics
+    - Fixed a bug were Consumer groups option was not working the first time you entered to the topic view
+- Other
+    - Enabled anonymous access to library endpoint for non private repositories
+
 ## 2024-04-03-performance | 17 APRIL 2024
 
 `NEW FEATURES`
@@ -11,15 +35,15 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 - Deployments
     - Add the ability to expose ports internally in the pipeline via YAML
     
-        ```jsx
+        ``` yaml
         deployments:
-          - name: Demo Data
+        - name: Demo Data
             ...
             network:
-              serviceName: MyServiceInternalName
-              ports:
+            serviceName: MyServiceInternalName
+            ports:
                 - port: 8080
-                  targetPort: 4000
+                targetPort: 4000        
         ```
     
 - CLI
