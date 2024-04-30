@@ -11,57 +11,27 @@ This is the reference guide for the Quix CLI.
 
 Read the latest [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
+You can then update Quix CLI with the command:
+
+```
+quix update
+```
+
 ## Login
 
-You can authenticate by either logging into Quix Cloud:
+You can authenticate by logging into Quix Cloud with the following command:
 
 ```
 quix login
 ```
+
+You will be prompted to confirm the authentication code in the device confirmation dialog.
 
 You can also log in using a [Personal Access Token (PAT)](../develop/authentication/personal-access-token.md):
 
 ```
 quix login <your-pat>
 ```
-
-## Workspace ID
-
-You're required to specify `workspaceId` for some commands. 
-
-There are two ways to obtain this:
-
-1. Log into Quix Cloud
-
-    You can log into Quix Cloud, and check the address bar in your browser, for example, after clicking on topics, you would see similar to the following in the address bar:
-
-    ```
-    https://portal.platform.quix.io/topics?workspace=your-workspace-id
-    ```
-
-    In this case the workspace is `your-workspace-id`.
-
-2. Using the CLI
-
-    Run the following command:
-
-    ```
-    quix workspaces list
-    ```
-
-    This lists all workspaces in the organization, and displays the workspace ID, along with the following:
-
-    * Name
-    * Broker
-    * Storage
-    * Status
-    * Version
-
-    !!! note
-
-        Workspaces are currently version 1 or version 2. Version 1 workspaces should be considered deprecated.
-
-Note that some Quix CLI commands are global, but some are specific to an environment, and require a workspace ID to be specified.
 
 ## Terminology
 
@@ -75,6 +45,10 @@ The CLI currently uses some terminology that is different to the current UI. The
 ## Getting help
 
 Typing just `quix` results in basic usage information being displayed. You can also receive help by typing `quix --help`.
+
+!!! tip
+
+    For less typing you can use the `-h` option, rather than the `--help` option.
 
 To obtain more help on a specific command use the `--help` option, for example:
 
@@ -90,6 +64,25 @@ quix permissions set --help
 
 This displays the options for the `set` subcommand.
 
+## Command aliases
+
+Most commands have an alias. These are indicated in the alias section of the help. For example, `quix context -h` displays the help for `context`. This shows the `Alias` section: 
+
+```
+Aliases:
+  contexts, context, ctx
+```
+
+Any of the aliases can be used.
+
+## Interactive commands
+
+Some commands are interactive, in that once you type them you will be taken into an interactive menu where you can select further information. For example, if you type `quix use` and hit enter, you are provided with a list of environments, and you can then select the one you want to connect to.
+
+!!! tip
+
+    All commands without mandatory arguments are interactive. 
+
 ## Examples
 
 The general form of the CLI usage is:
@@ -103,7 +96,7 @@ quix command [subcommand] [options]
 To list all your deployments you would use:
 
 ```
-quix deployments list your-workspace-id
+quix deployments list
 ```
 
 The information returned includes:
@@ -118,11 +111,21 @@ The information returned includes:
 
 ### Listing applications
 
-To list all your applications (in your environment):
+To list all your applications (in your default environment):
 
 ```
-quix applications list your-workspace-id
+quix applications list
 ```
+
+### Listing projects
+
+To list out all your projects:
+
+```
+quix projects list
+```
+
+This lists useful information such as the project ID and the link to the project repository.
 
 ## Obtaining output in JSON format
 
@@ -138,16 +141,16 @@ With some practice, you will find the usage follows a similar pattern for most c
 
     The JSON output displays additional information not available in the table view. This is done to make the table view simpler. For full information use the JSON output option.
 
-## Context
+## CLI Context
 
-A context defines which system your CLI connects to - by default this is the Quix production cloud. If you are using BYOC, you need to `add` and then `use` a context. 
+A context defines which system your CLI connects to - by default this is the Quix production cloud. If you are using BYOC, you need to `create` and then `use` a context. 
 
 A context has a URL associated with it. For example, the URL associated with the default context is `portal-api.platform.quix.io`.
 
 For example, to create a context `byoc`, you would use:
 
 ```
-quix contexts add byoc https://your-byoc.domain.com
+quix contexts create byoc https://your-byoc.domain.com
 ```
 
 To then use that context you would use:
@@ -161,6 +164,50 @@ To list your available contexts, use the following:
 ```
 quix contexts list
 ```
+
+## Selecting an environment
+
+You can select an environment interactively by typing:
+
+```
+quix use
+```
+
+You can use the cursor to navigate the list of environments, to select the one you want to use as the default for your context.
+
+## Setting a local broker
+
+A typical setup includes both a remote and local broker. The local broker is used for local development and testing, before the tested applications are pushed up to the project repo, and then synched with Quix Cloud.
+
+To set a local broker:
+
+```
+quix context broker set <broker_address>
+```
+
+You can then toggle between using the remote broker and the local broker with:
+
+```
+quix context broker toggle
+```
+
+## Pushing your code to the project repo
+
+You can push your locally modified code to the remote repository by using:
+
+```
+quix local deploy --push
+```
+
+You can optionally provide a commit message. You are also prompted if changes outside of you current application have been made. You can optionally push these changes too.
+
+In order to synchronize the Git repository with the Quix Cloud environment then use:
+
+```
+quix local deploy --push --sync
+```
+
+The `--sync` option ensures the Git repository is synchronized with the Quix Cloud pipeline view.
 
 ## Managing permissions
 

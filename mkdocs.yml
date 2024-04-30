@@ -28,15 +28,17 @@ nav:
       - 'CLI quickstart': 'get-started/cli-quickstart.md'
   - 'Quix CLI':
     - 'Overview': 'cli/overview.md'
-    - 'Build a pipeline': 
-      - 'Overview': 'cli/cli-build-pipeline.md'
-      - 'Create a project': 'cli/cli-create-project.md'
-      - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
-      - 'Add a source': 'cli/cli-add-source.md'
-      - 'Add a transform': 'cli/cli-add-transform.md'
-      - 'Add a destination': 'cli/cli-add-destination.md'
-      - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
     - 'Reference guide': 'cli/cli-reference.md'
+    - 'Tutorials': 
+      - 'Build a pipeline': 
+        - 'Overview': 'cli/cli-build-pipeline.md'
+        - 'Create a project': 'cli/cli-create-project.md'
+        - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
+        - 'Add a source': 'cli/cli-add-source.md'
+        - 'Add a transform': 'cli/cli-add-transform.md'
+        - 'Add a destination': 'cli/cli-add-destination.md'
+        - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
+      - 'Using the CLI with a template': 'cli/cli-template.md'
 
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
