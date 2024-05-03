@@ -21,11 +21,14 @@ nav:
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
-    - 'Tutorials':
+    - 'Quickstart':
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
-      - 'CLI quickstart': 'get-started/cli-quickstart.md'
+      - 'Build pipelines': 'get-started/cli-quickstart.md'
+# Mostly out of date
+#    - 'Project templates': 'get-started/project-templates.md'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix CLI':
     - 'Overview': 'cli/overview.md'
     - 'Reference guide': 'cli/cli-reference.md'
@@ -39,10 +42,6 @@ nav:
         - 'Add a destination': 'cli/cli-add-destination.md'
         - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
       - 'Using the CLI with a template': 'cli/cli-template.md'
-
-# Mostly out of date
-#    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
