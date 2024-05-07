@@ -1,3 +1,8 @@
+---
+title: Confluent integration
+description: Connect Quix — the Python stream processing platform — to Confluent and leverage your streaming data to build real-time applications and products faster.
+---
+
 # Confluent
 
 Confluent Cloud is a resilient, scalable, streaming data service based on Apache Kafka®, delivered as a fully managed service. Confluent Cloud has a web interface called the Confluent Cloud Console, a local command line interface, and REST APIs. 

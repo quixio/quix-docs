@@ -1,5 +1,9 @@
 # Chat sentiment analysis
 
+!!! warning
+
+    This tutorial is out of date.
+
 In this tutorial you learn about a real-time chat sentiment analysis application, using a [Quix template project](https://github.com/quixio/chat-demo-app){target=_blank}. 
 
 ![Sentiment analysis pipeline](../../images/project-templates/chat-sentiment-pipeline.png)

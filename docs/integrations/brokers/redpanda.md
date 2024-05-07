@@ -1,3 +1,8 @@
+---
+title: Redpanda integration
+description: Connect Quix — the Python stream processing platform — to Redpanda and leverage your streaming data to build real-time applications and products faster.
+---
+
 # Redpanda
 
 Redpanda is a powerful, yet simple, and cost-efficient streaming data platform that is compatible with Kafka® APIs while eliminating Kafka complexity.
