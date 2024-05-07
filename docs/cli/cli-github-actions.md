@@ -19,7 +19,7 @@ The basic procedure to use the Quix CLI in a GitHub Action is:
 
 1. Install the Quix CLI using the [Curl command](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 2. Authenticate the CLI with Quix Cloud using the command `quix login <pat>`, where `<pat>` is the [personal access token](../develop/authentication/personal-access-token.md) for the environment. 
-3. Run your CLI command.
+3. Run your CLI command or commands.
 
 In this case you'll run the command to synchronize the repository with Quix using the command `quix env sync <workspace-id>`. You can obtain the Workspace ID from your environment settings.
 
