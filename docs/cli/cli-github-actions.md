@@ -7,21 +7,25 @@ description: You can invoke Quix CLI from GitHub Actions in order to help automa
 
 Sometimes you might want to invoke certain commands of the Quix CLI from GitHub Actions (or equivalent) as part of your CI/CD pipelines. For example, you might want to sync your Git repository to Quix after you merge a Pull Request from, say, your `develop` branch to your `main` branch. The alternative to doing this would be to enter the Quix Cloud pipeline view and manually sync. You might want to do a similar thing if you push directly to a branch, and want the Quix pipeline to be updated with the latest code changes.
 
-Using the Quix CLI, you can push and changes to your code, and sync the repo to Quix, by using the following command:
+Using the Quix CLI, you can push any changes to your code, and sync the repo to Quix, by using the following command:
 
 ```
 quix local deploy --push --sync
 ```
 
-But sometimes, developer may make code changes to a branch directly, without using the Quix CLI. In this case you could create a GitHub Action to make sure your repo is always synched to Quix.
+But sometimes, a developer may make code changes to a branch directly, without using the Quix CLI. In this case you could create a GitHub Action to make sure your repo is always synched to Quix.
 
 The basic procedure to use the Quix CLI in a GitHub Action is:
 
 1. Install the Quix CLI using the [Curl command](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 2. Authenticate the CLI with Quix Cloud using the command `quix login <pat>`, where `<pat>` is the [personal access token](../develop/authentication/personal-access-token.md) for the environment. 
-3. Run the command to synchronize the repository with Quix using the command `quix env sync <workspace-id>`. You can obtain the Workspace ID from your environment settings.
+3. Run your CLI command.
 
-Note that both the PAT and the Workspace ID can be conveniently stored in GitHub secrets, for secure access by the script.
+In this case you'll run the command to synchronize the repository with Quix using the command `quix env sync <workspace-id>`. You can obtain the Workspace ID from your environment settings.
+
+!!! tip
+
+    Note that both the PAT and the Workspace ID can be conveniently stored in GitHub secrets, for secure access by the script.
 
 An example GitHub Action workflow is:
 
