@@ -1,5 +1,9 @@
 # Real-time dashboard
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service implements a real-time dashboard using [Streamlit](https://streamlit.io/){target=_blank}. 
 
 ![REal-time dashboard](./images/real-time-dashboard-pipeline-segment.png)

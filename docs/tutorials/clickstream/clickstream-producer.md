@@ -1,5 +1,9 @@
 # Clickstream producer
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this project the clickstream data is read from a CSV file. This data represents fifteen days of shopping data gathered from a real online store. 
 
 ![pipline section](./images/clickstream-pipeline-section-producer.png)

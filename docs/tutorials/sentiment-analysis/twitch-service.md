@@ -1,5 +1,9 @@
 # Twitch service
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In the UI as well as using the chat interface to send messages, you can also select Twitch channels and perform sentiment analysis on the messages published there:
 
 ![Twitch channels](./images/twitch-channels.png)

@@ -1,5 +1,9 @@
 # Webshop frontend
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service implements the webshop frontend. 
 
 ![Webshop frontend](./images/webshop-frontend-pipeline-segment.png)

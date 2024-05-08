@@ -1,5 +1,9 @@
 # Object detection
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service takes frames from the frame grabber and detects objects in each frame. This service uses the [YOLOv8 object detection library](https://github.com/ultralytics/ultralytics){target=_blank}.
 
 ![Object detection](./images/object-detection-pipeline-segment.png)

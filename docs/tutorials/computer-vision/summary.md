@@ -1,5 +1,9 @@
 # Summary
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this tutorial you have learned that it is possible to quickly fork a complete Quix project and get it up and running in your Quix account very quickly. This enables you to start your own project by using one of our templates. You can then modify our code, keeping your project in a public or private Git repository as required. Alternatively, you can build your own custom pipeline from a mix of our code samples, and your own custom sources, transforms, and destinations.
 
 In addition, you have seen how in Quix you can:

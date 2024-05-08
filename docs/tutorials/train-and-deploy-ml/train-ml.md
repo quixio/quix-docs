@@ -1,5 +1,9 @@
 # Train your ML model
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part you learn how to train an ML model in Jupyter Notebook, using the data you imported in the [previous part](./import-data.md). 
 
 You write code to train your model on this data. You save your model to a Pickle file, which you then deploy in the [next part](./deploy-ml.md) of this tutorial. 

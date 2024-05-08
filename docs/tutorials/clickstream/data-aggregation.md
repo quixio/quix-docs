@@ -1,5 +1,9 @@
 # Data aggregation
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service subscribes to the `enriched-click-data` topic. Any data received is aggregated, and the results written to Redis Cloud. These aggregations are then consumed by a Streamlit dashboard (Real-time dashboard) for visualization and analysis. [RocksDB](https://rocksdb.org/) is used to hold state for the aggregation calculations.
 
 The real-time dashboard displays:

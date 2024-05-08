@@ -1,5 +1,9 @@
 # Get your data
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial you learn how to obtain some real-time data to work with in the rest of the tutorial. You use a demo data source that generates Formula 1 race car data from a computer game. You use this data as the basis to build a ML model to predict braking patterns.
 
 ## Create a persisted topic

@@ -1,5 +1,9 @@
 # Sentiment analysis service
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial you learn about the sentiment analysis service. 
 
 This service uses the Hugging Face model to calculate sentiment for messages, and these are then displayed on the web UI.

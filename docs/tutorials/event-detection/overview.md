@@ -2,7 +2,7 @@
 
 !!! warning
 
-    This tutorial is out of date.
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
 
 In this tutorial you learn how to build a real-time event detection pipeline. Events are simulated crashes or accidents that could occur while driving or cycling. 
 

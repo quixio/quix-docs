@@ -1,5 +1,9 @@
 # 1. Data acquisition
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 You start this tutorial by streaming data into a **topic**. Starting with the data feed enables you to verify that the code and services you build and deploy are working properly.
 
 You have two options for this stage:

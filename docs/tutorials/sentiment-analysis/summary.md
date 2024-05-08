@@ -1,5 +1,9 @@
 # Summary
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this tutorial you've:
 
 * Learned how to fork a GitHub repository and then integrate it with Quix

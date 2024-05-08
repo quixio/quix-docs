@@ -1,5 +1,9 @@
 # Training data
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 Quix gives you the freedom to train the ML model your own way. If you already have tools and processes for doing that then you can train the model and use it in Quix where you can run it in real-time. 
 
 Follow along and learn how to retrieve historical data from your topics, so you can train your model.

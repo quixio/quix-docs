@@ -1,5 +1,9 @@
 # Deploy your ML model
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial, you deploy the Pickle file [containing your ML model](./train-ml.md) to Quix. Your ML code then uses this model to predict braking in real time. 
 
 ![What you'll build](./images/run-live.png)

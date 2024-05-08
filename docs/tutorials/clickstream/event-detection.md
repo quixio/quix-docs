@@ -1,5 +1,9 @@
 # Event detection
 
+!!! warning
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service monitors the user behavior in real time, using a simple state machine. The idea is the state machine detects when conditions for a offer should be triggered. The offer is tailored to the user demographic.
 
 ![Event detection](./images/event-detection-pipeline-segment.png)

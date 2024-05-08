@@ -9,8 +9,6 @@ The Quix tutorials provide you with experience of using Quix. They guide you in 
 
 Each tutorial is divided into parts, so that you can leave a tutorial at a convenient point, come back to it later, and continue where you left off.
 
-Some tutorials use [project templates](../get-started/project-templates.md) - these are marked accordingly.
-
 <div class="grid cards" markdown>
 
 -   __Event detection and alerting__
@@ -36,6 +34,14 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
     Stream data from a CSV (simulating CDC or "Change Data Capture") and ingest it into a vector store: for semantic search.    
 
     [Explore :octicons-arrow-right-24:](../tutorials/ingest-embeddings/continuously_ingest_documents_into_a_vector_store_using_apache_kafka.md)
+
+-   __Predictive maintenance__
+
+    ---
+    
+    Predicts failures in 3D printers.
+
+    [Explore :octicons-arrow-right-24:](../tutorials/predictive-maintenance/overview.md)
 
 </div>
 
@@ -77,18 +83,6 @@ Some tutorials use [project templates](../get-started/project-templates.md) - th
     Clickstream analysis for online shop data. Features real-time dashboard and web shop user interface.
 
     [Explore :octicons-arrow-right-24:](../tutorials/clickstream/overview.md)
-
--   __Predictive maintenance__
-
-    ---
-    
-    ![Predictive maintenance pipeline](../images/project-templates/predictive-maintenance-pipeline.png)
-
-    `Project template`
-
-    Predicts failures in 3D printers.
-
-    [Explore :octicons-arrow-right-24:](../tutorials/predictive-maintenance/overview.md)
 
 -   __Train and deploy machine learning (ML)__
 

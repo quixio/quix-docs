@@ -2,7 +2,7 @@
 
 !!! warning
 
-    This tutorial is out of date.
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
 
 In this tutorial you learn about a project template that analyzes a clickstream in real time, and generates events based on behavior. You use Python, rather than kSQL to perform aggregations and implement event logic based on user behavior.
 
