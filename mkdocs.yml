@@ -80,6 +80,8 @@ nav:
             - 'Using the Quix Streaming APIs': 'develop/integrate-data/streaming-apis.md'
             - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
             - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
+            - 'Handling compressed data': 'develop/integrate-data/compressed-data.md'
+            - 'Handling IoT data with MessagePack': 'develop/integrate-data/iot-data.md'
           - 'Publish your data - sink':
             - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
             - 'Using an external destination': 'develop/integrate-data/external-destination.md'
