@@ -17,7 +17,7 @@ If you are not able to change your broker configuration to support larger messag
 
 There are many compression libraries you can use to compress your messages. Speed is important for real-time applications, but compression levels are also an important consideration. As messages are typically text, such as JSON, they will compress efficiently with most of the common compression algorithms.
 
-For an example, consider compression of a data message using the `zlib` library:
+For an example, consider compression of messages using the `zlib` library:
 
 ``` python
 import psutil, time, os, zlib
@@ -66,7 +66,7 @@ if __name__ == '__main__':
         print('Exiting due to keyboard interrupt')
 ```
 
-This example shows a method for compressing your messages before publishing to the Kafka topic using `zlib`. As `zlib` compresses bytes, you need to convert the Python dictionary passed to the function into a string, and then into bytes, before compression.
+This example shows a method for compressing your messages with `zlib`, before publishing to the Kafka topic. As `zlib` compresses bytes, you need to convert the Python dictionary passed to the function into a string, and then into bytes, before compression.
 
 !!! note
 
@@ -78,7 +78,7 @@ To handle these compressed messages it is possible to build a decompression serv
 
 !!! tip
 
-    If you're new to Quix, see the [Quix Tour](../../quix-cloud/quixtour/overview.md) for details on create a service from a sample.
+    If you're new to Quix, see the [Quix Tour](../../quix-cloud/quixtour/overview.md) for details on how to create a service from a sample.
 
 The following example demonstrates the basics of such a decompression service:
 
