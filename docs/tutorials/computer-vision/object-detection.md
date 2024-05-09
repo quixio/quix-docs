@@ -1,6 +1,6 @@
 # Object detection
 
-!!! warning
+!!! danger
 
     This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
 
