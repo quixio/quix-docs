@@ -1,5 +1,9 @@
 # 5. Run the model
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 Quix has has already trained model artifacts and these have been included as pickle files in the prediction code application. This application is included in the open source Code Samples. You will use the Code Sample to run the model.
 
 ## Prediction service code

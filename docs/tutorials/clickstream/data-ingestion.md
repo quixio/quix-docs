@@ -1,5 +1,9 @@
 # Data ingestion
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This application runs as a job and loads product and user data from JSON files and writes the information to Redis Cloud. The product data is used to populate the online store. User data is used later to trigger special offers targeting a specific demographic.
 
 ![Data ingestion](./images/data-ingestion-pipeline-segment.png)

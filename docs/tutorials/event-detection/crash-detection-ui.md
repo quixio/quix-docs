@@ -1,5 +1,9 @@
 # 3. Demo UI
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This is the UI for this tutorial, it enables the user to see where a device is located, the path it has taken and indicates where a crash has occurred.
 
 The UI you will deploy is shown in the following screenshot:

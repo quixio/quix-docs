@@ -1,5 +1,9 @@
 # 2. Event Detection
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial you build the event detection service. This service runs an ML model to detect if a vehicle has been involved in an accident.
 
 For the purposes of this tutorial, the ML model you use was trained to detect the difference between a phone shaking and it being used normally. 

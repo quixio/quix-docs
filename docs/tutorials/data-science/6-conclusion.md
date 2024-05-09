@@ -1,5 +1,9 @@
 # 6. Conclusion
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this tutorial you have learned how to ingest data, using prebuilt code samples for real-time processing, how to view the data in different ways, and how to query the data to enable model training. 
 
 ## Code Samples used

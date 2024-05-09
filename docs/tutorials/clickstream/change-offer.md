@@ -1,5 +1,9 @@
 # 👩‍🔬 Lab - Change the offer
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this lab you use what you've learned so far, to modify the offer. You develop this change on a feature branch, and then you create a PR to merge your new feature into the `tutorial` branch after testing. This is a common pattern for development - you can test your new service on the feature branch, and then test again, before final integration into the production `main` branch.
 
 ## Create an environment

@@ -1,5 +1,9 @@
 # View and store the data
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 With Quix it's easy to visualize your data in a powerful and flexible way, you can see the data in real time, as well as viewing historical data.
 
 Quix was designed for real-time data, so if you want to see data-at-rest for any topic you must turn on data persistence for that specific topic. You'll do this in the [historical data](#historical-data) section.

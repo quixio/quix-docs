@@ -1,5 +1,9 @@
 # 👩‍🔬 Lab - Customize the UI
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this lab you use everything you've learned so far, to add a customization to the pipeline. Specifically, you change the name of the chat room in the web UI.
 
 You develop this change on a feature branch, and then you create a PR to merge your new feature into the `tutorial` branch. 
