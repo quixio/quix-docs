@@ -397,6 +397,7 @@ extra_css:
 extra_javascript:
   - javascripts/quix.js
   - javascripts/feedback.js
+  - javascripts/runllm-widget.js
 extra:
   social:
     - icon: 'fontawesome/brands/github'
