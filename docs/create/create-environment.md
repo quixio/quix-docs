@@ -116,6 +116,10 @@ These options determine the following:
 
 ### Persisted storage
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 Persisted storage is when you enable persistence on a topic: 
 
 ![Topic persistence](../images/create-environment/topic-persistence.png){width=80%}

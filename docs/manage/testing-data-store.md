@@ -1,5 +1,9 @@
 # Data store for testing 
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 Quix provides a data store for testing and debugging purposes.
 
 While [topics](../kb/glossary.md#topic) do provide a configurable retention time, persisting data into a database provides advantages - for example, you can perform powerful queries to retrieve historical data. This data can be retrieved and displayed using the Data Explorer, or retrieved using the [Query API](../apis/query-api/overview.md).

@@ -32,7 +32,7 @@ Briefly, here's how you would build a Python stream processing pipeline with Qui
 
 Quix is designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your streaming data pipelines.
 
-Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for data streaming, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
+Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for data streaming, Kubernetes for scaling your deployments, Git for revision control, and Python as the main language for programming your solutions.
 
 The following sections take a look at the key components of creating your streaming data solutions:
 

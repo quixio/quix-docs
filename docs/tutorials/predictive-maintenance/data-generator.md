@@ -27,7 +27,7 @@ This service runs continually.
 
 ## Exploring the message format
 
-If you click `Topics` in the main left-hand navigation you see the topics in the environment. Click in the `Data` area to view live data. This takes you into the Quix data explorer. You can then select the stream and parameter data you'd like to explore. You can then view this data in either the `Table` or `Messages` view.
+If you click `Topics` in the main left-hand navigation you see the topics in the environment. Click the topic to view live data. You can then view this data in either the `Table` or `Messages` view.
 
 If you look at the messages in the `Messages` view, you'll see data has the following format:
 
@@ -43,7 +43,7 @@ If you look at the messages in the `Messages` view, you'll see data has the foll
 }
 ```
 
-The Quix data explorer is a very useful tool for debugging and monitoring your pipeline.
+The Quix topic explorer's message view is a very useful tool for debugging and monitoring your pipeline.
 
 ## Viewing the deployed application
 
