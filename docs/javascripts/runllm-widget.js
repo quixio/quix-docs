@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     script.id = 'runllm-widget-script';
     script.src = 'https://cdn.jsdelivr.net/npm/@runllm/search-widget@stable/dist/run-llm-search-widget.es.js';
     script.setAttribute('version', 'stable');
+    script.setAttribute('runllm-preset', 'mkdocs');
     script.setAttribute('runllm-server-address', 'https://api.runllm.com');
     script.setAttribute('runllm-assistant-id', '111');
     script.setAttribute('runllm-position', 'BOTTOM_RIGHT');
