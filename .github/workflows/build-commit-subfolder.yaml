@@ -197,8 +197,8 @@ jobs:
       
     - name: Comment Site URL    
       uses: mshick/add-pr-comment@v2
+      if: always()
       with:
-        if: always()
         message: |
           Docs preview site available at https://quixdocsdev.blob.core.windows.net/${{ env.Deployment_Dir }}/index.html
         message-failure: |
