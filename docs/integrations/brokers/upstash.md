@@ -1,3 +1,8 @@
+---
+title: Upstash integration
+description: Connect Quix — the Python stream processing platform — to Upstash and leverage your streaming data to build real-time applications and products faster.
+---
+
 # Upstash
 
 Upstash Kafka is the only serverless Kafka offering with per request pricing. Use Upstash as much as you need, you'll never pay more than the cap price, guaranteed. 

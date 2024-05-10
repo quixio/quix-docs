@@ -1,5 +1,9 @@
 # Weather data
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 You now have a working real-time stream of bicycle data. Next, you will integrate the data from a free weather API, adding current and forecasted weather data. 
 
 ## Create a free Visual Crossing account

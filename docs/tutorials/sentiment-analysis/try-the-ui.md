@@ -1,5 +1,9 @@
 # Try the UI
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial you try out the UI to get a feel for the project and what it does.
 
 !!! tip

@@ -1,5 +1,9 @@
 # Conclusion
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 You've just made use of the Quix Code Samples, our collection of open source connectors, and examples, to deploy a UI and event detection microservice.
 
 Congratulations, you have achieved a lot!

@@ -1,8 +1,8 @@
 # Sending TFL BikePoint availability alerts to Slack
 
-!!! warning
+!!! danger
 
-    This tutorial is out of date.
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
 
 ## Aim
 

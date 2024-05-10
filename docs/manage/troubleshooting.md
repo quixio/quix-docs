@@ -2,6 +2,16 @@
 
 This section contains solutions, fixes, hints and tips to help you solve the most common issues encountered when using Quix.
 
+## Kafka message too large errors
+
+Sometimes you may receive Kafka message too large errors, if your messages are larger than 1MB. You would receive the following error message:
+
+```
+KafkaError{code=MSG_SIZE_TOO_LARGE,val=10,str="Unable to produce message: Broker: Message size too large"}
+```
+
+To work around this, see our [documentation on handling compressed messages](../develop/integrate-data/compressed-data.md).
+
 ## Data is not being received into a Topic
 
 If data is not being received in a topic:

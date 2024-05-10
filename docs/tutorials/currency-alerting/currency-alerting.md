@@ -1,5 +1,9 @@
 # Currency alerting
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this tutorial you will learn how to build a real-time streaming pipeline that sends push notifications to your phone when the Bitcoin price reaches a certain threshold.
 
 ## Learning objectives

@@ -1,5 +1,9 @@
 # Computer vision
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this tutorial you learn about a real-time computer vision application, using a [Quix template project](https://github.com/quixio/computer-vision-demo){target=_blank}.
 
 ![Computer vision pipeline](../../images/project-templates/computer-vision-pipeline.png)

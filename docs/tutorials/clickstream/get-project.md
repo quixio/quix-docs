@@ -1,5 +1,9 @@
 # Get the project
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 While you can see the [deployed project running in Quix](https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}, it can be useful to learn how to get a project up and running in your own Quix account. 
 
 Once you have the project running in your Quix account, you can modify the project as required, and save your changes to your copy of the project. 

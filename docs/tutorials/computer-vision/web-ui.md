@@ -1,5 +1,9 @@
 # Web UI
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 In this part of the tutorial you learn about the web UI service. 
 
 ![Web UI pipeline](./images/web-ui-pipeline-segment.png)

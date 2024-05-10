@@ -1,3 +1,8 @@
+---
+title: Aiven integration
+description: Connect Quix — the Python stream processing platform — to Aiven and leverage your streaming data to build real-time applications and products faster.
+---
+
 # Aiven
 
 Aiven for Apache Kafka® is a fully managed distributed data streaming platform, deployable in the cloud of your choice.

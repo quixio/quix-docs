@@ -1,5 +1,9 @@
 # Data enrichment
 
+!!! danger
+
+    This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
+
 This service is used to enrich the clickstream data with the product category, and the visitor's gender, birthday, and age. This data is obtained from Redis Cloud, which is populated by the data ingestion job.
 
 ![Data enrichment](./images/data-enrichment-pipeline-segment.png)
