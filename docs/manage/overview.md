@@ -71,11 +71,19 @@ The replay service is used to play back persisted data into a topic.
 
 ## Replay service
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 The replay service enables you to play persisted data back into a topic.
 
 You can read more about the [replay service](./replay.md) in the docs.
 
 ## Query API
+
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
 
 The Query API enables you to programmatically retrieve persisted data from the database.
 

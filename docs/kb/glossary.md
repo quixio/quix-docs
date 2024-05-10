@@ -168,6 +168,10 @@ A project contains one or more [environments](#environment), so typically you cr
 
 ## Query API
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 The [Query API](../apis/query-api/overview.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
 
 ## Quix UI

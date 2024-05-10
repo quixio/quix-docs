@@ -16,6 +16,10 @@ Quix provides a very simple way to persist data in a topic. Simply locate the to
 
 ## Replay service
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 When data has been persisted, you have the option to not only query and display it, but replay it into your pipeline. This can be very useful for testing and debugging pipelines using historical data.
 
 See how to [use the Quix replay service](../manage/replay.md).
