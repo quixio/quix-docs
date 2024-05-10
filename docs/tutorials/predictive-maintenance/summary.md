@@ -6,7 +6,7 @@ In addition, you have seen how in Quix you can:
 
 * See the power of navigating your pipeline visually
 * View the logs of a service as an aid to debugging
-* View live data in the application view, or using the Quix Data Explorer
+* View live data in the application view, or using the Quix topic explorer
 * Learned how you can host your project in a Git repository
 * Learn how to examine the raw message data in the messages view
 * Examine and edit the code of a service
