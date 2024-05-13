@@ -15,7 +15,7 @@ Sometimes you can experience Kafka disconnection messages such as the following:
 
 This happens because idle connections are reaped on occasion, and nodes are sometimes restarted to apply security fixes and so on. Kafka being high availability by design, your topics are replicated, in the case of Quix-managed broker, twice. Your service will automatically fail over to the other node, while the connection to the other node recovers.
 
-In the underlying Kafka library, disconnects are often reported, even if there is no message to be delivered, which can be problematic for producers. The connection is re-established in the background, but the default log level does not record this, so it may appear dead according to the logs, while in fact it is still functioning.
+In the underlying Kafka library, disconnects are often reported, even if there is no message to be delivered, which can be problematic for producers. The connection is re-established in the background, but the default log level does not record this, so it may appear inactive according to the logs, while in fact it is still functioning.
 
 Quix aims to restart nodes as infrequently as possible, but it may happen every now and then. When it does happen, they are restarted in a rolling manner to always have at least one replica for your streaming needs available.
 
