@@ -7,6 +7,12 @@ description: The Quix Command-Line Interface.
 
 The [Quix CLI](https://github.com/quixio/quix-cli){target=_blank} is a powerful command-line companion for seamlessly managing and interacting with the features of Quix Cloud. While Quix offers a robust UI for a user-friendly experience, the CLI empowers you with efficiency and flexibility, enabling you to streamline your workflow, and take control from the command line.
 
+!!! warning
+
+    Quix CLI is currently Beta.
+
+Some features are:
+
 * Effortless Control: Execute commands effortlessly to manage various aspects of your Quix organization.
 
 * Script Automation: Integrate Quix operations into your scripts for automated workflows and enhanced productivity.
