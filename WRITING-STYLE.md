@@ -344,9 +344,9 @@ When inserting example code in the text:
 * There should *not* be a space before the colon.
 * Place a blank line after the colon and before the code block.
 
-## Substitution Prompts
+## Substitution prompts
 
-When substitutions are required in code blocks, such as requiring the reader to write their own API key, write the text prompt enclosed in a less than sign and a greater than sign. For example: `<your_API_key>`
+When substitutions are required in code blocks, such as requiring the reader to write their own API key, write the text prompt enclosed in a less than sign and a greater than sign. For example: `<your_API_key>`.
 
 Except for proper nouns and acronyms, use lower case. 
 
