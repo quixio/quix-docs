@@ -50,11 +50,11 @@ You'll now clone the project repo so you can work on it locally.
 
 2. Clone the project, pasting in the Gitea URL you obtained in Step 2:
 
-```
-git clone https://gitea.platform.quix.io/your-org/hello-quix-clone.git .
-```
+    ```
+    git clone https://gitea.platform.quix.io/your-org/hello-quix-clone.git .
+    ```
 
-Use your organization name. You'll be prompted for your Gitea username and password.
+    Use your organization name. You'll be prompted for your Gitea username and password.
 
 You now have a local clone of your project.
 
