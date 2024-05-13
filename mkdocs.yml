@@ -29,7 +29,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
-  - 'Quix CLI':
+  - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
