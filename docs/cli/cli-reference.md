@@ -7,6 +7,10 @@ description: The Quix Command-Line Interface reference guide.
 
 This is the reference guide for the Quix CLI.
 
+!!! warning "Quix CLI is in development"
+
+    Quix CLI is currently Beta, and is under development. This documentation may not be completely up to date, as the CLI is updated frequently, with new commands added, some commands removed, and changes to command syntax. Please use the Quix CLI built-in help for the very latest information.
+
 ## Installation
 
 Read the latest [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.

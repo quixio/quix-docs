@@ -1,11 +1,17 @@
 ---
 title: Quix CLI
-description: The Quix Command-Line Interface.
+description: The Quix Command-Line Interface. A powerful command-line companion for developing locally, and deploying to local brokers, hosted brokers, or Quix Cloud.
 ---
 
 # Quix Command-Line Interface (CLI)
 
 The [Quix CLI](https://github.com/quixio/quix-cli){target=_blank} is a powerful command-line companion for seamlessly managing and interacting with the features of Quix Cloud. While Quix offers a robust UI for a user-friendly experience, the CLI empowers you with efficiency and flexibility, enabling you to streamline your workflow, and take control from the command line.
+
+!!! warning "Quix CLI is in development"
+
+    Quix CLI is currently Beta, and is under development. This documentation may not be completely up to date, as the CLI is updated frequently, with new commands added, some commands removed, and changes to command syntax. Please use the Quix CLI built-in help for the very latest information.
+
+Some features are:
 
 * Effortless Control: Execute commands effortlessly to manage various aspects of your Quix organization.
 

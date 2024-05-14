@@ -32,7 +32,7 @@ Briefly, here's how you would build a Python stream processing pipeline with Qui
 
 Quix is designed to remove as much complexity as possible from the process of creating, deploying, and monitoring your streaming data pipelines.
 
-Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for data streaming, Kubernetes for scaling your deployments, InfluxDB and MongoDB for data persistence, Git for revision control, and Python as the main language for programming your solutions.
+Quix leverages industry-standard technologies, such as Kafka to provide the core functionality for data streaming, Kubernetes for scaling your deployments, Git for revision control, and Python as the main language for programming your solutions.
 
 The following sections take a look at the key components of creating your streaming data solutions:
 
@@ -144,9 +144,9 @@ Quix provides numerous standard [connectors](../connectors/index.md) for both so
 
 Quix provides several APIs to help you work with streaming data. These include:
 
-* [**Stream Writer API**](../apis/streaming-writer-api/overview.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
-* [**Stream Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. 
+* [**Streaming Writer API**](../apis/streaming-writer-api/overview.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
+* [**Streaming Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
+* [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. **Note:** available to legacy customers only.
 * [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams

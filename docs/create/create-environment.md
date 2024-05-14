@@ -116,6 +116,10 @@ These options determine the following:
 
 ### Persisted storage
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 Persisted storage is when you enable persistence on a topic: 
 
 ![Topic persistence](../images/create-environment/topic-persistence.png){width=80%}
@@ -131,10 +135,10 @@ When this option is selected, data in the topic is persisted to a Quix database 
 Services that experience improved performance when selecting the "High performance" option include the following:
 
 * GitService - this is the service that synchronizes your Quix environment with the project's Git repository.
-* [Replay Service](../manage/replay.md) - enables replay of persisted data into a topic.
+* [Replay Service](../manage/replay.md) - enables replay of persisted data into a topic. **Note:** feature is only available to legacy customers.
 * [Streaming Reader](../apis/streaming-reader-api/overview.md) - service that enables a client to subscribe to a Quix topic.
 * [Streaming Writer](../apis/streaming-writer-api/overview.md) - service that enables a client to publish to a Quix topic.
-* [Query API](../apis/query-api/overview.md) - query data persisted in the Quix database.
+* [Query API](../apis/query-api/overview.md) - query data persisted in the Quix database. **Note:** feature is only available to legacy customers.
 
 Generally, if you notice sluggish performance in one of these services, it may mean for the volumes and frequency of data you are processing, you might need the High performance option.
 

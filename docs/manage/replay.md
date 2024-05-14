@@ -1,5 +1,9 @@
 # How to replay data
 
+!!! danger "Legacy feature"
+
+	This feature is not available to new users. However, legacy users may still have access to this functionality.
+
 Quix features a **replay service**. This service enables you to replay persisted data into a topic, as if it were live data. This is very useful for the following use cases:
 
 * Testing and debugging connectors and transforms

@@ -24,17 +24,12 @@ An external source is a representation of a data source that is external to Quix
 
 To add an external source:
 
-1. Navigate to the `Code Samples`.
-
-2. Under `Pipeline Stage` click `Source`.
-
-3. Locate the `External Source` sample and click `Add external source`.
-
-4. Enter `phone-data` in the `Output` field and click `Add new topic` in the dropdown.
-
-5. Enter `Quix companion web gateway` in the `Name` field.
-
-6. Click `Add external Source`.
+1. Go to the pipeline view.
+2. Click `+ New` in the top right corner of the view.
+3. Select `External source`.
+4. In `Output` select the topic you are going to publish to, or add a new topic with `+ Add new`. In this case select the `phone-data` topic.
+5. In `Name` type any suitable name, such as "Quix companion web gateway".
+6. Click `Add external source`.
 
 ### Install and configure the apps
 

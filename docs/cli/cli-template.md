@@ -6,23 +6,29 @@ In this tutorial you'll step through copying a template project into your Quix a
 
 The tutorial assumes you have:
 
-* Docker Desktop (and a docker CLI)
-* Quix CLI
-* Quix Cloud account
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/){target=_blank} (and a docker CLI) installed.
+* [Quix CLI](https://github.com/quixio/quix-cli){target=_blank} installed.
+* A free [Quix Cloud](https://portal.platform.quix.io/self-sign-up){target=_blank} account. Make sure you are signed up and logged in.
 
 ## Step 1: Copy the template
 
-1. Navigate to the templates page and locate the Hello Quix template. 
+To copy the project template into your Quix Cloud account:
 
-2. Select the Hello Quix panel and click the `Clone this project` button. 
+1. Navigate to the [templates page](https://quix.io/templates){target=_blank} and locate the Hello Quix template. 
 
-3. Use the single-click option to create your project in Quix.
+2. Click the Hello Quix panel and then click the `Clone this project` button.
+
+    You are taken to Quix Cloud.
+
+3. In Quix Cloud, in the `Import project` dialog, use the single-click option to create your project.
 
 4. Navigate into the project environment.
 
-## Step 2: Get your Gitea Git credentials
+## Step 2: Get your Gitea credentials
 
-1. Click on your profile picture, and select `Manage Git credentials`.
+To obtain your Gitea credentials:
+
+1. Click on your profile picture in Quix Cloud, and select `Manage Git credentials`.
 
 2. Make a note of your Gitea username. 
 
@@ -42,13 +48,13 @@ You'll now clone the project repo so you can work on it locally.
 
 1. Create a directory for your project (for example `mkdir hello-quix`), and change into it.
 
-2. Clone the project:
+2. Clone the project, pasting in the Gitea URL you obtained in Step 2:
 
-```
-git clone https://gitea.platform.quix.io/your-org/hello-quix-clone.git .
-```
+    ```
+    git clone https://gitea.platform.quix.io/your-org/hello-quix-clone.git .
+    ```
 
-Use your organization name. You'll be prompted for your Gitea username and password.
+    Use your organization name. You'll be prompted for your Gitea username and password.
 
 You now have a local clone of your project.
 
@@ -56,7 +62,7 @@ You now have a local clone of your project.
 
 There are various ways you can run your code locally. In this template you can run the entire pipeline locally using docker.
 
-1. To run the pipeline locally:
+1. To run the pipeline locally, in your terminal enter the following command:
 
     ```
     docker compose up --build

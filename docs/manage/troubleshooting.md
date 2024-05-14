@@ -2,6 +2,23 @@
 
 This section contains solutions, fixes, hints and tips to help you solve the most common issues encountered when using Quix.
 
+## Kafka disconnections
+
+Sometimes you can experience Kafka disconnection messages such as the following:
+
+```
+[2024-04-30 14:51:46,791] [INFO] : FAIL [rdkafka#producer-4] [thrd:sasl_ssl://kafka-k5.quix.io:9093/5]: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed)
+[2024-04-30 14:51:46,791] [INFO] : FAIL [rdkafka#producer-4] [thrd:sasl_ssl://kafka-k5.quix.io:9093/5]: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed)
+[2024-04-30 14:51:46,791] [ERROR] : Kafka producer error: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed) code="-195"
+[2024-04-30 14:51:46,791] [ERROR] : Kafka producer error: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed) code="-195"
+```
+
+This happens because idle connections are reaped on occasion, and nodes are sometimes restarted to apply security fixes and so on. Kafka being high availability by design, your topics are replicated, in the case of Quix-managed broker, twice. Your service will automatically fail over to the other node, while the connection to the other node recovers.
+
+In the underlying Kafka library, disconnects are often reported, even if there is no message to be delivered, which can be problematic for producers. The connection is re-established in the background, but the default log level does not record this, so it may appear inactive according to the logs, while in fact it is still functioning.
+
+Quix aims to restart nodes as infrequently as possible, but it may happen every now and then. When it does happen, they are restarted in a rolling manner to always have at least one replica for your streaming needs available.
+
 ## Kafka message too large errors
 
 Sometimes you may receive Kafka message too large errors, if your messages are larger than 1MB. You would receive the following error message:

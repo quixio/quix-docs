@@ -2,6 +2,10 @@
 
 In this documentation, you learn how to use Jupyter Notebook to analyze data persisted in Quix.
 
+!!! danger "Legacy features"
+
+	Some of the features on this page are not available to new users, including those related to the Quix Data Explorer and the topic Persistence feature. However, legacy users may still have access to these facilities. 
+
 ## Why this is important
 
 Although Quix is a real-time platform, to build real-time in-memory models and data processing pipelines, you need to understand data first. To help with that, Quix offers the option to persist data in topics. This data can be accessed using the [Query API](../../apis/query-api/overview.md). This helps make data discovery and analysis easier.
