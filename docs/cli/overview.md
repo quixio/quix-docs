@@ -1,6 +1,6 @@
 ---
 title: Quix CLI
-description: The Quix Command-Line Interface.
+description: The Quix Command-Line Interface. A powerful command-line companion for developing locally deploying to local brokers, hosted brokers, or Quix Cloud.
 ---
 
 # Quix Command-Line Interface (CLI)
