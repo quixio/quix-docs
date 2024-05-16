@@ -30,7 +30,7 @@ nav:
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
-    - 'Quickstart': 'get-started/cli-quickstart.md'
+    - 'Quickstart': 'cli/cli-quickstart.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
       - 'Build a pipeline': 
