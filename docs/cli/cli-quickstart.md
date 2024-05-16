@@ -92,4 +92,4 @@ Go to pipeline view, and see your pipeline running, with your Starter transforma
 
 ## Next step
 
-* [See the CLI docs](../cli/overview.md)
+* [Step through a tutorial](../cli/cli-template.md)
