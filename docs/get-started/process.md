@@ -83,4 +83,4 @@ You'll notice the messages in the topic are in the JSON format.
 
 ## Next step
 
-* [Build a pipeline](../cli/cli-quickstart.md) - build a pipeline using the Quix CLI.
+* [CLI](../cli/cli-quickstart.md) - get started using the Quix CLI.

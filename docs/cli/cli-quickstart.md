@@ -1,4 +1,4 @@
-# Build a pipeline using Quix CLI
+# Quix CLI Quickstart
 
 In this guide you create a simple project on the command line, test it locally, and sync it with your Quix Cloud pipeline view.
 
