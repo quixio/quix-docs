@@ -83,4 +83,4 @@ You'll notice the messages in the topic are in the JSON format.
 
 ## Next step
 
-* [CLI](../cli/cli-quickstart.md) - get started using the Quix CLI.
+* [Quix CLI Quickstart](../cli/cli-quickstart.md) - get started using the Quix CLI.
