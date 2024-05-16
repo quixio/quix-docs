@@ -27,10 +27,10 @@ You should be connected to the default context with the Portal URL `https://port
 To sync your application, change into the `F1 demo data` directory and enter:
 
 ```
-quix local deploy --push --sync
+quix local pipeline sync --update
 ```
 
-This updates your `quix.yaml` project file. The `--push` option pushes all changes to your Git repository (it is similar to git add, git commit, git push). You can also add a commit message with the `--commit-message` option if you want. The `--sync` option ensures your Quix environment is synched with the updated Git repository.
+The `sync` command pushes all changes to your Git repository (it is similar to git add, git commit, git push), and synchronization it with Quix Cloud. You can also add a commit message with the `--commit-message`, or `-m` option if you want. The `--update` option ensures your `quix.yaml` project file is updated as required, based on changes to your applications.
 
 !!! important
 

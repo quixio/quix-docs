@@ -83,10 +83,10 @@ You can now modify your code in any way you wish. For example, you could edit a 
 Having worked on your code and tested it locally, you can now push up your code to deploy it in Quix Cloud. You can do this with:
 
 ```
-quix local deploy --push --sync
+quix local pipeline sync --update
 ```
 
-This pushes (`--push`) your modified code to the Gitea repository. The `--sync` option causes the Gitea repository to be synchronized with your Quix Cloud pipeline view.
+This updates your `quix.yaml` and pushes your modified code to the Gitea repository and syncs with Quix Cloud.
 
 In Quix Cloud you can view the pipeline and examine it in detail.
 

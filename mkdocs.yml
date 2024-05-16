@@ -25,12 +25,12 @@ nav:
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
-      - 'Build pipelines': 'get-started/cli-quickstart.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
   - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
+    - 'Quickstart': 'get-started/cli-quickstart.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
       - 'Build a pipeline': 
@@ -347,6 +347,7 @@ plugins:
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
         'get-started/build-cli.md' : 'get-started/cli-quickstart.md'
+        'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
 
 theme:
   name: 'material'

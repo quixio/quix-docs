@@ -10,7 +10,7 @@ Sometimes you might want to invoke certain commands of the Quix CLI from GitHub 
 Using the Quix CLI, you can push any changes to your code, and sync the repo to Quix, by using the following command:
 
 ```
-quix local deploy --push --sync
+quix local pipeline sync --update
 ```
 
 But sometimes, a developer may make code changes to a branch directly, without using the Quix CLI. In this case you could create a GitHub Action to make sure your repo is always synched to Quix.

@@ -25,5 +25,5 @@ View information about the CLI in the [GitHub repository](https://github.com/qui
 
 ## Next steps
 
-* [Step through a tutorial](./cli-build-pipeline.md)
+* [Step through the Quickstart](./cli-quickstart.md)
 * [Read the reference guide](./cli-reference.md)
