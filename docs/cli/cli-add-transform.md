@@ -90,10 +90,10 @@ You can then edit the `.env` file so that the input topic is `f1-data`.
 
 ## Edit requirements.txt
 
-Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.1:
+Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.2:
 
 ```
-quixstreams>=2.4.1
+quixstreams>=2.4.2
 ```
 
 ## Run your transform

@@ -37,10 +37,10 @@ The code just prints out the components of the message individually. You could p
 
 ## Edit requirements.txt
 
-Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.1:
+Check the `requirements.txt` file. Make sure you are using Quix Streams greater than or equal to 2.4.2:
 
 ```
-quixstreams>=2.4.1
+quixstreams>=2.4.2
 ```
 
 ## Test your destination code

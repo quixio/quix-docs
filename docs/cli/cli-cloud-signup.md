@@ -16,9 +16,11 @@ In this step you create a project in Quix Cloud based on your Git repository.
 4. Link the Quix project to your Git repository using the **setup guide** provided for your chosen Git provider.
 5. Use PROD for your environment, and make sure the `main` branch is selected.
 
-If you need help on creating a project, you can [read the documentation](../create/create-project.md).
-
 When you've created the project, switch back to the command line.
+
+!!! tip
+
+    If you need help on creating a project, you can [read the documentation](../create/create-project.md).
 
 ## Next step
 

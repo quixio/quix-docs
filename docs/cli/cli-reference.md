@@ -200,18 +200,12 @@ quix context broker toggle
 You can push your locally modified code to the remote repository by using:
 
 ```
-quix local deploy --push
+quix local pipeline sync --update
 ```
 
-You can optionally provide a commit message. You are also prompted if changes outside of you current application have been made. You can optionally push these changes too.
+You can optionally provide a commit message with the `-m` option. You are also prompted if changes outside of you current application have been made. You can optionally push these changes too.
 
-In order to synchronize the Git repository with the Quix Cloud environment then use:
-
-```
-quix local deploy --push --sync
-```
-
-The `--sync` option ensures the Git repository is synchronized with the Quix Cloud pipeline view.
+The `--update` option makes sure your `quix.yaml` file is updated.
 
 ## Managing permissions
 
