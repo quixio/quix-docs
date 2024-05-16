@@ -161,6 +161,10 @@ nav:
           - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
           - 'Alerting': 'integrations/databases/influxdb/alerting.md'
           - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
+      - 'PostgreSQL':
+        - 'Overview': 'integrations/databases/PostgresSQL/overview.md'
+      - 'Redis':
+        - 'Overview': 'integrations/databases/Redis/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
