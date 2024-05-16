@@ -4,6 +4,84 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+## 2024-05-01-cli-beta | 15 MAY 2024
+
+`NEW FEATURES`
+
+- CLI (Beta)
+    - New CLI commands
+        - `quix local pipeline up/down`:  Added the ability to run Quix pipelines locally using docker.
+        - `quix local pipeline update`:  New command to update the local pipeline with the existing applications of the project
+        - `quix local pipeline sync`:  New command to synchronize the local pipeline with Quix Cloud
+        - `quix local pipeline view`:  New command to render an image of the local pipeline
+        - `quix local ide`:  Sets up everything needed for local development and opens your local IDE
+        - `quix update`:  New command to update the version of the CLI to the latest stable version available
+    - Improvements on CLI commands
+        - `quix deployments`: Improved interactivity in all the deployments commands.
+        - Improved general user experience on all the commands using input texts and lists
+    - Deprecated commands
+        - `quix local deploy`: This command is being deprecated in favor of the new local pipeline commands. You will find same functionalities in `quix local pipeline update` and `quix local pipeline sync`.
+        
+- Environments
+    - Improved environment empty states to introduce basic CLI setup commands
+    - Implemented *Code* button that allows you to
+        - Clone your repository for local development
+        - Install the Quix CLI
+        - Download the code of the branch as zip
+- Organisations
+    - New organisation overview page that allows users that are *Admins* within their organisation to see relevant organisation details.
+
+`IMPROVEMENTS`
+
+- Deployments
+    - Added the environment variable `Quix_Deployment_ReplicaName` to allow the code behave differently depending of the Replica of the deployment.
+- IDE
+    - You will now receive status updates when uploading the file such as: uploading, successful upload, and failed uploads
+- Environments
+    - Improved outdated deployments warning header to make it less UX intrusive
+- YAML
+    - Introduced pagination for commit history to improve performance
+    - When there is an error on the *sync* process, we now scroll to the relevant step in the sync process that is resulting in the error, for better visibility
+    - `DesiredStatus` property is only tracked now if it is present in the YAML.
+    - Synchronize environment automatically when we detect a new commit in the YAML that would produce 0 changes in the pipeline.
+- Topics
+    - Topic configuration is no longer mandatory in the UI and in the YAML. Now when you create a topic without user defined configuration, it will use the default configuration of the broker type.
+    - Added *Current offset* column to the *Consumer groups* tab
+- Misc
+    - Implemented loading spinners on various actionable clicks
+    - Updated set-up instructions for external repositories
+    - You should notice an improvement of speed and responsiveness to various places in the platform, e.g. creation of topics, loading of pages, and duration of sync processes
+    - Updated Quix branding for all login pages
+
+`BUG FIXES`
+
+- Deployment
+    - When deployments encounter a `runtime error` and fail to start, the logs being displayed were from the previous run (if available). This has now been fixed to show the live logs of the current failing run.
+    - Switching to *custom* offset in the *messages* tab **for the first time** displayed the first `50` messages, even if your custom offset was e.g. `45890`
+    - You were unable to download build logs more than once, unless the page was refreshed.
+    - In the deployment lineage, you had to click the *Add new* placeholder twice to open the context menu
+    - Fixed and issue where some deployments were stuck in Building state forcing the user to restart the process manually
+- Applications
+    - Files that were nested in a folder were throwing errors when trying to view them
+    - The *Run* button wasn’t visible in the online IDE when cloning some templates
+    - Commit history was sometimes failing to update the correct version of the `app.yaml` and application variables when clicking the *Latest commit* button
+    - Sync banner not updating when performing multiple updates to an application
+- Topics
+    - The empty state appeared when switching from the *waveform* tab to the *messages* tab, even if messages were present previously
+    - Context menu was available for topics that failed to create
+    - Creating a topic with a non-numeric retention breaks the input field
+    - Fixed a random bug were topics being created or updated were stuck in a progress state
+- YAML
+    - The empty state for environment variables disappeared. They’re back now.
+    - If you clicked *Edit code*, to edit the `yaml` file, there was not a way to escape edit-mode if you had not made any changes.
+    - Fixed a bug were YAML history was not retrieved correctly if some branch didn’t have a common parent (detached branches)
+    - When restoring a YAML file after being deleted was not keeping *Latest* versions of the deployments correctly
+- Environments
+    - If an environment was *out of sync*, changing the name of the environment didn’t actually change the name of the environment
+- Misc
+    - Various typing, spacing, and user interaction fixes throughout the platform
+    - Fixed a memory leak in some internal services (StreamingReader, StreamingWriter, ReplayService)
+
 ## 2024-04-05-performance-hf2 | 24 APRIL 2024
 
 `BUG FIXES`
