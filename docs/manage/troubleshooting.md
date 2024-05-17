@@ -4,7 +4,7 @@ This section contains solutions, fixes, hints and tips to help you solve the mos
 
 ## Error using Quix Streams - Cannot provide both broker address and Quix SDK Token
 
-If you are using an older version of Quix Streams (version 2.x family), you may have set your consumer group as the first argument for `Application()` as in the following example:
+If you are using previous version of Quix Streams (but still in the version 2.x family), you may have set your consumer group as the first argument for `Application()` as in the following example:
 
 ``` python
 app = Application(
