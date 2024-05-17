@@ -103,7 +103,7 @@ as the input topic and provide a Slack `webhook_url.`
 
 !!! note
 
-	If you have your own slack, head over to the [Slack API pages](https://api.slack.com/messaging/webhooks){target=_blank} and create a webhook following their guide `Getting started with Incoming Webhooks.` If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the Code Samples, such as Twilio.
+	If you have your own slack, head over to the [Slack API pages](https://api.slack.com/messaging/webhooks){target=_blank} and create a webhook following their guide `Getting started with Incoming Webhooks.` If you don’t have your own Slack or don’t have the account privileges to create the webhook, you can choose another destination from the Code Samples.
 
 Warning: Use a dev or demo or unimportant Slack channel while you’re
 developing this. Trust me.
