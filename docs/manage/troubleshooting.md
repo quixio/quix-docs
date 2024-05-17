@@ -2,6 +2,45 @@
 
 This section contains solutions, fixes, hints and tips to help you solve the most common issues encountered when using Quix.
 
+## Error using Quix Streams - Cannot provide both broker address and Quix SDK Token
+
+If you are using an older version of Quix Streams (version 2.x family), you may have set your consumer group as the first argument for `Application()` as in the following example:
+
+``` python
+app = Application(
+    "myconsumergroup",
+    auto_offset_reset="earliest",
+    auto_create_topics=True,  # Quix app has an option to auto create topics
+)
+```
+
+However, the latest version of Quix Streams expects this to be the broker address. So if you set this first argument while running code in the Quix environment, you will get an error:
+
+```
+Traceback (most recent call last):
+  File "/app/main.py", line 77, in <module>
+    app = Application(
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/quixstreams/app.py", line 202, in __init__
+    raise ValueError("Cannot provide both broker address and Quix SDK Token")
+ValueError: Cannot provide both broker address and Quix SDK Token
+sys:1: ResourceWarning: unclosed <ssl.SSLSocket fd=3, family=2, type=1, proto=6, laddr=('10.0.2.227', 59714), raddr=('34.149.137.116', 443)>
+
+[ - Logs stream closed - ]
+```
+
+This is because Quix automatically passes a Quix SDK token to Quix Streams in the Quix Cloud environment. As you've passed the first argument without a property name, it interprets that as you trying to pass in the broker address too.
+
+To fix this, set the consumer group using the property name as show in the following example:
+
+``` python
+app = Application(
+    consumer_group="myconsumergroup",
+    auto_offset_reset="earliest",
+    auto_create_topics=True,  # Quix app has an option to auto create topics
+)
+```
+
 ## Kafka disconnections
 
 Sometimes you can experience Kafka disconnection messages such as the following:
