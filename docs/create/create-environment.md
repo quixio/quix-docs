@@ -34,7 +34,6 @@ When you [create a project](create-project.md), you'll need to create at least o
 
     2:36 Okay. That's it for this video. See you in the next video.
 
-
 ## How to create a new environment
 
 There are several ways you can create a new environment, if you've not created one as part of creating the project. For example, you can do it from the top-level kebab menu:
@@ -97,54 +96,6 @@ You also have the option to test your connection with the Kafka server before co
 ### Broker setup guides
 
 As well as the guides built into Quix Cloud to help set up your broker, there are also some setup guides in the [Integrations documentation](../integrations/brokers/overview.md).
-
-## Data and streaming services
-
-The last step in creating an environment is to choose your data and streaming services option. 
-
-![Data and streaming services](../images/create-environment/data-streaming-services.png){width=60%}
-
-There are two options here:
-
-* Standard
-* High performance
-
-These options determine the following:
-
-* The amount of storage available to persisted topics
-* The level of resources (CPU, RAM) allocated to streaming services
-
-### Persisted storage
-
-!!! danger "Legacy feature"
-
-	This feature is not available to new users. However, legacy users may still have access to this functionality.
-
-Persisted storage is when you enable persistence on a topic: 
-
-![Topic persistence](../images/create-environment/topic-persistence.png){width=80%}
-
-When this option is selected, data in the topic is persisted to a Quix database (InfluxDB). This data can then be queried using the [Query API](../apis/query-api/overview.md), or played back into a topic using the [replay service](../manage/replay.md). 
-
-!!! note
-
-    Persisted storage is not the same as topic storage. Topic storage is charged separately, and relates to storage allocated to messages retained in a Kafka topic, for the [Quix broker option](#quix-broker).
-
-### Streaming services
-
-Services that experience improved performance when selecting the "High performance" option include the following:
-
-* GitService - this is the service that synchronizes your Quix environment with the project's Git repository.
-* [Replay Service](../manage/replay.md) - enables replay of persisted data into a topic. **Note:** feature is only available to legacy customers.
-* [Streaming Reader](../apis/streaming-reader-api/overview.md) - service that enables a client to subscribe to a Quix topic.
-* [Streaming Writer](../apis/streaming-writer-api/overview.md) - service that enables a client to publish to a Quix topic.
-* [Query API](../apis/query-api/overview.md) - query data persisted in the Quix database. **Note:** feature is only available to legacy customers.
-
-Generally, if you notice sluggish performance in one of these services, it may mean for the volumes and frequency of data you are processing, you might need the High performance option.
-
-!!! tip
-
-    While you can't directly upgrade a standard environment to a high performance environment, you can create a new environment that uses the high performance option. You can create this environment using any branch (or even a new branch) suitable for your use case. For example, if you had a `staging` branch that was currently a standard environment, and you needed to upgrade it to a high performance environment, you could delete the environment, and create a new environment using the high performance option, and link it to the `staging` branch.
 
 ### Use cases
 

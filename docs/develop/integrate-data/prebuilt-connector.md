@@ -1,6 +1,6 @@
 # Using a prebuilt source connector
 
-This is the easiest method, as no code needs to be written, and there is usually only minor configuration required to get a Quix connector up and running. For example, Quix provides connectors for many common services such as Postgres, Twilio, Streamlit, and so on.
+This is the easiest method, as no code needs to be written, and there is usually only minor configuration required to get a Quix connector up and running.
 
 You can review the list of connectors in the [connector documentation](../../connectors/index.md). The code for our connectors can be found in the [Quix Code Samples GitHub repository](https://github.com/quixio/quix-samples){target=_blank}. 
 
