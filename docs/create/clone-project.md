@@ -12,7 +12,7 @@ This **copies** the project into your Quix account. The `Import project` dialog 
 
 You have a couple of options here. The quickest and simplest way is to use the "One click" option, where are the configuration is done for you. 
 
-If you want more control, such as your broker options and data and streaming services option, choose the "Five click" option.
+If you want more control, such as being able to set your broker options, choose the "Five click" option.
 
 The wizard then creates a copy of the project in your Quix account. 
 
