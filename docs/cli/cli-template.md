@@ -51,7 +51,7 @@ You'll now clone the project repo so you can work on it locally.
 2. Clone the project, pasting in the Gitea URL you obtained in Step 2:
 
     ```
-    git clone https://gitea.platform.quix.io/your-org/hello-quix-clone.git .
+    git clone https://gitea.platform.quix.io/your-org/hello-quix.git .
     ```
 
     Use your organization name. You'll be prompted for your Gitea username and password.
@@ -65,14 +65,21 @@ There are various ways you can run your code locally. In this template you can r
 1. To run the pipeline locally, in your terminal enter the following command:
 
     ```
-    docker compose up --build
+    quix local pipeline up
     ```
 
-2. See the pipeline running in Docker Desktop by typing `v`:
+    !!! tip 
 
-    ![Docker Desktop](../images/docker-desktop.png)
+        You can also use `docker compose up --build`.
 
-3. Ctrl-C to quit the program whe n you are satisfied it is running correctly.
+2. Switch to Docker Desktop to see the pipeline running.
+
+3. When you are satisfied it is running correctly, use the following command to shut down the pipeline:
+
+    ```
+    quix local pipeline down
+    ```
+
 
 ## Step 5: Modify your code
 
