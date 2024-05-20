@@ -60,7 +60,7 @@ You now have a local clone of your project.
 
 ## Step 4: Run the project locally
 
-There are various ways you can run your code locally. In this template you can run the entire pipeline locally using docker.
+There are various ways you can run your code locally. In this tutorial you run the entire pipeline locally using Docker.
 
 1. To run the pipeline locally, in your terminal enter the following command:
 
@@ -70,16 +70,15 @@ There are various ways you can run your code locally. In this template you can r
 
     !!! tip 
 
-        You can also use `docker compose up --build`.
+        You can alternatively use `docker compose up --build`, as this template includes a `docker-compose.yml` file.
 
 2. Switch to Docker Desktop to see the pipeline running.
 
-3. When you are satisfied it is running correctly, use the following command to shut down the pipeline:
+3. When you are satisfied the pipeline is running correctly, use the following command to shut down the pipeline:
 
     ```
     quix local pipeline down
     ```
-
 
 ## Step 5: Modify your code
 
