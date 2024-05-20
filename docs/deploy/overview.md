@@ -12,7 +12,7 @@ An application can be deployed as a service or job. A service runs continually, 
 To recap, your typical workflow is:
 
 1. Create a project (a Git repo).
-2. Create an environment (a branch, with broker, streaming services, and storage options).
+2. Create an environment (a branch, with broker options).
 3. Develop your application code.
 4. Deploy your application (as a service or job).
 
