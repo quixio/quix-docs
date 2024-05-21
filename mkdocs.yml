@@ -17,6 +17,7 @@ nav:
     - 'Welcome': 'get-started/welcome.md'
     - 'Installation':
       - 'Use command line': 'get-started/install.md'
+      - 'Quix Cloud': 'get-started/install-cloud.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'

@@ -6,4 +6,4 @@ To obtain a PAT, log in to Quix, and click on your profile icon in the top right
 
 Alternatively, log in to Quix, and click `Settings` in the main left-hand navigation. Then, for a specific environment, click `APIs and tokens`.
 
-In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to generate PATs, or a Streaming Token for use with the Quix Streams client library.
+In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to generate PATs, or a Streaming Token (SDK Token) for use with the Quix Streams client library.

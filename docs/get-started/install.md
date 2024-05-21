@@ -16,6 +16,10 @@ To install Quix Streams with `pip`:
 python3 -m pip install quixstreams
 ```
 
+!!! tip
+
+    If you already have Quix Streams installed, make sure you are using the latest version with `python -m pip install quixstreams -U` or `python3 -m pip install quixstreams -U`, depending on how your system is set up.
+
 ## Step 2: Create a simple app
 
 You'll now create a simple app to test your installation. You'll connect to a Quix public Kafka broker and consume and print messages.

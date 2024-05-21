@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
 ## Get your SDK token
 
-To obtain your token, go to `Settings` in your default environment, and then click on the `APIs and tokens` tab. You can obtain the `Streaming Token` from there.
+To obtain your token, go to `Settings` in your default environment, and then click on the `APIs and tokens` tab. You can obtain the Streaming Token (SDK Token) from there.
 
 ## Set your token
 
