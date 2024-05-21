@@ -69,7 +69,6 @@ Standard aggregation functions are provided including `max`, `count`, and `sprea
     ]
   },
   "stringValues": {},
-  "binaryValues": {},
   "tagValues": {
     "LapNumber": [
       "3.0",

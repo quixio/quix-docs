@@ -20,7 +20,7 @@ You can filter by a number of different factors but, at minimum, you’ll need t
 }
 ```
 
-In this example, we’re requesting a single numeric parameter, `Speed`. Each array of parameters is indexed based on parameter type, which can be `numericParameters`, `stringParameters` or `binaryParameters`. Parameters are returned in a union, so if you request several, you’ll get back all parameters that match.
+In this example, we’re requesting a single numeric parameter, `Speed`. Each array of parameters is indexed based on parameter type, which can be `numericParameters` or `stringParameters`. Parameters are returned in a union, so if you request several, you’ll get back all parameters that match.
 
 ### Example
 
@@ -45,7 +45,6 @@ If you just had a single parameter value in the stored data, the response from t
         ]
     },
     "stringValues": {},
-    "binaryValues": {},
     "tagValues": {},
 }
 ```

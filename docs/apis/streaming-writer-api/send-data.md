@@ -22,14 +22,13 @@ You should replace `${topicName}` with the name of the topic your stream belongs
 
 ### Example request
 
-Your payload should include an array of `timestamps` with one timestamp for each item of data you’re sending. Actual data values should be keyed on their name, in the object that corresponds to their type, one of `numericValues`, `stringValues`, or `binaryValues`. The payload is in this structure:
+Your payload should include an array of `timestamps` with one timestamp for each item of data you’re sending. Actual data values should be keyed on their name, in the object that corresponds to their type, one of `numericValues` or `stringValues`. The payload is in this structure:
 
 ```json
 {
     "timestamps": [...],
     "numericValues": {...},
     "stringValues": {...},
-    "binaryValues": {...},
     "tagValues": {...}
 }
 ```
@@ -128,13 +127,6 @@ connection.start().then(async () => {
           "Hello",
           "World",
           "!"
-        ]
-      },
-      "binaryValues": {
-        "BinaryParameter1": [
-          btoa("Hello"), // send binary array as base64
-          btoa("World"),
-          btoa("!")
         ]
       },
       "tagValues": {

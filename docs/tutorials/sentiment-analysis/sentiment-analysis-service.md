@@ -63,7 +63,6 @@ There are several ways to view live data. This lab shows one way to do it.
         "Can you check on my order please?"
         ]
     },
-    "BinaryValues": {},
     "TagValues": {
         "room": [
         "channel"
