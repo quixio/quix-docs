@@ -38,3 +38,17 @@ When using the Streaming Writer API you can use the HTTP interface if a continou
 ## Integrations
 
 There is also a [section](../../integrations/overview.md) in this documentation providing more information on specific integrations you can use for connecting Quix with products such as InfluxDB.
+
+## Installing Quix Streams
+
+To install Quix Streams with `pip`:
+
+```
+python3 -m pip install quixstreams
+```
+
+!!! tip
+
+    If you already have Quix Streams installed, make sure you are using the latest version with `python -m pip install quixstreams -U` or `python3 -m pip install quixstreams -U`, depending on how your system is set up.
+
+Note that if you're using Quix Cloud, then make sure the latest version of Quix Streams is available by adding it to the `requirements.txt` file, if it's not already been included as part of the code sample you are using.

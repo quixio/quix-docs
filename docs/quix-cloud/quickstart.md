@@ -85,7 +85,7 @@ You use the `psutil` module to retrieve the CPU load on your laptop.
 
 ## Get your SDK token
 
-To obtain your token, go to `Settings` in your default environment, and then click on the `APIs and tokens` tab. You can obtain the `Streaming Token` from there.
+To obtain your token, go to `Settings` in your default environment, and then click on the `APIs and tokens` tab. You can obtain the Streaming Token (SDK Token) from there.
 
 ## Set your token
 
