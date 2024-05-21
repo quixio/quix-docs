@@ -55,7 +55,6 @@ If you look at the messages in the `Messages` view, you'll see data has the foll
       "VD55179433"
     ]
   },
-  "BinaryValues": {},
   "TagValues": {}
 }
 ```
