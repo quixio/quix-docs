@@ -11,6 +11,6 @@ search:
 
 The system supports various data types, advanced indexing and complicated queries. 
 
-Quix offers a Change Data Capture (CDC) connector for Postgres databases. The code can be found with the Quix Samples [repo](https://github.com/quixio/quix-samples/tree/main/python/sources/Postgres-CDC).
+Quix offers a Change Data Capture (CDC) connector for Postgres databases. The code can be found with the Quix Samples [repo](https://github.com/quixio/quix-samples/tree/release/2024-05-01-cli-beta/python/sources/postgres_cdc).
 
 
