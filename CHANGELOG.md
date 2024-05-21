@@ -4,6 +4,12 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+## 2024-05-02-cli-beta-hf | 21 MAY 2024
+
+`BUG FIXES`
+
+- Users were unable to sign up for serverless plans
+
 ## 2024-05-01-cli-beta | 15 MAY 2024
 
 `NEW FEATURES`
