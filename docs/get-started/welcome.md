@@ -9,20 +9,12 @@ description: Welcome to the Quix Developer documentation. This documentation inc
 
 <div class="grid cards" markdown>
 
-- __I'm comfortable on the command line__
+- __Build a pipeline__
 
     ---
 
-    Start building your stream processing pipeline on the command line with Quix Streams and the Quix CLI.
+    Start building your stream processing pipeline on the command line with Quix Streams.
 
     [Install Quix Streams :octicons-arrow-right-24:](./install.md)
-
-- __I'd rather use the Cloud__
-
-    ---
-
-    You can sign up to [Quix Cloud for free](https://portal.platform.quix.io/self-sign-up){target=_blank}, and then build a stream processing pipeline with Quix Streams and Quix Cloud in under ten minutes.
-
-    [Quix Cloud Quickstart :octicons-arrow-right-24:](../quix-cloud/quickstart.md)
 
 </div>

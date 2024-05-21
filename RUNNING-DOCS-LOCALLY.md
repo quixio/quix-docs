@@ -39,5 +39,5 @@ To view the docs locally:
    git clone https://github.com/quixio/quix-docs.git
    ```
 3. Change into the docs directory you cloned (there will be a `mkdocs.yml` file there). 
-4. Run `mkdocs serve`.
+4. Run `mkdocs serve --no-directory-urls`.
 5. Navigate your browser to `localhost:8000` to view the docs.
