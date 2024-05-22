@@ -8,13 +8,13 @@ A streaming token is a type of bearer token that can be used to authenticate you
 
 As streaming tokens are scoped to a specific environment, it means you can specify a topic name, even if that same topic name is used across multiple environments. This is because the topic ID is automatically used for you, based on the streaming token used. For example, if you had a topic called `f1-data` in production and development environments, you could simply use the topic name of `f1-data` in your code, regardless of the environment you're connecting to. In production, the topic ID might be `orgname-projectname-prod-f1-data`, and in development it might be `orgname-projectname-dev-f1-data`, however, the correct topic ID is automatically used by Quix Streams, as the environment is identified in the token, and therefore the correct prefix to the topic name can be generated.
 
-## How to get a streaming token
+## How to get a streaming token (SDK Token)
 
 You can access these tokens by logging into Quix and clicking on `Settings` in the main left-hand navigation. Select your environment, and then click on `APIs and tokens` and then click on `Streaming Tokens`.
 
 If you are looking for a bearer token to access the Quix APIs, such as the Portal API, you can select `Personal Access Tokens`. These are custom JWTs.
 
-## How to use a streaming token
+## How to use a streaming token (SDK Token)
 
 The streaming token is primarily used to authenticate the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html).
 
@@ -22,11 +22,11 @@ When using Quix Streams in Quix Cloud, you no longer need to provide all broker 
 
 !!! warning
 
-	Streaming  tokens do not have an expiration date. Treat them as you would a password. If you think they’re exposed, rotate them.
+	Streaming Tokens (SDK Tokens) do not have an expiration date. Treat them as you would a password. If you think they’re exposed, rotate them.
 
 ## Rotating your token
 
-If you suspect your streaming token may have been exposed, best practice is to rotate it. Within the `Streaming token` dialog, click `rotate them` to display the `Rotating streaming tokens` dialog. Two tokens are then displayed.
+If you suspect your streaming token (SDK Token) may have been exposed, best practice is to rotate it. Within the `Streaming token` dialog, click `rotate them` to display the `Rotating streaming tokens` dialog. Two tokens are then displayed.
 
 Having two keys lets you update your services without interruption, as both `Token 1` and `Token 2` are always valid. Rotating deactivates `Token 1`, `Token 2` takes its place and a new `Token 2` is generated.
 

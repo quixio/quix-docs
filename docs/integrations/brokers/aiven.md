@@ -22,7 +22,7 @@ To obtain the Service URI:
 
 2. Look for the URI in the `Connection information` section.
 
-Set your `Cluster Size`. This number is used to limit the replication factor of the topics. 
+3. Set your `Cluster Size`. This number is used to limit the replication factor of the topics. 
 
     !!! tip
 

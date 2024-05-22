@@ -2,6 +2,62 @@
 
 This section contains solutions, fixes, hints and tips to help you solve the most common issues encountered when using Quix.
 
+## Error using Quix Streams - Cannot provide both broker address and Quix SDK Token
+
+If you are using previous version of Quix Streams (but still in the version 2.x family), you may have set your consumer group as the first argument for `Application()` as in the following example:
+
+``` python
+app = Application(
+    "myconsumergroup",
+    auto_offset_reset="earliest",
+    auto_create_topics=True,  # Quix app has an option to auto create topics
+)
+```
+
+However, the latest version of Quix Streams expects this to be the broker address. So if you set this first argument while running code in the Quix environment, you will get an error:
+
+```
+Traceback (most recent call last):
+  File "/app/main.py", line 77, in <module>
+    app = Application(
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/quixstreams/app.py", line 202, in __init__
+    raise ValueError("Cannot provide both broker address and Quix SDK Token")
+ValueError: Cannot provide both broker address and Quix SDK Token
+sys:1: ResourceWarning: unclosed <ssl.SSLSocket fd=3, family=2, type=1, proto=6, laddr=('10.0.2.227', 59714), raddr=('34.149.137.116', 443)>
+
+[ - Logs stream closed - ]
+```
+
+This is because Quix automatically passes a Quix SDK token to Quix Streams in the Quix Cloud environment. As you've passed the first argument without a property name, it interprets that as you trying to pass in the broker address too.
+
+To fix this, set the consumer group using the property name as show in the following example:
+
+``` python
+app = Application(
+    consumer_group="myconsumergroup",
+    auto_offset_reset="earliest",
+    auto_create_topics=True,  # Quix app has an option to auto create topics
+)
+```
+
+## Kafka disconnections
+
+Sometimes you can experience Kafka disconnection messages such as the following:
+
+```
+[2024-04-30 14:51:46,791] [INFO] : FAIL [rdkafka#producer-4] [thrd:sasl_ssl://kafka-k5.quix.io:9093/5]: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed)
+[2024-04-30 14:51:46,791] [INFO] : FAIL [rdkafka#producer-4] [thrd:sasl_ssl://kafka-k5.quix.io:9093/5]: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed)
+[2024-04-30 14:51:46,791] [ERROR] : Kafka producer error: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed) code="-195"
+[2024-04-30 14:51:46,791] [ERROR] : Kafka producer error: sasl_ssl://kafka-k5.quix.io:9093/5: Disconnected (after 154139ms in state UP, 1 identical error(s) suppressed) code="-195"
+```
+
+This happens because idle connections are reaped on occasion, and nodes are sometimes restarted to apply security fixes and so on. Kafka being high availability by design, your topics are replicated, in the case of Quix-managed broker, twice. Your service will automatically fail over to the other node, while the connection to the other node recovers.
+
+In the underlying Kafka library, disconnects are often reported, even if there is no message to be delivered, which can be problematic for producers. The connection is re-established in the background, but the default log level does not record this, so it may appear inactive according to the logs, while in fact it is still functioning.
+
+Quix aims to restart nodes as infrequently as possible, but it may happen every now and then. When it does happen, they are restarted in a rolling manner to always have at least one replica for your streaming needs available.
+
 ## Kafka message too large errors
 
 Sometimes you may receive Kafka message too large errors, if your messages are larger than 1MB. You would receive the following error message:

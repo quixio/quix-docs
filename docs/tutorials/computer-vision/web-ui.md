@@ -101,7 +101,6 @@ The data read from the topic is as follows:
         "iVBO…to/v37HG18UyZ1Qz/fby/<snipped>+yXUGc5UVWZfIHnX0iqM6aEAAAAASUVORK5CYII="
     ]
   },
-  "BinaryValues": {},
   "TagValues": {
     "parent_streamId": [
       "JamCams_00001.02500"

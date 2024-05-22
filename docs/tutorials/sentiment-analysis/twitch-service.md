@@ -53,7 +53,6 @@ The message format on the output `messages` topic:
       "@CaalvaVoladora Boomerdemons is also up"
     ]
   },
-  "BinaryValues": {},
   "TagValues": {
     "room": [
       "channel"

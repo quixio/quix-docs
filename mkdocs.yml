@@ -17,6 +17,7 @@ nav:
     - 'Welcome': 'get-started/welcome.md'
     - 'Installation':
       - 'Use command line': 'get-started/install.md'
+      - 'Quix Cloud': 'get-started/install-cloud.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
@@ -25,12 +26,12 @@ nav:
       - 'Produce data': 'get-started/produce.md'
       - 'Consume data': 'get-started/consume.md'
       - 'Process data': 'get-started/process.md'
-      - 'Build pipelines': 'get-started/cli-quickstart.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
-  - 'Quix CLI':
+  - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
+    - 'Quickstart': 'cli/cli-quickstart.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
       - 'Build a pipeline': 
@@ -161,6 +162,10 @@ nav:
           - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
           - 'Alerting': 'integrations/databases/influxdb/alerting.md'
           - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
+      - 'PostgreSQL':
+        - 'Overview': 'integrations/databases/postgressql/overview.md'
+      - 'Redis':
+        - 'Overview': 'integrations/databases/redis/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
@@ -347,6 +352,7 @@ plugins:
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
         'get-started/build-cli.md' : 'get-started/cli-quickstart.md'
+        'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
 
 theme:
   name: 'material'

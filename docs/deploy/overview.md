@@ -12,7 +12,7 @@ An application can be deployed as a service or job. A service runs continually, 
 To recap, your typical workflow is:
 
 1. Create a project (a Git repo).
-2. Create an environment (a branch, with broker, streaming services, and storage options).
+2. Create an environment (a branch, with broker options).
 3. Develop your application code.
 4. Deploy your application (as a service or job).
 
@@ -64,12 +64,10 @@ If you subsequently edit your service code (application) and then click `Redeplo
 
 ## Working on the command line
 
-If you are working on the command line and want to deploy local applications, you can use the `quix local deploy --push --sync` command. This pushes locally modified code to your project repository. 
+If you are working on the command line and want to deploy local applications, you can use the `quix local pipeline sync --update` command. This modifies your `quix.yaml` file, pushes locally modified code to your project repository, and synchronizes with Quix Cloud. 
 
-The `--sync` option performs a sync between your pipeline (as viewed in Quix Cloud) and the project repository. 
+This command also prompts you to include other applications that need to be synched if required. The deployments use the settings specified in the `deployments` section of the project's `quix.yaml` file.
 
-The `deploy` command also prompts you to include other applications that need to be synched if required. The deployments use the settings specified in the `deployments` section of the project's `quix.yaml` file.
-
-To sync a remote (cloud-based) environment tpo its project repository, you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
+To sync a remote (cloud-based) environment to its project repository, you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
 
 See the [Quix reference guide](../cli/cli-reference.md) for more about working on the command line.
