@@ -1,6 +1,22 @@
 # Using Quix Streams to ingest data
 
-You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data. 
+You can use Quix Streams to push and pull data to and from Quix, as well as use it to transform data.
+
+## Installing Quix Streams
+
+To install Quix Streams with `pip`:
+
+```
+python3 -m pip install quixstreams
+```
+
+!!! tip
+
+    If you already have Quix Streams installed, make sure you are using the latest version with `python -m pip install quixstreams -U` or `python3 -m pip install quixstreams -U`, depending on how your system is set up.
+
+Note that if you're using Quix Cloud, then make sure the latest version of Quix Streams is available by adding it to the `requirements.txt` file, if it's not already been included as part of the code sample you are using.
+
+## Example code
 
 Some example code showing Quix Streams pushing data into Quix is shown here:
 

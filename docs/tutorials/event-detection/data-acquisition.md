@@ -259,7 +259,6 @@ Follow these instructions to deploy the data source:
 			"Battery"
 			]
 		},
-		"BinaryValues": {},
 		"TagValues": {}
 		}
 

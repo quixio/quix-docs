@@ -14,12 +14,6 @@ Applications in Quix exist inside the Git branch associated with an [environment
 
 Read more about [applications](../create/overview.md).
 
-## Binary data
-
-Quix also supports any binary blob data.
-
-With this data you can stream, process and store any type of audio, image, video or lidar data, or anything that isn’t supported with time series, event, or metadata types.
-
 ## Code Samples
 
 Quix contains a large number of [open source](https://github.com/quixio/quix-samples){target=_blank} Code Samples. You can use these to quickly build out your stream processing pipeline. Generally the code samples are divided into three main categories: source, transform, destination. You can access the Code Samples from within the UI by using the navigation menu as show here:
@@ -48,11 +42,10 @@ Read more about [data ingestion](../develop/integrate-data/overview.md).
 
 ## Data types
 
-Quix supports time series data, events, metadata, and blobs with the following data types: 
+Quix supports time series data, events and metadata with the following data types: 
 
 * Numeric (double precision)
 * String (UTF-8)
-* Binary data (blobs)
 
 ## Deployment
 
@@ -194,7 +187,7 @@ A type of [connector](../connectors/index.md) where data is published to a Quix 
 
 ## Stream
 
-A stream is a collection of data (time series data, events, binary blobs and metadata) that belong to a single session of a single source. For example:
+A stream is a collection of data (time series data, events and metadata) that belong to a single session of a single source. For example:
 
 * One journey for one car
 * One game session for one player

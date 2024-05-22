@@ -6,9 +6,23 @@ When you need to load data from a CSV file into a Quix service, one possibility 
 
 Another option is to read the CSV file on some other system, such as your laptop, and publish that data into a Quix topic using the Quix Streams client library.
 
+## Installing Quix Streams
+
+To install Quix Streams with `pip`:
+
+```
+python3 -m pip install quixstreams
+```
+
+!!! tip
+
+    If you already have Quix Streams installed, make sure you are using the latest version with `python -m pip install quixstreams -U` or `python3 -m pip install quixstreams -U`, depending on how your system is set up.
+
+Note that if you're using Quix Cloud, then make sure the latest version of Quix Streams is available by adding it to the `requirements.txt` file, if it's not already been included as part of the code sample you are using.
+
 ## Streaming token
 
-You'll need a streaming token to authenticate with Quix if you're going to run a command-line program that publishes or subscribes to a Quix topic. 
+You'll need a streaming token (SDK token) to authenticate with Quix if you're going to run a command-line program that publishes or subscribes to a Quix topic. 
 
 !!! note
 
