@@ -5,13 +5,15 @@ description: Welcome to the Quix Developer documentation. This documentation inc
 
 # Welcome
 
-<p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines. You develop your <b>pipeline services in Python</b> using Quix Streams, and deploy them to containers managed in Kubernetes with a single click. You can develop and manage services on the command line, and also manage and visualize your pipelines in Quix Cloud.</p>
+<p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines. You can build producer/consumer/transform apps with Quix Streams and Python, build and test pipelines with the Quix CLI, and then deploy, manage and observe the pipelines in Quix Cloud.</p>
+
+## Workflow summary
 
 Your Quix workflow:
 
-1. Develop your applications locally in Python with Quix Streams and the Quix CLI
-2. Test your pipeline locally with Quix CLI
-3. Deploy to Quix Cloud for scalability and observability
+1. Develop your applications locally in Python with Quix Streams, the Quix CLI, and your IDE of choice.
+2. Test and debug your pipeline locally with the Quix CLI and Docker.
+3. Deploy to Quix Cloud for scalability and observability.
 
 <div class="grid cards" markdown>
 
