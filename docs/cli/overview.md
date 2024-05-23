@@ -15,7 +15,7 @@ You develop your pipeline using predefined samples, or write your code from scra
 
     Quix CLI is currently Beta, and is under development. This documentation may not be completely up to date, as the CLI is updated frequently, with new commands added, some commands removed, and changes to command syntax. Please use the Quix CLI built-in help for the very latest information.
 
-## Open surce repository
+## Open source repository
 
 View information about the CLI in the [GitHub repository](https://github.com/quixio/quix-cli){target=_blank}. The project is open source and welcomes contributions.
 
