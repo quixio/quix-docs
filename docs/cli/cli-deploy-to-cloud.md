@@ -110,3 +110,91 @@ You can see the JSON for the message.
 You also have access to powerful tools available, such as the `OFFSET` drop down, where you can select to view historical messages for example. If you view historical messages, and want to go back to seeing messages in real time, simply select `Live messages` from the drop down.
 
 Feel free to explore further.
+
+## Step 7: Continue development on the command line
+
+You can now continue development on the command line. You can make changes to your pipeline locally, and test by running in Docker as you saw previously. When you are ready to deploy to the Quix Cloud, you can simply run the following command:
+
+```
+quix local pipeline update
+```
+
+This updates your local `quix.yaml` file.
+
+Then, to push your changes to your Git repository, and synchronize those changes with Quix Cloud, use:
+
+```
+quix local pipeline sync
+```
+
+You will see the following error:
+
+```
+You're not connected to Quix Cloud
+```
+
+To solve this, log into Quix Cloud using:
+
+```
+quix login
+```
+
+You are presented with a `Device Confirmation` dialog. Click `Confirm`:
+
+![Device Confirmation](../images/cli/device-confirmation.png)
+
+Now check your status with `quix status`:
+
+```
+✓ Logged in
+  User:                 somebody+testing@quix.io (Test User)
+  Organization:         tony cli (tonycli)
+  Current context:      default (https://portal-api.platform.quix.io)
+  Default environment:  ! Not set
+  Local Broker:         ! Not set
+  Local Broker enabled? ✗ No
+  Git Root:             /Users/tbedford/new-cli/cli-pipeline
+✓ VS Code installed
+! PyCharm not installed
+✓ Docker installed
+✓ Git installed
+```
+
+Check that you are shown as logged into Quix Cloud.
+
+!!! tip
+
+    If you were delayed in click `Confirm` in the `Device Conformation` dialog, you might need to log in again.
+
+Now, run `quix local pipeline sync` again and you'll see something similaer to the following:
+
+```
+quix local pipeline sync
+Sending all changes to git ...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+! No changes were pushed
+! Detected only one environment, selecting it automatically ...
+✓ Project: CLI Pipeline
+✓ Environment: CLI Pipeline - PRODUCTION
+✓ Sync completed
+```
+
+You're changes are now synchronized to Quix Cloud. 
+
+Now check your context by typing `quix context list` and you'll see something similar to the following:
+
+```
+   Name    │ Portal Url                          │   Default environment            │   Local Broker  
+───────────┼─────────────────────────────────────┼──────────────────────────────────┼──────────────── 
+ → default │ https://portal-api.platform.quix.io │ ✓ tonycli-clipipeline-production │                 
+```
+
+You can see the correct environment has been selected for you.
+
+## Next step
+
+* [Read the CLI Reference](../cli/cli-reference.md)
