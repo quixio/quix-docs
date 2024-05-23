@@ -83,6 +83,30 @@ In the pipeline view you can see your pipeline running:
 
 ![CLI Pipeline running](../images/cli/pipeline-quix-cloud.png)
 
-## Step: 
+## Step 5: View a deployment running in Quix Cloud
 
-TBD
+In your pipeline view, click on the `event-detection-transformation` service panel.
+
+You'll now see how much additional observability Quix Cloud gives you:
+
+![Quix Cloud service details](../images/cli/event-detection-transform-quix-cloud.png)
+
+Here you can explore the complete information of the service, including CPU amd memory utilization, topics being used, live data, logging, and much more. 
+
+## Step 6: Explore the `Messages` tab
+
+You can even explore individual Kafka messages being published to topics.
+
+Click the `Messages` tab. This service has two topics associated with it, the input and output topics. Let's view the messages on the output topic.
+
+In the `TOPIC` drop down, select the output topic `hard-braking`.
+
+Click on a message to see its details:
+
+![Message details](../images/cli/message-details.png)
+
+You can see the JSON for the message.
+
+You also have access to powerful tools available, such as the `OFFSET` drop down, where you can select to view historical messages for example. If you view historical messages, and want to go back to seeing messages in real time, simply select `Live messages` from the drop down.
+
+Feel free to explore further.
