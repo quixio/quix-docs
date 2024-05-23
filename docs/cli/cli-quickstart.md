@@ -241,7 +241,7 @@ This pushes all changes to your Git repository. If you view your repository in y
 This command also synchronizes your Git repository with Quix Cloud. But, at this stage you do have have Quix Cloud available, so you receive the following error message:
 
 ```
-You are not allowed to do this operation. Check your permissions.
+You're not connected to Quix Cloud
 ```
 
 ## Next step
