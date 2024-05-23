@@ -16,7 +16,7 @@ In this tutorial you'll build a simple pipeline using the Quix CLI. The steps ar
 Make sure you have **Quix CLI installed**, if you've not already done so:
 
 ```
-curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
+curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | bash
 ```
 
 For further details on installation, including instructions for Microsoft Windows, see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.

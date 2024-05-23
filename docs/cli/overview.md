@@ -7,7 +7,7 @@ description: The Quix Command-Line Interface. A powerful command-line companion 
 
 The [Quix CLI](https://github.com/quixio/quix-cli){target=_blank} is a powerful command-line interface that enables you to develop stream processing pipelines locally. 
 
-You develop your pipeline using predefined samples, or write your code from scratch in Python, leveraging the power of Quix Streams. Using the CLI you can run these pipelines locally in docker containers, for testing and debugging. You can then deploy to Cloud for scalability and observability.
+You develop your pipeline using predefined samples, or write your code from scratch in Python, leveraging the power of Quix Streams. Using the CLI you can run these pipelines locally in Docker containers, for testing and debugging. You can then deploy to Cloud for scalability and observability.
 
 ## Development status
 

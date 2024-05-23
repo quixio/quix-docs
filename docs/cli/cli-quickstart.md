@@ -1,6 +1,6 @@
 # Quix CLI Quickstart
 
-In this guide you create a simple project on the command line, and test it locally, using the Quix CLI.
+In this guide you use the Quix CLI to create a simple pipeline on the command line, and test it locally by running it in Docker.
 
 ## Prerequisites
 
@@ -14,14 +14,14 @@ This guide assumes you have the following installed:
 To install Quix CLI:
 
 ```
-curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
+curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | bash
 ```
 
 For further details on installation, including instructions for Microsoft Windows, see the [install guide](https://github.com/quixio/quix-cli?tab=readme-ov-file#installation-of-quix-cli){target=_blank}.
 
 !!! tip
 
-    To update Quix CLI just run `quix update` to get the latest version of Quix CLI.
+    To update Quix CLI just run `quix update` to get the latest version.
 
 ## Step 2: Verify dependencies
 
@@ -31,7 +31,7 @@ To verify your dependencies, run the following command:
 quix status
 ```
 
-Ensure you have Git and Docker installed.
+View the output carefully to confirm you have Git and Docker installed.
 
 ## Step 3: Create a Git repository
 
@@ -93,7 +93,11 @@ deployments: []
 topics: []
 ```
 
-You can see there are currently no applications (deployments) or topics.
+You can see there are currently no applications (deployments) or topics. 
+
+!!! note
+
+    The `quix.yaml` file defines the project pipeline in its entirety.
 
 ## Step 7: Create a source application
 
@@ -105,7 +109,7 @@ quix local app create
 
 Select `Demo Data Source` from the interactive list, and when prompted, assign it a name of `demo-data-source`.
 
-This creates a demo data source for you. You can explore the files created locally with `ls` - a directory has been created for this application, along with all the necessary files. 
+This creates a demo data source for you. A directory has been created for this application, along with all the necessary files. You can explore the files created with `ls`.
 
 ## Step 8: Create a transform application
 
@@ -117,11 +121,11 @@ quix local app create
 
 Select `Event Detection Transformation` from the interactive list, and when prompted, assign it a name of `event-detection-transformation`.
 
-This creates the tranform for you. You can explore the files created locally with `ls` - a directory has been created for this application, along with all the necessary files.
+This creates the tranform for you. A directory has been created for this application, along with all the necessary files. You can explore the files created with `ls`.
 
 ## Step 9: Update your pipeline
 
-Update your pipeline with the existing applications of the project:
+Update your pipeline with the newly created applications of the project:
 
 ```
 quix local pipeline update
@@ -238,7 +242,7 @@ quix local pipeline sync
 
 This pushes all changes to your Git repository. If you view your repository in your Git provider (for example GitHub), you'll see your files have been pushed.
 
-This command also synchronizes your Git repository with Quix Cloud. But, at this stage you do have have Quix Cloud available, so you receive the following error message:
+This command also synchronizes your Git repository with Quix Cloud. But, at this stage you do not have Quix Cloud available, so you receive the following error message:
 
 ```
 You're not connected to Quix Cloud

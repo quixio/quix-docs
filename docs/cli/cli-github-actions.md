@@ -61,7 +61,7 @@ jobs:
       - name: Quix sync
         run: |
           echo Installing Quix CLI
-          curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | sudo bash
+          curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | bash
           echo Logging into Quix Cloud
           quix login ${{ secrets.QUIX_PAT }}
           quix env sync ${{ secrets.WORKSPACE_ID }}
