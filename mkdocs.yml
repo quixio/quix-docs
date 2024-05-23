@@ -351,7 +351,7 @@ plugins:
         'get-started/what-is-kafka.md': 'kb/what-is-kafka.md'
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
-        'get-started/build-cli.md' : 'get-started/cli-quickstart.md'
+        'get-started/build-cli.md' : 'cli/cli-quickstart.md'
         'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
 
 theme:
