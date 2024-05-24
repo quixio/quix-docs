@@ -125,7 +125,6 @@ The max vehicles service takes the total vehicle count and finds the maximum val
     ]
   },
   "StringValues": {},
-  "BinaryValues": {},
   "TagValues": {
     "window_start": [
       "2023-09-06 12:08:12.394372"

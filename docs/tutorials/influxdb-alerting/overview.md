@@ -33,7 +33,7 @@ To complete this tutorial you'll need to:
 
     Completing the [InfluxDB quickstart](../../integrations/databases/influxdb/quickstart.md) before embarking on this tutorial is not essential, but is highly recommended.
 
-Note, you obtain your [Streaming Token](../../develop/authentication/streaming-token.md) once you have created an environment, as the token is specifically for use with that environment.
+Note, you obtain your [Streaming Token (SDK Token)](../../develop/authentication/streaming-token.md) once you have created an environment, as the token is specifically for use with that environment.
 
 ## The parts of the tutorial
 

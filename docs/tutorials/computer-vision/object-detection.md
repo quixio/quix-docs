@@ -60,11 +60,6 @@ Objects are detected in the frame by the YOLOv8 code. Data is published to the o
     ]
   },
   "StringValues": {},
-  "BinaryValues": {
-    "image": [
-      "(Binary of 152.47 KB)"
-    ]
-  },
   "TagValues": {}
 }
 ```

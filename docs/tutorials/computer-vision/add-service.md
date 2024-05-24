@@ -126,7 +126,6 @@ To create the transform:
                 "iVBOR/snip/QmCC"
                 ]
             },
-            "BinaryValues": {},
             "TagValues": {
                 "parent_streamId": [
                 "JamCams_00002.00820"

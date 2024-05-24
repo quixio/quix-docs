@@ -58,7 +58,6 @@ The enriched data format:
       "F"
     ]
   },
-  "BinaryValues": {},
   "TagValues": {}
 }
 ```
