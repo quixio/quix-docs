@@ -195,7 +195,7 @@ That concludes the Quickstart! In this Quickstart you've learned the following:
 
 ## Next steps
 
-Try the [Quix Tour](./quixtour/overview.md) and build out a complete CPU overload detection pipeline.
+Try the [Quix Cloud Tour](./quixtour/overview.md) and build out a complete CPU overload detection pipeline.
 
 Read about other ways to [get your data into Quix](../develop/integrate-data/overview.md).
 
