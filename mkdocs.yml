@@ -32,7 +32,6 @@ nav:
   - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
     - 'Quickstart': 'cli/cli-quickstart.md'
-    - 'Deploy to Quix Cloud': 'cli/cli-deploy-to-cloud.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
       - 'Build a pipeline': 
