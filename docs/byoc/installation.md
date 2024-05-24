@@ -5,31 +5,37 @@ The summary of the deployment procedure is as follows:
 1. Create a [Kubernetes cluster](#1-create-a-kubernetes-cluster)
 2. Obtain a Quix Container Registry [API key](#2-obtain-an-api-key-to-pull-quix-platform-containers) to pull Quix Platform containers
 3. Obtain a copy of the Quix Platform [BYOC installer](#3-obtain-a-copy-of-the-quix-platform-byoc-installer-ansible-recipe--docker-image)
-4a. Prepare Helm Values file (secrets and platform configuration) [Helm Values](#4a-prepare-helm-values-file) optional
-4b. Prepare [ArgoCD](#4b-prepare-argocd) (optional)
-5a. Optional Install with Helm [Helm Install](#5a-run-the-helm-installer)
-5b. Optional [Initialize ArgoCD](#5b-optional-initialize-argocd)
+4. <ol type="a">
+    <li> Prepare Helm Values file (secrets and platform configuration) [Helm Values](#4a-prepare-helm-values-file) </li>
+    <li> Prepare ArgoCD [ArgoCD](#4b-prepare-argocd)  </li>
+</ol>
+5. <ol type="a">
+    <li> Run the Helm Installer [Helm Installer](#5a-run-the-helm-installer) </li>
+    <li> Initialize ArgoCD [ArgoCD](#5b-optional-initialize-argocd) </li>
+</ol>
 6. Miscellaneous [Miscellaneous](#6-miscellaneous)
 
 This is explained in more detail in the following step-by-step guide.
 
 ## 1. Create a Kubernetes cluster
 
-This step is where you have the most freedom of choice. The assumption this guide works with is that you have an operational Kubernetes cluster ready to schedule pods and create the requirement dependencies. Any Kubernetes installation should work as long as it clears the requirements in the [Requirements](requirements.md) section.
+This step is where you have the most freedom of choice. The assumption this guide works with is that you have an operational Kubernetes cluster ready to schedule pods and create the required dependencies. Any Kubernetes installation should work as long as it clears the requirements in the [Requirements](requirements.md) section.
 
 In short, if your Kubernetes cluster configuration isn't _particularly_ niche, it should work without any extra configuration.
 
 Quix recommends a production ready Kubernetes cluster, with HA control plane and multiple worker nodes, as this makes maintenance and scaling easier.
 
+Quix BYOC has been developed to work on a variety of Kubernetes distributions from GCP, AWS EKS, Azure AKS, K3S running on virtual machines on our own on-premises Type 2 KVM hypervisors. We have operated Quix on clusters ranging from v1.24 to v1.29 on a dozen different storage classes and providers. Anything that can run an x86_64 Kubernetes cluster has a good chance of being able to run Quix, granted the minimum requirements are met.
+
 ## 2. Obtain an API key to pull Quix Platform containers
 
-In this step you will be receiving a username / API token and docker registry URL. These will be provided to you by Quix before you start the installation process.
+In this step you will be receiving a username / API token and docker registry URL. Quix will provide you with these before you start the installation process.
 
 &nbsp;&nbsp;&nbsp;&nbsp;[Contact sales](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
 
 ## 3. Obtain a copy of the Quix Platform BYOC installer
 
-We offer the Quix Platform in multiple formats. The recommended method is either ArgoCD + a manually prepared secret and variables file, or the Quix Platform Manager helm chart. We prefer ArgoCD due to the auditability and smooth experience of the GitOps release method. A custom CI/CD pipeline wrapping the Helm chart gives a similarly pleasant ownership experience. The Quix Platform Manager helm chart is a wrapper around the Quix Platform Installer, which is an Ansible playbook that idempotently installs the Quix Platform on your Kubernetes cluster. 
+We offer the Quix Platform in multiple formats. Our recommended method is either ArgoCD + a manually prepared secret and variables file, or the Quix Platform Manager Helm chart. We prefer ArgoCD due to the auditability and smooth experience of the GitOps release methodology. A custom CI/CD pipeline wrapping the Helm chart gives a similarly pleasant ownership experience. The Quix Platform Manager helm chart is a wrapper around the Quix Platform Installer, which is an Ansible playbook that installs the Quix Platform on your Kubernetes cluster, defined in a declarative manner. Running the installer many times will not change the state of the platform, as it is idempotent.
 
 ## 4a. Prepare Helm Values File
 
@@ -45,15 +51,21 @@ Once done, follow the instructions in Readme.md in the charts/quixplatform-manag
 
 Our Quix Platform distribution contains shims for initializing ArgoCD. Following the readme in the init-scripts/ directory will guide you through the process of setting up ArgoCD to manage the Quix Platform. You may choose to point ArgoCD at your own repository, or use the private one we provide with various tags published representing various maturity levels of the platform (stable, latest etc.).
 
+When you install the platform with ArgoCD, you don't need to install anything by hand; simply configure values and secrets, then let ArgoCD "heal" the environment into the desried state.
+
 ArgoCD depends on a ConfigMap and a Secret. The ConfigMap represents your preferences, settings and choices for tunables. The defaults provided are a safe starting point, but you can tailor Quix BYOC Enterprise Edition to run well on a wide variety of Kubernetes clusters.
 
 The Secret contains a combination of random, strong passwords used for internal services as well as API keys for external services, such as SMTP or the authentication provider.
 
 ## 5a. Run the Helm Installer
 
-Following the Readme file in the chart folder, run helm upgrade --install quixplatform-manager charts/quixplatform-manager --namespace quix --values vars/values.yaml (and other optional values set on the command line) to install the Quix Platform on your Kubernetes cluster.
+Following the Readme file in the chart folder, run `helm upgrade --install quixplatform-manager charts/quixplatform-manager --namespace quix --values vars/values.yaml` (and other optional values set on the command line) to install the Quix Platform on your Kubernetes cluster.
 
 Given a correct values file, this installs Quix in about 5 minutes. Executing the command again will update the platform to the desired state, as described in the values file.
+
+!!! tip
+    As with other methods of installation, when installing Quix Platform Enterprise Edition, we will guide you through setting up the necessary components.
+
 
 ## 5b. Optional: Initialize ArgoCD
 
@@ -70,7 +82,9 @@ init-scripts/init.sh ${argo_namespace} ${quix_namespace}
 This will initialize ArgoCD and create the Quix application in the namespace you specify. If you do not specify a namespace, it will default to `argocd` and `quix`.
 
 !!! tip
-    You may host your own release repository to subscribe to with ArgoCD. This allows you to be in ultimate control of the entire release process.
+    You may host your own release repository to subscribe to with ArgoCD. This allows you to be in ultimate control of the entire release process and all asset versions being released, including the time of release.
+
+![Quixplatform ArgoCD](../images/byoc/quix-installer-argocd-dashboard-view.jpg){width=80%}
 
 ## 6. Miscellaneous
 
@@ -82,6 +96,8 @@ It is possible to use a local container to run the Ansible playbook without trig
 # inside the container:
 ./quixplatform install
 ```
+
+![Quixplatform Successful Installation](../images/byoc/quix-installer-argocd-success.jpg){width=80%}
 
 or if ArgoCD is installed, but you want to manually trigger the installation:
 

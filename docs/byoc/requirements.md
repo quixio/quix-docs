@@ -21,7 +21,7 @@ To ensure the success of the installation process, the following essential requi
 - Kubernetes version 1.24.1 or later.
 - A container runtime capable of handling Linux containers, MongoDB and Kafka. (containerd, cri-o etc.)
 - A storage class capable of handling dynamic provisioning of Persistent Volumes. (nfs with nfs-subdir-external-provisioner, Ceph, Longhorn, EBS/EFS, azurefile, Google filestore, Isilon etc)
-- One standard RWX storage class and one standard RWO storage class.
+- One standard RWX storage class and one standard RWO storage class. We recommend the RWO class to be block storage or NFS storage with very low latency.
 - The ability of exposing services outside of the Kubernetes cluster. (either LoadBalancer compatible Load Balancer or NodePorts)
 - Network ingress and egress permissive enough for the kubelet to pull platform containers from the Quix Container Registry.
 - Maximum pod count set to at least 50 on nodes that will run the Quix platform or deployments. Purely control-plane nodes do not necessarily need this.
@@ -33,7 +33,7 @@ To ensure the success of the installation process, the following essential requi
 - A nodepool sufficient for your requirements, but at least 40 CPU cores and 200GB memory total.
 - Kubernetes version 1.29 or later.
 - Optional: additional Premium RWO storage class
-- Optional: additional Standard RWO storage class with locally mounted disks (EBS, managed-csi, etc)
+- Optional: additional Standard RWO storage class with locally mounted disks (EBS, managed-csi or similar block storage)
 - A Load Balancer capable of exposing a LoadBalancer type service (such as AWS ELB or MetalLB)
 - Maximum pod count set to 250 on nodes powerful enough to take the workload
 
