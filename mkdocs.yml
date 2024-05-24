@@ -345,6 +345,8 @@ plugins:
         'get-started/contribute.md': 'kb/contribute.md'
         'get-started/build-cli.md' : 'cli/cli-quickstart.md'
         'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
+        'cli/cli-build-pipeline.md' : 'cli/cli-quickstart.md'
+
 
 theme:
   name: 'material'
