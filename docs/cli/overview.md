@@ -25,7 +25,7 @@ Using the cloud commands, you can manage your Quix Cloud account, and all the pi
 * Topics
 * Users
 
-With the utility commands you can do things such as check your status, update the CLI, and manage contexts (the environment the CLI is connected to).
+With the utility commands you can do things such as check your status, update the CLI, check version, use interactive help, and manage contexts (the environment the CLI is connected to).
 
 ## Development status
 
