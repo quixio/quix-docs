@@ -53,7 +53,9 @@ You can now level up by deploying your local pipeline to Quix Cloud.
 
 ## Prerequisites
 
-This Quickstart assumes you have already completed the [CLI Quickstart](../cli/cli-quickstart.md).
+!!! danger "Important"
+
+    This Quickstart assumes you have already completed the [CLI Quickstart](../cli/cli-quickstart.md).
 
 ## Step 1: Sign up to Quix Cloud
 
