@@ -165,6 +165,14 @@ nav:
         - 'Overview': 'integrations/databases/postgressql/overview.md'
       - 'Redis':
         - 'Overview': 'integrations/databases/redis/overview.md'
+    - 'Vector Databases':
+      - 'Overview': 'integrations/vector-databases/overview.md'
+      - 'Upstash':
+        - 'integrations/vector-databases/qdrant/overview.md'
+      - 'Qdrant':
+        - 'docs/integrations/vector-databases/qdrant/overview.md'
+      - 'Weaviate':
+        - 'integrations/vector-databases/weaviate/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
