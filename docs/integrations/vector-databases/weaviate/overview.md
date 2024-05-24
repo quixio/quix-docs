@@ -1,3 +1,7 @@
+---
+title: Overview - Weaviate
+description: This section of the Quix documentation covers how to integrate Weaviate with Quix.
+---
 
 ## Overview - Weaviate
 

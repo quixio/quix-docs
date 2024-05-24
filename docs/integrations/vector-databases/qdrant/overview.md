@@ -1,3 +1,7 @@
+---
+title: Overview - Qdrant
+description: This section of the Quix documentation covers how to integrate Qdrant with Quix.
+---
 
 ## Overview - Qdrant
 
