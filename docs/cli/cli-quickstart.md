@@ -25,23 +25,46 @@ For further details on installation, including instructions for Microsoft Window
 
 ## Step 2: Verify dependencies
 
-To verify your dependencies, run the following command:
+This guide requires you to have certain dependencies installed. These include [Docker or Docker Desktop](https://docs.docker.com/engine/install/){target=_blank} and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){target=_blank}.
+
+To verify you have the dependencies installed, run the following command:
 
 ```
 quix status
 ```
 
-View the output carefully to confirm you have Git and Docker installed.
+This produces output similar to the following:
 
-## Step 3: Create a Git repository
+```
+✗ Not logged in
+  User:                 ! Not logged in to Quix Cloud
+  Current context:      default (https://portal-api.platform.quix.io)
+  Default environment:  ! Not set
+  Local Broker:         ! Not set
+  Local Broker enabled? ✗ No
+  Git Root:             /Users/tbedford/new-cli/cli-pipeline
+✓ VS Code installed
+! PyCharm not installed
+✓ Docker installed
+✓ Git installed
+```
 
-Create a Git repo in your Git provider's service, where you are going to store your project files. For example, you could create a repository on GitHub. Create a repo initialized with a `README.md` file, so it can be cloned more easily. You can add a `.gitignore` (the Python one is a good choice), and a licence as required.
+View the output carefully to confirm you have Git and Docker installed:
+
+```
+✓ Docker installed
+✓ Git installed
+```
+
+## Step 3: Create a GitHub repository
+
+Create a Git repo in GitHub, where you are going to store your project files. Create a repo initialized with a `README.md` file, so it can be cloned more easily.
 
 See also the [GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories){target=_blank}.
 
-## Step 4: Clone your Git repo into your local project directory
+## Step 4: Clone your GitHub repo into your local project directory
 
-Copy your Git repository URL from your Git provider.
+Copy your GitHub repository URL.
 
 Now, clone the repository using the URL. For example:
 
@@ -75,7 +98,7 @@ In your Git project directory, enter:
 quix local init
 ```
 
-This initializes your Quix project with a `quix.yaml` file, which describes your Quix project. As a convenience several other files such as virtual environment files, and a `.gitignore` are also created if they do not exist.
+This initializes your Quix project with a `quix.yaml` file, which describes your Quix project. As a convenience a `.gitignore` file is also created for you, or if one is present it is updated to ignore files such as virtual environment files, `.env` files, and so on.
 
 If you look at the initial `quix.yaml` file you'll see the following:
 
@@ -104,10 +127,10 @@ You can see there are currently no applications (deployments) or topics.
 Now create a source application:
 
 ```
-quix local app create
+quix local app create demo-data-source
 ```
 
-Select `Demo Data Source` from the interactive list, and when prompted, assign it a name of `demo-data-source`.
+When prompted, assign it a name of `demo-data-source`.
 
 This creates a demo data source for you. A directory has been created for this application, along with all the necessary files. You can explore the files created with `ls`.
 
@@ -116,12 +139,12 @@ This creates a demo data source for you. A directory has been created for this a
 Now create a transform application:
 
 ```
-quix local app create 
+quix local app create event-detection-transformation
 ```
 
-Select `Event Detection Transformation` from the interactive list, and when prompted, assign it a name of `event-detection-transformation`.
+When prompted, assign it a name of `event-detection-transformation`.
 
-This creates the tranform for you. A directory has been created for this application, along with all the necessary files. You can explore the files created with `ls`.
+This creates the transform for you. A directory has been created for this application, along with all the necessary files. You can explore the files created with `ls`.
 
 ## Step 9: Update your pipeline
 
@@ -258,6 +281,6 @@ You're not connected to Quix Cloud
 
     Deploy your complete pipeline to the cloud, for scalability, observability, and even more Quix magic.
 
-    [Deploy to Quix Cloud :octicons-arrow-right-24:](../cli/cli-deploy-to-cloud.md)
+    [Deploy to Quix Cloud :octicons-arrow-right-24:](../quix-cloud/quickstart.md)
 
 </div>
