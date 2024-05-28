@@ -182,25 +182,7 @@ Further, changes in this file in one environment can be merged into another envi
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-You can see how to build a simple pipeline in the [Quix Tour](../quix-cloud/quixtour/overview.md). 
-
-You can also [watch the video](https://www.loom.com/share/5b0a88d2185c4cfea8fd2917d3898964?sid=b58b2b0c-5814-494a-82ea-2a2ba4d4dac0).
-
-??? "Transcript"
-
-    0:00 Hello, welcome to the Quix Tour. In this short video I'll give you a quick overview of the pipeline that you're going to be building in the Quix Tour.
-
-    0:12 The material in the Quix Tour is divided up into three stages which corresponds to a, ,hippical processing pipeline. The first stage is the ingestion phase where you get your data into Quix Platform.
-
-    0:29 The second stage is process where you process your data. And finally you serve that data. In terms of a Quix Pipeline, ,corresponds to these three elements here.
-
-    0:44 A source which is coded in blue. A transform which is coded in purple. And a destination which is coded in orange.
-
-    0:56 This source is an external source which represents a command line. And a command line program running on your laptop that publishes CPU load data into Quix platform.
-
-    1:08 We then have a simple transform that detects if the CPU load exceeds a certain threshold. Finally, we can log that information either, ,to a database or in our case just to the screen.
-
-    1:24 And optionally send an alert SMS to the systems administrator. Okay, that's it. Enjoy the Quix tool. See you in the next video.
+You can see how to build a simple pipeline in the [Quix Cloud Tour](../quix-cloud/quixtour/overview.md). 
 
 ### Multiple environments
 
@@ -247,5 +229,5 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 ## Next steps
 
 * [Quickstart](../quix-cloud/quickstart.md) - get data into Quix and display it in less than 10 minutes
-* [Quix Tour](../quix-cloud/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
+* [Quix Cloud Tour](../quix-cloud/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
 * Watch [a video](https://www.youtube.com/watch?v=0cr19MfATfY){target=_blank} on the art of the possible with Quix

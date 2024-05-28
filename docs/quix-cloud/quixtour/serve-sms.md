@@ -8,7 +8,7 @@ If you've completed this tutorial so far, you should have all the prerequisites 
 
 **Optionally:** You can sign up for a [free Vonage account](https://developer.vonage.com/sign-up), to be able to send an SMS. If you would like to try this, simply set `SEND_SMS = True` in the `main.py` code you create later, to switch this feature **on**.
 
-## Create the destination
+## Step 1: Create the destination
 
 To create the SMS alert destination:
 
@@ -86,7 +86,7 @@ To create the SMS alert destination:
         app.run(sdf)    
     ```
 
-## Send an SMS (optional)
+## Step 2: Send an SMS (optional)
 
 This section is **optional**. 
 
@@ -106,20 +106,20 @@ If you want to send an alert SMS follow these steps:
 
 4. You now need to add the `vonage` module to the `requirements.txt` file in your project. Click to open it and add a line for `vonage`. This ensures the module is built into the deployment.
 
-## Tag and deploy your SMS alert service
+## Step 3: Tag and deploy your SMS alert service
 
 You can now tag and deploy your code:
 
 1. Tag the project as `sms-v1` and deploy as a service (watch the video if you're not sure how to do this).
 2. Monitor the logs for the deployed process.
 
-## Generate an alert
+## Step 4: Generate an alert
 
 Again generate a CPU spike by opening several large applications on your laptop. If you have SMS alert enabled, you'll receive an SMS. If not, you can check the logs.
 
 ## Conclusion
 
-You've now completed the Quix Tour. You've built a simple but complete stream processing pipeline. You can resuse the transform code, with some modifications, in your own projects. With a small amount of work, the SMS service you created could be turned into a general purpose SMS alaerting module, using the Vonage APIs. It could also be adapted to build out other alerting services, such as [PagerDuty](../../tutorials/influxdb-alerting/add-alerting.md).
+You've now completed the Quix Cloud Tour. You've built a simple but complete stream processing pipeline. You can reuse the code, with some modifications, in your own projects. With a small amount of work, the SMS service you created could be turned into a general purpose SMS alaerting module, using the Vonage APIs. It could also be adapted to build out other alerting services, such as [PagerDuty](../../tutorials/influxdb-alerting/add-alerting.md).
 
 ## Next steps
 

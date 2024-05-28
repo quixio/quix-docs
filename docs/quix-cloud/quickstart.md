@@ -207,4 +207,4 @@ You can see the correct environment has been selected for you.
 
 ## Next step
 
-* [Read the CLI Reference](../cli/cli-reference.md)
+Try the [Quix Cloud Tour](./quixtour/overview.md) and build out a complete CPU overload detection pipeline.

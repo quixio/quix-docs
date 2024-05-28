@@ -63,7 +63,7 @@ You'll need to configure the following variables for your destination connector:
 
 ## See also
 
-If you are new to Quix you could try our [Quickstart](../../../quix-cloud/quickstart.md) and then complete the [Quix Tour](../../../quix-cloud/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
+If you are new to Quix you could try our [Quickstart](../../../quix-cloud/quickstart.md) and then complete the [Quix Cloud Tour](../../../quix-cloud/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
 
 There is an [in-depth step-by-step tutorial](../../../tutorials/influxdb-migration/overview.md) available on migrating InfluxDB v2 data to InfluxDB v3.
 

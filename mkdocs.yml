@@ -39,9 +39,9 @@ nav:
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
-    - 'Quix Tour': 
+    - 'Quix Cloud Tour': 
       - 'Overview': 'quix-cloud/quixtour/overview.md'
-      - '1. Ingest': 'quix-cloud/quixtour/external-source.md'
+      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
       - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
       - '3. Serve': 'quix-cloud/quixtour/serve-sms.md'
     - 'Build a pipeline':
