@@ -34,22 +34,14 @@ nav:
     - 'Quickstart': 'cli/cli-quickstart.md'
     - 'Reference guide': 'cli/cli-reference.md'
     - 'Tutorials': 
-      - 'Build a pipeline': 
-        - 'Overview': 'cli/cli-build-pipeline.md'
-        - 'Create a project': 'cli/cli-create-project.md'
-        - 'Sign up to Quix Cloud': 'cli/cli-cloud-signup.md'
-        - 'Add a source': 'cli/cli-add-source.md'
-        - 'Add a transform': 'cli/cli-add-transform.md'
-        - 'Add a destination': 'cli/cli-add-destination.md'
-        - 'Sync to Cloud': 'cli/cli-sync-to-cloud.md'
       - 'Using the CLI with a template': 'cli/cli-template.md'
       - 'Using the CLI with GitHub Actions': 'cli/cli-github-actions.md'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
-    - 'Quix Tour': 
+    - 'Quix Cloud Tour': 
       - 'Overview': 'quix-cloud/quixtour/overview.md'
-      - '1. Ingest': 'quix-cloud/quixtour/external-source.md'
+      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
       - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
       - '3. Serve': 'quix-cloud/quixtour/serve-sms.md'
     - 'Build a pipeline':
@@ -166,6 +158,14 @@ nav:
         - 'Overview': 'integrations/databases/postgressql/overview.md'
       - 'Redis':
         - 'Overview': 'integrations/databases/redis/overview.md'
+    - 'Vector Databases':
+      - 'Overview': 'integrations/vector-databases/overview.md'
+      - 'Upstash':
+        - 'Overview': 'integrations/vector-databases/upstash/overview.md'
+      - 'Qdrant':
+        - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
+      - 'Weaviate':
+        - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'
@@ -351,8 +351,10 @@ plugins:
         'get-started/what-is-kafka.md': 'kb/what-is-kafka.md'
         'get-started/glossary.md': 'kb/glossary.md'
         'get-started/contribute.md': 'kb/contribute.md'
-        'get-started/build-cli.md' : 'get-started/cli-quickstart.md'
+        'get-started/build-cli.md' : 'cli/cli-quickstart.md'
         'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
+        'cli/cli-build-pipeline.md' : 'cli/cli-quickstart.md'
+
 
 theme:
   name: 'material'

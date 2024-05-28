@@ -78,7 +78,7 @@ To handle these compressed messages it is possible to build a decompression serv
 
 !!! tip
 
-    If you're new to Quix, see the [Quix Tour](../../quix-cloud/quixtour/overview.md) for details on how to create a service from a sample.
+    If you're new to Quix, see the [Quix Cloud Tour](../../quix-cloud/quixtour/overview.md) for details on how to create a service from a sample.
 
 The following example demonstrates the basics of such a decompression service:
 

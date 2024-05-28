@@ -35,7 +35,7 @@ The following illustrates a typical processing pipeline running in Quix.
 
 Read the [general overview of Quix](../../../kb/what-is-quix.md).
 
-If you are new to Quix you could try our [Quickstart](../../../quix-cloud/quickstart.md) and then complete the [Quix Tour](../../../quix-cloud/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
+If you are new to Quix you could try our [Quickstart](../../../quix-cloud/quickstart.md) and then complete the [Quix Cloud Tour](../../../quix-cloud/quixtour/overview.md). This gives you a good overview of how to use Quix, for a minimal investment in your time.
 
 You can read more about [stream processing](../../../kb/why-stream-processing.md).
 

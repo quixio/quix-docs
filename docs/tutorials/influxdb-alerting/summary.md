@@ -6,7 +6,7 @@ You have also seen how to add threshold detection to your pipeline, and built a 
 
 ## Next steps
 
-* Quix Tour demonstrates [building alerting](../../quix-cloud/quixtour/serve-sms.md) from scratch with the Vonage APIs, which are simple to use.
+* Quix Cloud Tour demonstrates [building alerting](../../quix-cloud/quixtour/serve-sms.md) from scratch with the Vonage APIs, which are simple to use.
 * Currency alerting tutorial demonstrates using [Pushover to implement alerting](../../tutorials/currency-alerting/currency-alerting.md#setting-up-the-pushover-destination).
 * The Predictive maintenance project tutorial uses the Pushover service for [sending alerts](../../tutorials/predictive-maintenance/phone-alerts.md).
 * [Quix Integrations documentation](../../integrations/overview.md)

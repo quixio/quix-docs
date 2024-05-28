@@ -1,8 +1,8 @@
 # Process - threshold detection
 
-In this part of the tour you'll learn how to create a transform. The transform detects if CPU load exceeds a certain threshold, and if so, sends a message to its output topic.
+In this part of the tour you'll learn how to create a threshold detection transform. The transform detects if CPU load exceeds a certain threshold, and if so, sends a message to its output topic.
 
-## Create the transform
+## Create the threshold detection transform
 
 To create the threshold detection transform:
 
@@ -31,8 +31,8 @@ To create the threshold detection transform:
     # Create a StreamingDataFrame to process data
     sdf = app.dataframe(input_topic)
 
-    # Filter in all rows where CPU load is over 20.
-    sdf = sdf.filter(lambda row: row["cpu_load"] > 20)
+    # Filter in all rows where CPU load is over 25.
+    sdf = sdf.filter(lambda row: row["cpu_load"] > 25)
 
     # Produce message payload with alert.
     sdf = sdf.apply(lambda row: "CPU value is " + str(row["cpu_load"]))
@@ -53,12 +53,6 @@ To create the threshold detection transform:
 
 If CPU load exceeds the threshold the message is published to the output topic, for further processing in the next stage of the pipeline. 
 
-## Generate a CPU spike
-
-You can generate a CPU spike by starting up several CPU intensive applications. 
-
 ## 🏃‍♀️ Next step
-
-Create a destination to log events and send a notification SMS!
 
 [Serve your data :material-arrow-right-circle:{ align=right }](./serve-sms.md)
