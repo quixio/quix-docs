@@ -168,11 +168,11 @@ nav:
     - 'Vector Databases':
       - 'Overview': 'integrations/vector-databases/overview.md'
       - 'Upstash':
-        - 'docs/integrations/vector-databases/upstash/overview.md'
+        - 'Overview': 'integrations/vector-databases/upstash/overview.md'
       - 'Qdrant':
-        - 'docs/integrations/vector-databases/qdrant/overview.md'
+        - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
       - 'Weaviate':
-        - 'integrations/vector-databases/weaviate/overview.md'
+        - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
     - 'Overview': 'byoc/overview.md'
     - 'Requirements': 'byoc/requirements.md'

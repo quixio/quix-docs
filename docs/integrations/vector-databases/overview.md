@@ -1,12 +1,9 @@
 ---
 title: Overview - Vector Databases
 description: A summary of what vector databases are.
-search:
-  boost: 3
 ---
 
-## Overview - Vector Databases
-
+# Overview - Vector Databases
 
 A vector database, in contrast to a relational database, does not store data in tables consisting of columns and rows, it utilises vector embeddings instead. If we visualise one of these databases as a grid, a vector embedding is a number array that gives data points a position within the grid. 
 
