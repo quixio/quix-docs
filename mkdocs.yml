@@ -168,7 +168,7 @@ nav:
     - 'Vector Databases':
       - 'Overview': 'integrations/vector-databases/overview.md'
       - 'Upstash':
-        - 'integrations/vector-databases/qdrant/overview.md'
+        - 'docs/integrations/vector-databases/upstash/overview.md'
       - 'Qdrant':
         - 'docs/integrations/vector-databases/qdrant/overview.md'
       - 'Weaviate':

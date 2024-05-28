@@ -3,7 +3,7 @@ title: Overview - Qdrant
 description: This section of the Quix documentation covers how to integrate Qdrant with Quix.
 ---
 
-## Overview - Qdrant
+# Overview - Qdrant
 
 Qdrant is a vector similarity search engine and vector database written in Rust. It enables storage, searching and management of points with associated payloads. Qdrant supports filtering, sparse vectors, and distributed deployment for various AI use cases.
 
