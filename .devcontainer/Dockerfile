@@ -1,5 +1,5 @@
 FROM squidfunk/mkdocs-material
+WORKDIR /workspace
+COPY requirements.txt .
 RUN apk add bash
-RUN pip install mkdocs-multirepo-plugin
-RUN pip install mkdocs-glightbox
-RUN pip install mkdocs-redirects
+RUN pip install -r requirements.txt

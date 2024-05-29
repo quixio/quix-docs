@@ -1,6 +1,6 @@
 {
 	"name": "Quix Docs Editor",
-	"build": { "dockerfile": "Dockerfile" },
+	"build": { "context":"..", "dockerfile": "Dockerfile" },
 	"workspaceMount": "source=${localWorkspaceFolder},target=/docs,type=bind",
 	"workspaceFolder": "/docs",
 	"forwardPorts": [
