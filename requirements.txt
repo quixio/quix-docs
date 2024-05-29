@@ -1,3 +1,6 @@
+cairosvg
+mkdocs-material[imaging]
+mkdocs-material
 mkdocs-multirepo-plugin
 mkdocs-glightbox
 mkdocs-redirects
