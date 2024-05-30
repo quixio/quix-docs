@@ -215,12 +215,7 @@ quix local pipeline view
 
 If you have VSCode installed, the pipeline is displayed in the IDE for you, otherwise the pipeline is displayed on your default browser:
 
-
-``` mermaid
-%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
-graph LR;
-demo-data-source[demo-data-source] -->|f1-data|event-detection-transformation[event-detection-transformation];
-```
+![VSCode pipeline view](../images/cli/vscode-pipeline-view.png)
 
 When you update your `quix.yaml` using the command `quix local pipeline update`, the visualization is updated for you.
 
