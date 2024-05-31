@@ -42,7 +42,7 @@ This produces output similar to the following:
   Default environment:  ! Not set
   Local Broker:         ! Not set
   Local Broker enabled? ✗ No
-  Git Root:             /Users/tbedford/new-cli/cli-pipeline
+✗ No git root detected
 ✓ VS Code installed
 ! PyCharm not installed
 ✓ Docker installed
@@ -213,7 +213,7 @@ View a graph representation of your local pipeline:
 quix local pipeline view
 ```
 
-If you have VSCode or PyCharm installed the pipeline is displayed in the IDE for you:
+If you have VSCode installed, the pipeline is displayed in the IDE for you, otherwise the pipeline is displayed on your default browser:
 
 ![VSCode pipeline view](../images/cli/vscode-pipeline-view.png)
 
