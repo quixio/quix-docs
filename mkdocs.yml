@@ -32,10 +32,28 @@ nav:
   - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
     - 'Quickstart': 'cli/cli-quickstart.md'
-    - 'Reference guide': 'cli/cli-reference.md'
+    - 'CLI reference':
+      - 'overview': 'cli/cli-reference.md'
+      - 'quix local':
+        - 'quix local applications':
+          - 'quix local applications create': 'cli/local/applications/cli-local-applications-create.md'
+          - 'quix local applications list': 'cli/local/applications/cli-local-applications-list.md'
+          - 'quix local applications variables':
+            - 'quix local applications variables create': 'cli/local/applications/variables/cli-local-applications-variables-create.md'
+            - 'quix local applications variables list': 'cli/local/applications/variables/cli-local-applications-variables-list.md'
+            - 'quix local applications variables edit': 'cli/local/applications/variables/cli-local-applications-variables-edit.md'
+            - 'quix local applications variables delete': 'cli/local/applications/variables/cli-local-applications-variables-delete.md'
+            - 'quix local applications variables import': 'cli/local/applications/variables/cli-local-applications-variables-import.md'
+            - 'quix local applications variables export': 'cli/local/applications/variables/cli-local-applications-variables-export.md'
+        - 'quix local pipeline':
+          - 'quix local pipeline update': 'cli/local/pipeline/cli-local-pipeline-update.md'
+          - 'quix local pipeline sync': 'cli/local/pipeline/cli-local-pipeline-sync.md'
+          - 'quix local pipeline view': 'cli/local/pipeline/cli-local-pipeline-view.md'
+          - 'quix local pipeline up': 'cli/local/pipeline/cli-local-pipeline-up.md'
     - 'Tutorials': 
       - 'Using the CLI with a template': 'cli/cli-template.md'
       - 'Using the CLI with GitHub Actions': 'cli/cli-github-actions.md'
+
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
