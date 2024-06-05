@@ -1,3 +1,4 @@
 mkdocs-multirepo-plugin
 mkdocs-glightbox
 mkdocs-redirects
+mdx_include

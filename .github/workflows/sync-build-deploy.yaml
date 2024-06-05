@@ -74,6 +74,10 @@ jobs:
       # add multirepo to support pulling docs from other repos
       - name: Install multirepo
         run: pip install mkdocs-multirepo-plugin
+
+      # add support to include markdown files inside other markdown files
+      - name: Install mdx_include
+        run: pip install mdx_include
         
       # Install Material insiders theme
       - name: Install Material insiders theme

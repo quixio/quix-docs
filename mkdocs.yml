@@ -442,6 +442,9 @@ extra:
   
   #alternate:
 markdown_extensions:
+  - mdx_include:
+      recursive_relative_path: true
+      base_path: docs
   - attr_list
   - md_in_html
   - pymdownx.superfences
