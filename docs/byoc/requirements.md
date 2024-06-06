@@ -16,26 +16,46 @@ To ensure the success of the installation process, the following essential requi
 
 ## Kubernetes cluster minimum requirements
 
+### Hardware
 - AMD64 architecture.[^1]
 - Multiple nodes with 6 cpu cores and 48GB RAM total.[^2].
+
+### Software
 - Kubernetes version 1.24.1 or later.
 - A container runtime capable of handling Linux containers, MongoDB and Kafka. (containerd, cri-o etc.)
-- A storage class capable of handling dynamic provisioning of Persistent Volumes. (nfs with nfs-subdir-external-provisioner, Ceph, Longhorn, EBS/EFS, azurefile, Google filestore, Isilon etc)
-- One standard RWX storage class and one standard RWO storage class. We recommend the RWO class to be block storage or NFS storage with very low latency.
+- Maximum pod count set to at least 50 on nodes that will run the Quix platform or deployments. Purely control-plane nodes do not necessarily need this.
+
+### Networking
 - The ability of exposing services outside of the Kubernetes cluster. (either LoadBalancer compatible Load Balancer or NodePorts)
 - Network ingress and egress permissive enough for the kubelet to pull platform containers from the Quix Container Registry.
-- Maximum pod count set to at least 50 on nodes that will run the Quix platform or deployments. Purely control-plane nodes do not necessarily need this.
+
+### Storage
+- A storage class capable of handling dynamic provisioning of Persistent Volumes. (nfs with nfs-subdir-external-provisioner, Ceph, Longhorn, EBS/EFS, azurefile, Google filestore, Isilon etc)
+- One standard RWX storage class and one standard RWO storage class. We recommend the RWO class to be block storage or NFS storage with very low latency.
+- Block storage mount points avialable on the nodes for services that require it, at least 16 mount points (this is relevant for small test clusters in public cloud)
+
+### Permissions
+- The ability to create custom certificates for the subdomain Quix platform will be deployed into
+- Permissions to programmatically change the DNS hosted zone for ACME certificate management
 
 ## Kubernetes cluster recommended requirements
 
 - Everything in the minimum requirements
+### Scaling
 - Three separate control plane nodes (or managed control plane) for high availability and easy maintenance.
 - A nodepool sufficient for your requirements, but at least 40 CPU cores and 200GB memory total.
+
+### Software
 - Kubernetes version 1.29 or later.
+- Maximum pod count set to 250 on nodes powerful enough to take the workload
+
+### Networking
+- A Load Balancer capable of exposing a LoadBalancer type service (such as AWS ELB or MetalLB)
+
+### Storage
 - Optional: additional Premium RWO storage class
 - Optional: additional Standard RWO storage class with locally mounted disks (EBS, managed-csi or similar block storage)
-- A Load Balancer capable of exposing a LoadBalancer type service (such as AWS ELB or MetalLB)
-- Maximum pod count set to 250 on nodes powerful enough to take the workload
+- 20 or more available block storage mount points, depending on size and performance requirements and thus the tuning of the Quix platform
 
 !!! warning
 
