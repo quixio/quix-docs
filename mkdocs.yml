@@ -29,13 +29,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
-  - 'Quix CLI (Beta)':
-    - 'Overview': 'cli/overview.md'
-    - 'Quickstart': 'cli/cli-quickstart.md'
-    - 'Reference guide': 'cli/cli-reference.md'
-    - 'Tutorials': 
-      - 'Using the CLI with a template': 'cli/cli-template.md'
-      - 'Using the CLI with GitHub Actions': 'cli/cli-github-actions.md'
+  - 'Quix CLI (Beta)': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
@@ -280,7 +274,8 @@ hooks:
 
 plugins:
   - multirepo:
-      cleanup: true
+      cleanup: false
+  - include-markdown
   - search:
       separator: '[\s\-\.]' 
   - social:
