@@ -89,6 +89,10 @@ jobs:
     - name: Install multirepo
       run: pip install mkdocs-multirepo-plugin
     
+    # add include support for markdown
+    - name: Install include-markdown
+      run: pip install mkdocs-include-markdown-plugin
+
     # Commenting out material insiders install until get proper token back.
     - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       env:
