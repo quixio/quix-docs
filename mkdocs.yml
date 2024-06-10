@@ -32,6 +32,7 @@ nav:
   - 'Quix CLI (Beta)': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
+    - 'Why to use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
     - 'Quix Cloud Tour': 
       - 'Overview': 'quix-cloud/quixtour/overview.md'

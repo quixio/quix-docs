@@ -1,10 +1,22 @@
 # Quix CLI Quickstart
 
-In this guide you use the Quix CLI to create a simple pipeline on the command line, and test it locally by running it in Docker.
+## Overview
+
+In this guide you will use the Quix CLI to create a simple pipeline, and test it locally by running it in Docker.
+
+You will learn how to:
+1. **Install Quix CLI**: Get the CLI tool up and running on your local machine.
+2. **Verify Dependencies**: Ensure you have all necessary tools like Docker and Git.
+3. **Initialize a Quix Project**: Set up your project directory and configuration files.
+4. **Create Source and Transform Applications**: Build applications to produce and process data.
+5. **Run and Manage Your Pipeline**: Run your pipeline locally using Docker and manage it through the Quix CLI.
+
+By the end of this guide, you'll have a fully functional data pipeline running locally. Let's get started!
+
 
 ## Prerequisites
 
-This guide assumes you have the following installed:
+This guide assumes you have the following installed in your local machine:
 
 * [Docker Desktop](https://docs.docker.com/engine/install/){target=_blank}
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){target=_blank}
@@ -92,13 +104,13 @@ cd <your-repository>
 
 ## Step 6: Initialize your project as a Quix project
 
-In your Git project directory, enter:
+In your Git project directory, enter ```quix local init```. This initializes your Quix project with a `quix.yaml` file, which describes your Quix project. As a convenience a `.gitignore` file is also created for you, or if one is present it is updated to ignore files such as virtual environment files, `.env` files, and so on.:
 
 ```
 quix local init
 ```
 
-This initializes your Quix project with a `quix.yaml` file, which describes your Quix project. As a convenience a `.gitignore` file is also created for you, or if one is present it is updated to ignore files such as virtual environment files, `.env` files, and so on.
+
 
 If you look at the initial `quix.yaml` file you'll see the following:
 
@@ -124,7 +136,7 @@ You can see there are currently no applications (deployments) or topics.
 
 ## Step 7: Create a source application
 
-Now create a source application:
+Now create a source application that will ingest simulated telemetry data into the broker as if it were coming from a real car in real-time:
 
 ```
 quix local app create demo-data-source
@@ -136,7 +148,7 @@ This creates a demo data source for you. A directory has been created for this a
 
 ## Step 8: Create a transform application
 
-Now create a transform application:
+Now let's create a simple transform application. This application will read data from the source and will generate a message when a hard braking is detected:
 
 ```
 quix local app create event-detection-transformation
@@ -153,6 +165,8 @@ Update your pipeline with the newly created applications of the project:
 ```
 quix local pipeline update
 ```
+
+This command updates the deployment configuration of your pipeline based on the default configuration of your applications.
 
 Now, view your `quix.yaml` file again to see how the applications have been added:
 
@@ -255,9 +269,9 @@ quix local pipeline down
 
 If you switch to Docker Desktop, you'll see your container has been halted and removed.
 
-## Step 14: Push and sync your local pipeline to Quix Cloud
+## Step 14: Push your local pipeline to Github
 
-To push your changes to Git and sync your application to Quix Cloud, enter:
+To push your changes to Git, and sync your pipeline to Quix Cloud, enter:
 
 ```
 quix local pipeline sync
@@ -271,6 +285,61 @@ This command also synchronizes your Git repository with Quix Cloud. But, at this
 You're not connected to Quix Cloud
 ```
 
+## Are you ready to level up?
+
+Quix Cloud offers a robust and user-friendly platform for managing data pipelines, making it an ideal choice for organizations looking to streamline their development processes, enhance collaboration, and maintain high levels of observability and security.
+
+- **Streamlined Development and Deployment**: Quix Cloud simplifies the development and deployment of data pipelines with its integrated online code editors, CI/CD tools, and YAML synchronization features.
+- **Enhanced Collaboration**: The platform allows multiple users to collaborate efficiently, manage permissions, and maintain visibility over projects and environments.
+- **Comprehensive Monitoring and Observability**: Real-time logs, metrics, and data explorers provide deep insights into the performance and status of your pipelines, enabling proactive management.
+- **Scalability and Flexibility**: Easily scale resources and manage multiple environments, making it suitable for both small teams and large organizations.
+- **Security and Compliance**: Securely manage secrets and ensure compliance with dedicated infrastructure and SLA options.
+
+??? "Why use Quix Cloud?"
+
+    1. **Pipeline Management**
+      - **Pipeline View**: Visualize and manage the status of your data pipelines.
+      - **Real-Time Data Metrics**: Monitor data metrics in real-time between deployments.
+      - **Deployment Management**: Easily add, edit, delete, start, and stop deployments.
+
+    2. **CI/CD Integration**
+      - **Git Integration**: Connect with any Git provider for seamless CI/CD processes.
+      - **Environment Management**: Manage multiple environments linked to Git branches.
+      - **Pipelines as Code**: Use YAML files for defining pipelines and environment variables.
+      - **Secrets Management**: Securely manage sensitive information.
+      - **CLI Commands**: Use GitHub actions to synchronize changes.
+
+    3. **User Collaboration**
+      - **Organization Management**: Invite users and manage their permissions within your organization.
+      - **Project Visibility**: Assign visibility and permissions to projects and environments.
+
+    4. **Development Tools**
+      - **Online Code Editors**: Modify applications and YAML files directly in the cloud.
+      - **Scaling**: Easily scale pipelines by adjusting replicas, CPU, and memory.
+      - **Synchronization**: Sync changes to your pipeline with a single operation.
+      - **Code Templates**: Access ready-made code samples and templates.
+      - **Connectors**: Connect to relevant data sources and sinks.
+      - **Dev Containers Support**: (Coming soon) Support for development containers.
+
+    5. **Data Exploration**
+      - **Data Explorer**: Query and explore data using waveform and table views.
+      - **Message Visualizer**: Visualize messages in your data topics.
+      - **Metrics Monitoring**: Track consumer lag and other metrics.
+
+    6. **Monitoring and Logging**
+      - **Real-Time Logs**: Monitor logs in real-time.
+      - **Build Logs**: View logs related to builds.
+      - **Data and Deployment Metrics**: Monitor topic data and deployment metrics (CPU/Memory).
+
+    7. **Dedicated/BYOC (Bring Your Own Cloud)**
+      - **Dedicated Infrastructure**: Run pipelines on a dedicated, private infrastructure.
+      - **SLA**: Service Level Agreements for guaranteed performance.
+      - **Historical Logs and Metrics**: Access historical logs and metrics using Loki and Prometheus.
+      - **Grafana Dashboards**: Visualize metrics with Grafana.
+      - **Private Code Samples Library**: Access a library of deployable application samples specific to your organization.
+
+     [Learn more about Quix Cloud features](../quix-cloud/why-quix-cloud.md)
+
 ## Next step
 
 <div class="grid cards" markdown>
@@ -279,7 +348,7 @@ You're not connected to Quix Cloud
 
     ---
 
-    Deploy your complete pipeline to the cloud, for scalability, observability, and even more Quix magic.
+    Deploy your local pipeline to the cloud, for scalability, observability, and even more Quix magic.
 
     [Deploy to Quix Cloud :octicons-arrow-right-24:](../quix-cloud/quickstart.md)
 

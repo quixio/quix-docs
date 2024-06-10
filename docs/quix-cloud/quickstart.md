@@ -5,55 +5,13 @@ description: Deploy your local pipeline to Quix Cloud.
 
 # Quickstart - Deploy your local pipeline to Quix Cloud
 
-You can now level up by deploying your local pipeline to Quix Cloud.
+This tutorial will guide you through the steps of deploying a Quix local pipeline on Quix Cloud.
 
-??? "Why use Quix Cloud?"
-
-    This provides a bullet point list of why you should use Quix Cloud:
-
-    - Quix Cloud - Deploy, Collaborate and Observe your pipelines in the Cloud
-    - Pipelines - Observe and manage the status of your pipeline
-        - Pipeline view
-        - Data metrics in real-time between your deployments
-        - Add/Edit/Delete deployments to your pipeline
-        - Start/stop deployments
-    - CI/CD - Manage multiple environments in the same project using Git branches
-        - Git integrations to any Git provider
-        - Multiple environments tied to Git branches
-        - Pipelines as code using YAML files
-        - YAML variables per environment
-        - Secrets management
-        - CLI commands to synchronize your changes using GitHub actions
-    - Users - Collaborate on multiple Projects in your organization
-        - Invite users into your organization
-        - Assign visibility and permissions to your Projects and Environments
-    - Develop - Code editors with a hands off Build and Deploy system
-        - Online code editors to modify your applications and Yaml files
-        - Scale your pipeline just editing replicas, cpu and memory
-        - Synchronize the changes to your pipeline with a single operation
-        - Code samples templates
-        - Connectors to main relevant sources and sinks
-        - Dev Containers support (coming soon)
-    - Data Explorer - Query and explore the data and consumers of your topics
-        - Waveform and Table data explorer
-        - Messages visualizer
-        - Consumers lag and metrics
-    - Monitoring - Logs and Metrics in real-time to check the status of your pipeline running in the cloud
-        - Realtime logs
-        - Build logs
-        - Topic data metrics
-        - Deployment metrics CPU/Memory
-    - Dedicated /BYOC - Dedicated and private infrastructure with some add-ons like Historical logs and metrics, SLA, and more
-        - SLA
-        - Dedicated infrastructure to collaborate and run your pipelines
-        - Historical logs (Loki)
-        - Historical metrics (Prometheus)
-        - Grafana dashboards
-        - Private code samples library - ready-to-use application deployable samples specific to your organization
+[Learn more about Quix Cloud features](../quix-cloud/why-quix-cloud.md)
 
 ## Prerequisites
 
-!!! danger "Important"
+!!! warning "Important"
 
     This Quickstart assumes you have already completed the [CLI Quickstart](../cli/cli-quickstart.md).
 
