@@ -1,7 +1,5 @@
 # Quix CLI Quickstart
 
-## Overview
-
 In this guide you will use the Quix CLI to create a simple pipeline, and test it locally by running it in Docker.
 
 You will learn how to:
