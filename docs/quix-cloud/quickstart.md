@@ -5,15 +5,19 @@ description: Deploy your local pipeline to Quix Cloud.
 
 # Quickstart - Deploy your local pipeline to Quix Cloud
 
-This tutorial will guide you through the steps of deploying a Quix local pipeline on Quix Cloud.
+Welcome to the Quickstart guide for deploying your local pipeline to Quix Cloud. 
 
-[Learn more about Quix Cloud features](../quix-cloud/why-quix-cloud.md)
+In this tutorial, we'll walk you through the seamless process of transitioning your local pipeline to Quix Cloud unlocking the full potential of your data processing workflows.
+
+With Quix Cloud, you can focus on developing and refining your pipeline without worrying about infrastructure management. Whether you're a small team or a large enterprise, Quix Cloud provides the flexibility and scalability you need to accelerate your pipeline development and deployment processes.
+
+If you're new to Quix Cloud or need a refresher on its features, [learn more here](../quix-cloud/why-quix-cloud.md).
 
 ## Prerequisites
 
 !!! warning "Important"
 
-    This Quickstart assumes you have already completed the [CLI Quickstart](../cli/cli-quickstart.md).
+    Before proceeding, ensure you've completed the [CLI Quickstart](../cli/cli-quickstart.md).
 
 ## Step 1: Sign up to Quix Cloud
 
