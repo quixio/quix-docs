@@ -6,12 +6,12 @@ The summary of the deployment procedure is as follows:
 2. Obtain a Quix Container Registry [API key](#2-obtain-an-api-key-to-pull-quix-platform-containers) to pull Quix Platform containers
 3. Obtain a copy of the Quix Platform [BYOC installer](#3-obtain-a-copy-of-the-quix-platform-byoc-installer)
 4. Configure Platform Values <ol type="a">
-    <li> Prepare Helm Values file (secrets and platform configuration) [Helm Values](#4a-prepare-helm-values-file) </li>
-    <li> Prepare ArgoCD [ArgoCD](#4b-prepare-argocd)  </li>
+    <li> Prepare [Helm Values](#4a-prepare-helm-values-file) file (secrets and platform configuration)</li>
+    <li> Prepare [ArgoCD](#4b-prepare-argocd)</li>
 </ol>
 5. Install the Platform! <ol type="a">
-    <li> Run the Helm Installer [Helm Installer](#5a-run-the-helm-installer) </li>
-    <li> Initialize ArgoCD [ArgoCD](#5b-optional-initialize-argocd) </li>
+    <li> Run the [Helm Installer](#5a-run-the-helm-installer)</li>
+    <li> Initialize [ArgoCD](#5b-optional-initialize-argocd)</li>
 </ol>
 
 This is explained in more detail in the following step-by-step guide.
@@ -34,7 +34,7 @@ In this step you will be receiving a username / API token and docker registry UR
 
 ## 3. Obtain a copy of the Quix Platform BYOC installer
 
-We offer multiple installation methods for the Quix Platform. We recommend either ArgoCD or the Quix Platform Manager Helm chart. We prefer ArgoCD due to the auditability and automated experience of the GitOps release methodology. 
+We offer multiple installation methods for the Quix Platform. We recommend either ArgoCD or the Quix Platform Manager Helm chart. We prefer ArgoCD due to the auditability and automated experience of the GitOps release methodology.
 
 A custom CI/CD pipeline wrapping the Helm chart gives a similarly robust ownership experience. The Quix Platform Manager helm chart installs the Quix Platform on your Kubernetes cluster. Running the installer many times will not change the platform state, as it is idempotent based on declaratively set secrets and variables.
 
