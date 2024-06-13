@@ -17,7 +17,7 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
 
 !!! warning "Important"
 
-    Before proceeding, ensure you've completed the [CLI Quickstart](../cli/cli-quickstart.md).
+    Before proceeding, ensure you've completed the [Quix CLI Quickstart](../cli/cli-quickstart.md).
 
 ## Step 1: Sign up to Quix Cloud
 
@@ -29,32 +29,32 @@ After signing up using the method of your choice, you'll be taken to the `Welcom
 
 You're now ready to create your first project. 
 
-1. Give your project a suitable name, such as "CLI Pipeline".
-2. Select the `Quix advanced configuration` option.
-3. Click `Let's get started`.
-4. Select your Git provider from the `Connect to your own Git repo` panel.
-5. Link the project to your Git repository using the setup guide provided for your chosen Git provider.
-6. Click `Validate` to make sure everything is good and then click `Done`.
-7. Click `Create project`.
-8. Now create an environment. Enter an environment name of "PRODUCTION".
-9. Make sure the `main` branch is selected.
-10. Click `Continue`.
-11. Select the Quix managed broker (which is the default option).
-12. Click `Create environment`. After the environment is fully created you are taken to your pipeline view.
+1. Click `Authorise` to connect your Github account to Quix.
+2. Select the account that you used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) to install the QuixIntegration application.
+3. Select which repositories you wish to authorise access to (select at least the one containing the Quix pipeline code)
+4. Click `Install & Authorize`.
+5. Select the Git repository used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) from the list provided.
+6. Click `Create project`.
 
-## Step 3: Synchronize your Quix environment 
+## Step 3: Create an environment of your project
 
-To synchronize your pipeline view with your Git repository, click the `Sync environment` button, which is located in the top right of your pipeline view.
+1. Now, create an environment where the pipeline will be deployed. Enter "PRODUCTION" as the environment name.
+2. Make sure the `main` branch is selected.
+3. Click `Continue`.
+4. Select the Quix managed broker.
+5. Click `Create environment`. After the environment is fully created you are taken to your pipeline view.
+
+## Step 4: Synchronize your Quix environment 
+
+To synchronize your pipeline view with your Git repository, click the `Sync environment` button, which is located in the center of your pipeline view.
 
 You'll be shown the `Sync to this commit` dialog. View the changes that are to be made and then click `Sync to this commit`.
-
-Now click `Go to pipeline`.
-
-## Step 4: See your pipeline running in Quix Cloud
 
 In the pipeline view you can see your pipeline running:
 
 ![CLI Pipeline running](../images/cli/pipeline-quix-cloud.png)
+
+🎉 Congratulations! Your pipeline is now deployed and running in the cloud! 🎉
 
 ## Step 5: View a deployment running in Quix Cloud
 
@@ -83,6 +83,35 @@ You can see the JSON for the message.
 You also have access to powerful tools, such as the `OFFSET` drop down, where you can select to view historical messages for example. If you view historical messages, and want to go back to seeing messages in real time, simply select `Live messages` from the drop down.
 
 Feel free to explore further.
+
+## Next steps
+
+
+<div class="grid cards" markdown>
+
+- __1. Quix Cloud tour__
+
+    ---
+
+    Continue exploring Quix Cloud with the [Quix Cloud Tour](./create/overview.md) .
+
+    [Quix Cloud Tour :octicons-arrow-right-24:](./quixtour/overview.md)
+
+- __2. Debug your applications locally__
+
+    ---
+
+    Learn how to Build and Debug your applications locally using Quix CLI.
+
+    [Debug locally using Quix CLI :octicons-arrow-right-24:](../cli/tutorials/overview.md)
+
+</div>
+
+
+
+
+
+
 
 ## Step 7: Continue development on the command line
 
