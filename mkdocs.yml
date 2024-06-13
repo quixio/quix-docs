@@ -28,7 +28,7 @@ nav:
       - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.5.1'
   - 'Quix CLI (Beta)':
     - 'Overview': 'cli/overview.md'
     - 'Quickstart': 'cli/cli-quickstart.md'
