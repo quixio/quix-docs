@@ -29,6 +29,8 @@ After signing up using the method of your choice, you'll be taken to the `Welcom
 
 You're now ready to create your first project. 
 
+![Welcome to Quix](../images/quix-cloud-onboarding/welcome-to-quix.png)
+
 1. Click `Authorise` to connect your Github account to Quix.
 2. Select the account that you used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) to install the QuixIntegration application.
 3. Select which repositories you wish to authorise access to (select at least the one containing the Quix pipeline code)
@@ -36,25 +38,38 @@ You're now ready to create your first project.
 5. Select the Git repository used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) from the list provided.
 6. Click `Create project`.
 
-## Step 3: Create an environment of your project
+## Step 3: Create an environment for your project
 
-1. Now, create an environment where the pipeline will be deployed. Enter "PRODUCTION" as the environment name.
+Now, create an environment where the pipeline will be deployed.
+
+![Create an environment](../images/quix-cloud-onboarding/create-environment.png)
+
+1. Enter "PRODUCTION" as the environment name.
 2. Make sure the `main` branch is selected.
 3. Click `Continue`.
-4. Select the Quix managed broker.
+
+    ![Select a message Broker](../images/quix-cloud-onboarding/select-broker.png)
+
+4. Select the "Quix managed broker".
 5. Click `Create environment`. After the environment is fully created you are taken to your pipeline view.
 
 ## Step 4: Synchronize your Quix environment 
 
-To synchronize your pipeline view with your Git repository, click the `Sync environment` button, which is located in the center of your pipeline view.
+Let's apply some magic now. We'll synchronize the code and YAML files from your Git repository with your environment, setting up all the necessary resources to start running your pipeline.
+
+To synchronize your environment with your Git repository, click the `Sync environment` button, which is located in the center of the screen.
+
+![Sync environment](../images/quix-cloud-onboarding/sync-environment.png)
 
 You'll be shown the `Sync to this commit` dialog. View the changes that are to be made and then click `Sync to this commit`.
 
+![Sync dialog](../images/quix-cloud-onboarding/sync-dialog.png)
+
 In the pipeline view you can see your pipeline running:
 
-![CLI Pipeline running](../images/cli/pipeline-quix-cloud.png)
+![CLI Pipeline running](../images/quix-cloud-onboarding/pipeline-quix-cloud.png)
 
-🎉 Congratulations! Your pipeline is now deployed and running in the cloud! 🎉
+🎉🎉 Congratulations! Your pipeline is now deployed and running in the cloud! 🎉🎉
 
 ## Step 5: View a deployment running in Quix Cloud
 
@@ -62,7 +77,7 @@ In your pipeline view, click on the `event-detection-transformation` service pan
 
 You'll now see how much additional observability Quix Cloud gives you:
 
-![Quix Cloud service details](../images/cli/event-detection-transform-quix-cloud.png)
+![Quix Cloud service details](../images/quix-cloud-onboarding/event-detection-transform-quix-cloud.png)
 
 Here you can explore the complete information of the service, including CPU amd memory utilization, topics being used, live data, logging, and much more. 
 
@@ -76,7 +91,7 @@ In the `TOPIC` drop down, select the output topic `hard-braking`.
 
 Click on a message to see its details:
 
-![Message details](../images/cli/message-details.png)
+![Message details](../images/quix-cloud-onboarding/message-details.png)
 
 You can see the JSON for the message.
 
