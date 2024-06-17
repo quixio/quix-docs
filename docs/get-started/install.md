@@ -67,13 +67,13 @@ You have installed Quix and tested that it's working.
 
 <div class="grid cards" markdown>
 
-- __Start Building!__
+- __Start Building a pipeline!__
 
     ---
 
     Start building your first stream processing pipeline locally on the command line with Quix CLI.
 
-    [Quix CLI Quickstart :octicons-arrow-right-24:](../cli/cli-quickstart.md)
+    [Quix CLI Quickstart :octicons-arrow-right-24:](../quix-cli/cli-quickstart.md)
 
 </div>
 
