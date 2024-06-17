@@ -17,7 +17,7 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
 
 !!! warning "Important"
 
-    Before proceeding, ensure you've completed the [Quix CLI Quickstart](../cli/cli-quickstart.md).
+    Before proceeding, ensure you've completed the [Quix CLI Quickstart](../quix-cli/cli-quickstart.md).
 
 ## Step 1: Sign up to Quix Cloud
 
@@ -32,13 +32,13 @@ You're now ready to create your first project.
 ![Welcome to Quix](../images/quix-cloud-onboarding/welcome-to-quix.png)
 
 1. Click `Authorise` to connect your Github account to Quix.
-2. Select the account that you used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) to install the QuixIntegration application.
+2. Select the account that you used during the [Quix CLI Quickstart](../quix-cli/cli-quickstart.md) to install the QuixIntegration application.
 3. Select which repositories you wish to authorise access to (select at least the one containing the Quix pipeline code)
 4. Click `Install & Authorize`.
-5. Select the Git repository used during the [Quix CLI Quickstart](../cli/cli-quickstart.md) from the list provided.
+5. Select the Git repository used during the [Quix CLI Quickstart](../quix-cli/cli-quickstart.md) from the list provided.
 6. Click `Create project`.
 
-## Step 3: Create an environment for your project
+## Step 3: Create an environment for your project 
 
 Now, create an environment where the pipeline will be deployed.
 
