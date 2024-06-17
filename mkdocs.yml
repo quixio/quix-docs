@@ -15,17 +15,15 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Installation':
-      - 'Use command line': 'get-started/install.md'
-      - 'Quix Cloud': 'get-started/install-cloud.md'
+    - 'Installation': 'get-started/install.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
-    - 'Quickstart':
-      - 'Produce data': 'get-started/produce.md'
-      - 'Consume data': 'get-started/consume.md'
-      - 'Process data': 'get-started/process.md'
+#    - 'Quickstart':
+#      - 'Produce data': 'get-started/produce.md'
+#      - 'Consume data': 'get-started/consume.md'
+#      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
@@ -33,12 +31,13 @@ nav:
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
-    - 'Quix Cloud Tour': 
-      - 'Overview': 'quix-cloud/quixtour/overview.md'
-      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
-      - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
-      - '3. Serve': 'quix-cloud/quixtour/serve-sms.md'
-    - 'Build a pipeline':
+    - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
+#   - 'Quix Cloud Tour': 
+#      - 'Overview': 'quix-cloud/quixtour/overview.md'
+#      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
+#      - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
+#      - '3. Serve': 'quix-cloud/quixtour/serve-sms.md' 
+    - 'Quix Cloud Tour':
       - '1. Create your project':
         - 'Overview': 'create/overview.md'
         - 'Clone a project': 'create/clone-project.md'

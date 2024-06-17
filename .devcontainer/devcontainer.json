@@ -6,8 +6,5 @@
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/docs,type=bind",
 	"workspaceFolder": "/docs",
-	"forwardPorts": [
-		8000
-	],
 	"postCreateCommand": "mkdocs serve --no-directory-urls"
 }
