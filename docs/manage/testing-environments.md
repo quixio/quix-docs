@@ -20,11 +20,11 @@ If you are working locally you may  to point to different environments while you
 
 You can use the Quix CLI to select the environment you want to connect to, and it will manage your `.env` file configuration for you. 
 
-First you use the `quix use` command to select your environment. Then you run `quix local variables export` inside your application folder which generates the `.env` file to configure the streaming token of the selected environment.
+First you use the `quix use` command to select your environment. Then you run `quix app variables export` inside your application folder which generates the `.env` file to configure the streaming token of the selected environment.
 
 !!! tip
 
-    This command is run automatically by your IDE if you have configured it previously with the command `quix local init`, for example, `quix local init --vscode`.
+    This command is run automatically by your IDE if you have configured it previously with the command `quix init`, for example, `quix init --vscode`.
 
 You might want to connect to a local broker for testing and development. Use the `quix context broker set` command to set up your local broker configuration.
 

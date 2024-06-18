@@ -64,10 +64,10 @@ If you subsequently edit your service code (application) and then click `Redeplo
 
 ## Working on the command line
 
-If you are working on the command line and want to deploy local applications, you can use the `quix local pipeline sync --update` command. This modifies your `quix.yaml` file, pushes locally modified code to your project repository, and synchronizes with Quix Cloud. 
+If you are working on the command line and want to deploy local applications, you can use the `quix pipeline sync --update` command. This modifies your `quix.yaml` file, pushes locally modified code to your project repository, and synchronizes with Quix Cloud. 
 
 This command also prompts you to include other applications that need to be synched if required. The deployments use the settings specified in the `deployments` section of the project's `quix.yaml` file.
 
-To sync a remote (cloud-based) environment to its project repository, you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
+To sync a remote (cloud-based) environment to its project repository, you can use the `quix cloud envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
 
 See the [Quix reference guide](../quix-cli/cli-reference.md) for more about working on the command line.
