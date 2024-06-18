@@ -13,6 +13,8 @@ repo_url: https://github.com/quixio/quix-docs
 edit_uri: tree/dev/docs
 
 nav:
+  - Blog:
+    - blog/index.md
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
     - 'Installation':
@@ -279,6 +281,8 @@ hooks:
 - hooks/redirect_0_5_urls.py
 
 plugins:
+  - blog
+  - info
   - multirepo:
       cleanup: true
   - search:
