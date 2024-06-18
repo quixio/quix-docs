@@ -1,0 +1,13 @@
+{% if page.edit_url %} {% if "content.action.edit" in features %}
+
+<a href="{{ page.edit_url }}" title="{{ lang.t('action.edit') }}" class="md-content__button md-icon">
+    {% set icon = config.theme.icon.edit or "material/file-edit-outline" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+</a> {% endif %} {% if "content.action.view" in features %} {% if "/blob/" in page.edit_url %} {% set part = "blob" %} {% else %} {% set part = "edit" %} {% endif %}
+<a href="{{ page.edit_url | replace(part, 'raw') }}" title="{{ lang.t('action.view') }}" class="md-content__button md-icon">
+    <div id='this-div' style="text-align: right;">
+        <a class="github-button" href="https://github.com/quixio/quix-streams" target="_blank" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-star" data-size="large" aria-label="Star Quix Streams">Star Quix Streams</a>
+        <a class="github-button" href="https://github.com/quixio" target="_blank" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-package" data-size="large" aria-label="Install Quix Streams">Install Quix Streams</a>
+        <a class="github-button" href="{{ page.edit_url }}" target="_blank" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-size="large" aria-label="Follow @buttons on GitHub">Edit on GitHub</a>
+    </div>
+</a> {% endif %} {% endif %}
