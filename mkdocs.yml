@@ -403,6 +403,7 @@ extra_javascript:
   - javascripts/quix.js
   - javascripts/feedback.js
   - javascripts/runllm-widget.js
+  - javascripts/github-buttons.js
 extra:
   social:
     - icon: 'fontawesome/brands/github'
