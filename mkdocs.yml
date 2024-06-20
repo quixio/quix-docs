@@ -164,7 +164,6 @@ nav:
     - 'Requirements': 'byoc/requirements.md'
     - 'Installation': 'byoc/installation.md'
     - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
-    - 'Release filtering': 'byoc/release-filtering.md'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'
