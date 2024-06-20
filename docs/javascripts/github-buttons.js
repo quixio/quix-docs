@@ -1,3 +1,39 @@
+
+var palette = __md_get("__palette")
+  if (palette && palette.color) {
+
+    /* Retrieve color palette for system preference */
+    if (palette.color.media === "(prefers-color-scheme)") {
+      var media = matchMedia("(prefers-color-scheme: light)")
+      var input = document.querySelector(media.matches
+        ? "[data-md-color-media='(prefers-color-scheme: light)']"
+        : "[data-md-color-media='(prefers-color-scheme: dark)']"
+      )
+
+      /* Retrieve colors for system preference */
+      palette.color.media   = input.getAttribute("data-md-color-media"),
+      palette.color.scheme  = input.getAttribute("data-md-color-scheme"),
+      palette.color.primary = input.getAttribute("data-md-color-primary"),
+      palette.color.accent  = input.getAttribute("data-md-color-accent")
+    }
+
+    console.log(palette);
+
+    const prefersColorScheme = palette.color.media.match(/\(prefers-color-scheme: (\w+)\)/)[1];
+    console.log(prefersColorScheme);
+
+    var attrib = `"no-preference: ${prefersColorScheme}; light: ${prefersColorScheme}; dark: ${prefersColorScheme};"`;
+    console.log(attrib);
+
+    const elements = document.querySelectorAll('.github-button');
+
+    elements.forEach(element => {
+        element.setAttribute('data-color-scheme', attrib);
+    });
+  }
+
+
+
 /*!
  * github-buttons v2.28.0
  * (c) 2024 なつき
