@@ -1,37 +1,46 @@
 
-var palette = __md_get("__palette")
-  if (palette && palette.color) {
-
+function apply_pallet(){
     /* Retrieve color palette for system preference */
     if (palette.color.media === "(prefers-color-scheme)") {
-      var media = matchMedia("(prefers-color-scheme: light)")
-      var input = document.querySelector(media.matches
-        ? "[data-md-color-media='(prefers-color-scheme: light)']"
-        : "[data-md-color-media='(prefers-color-scheme: dark)']"
-      )
+        var media = matchMedia("(prefers-color-scheme: light)")
+        var input = document.querySelector(media.matches
+          ? "[data-md-color-media='(prefers-color-scheme: light)']"
+          : "[data-md-color-media='(prefers-color-scheme: dark)']"
+        )
+  
+        /* Retrieve colors for system preference */
+        palette.color.media   = input.getAttribute("data-md-color-media"),
+        palette.color.scheme  = input.getAttribute("data-md-color-scheme"),
+        palette.color.primary = input.getAttribute("data-md-color-primary"),
+        palette.color.accent  = input.getAttribute("data-md-color-accent")
+      }
+  
+      console.log(palette);
+  
+      const prefersColorScheme = palette.color.media.match(/\(prefers-color-scheme: (\w+)\)/)[1];
+      console.log(prefersColorScheme);
+  
+      var attrib = `"no-preference: ${prefersColorScheme}; light: ${prefersColorScheme}; dark: ${prefersColorScheme};"`;
+      console.log(attrib);
+  
+      const elements = document.querySelectorAll('.github-button');
+  
+      elements.forEach(element => {
+          element.setAttribute('data-color-scheme', attrib);
+      });
+}
 
-      /* Retrieve colors for system preference */
-      palette.color.media   = input.getAttribute("data-md-color-media"),
-      palette.color.scheme  = input.getAttribute("data-md-color-scheme"),
-      palette.color.primary = input.getAttribute("data-md-color-primary"),
-      palette.color.accent  = input.getAttribute("data-md-color-accent")
-    }
+var palette = __md_get("__palette")
+if (palette && palette.color) {
+    apply_pallet();
+}
 
-    console.log(palette);
 
-    const prefersColorScheme = palette.color.media.match(/\(prefers-color-scheme: (\w+)\)/)[1];
-    console.log(prefersColorScheme);
-
-    var attrib = `"no-preference: ${prefersColorScheme}; light: ${prefersColorScheme}; dark: ${prefersColorScheme};"`;
-    console.log(attrib);
-
-    const elements = document.querySelectorAll('.github-button');
-
-    elements.forEach(element => {
-        element.setAttribute('data-color-scheme', attrib);
+document.querySelectorAll('.md-option').forEach(element => {
+    element.addEventListener('click', () => {
+        window.location.reload();
     });
-  }
-
+});
 
 
 /*!
