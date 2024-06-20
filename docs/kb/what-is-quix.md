@@ -144,7 +144,6 @@ Quix provides numerous standard [connectors](../connectors/index.md) for both so
 
 Quix provides several APIs to help you work with streaming data. These include:
 
-* [**Streaming Writer API**](../apis/streaming-writer-api/overview.md): enables you to send any data to a Kafka topic in Quix using HTTP. This API handles encryption, serialization, and conversion to the Quix Streams format, ensuring efficiency and performance of down-stream processing regardless of the data source.
 * [**Streaming Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
 * [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. **Note:** available to legacy customers only.
 * [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
@@ -196,7 +195,7 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 * Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
 * CPU monitor - you can monitor the CPU utilization of your deployment in real time.
 * Memory monitor - you can monitor the memory usage of the deployment in real time.
-* CLI - a powerful command line interface, see the [CLI documentation](../cli/overview.md).
+* CLI - a powerful command line interface, see the [CLI documentation](../quix-cli/overview.md).
 
 [See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
 

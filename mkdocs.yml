@@ -15,36 +15,29 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Installation':
-      - 'Use command line': 'get-started/install.md'
-      - 'Quix Cloud': 'get-started/install-cloud.md'
+    - 'Installation': 'get-started/install.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
-    - 'Quickstart':
-      - 'Produce data': 'get-started/produce.md'
-      - 'Consume data': 'get-started/consume.md'
-      - 'Process data': 'get-started/process.md'
+#    - 'Quickstart':
+#      - 'Produce data': 'get-started/produce.md'
+#      - 'Consume data': 'get-started/consume.md'
+#      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.6.0'
-  - 'Quix CLI (Beta)':
-    - 'Overview': 'cli/overview.md'
-    - 'Quickstart': 'cli/cli-quickstart.md'
-    - 'Reference guide': 'cli/cli-reference.md'
-    - 'Tutorials': 
-      - 'Using the CLI with a template': 'cli/cli-template.md'
-      - 'Using the CLI with GitHub Actions': 'cli/cli-github-actions.md'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=main'
+  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
-    - 'Quix Cloud Tour': 
-      - 'Overview': 'quix-cloud/quixtour/overview.md'
-      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
-      - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
-      - '3. Serve': 'quix-cloud/quixtour/serve-sms.md'
-    - 'Build a pipeline':
+    - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
+#   - 'Quix Cloud Tour': 
+#      - 'Overview': 'quix-cloud/quixtour/overview.md'
+#      - '1. Ingest': 'quix-cloud/quixtour/ingest.md'
+#      - '2. Process': 'quix-cloud/quixtour/process-threshold.md'
+#      - '3. Serve': 'quix-cloud/quixtour/serve-sms.md' 
+    - 'Quix Cloud Tour':
       - '1. Create your project':
         - 'Overview': 'create/overview.md'
         - 'Clone a project': 'create/clone-project.md'
@@ -279,7 +272,8 @@ hooks:
 
 plugins:
   - multirepo:
-      cleanup: true
+      cleanup: false
+  - include-markdown
   - search:
       separator: '[\s\-\.]' 
   - social:
@@ -408,6 +402,7 @@ extra_javascript:
   - javascripts/quix.js
   - javascripts/feedback.js
   - javascripts/runllm-widget.js
+  - javascripts/github-buttons.js
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -459,3 +454,8 @@ markdown_extensions:
   - pymdownx.details:
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

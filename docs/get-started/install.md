@@ -63,6 +63,31 @@ You are now consuming data from the `demo-onboarding-prod-chat` topic and proces
 
 You have installed Quix and tested that it's working.
 
-## Next step
+## Next steps
 
-* [Produce data](./produce.md) - publish data to a Kafka topic.
+<div class="grid cards" markdown>
+
+- __Start Building a pipeline!__
+
+    ---
+
+    Start building your first stream processing pipeline locally on the command line with Quix CLI.
+
+    [Quix CLI Quickstart :octicons-arrow-right-24:](../quix-cli/cli-quickstart.md)
+
+</div>
+
+Or
+
+<div class="grid cards" markdown>
+
+- __Continue learning about Quix Streams__
+
+    ---
+
+    Continue learning how to use Quix Streams library and its capabilities.
+
+    [Quix Streams Quickstart :octicons-arrow-right-24:](../quix-streams/quickstart.md)
+
+</div>
+

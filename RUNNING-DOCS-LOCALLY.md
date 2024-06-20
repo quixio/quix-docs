@@ -15,7 +15,7 @@ To run these docs locally you'll need:
 If you want to fully render all documentation locally you need to install the following plugins with `pip install`:
 
 * [mkdocs-glightbox](https://pypi.org/project/mkdocs-glightbox/0.1.0/)
-* [mkdocs-multirepo](https://pypi.org/project/mkdocs-multirepo/)
+* [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin)
 * [mkdocs-redirects](https://pypi.org/project/mkdocs-redirects/)
 
 You also need to sign up to the [Insiders Programme](https://squidfunk.github.io/mkdocs-material/insiders/).

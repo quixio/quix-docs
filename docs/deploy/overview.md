@@ -70,4 +70,4 @@ This command also prompts you to include other applications that need to be sync
 
 To sync a remote (cloud-based) environment to its project repository, you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
 
-See the [Quix reference guide](../cli/cli-reference.md) for more about working on the command line.
+See the [CLI documentation](../quix-cli/overview.md) for more about working on the command line.

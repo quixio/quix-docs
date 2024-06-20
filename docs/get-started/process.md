@@ -83,4 +83,4 @@ You'll notice the messages in the topic are in the JSON format.
 
 ## Next step
 
-* [Quix CLI Quickstart](../cli/cli-quickstart.md) - get started using the Quix CLI to build and run your first streaming data pipeline locally.
+* [Quix CLI Quickstart](../quix-cli/cli-quickstart.md) - get started using the Quix CLI to build and run your first streaming data pipeline locally.
