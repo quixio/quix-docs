@@ -433,6 +433,7 @@ extra:
         name: Google Analytics
         checked: true
       posthog: Posthog
+      quix: Quix
   
   #alternate:
 markdown_extensions:
