@@ -1,7 +1,25 @@
 {% extends "base.html" %} {% block extrahead %}
 
-<!-- Place this tag in your head or just before your close body tag. -->
-<!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+<script>
+    function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function getSessionId() {
+        let sessionId = localStorage.getItem('sessionId');
+        if (!sessionId) {
+            sessionId = generateUUID();
+            localStorage.setItem('sessionId', sessionId);
+        }
+        return sessionId;
+    }
+
+    const sessionId = getSessionId();
+    console.log('Session ID:', sessionId);
+</script>
 
 <!-- Google Tag Manager -->
 <script>
