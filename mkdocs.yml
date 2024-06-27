@@ -15,7 +15,7 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Installation': 'get-started/install.md'
+    - 'Quix Start': 'get-started/quix-start.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
@@ -347,6 +347,10 @@ plugins:
         'get-started/build-cli.md' : 'cli/cli-quickstart.md'
         'get-started/cli-quickstart.md' : 'cli/cli-quickstart.md'
         'cli/cli-build-pipeline.md' : 'cli/cli-quickstart.md'
+        'get-started/install.md': 'get-started/quix-start.md'
+        'cli/cli-quickstart.md' : 'quix-cli/cli-quickstart.md'
+        'cli/overview.md' : 'quix-cli/overview.md'
+        'cli/cli-reference.md' : 'quix-cli/overview.md'
 
 
 theme:
