@@ -23,6 +23,11 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
 
 It's free to [sign up to Quix Cloud](https://portal.platform.quix.io/self-sign-up){target=_blank}.
 
+<div>
+<a class="md-button md-button--primary" href="https://portal.platform.quix.io/self-sign-up" style="margin-right:.5rem;">Sign up to Quix Cloud</a>
+<br/>
+</div>
+
 After signing up using the method of your choice, you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
 
 ## Step 2: Create your first project
@@ -79,7 +84,7 @@ You'll now see how much additional observability Quix Cloud gives you:
 
 ![Quix Cloud service details](../images/quix-cloud-onboarding/event-detection-transform-quix-cloud.png)
 
-Here you can explore the complete information of the service, including CPU amd memory utilization, topics being used, live data, logging, and much more. 
+Here you can explore the complete information of the service, including CPU and memory utilization, topics being used, live data, logging, and much more. 
 
 ## Step 6: Explore the `Messages` tab
 
