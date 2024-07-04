@@ -15,7 +15,7 @@ edit_uri: tree/dev/docs
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
-    - 'Quix Start': 'get-started/quix-start.md'
+    - 'Get started!': 'get-started/quix-start.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
       - 'get-started/stream-processing.md'
