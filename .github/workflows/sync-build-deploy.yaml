@@ -5,6 +5,10 @@ on:
   #push:
   #  branches: [$default-branch]
 
+  # Runs when cli updates the docs
+  repository_dispatch:
+    types: [cli_docs_updated]
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
