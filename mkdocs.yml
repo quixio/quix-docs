@@ -124,6 +124,7 @@ nav:
           - 'Overview': 'apis/portal-api/overview.md'
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
+    - 'Security': 'quix-cloud/security.md'
   - 'Connectors':
     - 'Index': 'connectors/index.md'
 #ConnectorsGetInsertedHere
@@ -351,6 +352,7 @@ plugins:
         'cli/cli-quickstart.md' : 'quix-cli/cli-quickstart.md'
         'cli/overview.md' : 'quix-cli/overview.md'
         'cli/cli-reference.md' : 'quix-cli/overview.md'
+        'platform/security/security.md': 'quix-cloud/security.md'
 
 
 theme:
