@@ -26,7 +26,7 @@ nav:
 #      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=chore/fix-docs-2.8.0-v1'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.8.1'
   - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
@@ -124,6 +124,7 @@ nav:
           - 'Overview': 'apis/portal-api/overview.md'
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
+    - 'Security': 'quix-cloud/security.md'
   - 'Connectors':
     - 'Index': 'connectors/index.md'
 #ConnectorsGetInsertedHere
@@ -351,6 +352,7 @@ plugins:
         'cli/cli-quickstart.md' : 'quix-cli/cli-quickstart.md'
         'cli/overview.md' : 'quix-cli/overview.md'
         'cli/cli-reference.md' : 'quix-cli/overview.md'
+        'platform/security/security.md': 'quix-cloud/security.md'
 
 
 theme:
