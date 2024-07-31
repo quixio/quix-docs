@@ -1,3 +1,9 @@
+---
+title: Bring Your Own Cluster (BYOC)
+description: BYOC is Quix, packaged to run on your own Kubernetes cluster.
+icon: material/server
+---
+
 # Bring Your Own Cluster (BYOC)
 
 BYOC is Quix, packaged to run on your own Kubernetes cluster. Bring Your Own Cluster, control its resources and make them work efficiently by deploying the Quix Platform to it.

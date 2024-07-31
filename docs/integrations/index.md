@@ -1,6 +1,7 @@
 ---
 title: Integrations
 description: Information on integrating with partner products.
+icon: material/filter-cog-outline
 ---
 
 # Overview - Integrations

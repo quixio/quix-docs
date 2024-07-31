@@ -1,6 +1,7 @@
 ---
 title: Connectors
 description: Quix prebuilt connectors enable you to integrate with a variety of services.
+icon: material/connection
 ---
 
 # Connectors
