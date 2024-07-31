@@ -410,8 +410,8 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/quix.js
-  - javascripts/feedback.js
-  - javascripts/runllm-widget.js
+  # - javascripts/feedback.js
+  # - javascripts/runllm-widget.js
 
 extra:
   social:
