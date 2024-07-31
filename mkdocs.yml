@@ -273,6 +273,8 @@ hooks:
 - hooks/redirect_0_5_urls.py
 
 plugins:
+  - blog:
+      blog_toc: true
   - multirepo:
       cleanup: false
   - include-markdown
