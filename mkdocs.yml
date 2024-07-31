@@ -1,4 +1,4 @@
-site_name: 'Documentation'
+site_name: ''
 site_description: 'Quix Developer Documentation. Includes documentation (guides, tutorials, references) for Quix Cloud, Quix Streams client library, and REST and websocket APIs.'
 site_author: 'Quix.io'
 site_url: 'https://quix.io/docs'
@@ -364,6 +364,7 @@ theme:
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
+  logo: 'assets/Quix-Docs-Negative-RGB.png'
   
   palette: 
   # Palette toggle for light mode
@@ -400,7 +401,7 @@ theme:
   
   icon:
     logo: 'material/library'
-    repo: 'material/library'
+    repo: 'material/github'
   
 
 extra_css:
