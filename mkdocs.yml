@@ -262,7 +262,8 @@ nav:
       #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-
+  - Blog:
+    - blog/index.md
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
