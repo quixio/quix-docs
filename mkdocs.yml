@@ -14,7 +14,7 @@ edit_uri: tree/dev/docs
 
 nav:
   - 'Get started':
-    - 'Welcome': 'get-started/welcome.md'
+    - 'Welcome': 'get-started/index.md'
     - 'Get started!': 'get-started/quix-start.md'
     - 'Core concepts':
       - 'get-started/streaming.md'
@@ -29,7 +29,7 @@ nav:
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.8.1'
   - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
-    - 'Overview': 'quix-cloud/overview.md'
+    - 'Overview': 'quix-cloud/index.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
     - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
 #   - 'Quix Cloud Tour': 
@@ -129,7 +129,7 @@ nav:
     - 'Index': 'connectors/index.md'
 #ConnectorsGetInsertedHere
   - 'Integrations':
-    - 'Overview': 'integrations/overview.md'
+    - 'Overview': 'integrations/index.md'
     - 'Brokers':
       - 'Overview': 'integrations/brokers/overview.md'
       - 'Broker settings': 'integrations/brokers/broker-settings.md'
@@ -161,10 +161,12 @@ nav:
       - 'Weaviate':
         - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
   - 'Bring Your Own Cluster (BYOC)':
-    - 'Overview': 'byoc/overview.md'
+    - 'Overview': 'byoc/index.md'
     - 'Requirements': 'byoc/requirements.md'
     - 'Installation': 'byoc/installation.md'
     - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+  - Blog:
+    - blog/index.md
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'
@@ -262,8 +264,7 @@ nav:
       #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-  - Blog:
-    - blog/index.md
+
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
@@ -285,6 +286,7 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
+        'get-started/welcome.md': 'get-started/index.md'
         'contribute.md': 'kb/contribute.md'
         'platform/changes.md': 'get-started/welcome.md'
         'platform/ingest-data.md': 'develop/overview.md'
@@ -334,6 +336,7 @@ plugins:
         'integrations/influxdb/quickstart.md': 'integrations/databases/influxdb/quickstart.md'
         'integrations/influxdb/telegraf.md': 'integrations/databases/influxdb/telegraf.md'
         'integrations/influxdb/replacing-flux.md': 'integrations/databases/influxdb/replacing-flux.md'
+        'integrations/overview.md': 'integrations/index.md'
         'platform/how-to/use-sdk-token.md': 'develop/authentication/streaming-token.md'
         'get-started/quixtour/ingest-push.md': 'quix-cloud/quixtour/external-source.md'
         'get-started/quickstart.md': 'quix-cloud/quickstart.md'
@@ -354,12 +357,13 @@ plugins:
         'cli/overview.md' : 'quix-cli/overview.md'
         'cli/cli-reference.md' : 'quix-cli/overview.md'
         'platform/security/security.md': 'quix-cloud/security.md'
+        'quix-cloud/overview.md': 'quix-cloud/index.md'
+        'byoc/overview.md': 'byoc/index.md'
 
 
 theme:
   name: 'material'
   custom_dir: overrides
-#  features:
 
   # TODO
   #custom_dir: 'theme'

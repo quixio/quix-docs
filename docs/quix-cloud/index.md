@@ -1,6 +1,7 @@
 ---
 title: Quix Cloud
 description: Quix Cloud provides everything a developer needs to build industrial-strength stream processing applications.
+icon: material/cloud-outline
 ---
 
 **Quix Cloud** is a comprehensive cloud-based platform designed for deploying, collaborating, and observing real-time data pipelines, providing everything a developer needs to build industrial-strength stream processing applications.
