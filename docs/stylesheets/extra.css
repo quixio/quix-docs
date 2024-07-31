@@ -9,6 +9,7 @@
     --md-code-bg-color: #e8e8e8;
     --md-default-fg-color--lightest: #cbcbcb;
     --md-code-hl-comment-color: #858585;
+    --md-blog-grid-bg-color: rgb(237, 237, 237);
 }
 
 [data-md-color-scheme="slate"] {
@@ -23,7 +24,7 @@
     --md-code-bg-color: #393939;
     --md-code-hl-comment-color: #858585;
     --md-default-fg-color--lightest: #cbcbcb;
-
+    --md-blog-grid-bg-color: rgb(75, 75, 75);
 }
 
 .md-typeset code {
@@ -675,4 +676,13 @@ button.header-btn-inner:hover {
 .move-up {
     position: relative;
     top: -15px; /* Move up by 10px */
+}
+
+.youtube {
+    color: #EE0F0F;
+  }
+
+.blog-grid-card{
+    background-color: var(--md-blog-grid-bg-color);
+    border-radius: 8px;
 }
