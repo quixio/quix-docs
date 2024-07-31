@@ -404,7 +404,6 @@ theme:
   - content.action.view    # view page source
   - navigation.tabs
   - navigation.tabs.sticky
-
   
   icon:
     logo: 'material/library'
@@ -415,7 +414,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/quix.js
-  - javascripts/feedback.js
+  # - javascripts/feedback.js
   # - javascripts/runllm-widget.js
 
 extra:
