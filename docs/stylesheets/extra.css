@@ -686,3 +686,39 @@ button.header-btn-inner:hover {
     background-color: var(--md-blog-grid-bg-color);
     border-radius: 8px;
 }
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+}
+
+.blog-box {
+    width: 48%; /* Adjust width to account for margin */
+    margin: 0 4% 4% 0; /* Add margin to the right and bottom */
+    /* background-color: lightblue; Example background color */
+    padding: 20px; /* Example padding */
+    box-sizing: border-box; /* Include padding in width */
+    border: 1px solid var(--md-default-fg-color);
+    border-radius: 8px;
+}
+.blog-box:nth-child(2n) {
+    margin-right: 0; /* Remove margin on the right for every second item */
+}
+
+.blog-placeholder-container {
+
+}
+
+.blog-placeholder-title {
+    min-height: 77px;
+}
+
+.blog-placeholder-footer {
+    min-height: 107px !important;
+    align-content: end;
+}
+
+.md-post--excerpt{
+    margin-bottom: 0;
+}
