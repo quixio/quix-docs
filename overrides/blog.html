@@ -13,9 +13,15 @@
       </header>
 
       <!-- Posts -->
-      {% for post in posts %}
-        {% include "partials/post.html" %}
+      <div class="blog-container">
+        {% for post in posts %}
+        <!-- <div style="border: 1px solid red;width: 50%; border-radius: 8px;"> -->
+        <div class="blog-box">
+          {% include "partials/post.html" %}
+        </div>        
+
       {% endfor %}
+      </div>
 
       <!-- Pagination -->
       {% if pagination %}
