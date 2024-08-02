@@ -22,75 +22,78 @@
 
 <!-- Post excerpt -->
 <article class="md-post md-post--excerpt">
-
-
     <div class="blog-placeholder-container">
-        <div class="blog-placeholder-title md-post__content md-typeset">
-            <a href="{{ post.url | url }}">{{post.title}}</a>
-        </div>
-        <div class="blog-placeholder-footer">
-            <!-- Post authors -->
-            {% if post.authors %}
-            <nav class="md-post__authors md-typeset">
-            {% for author in post.authors %}
-                <span class="md-author">
-                <img src="{{ author.avatar | url }}" alt="{{ author.name }}" />
-                </span>
-            {% endfor %}
-            </nav>
-            {% endif %}
+        <div class="blog-header">
 
-            <!-- Post metadata -->
-            <div class="md-post__meta md-meta">
-            <ul class="md-meta__list">
+
+    <!-- Post metadata -->
+    <div class="md-post__meta md-meta">
+        <ul class="md-meta__list">
 
             <!-- Post date -->
             <li class="md-meta__item">
                 <time datetime="{{ post.config.date.created }}">
-                {{- post.config.date.created | date -}}
+                    {{- post.config.date.created | date -}}
                 </time>
                 {#- Collapse whitespace -#}
             </li>
 
             <!-- Post readtime -->
             {% if post.config.readtime %}
-                {% set time = post.config.readtime %}
-                <li class="md-meta__item">
+            {% set time = post.config.readtime %}
+            <li class="md-meta__item">
                 {% if time == 1 %}
-                    {{ lang.t("readtime.one") }}
+                {{ lang.t("readtime.one") }}
                 {% else %}
-                    {{ lang.t("readtime.other") | replace("#", time) }}
+                {{ lang.t("readtime.other") | replace("#", time) }}
                 {% endif %}
-                </li>
+            </li>
             {% endif %}
-            
+
             <!-- Post categories -->
             {% if post.categories %}
-                <li class="md-meta__item">
+            <li class="md-meta__item">
                 {{ lang.t("blog.categories.in") }}
                 {% for category in post.categories %}
-                    <a
-                    href="{{ category.url | url }}"
-                    class="md-meta__link"
-                    >
+                <a href="{{ category.url | url }}" class="md-meta__link">
                     {{- category.title -}}
-                    </a>
-                    {%- if loop.revindex > 1 %}, {% endif -%}
+                </a>
+                {%- if loop.revindex > 1 %}, {% endif -%}
                 {% endfor -%}
-                </li>
+            </li>
             {% endif %}
+        </ul>
+    </div>
+        </div>
+ 
+        <div>
+            <div class="blog-placeholder-title md-post__content md-typeset">
+                <a href="{{ post.url | url }}">{{post.title}}</a>
+            </div>
+        </div>
 
-            </ul>
+        <div class="blog-placeholder-footer">
+            <!-- Post authors -->
+            {% if post.authors %}
+            <nav class="md-post__authors md-typeset">
+                {% for author in post.authors %}
+                <span class="md-author">
+                    <img src="{{ author.avatar | url }}" alt="{{ author.name }}" />
+                </span>
+                <span class="md-meta">{{ author.name }}</span>
 
-            <!-- Draft marker -->
-            {% if post.config.draft %}
-            <span class="md-draft">
-                {{ lang.t("blog.draft") }}
-            </span>
+                {% endfor %}
+            </nav>
             {% endif %}
-            </div>        
         </div>
     </div>
+</article>
 
 
-  </article>
+
+
+
+
+
+
+
