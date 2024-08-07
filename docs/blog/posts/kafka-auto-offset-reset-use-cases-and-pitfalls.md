@@ -9,7 +9,6 @@ categories:
   - ecosystem
 hide:
   - navigation
-  - toc
 ---
 
 # Understanding Kafka’s auto offset reset configuration: Use cases and pitfalls
