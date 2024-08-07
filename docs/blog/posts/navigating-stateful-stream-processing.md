@@ -7,7 +7,8 @@ description: >
   Discover what sets stateful stream processing apart from stateless processing and read about its related concepts, challenges and use cases. 
 categories:
   - industry-insights
-  
+hide:
+  - navigation  
 ---
 
 # Navigating stateful stream processing
