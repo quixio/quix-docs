@@ -1,10 +1,16 @@
-# Quix Blog
+---
+hide:
+  - navigation
+  - toc
+---
+
+# All posts
 
 Welcome to the Quix blog! 
 
 Read the latest posts and ideas from the amazing community using Kafka and Python.
 
-<div class="grid cards" markdown>
+<!-- <div class="grid cards" markdown>
 
 - __Learn to process streaming data!__
 
@@ -14,4 +20,4 @@ Read the latest posts and ideas from the amazing community using Kafka and Pytho
 
     :fontawesome-brands-youtube:{ .youtube } [Watch on YouTube](https://www.youtube.com/watch?v=5sqegy_EPa0)
 
-</div>
+</div> -->

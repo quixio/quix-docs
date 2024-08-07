@@ -7,6 +7,9 @@ description: >
   The auto.offset.reset configuration defines how Kafka consumers should behave when no initial committed offsets are available for the partitions assigned to them. Learn how to work with this configuration and discover its related challenges. 
 categories:
   - ecosystem
+hide:
+  - navigation
+  - toc
 ---
 
 # Understanding Kafka’s auto offset reset configuration: Use cases and pitfalls
