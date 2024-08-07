@@ -23,10 +23,21 @@
 <!-- Post excerpt -->
 <article class="md-post md-post--excerpt">
     <div class="blog-placeholder-container">
-        <div class="blog-header">
+        <!-- <div class="blog-header">
 
 
-    <!-- Post metadata -->
+    
+        </div> -->
+ 
+        <div>
+            <div class="blog-placeholder-title md-post__content md-typeset">
+                <a href="{{ post.url | url }}">{{post.title}}</a>
+            </div>
+        </div>
+
+        <div class="blog-placeholder-footer">
+
+            <!-- Post metadata -->
     <div class="md-post__meta md-meta">
         <ul class="md-meta__list">
 
@@ -64,15 +75,7 @@
             {% endif %}
         </ul>
     </div>
-        </div>
- 
-        <div>
-            <div class="blog-placeholder-title md-post__content md-typeset">
-                <a href="{{ post.url | url }}">{{post.title}}</a>
-            </div>
-        </div>
 
-        <div class="blog-placeholder-footer">
             <!-- Post authors -->
             {% if post.authors %}
             <nav class="md-post__authors md-typeset">

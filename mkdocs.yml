@@ -26,8 +26,8 @@ nav:
 #      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  # - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.8.1'
-  # - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=main'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v2.8.1'
+  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=main'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
@@ -262,7 +262,7 @@ nav:
       #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-  - Blog:
+  - Blog Index:
     - blog/index.md
 # Exclude build scripts from v2.0+
 exclude_docs: |
