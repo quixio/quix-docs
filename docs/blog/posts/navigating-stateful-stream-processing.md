@@ -15,6 +15,19 @@ hide:
 
 Discover what sets stateful stream processing apart from stateless processing and read about its related concepts, challenges and use cases. 
 
+
+<div class="grid cards blog-grid-card" markdown>
+
+- __Learn to process streaming data!__
+
+    ---
+
+    Quix Streams is a fast and general-purpose processing framework for streaming data. Build real-time applications and analytics systems on data streams using Python DataFrames and stateful operators, all without having to install a server-side engine.
+
+    :fontawesome-brands-youtube:{ .youtube } [Watch on YouTube](https://www.youtube.com/watch?v=5sqegy_EPa0)
+
+</div>
+
 <!-- more -->
 
 ## What is stateful stream processing?  
