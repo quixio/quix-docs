@@ -499,6 +499,6 @@ kind of stream processing applications you can deliver with Quix.
 ## Check out the repo
 Our Python client library is open source, and brings DataFrames and the Python ecosystem to stream processing.
 
-[Star us on GitHub](https://github.com/quixio/quix-streams)
+[Read more and star us on GitHub](https://github.com/quixio/quix-streams)
 
 
