@@ -39,7 +39,7 @@ streams, which enables both **data streaming** and **batch processing**.
 
 Flink is a good choice for Java-based applications of the following types:
 
-  * **Event-driven:** fraud detection and social networking are both types of apps that can use an [event-driven model](/blog/what-why-how-of-event-driven-programming) for better performance
+  * **Event-driven:** fraud detection and social networking are both types of apps that can use an [event-driven model](https://quix.io/blog/what-why-how-of-event-driven-programming) for better performance
   * **Data analytics:** [Uber has used streaming analytics](https://eng.uber.com/athenax/) to monitor its app and react to changes in traffic and weather
   * **Data pipelines:** real-time search indexing is vital for a large [ecommerce site like Alibaba](https://www.ververica.com/blog/blink-flink-alibaba-search)
 
@@ -51,7 +51,7 @@ micro-batching is a compromise between infrequent batch processing and genuine
 real-time stream processing. It’s a good approach for a corporate dashboard
 that refreshes every 15 minutes.  
 
-Read our [Flink vs Spark](/blog/compare-client-libraries-spark-flink-quix) vs
+Read our [Flink vs Spark](https://quix.io/blog/compare-client-libraries-spark-flink-quix) vs
 Quix Streams comparison article.
 
 ### Batch processing
@@ -72,7 +72,7 @@ suitable than **real-time processing** when:
 
 ### Broker
 
-See [message broker](/blog/stream-processing-glossary).
+See [message broker](#message-broker).
 
 ### Client library
 
@@ -170,8 +170,7 @@ Data streaming is the act of working with a stream of data. It’s often
 contrasted with **batch processing** , which analyzes a set of data at a fixed
 time or interval, usually hours or even days after it was produced.
 
-We’ve answered [frequently asked questions about data streaming](/blog/data-
-streaming-faq).
+We’ve answered [frequently asked questions about data streaming](https://quix.io/blog/data-streaming-faq).
 
 ### Data warehouse
 
@@ -286,7 +285,7 @@ its processing of future data. For example, a chess computer can continuously
 analyze its opponent’s moves to improve its responses.
 
 Read more: [How machine learning and AI are improving
-cybersecurity](/blog/cyber-security-machine-learning-ai)
+cybersecurity](https://quix.io/blog/cyber-security-machine-learning-ai)
 
 ### Message
 
@@ -439,7 +438,7 @@ coupling and allowing components to be independent while maintaining
 communication.
 
 Quix’s architecture makes [developing a scalable application much
-easier](/blog/scaling-stream-processing), both technically and in terms of
+easier](https://quix.io/blog/scaling-stream-processing), both technically and in terms of
 managing your team and its resources.
 
 ### SDK
