@@ -17,7 +17,19 @@ Connector? Confluent? Cluster? Keep this article nearby to define tricky and eme
 
 <!-- more -->
 
-A go-to list of definitions for stream processing
+A go-to list of definitions for anyone working with Kafka and Python, stream processing and real time data.
+
+<div class="grid cards blog-grid-card" markdown>
+
+- __Learn to process streaming data!__
+
+    ---
+
+    Quix Streams is a fast and general-purpose processing framework for streaming data. Build real-time applications and analytics systems on data streams using Python DataFrames and stateful operators, all without having to install a server-side engine.
+
+    :fontawesome-brands-youtube:{ .youtube } [Watch on YouTube](https://www.youtube.com/watch?v=5sqegy_EPa0)
+
+</div>
 
 ## Introduction
 
@@ -26,9 +38,9 @@ processing) and analytics includes a mountain of concepts, tools and
 technologies. Components and processes may be unfamiliar, and the abundance of
 terms used with them adds to the chaos.
 
-We’ve collected definitions to some of the most common concepts to clear up
+We've collected definitions to some of the most common concepts to clear up
 the confusion. Make your life a little easier and keep this glossary handy;
-you never know when you’ll need to look up the meaning of “real-time
+you never know when you'll need to look up the meaning of “real-time
 processing” or “time series data.”  
 
 ### Apache Flink
@@ -48,7 +60,7 @@ Flink is a good choice for Java-based applications of the following types:
 Apache Spark is an open source framework for large-scale data processing.
 Spark Streaming batches data into small groups with tight time windows. This
 micro-batching is a compromise between infrequent batch processing and genuine
-real-time stream processing. It’s a good approach for a corporate dashboard
+real-time stream processing. It's a good approach for a corporate dashboard
 that refreshes every 15 minutes.  
 
 Read our [Flink vs Spark](https://quix.io/blog/compare-client-libraries-spark-flink-quix) vs
@@ -131,7 +143,7 @@ consumer aids concurrency since it can act alongside other consumers, but
 independently of them.
 
 When a consumer is ready to carry out some work, it typically fetches a
-**message** from a **broker**. An individual consumer isn’t concerned with
+**message** from a **broker**. An individual consumer isn't concerned with
 other consumers or how many producers are involved. It just deals with its own
 task: fetching messages and processing them.
 
@@ -143,7 +155,7 @@ chart.
 
 A consumer group is a collection of **consumers** assigned to a **topic**.
 Each consumer in the group can be assigned to one or more **partitions**. A
-group leader (one of the group’s consumers) assigns **partitions** to
+group leader (one of the group's consumers) assigns **partitions** to
 consumers. If a consumer needs to leave or join the group, the leader is
 responsible for assigning **partitions**.
 
@@ -166,11 +178,11 @@ A data stream is a continuous flow of data that is processed and analyzed as
 it moves from a source to a destination. Stock market prices and traffic
 behavior exemplify data that can be collected continuously and processed
 immediately.  
-Data streaming is the act of working with a stream of data. It’s often
+Data streaming is the act of working with a stream of data. It's often
 contrasted with **batch processing** , which analyzes a set of data at a fixed
 time or interval, usually hours or even days after it was produced.
 
-We’ve answered [frequently asked questions about data streaming](https://quix.io/blog/data-streaming-faq).
+We've answered [frequently asked questions about data streaming](https://quix.io/blog/data-streaming-faq).
 
 ### Data warehouse
 
@@ -200,12 +212,12 @@ in its raw state, then later transformed on demand. This is in contrast to
 extract, transform, load (ETL), which transforms data before it is loaded.
 
 ELT puts more responsibility on the data store and less on the source(s) of
-that data. It’s optimized for cases where a lot of diverse data is frequently
+that data. It's optimized for cases where a lot of diverse data is frequently
 produced or generated.
 
 ### Event
 
-An event is an activity of interest. It’s a single data point in a stream that
+An event is an activity of interest. It's a single data point in a stream that
 represents a value at a specific moment. An event includes a **key** ,
 **value** , **timestamp** and optional **metadata** in the form of headers. An
 event might describe car model A (key) traveling at 80 MPH (value) at 12:35 PM
@@ -219,7 +231,7 @@ read from are referred to as **streams**.
 
 A system is fault tolerant if it continues operating when one or more of its
 components fail. Fault tolerance is a scale rather than a binary property. A
-system’s standard “final resort” is reverting to a previous state, which is
+system's standard “final resort” is reverting to a previous state, which is
 possible if backups exist; however, it is not the preferred first course of
 action since it is time consuming and will nevertheless result in some data
 loss. Decoupling components, graceful degradation and redundancy achieve
@@ -228,7 +240,7 @@ better fault tolerance.
 ### Header
 
 A header is part of an **event** that contains metadata in addition to the
-event’s primary data. In contrast to the actual value that the event
+event's primary data. In contrast to the actual value that the event
 represents, a header may include a name, timestamp and type. Headers vary by
 implementation. Some streaming platforms consider the timestamp part of the
 header, while others represent it as a fixed event field.
@@ -261,13 +273,13 @@ challenges associated with application development on top of that.
 
 A hosted service mitigates this effort. Running Kafka in the cloud means a
 third party takes care of provisioning and building the Kafka part of your
-architecture. You concentrate on the application. Confluent’s Cloud product is
+architecture. You concentrate on the application. Confluent's Cloud product is
 a popular example of a cloud-based streaming platform with Apache Kafka at its
 core. Quix is another example.
 
 ### Key
 
-An **event’s** key is an identifier used to access that event. The key usually
+An **event's** key is an identifier used to access that event. The key usually
 stores data about the **message** itself rather than the values within it, so
 is typically used for partitioning, logging or related tasks. In cases where
 the key contains even less data relating to the message, a **header** may be
@@ -280,9 +292,9 @@ building. With machine learning (ML), algorithms improve through experience
 and data analysis. Machine learning is a branch of artificial intelligence.
 
 **Stream processing** helps enable machine learning by making data analysis a
-real-time process. A system can then feed the insights it’s gained back into
+real-time process. A system can then feed the insights it's gained back into
 its processing of future data. For example, a chess computer can continuously
-analyze its opponent’s moves to improve its responses.
+analyze its opponent's moves to improve its responses.
 
 Read more: [How machine learning and AI are improving
 cybersecurity](https://quix.io/blog/cyber-security-machine-learning-ai)
@@ -327,7 +339,7 @@ Notebooks](https://quix.io/docs/platform/how-to/jupyter-nb.html).
 Pandas is an open-source data-science Python library for analysis and
 manipulation. The library is over a decade old and has a strong global
 community.  
-Pandas’s features include:
+Pandas's features include:
 
   * A DataFrame structure that represents two-dimensional data. The Quix SDK supports [pandas DataFrames](https://quix.io/docs/sdk/features/data-frames.html) for [reading](https://quix.io/docs/client-library/subscribe.html) and [writing](https://quix.io/docs/client-library/publish.html) data.
   * Tools for converting data between file formats.
@@ -342,7 +354,7 @@ help integrate C code, which supports processing-intensive features of pandas.
 Parameter data is a means of extending the information sent as part of a
 **message** alongside its main value. It consists of further measurements that
 directly relate to **event** data. In particular, parameter data typically
-varies with time and has a direct relation with a message’s timestamp.
+varies with time and has a direct relation with a message's timestamp.
 Parameter data may be part of the message **header**.
 
 Quix represents most **time series** data as
@@ -368,19 +380,19 @@ brokers.
 
 ### Persistent
 
-A message (or other forms of data) is persistent if it exists until it’s read.
+A message (or other forms of data) is persistent if it exists until it's read.
 If a data stream is persistent, it will survive a shutdown of the data-
 streaming service, typically by the system writing it to disk. Persistent data
 allows a system to hold larger amounts of historical data than a stream alone.
 Persistent data can also be useful in a recovery from a catastrophic event or
 for correcting historical inaccuracies caused by bugs.
 
-Quix offers persistence at the topic level. If you persist a topic, you’ll be
+Quix offers persistence at the topic level. If you persist a topic, you'll be
 able to explore data streamed to it via the data explorer.
 
 ### Pipeline
 
-A pipeline enables data to flow from one point to another. It’s software that
+A pipeline enables data to flow from one point to another. It's software that
 manages the process of transporting that data. A pipeline is responsible for
 routing data as a domain-agnostic process and remains separate from other
 components of an application.
@@ -397,8 +409,8 @@ of events every day.
 A producer is a component that creates **messages** representing **events**
 and sends them to a **topic**.
 
-A producer is not concerned with what happens to the data once it’s sent it.
-In the **decoupled** producer-**consumer** model, a producer’s responsibility
+A producer is not concerned with what happens to the data once it's sent it.
+In the **decoupled** producer-**consumer** model, a producer's responsibility
 ends when it releases data to the consumer.
 
 ### Python
@@ -437,7 +449,7 @@ The **producer-consumer** model alleviates this problem by loosening the
 coupling and allowing components to be independent while maintaining
 communication.
 
-Quix’s architecture makes [developing a scalable application much
+Quix's architecture makes [developing a scalable application much
 easier](https://quix.io/blog/scaling-stream-processing), both technically and in terms of
 managing your team and its resources.
 
@@ -535,10 +547,10 @@ A timestamp is a value representing a point in time. A typical example is
 [Unix time](https://en.wikipedia.org/wiki/Unix_time), which is a count of the
 seconds since 1 January 1970. Other formats and standards exist with varying
 support for complex factors such as time zones and leap seconds. An
-**event’s** timestamp is normally the exact time at which the event took
+**event's** timestamp is normally the exact time at which the event took
 place.
 
-A timestamp’s value can be as granular as required. It can represent a
+A timestamp's value can be as granular as required. It can represent a
 specific second or a year. Quix supports nanosecond precision, so you can use
 it to build the most demanding, data-intensive applications.
 
@@ -563,7 +575,7 @@ period of time.
 ## What else are you curious about?
 
 Do you have any lingering questions about streaming data? No worries! [Join
-our Slack community](http://quix.io/slack-invite) and ask away. You’ll find a
+our Slack community](http://quix.io/slack-invite) and ask away. You'll find a
 group of people eager to support you and your projects.
 
 

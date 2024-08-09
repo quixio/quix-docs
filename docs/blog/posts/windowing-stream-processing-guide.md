@@ -13,6 +13,18 @@ hide:
 
 <!-- more -->
 
+<div class="grid cards blog-grid-card" markdown>
+
+- __Learn to process streaming data!__
+
+    ---
+
+    Quix Streams is a fast and general-purpose processing framework for streaming data. Build real-time applications and analytics systems on data streams using Python DataFrames and stateful operators, all without having to install a server-side engine.
+
+    :fontawesome-brands-youtube:{ .youtube } [Watch on YouTube](https://www.youtube.com/watch?v=5sqegy_EPa0)
+
+</div>
+
 ## What is windowing?
 
 At its core, windowing is a technique associated with stream processing
