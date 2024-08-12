@@ -95,102 +95,86 @@
 <!-- Add scripts that need to run afterwards here -->
 {% endblock %}
 
-<!-- add CTA -->
-{% block header %}
+{% block footer %} {{ super() }} {% endblock %} {% block scripts %} {{ super() }}
 
-<header class="md-header md-header--shadow" data-md-component="header">
-    <div class="header-wrapper md-grid">
-        <nav aria-label="Header" class="md-header__inner">
-            <a aria-label="" class="md-header__button md-logo" data-md-component="logo" href="/docs/index.html" title="" id="link_to_home">
-                <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 253.15"><g id="blue_square"><g><path d="M298.02,208.2c-1.86-1.86-5.1-1.5-6.43,1.07-.81,1.55-.34,3.47,.89,4.71l10.02,10.02H0v8H302.5l-10.02,10.02c-1.24,1.24-1.7,3.16-.9,4.71,1.33,2.57,4.57,2.93,6.43,1.07l16.97-16.97c1.56-1.56,1.56-4.09,0-5.66l-16.97-16.97Z" fill="#63ffb1"/><path d="M479.95,73.96c0-1.74-1.41-3.15-3.15-3.15h-25.2c-1.74,0-3.15,1.41-3.15,3.15h0v20.46l-19.67,13.11-19.62-13.11v-20.46c0-1.74-1.41-3.15-3.15-3.15h-25.2c-1.74,0-3.14,1.41-3.14,3.15v28.32l29.5,19.67-29.5,19.67v28.32c0,1.74,1.41,3.14,3.14,3.14h25.2c1.74,0,3.15-1.4,3.15-3.14h0v-20.67l19.55-12.98,19.8,13.2v20.46c0,1.74,1.41,3.14,3.14,3.14h25.2c1.74,0,3.15-1.4,3.15-3.14h0v-28.34l-29.57-19.71,29.52-19.63v-28.32Z" fill="#fff"/><path d="M350.96,70.84h-25.25c-1.74,0-3.15,1.4-3.15,3.14h0v96c0,1.74,1.41,3.15,3.15,3.15h25.25c1.74,0,3.15-1.41,3.15-3.15V73.98c0-1.74-1.41-3.14-3.14-3.14,0,0,0,0,0,0Z" fill="#fff"/><path d="M350.96,15.71h-25.25c-1.74,0-3.15,1.41-3.15,3.14v25.23c0,1.74,1.41,3.14,3.15,3.14h25.25c1.74,0,3.15-1.41,3.15-3.14V18.86c0-1.74-1.41-3.14-3.15-3.14Z" fill="#fff"/><path d="M295.93,70.84h-25.26c-1.74,0-3.14,1.41-3.14,3.14v67.6h-39.37V73.96c0-1.74-1.41-3.15-3.14-3.15h-25.23c-1.74,0-3.14,1.41-3.14,3.14h0s.13,96,.13,96c0,1.74,1.41,3.14,3.15,3.14h95.99c1.74,0,3.14-1.41,3.14-3.15V73.95c-.02-1.72-1.42-3.11-3.14-3.11h.02Z" fill="#fff"/><path d="M169.95,0H3.15C1.41,0,0,1.41,0,3.15V169.93c0,1.74,1.41,3.14,3.14,3.14H99.14c1.74,0,3.14-1.41,3.14-3.14v-25.2c0-1.74-1.41-3.14-3.14-3.14H31.47V31.47h110.15V99.31c0,1.74,1.4,3.15,3.14,3.15,0,0,0,0,0,0h25.2c1.74,0,3.14-1.41,3.14-3.14h0V3.15C173.11,1.41,171.71,0,169.97,0c0,0-.02,0-.02,0Z" fill="#fff"/><circle cx="155" cy="155" r="18.09" fill="#ff7828"/><rect x="106.22" y="106.22" width="31.47" height="31.47" rx="4.72" ry="4.72" fill="#bd2eff"/><rect x="70.81" y="70.81" width="31.47" height="31.47" fill="#0064ff"/><g opacity=".7"><path d="M348.13,252.47h-15.77v-46.55h16.09c4.62,0,8.59,.93,11.92,2.78,3.33,1.86,5.88,4.52,7.67,7.99s2.68,7.62,2.68,12.45-.9,9.02-2.69,12.5c-1.8,3.49-4.38,6.16-7.75,8.02-3.37,1.86-7.42,2.8-12.15,2.8Zm-7.34-7.3h6.93c3.24,0,5.95-.59,8.11-1.78,2.17-1.19,3.79-2.97,4.89-5.34,1.09-2.37,1.64-5.34,1.64-8.9s-.54-6.52-1.64-8.88c-1.09-2.36-2.7-4.12-4.83-5.29-2.13-1.17-4.77-1.76-7.92-1.76h-7.18v31.95Z" fill="#fff"/><path d="M392.51,253.15c-3.41,0-6.36-.75-8.86-2.25s-4.44-3.6-5.81-6.29c-1.37-2.7-2.06-5.85-2.06-9.46s.69-6.76,2.06-9.48c1.37-2.71,3.31-4.82,5.81-6.32s5.46-2.25,8.86-2.25,6.36,.75,8.86,2.25,4.44,3.61,5.81,6.32c1.37,2.71,2.06,5.87,2.06,9.48s-.69,6.76-2.06,9.46c-1.37,2.7-3.31,4.79-5.81,6.29s-5.46,2.25-8.86,2.25Zm.05-6.59c1.85,0,3.39-.51,4.64-1.53,1.24-1.02,2.17-2.4,2.78-4.12,.61-1.73,.92-3.65,.92-5.77s-.31-4.07-.92-5.81c-.61-1.74-1.54-3.12-2.78-4.15-1.24-1.03-2.79-1.54-4.64-1.54s-3.47,.52-4.72,1.54c-1.25,1.03-2.18,2.41-2.8,4.15-.61,1.73-.92,3.67-.92,5.81s.31,4.04,.92,5.77c.61,1.73,1.55,3.1,2.8,4.12s2.82,1.53,4.72,1.53Z" fill="#fff"/><path d="M430.38,253.15c-3.48,0-6.47-.76-8.97-2.29s-4.41-3.65-5.75-6.35c-1.34-2.71-2.01-5.82-2.01-9.35s.68-6.68,2.04-9.4c1.36-2.72,3.29-4.84,5.78-6.36,2.49-1.52,5.44-2.28,8.85-2.28,2.83,0,5.34,.52,7.53,1.56s3.94,2.5,5.24,4.39c1.3,1.89,2.05,4.09,2.23,6.6h-7.86c-.32-1.68-1.07-3.09-2.26-4.22s-2.78-1.69-4.76-1.69c-1.68,0-3.16,.45-4.43,1.35s-2.26,2.19-2.97,3.88-1.06,3.7-1.06,6.05,.35,4.42,1.04,6.12c.7,1.7,1.68,3.01,2.94,3.93s2.75,1.38,4.47,1.38c1.21,0,2.3-.23,3.26-.69,.96-.46,1.77-1.13,2.42-2.01,.65-.88,1.1-1.95,1.34-3.2h7.86c-.2,2.47-.92,4.66-2.18,6.56-1.26,1.9-2.97,3.39-5.14,4.45-2.17,1.07-4.71,1.6-7.64,1.6Z" fill="#fff"/><path d="M478.68,226.78l-7.5,.82c-.21-.76-.58-1.47-1.1-2.14s-1.22-1.2-2.1-1.61-1.95-.61-3.23-.61c-1.71,0-3.15,.37-4.31,1.11-1.16,.74-1.73,1.7-1.72,2.89-.01,1.02,.36,1.84,1.12,2.48,.77,.64,2.03,1.16,3.81,1.57l5.95,1.27c3.3,.71,5.76,1.84,7.38,3.39,1.61,1.54,2.43,3.57,2.44,6.07-.02,2.2-.66,4.13-1.92,5.81-1.26,1.67-3.02,2.98-5.26,3.92-2.24,.94-4.82,1.41-7.73,1.41-4.27,0-7.71-.9-10.32-2.69-2.61-1.79-4.16-4.3-4.66-7.51l8.02-.77c.36,1.58,1.14,2.77,2.32,3.57,1.18,.8,2.72,1.21,4.61,1.21s3.53-.4,4.72-1.21c1.19-.8,1.78-1.79,1.78-2.98,0-1-.38-1.83-1.15-2.48-.76-.65-1.95-1.15-3.56-1.5l-5.95-1.25c-3.35-.7-5.83-1.88-7.43-3.53-1.61-1.66-2.4-3.76-2.39-6.31-.02-2.15,.57-4.02,1.76-5.6,1.19-1.58,2.85-2.81,4.98-3.68s4.59-1.31,7.38-1.31c4.09,0,7.31,.87,9.67,2.61,2.36,1.74,3.81,4.1,4.38,7.07Z" fill="#fff"/></g></g></g></svg>
-            </a>
-            <label class="md-header__button md-icon" for="__drawer">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-  </label>
-            <div class="md-header__title" data-md-component="header-title">
-                <div class="md-header__ellipsis">
-                    <div class="md-header__topic">
-                        <span class="md-ellipsis">
-  </span>
-                    </div>
-                    <div class="md-header__topic" data-md-component="header-topic">
-                        <span class="md-ellipsis">
-              
-                Definitions
-              
-            </span>
-                    </div>
-                </div>
-            </div>
-            <form class="md-header__option" data-md-component="palette">
-                <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio">
-                <label class="md-header__button md-icon" for="__palette_1" title="Switch to dark mode">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
-  </label>
-                <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio">
-                <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
-  </label>
-            </form>
-            <script>
-                var media, input, key, value, palette = __md_get("__palette");
-                if (palette && palette.color) {
-                    "(prefers-color-scheme)" === palette.color.media && (media = matchMedia("(prefers-color-scheme: light)"), input = document.querySelector(media.matches ? "[data-md-color-media='(prefers-color-scheme: light)']" : "[data-md-color-media='(prefers-color-scheme: dark)']"), palette.color.media = input.getAttribute("data-md-color-media"), palette.color.scheme = input.getAttribute("data-md-color-scheme"), palette.color.primary = input.getAttribute("data-md-color-primary"), palette.color.accent = input.getAttribute("data-md-color-accent"));
-                    for ([key, value] of Object.entries(palette.color)) document.body.setAttribute("data-md-color-" + key, value)
-                }
-            </script>
-            <label class="md-header__button md-icon" for="__search">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-  </label>
-            <div class="md-search" data-md-component="search" role="dialog">
-                <label class="md-search__overlay" for="__search"></label>
-                <div class="md-search__inner" role="search">
-                    <form class="md-search__form" name="search">
-                        <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text">
-                        <label class="md-search__icon md-icon" for="__search">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-  </label>
-                        <nav aria-label="Search" class="md-search__options">
-                            <a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="javascript:void(0)" data-md-component="search-share" href="https://quixdocsdev.blob.core.windows.net/pr102/index.html?q=" tabindex="-1" title="Share">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
-                            </a>
-                            <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-  </button>
-                        </nav>
-                        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-                    </form>
-                    <div class="md-search__output">
-                        <div class="md-search__scrollwrap">
-                            <div class="md-search-result" data-md-component="search-result">
-                                <div class="md-search-result__meta">Type to start searching</div>
-                                <ol class="md-search-result__list" role="presentation"></ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="md-header__source">
-  <a class="md-source" data-md-component="source" href="https://github.com/quixio/quix-docs" title="Go to repository">
-  <div class="md-source__icon md-icon">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-  </div>
-  <div class="md-source__repository md-source__repository--active">
-      quixio/quix-docs-dev
-    <ul class="md-source__facts"><li class="md-source__fact md-source__fact--stars">14</li><li class="md-source__fact md-source__fact--forks">1</li></ul></div>
-  </a> 
-  </div> -->
-        </nav>
-        <div class="header-btns">
+<script lang="javascript">
+    
 
-            <!-- <button class="header-btn-inner github-btn" onclick="window.open('https://github.com/quixio/quix-streams', '_blank')">⭐️ Star us on GitHub</button> -->
+var consent = __md_get("__consent")
+var use_google_analytics = consent && consent.analytics;
 
-        </div>
-    </div>
-</header>
-{% endblock %} {% block footer %} {{ super() }} {% endblock %} {% block scripts %} {{ super() }}
+/* Register event handlers after document is loaded */
+document.addEventListener("DOMContentLoaded", function() {
 
-<script src="javascripts/feedback.js"></script>
-<script src="javascripts/runllm-widget.js"></script>
+  if(!use_google_analytics){
+    return;
+  }
+
+    /* Set up search tracking */
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value)
+          gtag("event", "search", { search_term: this.value })
+      })
+    }
+    
+    /* Set up feedback, i.e. "Was this page helpful?" */
+    document$.subscribe(function() {
+      var feedback = document.forms.feedback
+      if (typeof feedback === "undefined")
+        return
+    
+      /* Send feedback to Google Analytics */
+      for (var button of feedback.querySelectorAll("[type=submit]")) {
+        button.addEventListener("click", function(ev) { 
+          ev.preventDefault()
+    
+          /* Retrieve and send data */
+          var page = document.location.pathname
+          var data = this.getAttribute("data-md-value")
+          gtag("event", "feedback", { page, data })
+    
+          /* Disable form and show note, if given */
+          feedback.firstElementChild.disabled = true
+          var note = feedback.querySelector(
+            ".md-feedback__note [data-md-value='" + data + "']"
+          )
+          if (note)
+            note.hidden = false
+        })
+    
+        /* Show feedback */
+        feedback.hidden = false
+      }
+    })
+    
+    /* Send page view on location change */
+    location$.subscribe(function(url) {
+      gtag("config", "G-BFBHQ33YP1", {
+        pageview: url.pathname,
+        page_view: url.pathname
+      })
+    })
+  })
+</script>
+
+<script lang="javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+    var script = document.createElement('script');
+    script.defer = true;
+    script.type = 'module';
+    script.id = 'runllm-widget-script';
+    script.src = 'https://widget.runllm.com';
+    script.setAttribute('runllm-preset', 'mkdocs');
+    script.setAttribute('runllm-server-address', 'https://api.runllm.com');
+    script.setAttribute('runllm-assistant-id', '111');
+    script.setAttribute('runllm-position', 'BOTTOM_RIGHT');
+    script.setAttribute('runllm-keyboard-shortcut', 'Mod+j');
+    script.setAttribute('runllm-slack-community-url', 'https://quix.io/slack-invite');
+    script.setAttribute('runllm-name', 'RunLLM');
+
+    document.head.appendChild(script);
+});
+</script>
 {% endblock %}

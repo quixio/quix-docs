@@ -1,4 +1,4 @@
-site_name: 'Documentation'
+site_name: ''
 site_description: 'Quix Developer Documentation. Includes documentation (guides, tutorials, references) for Quix Cloud, Quix Streams client library, and REST and websocket APIs.'
 site_author: 'Quix.io'
 site_url: 'https://quix.io/docs'
@@ -262,7 +262,8 @@ nav:
       #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
       #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
-
+  - Blog Index:
+    - blog/index.md
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
@@ -272,6 +273,8 @@ hooks:
 - hooks/redirect_0_5_urls.py
 
 plugins:
+  - blog:
+      blog_toc: true
   - multirepo:
       cleanup: false
   - include-markdown
@@ -363,6 +366,7 @@ theme:
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
+  logo: 'assets/Quix-Docs-Negative-RGB.png'
   
   palette: 
   # Palette toggle for light mode
@@ -396,10 +400,12 @@ theme:
   - content.tabs.link
   - content.code.annotate  # code annotations
   - content.action.view    # view page source
+  - navigation.tabs
+  - navigation.tabs.sticky
   
   icon:
     logo: 'material/library'
-    repo: 'material/library'
+    repo: 'material/github'
   
 
 extra_css:

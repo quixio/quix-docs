@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+        
+      <!-- Actions -->
+      {% include "partials/actions.html" %}
+
+      <!-- Header -->
+      <header class="md-typeset">
+        {{ page.content }}
+      </header>
+
+      <!-- Posts -->
+      <div class="blog-container">
+        {% for post in posts %}
+        <!-- <div style="border: 1px solid red;width: 50%; border-radius: 8px;"> -->
+        <div class="blog-box">
+          {% include "partials/post.html" %}
+        </div>        
+
+      {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if pagination %}
+        {% block pagination %}
+          {% include "partials/pagination.html" %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

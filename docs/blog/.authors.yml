@@ -1,0 +1,97 @@
+authors:
+  steve-rosam:
+    name: Steve Rosam
+    description: HEAD OF CONTENT
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b28f30528b9b651d77a71a_Steve-Rosam.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  merlin-carter:
+    name: Merlin Carter
+    description: SENIOR CONTENT WRITER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/659eb7958a23a82c1d58b51f_me_website_wte-p-500.png
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  theo-england:
+    name: Theo England
+    description: replace
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/65b221b4e778294eeab868a2_Quix_creator-avatar.svg
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  mike-rosam:
+    name: Mike Rosam
+    description: CEO & CO-FOUNDER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b12fcc061c5fcdf05c67fd_Mike-Rosam.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  alex-diaconu:
+    name: Alex Diaconu
+    description: replace
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64d36f1bdbb6db0c3e7f417f_Alex-Diaconu-Headshot.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  tomas-neubauer:
+    name: Tomáš Neubauer
+    description: CTO & CO-FOUNDER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b28dde1aecdee44b5c0624_Tomas-Neubauer_0a35c809a71fd05ac5a39c04da3fc467.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  kiersten-thamm:
+    name: Kiersten Thamm
+    description: replace
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b7ac414c7f046a3e6b2725_Kiersten-Thamm.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  peter-nagy:
+    name: Peter Nagy
+    description: HEAD OF PLATFORM & CO-FOUNDER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b28e25b69dd7c3424f3149_Peter-Nagy.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  jack-murphy:
+    name: Jack Murphy 
+    description: DEVELOPER EDUCATOR
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/66192133314716bc921ca370_Jack-Murphy-p-500.jpeg
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  javier-blanco:
+    name: Javier Blanco
+    description: SENIOR DATA SCIENTIST
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b29076af31e414a43bdb6d_Javier-Blanco.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  patrick-mira-pedrol:
+    name: Patrick Mira Pedrol
+    description: HEAD OF SOFTWARE & CO-FOUNDER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b28e7832b7b8b8d7352c94_Patrick-Mira-Pedrol.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  ales-saska:
+    name: Ales Saska
+    description: replace
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/65b221b4e778294eeab868a2_Quix_creator-avatar.svg
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  tim-sawicki:
+    name: Tim Sawicki
+    description: SENIOR PYTHON ENGINEER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b29691605b77f625487fd4_Tim-Sawicki.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  tun-shwe:
+    name: Tun Shwe
+    description: VP DATA
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64da0ecec6b6445dda0acbb9_Tun-Shwe-p-500.jpg
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  daniil-gusev:
+    name: Daniil Gusev
+    description: LEAD PYTHON ENGINEER
+    avatar: https://assets-global.website-files.com/64a7eed956ba9b9a3c62401d/64b2965a6b5e7b8106dc3145_Daniil-Gusev.webp
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
+  quentin-dawans:
+    name: Quentin Dawans
+    description: SENIOR PYTHON ENGINEER
+    avatar: https://cdn.prod.website-files.com/64a7eed956ba9b9a3c62401d/669631722713b689f7a4d2f6_quentin-dawans-p-500.png
+    slug: http://sluggyslugslug.com/
+    url: https://www.quix.io/company
