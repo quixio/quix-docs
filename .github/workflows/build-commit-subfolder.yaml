@@ -94,7 +94,11 @@ jobs:
       run: pip install mkdocs-include-markdown-plugin
 
     - run: pip install mkdocs
-    - run: pip install mkdocs-material
+    - run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+
 
     # enable when there is an Client Library dev branch 
     # - name: Extract branch name
