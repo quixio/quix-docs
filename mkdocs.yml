@@ -125,46 +125,46 @@ nav:
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
     - 'Security': 'quix-cloud/security.md'
-  - 'Connectors':
-    - 'Index': 'connectors/index.md'
-#ConnectorsGetInsertedHere
-  - 'Integrations':
-    - 'Overview': 'integrations/overview.md'
-    - 'Brokers':
-      - 'Overview': 'integrations/brokers/overview.md'
-      - 'Broker settings': 'integrations/brokers/broker-settings.md'
-      - 'Quix': 'integrations/brokers/quix.md'
-      - 'Confluent': 'integrations/brokers/confluent.md'
-      - 'Redpanda': 'integrations/brokers/redpanda.md'
-      - 'Aiven': 'integrations/brokers/aiven.md'
-      - 'Upstash': 'integrations/brokers/upstash.md'
-    - 'Databases':
-      - 'InfluxDB':
-        - 'Overview': 'integrations/databases/influxdb/overview.md'
-        - 'Quickstart': 'integrations/databases/influxdb/quickstart.md'
-        - 'Guides': 
-          - 'Using Telegraf': 'integrations/databases/influxdb/telegraf.md'
-          - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
-          - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
-          - 'Alerting': 'integrations/databases/influxdb/alerting.md'
-          - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
-      - 'PostgreSQL':
-        - 'Overview': 'integrations/databases/postgressql/overview.md'
-      - 'Redis':
-        - 'Overview': 'integrations/databases/redis/overview.md'
-    - 'Vector Databases':
-      - 'Overview': 'integrations/vector-databases/overview.md'
-      - 'Upstash':
-        - 'Overview': 'integrations/vector-databases/upstash/overview.md'
-      - 'Qdrant':
-        - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
-      - 'Weaviate':
-        - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
-  - 'Bring Your Own Cluster (BYOC)':
-    - 'Overview': 'byoc/overview.md'
-    - 'Requirements': 'byoc/requirements.md'
-    - 'Installation': 'byoc/installation.md'
-    - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+    - 'Connectors':
+      - 'Index': 'connectors/index.md'
+  #ConnectorsGetInsertedHere
+    - 'Integrations':
+      - 'Overview': 'integrations/overview.md'
+      - 'Brokers':
+        - 'Overview': 'integrations/brokers/overview.md'
+        - 'Broker settings': 'integrations/brokers/broker-settings.md'
+        - 'Quix': 'integrations/brokers/quix.md'
+        - 'Confluent': 'integrations/brokers/confluent.md'
+        - 'Redpanda': 'integrations/brokers/redpanda.md'
+        - 'Aiven': 'integrations/brokers/aiven.md'
+        - 'Upstash': 'integrations/brokers/upstash.md'
+      - 'Databases':
+        - 'InfluxDB':
+          - 'Overview': 'integrations/databases/influxdb/overview.md'
+          - 'Quickstart': 'integrations/databases/influxdb/quickstart.md'
+          - 'Guides': 
+            - 'Using Telegraf': 'integrations/databases/influxdb/telegraf.md'
+            - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
+            - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
+            - 'Alerting': 'integrations/databases/influxdb/alerting.md'
+            - 'Migrating from v2 to v3': 'integrations/databases/influxdb/migrating-v2-v3.md'
+        - 'PostgreSQL':
+          - 'Overview': 'integrations/databases/postgressql/overview.md'
+        - 'Redis':
+          - 'Overview': 'integrations/databases/redis/overview.md'
+      - 'Vector Databases':
+        - 'Overview': 'integrations/vector-databases/overview.md'
+        - 'Upstash':
+          - 'Overview': 'integrations/vector-databases/upstash/overview.md'
+        - 'Qdrant':
+          - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
+        - 'Weaviate':
+          - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
+    - 'Bring Your Own Cluster (BYOC)':
+      - 'Overview': 'byoc/overview.md'
+      - 'Requirements': 'byoc/requirements.md'
+      - 'Installation': 'byoc/installation.md'
+      - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'

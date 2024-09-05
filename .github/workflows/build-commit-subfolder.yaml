@@ -131,7 +131,7 @@ jobs:
         DOCS_PATH: ""
         REPLACEMENT_PLACEHOLDER: "#ConnectorsGetInsertedHere"
         CONNECTORS_TAG: "Connectors"
-        NAV_INDENT_SPACES: "4"
+        NAV_INDENT_SPACES: "6"
         CONNECTORS_TITLE_REPLACEMENT: "[//]: <> (#connectors_tile_replacement)"
 
     # for debugging..
