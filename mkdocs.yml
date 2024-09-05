@@ -400,8 +400,6 @@ theme:
   - content.tabs.link
   - content.code.annotate  # code annotations
   - content.action.view    # view page source
-  - navigation.tabs
-  - navigation.tabs.sticky
   
   icon:
     logo: 'material/library'
