@@ -82,14 +82,15 @@ jobs:
       # add include support for markdown
       - name: Install include-markdown
         run: pip install mkdocs-include-markdown-plugin
+        
+      # Install Material insiders theme
+      - name: Install Material insiders theme
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: pip install git+https://${{ env.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       
       - name: Install Mkdocs
         run: pip install mkdocs
-        
-      # Install Material insiders theme
-      - name: Install Material theme
-        run: pip install mkdocs-material
-      
 
       - name: Setup Pages
         id: pages
