@@ -390,7 +390,7 @@ theme:
   features:
   - content.code.copy
   - navigation.instant     # Instant loading pages.
-  - navigation.sections    # Render top sections as groups.
+  # - navigation.sections    # Render top sections as groups.
   - navigation.top         # Adds a "Back to top" that is shown when scrolling up.
   - navigation.tracking    # Updates the url with highlighted section anchor.
   - navigation.indexes     # Documents can be directly attached to sections
