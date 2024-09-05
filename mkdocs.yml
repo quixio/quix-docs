@@ -127,7 +127,7 @@ nav:
     - 'Security': 'quix-cloud/security.md'
     - 'Connectors':
       - 'Index': 'connectors/index.md'
-  #ConnectorsGetInsertedHere
+#ConnectorsGetInsertedHere
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
