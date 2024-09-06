@@ -793,3 +793,7 @@ li.blog-date.md-meta__item {
 div.blog-header > div > ul > li {
     color: #787886;
 }
+
+header{
+    position: fixed !important;
+}
