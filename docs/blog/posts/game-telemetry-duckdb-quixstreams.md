@@ -75,21 +75,24 @@ However, you don’t need the entire match telemetry, I’ll be providing a JSON
 To set expectations, here are the major steps that I’ll be guiding you through. Most of the work is in designing the sink, and remaining steps should only take a minute:
 
 1. **Set Up the Environment**  
-   * Install the Quix CLI to which will enable you quickly spin up a local Redpanda broker  
-   * Clone the project files  
+    —Install the Quix CLI to which will enable you quickly spin up a local Redpanda broker  
+    —Clone the project files 
+
 2. **Design the DuckDB Sink**  
-   * Review the base classes in the Quix Sink API  
-   * Implement a custom sink extending BatchingSink  
-   * Define the database schema  
-   * Handle data transformation and batching  
-   * Manage database connections and transactions  
+    —Review the base classes in the Quix Sink API  
+    —Implement a custom sink extending BatchingSink  
+    —Define the database schema  
+    —Handle data transformation and batching  
+    —Manage database connections and transactions 
+
 3. **Run  the DuckDB Sink**  
-   * Set up a consumer application with appropriate configurations  
-   * Run the pre-prepared producer script  
-   * Execute the Quix Streams consume application with the DuckDB sink  
+    —Set up a consumer application with appropriate configurations  
+    —Run the pre-prepared producer script  
+    —Execute the Quix Streams consume application with the DuckDB sink 
+
 4. **Review tips on creating sinks for other destinations**  
-   * Look at batch sizes and commit frequencies  
-   * Handle back pressure and error scenarios
+    —Look at batch sizes and commit frequencies  
+    —Handle back pressure and error scenarios
 
 ## Setting Up the Local Environment
 
@@ -101,13 +104,13 @@ Before we dive into producing and consuming game telemetry data, we need to set 
 
 First, let's install the Quix CLI. Open your terminal and run one of the following commands based on your operating system:
 
-For macOS and Linux:
+_For macOS and Linux_:
 
 ```
 curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | bash
 ```
 
-For Windows (run in PowerShell):
+_For Windows (run in PowerShell)_:
 
 ```
 iwr https://github.com/quixio/quix-cli/raw/main/install.sh -useb | iex
