@@ -2,9 +2,9 @@
 title: "Streaming Game Telemetry to DuckDB using Quix Streams"
 date: 2024-09-18
 authors: [merlin-carter]
-slug: data-enrichment-with-quix-and-redis
+slug: game-telemetry-duckdb-quixstreams
 description: >
-  Learn how to enrich real-time sensor data streams by looking up device coordinates in Redis and appending them to the data stream using Quix.
+  Learn how to write a database sink in Python with the Quix Streams sinks API.
 categories:
   - tutorials
 hide:
