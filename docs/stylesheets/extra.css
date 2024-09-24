@@ -367,6 +367,7 @@ button.header-btn-inner:hover {
 
 .md-container{
     height: calc(100vh - 72px) !important;
+    margin-top: 72px;
 }
 
 /* Update button styling CSS */
@@ -794,6 +795,6 @@ div.blog-header > div > ul > li {
     color: #787886;
 }
 
-header{
-    position: fixed !important;
+.md-header {
+    position: fixed;
 }
