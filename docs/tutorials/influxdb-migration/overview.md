@@ -25,7 +25,7 @@ If you need any assistance while following the tutorial, we're here to help in t
 
 To complete this tutorial you'll need to:
 
-* [Obtain a free Quix account](https://portal.platform.quix.io/self-sign-up)
+* Get a Quix Cloud account. [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank} to get yours.
 * [InfluxDB v2](https://www.influxdata.com/downloads/){target=_blank} (Cloud or self-hosted)
 * [InfluxDB v3 Cloud](https://docs.influxdata.com/influxdb/cloud/sign-up/){target=_blank}
 

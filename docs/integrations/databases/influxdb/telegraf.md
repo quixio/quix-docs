@@ -13,7 +13,7 @@ search:
 
 This guide assumes you have the following:
 
-* A free [Quix account](https://portal.platform.quix.ai/self-sign-up){target="_blank"}.
+* A Quix Cloud account. [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo) to get one.
 * Telegraf [installed](https://docs.influxdata.com/telegraf/v1/install/){target=_blank}.
 
 You also need to [create a project](../../../create/create-project.md) with an environment.

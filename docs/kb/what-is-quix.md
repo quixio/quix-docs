@@ -17,7 +17,7 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 
 !!! tip
 
-    [Sign up for free](https://portal.platform.quix.io/self-sign-up){target=_blank}.
+    [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank} to get a Quix Cloud account.
 
 ## Python stream processing in brief
 

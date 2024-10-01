@@ -2,7 +2,7 @@
 
 To use the APIs you'll typically need the following:
 
-1. [Sign up to Quix](https://portal.platform.quix.io/self-sign-up).
+1. A Quix Cloud account. [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo).
 
 2. Obtain a Personal Access Token - you need this to authenticate requests.
 

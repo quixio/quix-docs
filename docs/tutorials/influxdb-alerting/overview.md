@@ -24,7 +24,7 @@ If you need any assistance while following the tutorial, we're here to help in t
 
 To complete this tutorial you'll need to:
 
-* [Obtain a free Quix account](https://portal.platform.quix.io/self-sign-up)
+* Have a Quix Cloud account. [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank} to get yours.
 * [Create a project in Quix Cloud](../../create/create-project.md)
 * [Install Quix Streams](https://github.com/quixio/quix-streams?tab=readme-ov-file#install-quix-streams){target=_blank}
 * Optionally sign up for [PagerDuty](https://www.pagerduty.com/){target=_blank} (to send alerts)

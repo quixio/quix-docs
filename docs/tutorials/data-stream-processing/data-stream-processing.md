@@ -49,7 +49,7 @@ You have to create and deploy three applications. Quix has:
 - A mobile device
 
 !!! tip 
-    If you don’t have a Quix account yet, go [here](https://quix.io/signup){target=_blank} to create one.
+    [Book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank} to get your free Quix Cloud account.
 
 ## Overview
 

@@ -19,16 +19,16 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
 
     Before proceeding, ensure you've completed the [Quix CLI Quickstart](../quix-cli/cli-quickstart.md).
 
-## Step 1: Sign up to Quix Cloud
+## Step 1: Sign in to Quix Cloud
 
-It's free to [sign up to Quix Cloud](https://portal.platform.quix.io/self-sign-up){target=_blank}.
+To get your free Quix Cloud account, first book a demo with us to discuss your requirements and use cases.
 
 <div>
-<a class="md-button md-button--primary" href="https://portal.platform.quix.io/self-sign-up" style="margin-right:.5rem;">Sign up to Quix Cloud</a>
+<a class="md-button md-button--primary" href="https://meetings.hubspot.com/mike-rosam/product-demo" style="margin-right:.5rem;">Book a demo</a>
 <br/>
 </div>
 
-After signing up using the method of your choice, you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
+After your demo you'll be able to sign in and you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
 
 ## Step 2: Create your first project
 

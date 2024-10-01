@@ -2,9 +2,9 @@
 
 In this part of the tour you'll get some data flowing into your pipeline. You do this by reading CPU load on your service and publishing it to a topic.
 
-## Step 1: Sign up to Quix Cloud
+## Step 1: Sign in to Quix Cloud
 
-It's free to [sign up to Quix Cloud](https://portal.platform.quix.io/self-sign-up){target=_blank}.
+To get your Quix Cloud account, first [book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank}.
 
 After signing up using the method of your choice, you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
 
