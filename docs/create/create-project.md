@@ -88,7 +88,12 @@ This page describes how to create a new project, and populate it with two enviro
 
 To do anything useful with Quix, you'll need at least one project, and one environment. You can think of a project as corresponding to a Git repository, and an environment as corresponding to Git branch within that repository. 
 
-1. [Sign up](https://portal.platform.quix.io/self-sign-up){target=_blank} and log into Quix.
+1. Login in to Quix Cloud.
+
+??? info "Start for free"
+    [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+    
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
 2. Click on `+ New project`.
 

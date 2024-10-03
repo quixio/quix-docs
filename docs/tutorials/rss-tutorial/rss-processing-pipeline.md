@@ -22,8 +22,12 @@ This tutorial has three parts
 
 What you need
 
-  - A free [Quix account](https://quix.io/signup){target=_blank}. It
-    comes with enough credits to create this application.
+  - A Quix Cloud account. 
+
+??? info "Start for free"
+    [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+    
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
   - A Slack account with access to create a webhook. ([This guide](https://api.slack.com/messaging/webhooks){target=_blank} can help you with this step.)
 

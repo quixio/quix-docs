@@ -14,7 +14,13 @@ This section describes the steps for deploying a MATLAB function that rotates 2D
 
 ### Prerequisites
 
-* A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
+* A Quix account. 
+
+??? info "Start for free"
+	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+	
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
+	
 * It is assumed you have created a Quix project and environment in which to contain your application. Alternatively, you can use a legacy workspace, but this is not recommended.
 * MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
 
@@ -127,7 +133,13 @@ This section describes the steps for deploying a Simulink model of an [internal 
 
 ### Prerequisites
 
- - A Quix account. You can sign up for a free account from the Quix [website](https://quix.io/product/){target=_blank}.
+ - A Quix Cloud account. 
+ 
+??? info "Start for free"
+	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+	
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
+
  - MathWorks licenses for MATLAB, MATLAB Compiler, Simulink, Simulink Compiler and MATLAB Compiler SDK.
 
 This tutorial uses MATLAB R2023a. Please refer to the [Working with different MATLAB versions](#working-with-different-matlab-versions) section for information on how to use a different version of MATLAB.

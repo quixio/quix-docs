@@ -51,7 +51,12 @@ If you need any assistance while following the tutorial, we're here to help in t
 
 ## Prerequisites
 
-To get started make sure you have a [free Quix account](https://portal.platform.quix.ai/self-sign-up).
+You'll need a Quix Cloud account.
+
+??? info "Start for free"
+    [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+    
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
 ## Redis Cloud
 

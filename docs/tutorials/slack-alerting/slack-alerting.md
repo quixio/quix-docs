@@ -38,7 +38,12 @@ A Quix Service receives data from the Transport For London BikePoint API and str
 
 To proceed with this tutorial you need:
 
- - [Free Quix account](https://portal.platform.quix.io/self-sign-up/){target=_blank}.
+ - A Quix Cloud account. 
+
+??? info "Start for free"
+	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+	
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
  - Access to Slack, you’ll need to be an admin.
 
