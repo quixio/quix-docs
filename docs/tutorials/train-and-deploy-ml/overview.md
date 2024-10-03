@@ -21,7 +21,7 @@ To complete this tutorial you need the following:
 ??? info "Start for free"
     [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
     
-    We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
     
 * [Python3](https://www.python.org/downloads/){target=_blank} installed.
 * [Jupyter Notebook](https://jupyter.org/){target=_blank} to train your model and load data for training. See [How to work with Jupyter Notebook](../../develop/integrate-data/jupyter-nb.md) for further information.
