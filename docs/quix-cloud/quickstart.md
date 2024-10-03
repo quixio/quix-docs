@@ -26,7 +26,7 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
         
     We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
 
-After you sign in and you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
+After you sign in, you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
 
 ## Step 2: Create your first project
 
