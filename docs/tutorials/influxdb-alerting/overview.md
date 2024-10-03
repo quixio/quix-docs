@@ -29,7 +29,7 @@ To complete this tutorial you'll need to:
 ??? info "Start for free"
     [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
     
-    We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
     
 * [Create a project in Quix Cloud](../../create/create-project.md)
 * [Install Quix Streams](https://github.com/quixio/quix-streams?tab=readme-ov-file#install-quix-streams){target=_blank}

@@ -19,7 +19,7 @@ You can also follow the onboarding process after you login for the first time. T
 ??? info "Start for free"
 	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
 	
-	We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
 You also need Python 3 environment set up in your local environment.
 

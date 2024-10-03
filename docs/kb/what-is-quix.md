@@ -18,7 +18,7 @@ Quix has excellent synergy with Machine Learning (ML) systems too. You can quick
 ??? info "Start for free"
     [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
     
-    We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
 ## Python stream processing in brief
 

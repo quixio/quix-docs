@@ -19,7 +19,7 @@ This section describes the steps for deploying a MATLAB function that rotates 2D
 ??? info "Start for free"
 	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
 	
-	We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 	
 * It is assumed you have created a Quix project and environment in which to contain your application. Alternatively, you can use a legacy workspace, but this is not recommended.
 * MathWorks licenses for MATLAB, MATLAB Compiler and the MATLAB Compiler SDK.
@@ -138,7 +138,7 @@ This section describes the steps for deploying a Simulink model of an [internal 
 ??? info "Start for free"
 	[Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
 	
-	We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
  - MathWorks licenses for MATLAB, MATLAB Compiler, Simulink, Simulink Compiler and MATLAB Compiler SDK.
 
