@@ -14,6 +14,6 @@ You can explore the connector README files here in Quix Docs. When you are ready
 ??? info "Start for free"
     [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
     
-    We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+    We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
 [//]: <> (#connectors_tile_replacement)
