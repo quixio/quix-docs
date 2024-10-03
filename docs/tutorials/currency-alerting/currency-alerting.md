@@ -22,7 +22,13 @@ If you need any help, please sign up to the [Quix Community](https://quix.io/sla
 
 To complete this tutorial you will need the following accounts:
 
-* [Quix](https://quix.io){target=_blank} - You can [book a demo with us](https://meetings.hubspot.com/mike-rosam/product-demo){target=_blank} to get your free Quix Cloud account. This enables you to create the real-time stream processing pipeline.
+* [Quix Cloud account](https://quix.io){target=_blank} - This enables you to create the real-time stream processing pipeline.
+
+??? info "Start for free"
+      [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+      
+      We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
+
 * [CoinAPI](https://coinapi.io){target=_blank} - You can sign up for a free API key [here](https://www.coinapi.io/Pricing){target=_blank}. On the free tier, click the `GET A FREE API KEY` button, enter the requested information, and you will receive an email containing your API key. This enables you to access a stream of constantly updated BTC/USD exchange rate data.
 * [Pushover](https://pushover.net){target=_blank} - You can sign up for a free account [here](https://pushover.net/signup){target=_blank}. Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and generate an API token. This enables you to send notifications to your phone. Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
 

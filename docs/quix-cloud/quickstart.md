@@ -21,14 +21,12 @@ If you're new to Quix Cloud or need a refresher on its features, [learn more her
 
 ## Step 1: Sign in to Quix Cloud
 
-To get your free Quix Cloud account, first book a demo with us to discuss your requirements and use cases.
+??? info "Start for free"
+    [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+        
+    We will create a time limited free account for you, and our experts will help you get started with your specific use case. 
 
-<div>
-<a class="md-button md-button--primary" href="https://meetings.hubspot.com/mike-rosam/product-demo" style="margin-right:.5rem;">Book a demo</a>
-<br/>
-</div>
-
-After your demo you'll be able to sign in and you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
+After you sign in and you'll be taken to the `Welcome to Quix` dialog, where you can create a new project, as shown in the next step.
 
 ## Step 2: Create your first project
 
