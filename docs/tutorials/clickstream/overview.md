@@ -13,10 +13,7 @@ This tutorial uses the [Quix Clickstream analysis template project](https://gith
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 
 <div>
-<a class="md-button md-button--primary" href="https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
-
-<a class="md-button md-button" href="https://demo-webshop-frontend-demo-clickstreamanalysis-prod.deployments.quix.ai/" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
-
+<a class="md-button md-button--primary" href="https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2?__hstc=175542013.2303933fbd746c0ac86d9ccbe9bc9100.1728383268831.1729603416735.1729620918855.31&__hssc=175542013.1.1729620918855&__hsfp=2132701734" target="_blank" style="margin-right:.5rem;">Book a demo</a>
 <br/>
 </div>
 
