@@ -280,6 +280,9 @@ plugins:
   - include-markdown
   - search:
       separator: '[\s\-\.]' 
+  - exclude-search:
+      exclude:
+        - connect/*
   - social:
       cards_layout_dir: layouts
       cards_layout: quix

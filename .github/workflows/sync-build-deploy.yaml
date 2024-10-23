@@ -62,6 +62,8 @@ jobs:
       # add 'social' to mkdocs.yml file under plugins
       - run: pip install cffi pillow cairosvg
 
+      - run: pip install mkdocs-exclude-search
+
       # Material extension now part of mkdocs
       - run: pip install mkdocs-material-extensions
 
