@@ -3,6 +3,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+#############
+# CREATE A .env FILE WITH YOUR GPT API KEY
+#############
 # Set your OpenAI API key
 api_key = os.environ["api_key"]
 
@@ -120,7 +123,7 @@ for tech in tech_list:
     # Write the new content to a Markdown file
     lower_case_tech_name = tech_name.lower().replace(" ", "_").replace(".", "_").replace("()", "_").replace(")", "_")
     folder_name = f'../{lower_case_tech_name}'
-    output_path = f'{folder_name}/kafka-to-{lower_case_tech_name}.md'
+    output_path = f'docs/connect/{folder_name}/kafka-to-{lower_case_tech_name}.md'
 
     os.makedirs(folder_name, exist_ok=True)
 
@@ -130,7 +133,7 @@ for tech in tech_list:
     image_urls = get_image_urls(tech_name, num_images=1)
 
     if image_urls:
-        save_directory = f"{folder_name}/images/"
+        save_directory = f"docs/connect/{folder_name}/images/"
         download_images(image_urls, save_directory, tech_name)
     else:
         print("No images found.")

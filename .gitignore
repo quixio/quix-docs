@@ -15,4 +15,4 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-docs/connect/00-gen_code/.env
+.env
