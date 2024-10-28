@@ -1,7 +1,6 @@
-
 [data-md-color-scheme="default"] {
-    --md-primary-fg-color:        #0A0B24;
-    --md-default-fg-color--light:  #222229;
+    --md-primary-fg-color: #0A0B24;
+    --md-default-fg-color--light: #222229;
     --md-typeset-a-color: #0064ff !important;
     --md-typeset-h1-font-weight: 600;
     --p-color: rgb(0, 0, 0 / 70%);
@@ -13,9 +12,9 @@
 }
 
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color:        #0A0B24;
+    --md-primary-fg-color: #0A0B24;
     --md-default-fg-color--light: #fff;
-    --md-primary-fg-color--dark:  #000000;
+    --md-primary-fg-color--dark: #000000;
     --md-default-bg-color: #222229;
     --md-typeset-a-color: #008eff !important;
     --md-typeset-h1-font-weight: 600;
@@ -31,9 +30,10 @@
     border-radius: 0.2rem;
 }
 
-.md-nav__title{
+.md-nav__title {
     font-size: 1rem;
 }
+
 .md-nav__item--section>.md-nav__link {
     font-size: 1rem;
 }
@@ -46,33 +46,35 @@ li {
     color: var(--p-color);
 }
 
-.md-typeset h1{
+.md-typeset h1 {
     font-weight: var(--md-typeset-h1-font-weight);
 }
 
-.md-typeset h2{
+.md-typeset h2 {
     font-weight: 600;
 }
 
-.md-typeset .grid.cards>:-webkit-any(ul,ol)>li, .md-typeset .grid>.card {
+.md-typeset .grid.cards>:-webkit-any(ul, ol)>li,
+.md-typeset .grid>.card {
     border-radius: 8px;
 }
 
-.md-typeset .grid.cards>:-webkit-any(ul,ol)>li:-webkit-any(:focus-within,:hover), .md-typeset .grid>.card:-webkit-any(:focus-within,:hover) {
+.md-typeset .grid.cards>:-webkit-any(ul, ol)>li:-webkit-any(:focus-within, :hover),
+.md-typeset .grid>.card:-webkit-any(:focus-within, :hover) {
     border-color: var(--md-typeset-a-color);
     box-shadow: var(--md-shadow-z2);
     border-radius: 8px;
 }
 
-.footer{
+.footer {
     background-color: var(--md-primary-fg-color);
-    padding: 1.5rem; 
+    padding: 1.5rem;
 }
 
 .footer-flex {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     word-wrap: anywhere;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     font-size: .7rem;
     line-height: 1.6;
     box-sizing: inherit;
@@ -84,10 +86,11 @@ li {
     margin: auto;
     justify-content: space-between;
 }
+
 .footer-left {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     word-wrap: anywhere;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     font-size: .7rem;
     line-height: 1.6;
     box-sizing: inherit;
@@ -99,10 +102,11 @@ li {
     -webkit-box-align: center;
     align-items: flex-start;
 }
+
 .footer-right {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     word-wrap: anywhere;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     font-size: .7rem;
     line-height: 1.6;
     box-sizing: inherit;
@@ -114,12 +118,13 @@ li {
     -webkit-box-direction: normal;
     margin: 0;
 }
+
 .footer-links {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     word-wrap: anywhere;
     font-size: .7rem;
     box-sizing: inherit;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     width: auto;
     padding-top: 20px;
     display: flex;
@@ -130,13 +135,15 @@ li {
     align-items: center;
     line-height: 1.6;
 }
+
 .footer-links a {
     margin-left: 10px;
 }
+
 .footer-community {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     word-wrap: anywhere;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     font-size: .7rem;
     line-height: 1.6;
     box-sizing: inherit;
@@ -148,23 +155,28 @@ li {
     padding-left: 0;
     align-items: center;
 }
+
 .footer-links a {
     margin-left: 20px;
 }
+
 .footer-community a {
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0, 0%, 100%, .6);
     padding-left: 30px;
 }
-.footer-community a :-webkit-any(img,svg){
+
+.footer-community a :-webkit-any(img, svg) {
     height: 30px;
     filter: invert(100%);
 }
+
 .footer-community:first-child {
     padding-left: 0;
 }
-@media only screen and (max-width: 670px){
+
+@media only screen and (max-width: 670px) {
     .footer-right {
-        flex-direction: row; 
+        flex-direction: row;
         align-items: flex-end;
         padding-top: 40px;
         justify-content: center;
@@ -188,15 +200,19 @@ li {
     }
 }
 
+
 /*dashed borders*/
-.border-blue-dash{
-	border: 2px dashed #0064FF;
+
+.border-blue-dash {
+    border: 2px dashed #0064FF;
 }
-.border-orange-dash{
-	border: 2px dashed #FF8536;
+
+.border-orange-dash {
+    border: 2px dashed #FF8536;
 }
-.border-violet-dash{
-	border: 2px dashed #BD2EFF;
+
+.border-violet-dash {
+    border: 2px dashed #BD2EFF;
 }
 
 .sq span {
@@ -209,29 +225,35 @@ li {
     margin-right: 5px;
     margin-top: 2px;
 }
+
 .sq {
     display: flex;
 }
-.sq.sq-blue span{
+
+.sq.sq-blue span {
     background-color: #0064FF;
 }
-.sq.sq-orange span{
+
+.sq.sq-orange span {
     background-color: #FF8536;
 }
-.sq.sq-violet span{
+
+.sq.sq-violet span {
     background-color: #BD2EFF;
 }
 
-.primary-fg{
+.primary-fg {
     filter: invert(40%) sepia(49%) saturate(4897%) hue-rotate(190deg) brightness(105%) contrast(103%);
 }
-.vertical-align{
+
+.vertical-align {
     vertical-align: text-bottom;
 }
 
+
 /* Edited existing docs CSS */
 
-@media screen and (min-width: 60em){
+@media screen and (min-width: 60em) {
     .md-search__form {
         background-color: #ffffff24;
         border-radius: 0.1rem;
@@ -239,17 +261,18 @@ li {
     }
 }
 
-@media screen and (min-width: 60em){
+@media screen and (min-width: 60em) {
     [dir=ltr] .md-header__source {
         margin-left: 0.4rem;
     }
 }
 
-@media screen and (min-width: 76.25em){
+@media screen and (min-width: 76.25em) {
     [dir=ltr] .md-header__source {
         margin-left: 0.4rem;
     }
 }
+
 
 /* New CSS to be added */
 
@@ -286,8 +309,8 @@ button.header-btn-inner:hover {
 }
 
 @media screen and (max-width: 40em) {
-    button.header-btn-inner{
-        font-size:14px;
+    button.header-btn-inner {
+        font-size: 14px;
         padding: 4px 8px
     }
 }
@@ -301,63 +324,63 @@ button.header-btn-inner:hover {
 }
 
 @media screen and (max-width: 30em) {
-    button.github-btn{
-        display:none !important;
+    button.github-btn {
+        display: none !important;
     }
 }
 
-.md-header__button.md-logo img, .md-header__button.md-logo svg {
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
     fill: currentcolor;
     display: block;
     height: 2.4rem;
     width: auto;
 }
 
-#__consent > aside > form > div.md-consent__controls > label{
+#__consent>aside>form>div.md-consent__controls>label {
     color: #e8e8e8;
 }
 
-#__consent > aside > form > div.md-consent__controls > button{
+#__consent>aside>form>div.md-consent__controls>button {
     background-color: #008eff;
 }
 
-.md-feedback__note{
+.md-feedback__note {
     opacity: 1 !important;
 }
-.md-feedback__note>*{
+
+.md-feedback__note>* {
     max-width: none !important;
 }
-.md-code__nav{
+
+.md-code__nav {
     background-color: var(--md-code-bg-color--darker);
 }
-.md-code__button{
+
+.md-code__button {
     color: var(--md-default-fg-color--lightest);
 }
 
-.md-typeset iframe{
+.md-typeset iframe {
     max-width: none !important;
 }
 
-#wrap
-{
+#wrap {
     width: 689px;
     height: 544px;
     padding: 0;
     overflow: hidden;
 }
 
-#frame
-{
+#frame {
     width: 1247px;
     height: 1000px;
     border: 0;
-
     -ms-transform: scale(0.55);
     -moz-transform: scale(0.55);
     -o-transform: scale(0.55);
     -webkit-transform: scale(0.55);
     transform: scale(0.55);
-
     -ms-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
     -o-transform-origin: 0 0;
@@ -365,10 +388,11 @@ button.header-btn-inner:hover {
     transform-origin: 0 0;
 }
 
-.md-container{
+.md-container {
     height: calc(100vh - 72px) !important;
     margin-top: 72px;
 }
+
 
 /* Update button styling CSS */
 
@@ -380,7 +404,7 @@ button.header-btn-inner:hover {
     display: inline-block;
     font-weight: 700;
     padding: 0.6em 1.2em;
-    transition: color 125ms,background-color 125ms,border-color 125ms;
+    transition: color 125ms, background-color 125ms, border-color 125ms;
 }
 
 .md-typeset .md-button--primary {
@@ -389,33 +413,34 @@ button.header-btn-inner:hover {
     color: var(--md-primary-bg-color);
 }
 
+
 /* Update button hover styling CSS */
 
-.md-typeset .md-button:focus, .md-typeset .md-button:hover {
+.md-typeset .md-button:focus,
+.md-typeset .md-button:hover {
     background-color: #008eff;
     border-color: #008eff;
     color: var(--md-accent-bg-color);
 }
 
-
 .github-buttons body {
-        margin: 0
-    }
+    margin: 0
+}
 
 .github-buttons a {
-        text-decoration: none;
-        outline: 0;
-    }
+    text-decoration: none;
+    outline: 0;
+}
 
 .github-buttons .widget {
-        display: inline-block;
-        overflow: hidden;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
-        font-size: 0;
-        line-height: 0;
-        white-space: nowrap;
-        box-sizing: content-box;
-    }
+    display: inline-block;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+    box-sizing: content-box;
+}
 
 .github-buttons .btn,
 .social-count {
@@ -481,7 +506,7 @@ button.header-btn-inner:hover {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%23f6f8fa'/%3e%3cstop offset='90%25' stop-color='%23ebf0f4'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
     background-image: -moz-linear-gradient(top, #f6f8fa, #ebf0f4 90%);
     background-image: linear-gradient(180deg, #f6f8fa, #ebf0f4 90%);
-    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFF6F8FA', endColorstr='#FFEAEFF3')
+    filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FFF6F8FA', endColorstr='#FFEAEFF3')
 }
 
 .github-buttons .btn {
@@ -496,11 +521,11 @@ button.header-btn-inner:hover {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%23eef1f4'/%3e%3cstop offset='90%25' stop-color='%23e4e9ed'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
     background-image: -moz-linear-gradient(top, #eef1f4, #e4e9ed 90%);
     background-image: linear-gradient(180deg, #eef1f4, #e4e9ed 90%);
-    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFEEF1F4', endColorstr='#FFE3E8EC')
+    filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FFEEF1F4', endColorstr='#FFE3E8EC')
 }
 
 .github-buttons .btn:hover,
- .btn:focus {
+.btn:focus {
     filter: none
 }
 
@@ -527,13 +552,11 @@ button.header-btn-inner:hover {
 }
 
 .github-buttons [data-md-color-scheme="default"] {
-
     .github-buttons .btn:focus-visible,
     .social-count:focus-visible {
         outline: 2px solid #f00;
         outline-offset: -2px
     }
-
     .github-buttons .btn {
         color: #c9d1d9;
         background-color: #f00;
@@ -541,13 +564,11 @@ button.header-btn-inner:hover {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%2321262d'/%3e%3cstop offset='90%25' stop-color='%231a1e23'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
         background-image: -moz-linear-gradient(top, #21262d, #1a1e23 90%);
         background-image: linear-gradient(180deg, #21262d, #1a1e23 90%);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FF21262D', endColorstr='#FF191D22')
+        filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FF21262D', endColorstr='#FF191D22')
     }
-
     .github-buttons .btn {
         filter: none
     }
-
     .github-buttons .btn:hover,
     .btn:focus {
         background-color: #22262c;
@@ -556,45 +577,38 @@ button.header-btn-inner:hover {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%23292e36'/%3e%3cstop offset='90%25' stop-color='%2322262c'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
         background-image: -moz-linear-gradient(top, #292e36, #22262c 90%);
         background-image: linear-gradient(180deg, #292e36, #22262c 90%);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FF292E36', endColorstr='#FF21252B')
+        filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FF292E36', endColorstr='#FF21252B')
     }
-
     .github-buttons .btn:hover,
     .github-buttons .btn:focus {
         filter: none
     }
-
     .github-buttons .btn:active {
         background-color: #f00;
         border-color: #30363d;
         background-image: none;
         filter: none
     }
-
     .github-buttons .social-count {
         color: #c9d1d9;
         background-color: #f00;
         border-color: #30363d
     }
-
     .github-buttons .social-count:hover,
     .social-count:focus {
         color: #388bfd
     }
-
     .github-buttons .octicon-heart {
         color: #db61a2
     }
 }
 
 .github-buttons [data-md-color-scheme="slate"] {
-
     .github-buttons .btn:focus-visible,
     .social-count:focus-visible {
         outline: 2px solid #1f6feb;
         outline-offset: -2px
     }
-
     .github-buttons .btn {
         color: #c9d1d9;
         background-color: #1a1e23;
@@ -602,13 +616,11 @@ button.header-btn-inner:hover {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%2321262d'/%3e%3cstop offset='90%25' stop-color='%231a1e23'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
         background-image: -moz-linear-gradient(top, #21262d, #1a1e23 90%);
         background-image: linear-gradient(180deg, #21262d, #1a1e23 90%);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FF21262D', endColorstr='#FF191D22')
+        filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FF21262D', endColorstr='#FF191D22')
     }
-
     .github-buttons .btn {
         filter: none
     }
-
     .github-buttons .btn:hover,
     .btn:focus {
         background-color: #22262c;
@@ -617,32 +629,27 @@ button.header-btn-inner:hover {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3clinearGradient id='o' x2='0' y2='1'%3e%3cstop stop-color='%23292e36'/%3e%3cstop offset='90%25' stop-color='%2322262c'/%3e%3c/linearGradient%3e%3crect width='100%25' height='100%25' fill='url(%23o)'/%3e%3c/svg%3e");
         background-image: -moz-linear-gradient(top, #292e36, #22262c 90%);
         background-image: linear-gradient(180deg, #292e36, #22262c 90%);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FF292E36', endColorstr='#FF21252B')
+        filter: progid: DXImageTransform.Microsoft.Gradient(startColorstr='#FF292E36', endColorstr='#FF21252B')
     }
-
     .github-buttons .btn:hover,
     .github-buttons .btn:focus {
         filter: none
     }
-
     .github-buttons .btn:active {
         background-color: #31363e;
         border-color: #30363d;
         background-image: none;
         filter: none
     }
-
     .github-buttons .social-count {
         color: #c9d1d9;
         background-color: #0d1117;
         border-color: #30363d
     }
-
     .github-buttons .social-count:hover,
     .social-count:focus {
         color: #388bfd
     }
-
     .github-buttons .octicon-heart {
         color: #db61a2
     }
@@ -662,7 +669,8 @@ button.header-btn-inner:hover {
 .widget-container {
     display: flex;
     justify-content: flex-end;
-    gap: 10px; /* Optional: Add some space between the widgets */
+    gap: 10px;
+    /* Optional: Add some space between the widgets */
 }
 
 .widget,
@@ -670,20 +678,21 @@ button.header-btn-inner:hover {
     display: inline-block;
 }
 
-.md-sidebar__inner{
+.md-sidebar__inner {
     padding-top: 40px;
 }
 
 .move-up {
     position: relative;
-    top: -15px; /* Move up by 10px */
+    top: -15px;
+    /* Move up by 10px */
 }
 
 .youtube {
     color: #EE0F0F;
-  }
+}
 
-.blog-grid-card{
+.blog-grid-card {
     background-color: var(--md-blog-grid-bg-color);
     border-radius: 8px;
 }
@@ -697,7 +706,6 @@ button.header-btn-inner:hover {
 .blog-box {
     /* width: 48%; */
     width: 30%;
-
     margin: 0 4% 4% 0;
     padding: 20px;
     box-sizing: border-box;
@@ -706,40 +714,32 @@ button.header-btn-inner:hover {
 }
 
 .blog-box:nth-child(3n) {
-    margin-right: 0; /* Remove margin on the right for every second item */
+    margin-right: 0;
+    /* Remove margin on the right for every second item */
 }
 
-@media screen and (max-width: 60em){    
+@media screen and (max-width: 60em) {
     .blog-box {
         width: 48% !important;
     }
     .blog-box:nth-child(2n) {
-        margin-right: 0; /* Remove margin on the right for every second item */
+        margin-right: 0;
+        /* Remove margin on the right for every second item */
     }
-
-    .widget-container{
+    .widget-container {
         display: none;
     }
 }
-@media screen and (max-width: 50em){    
+
+@media screen and (max-width: 50em) {
     .blog-box {
         width: 90% !important;
     }
-    
 }
 
+@media screen and (min-width: 60em) {}
 
-
-
-@media screen and (min-width: 60em){
-    
-}
-
-@media screen and (min-width: 76.25em){
-
-}
-
-
+@media screen and (min-width: 76.25em) {}
 
 .blog-placeholder-container {
     display: flex;
@@ -758,18 +758,20 @@ button.header-btn-inner:hover {
     /* min-height: 107px !important;
     align-content: end; */
 }
-.blog-header{
+
+.blog-header {
     margin-bottom: 10px;
 }
-.md-post--excerpt{
+
+.md-post--excerpt {
     margin-bottom: 0;
 }
 
-div.blog-header > div > ul > li{
-    color:#938e8e;
-
+div.blog-header>div>ul>li {
+    color: #938e8e;
 }
-.md-post--excerpt{
+
+.md-post--excerpt {
     min-height: 171px;
 }
 
@@ -791,10 +793,24 @@ li.blog-date.md-meta__item {
     font-weight: 600;
 }
 
-div.blog-header > div > ul > li {
+div.blog-header>div>ul>li {
     color: #787886;
 }
 
 .md-header {
     position: fixed;
+}
+
+.connect-images {
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: white;
+    img {
+        margin: 10px;
+        max-height: 80px;
+    }
 }

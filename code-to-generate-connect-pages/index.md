@@ -1,10 +1,31 @@
-# Connect Kafka to [tech-name]
+# Connect Kafka to [technology-name]
 
-![](./images/logo_1.jpg)
+<div class="connect-images cards blog-grid-card" markdown>
+<div>
+<img src="../images/kafka_logo.png" width="40px" />
+</div>
+<div>
+<img src="../images/arrow.svg" width="40px" />
+</div>
+<div>
+<img src="./images/[lowercase_tech-name]_1.jpg" />
+</div>
+</div>
 
-Quix helps you integrate Kafka to [tech-name] using pure Python.
+Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
 
-<div class="grid cards blog-grid-card" markdown>
+Transform and pre-process data before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+
+bob
+
+
+## [technology-name]
+
+[blurb-about-tech-name]
+
+## Integrations
+
+<div class="grid cards" markdown>
 
 - __Find out how we can help you integrate!__
 
@@ -12,13 +33,6 @@ Quix helps you integrate Kafka to [tech-name] using pure Python.
 
 </div>
 
-[mermaid-diagram]
-
-## [tech-name]
-
-[blurb-about-tech-name]
-
-## Integrations
 
 [blurb-about-why]
 
