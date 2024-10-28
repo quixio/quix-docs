@@ -68,6 +68,8 @@ jobs:
     # add 'monorepo' to mkdocs.yml file under plugins
     - run: pip install mkdocs-monorepo-plugin
 
+    - run: pip install mkdocs-exclude-search
+
     # Adds requirements for social plugin. Needed to automatically fill out meta data.
     # add 'social' to mkdocs.yml file under plugins
     - run: pip install cffi pillow cairosvg
