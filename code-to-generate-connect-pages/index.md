@@ -8,16 +8,13 @@
 <img src="../images/arrow.svg" width="40px" />
 </div>
 <div>
-<img src="./images/[lowercase_tech-name]_1.jpg" />
+<img src="./images/[tech-image-name]_1.jpg" />
 </div>
 </div>
 
 Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
 
-Transform and pre-process data before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
-
-bob
-
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## [technology-name]
 

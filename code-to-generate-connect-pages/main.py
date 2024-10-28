@@ -145,19 +145,18 @@ def process(file_name, no_ai = False):
         quix_description = generate_text(quix_prompt, no_ai)
         
         # Read the base template
-        with open('index.md', 'r') as file:
+        with open('index.md', 'r', encoding='utf-8') as file:
             template = file.read()
 
         # Replace placeholders with generated content
-        print("Replacing '[technology-name], bob'")
-        content = template.replace("[technology-name]", tech_name)
-        # content = template.replace("[lowercase_tech-name]", lower_case_tech_name)
+        content = template.replace("[tech-image-name]", lower_case_tech_name)
+        content = content.replace("[technology-name]", tech_name)
         # content = content.replace("[mermaid-diagram]", mermaid_diagram)
         content = content.replace("[blurb-about-tech-name]", tech_description)
         content = content.replace("[blurb-about-why]", quix_description)
 
         # Write the new content to a Markdown file
-        with open(output_path, 'w') as output_file:
+        with open(output_path, 'w', encoding='utf-8') as output_file:
             output_file.write(content)
 
         image_urls = get_image_urls(tech_name, num_images=1)
@@ -182,7 +181,7 @@ def process(file_name, no_ai = False):
         print(f'{url_base}/{folder_name}/kafka-to-{folder_name}.html')
 
 def main():
-    filename = 'tech-list2.csv'
+    filename = 'tech-list.csv'
     no_ai = False
     print(sys.argv)
     if len(sys.argv) >= 2:
