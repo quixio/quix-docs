@@ -14,7 +14,7 @@
 
 Quix helps you integrate Apache Kafka with RedisJSON using pure Python.
 
-Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitecture, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## RedisJSON
 
