@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with AWS Config using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## AWS Config
 
-AWS Config is a powerful service offered by Amazon Web Services that allows users to continuously monitor and assess the configurations of their AWS resources. With AWS Config, users can track changes to their resource configurations in real-time, identify potential security vulnerabilities, and ensure compliance with organizational policies. This technology provides valuable insights into the current state of an organization's AWS environment, enabling users to make informed decisions and maintain control over their cloud infrastructure.
+AWS Config is a powerful tool that allows users to assess, audit, and evaluate the configurations of their AWS resources. With AWS Config, users can track changes to configurations, maintain compliance with internal policies, and identify security vulnerabilities. This technology provides users with a detailed view of their AWS environment, enabling them to make informed decisions and ensure their infrastructure remains secure and optimized. AWS Config offers a comprehensive set of features and capabilities that can help streamline operations and enhance overall efficiency.
 
 ## Integrations
 
@@ -31,13 +31,9 @@ AWS Config is a powerful service offered by Amazon Web Services that allows user
 </div>
 
 
-Quix is a great fit for integrating with AWS Config because it offers data engineers a powerful tool to pre-process and transform data from various sources before loading it into a specific data format. This aligns well with the capabilities of AWS Config, which allows users to track and manage configurations of their AWS resources.
+Quix is a great fit for integrating with AWS Config due to its ability to enable data engineers to pre-process and transform data from various sources before loading it into a specific data format. This simplifies lakehouse architecture with customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, allows for the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. 
 
-Additionally, Quix Streams provides a seamless way to transform data using streaming DataFrames, supporting essential operations like aggregation, filtering, and merging during the transformation process. This can enhance the efficiency of data handling when working with AWS Config, ensuring that the data is processed and transformed accurately.
+Furthermore, Quix ensures efficient handling of data from source to destination with features such as no throughput limits, automatic backpressure management, and checkpointing. The platform also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. 
 
-Furthermore, Quix's ability to sink transformed data to cloud storage in a specific format complements AWS Config's functionality, as it enables users to store and manage their configuration data efficiently in the cloud.
-
-By leveraging Quix for data integration with AWS Config, businesses can benefit from lower total cost of ownership compared to other alternatives. The platform offers a cost-effective solution for managing data from source through transformation to destination, making it an attractive option for organizations looking to optimize their data integration processes.
-
-Overall, Quix's comprehensive features, efficient data handling capabilities, and cost-effective solutions make it an ideal choice for integrating with AWS Config, enabling users to streamline their data management and achieve optimal results in their data integration workflows.
+Overall, Quix offers a cost-effective solution for managing data from source through transformation to destination, making it a valuable tool in the integration with AWS Config.
 

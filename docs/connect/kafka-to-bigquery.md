@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with BigQuery using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## BigQuery
 
-BigQuery is a powerful and sophisticated data warehouse technology developed by Google. It allows users to store and analyze massive amounts of data quickly and efficiently, making it ideal for businesses with large datasets. With its scalable infrastructure and advanced analytics capabilities, BigQuery enables users to run complex queries, perform real-time data analysis, and gain valuable insights to drive informed decision-making. This cutting-edge technology is revolutionizing the way organizations manage and analyze their data, providing a competitive edge in today's data-driven world.
+BigQuery is a powerful and sophisticated cloud-based data warehouse provided by Google Cloud Platform. It allows users to analyze massive datasets quickly and efficiently using SQL queries. With its scalable infrastructure, BigQuery can handle petabytes of data with ease, making it an ideal solution for companies looking to derive insights from vast amounts of information. Its integration with other Google Cloud services and tools like Data Studio and TensorFlow further enhance its capabilities, providing users with a comprehensive and seamless data analysis experience.
 
 ## Integrations
 
@@ -31,11 +31,5 @@ BigQuery is a powerful and sophisticated data warehouse technology developed by 
 </div>
 
 
-Quix is a perfect fit for integrating with BigQuery due to its versatile data engineering capabilities. With Quix, data engineers can efficiently pre-process and transform data from various sources before loading it into BigQuery, simplifying the lakehouse architecture with customizable connectors for different destinations. 
-
-Quix Streams, an open-source Python library, allows for seamless transformation of data using streaming DataFrames, enabling operations like aggregation, filtering, and merging during the transformation process. This ensures that data is transformed accurately and efficiently before being loaded into BigQuery for analysis.
-
-The platform also offers efficient data handling with no throughput limits, automatic backpressure management, and checkpointing, ensuring that data is transferred smoothly from source to destination without any bottlenecks. Additionally, Quix supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination, which aligns perfectly with BigQuery's capabilities.
-
-Moreover, Quix offers a cost-effective solution for managing data from source through transformation to destination, allowing for a lower total cost of ownership compared to other alternatives. Lastly, users can explore the platform, book demos, and engage with the community through resources like GitHub and Slack, enhancing their understanding of data integration from source to destination and making the integration process with BigQuery even smoother.
+Quix is a suitable option for integrating with BigQuery due to its ability to efficiently handle data from source to destination with no throughput limits, automatic backpressure management, and checkpointing. Additionally, Quix enables data engineers to pre-process and transform data from various sources before loading it into a specific data format, simplifying lakehouse architecture with customizable connectors for different destinations. Moreover, Quix Streams, an open-source Python library, supports the transformation of data using streaming DataFrames, allowing for operations like aggregation, filtering, and merging during the transformation process. The platform also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. Overall, Quix provides a cost-effective solution for managing data from source through transformation to destination, making it a valuable tool for data integration with BigQuery.
 

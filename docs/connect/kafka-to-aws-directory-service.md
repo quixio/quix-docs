@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with AWS Directory Service using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## AWS Directory Service
 
-UNRECOGNIZED TECH ALERT
+AWS Directory Service is a cloud-based directory service offered by Amazon Web Services (AWS) that allows users to connect their AWS resources with an existing on-premises Active Directory or to create a new, separate directory in the cloud. This service simplifies the management of users, groups, and computers by providing a single point of access and control. With AWS Directory Service, organizations can easily integrate their existing directories with AWS applications and services, enabling seamless authentication and authorization processes across their entire infrastructure.
 
 ## Integrations
 
@@ -31,9 +31,9 @@ UNRECOGNIZED TECH ALERT
 </div>
 
 
-Quix is a great fit for integrating with AWS Directory Service due to its ability to enable data engineers to pre-process and transform data from various sources before loading it into a specific data format. This simplifies lakehouse architecture and allows for customizable connectors for different destinations. Furthermore, Quix Streams, an open-source Python library, supports the transformation of data using streaming DataFrames, which can facilitate operations like aggregation, filtering, and merging during the transformation process.
+Quix is a well-suited solution for integrating with AWS Directory Service due to its ability to pre-process and transform data from various sources before loading it into a specific data format. This simplifies the lakehouse architecture by providing customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, allows for the transformation of data using streaming DataFrames, supporting operations such as aggregation, filtering, and merging during the transformation process.
 
-The efficient data handling capabilities of Quix ensure that data is smoothly moved from source to destination with no throughput limits, automatic backpressure management, and checkpointing. Additionally, Quix supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination.
+The platform ensures efficient handling of data from source to destination with features like no throughput limits, automatic backpressure management, and checkpointing. Furthermore, Quix supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. This can help streamline the data integration process and make it more cost-effective compared to other alternatives.
 
-Overall, Quix offers a cost-effective solution for managing data from source through transformation to destination, making it a valuable tool for integrating with AWS Directory Service. Users are encouraged to explore the platform, book demos, and engage with the community through resources like GitHub and Slack, enhancing their understanding of data integration from source to destination.
+Overall, Quix offers a comprehensive solution for managing data integration from source to destination, making it a good fit for integrating with AWS Directory Service.
 

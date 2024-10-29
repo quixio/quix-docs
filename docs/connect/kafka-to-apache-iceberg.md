@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Apache Iceberg using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Apache Iceberg
 
-Apache Iceberg is a cutting-edge data table format that provides users with the ability to manage large-scale, complex data sets in a more efficient and structured manner. This technology allows for the separation of data storage and processing, enabling users to query and analyze data without having to reprocess entire datasets. With its support for nested data and schema evolution, Apache Iceberg offers a flexible and scalable solution for managing data lakes and data warehouses. Its innovative design and advanced features make it a valuable tool for organizations looking to optimize their data management processes.
+Apache Iceberg is a table format for storing large, slow-changing tabular data in cloud object stores. It provides transactional tables that you can create, alter, and drop with strong consistency and fine-grained access control. Apache Iceberg supports efficient table scans and powerful pushdown predicates to minimize the amount of data that needs to be read. Additionally, it enables schema evolution and allows you to roll back changes when necessary. This technology simplifies the process of managing and querying large datasets, making it an essential tool for data engineers and analysts working with big data systems.
 
 ## Integrations
 
@@ -31,17 +31,11 @@ Apache Iceberg is a cutting-edge data table format that provides users with the 
 </div>
 
 
-Quix is a perfect fit for integrating with Apache Iceberg because it offers a range of features that complement the capabilities of Iceberg, making data integration seamless and efficient. 
+Apache Iceberg is a cutting-edge data technology that allows for efficient handling of data from source to destination with no throughput limits, automatic backpressure management, and checkpointing. Its customizable connectors for different destinations simplify lakehouse architecture, making it a sought-after solution for data engineers. 
 
-Firstly, Quix allows data engineers to pre-process and transform data from various sources before loading it into a specific data format. This aligns perfectly with Apache Iceberg's focus on simplifying lakehouse architecture by providing customizable connectors for different destinations. This flexibility ensures that data can be manipulated and prepared according to the specific requirements of the target system.
+Quix, on the other hand, is a complementary platform that seamlessly integrates with Apache Iceberg. With Quix, data engineers can pre-process and transform data from various sources before loading it into a specific data format. Additionally, Quix Streams, an open-source Python library, supports the transformation of data using streaming DataFrames, enabling operations like aggregation, filtering, and merging during the transformation process. 
 
-Additionally, Quix Streams, an open-source Python library, enables data transformation using streaming DataFrames, supporting essential operations like aggregation, filtering, and merging. This functionality enhances the capability of Apache Iceberg to handle real-time data processing and ensures that data can be transformed efficiently and accurately during the integration process.
+Furthermore, Quix allows for sinking transformed data to cloud storage in a specific format, ensuring seamless integration and efficient storage at the destination. This, coupled with its cost-effective solution for managing data from source through transformation to destination, makes Quix an ideal fit for integrating with Apache Iceberg. 
 
-Moreover, Quix's efficient data handling capabilities, such as no throughput limits, automatic backpressure management, and checkpointing, make it an ideal partner for Apache Iceberg. These features ensure that data is processed and moved from source to destination seamlessly, without any bottlenecks or issues that could impact the overall performance of the data integration process.
-
-Furthermore, Quix supports sinking transformed data to cloud storage in a specific format, enhancing the storage efficiency at the destination. This capability aligns well with Apache Iceberg's focus on optimizing data storage and retrieval in cloud environments, ensuring that data is stored and accessed in the most efficient manner possible.
-
-Lastly, the cost-effective nature of Quix compared to other alternatives makes it an attractive choice for organizations looking to lower their total cost of ownership when managing data integration processes. By integrating Quix with Apache Iceberg, organizations can benefit from a powerful and cost-effective solution for handling data from source through transformation to destination.
-
-Overall, the features and capabilities of Quix make it a perfect fit for integrating with Apache Iceberg, enhancing data integration processes and ensuring that data is managed efficiently and effectively from source to destination.
+Overall, the combination of Apache Iceberg and Quix offers data engineers a powerful toolset for managing and transforming data efficiently and cost-effectively, ultimately streamlining the data integration process from source to destination.
 

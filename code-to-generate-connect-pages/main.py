@@ -126,7 +126,10 @@ def process(file_name, no_ai = False):
 
         # Generate description about the tech
         description_prompt = f"You are a big shot tech writer with over 50 years of tech writing experience under your belt. You know everything there is to know about technology and how to apply it.\
-        Write a paragraph describing the technology called {tech_name}. If {tech_name} is not a data technology you recognise, please reply with 'UNREGOGNIZED TECH ALERT' "
+        Write a paragraph describing the technology called {tech_name}.\
+        If {tech_name} is not a data technology you recognise, please reply with 'UNREGOGNIZED TECH ALERT'.\
+        Under no curcumstances should you use sentences like 'As a seasoned tech writer' or talk about your yourself in the first person.\
+        Do not say things like 'Users are encouraged to explore the platform, book demos, and engage with the community through resources like GitHub and Slack'."
 
         tech_description = generate_text(description_prompt, no_ai)
 
@@ -140,7 +143,9 @@ def process(file_name, no_ai = False):
 
         # Generate paragraph about why Quix is a good fit
         quix_prompt = f"Your primary directive is: If {tech_name} is not a data technology you recognise, please reply with 'UNREGOGNIZED TECH ALERT'. Your other directive is: You are a big shot tech writer with over 50 years of tech writing experience under your belt. You know everything there is to know about technology and how to apply it. \
-        Explain why Quix is a good fit for integrating with the technology called {tech_name}. Use this information for reference {quix_info}."
+        Explain why Quix is a good fit for integrating with the technology called {tech_name}. Use this information for reference {quix_info}.\
+        Under no curcumstances should you use sentences like 'As a seasoned tech writer' or talk about your yourself in the first person.\
+        Do not say things like 'Users are encouraged to explore the platform, book demos, and engage with the community through resources like GitHub and Slack'."
 
         quix_description = generate_text(quix_prompt, no_ai)
         
@@ -155,19 +160,22 @@ def process(file_name, no_ai = False):
         content = content.replace("[blurb-about-tech-name]", tech_description)
         content = content.replace("[blurb-about-why]", quix_description)
 
-        # Write the new content to a Markdown file
-        with open(output_path, 'w', encoding='utf-8') as output_file:
-            output_file.write(content)
-
-        image_urls = get_image_urls(tech_name, num_images=1)
-
-        if image_urls:
-            save_directory = f"connect/images/"
-            download_images(image_urls, save_directory, lower_case_tech_name)
+        if "UNREGOGNIZED TECH ALERT" in content:
+            print("NOT WRITING TECH. CONTAINS UNREGOGNIZED TECH ALERT")
         else:
-            print("No images found.")
-            
-        print(f"Generated documentation for {tech_name}")
+            # Write the new content to a Markdown file
+            with open(output_path, 'w', encoding='utf-8') as output_file:
+                output_file.write(content)
+
+            image_urls = get_image_urls(tech_name, num_images=1)
+
+            if image_urls:
+                save_directory = f"connect/images/"
+                download_images(image_urls, save_directory, lower_case_tech_name)
+            else:
+                print("No images found.")
+                
+            print(f"Generated documentation for {tech_name}")
 
 
 

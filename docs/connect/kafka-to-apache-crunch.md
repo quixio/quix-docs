@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Apache Crunch using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Apache Crunch
 
-Apache Crunch is a powerful data processing framework that allows users to easily write, test, and run complex data pipelines on distributed systems such as Apache Hadoop. With its intuitive Java API, developers can efficiently manipulate large datasets without the need for intricate MapReduce code. Apache Crunch simplifies the process of batch data processing, enabling organizations to extract valuable insights from massive amounts of data in a scalable and efficient manner. Its ability to seamlessly integrate with existing Hadoop ecosystems makes it a valuable tool for data engineers and analysts alike.
+Apache Crunch is a powerful data processing framework that provides a simple and efficient way to work with Big Data. It allows users to write complex data pipelines using high-level APIs in Java, making it easy to process large volumes of data in distributed computing environments. With its flexible and extensible design, Apache Crunch enables developers to seamlessly integrate with existing data processing tools and frameworks, making it a valuable asset for organizations looking to optimize their data processing workflows.
 
 ## Integrations
 
@@ -31,11 +31,5 @@ Apache Crunch is a powerful data processing framework that allows users to easil
 </div>
 
 
-Quix is a perfect fit for integrating with Apache Crunch due to its versatile capabilities that align well with Apache Crunch's data processing requirements. With Quix, data engineers can seamlessly pre-process and transform data from various sources before loading it into a specific data format, simplifying the integration process within Apache Crunch's data pipeline.
-
-Quix's support for customizable connectors for different destinations allows for a flexible and efficient data integration process, ensuring a smooth transition from source to destination. Additionally, the platform's Quix Streams feature, an open-source Python library, enables data transformation using streaming DataFrames, making it easier to perform operations like aggregation, filtering, and merging during the transformation process.
-
-The efficient data handling capabilities of Quix, including no throughput limits, automatic backpressure management, and checkpointing, ensure a reliable and high-performing integration process within Apache Crunch. Furthermore, the platform's ability to sink transformed data to cloud storage in a specific format enhances storage efficiency and seamless integration with Apache Crunch's data architecture.
-
-In addition to its technical capabilities, Quix offers a cost-effective solution for managing data integration from source to destination, ultimately lowering the total cost of ownership compared to other alternatives. Users can also take advantage of the platform's resources like GitHub and Slack to explore Quix, book demos, and engage with the community, enhancing their understanding of data integration and maximizing the potential of Apache Crunch's data technology.
+Quix is a suitable choice for integrating with Apache Crunch due to its ability to allow data engineers to pre-process and transform data from various sources before loading it into a specific data format. This capability simplifies lakehouse architecture with customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, facilitates data transformation using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. The platform ensures efficient data handling from source to destination with features such as no throughput limits, automatic backpressure management, and checkpointing. Quix also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. Furthermore, the platform offers a cost-effective solution for managing data from source through transformation to destination compared to other alternatives.
 

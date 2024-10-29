@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Apache Druid using pure Python.
 
 Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Apache Druid
 
-UNRECOGNIZED TECH ALERT
+Apache Druid is a high-performance, real-time analytics database designed for fast, interactive analytics on large datasets. It provides low-latency queries and scalable data ingestion, allowing users to explore, analyze, and visualize their data in real-time. With its column-oriented storage, Druid enables users to aggregate, filter, and drill down into data with ease. Its distributed architecture ensures high availability and fault tolerance for mission-critical applications, making it a popular choice for companies looking to gain insights from their data quickly and efficiently.
 
 ## Integrations
 
@@ -31,11 +31,5 @@ UNRECOGNIZED TECH ALERT
 </div>
 
 
-Quix is a great fit for integrating with Apache Druid due to its flexibility and efficiency in handling data transformation and loading processes. With Quix, data engineers can easily pre-process and transform data from various sources before loading it into Apache Druid, simplifying the lakehouse architecture and ensuring seamless integration with customizable connectors for different destinations.
-
-Additionally, Quix Streams provides a powerful tool for transforming data using streaming DataFrames, allowing for operations like aggregation, filtering, and merging during the transformation process. This capability enhances the efficiency of data handling from source to destination, with no throughput limits, automatic backpressure management, and checkpointing.
-
-Furthermore, Quix supports sinking transformed data to cloud storage in a specific format, ensuring storage efficiency at the destination. This feature, combined with the platform's cost-effective solution for managing data through the entire process, helps lower the total cost of ownership for data integration with Apache Druid.
-
-Overall, Quix's comprehensive set of features, efficient data handling capabilities, and cost-effective solution make it a great fit for integrating with Apache Druid. Users are encouraged to explore the platform, book demos, and engage with the community to enhance their understanding of data integration from source to destination.
+Quix is a good fit for integrating with Apache Druid due to its ability to pre-process and transform data from various sources before loading it into a specific data format, simplifying lakehouse architecture with customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, facilitates the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. The platform ensures efficient data handling from source to destination with no throughput limits, automatic backpressure management, and checkpointing. Quix also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. Furthermore, it offers a cost-effective solution for managing data from source through transformation to destination, compared to other alternatives.
 
