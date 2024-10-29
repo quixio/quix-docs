@@ -17,7 +17,7 @@ New features, bug fixes and performance upgrades!
 
 ## New features
 
-- **Scratchpads:** Enables shared topics between environments, setting resources only in the affected parts of the pipeline and allowing code modifications to be easily merged back into Production.
+- **Scratchpads:** Enables shared topics between environments, setting resources only in focused steps of the pipeline and allowing code modifications to be easily merged back into Production.
 - **Data tiers:** this feature allows users to assign a **Bronze, Silver, or Gold** classification to their data - or define their own tiers for each topic, reflecting its data quality and level of pre-processing.
 
 ## Enhancements
@@ -27,7 +27,7 @@ New features, bug fixes and performance upgrades!
 - Improved error descriptions when dealing with YAML and missing secret keys.
 - Improved network configuration validation.
 - Enhanced the readability of error messages in historical logs to make them more user-friendly.
-- Optimized the 'Live Logs' download for inproved performance.
+- Optimized the 'Live Logs' download for improved performance.
 
 ## Bug Fixes
 
