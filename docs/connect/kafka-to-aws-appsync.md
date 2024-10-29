@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with AWS AppSync using pure Python.
 
-Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house architecture, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## AWS AppSync
 
-AWS AppSync is a powerful technology offered by Amazon Web Services that allows developers to easily create and deploy GraphQL APIs for their applications. With AppSync, developers can quickly connect their applications to various data sources such as Amazon DynamoDB, RDS, and even custom APIs. This technology enables real-time data synchronization and offline capabilities, making it easier for developers to build scalable and responsive applications. With AWS AppSync, developers can focus on building great user experiences without having to worry about managing the underlying infrastructure.
+AWS AppSync is a managed service that uses GraphQL to simplify application development by enabling real-time data queries and synchronization. With AppSync, developers can easily build scalable applications with features like offline data access, sync across devices, and secure data access control. With built-in support for multiple data sources such as AWS DynamoDB, Aurora, and Lambda, developers can quickly create powerful APIs without having to manage servers or infrastructure. AWS AppSync also provides real-time subscription capabilities, allowing applications to receive updates in real-time as data changes. This technology empowers developers to focus on building innovative features and delivering exceptional user experiences without worrying about the complexities of managing data access and synchronization.
 
 ## Integrations
 
@@ -31,9 +31,9 @@ AWS AppSync is a powerful technology offered by Amazon Web Services that allows 
 </div>
 
 
-Quix is a great fit for integrating with AWS AppSync because of its robust data processing capabilities. By enabling data engineers to pre-process and transform data from various sources before loading it into a specific data format, Quix simplifies the lakehouse architecture and streamlines the integration process with AWS AppSync. Additionally, Quix Streams, an open-source Python library, allows for seamless data transformation using streaming DataFrames, supporting essential operations like aggregation, filtering, and merging.
+Quix is an ideal solution for integrating with AWS AppSync due to its ability to enable data engineers to pre-process and transform data from various sources before loading it into a specific data format. This simplifies lakehouse architecture by providing customizable connectors for different destinations, ensuring efficient handling of data from source to destination with no throughput limits, automatic backpressure management, and checkpointing.
 
-Moreover, Quix ensures efficient data handling with features like no throughput limits, automatic backpressure management, and checkpointing, guaranteeing a smooth data flow from source to destination. The ability to sink transformed data to cloud storage in a specific format further enhances the integration with AWS AppSync, ensuring seamless storage efficiency and integration.
+Additionally, Quix Streams, an open-source Python library, facilitates data transformation using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. This makes it easier to transform data and sink it to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination.
 
-Overall, Quix offers a cost-effective solution for managing data from source through transformation to destination, making it a valuable tool for integrating with AWS AppSync. With the platform's encouragement of exploration and engagement through resources like GitHub and Slack, users can enhance their understanding of data integration and maximize the benefits of integrating Quix with AWS AppSync.
+Overall, Quix offers a cost-effective solution for managing data from source through transformation to destination, making it a valuable tool for integrating with technologies like AWS AppSync.
 

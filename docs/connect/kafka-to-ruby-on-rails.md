@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Ruby on Rails using pure Python.
 
-Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house architecture, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Ruby on Rails
 
-Ruby on Rails is a powerful and versatile web development framework that has revolutionized the way websites and applications are built. It is based on the Ruby programming language and provides developers with a simple and elegant way to write clean and efficient code. Ruby on Rails promotes the principles of convention over configuration, making it easier for developers to get up and running quickly. With its focus on simplicity and readability, Ruby on Rails has become a popular choice for building dynamic and scalable web applications.
+Ruby on Rails, often simply referred to as Rails, is a web application framework written in Ruby. It follows the Model-View-Controller (MVC) architectural pattern, allowing for the separation of concerns within an application. Rails emphasizes convention over configuration, providing developers with a set of default structures and conventions to streamline the development process. With built-in tools and libraries, Rails makes common tasks such as database management, routing, and authentication simpler and more efficient. Overall, Ruby on Rails is a powerful framework that enables developers to quickly build and deploy web applications with ease.
 
 ## Integrations
 
@@ -31,15 +31,5 @@ Ruby on Rails is a powerful and versatile web development framework that has rev
 </div>
 
 
-As a seasoned tech writer with over 50 years of experience, I can confidently say that Quix is a great fit for integrating with Ruby on Rails due to its robust features and capabilities. 
-
-First and foremost, Quix allows data engineers to pre-process and transform data from various sources before loading it into a specific data format. This is essential for simplifying lakehouse architecture and ensuring seamless data integration with customizable connectors for different destinations. 
-
-Additionally, Quix Streams, an open-source Python library, enables the transformation of data using streaming DataFrames, supporting essential operations like aggregation, filtering, and merging during the transformation process. This ensures flexibility and efficiency in handling data.
-
-Moreover, Quix ensures efficient data handling from source to destination with features like no throughput limits, automatic backpressure management, and checkpointing. This guarantees smooth and reliable data integration and storage efficiency at the destination.
-
-Another key advantage of using Quix for integrating with Ruby on Rails is its ability to sink transformed data to cloud storage in a specific format. This ensures a seamless integration process and cost-effectiveness in managing data from source to destination compared to other alternatives.
-
-Overall, Quix offers a cost-effective solution for data integration and management, making it a great fit for integrating with Ruby on Rails. Users are encouraged to explore the platform, book demos, and engage with the community through resources like GitHub and Slack to enhance their understanding of data integration from source to destination.
+UNRECOGNIZED TECH ALERT.
 

@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Apache Pig using pure Python.
 
-Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house architecture, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Apache Pig
 
-UNRECOGNIZED TECH ALERT
+Apache Pig is an open-source technology developed by the Apache Software Foundation that simplifies the programming of large-scale data processing tasks on Hadoop clusters. It provides a high-level language called Pig Latin, which allows users to write complex MapReduce tasks without having to write lengthy Java code. With Apache Pig, users can easily transform and analyze large datasets in a distributed environment, making it a valuable tool for data engineers and analysts working with Big Data.
 
 ## Integrations
 
@@ -31,11 +31,5 @@ UNRECOGNIZED TECH ALERT
 </div>
 
 
-Quix is a perfect fit for integrating with Apache Pig due to its ability to efficiently handle data from various sources before loading it into a specific format. The customizable connectors provided by Quix make it easy for data engineers to pre-process and transform data, simplifying the architecture of a lakehouse.
-
-Additionally, Quix Streams allows for the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. This feature enhances the overall efficiency of data handling and ensures seamless integration with Apache Pig.
-
-Moreover, Quix supports sinking transformed data to cloud storage in a specific format, providing storage efficiency at the destination. This capability makes it a cost-effective solution for managing data from source to destination, ultimately lowering the total cost of ownership compared to other alternatives.
-
-In conclusion, Quix offers a comprehensive and efficient solution for integrating with Apache Pig, making it an ideal choice for data engineers looking to streamline the data integration process.
+UNRECOGNIZED TECH ALERT
 

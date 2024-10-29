@@ -12,13 +12,13 @@
 </div>
 </div>
 
-Quix helps you integrate Apache Kafka with Apache Airflow using pure Python.
+Quix helps you integrate Apache Kafka with Django using pure Python.
 
-Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house arthitectures, reducing storage and ownership costs and enabling data teams to achieve success for your business.
+Transform and pre-process data, with the new alternative to Confluent Kafka Connect, before loading it into a specific format, simplifying data lake house architecture, reducing storage and ownership costs and enabling data teams to achieve success for your business.
 
 ## Django
 
-Django is a high-level web framework written in Python that encourages rapid development and clean, pragmatic design. It follows the model-view-template (MVT) architectural pattern and prioritizes DRY (Don't Repeat Yourself) principles. With its robust set of built-in features, Django simplifies the creation of complex, database-driven websites and web applications. Its scalability and versatility make it a popular choice among developers for building secure and efficient web projects.
+Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, allowing users to focus on writing their app without needing to reinvent the wheel. Django includes features such as an intuitive admin panel, robust security options, and powerful tools for building scalable web applications. The framework follows a batteries-included philosophy, providing developers with everything they need to build a web application right out of the box. With Django's built-in tools and libraries, developers can create dynamic, database-driven websites with ease.
 
 ## Integrations
 
@@ -31,13 +31,5 @@ Django is a high-level web framework written in Python that encourages rapid dev
 </div>
 
 
-Django, an open-source web framework written in Python, is widely used for developing web applications. It provides a clean and pragmatic design, making it easy for developers to build scalable and secure applications. 
-
-Quix, on the other hand, offers data engineers the ability to preprocess and transform data from various sources before loading it into a specific data format. This makes it a perfect fit for integrating with Django, as it allows for efficient data handling and transformation before storing it in the desired format.
-
-Additionally, Quix Streams, an open-source Python library, facilitates the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. This feature can greatly benefit Django developers who need to manipulate and process large amounts of data in real-time.
-
-Furthermore, Quix supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. This can be particularly useful for Django applications that require storing and accessing data from the cloud.
-
-Overall, integrating Django with Quix can lead to a more efficient and cost-effective data handling process, ultimately improving the overall performance and scalability of web applications built with Django.
+UNRECOGNIZED TECH ALERT
 
