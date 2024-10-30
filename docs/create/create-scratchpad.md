@@ -3,6 +3,9 @@ title: Creating a Scratchpad
 description: Learn how to create a scratchpad environment for rapid experimentation with real data.
 ---
 
+!!! warning "Version Requirement"
+    This feature requires at least version 3.1.1 of QuixStreams.
+
 # Creating a Scratchpad
 
 A **scratchpad** in Quix is a temporary environment designed for quick iterations and experimentation with real-time data. Scratchpads are particularly useful for testing new features, analyzing data, or running experiments without affecting production or staging environments. They are lightweight, easy to set up, and allow developers to isolate their changes.
