@@ -38,7 +38,7 @@ Click **Add tier** to save your changes or **Cancel** to discard.
 
 ## Setting Topic Data Tier
 
-You can set the data tier for topics in two ways: through the **UI** and by using **YAML definitions** for Infrastructure as Code.
+You can set the data tier for topics in two ways: through the **UI** and by using **quix.yaml** for Infrastructure as Code.
 
 ### Setting Data Tier in the UI
 
@@ -52,11 +52,14 @@ Additionally, you can view a list of topics with their respective data tiers in 
 
 ![Topics List](../images/data-tiers/topics-list.png)
 
-### Setting Data Tier Using YAML
+### Setting Data Tier Using quix.yaml
 
-The **dataTier** property can also be set in YAML definitions for Infrastructure as Code, enabling a structured and automated way to manage topic tiers across environments. Here’s an example:
+You can set the **dataTier** property in the `quix.yaml` file for Infrastructure as Code, specifying the data tier directly within this configuration file. Once set, sync the `quix.yaml` configuration to apply the data tier.
 
 ```yaml
 topics:
   - name: bronze-topic
     dataTier: Bronze
+```
+
+This approach allows systematic management of topic tiers across environments.
