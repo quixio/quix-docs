@@ -15,10 +15,14 @@ New features, bug fixes and performance upgrades!
 
 <!-- more -->
 
+![](./images/diagram-iceberg-sink.png)
+
 ## New features
 
 - **Scratchpads:** Enables shared topics between environments, setting resources only in focused steps of the pipeline and allowing code modifications to be easily merged back into Production.
 - **Data tiers:** this feature allows users to assign a **Bronze, Silver, or Gold** classification to their data - or define their own tiers for each topic, reflecting its data quality and level of pre-processing.
+- **Quix CLI** 1.1.0 adds support for YAML variables on local development. [More info in docs](https://quix.io/docs/quix-cli/local-development/local-yaml-variables.html).
+
 
 ## Enhancements
 
@@ -39,5 +43,5 @@ New features, bug fixes and performance upgrades!
 If you want to find out more or have any questions at all please get in touch.
 
 <div class="" markdown>
-<span>You can join our Slack community <a href="https://quix.io/slack-invite?_ga=join-from-docs-release-blog">here</a> or<a href="mailto:support@quix.io"> send us an email</a>.</span>
+<span>You can join our Slack community <a href="https://quix.io/slack-invite?_ga=join-from-docs-release-blog">here</a> or <a href="mailto:support@quix.io">send us an email</a>.</span>
 </div>
