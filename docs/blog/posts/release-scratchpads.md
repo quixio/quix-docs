@@ -19,7 +19,7 @@ New features, bug fixes and performance upgrades!
 
 - **Scratchpads:** Enables shared topics between environments, setting resources only in focused steps of the pipeline and allowing code modifications to be easily merged back into Production.
 - **Data tiers:** this feature allows users to assign a **`Bronze, Silver, or Gold`** classification to their data - or define their own tiers for each topic, reflecting its data quality and level of pre-processing.
-- **Quix CLI** 1.1.0 adds support for YAML variables on local development. [More info in docs](https://quix.io/docs/quix-cli/local-development/local-yaml-variables.html).
+- **Quix CLI** 1.1.0 adds support for global YAML variables on local development. [More info in docs](https://quix.io/docs/quix-cli/local-development/local-yaml-variables.html).
 
 ## Enhancements
 
