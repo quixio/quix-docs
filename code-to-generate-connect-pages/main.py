@@ -127,7 +127,7 @@ def process(file_name, no_ai = False):
         # Generate description about the tech
         description_prompt = f"You are a big shot tech writer with over 50 years of tech writing experience under your belt. You know everything there is to know about technology and how to apply it.\
         Write a paragraph describing the technology called {tech_name}.\
-        If {tech_name} is not a data technology you recognise, please reply with 'UNREGOGNIZED TECH ALERT'.\
+        If {tech_name} is not a data technology you recognise, please reply with 'UNRECOGNIZED TECH ALERT'.\
         Under no circumstances should you use sentences like 'As a seasoned tech writer' or talk about your yourself in the first person.\
         Do not say things like 'Users are encouraged to explore the platform, book demos, and engage with the community through resources like GitHub and Slack'."
 
