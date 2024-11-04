@@ -26,7 +26,7 @@ nav:
 #      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.1.0'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.1.1'
   - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.1.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
@@ -48,7 +48,8 @@ nav:
         - 'Syncing an environment': 'create/syncing-environment.md'
         - 'Project structure': 'create/project-structure.md'
         - 'Create a topic': 'create/create-topic.md'
-        - 'Data tiers': 'create/data-tiers.md'
+        - 'Data tiers': 'create/data-tiers.md'    
+        - 'Create a scratchpad': 'create/create-scratchpad.md'
       - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
