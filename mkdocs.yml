@@ -48,6 +48,7 @@ nav:
         - 'Syncing an environment': 'create/syncing-environment.md'
         - 'Project structure': 'create/project-structure.md'
         - 'Create a topic': 'create/create-topic.md'
+        - 'Data tiers': 'create/data-tiers.md'
       - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
