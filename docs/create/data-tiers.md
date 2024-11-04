@@ -62,4 +62,14 @@ topics:
     dataTier: Bronze
 ```
 
-This approach allows systematic management of topic tiers across environments.
+#### Data Tier per Environment
+
+To assign different data tiers to the same topic across environments, you can utilize YAML variables:
+
+```yaml
+topics:
+  - name: topic-per-environment
+    dataTier: {{dataTier}}
+```
+Then, simply set the `dataTier` variable to the appropriate value for each environment.
+For more details on using YAML variables, refer to the [YAML Variables Guide](../deploy/yaml-variables.md).
