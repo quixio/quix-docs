@@ -4,15 +4,98 @@ This is the Quix Cloud changelog for the current year.
 
 See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
 
+
+
+## 2024-10-scratchpads | 30 OCT 2024
+
+:seedling: New Features :seedling:
+
+- Scratchpads: Enables shared topics between environments, setting - resources only in the affected parts of the pipeline and allowing code modifications toquix be safely merged back into Production. :warning:This feature requires updating the Quix Streams version to 3.1.1 or higher for any app using a scratchpad topic:warning:
+- Data tiers: this feature allows users to assign a Bronze, Silver, or Gold stage—or define their own tiers—to each topic, reflecting its data quality and processing level.
+- CLI 1.1.0:
+    - Added support for YAML variables on local development. More info in docs.
+    - Added CreatedBy and UpdatedBy audit information to Deployments responses in API and CLI
+        ```
+        ...
+        "createdBy": {
+            "userId": "454bdbcc-6a17-4e8c-bcc8-2c6f5bb03e81",
+            "email": "someone@quix.io",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateTime": "2024-10-23T14:16:04.314+00:00"
+        },
+        "updatedBy": {
+            "userId": "454bdbcc-6a17-4e8c-bcc8-2c6f5bb03e81",
+            "email": "someone@quix.io",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateTime": "2024-10-25T09:49:45.223+00:00"
+        }
+        ...
+        ```
+
+:gem: Enhancements :gem:
+
+- Enabled Replicas Configuration for Jobs. Users can now set the replica count for deployments of type "Job," enhancing job concurrency control.
+- Added Support for Separate Private and Public Library Repositories. This feature allows Dedicated clusters to configure separate repositories for private and public template items in the Library.
+- Improved error descriptions when dealing with YAML and missing secret keys.
+- Improved Network configuration validations
+- Enhanced the readability of error messages in Historical logs to make them more user-friendly.
+- Optimized the Live Logs download for faster performance.
+- Improved cpu/network service performance for topic metrics
+
+:microbe: Bug Fixes :microbe:
+
+- Fixed a bug that prevented Run applications from stopping after exiting the Online IDE option.
+- Fixed a bug that caused Deployment statuses to refresh incorrectly after a runtime error occurred.
+
+Enterpsise changes
+- :gem: Private and Public connectors and templates are now separated.
+- :gem: Added SSH support to Private connectors and templates
+
+## 2024-10-IDE | 16 OCT 2024
+:gem: Enhancements :gem:
+
+- Updated Online IDE to Python 3.11
+
+:microbe: Bug Fixes :microbe:
+
+- Enhanced performance for topics, live, and historical messages views.
+- Resolved an issue where consumer groups failed to display, and a spinner persisted in the topic view.
+- Fixed an issue causing duplicate entries in the historical logs view.
+
+## 2024-10-audit-historical-logs | 08 OCT 2024
+
+:seedling: New Features :seedling:
+- Historical Logs: A new feature that allows users to explore and download all historical logs of a deployment.
+- Audit Actions: Admin users now have access to a new audit option to review all actions performed by users on the platform.
+
+:gem: Enhancements :gem:
+
+- Split the "Code Samples" option into two categories: Connectors and Templates.
+- Added connector icons to the pipeline card when it is sourced from a connector library item.
+- Updated text and button labels for applications coming from a connector library item in the online IDE.
+Added the ability to configure network settings for Library items (Connectors/Templates).
+- Added HTTP URL option in the Clone menu when available.
+
+:microbe: Bug Fixes :microbe:
+
+- Fixed an issue where deployment components weren't selected correctly when accessed via deployment details.
+Resolved an "Unexpected Error" exception when changing a branch on an environment that had never been synchronized.
+- Fixed a bug preventing new deployments from being created when the Application metadata file was corrupted.
+- Addressed several issues with the GitHub integration during the project creation workflow.
+- Various minor UI bugs, fixes, and misalignment corrections.
+
+
 ## 2024-05-02-cli-beta-hf | 21 MAY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Users were unable to sign up for serverless plans
 
 ## 2024-05-01-cli-beta | 15 MAY 2024
 
-`NEW FEATURES`
+:seedling: New Features :seedling:
 
 - CLI (Beta)
     - New CLI commands
@@ -37,7 +120,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 - Organisations
     - New organisation overview page that allows users that are *Admins* within their organisation to see relevant organisation details.
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - Deployments
     - Added the environment variable `Quix_Deployment_ReplicaName` to allow the code behave differently depending of the Replica of the deployment.
@@ -59,7 +142,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - You should notice an improvement of speed and responsiveness to various places in the platform, e.g. creation of topics, loading of pages, and duration of sync processes
     - Updated Quix branding for all login pages
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Deployment
     - When deployments encounter a `runtime error` and fail to start, the logs being displayed were from the previous run (if available). This has now been fixed to show the live logs of the current failing run.
@@ -90,7 +173,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-04-05-performance-hf2 | 24 APRIL 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Deployments
     - Fixed a bug where multiple network ports exposure was not working properly
@@ -105,7 +188,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-04-04-performance-hf | 18 APRIL 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Topics
     - Fixed a bug were Consumer groups option was not working the first time you entered to the topic view
@@ -114,7 +197,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-04-03-performance | 17 APRIL 2024
 
-`NEW FEATURES`
+:seedling: New Features :seedling:
 
 - Deployments
     - Add the ability to expose ports internally in the pipeline via YAML
@@ -146,7 +229,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
             - Added support for PyCharm IDE (`quix local init`, `quix local ide`)
             - Added `--all` option to `quix local deploy` command to allow to redeploy all the applications that have a deployment already existing in the pipeline
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - Builds
     - Performance improvements on build process time
@@ -168,7 +251,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - Improved general user feedback when clicking between options
     - Improved PAT tokens empty states
     
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Topics
     - Fixed a null reference exception when the YAML wasn’t containing topic configuration and the user tried to edit it from the UI.
@@ -192,7 +275,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-04-02 | 08 APRIL 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Secrets were being filtered by environment
 - Variables weren't updating in the deployments dialogue
@@ -200,7 +283,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-04-01 | 01 APRIL 2024
 
-`NEW FEATURES`
+:seedling: New Features :seedling:
 
 - `Latest` feature allows users to indicate deployments that should always be using the latest version of application code
     - Changes in Deployment dialog (`latest` by default now)
@@ -225,7 +308,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 - Topics
     - Topic “Consumers” tab: New view to query topic consumer groups information including “End offsets”, “Lag” and “Progress” of the consumer.
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - Applications
     - Removed branch dropdown selector for simplified workflow after `latest` feature release
@@ -252,7 +335,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - Improved websocket reconnections
     - Implemented more loading states to CTAs
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Deployments
     - Fixed a bug where Logs view was stuck in “Retreiving metrics” state when the deployment was not producing logs.
@@ -276,12 +359,12 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-03-02-topic-details-hf | 13 MARCH 2024
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - Topics
     - Improved performance and memory consumption in Topics message browser feature
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Fixed "Missing 're-captcha-response' header" error
 - Non-admin users were losing some permissions after editing their name
@@ -292,7 +375,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-03-01-topic-details | 04 MARCH 2024
 
-`NEW FEATURES`
+:seedling: New Features :seedling:
 
 - Topics
     - Topic detail view: Users can explore information and data on a centralized topic view.
@@ -304,7 +387,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 - Other
     - Added Upstash broker type on the available message brokers integrations
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - Topics
     - Checkbox for toggling *Topics* view to filter by `Compacted topics`
@@ -350,7 +433,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - Minor spelling and grammar fixes
     - Added loading spinners on various CTAs to improve visiblity of click feedback
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Applications
     - Modifying a variable now loads app.yaml file again
@@ -410,27 +493,27 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-01-06 | 30 JANUARY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Replay service now replays the locations
 - Telemetry writer memory fix
 
 ## 2024-01-05-workspace-services | 19 JANUARY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Fix workspace services misbehaving with excessive amount of split messages
 - Fix message split in replay service
 
 ## 2024-01-04-permissions-hf3 | 19 JANUARY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
  
 - Fix parameters/events not persisting metadata when no root parameter/event was present
 
 ## 2024-01-03-permissions-hf2 | 17 JANUARY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Updated top banner for ungated users
 - Added some icons on the pipeline empty state
@@ -439,7 +522,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-01-02-permissions-hf | 15 JANUARY 2024
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Users
     - The ungated experience was not selecting the workspace correctly from the marketing side.
@@ -450,7 +533,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
 
 ## 2024-01-01-permissions | 15 JANUARY 2024
 
-`NEW FEATURES`
+:seedling: New Features :seedling:
 
 - New Import templates feature
     - Existing and new users can now import Project templates directly from https://quix.io/templates
@@ -475,7 +558,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - New options to Update existing topic configurations from the UI
     - New property cleanupPolicy to set the Cleanup policy of a topic as Delete or Compact.
 
-`IMPROVEMENTS`
+:gem: Enhancements :gem:
 
 - YAML
     - Improved several empty states related to YAML and Out of Sync status
@@ -511,7 +594,7 @@ See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs 
     - Capitalization across platform
     - Allow Trial period increase for non Trial users
 
-`BUG FIXES`
+:microbe: Bug Fixes :microbe:
 
 - Organisation Homepage
     - Prevent “undefined” repository issue when switching in and out of projects too quickly
