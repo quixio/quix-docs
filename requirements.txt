@@ -2,3 +2,4 @@ mkdocs-multirepo-plugin
 mkdocs-glightbox
 mkdocs-redirects
 mkdocs-include-markdown-plugin
+mkdocs-exclude-search
