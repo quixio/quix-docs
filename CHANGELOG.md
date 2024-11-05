@@ -75,13 +75,13 @@ Enterpsise changes
 - Split the "Code Samples" option into two categories: Connectors and Templates.
 - Added connector icons to the pipeline card when it is sourced from a connector library item.
 - Updated text and button labels for applications coming from a connector library item in the online IDE.
-Added the ability to configure network settings for Library items (Connectors/Templates).
+- Added the ability to configure network settings for Library items (Connectors/Templates).
 - Added HTTP URL option in the Clone menu when available.
 
 :microbe: Bug Fixes :microbe:
 
 - Fixed an issue where deployment components weren't selected correctly when accessed via deployment details.
-Resolved an "Unexpected Error" exception when changing a branch on an environment that had never been synchronized.
+- Resolved an "Unexpected Error" exception when changing a branch on an environment that had never been synchronized.
 - Fixed a bug preventing new deployments from being created when the Application metadata file was corrupted.
 - Addressed several issues with the GitHub integration during the project creation workflow.
 - Various minor UI bugs, fixes, and misalignment corrections.
