@@ -43,6 +43,8 @@ nav:
           - CSV Sink: quix-connectors/quix-streams/sinks/csv-sink.md
           - InfluxDB v3 Sink: quix-connectors/quix-streams/sinks/influxdb3-sink.md
           - File Sink: quix-connectors/quix-streams/sinks/file-sink.md
+          - Google Cloud BigQuery Sink: quix-connectors/quix-streams/sinks/google-cloud-bigquery-sink.md
+          - Google Cloud Pub/Sub Sink: quix-connectors/quix-streams/sinks/google-cloud-pubsub-sink.md
           - Creating a Custom Sink: quix-connectors/quix-streams/sinks/custom-sinks.md
 
       - Contribution Guide: 'quix-connectors/quix-streams/contribution-guide.md'
