@@ -26,7 +26,167 @@ nav:
 #      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.2.0'
+
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=task/connector-pages'
+  - 'Quix Connectors': 
+    - Quix Cloud:
+      - Sources:
+        - 'quix-connectors/quix-streams/sinks/README.md'
+      - Sinks:
+        - 'quix-connectors/quix-streams/sinks/README.md'
+    - Quix Streams:
+      - Sinks:
+          - 'quix-connectors/quix-streams/sinks/README.md'
+          - Apache Iceberg Sink: quix-connectors/quix-streams/sinks/apache-iceberg-sink.md
+          - CSV Sink: quix-connectors/quix-streams/sinks/csv-sink.md
+          - InfluxDB v3 Sink: quix-connectors/quix-streams/sinks/influxdb3-sink.md
+          - File Sink: quix-connectors/quix-streams/sinks/file-sink.md
+          - Creating a Custom Sink: quix-connectors/quix-streams/sinks/custom-sinks.md
+          - Coming Soon:
+            - AmazonGlue sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonGlue-sink.md
+            - AmazonS3 sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonS3-sink.md
+            - AmazonSQS sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonSQS-sink.md
+            - ApachePulsar sink: quix-connectors/quix-streams/sinks/coming-soon/ApachePulsar-sink.md
+            - Astra sink: quix-connectors/quix-streams/sinks/coming-soon/Astra-sink.md
+            - AzureBlobStorage sink: quix-connectors/quix-streams/sinks/coming-soon/AzureBlobStorage-sink.md
+            - Cassandra sink: quix-connectors/quix-streams/sinks/coming-soon/Cassandra-sink.md
+            - Chroma sink: quix-connectors/quix-streams/sinks/coming-soon/Chroma-sink.md
+            - Clickhouse sink: quix-connectors/quix-streams/sinks/coming-soon/Clickhouse-sink.md
+            - Convex sink: quix-connectors/quix-streams/sinks/coming-soon/Convex-sink.md
+            - Cumulio sink: quix-connectors/quix-streams/sinks/coming-soon/Cumulio-sink.md
+            - Databend sink: quix-connectors/quix-streams/sinks/coming-soon/Databend-sink.md
+            - Databricks sink: quix-connectors/quix-streams/sinks/coming-soon/Databricks-sink.md
+            - Doris sink: quix-connectors/quix-streams/sinks/coming-soon/Doris-sink.md
+            - DuckDB sink: quix-connectors/quix-streams/sinks/coming-soon/DuckDB-sink.md
+            - DynamoDB sink: quix-connectors/quix-streams/sinks/coming-soon/DynamoDB-sink.md
+            - ElasticSearch sink: quix-connectors/quix-streams/sinks/coming-soon/ElasticSearch-sink.md
+            - Exasol sink: quix-connectors/quix-streams/sinks/coming-soon/Exasol-sink.md
+            - Firebolt sink: quix-connectors/quix-streams/sinks/coming-soon/Firebolt-sink.md
+            - GoogleCloudBigQuery sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudBigQuery-sink.md
+            - GoogleCloudFirestore sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudFirestore-sink.md
+            - GoogleCloudStorage sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudStorage-sink.md
+            - GoogleSheets sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleSheets-sink.md
+            - Keen sink: quix-connectors/quix-streams/sinks/coming-soon/Keen-sink.md
+            - Kinesis sink: quix-connectors/quix-streams/sinks/coming-soon/Kinesis-sink.md
+            - Kvdb sink: quix-connectors/quix-streams/sinks/coming-soon/Kvdb-sink.md
+            - Langchain sink: quix-connectors/quix-streams/sinks/coming-soon/Langchain-sink.md
+            - LocalJson sink: quix-connectors/quix-streams/sinks/coming-soon/LocalJson-sink.md
+            - MariadbColumnstore sink: quix-connectors/quix-streams/sinks/coming-soon/MariadbColumnstore-sink.md
+            - Meilisearch sink: quix-connectors/quix-streams/sinks/coming-soon/Meilisearch-sink.md
+            - MicrosoftSQL sink: quix-connectors/quix-streams/sinks/coming-soon/MicrosoftSQL-sink.md
+            - Milvus sink: quix-connectors/quix-streams/sinks/coming-soon/Milvus-sink.md
+            - MongoDB sink: quix-connectors/quix-streams/sinks/coming-soon/MongoDB-sink.md
+            - Motherduck sink: quix-connectors/quix-streams/sinks/coming-soon/Motherduck-sink.md
+            - MQTT sink: quix-connectors/quix-streams/sinks/coming-soon/MQTT-sink.md
+            - MySQL sink: quix-connectors/quix-streams/sinks/coming-soon/MySQL-sink.md
+            - Oracle sink: quix-connectors/quix-streams/sinks/coming-soon/Oracle-sink.md
+            - Pgvector sink: quix-connectors/quix-streams/sinks/coming-soon/Pgvector-sink.md
+            - Pinecone sink: quix-connectors/quix-streams/sinks/coming-soon/Pinecone-sink.md
+            - Postgres sink: quix-connectors/quix-streams/sinks/coming-soon/Postgres-sink.md
+            - PostgresCDC sink: quix-connectors/quix-streams/sinks/coming-soon/PostgresCDC-sink.md
+            - PubSub sink: quix-connectors/quix-streams/sinks/coming-soon/PubSub-sink.md
+            - Qdrant sink: quix-connectors/quix-streams/sinks/coming-soon/Qdrant-sink.md
+            - R2 sink: quix-connectors/quix-streams/sinks/coming-soon/R2-sink.md
+            - RabbitMQ sink: quix-connectors/quix-streams/sinks/coming-soon/RabbitMQ-sink.md
+            - Redis sink: quix-connectors/quix-streams/sinks/coming-soon/Redis-sink.md
+            - Redpanda sink: quix-connectors/quix-streams/sinks/coming-soon/Redpanda-sink.md
+            - Redshift sink: quix-connectors/quix-streams/sinks/coming-soon/Redshift-sink.md
+            - Rockset sink: quix-connectors/quix-streams/sinks/coming-soon/Rockset-sink.md
+            - Scylla sink: quix-connectors/quix-streams/sinks/coming-soon/Scylla-sink.md
+            - Selectdb sink: quix-connectors/quix-streams/sinks/coming-soon/Selectdb-sink.md
+            - SftpJson sink: quix-connectors/quix-streams/sinks/coming-soon/SftpJson-sink.md
+            - Snowflake sink: quix-connectors/quix-streams/sinks/coming-soon/Snowflake-sink.md
+            - SnowflakeCortex sink: quix-connectors/quix-streams/sinks/coming-soon/SnowflakeCortex-sink.md
+            - Sqlite sink: quix-connectors/quix-streams/sinks/coming-soon/Sqlite-sink.md
+            - StarburstGalaxy sink: quix-connectors/quix-streams/sinks/coming-soon/StarburstGalaxy-sink.md
+            - Teradata sink: quix-connectors/quix-streams/sinks/coming-soon/Teradata-sink.md
+            - Tidb sink: quix-connectors/quix-streams/sinks/coming-soon/Tidb-sink.md
+            - Timeplus sink: quix-connectors/quix-streams/sinks/coming-soon/Timeplus-sink.md
+            - Typesense sink: quix-connectors/quix-streams/sinks/coming-soon/Typesense-sink.md
+            - Vectara sink: quix-connectors/quix-streams/sinks/coming-soon/Vectara-sink.md
+            - Vertica sink: quix-connectors/quix-streams/sinks/coming-soon/Vertica-sink.md
+            - Weaviate sink: quix-connectors/quix-streams/sinks/coming-soon/Weaviate-sink.md
+            - Xata sink: quix-connectors/quix-streams/sinks/coming-soon/Xata-sink.md
+            - Yellowbrick sink: quix-connectors/quix-streams/sinks/coming-soon/Yellowbrick-sink.md
+            - Yugabytedb sink: quix-connectors/quix-streams/sinks/coming-soon/Yugabytedb-sink.md
+
+      - Sources:
+          - 'quix-connectors/quix-streams/sources/README.md'
+          - CSV Source: quix-connectors/quix-streams/sources/csv-source.md
+          - File Source: quix-connectors/quix-streams/sources/file-source.md
+          - Kafka Replicator Source: quix-connectors/quix-streams/sources/kafka-source.md
+          - Quix Source: quix-connectors/quix-streams/sources/quix-source.md
+          - Creating a Custom Source: quix-connectors/quix-streams/sources/custom-sources.md
+          - Coming Soon:
+            - AmazonGlue source: quix-connectors/quix-streams/sources/coming-soon/AmazonGlue-source.md
+            - AmazonS3 source: quix-connectors/quix-streams/sources/coming-soon/AmazonS3-source.md
+            - AmazonSQS source: quix-connectors/quix-streams/sources/coming-soon/AmazonSQS-source.md
+            - ApacheIceberg source: quix-connectors/quix-streams/sources/coming-soon/ApacheIceberg-source.md
+            - ApachePulsar source: quix-connectors/quix-streams/sources/coming-soon/ApachePulsar-source.md
+            - Astra source: quix-connectors/quix-streams/sources/coming-soon/Astra-source.md
+            - AzureBlobStorage source: quix-connectors/quix-streams/sources/coming-soon/AzureBlobStorage-source.md
+            - Cassandra source: quix-connectors/quix-streams/sources/coming-soon/Cassandra-source.md
+            - Chroma source: quix-connectors/quix-streams/sources/coming-soon/Chroma-source.md
+            - Clickhouse source: quix-connectors/quix-streams/sources/coming-soon/Clickhouse-source.md
+            - Convex source: quix-connectors/quix-streams/sources/coming-soon/Convex-source.md
+            - Cumulio source: quix-connectors/quix-streams/sources/coming-soon/Cumulio-source.md
+            - Databend source: quix-connectors/quix-streams/sources/coming-soon/Databend-source.md
+            - Databricks source: quix-connectors/quix-streams/sources/coming-soon/Databricks-source.md
+            - Doris source: quix-connectors/quix-streams/sources/coming-soon/Doris-source.md
+            - DuckDB source: quix-connectors/quix-streams/sources/coming-soon/DuckDB-source.md
+            - DynamoDB source: quix-connectors/quix-streams/sources/coming-soon/DynamoDB-source.md
+            - ElasticSearch source: quix-connectors/quix-streams/sources/coming-soon/ElasticSearch-source.md
+            - Exasol source: quix-connectors/quix-streams/sources/coming-soon/Exasol-source.md
+            - Firebolt source: quix-connectors/quix-streams/sources/coming-soon/Firebolt-source.md
+            - GoogleCloudBigQuery source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudBigQuery-source.md
+            - GoogleCloudFirestore source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudFirestore-source.md
+            - GoogleCloudStorage source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudStorage-source.md
+            - GoogleSheets source: quix-connectors/quix-streams/sources/coming-soon/GoogleSheets-source.md
+            - Keen source: quix-connectors/quix-streams/sources/coming-soon/Keen-source.md
+            - Kinesis source: quix-connectors/quix-streams/sources/coming-soon/Kinesis-source.md
+            - Kvdb source: quix-connectors/quix-streams/sources/coming-soon/Kvdb-source.md
+            - Langchain source: quix-connectors/quix-streams/sources/coming-soon/Langchain-source.md
+            - LocalJson source: quix-connectors/quix-streams/sources/coming-soon/LocalJson-source.md
+            - MariadbColumnstore source: quix-connectors/quix-streams/sources/coming-soon/MariadbColumnstore-source.md
+            - Meilisearch source: quix-connectors/quix-streams/sources/coming-soon/Meilisearch-source.md
+            - MicrosoftSQL source: quix-connectors/quix-streams/sources/coming-soon/MicrosoftSQL-source.md
+            - Milvus source: quix-connectors/quix-streams/sources/coming-soon/Milvus-source.md
+            - MongoDB source: quix-connectors/quix-streams/sources/coming-soon/MongoDB-source.md
+            - Motherduck source: quix-connectors/quix-streams/sources/coming-soon/Motherduck-source.md
+            - MQTT source: quix-connectors/quix-streams/sources/coming-soon/MQTT-source.md
+            - MySQL source: quix-connectors/quix-streams/sources/coming-soon/MySQL-source.md
+            - Oracle source: quix-connectors/quix-streams/sources/coming-soon/Oracle-source.md
+            - Pgvector source: quix-connectors/quix-streams/sources/coming-soon/Pgvector-source.md
+            - Pinecone source: quix-connectors/quix-streams/sources/coming-soon/Pinecone-source.md
+            - Postgres source: quix-connectors/quix-streams/sources/coming-soon/Postgres-source.md
+            - PostgresCDC source: quix-connectors/quix-streams/sources/coming-soon/PostgresCDC-source.md
+            - PubSub source: quix-connectors/quix-streams/sources/coming-soon/PubSub-source.md
+            - Qdrant source: quix-connectors/quix-streams/sources/coming-soon/Qdrant-source.md
+            - R2 source: quix-connectors/quix-streams/sources/coming-soon/R2-source.md
+            - RabbitMQ source: quix-connectors/quix-streams/sources/coming-soon/RabbitMQ-source.md
+            - Redis source: quix-connectors/quix-streams/sources/coming-soon/Redis-source.md
+            - Redpanda source: quix-connectors/quix-streams/sources/coming-soon/Redpanda-source.md
+            - Redshift source: quix-connectors/quix-streams/sources/coming-soon/Redshift-source.md
+            - Rockset source: quix-connectors/quix-streams/sources/coming-soon/Rockset-source.md
+            - Scylla source: quix-connectors/quix-streams/sources/coming-soon/Scylla-source.md
+            - Selectdb source: quix-connectors/quix-streams/sources/coming-soon/Selectdb-source.md
+            - SftpJson source: quix-connectors/quix-streams/sources/coming-soon/SftpJson-source.md
+            - Snowflake source: quix-connectors/quix-streams/sources/coming-soon/Snowflake-source.md
+            - SnowflakeCortex source: quix-connectors/quix-streams/sources/coming-soon/SnowflakeCortex-source.md
+            - Sqlite source: quix-connectors/quix-streams/sources/coming-soon/Sqlite-source.md
+            - StarburstGalaxy source: quix-connectors/quix-streams/sources/coming-soon/StarburstGalaxy-source.md
+            - Teradata source: quix-connectors/quix-streams/sources/coming-soon/Teradata-source.md
+            - Tidb source: quix-connectors/quix-streams/sources/coming-soon/Tidb-source.md
+            - Timeplus source: quix-connectors/quix-streams/sources/coming-soon/Timeplus-source.md
+            - Typesense source: quix-connectors/quix-streams/sources/coming-soon/Typesense-source.md
+            - Vectara source: quix-connectors/quix-streams/sources/coming-soon/Vectara-source.md
+            - Vertica source: quix-connectors/quix-streams/sources/coming-soon/Vertica-source.md
+            - Weaviate source: quix-connectors/quix-streams/sources/coming-soon/Weaviate-source.md
+            - Xata source: quix-connectors/quix-streams/sources/coming-soon/Xata-source.md
+            - Yellowbrick source: quix-connectors/quix-streams/sources/coming-soon/Yellowbrick-source.md
+            - Yugabytedb source: quix-connectors/quix-streams/sources/coming-soon/Yugabytedb-source.md
+      - Contribution Guide: 'quix-connectors/quix-streams/contribution-guide.md'
+      - Community and Core Connectors: 'quix-connectors/quix-streams/community-and-core.md'
   - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.1.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
