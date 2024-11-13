@@ -30,10 +30,29 @@ nav:
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=task/connector-pages'
   - 'Quix Connectors': 
     - Quix Cloud:
-      - Sources:
-        - 'quix-connectors/quix-streams/sinks/README.md'
-      - Sinks:
-        - 'quix-connectors/quix-streams/sinks/README.md'
+      - 'Index': 'quix-connectors/templates/index.md'
+      - 'Sources':
+          - 'Confluent Kafka': 'quix-connectors/templates/confluentkafkasource-source.md'
+          - 'Environment': 'quix-connectors/templates/environmentsource-source.md'
+          - 'InfluxDB 2.0': 'quix-connectors/templates/influxdb20source-source.md'
+          - 'InfluxDB 3.0': 'quix-connectors/templates/influxdb30source-source.md'
+          - 'Kafka Connect': 'quix-connectors/templates/kafkaconnectsource-source.md'
+          - 'MQTT': 'quix-connectors/templates/mqttsource-source.md'
+          - 'Postgres CDC': 'quix-connectors/templates/postgrescdcsource-source.md'
+          - 'Redis': 'quix-connectors/templates/redissource-source.md'
+          - 'SQL Change Data Capture': 'quix-connectors/templates/sqlchangedatacapturesource-source.md'
+          - 'Segment': 'quix-connectors/templates/segmentsource-source.md'
+          - 'Snowplow': 'quix-connectors/templates/snowplowsource-source.md'
+      - 'Sinks':
+          - 'AWS S3 Iceberg': 'quix-connectors/templates/awss3icebergsink-destination.md'
+          - 'BigQuery': 'quix-connectors/templates/bigquerysink-destination.md'
+          - 'Confluent Kafka': 'quix-connectors/templates/confluentkafkasink-destination.md'
+          - 'InfluxDB 3.0': 'quix-connectors/templates/influxdb30sink-destination.md'
+          - 'Kafka Connect': 'quix-connectors/templates/kafkaconnectsink-destination.md'
+          - 'MQTT': 'quix-connectors/templates/mqttsink-destination.md'
+          - 'Redis': 'quix-connectors/templates/redissink-destination.md'
+          - 'Slack': 'quix-connectors/templates/slacksink-destination.md'
+          - 'Websocket': 'quix-connectors/templates/websocketdestination-destination.md'
     - Quix Streams:
       - Sinks:
           - 'quix-connectors/quix-streams/sinks/README.md'
@@ -287,9 +306,6 @@ nav:
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
     - 'Security': 'quix-cloud/security.md'
-    - 'Connectors':
-      - 'Index': 'connectors/index.md'
-#ConnectorsGetInsertedHere
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
