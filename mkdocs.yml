@@ -26,7 +26,191 @@ nav:
 #      - 'Process data': 'get-started/process.md'
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
+
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.2.0'
+  - 'Quix Connectors': 
+    - Quix Streams:
+      - Sources:
+          - 'quix-connectors/quix-streams/sources/README.md'
+          - CSV Source: quix-connectors/quix-streams/sources/csv-source.md
+          - File Source: quix-connectors/quix-streams/sources/file-source.md
+          - Kafka Replicator Source: quix-connectors/quix-streams/sources/kafka-source.md
+          - Quix Source: quix-connectors/quix-streams/sources/quix-source.md
+          - Creating a Custom Source: quix-connectors/quix-streams/sources/custom-sources.md
+      - Sinks:
+          - 'quix-connectors/quix-streams/sinks/README.md'
+          - Apache Iceberg Sink: quix-connectors/quix-streams/sinks/apache-iceberg-sink.md
+          - CSV Sink: quix-connectors/quix-streams/sinks/csv-sink.md
+          - InfluxDB v3 Sink: quix-connectors/quix-streams/sinks/influxdb3-sink.md
+          - File Sink: quix-connectors/quix-streams/sinks/file-sink.md
+          # - Google Cloud BigQuery Sink: quix-connectors/quix-streams/sinks/google-cloud-bigquery-sink.md
+          # - Google Cloud Pub/Sub Sink: quix-connectors/quix-streams/sinks/google-cloud-pubsub-sink.md
+          - Creating a Custom Sink: quix-connectors/quix-streams/sinks/custom-sinks.md
+
+      - Contribution Guide: 'quix-connectors/quix-streams/contribution-guide.md'
+      - Community and Core Connectors: 'quix-connectors/quix-streams/community-and-core.md'
+    - Quix Cloud:
+        - 'Index': 'quix-connectors/templates/index.md'
+        - 'Sources':
+            - 'Confluent Kafka': 'quix-connectors/templates/confluentkafkasource-source.md'
+            - 'Environment': 'quix-connectors/templates/environmentsource-source.md'
+            - 'InfluxDB 2.0': 'quix-connectors/templates/influxdb20source-source.md'
+            - 'InfluxDB 3.0': 'quix-connectors/templates/influxdb30source-source.md'
+            - 'Kafka Connect': 'quix-connectors/templates/kafkaconnectsource-source.md'
+            - 'MQTT': 'quix-connectors/templates/mqttsource-source.md'
+            - 'Postgres CDC': 'quix-connectors/templates/postgrescdcsource-source.md'
+            - 'Redis': 'quix-connectors/templates/redissource-source.md'
+            - 'SQL Change Data Capture': 'quix-connectors/templates/sqlchangedatacapturesource-source.md'
+            - 'Segment': 'quix-connectors/templates/segmentsource-source.md'
+            - 'Snowplow': 'quix-connectors/templates/snowplowsource-source.md'
+        - 'Sinks':
+            - 'AWS S3 Iceberg': 'quix-connectors/templates/awss3icebergsink-destination.md'
+            - 'BigQuery': 'quix-connectors/templates/bigquerysink-destination.md'
+            - 'Confluent Kafka': 'quix-connectors/templates/confluentkafkasink-destination.md'
+            - 'InfluxDB 3.0': 'quix-connectors/templates/influxdb30sink-destination.md'
+            - 'Kafka Connect': 'quix-connectors/templates/kafkaconnectsink-destination.md'
+            - 'MQTT': 'quix-connectors/templates/mqttsink-destination.md'
+            - 'Redis': 'quix-connectors/templates/redissink-destination.md'
+            - 'Slack': 'quix-connectors/templates/slacksink-destination.md'
+            - 'Websocket': 'quix-connectors/templates/websocketdestination-destination.md'
+    - Coming Soon:
+      - Sources:
+        - AmazonGlue source: quix-connectors/quix-streams/sources/coming-soon/AmazonGlue-source.md
+        - AmazonS3 source: quix-connectors/quix-streams/sources/coming-soon/AmazonS3-source.md
+        - AmazonSQS source: quix-connectors/quix-streams/sources/coming-soon/AmazonSQS-source.md
+        - ApacheIceberg source: quix-connectors/quix-streams/sources/coming-soon/ApacheIceberg-source.md
+        - ApachePulsar source: quix-connectors/quix-streams/sources/coming-soon/ApachePulsar-source.md
+        - Astra source: quix-connectors/quix-streams/sources/coming-soon/Astra-source.md
+        - AzureBlobStorage source: quix-connectors/quix-streams/sources/coming-soon/AzureBlobStorage-source.md
+        - Cassandra source: quix-connectors/quix-streams/sources/coming-soon/Cassandra-source.md
+        - Chroma source: quix-connectors/quix-streams/sources/coming-soon/Chroma-source.md
+        - Clickhouse source: quix-connectors/quix-streams/sources/coming-soon/Clickhouse-source.md
+        - Convex source: quix-connectors/quix-streams/sources/coming-soon/Convex-source.md
+        - Cumulio source: quix-connectors/quix-streams/sources/coming-soon/Cumulio-source.md
+        - Databend source: quix-connectors/quix-streams/sources/coming-soon/Databend-source.md
+        - Databricks source: quix-connectors/quix-streams/sources/coming-soon/Databricks-source.md
+        - Doris source: quix-connectors/quix-streams/sources/coming-soon/Doris-source.md
+        - DuckDB source: quix-connectors/quix-streams/sources/coming-soon/DuckDB-source.md
+        - DynamoDB source: quix-connectors/quix-streams/sources/coming-soon/DynamoDB-source.md
+        - ElasticSearch source: quix-connectors/quix-streams/sources/coming-soon/ElasticSearch-source.md
+        - Exasol source: quix-connectors/quix-streams/sources/coming-soon/Exasol-source.md
+        - Firebolt source: quix-connectors/quix-streams/sources/coming-soon/Firebolt-source.md
+        - GoogleCloudBigQuery source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudBigQuery-source.md
+        - GoogleCloudFirestore source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudFirestore-source.md
+        - GoogleCloudStorage source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudStorage-source.md
+        - GoogleSheets source: quix-connectors/quix-streams/sources/coming-soon/GoogleSheets-source.md
+        - Keen source: quix-connectors/quix-streams/sources/coming-soon/Keen-source.md
+        - Kinesis source: quix-connectors/quix-streams/sources/coming-soon/Kinesis-source.md
+        - Kvdb source: quix-connectors/quix-streams/sources/coming-soon/Kvdb-source.md
+        - Langchain source: quix-connectors/quix-streams/sources/coming-soon/Langchain-source.md
+        - LocalJson source: quix-connectors/quix-streams/sources/coming-soon/LocalJson-source.md
+        - MariadbColumnstore source: quix-connectors/quix-streams/sources/coming-soon/MariadbColumnstore-source.md
+        - Meilisearch source: quix-connectors/quix-streams/sources/coming-soon/Meilisearch-source.md
+        - MicrosoftSQL source: quix-connectors/quix-streams/sources/coming-soon/MicrosoftSQL-source.md
+        - Milvus source: quix-connectors/quix-streams/sources/coming-soon/Milvus-source.md
+        - MongoDB source: quix-connectors/quix-streams/sources/coming-soon/MongoDB-source.md
+        - Motherduck source: quix-connectors/quix-streams/sources/coming-soon/Motherduck-source.md
+        - MQTT source: quix-connectors/quix-streams/sources/coming-soon/MQTT-source.md
+        - MySQL source: quix-connectors/quix-streams/sources/coming-soon/MySQL-source.md
+        - Oracle source: quix-connectors/quix-streams/sources/coming-soon/Oracle-source.md
+        - Pgvector source: quix-connectors/quix-streams/sources/coming-soon/Pgvector-source.md
+        - Pinecone source: quix-connectors/quix-streams/sources/coming-soon/Pinecone-source.md
+        - Postgres source: quix-connectors/quix-streams/sources/coming-soon/Postgres-source.md
+        - PostgresCDC source: quix-connectors/quix-streams/sources/coming-soon/PostgresCDC-source.md
+        - PubSub source: quix-connectors/quix-streams/sources/coming-soon/PubSub-source.md
+        - Qdrant source: quix-connectors/quix-streams/sources/coming-soon/Qdrant-source.md
+        - R2 source: quix-connectors/quix-streams/sources/coming-soon/R2-source.md
+        - RabbitMQ source: quix-connectors/quix-streams/sources/coming-soon/RabbitMQ-source.md
+        - Redis source: quix-connectors/quix-streams/sources/coming-soon/Redis-source.md
+        - Redpanda source: quix-connectors/quix-streams/sources/coming-soon/Redpanda-source.md
+        - Redshift source: quix-connectors/quix-streams/sources/coming-soon/Redshift-source.md
+        - Rockset source: quix-connectors/quix-streams/sources/coming-soon/Rockset-source.md
+        - Scylla source: quix-connectors/quix-streams/sources/coming-soon/Scylla-source.md
+        - Selectdb source: quix-connectors/quix-streams/sources/coming-soon/Selectdb-source.md
+        - SftpJson source: quix-connectors/quix-streams/sources/coming-soon/SftpJson-source.md
+        - Snowflake source: quix-connectors/quix-streams/sources/coming-soon/Snowflake-source.md
+        - SnowflakeCortex source: quix-connectors/quix-streams/sources/coming-soon/SnowflakeCortex-source.md
+        - Sqlite source: quix-connectors/quix-streams/sources/coming-soon/Sqlite-source.md
+        - StarburstGalaxy source: quix-connectors/quix-streams/sources/coming-soon/StarburstGalaxy-source.md
+        - Teradata source: quix-connectors/quix-streams/sources/coming-soon/Teradata-source.md
+        - Tidb source: quix-connectors/quix-streams/sources/coming-soon/Tidb-source.md
+        - Timeplus source: quix-connectors/quix-streams/sources/coming-soon/Timeplus-source.md
+        - Typesense source: quix-connectors/quix-streams/sources/coming-soon/Typesense-source.md
+        - Vectara source: quix-connectors/quix-streams/sources/coming-soon/Vectara-source.md
+        - Vertica source: quix-connectors/quix-streams/sources/coming-soon/Vertica-source.md
+        - Weaviate source: quix-connectors/quix-streams/sources/coming-soon/Weaviate-source.md
+        - Xata source: quix-connectors/quix-streams/sources/coming-soon/Xata-source.md
+        - Yellowbrick source: quix-connectors/quix-streams/sources/coming-soon/Yellowbrick-source.md
+        - Yugabytedb source: quix-connectors/quix-streams/sources/coming-soon/Yugabytedb-source.md
+      - Sinks:
+        - AmazonGlue sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonGlue-sink.md
+        - AmazonS3 sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonS3-sink.md
+        - AmazonSQS sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonSQS-sink.md
+        - ApachePulsar sink: quix-connectors/quix-streams/sinks/coming-soon/ApachePulsar-sink.md
+        - Astra sink: quix-connectors/quix-streams/sinks/coming-soon/Astra-sink.md
+        - AzureBlobStorage sink: quix-connectors/quix-streams/sinks/coming-soon/AzureBlobStorage-sink.md
+        - Cassandra sink: quix-connectors/quix-streams/sinks/coming-soon/Cassandra-sink.md
+        - Chroma sink: quix-connectors/quix-streams/sinks/coming-soon/Chroma-sink.md
+        - Clickhouse sink: quix-connectors/quix-streams/sinks/coming-soon/Clickhouse-sink.md
+        - Convex sink: quix-connectors/quix-streams/sinks/coming-soon/Convex-sink.md
+        - Cumulio sink: quix-connectors/quix-streams/sinks/coming-soon/Cumulio-sink.md
+        - Databend sink: quix-connectors/quix-streams/sinks/coming-soon/Databend-sink.md
+        - Databricks sink: quix-connectors/quix-streams/sinks/coming-soon/Databricks-sink.md
+        - Doris sink: quix-connectors/quix-streams/sinks/coming-soon/Doris-sink.md
+        - DuckDB sink: quix-connectors/quix-streams/sinks/coming-soon/DuckDB-sink.md
+        - DynamoDB sink: quix-connectors/quix-streams/sinks/coming-soon/DynamoDB-sink.md
+        - ElasticSearch sink: quix-connectors/quix-streams/sinks/coming-soon/ElasticSearch-sink.md
+        - Exasol sink: quix-connectors/quix-streams/sinks/coming-soon/Exasol-sink.md
+        - Firebolt sink: quix-connectors/quix-streams/sinks/coming-soon/Firebolt-sink.md
+        - GoogleCloudBigQuery sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudBigQuery-sink.md
+        - GoogleCloudFirestore sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudFirestore-sink.md
+        - GoogleCloudStorage sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudStorage-sink.md
+        - GoogleSheets sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleSheets-sink.md
+        - Keen sink: quix-connectors/quix-streams/sinks/coming-soon/Keen-sink.md
+        - Kinesis sink: quix-connectors/quix-streams/sinks/coming-soon/Kinesis-sink.md
+        - Kvdb sink: quix-connectors/quix-streams/sinks/coming-soon/Kvdb-sink.md
+        - Langchain sink: quix-connectors/quix-streams/sinks/coming-soon/Langchain-sink.md
+        - LocalJson sink: quix-connectors/quix-streams/sinks/coming-soon/LocalJson-sink.md
+        - MariadbColumnstore sink: quix-connectors/quix-streams/sinks/coming-soon/MariadbColumnstore-sink.md
+        - Meilisearch sink: quix-connectors/quix-streams/sinks/coming-soon/Meilisearch-sink.md
+        - MicrosoftSQL sink: quix-connectors/quix-streams/sinks/coming-soon/MicrosoftSQL-sink.md
+        - Milvus sink: quix-connectors/quix-streams/sinks/coming-soon/Milvus-sink.md
+        - MongoDB sink: quix-connectors/quix-streams/sinks/coming-soon/MongoDB-sink.md
+        - Motherduck sink: quix-connectors/quix-streams/sinks/coming-soon/Motherduck-sink.md
+        - MQTT sink: quix-connectors/quix-streams/sinks/coming-soon/MQTT-sink.md
+        - MySQL sink: quix-connectors/quix-streams/sinks/coming-soon/MySQL-sink.md
+        - Oracle sink: quix-connectors/quix-streams/sinks/coming-soon/Oracle-sink.md
+        - Pgvector sink: quix-connectors/quix-streams/sinks/coming-soon/Pgvector-sink.md
+        - Pinecone sink: quix-connectors/quix-streams/sinks/coming-soon/Pinecone-sink.md
+        - Postgres sink: quix-connectors/quix-streams/sinks/coming-soon/Postgres-sink.md
+        - PostgresCDC sink: quix-connectors/quix-streams/sinks/coming-soon/PostgresCDC-sink.md
+        - PubSub sink: quix-connectors/quix-streams/sinks/coming-soon/PubSub-sink.md
+        - Qdrant sink: quix-connectors/quix-streams/sinks/coming-soon/Qdrant-sink.md
+        - R2 sink: quix-connectors/quix-streams/sinks/coming-soon/R2-sink.md
+        - RabbitMQ sink: quix-connectors/quix-streams/sinks/coming-soon/RabbitMQ-sink.md
+        - Redis sink: quix-connectors/quix-streams/sinks/coming-soon/Redis-sink.md
+        - Redpanda sink: quix-connectors/quix-streams/sinks/coming-soon/Redpanda-sink.md
+        - Redshift sink: quix-connectors/quix-streams/sinks/coming-soon/Redshift-sink.md
+        - Rockset sink: quix-connectors/quix-streams/sinks/coming-soon/Rockset-sink.md
+        - Scylla sink: quix-connectors/quix-streams/sinks/coming-soon/Scylla-sink.md
+        - Selectdb sink: quix-connectors/quix-streams/sinks/coming-soon/Selectdb-sink.md
+        - SftpJson sink: quix-connectors/quix-streams/sinks/coming-soon/SftpJson-sink.md
+        - Snowflake sink: quix-connectors/quix-streams/sinks/coming-soon/Snowflake-sink.md
+        - SnowflakeCortex sink: quix-connectors/quix-streams/sinks/coming-soon/SnowflakeCortex-sink.md
+        - Sqlite sink: quix-connectors/quix-streams/sinks/coming-soon/Sqlite-sink.md
+        - StarburstGalaxy sink: quix-connectors/quix-streams/sinks/coming-soon/StarburstGalaxy-sink.md
+        - Teradata sink: quix-connectors/quix-streams/sinks/coming-soon/Teradata-sink.md
+        - Tidb sink: quix-connectors/quix-streams/sinks/coming-soon/Tidb-sink.md
+        - Timeplus sink: quix-connectors/quix-streams/sinks/coming-soon/Timeplus-sink.md
+        - Typesense sink: quix-connectors/quix-streams/sinks/coming-soon/Typesense-sink.md
+        - Vectara sink: quix-connectors/quix-streams/sinks/coming-soon/Vectara-sink.md
+        - Vertica sink: quix-connectors/quix-streams/sinks/coming-soon/Vertica-sink.md
+        - Weaviate sink: quix-connectors/quix-streams/sinks/coming-soon/Weaviate-sink.md
+        - Xata sink: quix-connectors/quix-streams/sinks/coming-soon/Xata-sink.md
+        - Yellowbrick sink: quix-connectors/quix-streams/sinks/coming-soon/Yellowbrick-sink.md
+        - Yugabytedb sink: quix-connectors/quix-streams/sinks/coming-soon/Yugabytedb-sink.md
+
+
   - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.1.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
@@ -127,9 +311,6 @@ nav:
           - 'Setup': 'apis/portal-api/setup.md'
           - 'HTTP requests': 'apis/portal-api/http-requests.md'
     - 'Security': 'quix-cloud/security.md'
-    - 'Connectors':
-      - 'Index': 'connectors/index.md'
-#ConnectorsGetInsertedHere
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
@@ -175,6 +356,263 @@ nav:
     - 'Reference':
       - 'Glossary': 'kb/glossary.md'
       - 'Contribute': 'kb/contribute.md'
+      - 'Planned Connectors':
+        - kafka-to-apache-airflow: connect/kafka-to-apache-airflow.md
+        - kafka-to-apache-ambari: connect/kafka-to-apache-ambari.md
+        - kafka-to-apache-arrow: connect/kafka-to-apache-arrow.md
+        - kafka-to-apache-atlas: connect/kafka-to-apache-atlas.md
+        - kafka-to-apache-avro: connect/kafka-to-apache-avro.md
+        - kafka-to-apache-beam: connect/kafka-to-apache-beam.md
+        - kafka-to-apache-bookkeeper: connect/kafka-to-apache-bookkeeper.md
+        - kafka-to-apache-calcite: connect/kafka-to-apache-calcite.md
+        - kafka-to-apache-camel: connect/kafka-to-apache-camel.md
+        - kafka-to-apache-cassandra: connect/kafka-to-apache-cassandra.md
+        - kafka-to-apache-crunch: connect/kafka-to-apache-crunch.md
+        - kafka-to-apache-curator: connect/kafka-to-apache-curator.md
+        - kafka-to-apache-drill: connect/kafka-to-apache-drill.md
+        - kafka-to-apache-druid: connect/kafka-to-apache-druid.md
+        - kafka-to-apache-flink: connect/kafka-to-apache-flink.md
+        - kafka-to-apache-gobblin: connect/kafka-to-apache-gobblin.md
+        - kafka-to-apache-hadoop: connect/kafka-to-apache-hadoop.md
+        - kafka-to-apache-hbase: connect/kafka-to-apache-hbase.md
+        - kafka-to-apache-helix: connect/kafka-to-apache-helix.md
+        - kafka-to-apache-hudi: connect/kafka-to-apache-hudi.md
+        - kafka-to-apache-iceberg: connect/kafka-to-apache-iceberg.md
+        - kafka-to-apache-kafka: connect/kafka-to-apache-kafka.md
+        - kafka-to-apache-karaf: connect/kafka-to-apache-karaf.md
+        - kafka-to-apache-knox: connect/kafka-to-apache-knox.md
+        - kafka-to-apache-kylin: connect/kafka-to-apache-kylin.md
+        - kafka-to-apache-lens: connect/kafka-to-apache-lens.md
+        - kafka-to-apache-mahout: connect/kafka-to-apache-mahout.md
+        - kafka-to-apache-manifoldcf: connect/kafka-to-apache-manifoldcf.md
+        - kafka-to-apache-marmotta: connect/kafka-to-apache-marmotta.md
+        - kafka-to-apache-mesos: connect/kafka-to-apache-mesos.md
+        - kafka-to-apache-metron: connect/kafka-to-apache-metron.md
+        - kafka-to-apache-mxnet: connect/kafka-to-apache-mxnet.md
+        - kafka-to-apache-nifi: connect/kafka-to-apache-nifi.md
+        - kafka-to-apache-nutch: connect/kafka-to-apache-nutch.md
+        - kafka-to-apache-oozie: connect/kafka-to-apache-oozie.md
+        - kafka-to-apache-opennlp: connect/kafka-to-apache-opennlp.md
+        - kafka-to-apache-orc: connect/kafka-to-apache-orc.md
+        - kafka-to-apache-parquet: connect/kafka-to-apache-parquet.md
+        - kafka-to-apache-pig: connect/kafka-to-apache-pig.md
+        - kafka-to-apache-pinot: connect/kafka-to-apache-pinot.md
+        - kafka-to-apache-predictionio: connect/kafka-to-apache-predictionio.md
+        - kafka-to-apache-pulsar: connect/kafka-to-apache-pulsar.md
+        - kafka-to-apache-ranger: connect/kafka-to-apache-ranger.md
+        - kafka-to-apache-reef: connect/kafka-to-apache-reef.md
+        - kafka-to-apache-sentry: connect/kafka-to-apache-sentry.md
+        - kafka-to-apache-shiro: connect/kafka-to-apache-shiro.md
+        - kafka-to-apache-singa: connect/kafka-to-apache-singa.md
+        - kafka-to-apache-solr: connect/kafka-to-apache-solr.md
+        - kafka-to-apache-spark: connect/kafka-to-apache-spark.md
+        - kafka-to-apache-sqoop: connect/kafka-to-apache-sqoop.md
+        - kafka-to-apache-storm: connect/kafka-to-apache-storm.md
+        - kafka-to-apache-superset: connect/kafka-to-apache-superset.md
+        - kafka-to-apache-tajo: connect/kafka-to-apache-tajo.md
+        - kafka-to-apache-tez: connect/kafka-to-apache-tez.md
+        - kafka-to-apache-tika: connect/kafka-to-apache-tika.md
+        - kafka-to-apache-uima: connect/kafka-to-apache-uima.md
+        - kafka-to-apache-vxquery: connect/kafka-to-apache-vxquery.md
+        - kafka-to-apache-wicket: connect/kafka-to-apache-wicket.md
+        - kafka-to-apache-zeppelin: connect/kafka-to-apache-zeppelin.md
+        - kafka-to-apache-zookeeper: connect/kafka-to-apache-zookeeper.md
+        - kafka-to-aws-amplify: connect/kafka-to-aws-amplify.md
+        - kafka-to-aws-app-runner: connect/kafka-to-aws-app-runner.md
+        - kafka-to-aws-appsync: connect/kafka-to-aws-appsync.md
+        - kafka-to-aws-athena: connect/kafka-to-aws-athena.md
+        - kafka-to-aws-auto-scaling: connect/kafka-to-aws-auto-scaling.md
+        - kafka-to-aws-backup: connect/kafka-to-aws-backup.md
+        - kafka-to-aws-batch: connect/kafka-to-aws-batch.md
+        - kafka-to-aws-certificate-manager: connect/kafka-to-aws-certificate-manager.md
+        - kafka-to-aws-cloudformation: connect/kafka-to-aws-cloudformation.md
+        - kafka-to-aws-cloudfront: connect/kafka-to-aws-cloudfront.md
+        - kafka-to-aws-cloudtrail: connect/kafka-to-aws-cloudtrail.md
+        - kafka-to-aws-cloudwatch: connect/kafka-to-aws-cloudwatch.md
+        - kafka-to-aws-codebuild: connect/kafka-to-aws-codebuild.md
+        - kafka-to-aws-codecommit: connect/kafka-to-aws-codecommit.md
+        - kafka-to-aws-codedeploy: connect/kafka-to-aws-codedeploy.md
+        - kafka-to-aws-codepipeline: connect/kafka-to-aws-codepipeline.md
+        - kafka-to-aws-codestar: connect/kafka-to-aws-codestar.md
+        - kafka-to-aws-cognito: connect/kafka-to-aws-cognito.md
+        - kafka-to-aws-config: connect/kafka-to-aws-config.md
+        - kafka-to-aws-data-pipeline: connect/kafka-to-aws-data-pipeline.md
+        - kafka-to-aws-database-migration-service: connect/kafka-to-aws-database-migration-service.md
+        - kafka-to-aws-direct-connect: connect/kafka-to-aws-direct-connect.md
+        - kafka-to-aws-directory-service: connect/kafka-to-aws-directory-service.md
+        - kafka-to-aws-dynamodb: connect/kafka-to-aws-dynamodb.md
+        - kafka-to-aws-ec2: connect/kafka-to-aws-ec2.md
+        - kafka-to-aws-elastic-beanstalk: connect/kafka-to-aws-elastic-beanstalk.md
+        - kafka-to-aws-elastic-load-balancing: connect/kafka-to-aws-elastic-load-balancing.md
+        - kafka-to-aws-elemental-mediaconvert: connect/kafka-to-aws-elemental-mediaconvert.md
+        - kafka-to-aws-elemental-medialive: connect/kafka-to-aws-elemental-medialive.md
+        - kafka-to-aws-elemental-mediapackage: connect/kafka-to-aws-elemental-mediapackage.md
+        - kafka-to-aws-elemental-mediastore: connect/kafka-to-aws-elemental-mediastore.md
+        - kafka-to-aws-elemental-mediatailor: connect/kafka-to-aws-elemental-mediatailor.md
+        - kafka-to-aws-eventbridge: connect/kafka-to-aws-eventbridge.md
+        - kafka-to-aws-fargate: connect/kafka-to-aws-fargate.md
+        - kafka-to-aws-firewall-manager: connect/kafka-to-aws-firewall-manager.md
+        - kafka-to-aws-glue: connect/kafka-to-aws-glue.md
+        - kafka-to-aws-iam: connect/kafka-to-aws-iam.md
+        - kafka-to-aws-iot-core: connect/kafka-to-aws-iot-core.md
+        - kafka-to-aws-kinesis: connect/kafka-to-aws-kinesis.md
+        - kafka-to-aws-lambda: connect/kafka-to-aws-lambda.md
+        - kafka-to-aws-lightsail: connect/kafka-to-aws-lightsail.md
+        - kafka-to-aws-macie: connect/kafka-to-aws-macie.md
+        - kafka-to-aws-managed-blockchain: connect/kafka-to-aws-managed-blockchain.md
+        - kafka-to-aws-marketplace: connect/kafka-to-aws-marketplace.md
+        - kafka-to-aws-migration-hub: connect/kafka-to-aws-migration-hub.md
+        - kafka-to-aws-mobile-hub: connect/kafka-to-aws-mobile-hub.md
+        - kafka-to-aws-opsworks: connect/kafka-to-aws-opsworks.md
+        - kafka-to-aws-organizations: connect/kafka-to-aws-organizations.md
+        - kafka-to-aws-outposts: connect/kafka-to-aws-outposts.md
+        - kafka-to-aws-personal-health-dashboard: connect/kafka-to-aws-personal-health-dashboard.md
+        - kafka-to-aws-pinpoint: connect/kafka-to-aws-pinpoint.md
+        - kafka-to-aws-polly: connect/kafka-to-aws-polly.md
+        - kafka-to-aws-privatelink: connect/kafka-to-aws-privatelink.md
+        - kafka-to-aws-rds: connect/kafka-to-aws-rds.md
+        - kafka-to-aws-redshift: connect/kafka-to-aws-redshift.md
+        - kafka-to-aws-rekognition: connect/kafka-to-aws-rekognition.md
+        - kafka-to-aws-resource-access-manager: connect/kafka-to-aws-resource-access-manager.md
+        - kafka-to-aws-robomaker: connect/kafka-to-aws-robomaker.md
+        - kafka-to-aws-route-53: connect/kafka-to-aws-route-53.md
+        - kafka-to-aws-s3: connect/kafka-to-aws-s3.md
+        - kafka-to-aws-sagemaker: connect/kafka-to-aws-sagemaker.md
+        - kafka-to-aws-secrets-manager: connect/kafka-to-aws-secrets-manager.md
+        - kafka-to-aws-security-hub: connect/kafka-to-aws-security-hub.md
+        - kafka-to-aws-server-migration-service: connect/kafka-to-aws-server-migration-service.md
+        - kafka-to-aws-service-catalog: connect/kafka-to-aws-service-catalog.md
+        - kafka-to-aws-shield: connect/kafka-to-aws-shield.md
+        - kafka-to-aws-snowball: connect/kafka-to-aws-snowball.md
+        - kafka-to-aws-step-functions: connect/kafka-to-aws-step-functions.md
+        - kafka-to-aws-storage-gateway: connect/kafka-to-aws-storage-gateway.md
+        - kafka-to-aws-systems-manager: connect/kafka-to-aws-systems-manager.md
+        - kafka-to-aws-timestream: connect/kafka-to-aws-timestream.md
+        - kafka-to-aws-transfer-family: connect/kafka-to-aws-transfer-family.md
+        - kafka-to-aws-transit-gateway: connect/kafka-to-aws-transit-gateway.md
+        - kafka-to-aws-trusted-advisor: connect/kafka-to-aws-trusted-advisor.md
+        - kafka-to-aws-vpc: connect/kafka-to-aws-vpc.md
+        - kafka-to-aws-waf: connect/kafka-to-aws-waf.md
+        - kafka-to-aws-well-architected-tool: connect/kafka-to-aws-well-architected-tool.md
+        - kafka-to-aws-x-ray: connect/kafka-to-aws-x-ray.md
+        - kafka-to-azure-synapse: connect/kafka-to-azure-synapse.md
+        - kafka-to-bigquery: connect/kafka-to-bigquery.md
+        - kafka-to-bitbucket: connect/kafka-to-bitbucket.md
+        - kafka-to-bokeh: connect/kafka-to-bokeh.md
+        - kafka-to-circleci: connect/kafka-to-circleci.md
+        - kafka-to-clickhouse: connect/kafka-to-clickhouse.md
+        - kafka-to-cloudflare: connect/kafka-to-cloudflare.md
+        - kafka-to-couchbase: connect/kafka-to-couchbase.md
+        - kafka-to-dagster: connect/kafka-to-dagster.md
+        - kafka-to-databricks: connect/kafka-to-databricks.md
+        - kafka-to-datadog: connect/kafka-to-datadog.md
+        - kafka-to-django: connect/kafka-to-django.md
+        - kafka-to-domo: connect/kafka-to-domo.md
+        - kafka-to-dropbox: connect/kafka-to-dropbox.md
+        - kafka-to-elasticsearch: connect/kafka-to-elasticsearch.md
+        - kafka-to-exasol: connect/kafka-to-exasol.md
+        - kafka-to-faunadb: connect/kafka-to-faunadb.md
+        - kafka-to-firebase: connect/kafka-to-firebase.md
+        - kafka-to-fivetran: connect/kafka-to-fivetran.md
+        - kafka-to-flask: connect/kafka-to-flask.md
+        - kafka-to-git: connect/kafka-to-git.md
+        - kafka-to-google-cloud-platform: connect/kafka-to-google-cloud-platform.md
+        - kafka-to-google-drive: connect/kafka-to-google-drive.md
+        - kafka-to-grafana: connect/kafka-to-grafana.md
+        - kafka-to-greenplum: connect/kafka-to-greenplum.md
+        - kafka-to-h2o-ai: connect/kafka-to-h2o-ai.md
+        - kafka-to-hasura: connect/kafka-to-hasura.md
+        - kafka-to-heroku: connect/kafka-to-heroku.md
+        - kafka-to-hugo: connect/kafka-to-hugo.md
+        - kafka-to-ibm-db2: connect/kafka-to-ibm-db2.md
+        - kafka-to-informatica: connect/kafka-to-informatica.md
+        - kafka-to-insightly: connect/kafka-to-insightly.md
+        - kafka-to-jenkins: connect/kafka-to-jenkins.md
+        - kafka-to-jira: connect/kafka-to-jira.md
+        - kafka-to-jupyter: connect/kafka-to-jupyter.md
+        - kafka-to-kibana: connect/kafka-to-kibana.md
+        - kafka-to-knime: connect/kafka-to-knime.md
+        - kafka-to-kubernetes: connect/kafka-to-kubernetes.md
+        - kafka-to-linkedin: connect/kafka-to-linkedin.md
+        - kafka-to-looker: connect/kafka-to-looker.md
+        - kafka-to-lookml: connect/kafka-to-lookml.md
+        - kafka-to-luigi: connect/kafka-to-luigi.md
+        - kafka-to-mailchimp: connect/kafka-to-mailchimp.md
+        - kafka-to-mariadb: connect/kafka-to-mariadb.md
+        - kafka-to-matplotlib: connect/kafka-to-matplotlib.md
+        - kafka-to-medium: connect/kafka-to-medium.md
+        - kafka-to-meltano: connect/kafka-to-meltano.md
+        - kafka-to-memcached: connect/kafka-to-memcached.md
+        - kafka-to-microsoft-azure: connect/kafka-to-microsoft-azure.md
+        - kafka-to-microsoft-onedrive: connect/kafka-to-microsoft-onedrive.md
+        - kafka-to-microsoft-teams: connect/kafka-to-microsoft-teams.md
+        - kafka-to-mongodb: connect/kafka-to-mongodb.md
+        - kafka-to-mysql: connect/kafka-to-mysql.md
+        - kafka-to-netezza: connect/kafka-to-netezza.md
+        - kafka-to-netlify: connect/kafka-to-netlify.md
+        - kafka-to-notion: connect/kafka-to-notion.md
+        - kafka-to-numpy: connect/kafka-to-numpy.md
+        - kafka-to-opencart: connect/kafka-to-opencart.md
+        - kafka-to-oracle: connect/kafka-to-oracle.md
+        - kafka-to-pandas: connect/kafka-to-pandas.md
+        - kafka-to-perl: connect/kafka-to-perl.md
+        - kafka-to-plotly: connect/kafka-to-plotly.md
+        - kafka-to-postgresql: connect/kafka-to-postgresql.md
+        - kafka-to-power-bi: connect/kafka-to-power-bi.md
+        - kafka-to-prefect: connect/kafka-to-prefect.md
+        - kafka-to-presto: connect/kafka-to-presto.md
+        - kafka-to-pytorch: connect/kafka-to-pytorch.md
+        - kafka-to-qlik: connect/kafka-to-qlik.md
+        - kafka-to-rapidminer: connect/kafka-to-rapidminer.md
+        - kafka-to-redis-cloud: connect/kafka-to-redis-cloud.md
+        - kafka-to-redis-enterprise: connect/kafka-to-redis-enterprise.md
+        - kafka-to-redis: connect/kafka-to-redis.md
+        - kafka-to-redisai: connect/kafka-to-redisai.md
+        - kafka-to-redisbloom: connect/kafka-to-redisbloom.md
+        - kafka-to-redisgears: connect/kafka-to-redisgears.md
+        - kafka-to-redisgraph: connect/kafka-to-redisgraph.md
+        - kafka-to-redisinsight: connect/kafka-to-redisinsight.md
+        - kafka-to-redisjson: connect/kafka-to-redisjson.md
+        - kafka-to-redshift: connect/kafka-to-redshift.md
+        - kafka-to-ringcentral: connect/kafka-to-ringcentral.md
+        - kafka-to-ruby-on-rails: connect/kafka-to-ruby-on-rails.md
+        - kafka-to-rust: connect/kafka-to-rust.md
+        - kafka-to-salesforce: connect/kafka-to-salesforce.md
+        - kafka-to-sas: connect/kafka-to-sas.md
+        - kafka-to-scikit-learn: connect/kafka-to-scikit-learn.md
+        - kafka-to-seaborn: connect/kafka-to-seaborn.md
+        - kafka-to-segment: connect/kafka-to-segment.md
+        - kafka-to-sendgrid: connect/kafka-to-sendgrid.md
+        - kafka-to-shopify: connect/kafka-to-shopify.md
+        - kafka-to-slack: connect/kafka-to-slack.md
+        - kafka-to-snowflake: connect/kafka-to-snowflake.md
+        - kafka-to-spss: connect/kafka-to-spss.md
+        - kafka-to-sqlite: connect/kafka-to-sqlite.md
+        - kafka-to-supabase: connect/kafka-to-supabase.md
+        - kafka-to-tableau: connect/kafka-to-tableau.md
+        - kafka-to-talend: connect/kafka-to-talend.md
+        - kafka-to-tensorflow: connect/kafka-to-tensorflow.md
+        - kafka-to-terraform: connect/kafka-to-terraform.md
+        - kafka-to-trino: connect/kafka-to-trino.md
+        - kafka-to-twilio: connect/kafka-to-twilio.md
+        - kafka-to-vercel: connect/kafka-to-vercel.md
+        - kafka-to-vertica: connect/kafka-to-vertica.md
+        - kafka-to-vultr: connect/kafka-to-vultr.md
+        - kafka-to-wasabi: connect/kafka-to-wasabi.md
+        - kafka-to-webex: connect/kafka-to-webex.md
+        - kafka-to-webflow: connect/kafka-to-webflow.md
+        - kafka-to-weebly: connect/kafka-to-weebly.md
+        - kafka-to-woocommerce: connect/kafka-to-woocommerce.md
+        - kafka-to-wordpress: connect/kafka-to-wordpress.md
+        - kafka-to-wrike: connect/kafka-to-wrike.md
+        - kafka-to-xml-commons: connect/kafka-to-xml-commons.md
+        - kafka-to-xml-graphics: connect/kafka-to-xml-graphics.md
+        - kafka-to-xml-rpc: connect/kafka-to-xml-rpc.md
+        - kafka-to-xml-security: connect/kafka-to-xml-security.md
+        - kafka-to-xmlbeans: connect/kafka-to-xmlbeans.md
+        - kafka-to-zoho: connect/kafka-to-zoho.md
+        - kafka-to-zoom: connect/kafka-to-zoom.md
+
     - 'Tutorials':
       - 'Overview': 'tutorials/overview.md'
       - 'Event detection and alerting featuring InfluxDB and PagerDuty': 
@@ -266,6 +704,8 @@ nav:
       #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
   - Blog Index:
     - blog/index.md
+    
+    
 # Exclude build scripts from v2.0+
 exclude_docs: |
   quix-streams/v2-0-latest/build/*
