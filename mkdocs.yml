@@ -47,7 +47,7 @@ nav:
           # - Google Cloud Pub/Sub Sink: quix-connectors/quix-streams/sinks/google-cloud-pubsub-sink.md
           - Creating a Custom Sink: quix-connectors/quix-streams/sinks/custom-sinks.md
 
-      - Contribution Guide: 'quix-connectors/quix-streams/contribution-guide.md'
+      - Contribution Guide: "/quix-streams/connectors/contribution-guide"
       - Community and Core Connectors: 'quix-connectors/quix-streams/community-and-core.md'
     - Quix Cloud:
         - 'Index': 'quix-connectors/templates/index.md'
