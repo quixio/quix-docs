@@ -27,28 +27,30 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.2.0'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=chore/move-connectors-docs'
   - 'Quix Connectors': 
+    # Pages for "Quix Streams" section are imported from https://github.com/quixio/quix-streams
     - Quix Streams:
       - Sources:
-          - 'quix-connectors/quix-streams/sources/README.md'
-          - CSV Source: quix-connectors/quix-streams/sources/csv-source.md
-          - File Source: quix-connectors/quix-streams/sources/file-source.md
-          - Kafka Replicator Source: quix-connectors/quix-streams/sources/kafka-source.md
-          - Quix Source: quix-connectors/quix-streams/sources/quix-source.md
-          - Creating a Custom Source: quix-connectors/quix-streams/sources/custom-sources.md
+          - 'quix-streams/connectors/sources/README.md'
+          - CSV Source: 'quix-streams/connectors/sources/csv-source.md'
+          - File Source: 'quix-streams/connectors/sources/file-source.md'
+          - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
+          - Kafka Replicator Source: 'quix-streams/connectors/sources/kafka-source.md'
+          - Quix Environment Source: 'quix-streams/connectors/sources/quix-source.md'
+          - Creating a Custom Source: 'quix-streams/connectors/sources/custom-sources.md'
       - Sinks:
-          - 'quix-connectors/quix-streams/sinks/README.md'
-          - Apache Iceberg Sink: quix-connectors/quix-streams/sinks/apache-iceberg-sink.md
-          - CSV Sink: quix-connectors/quix-streams/sinks/csv-sink.md
-          - InfluxDB v3 Sink: quix-connectors/quix-streams/sinks/influxdb3-sink.md
-          - File Sink: quix-connectors/quix-streams/sinks/file-sink.md
-          # - Google Cloud BigQuery Sink: quix-connectors/quix-streams/sinks/google-cloud-bigquery-sink.md
-          # - Google Cloud Pub/Sub Sink: quix-connectors/quix-streams/sinks/google-cloud-pubsub-sink.md
-          - Creating a Custom Sink: quix-connectors/quix-streams/sinks/custom-sinks.md
+          - 'quix-streams/connectors/sinks/README.md'
+          - Apache Iceberg Sink: 'quix-streams/connectors/sinks/apache-iceberg-sink.md'
+          - CSV Sink: 'quix-streams/connectors/sinks/csv-sink.md'
+          - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
+          - File Sink: 'quix-streams/connectors/sinks/file-sink.md'
+          - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
+          - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
+          - Creating a Custom Sink: 'quix-streams/connectors/sinks/custom-sinks.md'
 
-      - Contribution Guide: "quix-streams/connectors/contribution-guide"
-      - Community and Core Connectors: 'quix-connectors/quix-streams/community-and-core.md'
+      - Contribution Guide: 'quix-streams/connectors/contribution-guide'
+      - Community and Core Connectors: 'quix-streams/connectors/community-and-core.md'
     - Quix Cloud:
         - 'Index': 'quix-connectors/templates/index.md'
         - 'Sources':
