@@ -12,6 +12,7 @@ repo_name: quixio/quix-docs
 repo_url: https://github.com/quixio/quix-docs
 edit_uri: tree/dev/docs
 
+
 nav:
   - 'Get started':
     - 'Welcome': 'get-started/welcome.md'
