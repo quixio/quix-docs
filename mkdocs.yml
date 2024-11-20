@@ -41,6 +41,7 @@ nav:
           - Creating a Custom Source: 'quix-streams/connectors/sources/custom-sources.md'
       - Sinks:
           - 'quix-streams/connectors/sinks/README.md'
+          - Amazon Kinesis Sink: 'quix-streams/connectors/sinks/amazon-kinesis-sink.md'
           - Apache Iceberg Sink: 'quix-streams/connectors/sinks/apache-iceberg-sink.md'
           - CSV Sink: 'quix-streams/connectors/sinks/csv-sink.md'
           - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
@@ -169,7 +170,6 @@ nav:
         - GoogleCloudStorage sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleCloudStorage-sink.md
         - GoogleSheets sink: quix-connectors/quix-streams/sinks/coming-soon/GoogleSheets-sink.md
         - Keen sink: quix-connectors/quix-streams/sinks/coming-soon/Keen-sink.md
-        - Kinesis sink: quix-connectors/quix-streams/sinks/coming-soon/Kinesis-sink.md
         - Kvdb sink: quix-connectors/quix-streams/sinks/coming-soon/Kvdb-sink.md
         - Langchain sink: quix-connectors/quix-streams/sinks/coming-soon/Langchain-sink.md
         - LocalJson sink: quix-connectors/quix-streams/sinks/coming-soon/LocalJson-sink.md
