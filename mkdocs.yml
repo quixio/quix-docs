@@ -236,6 +236,7 @@ nav:
         - 'Create a topic': 'create/create-topic.md'
         - 'Data tiers': 'create/data-tiers.md'    
         - 'Create a scratchpad': 'create/create-scratchpad.md'
+        - 'Create a linked project': 'create/create-linked-project.md'
       - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
