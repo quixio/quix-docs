@@ -16,7 +16,7 @@ This guide assumes you have the following:
 * A Quix Cloud account.
 
   ??? info "Start for free"
-      [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+      [Book a session](https://quix.io/book-a-demo) with us to start for free.
       
       We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
       
