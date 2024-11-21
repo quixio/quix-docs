@@ -9,7 +9,7 @@ Quix enables you to sync to Apache Kafka <span id="to_or_from">from</span> <span
 
 Get a personal guided tour of the Quix Platform, SDK and API's to help you get started with assessing and using Quix, without wasting your time and without pressuring you to signup or purchase. Guaranteed!
 
-[Book here!](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2?__hstc=175542013.19c333c2ae8002be5fbc6a17a447e442.1730474801833.1730474801833.1730716142494.2&__hssc=175542013.2.1730716142494&__hsfp=3927774151)
+[Book here!](https://quix.io/book-a-demo)
 
 ## Explore
 
@@ -23,7 +23,7 @@ If you prefer to explore the platform in your own time then have a look at our r
 
 Contact us to find out how to access this connector.
 
-[Book here!](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2?__hstc=175542013.19c333c2ae8002be5fbc6a17a447e442.1730474801833.1730474801833.1730716142494.2&__hssc=175542013.2.1730716142494&__hsfp=3927774151)
+[Book here!](https://quix.io/book-a-demo)
 
 ### Real-time data
 

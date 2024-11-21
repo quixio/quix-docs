@@ -30,7 +30,7 @@ Quix BYOC has been developed to work on a variety of Kubernetes distributions fr
 
 In this step you will be receiving a username / API token and docker registry URL. Quix will provide you with these before you start the installation process.
 
-&nbsp;&nbsp;&nbsp;&nbsp;[Contact sales](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
+&nbsp;&nbsp;&nbsp;&nbsp;[Contact sales](https://quix.io/book-a-demo)
 
 ## 3. Obtain a copy of the Quix Platform BYOC installer
 

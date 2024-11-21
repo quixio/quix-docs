@@ -16,7 +16,7 @@ Such intelligent real-time decision making has many use cases, including example
 Quix has excellent synergy with Machine Learning (ML) systems too. You can quickly deploy your ML model and monitor its performance in real time, modify the model, and redeploy it with a single click. 
 
 ??? info "Start for free"
-    [Book a session](https://meetings.hubspot.com/mike-rosam/product-demo) with us to start for free.
+    [Book a session](https://quix.io/book-a-demo) with us to start for free.
     
     We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
