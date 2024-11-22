@@ -8,7 +8,7 @@ Deploying an external image directly allows you to bypass application and versio
 To summarize, your workflow for deploying an external image is:
 
 1. **Prepare the external image**: Ensure it's built and pushed to a container registry accessible by the platform.
-\
+
 2. **Access the `New deployment` dialog in the UI**: Select the option to deploy an external image from the menu.
 
    ![Menu showing external image deployment option](../images/deploy/new-deployment-menu.png)
