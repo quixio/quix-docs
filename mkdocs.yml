@@ -290,6 +290,7 @@ nav:
         - 'Configuring network ports': 'deploy/ports.md'  
         - 'State management': 'deploy/state-management.md'  
         - 'Deploy public services': 'deploy/deploy-public-page.md'
+        - 'Deploy an external image': 'deploy/deploy-external-image.md'
       - '4. Manage your pipelines':
         - 'Overview': 'manage/overview.md'
         - 'Troubleshooting': 'manage/troubleshooting.md'
