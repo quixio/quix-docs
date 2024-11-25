@@ -98,7 +98,7 @@ To find out more about the source Kinesis Kafka connector offered by Quix, [book
 
 Yes, Quix also provides a sink Kinesis connector for Kafka.
 
-Learn more about it.
+[Learn more about it](../../../sinks/coming-soon/Kinesis-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, including the Kafka Kinesis connector, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

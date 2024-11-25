@@ -56,9 +56,9 @@ Apache Kafka is a scalable, reliable, and fault-tolerant event streaming platfor
 
 Kafka connectors are pre-built components that help integrate Apache Kafka with external systems. They allow you to reliably move data in and out of a Kafka cluster without writing custom integration code. There are two main types of Kafka connectors:
 
-* Source connectors. These are used to pull data from source systems into Kafka topics.
+* **Source connectors**: These are used to pull data from source systems into Kafka topics.
 
-* Sink connectors. These are used to push data from Kafka topics to destination systems, for example, moving data from Kafka to PostgreSQL.
+* **Sink connectors**: These are used to push data from Kafka topics to destination systems, for example, moving data from Kafka to PostgreSQL.
 
 ### What is real-time data, and why is it important?
 
@@ -97,6 +97,8 @@ To find out more about the source PostgreSQL Kafka connector offered by Quix, [b
 ### Does Quix offer a sink Postgres Kafka connector too?
 
 Yes, Quix also provides a Postgres Kafka sink connector.
+
+[Learn more about it](../../../sinks/coming-soon/Postgres-sink.md).
 
 This enables you to write data from Kafka back to your PostgreSQL database, ensuring seamless integration of your streaming data with your existing PostgreSQL data.
 
