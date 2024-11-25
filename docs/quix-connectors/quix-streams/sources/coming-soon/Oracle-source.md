@@ -56,9 +56,9 @@ Apache Kafka is a scalable, reliable, and fault-tolerant event streaming platfor
 
 Kafka connectors are pre-built components that help integrate Apache Kafka with external systems. They allow you to reliably replicate data in and out of a Kafka cluster without writing custom integration code. There are two main types of Kafka connectors:
 
-* Source connectors. These are used to pull data from source systems into Kafka topics.
+* **Source connectors**: These are used to pull data from source systems into Kafka topics.
 
-* Sink connectors. These are used to push data from Kafka topics to destination systems.
+* **Sink connectors**: These are used to push data from Kafka topics to destination systems.
 
 ### What is real-time data, and why is it important?
 
@@ -98,7 +98,7 @@ To find out more about the source Oracle Kafka connector offered by Quix, [book 
 
 Yes, Quix also provides a sink Oracle connector for Kafka.
 
-Learn more about it.
+[Learn more about it](../../../sinks/coming-soon/Oracle-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 
