@@ -33,7 +33,7 @@ New features, bug fixes and performance enhancements!
 
 - Resolved flickering issues occurring during transitions between the Pipeline view and other options in the environment.
 - Fixed an issue where the Environment tab was not correctly selected when switching between environments across different projects.
-- Fixed an issue where accessing logs for a failed replica (e.g., 1 or 2) returned the logs for Replica 0 instead.
+- Fixed an issue where accessing logs for a failed replica (e.g. 1 or 2) returned the logs for Replica 0 instead.
 - Fixed a bug causing data not being displayed in the Waveform/Table view.
 - Resolved a memory leak in Topic Metrics services caused by unnecessary subscriptions to the platform.
 - Fixed an issue where deployments could get stuck on a failed commit after a build failure, even when the code was corrected and redeployed.
