@@ -15,17 +15,7 @@ Use the Quix-made AWS Glue Kafka source connector to consume data from AWS Glue 
 
 After data is ingested from AWS Glue, process and transform it on the fly with Quix Streams, an open-source, Kafka-based Python library. Quix Streams offers an intuitive Streaming DataFrame API (similar to pandas DataFrame) for real-time data processing. It supports aggregations, windowing, filtering, group-by operations, branching, merging, serialization, and more, allowing you to shape your data to fit your needs. 
 
-```mermaid
-graph LR
-    source["AWS Glue<br>(source)"] -->|source connector| raw
-    subgraph Quix Platform
-        raw["Kafka topic<br>(source data)"]
-        process["Quix Streams<br>(stream processing)"]
-        processed["Kafka topic<br>(processed data)"]
-    end
-    raw --> process
-    process --> processed
-```
+![Diagram](images/AmazonGlue-source_diagram_1.png)
 
 ## Quix Kafka connectors — a simpler, better alternative to Kafka Connect
 
@@ -50,7 +40,7 @@ By using Quix as your central data hub, you can:
 * Benefit from managed data integration infrastructure, thus reducing complexity and operational burden  
 * Use a flexible, comprehensive toolkit to build data integration pipelines, including CI/CD and IaC support, environment management features, observability and monitoring capabilities, an online code editor, Python code templates, a CLI tool, and 130+ Kafka source and sink connectors
 
-[Explore the Quix platform](https://portal.demo.quix.io/pipeline?workspace=demo-gametelemetrytemplate-prod)          [Book a demo](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
+[Explore the Quix platform](https://portal.demo.quix.io/pipeline?workspace=demo-gametelemetrytemplate-prod)  |  [Book a demo](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
 
 ## FAQs
 
