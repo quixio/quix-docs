@@ -99,7 +99,7 @@ To find out more about the source Redshift Kafka connector offered by Quix, [boo
 
 Yes, Quix also provides an Amazon Redshift sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/Redshift-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Redshift-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

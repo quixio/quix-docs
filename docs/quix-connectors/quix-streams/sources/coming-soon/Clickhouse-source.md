@@ -99,7 +99,7 @@ To find out more about the source Clickhouse Kafka connector offered by Quix, [b
 
 Yes, Quix also provides a Clickhouse Kafka sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/Clickhouse-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Clickhouse-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

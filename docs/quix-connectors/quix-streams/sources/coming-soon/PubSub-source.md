@@ -98,7 +98,7 @@ To find out more about the source Pub/Sub Kafka connector offered by Quix, [book
 
 Yes, Quix also provides a Pub/Sub Kafka sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/PubSub-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/PubSub-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

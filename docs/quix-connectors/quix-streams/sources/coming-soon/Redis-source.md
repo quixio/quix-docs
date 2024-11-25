@@ -100,7 +100,7 @@ To find out more about the source Redis Kafka connector offered by Quix, [book a
 
 Yes, Quix also provides a Redis sink connector for moving data from Kafka to Redis.
 
-[Learn more about it](../../../sinks/coming-soon/Redis-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Redis-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

@@ -98,7 +98,7 @@ To find out more about the Cassandra Kafka source connector offered by Quix, [bo
 
 Yes, Quix also provides a Cassandra sink connector for Kafka.
 
-[Learn more about it](../../../sinks/coming-soon/Cassandra-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Cassandra-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, performs computations, and then send it to your desired destination(s). All in real time.
 

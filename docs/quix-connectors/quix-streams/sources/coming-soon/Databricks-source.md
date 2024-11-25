@@ -99,7 +99,7 @@ To find out more about the source Databricks Kafka connector offered by Quix, [b
 
 Yes, Quix also provides a Databricks Kafka sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/Databricks-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Databricks-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

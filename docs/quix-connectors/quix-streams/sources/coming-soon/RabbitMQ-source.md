@@ -97,7 +97,7 @@ To find out more about the source RabbitMQ Kafka connector offered by Quix, [boo
 
 Yes, Quix also provides a RabbitMQ sink connector for Kafka.
 
-[Learn more about it](../../../sinks/coming-soon/RabbitMQ-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/RabbitMQ-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, including the RabbitMQ connector, enabling you to move data from a variety of sources, including RabbitMQ and Kafka, into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

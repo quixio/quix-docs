@@ -98,7 +98,7 @@ To find out more about the source MQTT Kafka connector offered by Quix, [book a 
 
 Yes, Quix also provides an MQTT sink connector for Kafka.
 
-[Learn more about it](../../../sinks/coming-soon/MQTT-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/MQTT-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

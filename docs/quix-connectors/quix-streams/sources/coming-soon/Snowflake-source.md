@@ -97,7 +97,7 @@ To find out more about the source Snowflake Kafka connector offered by Quix, [bo
 
 Yes, Quix also provides a Snowflake Kafka sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/Snowflake-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Snowflake-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 

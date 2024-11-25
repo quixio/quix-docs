@@ -98,7 +98,7 @@ To find out more about the source PostgreSQL Kafka connector offered by Quix, [b
 
 Yes, Quix also provides a Postgres Kafka sink connector.
 
-[Learn more about it](../../../sinks/coming-soon/Postgres-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Postgres-sink.md).
 
 This enables you to write data from Kafka back to your PostgreSQL database, ensuring seamless integration of your streaming data with your existing PostgreSQL data.
 

@@ -98,7 +98,7 @@ To find out more about the source Pulsar Kafka connector offered by Quix, [book 
 
 Yes, Quix also provides a sink Pulsar connector for Kafka.
 
-[Learn more about it](../../../sinks/coming-soon/ApachePulsar-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/ApachePulsar-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send messages to your desired destination(s). All in real time.
 

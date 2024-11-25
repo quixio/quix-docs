@@ -98,7 +98,7 @@ To find out more about the source Redpanda Kafka connector offered by Quix, [boo
 
 Yes, Quix also provides a Redpanda sink connector for Kafka.
 
-[Learn more about it](../../../sinks/coming-soon/Redpanda-sink.md).
+[Learn more about it](../../../quix-streams/sinks/coming-soon/Redpanda-sink.md).
 
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of **data sources** into Kafka, process it, and then send it to your desired destination(s). All in real time.
 
