@@ -42,10 +42,11 @@ nav:
       - Sinks:
         - 'quix-streams/connectors/sinks/README.md'
         - Amazon Kinesis Sink: 'quix-streams/connectors/sinks/amazon-kinesis-sink.md'
+        - Amazon S3 Sink: 'quix-streams/connectors/sinks/amazon-s3-sink.md'
         - Apache Iceberg Sink: 'quix-streams/connectors/sinks/apache-iceberg-sink.md'
         - CSV Sink: 'quix-streams/connectors/sinks/csv-sink.md'
         - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
-        - File Sink: 'quix-streams/connectors/sinks/file-sink.md'
+        - Local File Sink: 'quix-streams/connectors/sinks/local-file-sink.md'
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
         - Creating a Custom Sink: 'quix-streams/connectors/sinks/custom-sinks.md'
@@ -146,7 +147,6 @@ nav:
         - Yugabytedb source: quix-connectors/quix-streams/sources/coming-soon/Yugabytedb-source.md
       - Sinks:
         - Amazon Glue sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonGlue-sink.md
-        - Amazon S3 sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonS3-sink.md
         - Amazon SQS sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonSQS-sink.md
         - Apache Pulsar sink: quix-connectors/quix-streams/sinks/coming-soon/ApachePulsar-sink.md
         - Astra sink: quix-connectors/quix-streams/sinks/coming-soon/Astra-sink.md
