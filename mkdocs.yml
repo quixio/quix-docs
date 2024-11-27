@@ -49,6 +49,7 @@ nav:
         - Local File Sink: 'quix-streams/connectors/sinks/local-file-sink.md'
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
+        - Redis Sink: 'quix-streams/connectors/sinks/redis-sink.md'
         - Creating a Custom Sink: 'quix-streams/connectors/sinks/custom-sinks.md'
       - Contribution Guide: 'quix-streams/connectors/contribution-guide'
       - Community and Core Connectors: 'quix-streams/connectors/community-and-core.md'
@@ -73,7 +74,6 @@ nav:
         - 'InfluxDB 3.0': 'quix-connectors/templates/influxdb30sink-destination.md'
         - 'Kafka Connect': 'quix-connectors/templates/kafkaconnectsink-destination.md'
         - 'MQTT': 'quix-connectors/templates/mqttsink-destination.md'
-        - 'Redis': 'quix-connectors/templates/redissink-destination.md'
         - 'Slack': 'quix-connectors/templates/slacksink-destination.md'
         - 'Websocket': 'quix-connectors/templates/websocketdestination-destination.md'
     - Coming Soon:
