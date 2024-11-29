@@ -33,6 +33,7 @@ nav:
     - Quix Streams:
       - Sources:
         - 'quix-streams/connectors/sources/README.md'
+        - Amazon Kinesis Source: 'quix-streams/connectors/sinks/amazon-kinesis-source.md'
         - CSV Source: 'quix-streams/connectors/sources/csv-source.md'
         - File Source: 'quix-streams/connectors/sources/file-source.md'
         - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
@@ -103,7 +104,6 @@ nav:
         - Google Cloud Storage source: quix-connectors/quix-streams/sources/coming-soon/GoogleCloudStorage-source.md
         - Google Sheets source: quix-connectors/quix-streams/sources/coming-soon/GoogleSheets-source.md
         - Keen source: quix-connectors/quix-streams/sources/coming-soon/Keen-source.md
-        - Kinesis source: quix-connectors/quix-streams/sources/coming-soon/Kinesis-source.md
         - Kvdb source: quix-connectors/quix-streams/sources/coming-soon/Kvdb-source.md
         - Langchain source: quix-connectors/quix-streams/sources/coming-soon/Langchain-source.md
         - Local Json source: quix-connectors/quix-streams/sources/coming-soon/LocalJson-source.md
