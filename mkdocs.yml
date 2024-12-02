@@ -50,6 +50,7 @@ nav:
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
         - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
         - Local File Sink: 'quix-streams/connectors/sinks/local-file-sink.md'
+        - PostgreSQL Sink: 'quix-streams/connectors/sinks/postgresql-sink.md'
         - Redis Sink: 'quix-streams/connectors/sinks/redis-sink.md'
         - Creating a Custom Sink: 'quix-streams/connectors/sinks/custom-sinks.md'
       - Contribution Guide: 'quix-streams/connectors/contribution-guide'
