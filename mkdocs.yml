@@ -33,8 +33,8 @@ nav:
     - Quix Streams:
       - Sources:
         - 'quix-streams/connectors/sources/README.md'
-        - Amazon Kinesis Source: 'quix-streams/connectors/sinks/amazon-kinesis-source.md'
-        - Amazon S3 Source: 'quix-streams/connectors/sinks/amazon-s3-source.md'
+        - Amazon Kinesis Source: 'quix-streams/connectors/sources/amazon-kinesis-source.md'
+        - Amazon S3 Source: 'quix-streams/connectors/sources/amazon-s3-source.md'
         - CSV Source: 'quix-streams/connectors/sources/csv-source.md'
         - File Source: 'quix-streams/connectors/sources/file-source.md'
         - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
