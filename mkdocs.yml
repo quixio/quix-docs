@@ -820,6 +820,7 @@ plugins:
         'cli/overview.md' : 'quix-cli/overview.md'
         'cli/cli-reference.md' : 'quix-cli/overview.md'
         'platform/security/security.md': 'quix-cloud/security.md'
+        quix-streams/connectors/sources/file-source.md: quix-streams/connectors/sources/local-file-source.md
 
 
 theme:
