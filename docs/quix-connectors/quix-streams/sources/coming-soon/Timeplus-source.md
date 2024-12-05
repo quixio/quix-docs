@@ -17,7 +17,7 @@ Get a personal guided tour of the Quix Platform, SDK, and API's to help you get 
 
 If you prefer to explore the platform in your own time, then have a look at our read-only environment
 
-👉[https://portal.demo.quix.io/?workspace=demo-iotphonedemo-prod](https://portal.demo.quix.io/?workspace=demo-iotphonedemo-prod&token=pat-65bd4b619ca64597ad74354b35eb8622&_ga=docs_connector_pages)
+👉[https://portal.demo.quix.io/?workspace=demo-dataintegrationdemo-prod](https://portal.demo.quix.io/?workspace=demo-dataintegrationdemo-prod&token=pat-65bd4b619ca64597ad74354b35eb8622&_ga=docs_connector_pages)
 
 ## FAQ 
 
