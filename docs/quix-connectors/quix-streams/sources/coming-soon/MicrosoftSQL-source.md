@@ -41,7 +41,7 @@ By using Quix as your central data hub, you can:
 * Benefit from managed data integration infrastructure, thus reducing complexity and operational burden  
 * Use a flexible, comprehensive toolkit to build real-time data pipelines, including CI/CD and IaC support, environment management features, observability and monitoring capabilities, an online code editor, Python code templates, a CLI tool, and 130+ Kafka source and sink connectors
 
-[Explore the Quix platform](https://portal.demo.quix.io/pipeline?workspace=demo-gametelemetrytemplate-prod)          |           [Book a demo](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
+[Explore the Quix platform](https://portal.demo.quix.io/?workspace=demo-dataintegrationdemo-prod)          |           [Book a demo](https://share.hsforms.com/1iW0TmZzKQMChk0lxd_tGiw4yjw2)
 
 ## FAQs
 

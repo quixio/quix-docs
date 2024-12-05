@@ -14,7 +14,7 @@ Get a personal guided tour of the Quix Platform, SDK and API's to help you get s
 
 If you prefer to explore the platform in your own time then have a look at our readonly environment
 
-👉[https://portal.demo.quix.io/pipeline?workspace=demo-gametelemetrytemplate-prod](https://portal.demo.quix.io/pipeline?workspace=demo-gametelemetrytemplate-prod&token=pat-0e3c85cd4fc5436998718c120dbd6df5&_ga=2.25371390.276140621.1730716142-1628354139.1730474801)
+👉[https://portal.demo.quix.io/?workspace=demo-dataintegrationdemo-prod](https://portal.demo.quix.io/?workspace=demo-dataintegrationdemo-prod&token=pat-65bd4b619ca64597ad74354b35eb8622&_ga=docs_connector_pages)
 
 ## FAQ 
 
