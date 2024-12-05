@@ -36,9 +36,9 @@ nav:
         - Amazon Kinesis Source: 'quix-streams/connectors/sources/amazon-kinesis-source.md'
         - Amazon S3 Source: 'quix-streams/connectors/sources/amazon-s3-source.md'
         - CSV Source: 'quix-streams/connectors/sources/csv-source.md'
-        - File Source: 'quix-streams/connectors/sources/file-source.md'
         - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
         - Kafka Replicator Source: 'quix-streams/connectors/sources/kafka-source.md'
+        - Local File Source: 'quix-streams/connectors/sources/local-file-source.md'
         - Quix Environment Source: 'quix-streams/connectors/sources/quix-source.md'
         - Creating a Custom Source: 'quix-streams/connectors/sources/custom-sources.md'
       - Sinks:
@@ -820,6 +820,7 @@ plugins:
         'cli/overview.md' : 'quix-cli/overview.md'
         'cli/cli-reference.md' : 'quix-cli/overview.md'
         'platform/security/security.md': 'quix-cloud/security.md'
+        quix-streams/connectors/sources/file-source.md: quix-streams/connectors/sources/local-file-source.md
 
 
 theme:
