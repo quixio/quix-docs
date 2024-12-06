@@ -5,7 +5,7 @@ description: Welcome to the Quix Developer documentation. This documentation inc
 
 # Welcome
 
-<p style="font-size: 1rem;">Quix is a complete platform for developing, deploying, and monitoring stream processing pipelines. You can build producer/consumer/transform apps with Quix Streams and Python, build and test pipelines with the Quix CLI, and then deploy, manage and observe the pipelines in Quix Cloud.</p>
+<p style="font-size: 1rem;">Quix is a telemetry analytics platform that enables you to consolidate high frequency sensor data in a centralized cloud data store, for use cases like real-time monitoring and analytics, predictive maintenance, digital twins, and more. Quix provides the ability to connect, transform and process data in batch or real-time architectures and between legacy and modern systems in any language using easily customisable connectors.</p>
 
 ## Workflow summary
 
