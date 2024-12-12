@@ -70,6 +70,8 @@ nav:
         - 'SQL Change Data Capture': 'quix-connectors/templates/sqlchangedatacapturesource-source.md'
         - 'Segment': 'quix-connectors/templates/segmentsource-source.md'
         - 'Snowplow': 'quix-connectors/templates/snowplowsource-source.md'
+        - 'Telegraf': 'quix-connectors/templates/telegraf-source.md'
+
       - 'Sinks':
         - 'AWS S3 Iceberg': 'quix-connectors/templates/awss3icebergsink-destination.md'
         - 'BigQuery': 'quix-connectors/templates/bigquerysink-destination.md'
