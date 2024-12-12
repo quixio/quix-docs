@@ -139,6 +139,19 @@ You can explore the README files here in Quix Docs. When you are ready to start 
 <p>Read data from Snowplow and publish it to a Kafka topic.</p>
 <p><a href='snowplowsource-source.html'><span class='twemoji'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M13.22 19.03a.75.75 0 0 0 1.06 0l6.25-6.25a.75.75 0 0 0 0-1.06l-6.25-6.25a.75.75 0 1 0-1.06 1.06l4.97 4.97H3.75a.75.75 0 0 0 0 1.5h14.44l-4.97 4.97a.75.75 0 0 0 0 1.06z' fill-rule='evenodd'></path></svg></span> Snowplow Source</a></p>
 </li>
+
+
+<li>
+<div style='display:flex'>
+<img src='telegraf-logo.jpg' style='border-radius:8px;'>
+<p style='min-width: 100px;margin-top:7px'>
+<strong style='margin-left:9px;border-radius: 8px;'></strong>
+</p>
+</div>
+<hr>
+<p>Ingest data from a Telegraf source and publish it to a Quix topic</p>
+<p><a href='telegraf-source.html'><span class='twemoji'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M13.22 19.03a.75.75 0 0 0 1.06 0l6.25-6.25a.75.75 0 0 0 0-1.06l-6.25-6.25a.75.75 0 1 0-1.06 1.06l4.97 4.97H3.75a.75.75 0 0 0 0 1.5h14.44l-4.97 4.97a.75.75 0 0 0 0 1.06z' fill-rule='evenodd'></path></svg></span> Telegraf Source</a></p>
+</li>
 </ul></div>
 
 ## Destinations
@@ -241,4 +254,5 @@ You can explore the README files here in Quix Docs. When you are ready to start 
 <p>Send data from Kafka to a client connected to this websocket server</p>
 <p><a href='websocketdestination-destination.html'><span class='twemoji'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M13.22 19.03a.75.75 0 0 0 1.06 0l6.25-6.25a.75.75 0 0 0 0-1.06l-6.25-6.25a.75.75 0 1 0-1.06 1.06l4.97 4.97H3.75a.75.75 0 0 0 0 1.5h14.44l-4.97 4.97a.75.75 0 0 0 0 1.06z' fill-rule='evenodd'></path></svg></span> Websocket Destination</a></p>
 </li>
+
 </ul></div>
