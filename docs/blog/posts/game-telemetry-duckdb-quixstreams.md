@@ -544,6 +544,14 @@ When creating a custom sink for your specific database or storage system, there 
 
 By considering these points when implementing your custom sink, you'll be well-prepared to handle the complexities of writing streaming data to your specific database or storage system.
 
+### Bonus Tip: Ask AI
+
+On the [Quix documentation portal](https://quix.io/docs/quix-streams/introduction.html), we have an “**AskAI”** widget powered by RunLLM that you can click in the bottom right corner. This is better than asking for a general purpose AI tool because it has been configured to use our codebase and documentation as its main knowledge source.
+
+![Screenshot of the RunLLM widget](images/runllm_screenshot.png)
+
+You can get a head start by asking it to generate some sink code for you, and giving it an example of how you normally write to your database using a single query in Python. It won’t be perfect and you’ll likely need to clean it up, but should give you the basics.
+
 ## Conclusion
 
 Creating a custom sink allows you to tailor your data writing process to the specific needs of your destination database. By understanding the components of the Quix Streams sink API and following the patterns we've explored, you can create efficient, reliable sinks for a wide variety of data stores.
