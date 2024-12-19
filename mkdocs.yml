@@ -823,6 +823,8 @@ plugins:
         'cli/cli-reference.md' : 'quix-cli/overview.md'
         'platform/security/security.md': 'quix-cloud/security.md'
         quix-streams/connectors/sources/file-source.md: quix-streams/connectors/sources/local-file-source.md
+        'quix-connectors/quix-streams/sources/coming-soon/AzureBlobStorage-source.md': 'quix-streams/connectors/sources/microsoft-azure-file-source.md'
+        'quix-connectors/quix-streams/sinks/coming-soon/AzureBlobStorage-sink.md': 'quix-streams/connectors/sinks/microsoft-azure-file-sink.md'
 
 
 theme:
