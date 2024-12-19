@@ -36,7 +36,9 @@ In order to familarise you with the Quix Telegraf connector you will first deplo
     * Click `Connectors` on the nav and locate the Telegraf connector.
     * Click `Set up connector` on the "Telegraf source" tile.
     * Provide the name for the output topic, which is where the data will be published.
-    * Click `Test connector & deploy`, this will deploy the connector to your project.
+    * Click `Customise connector`, this will save a copy of the files to your project.
+    * You can now edit the `telegraf.conf` file to add more inputs, and see how the Quix output is configured.
+    * When you are happy with the configuration, you can [deploy](../../../deploy/overview.html){target=_blank} the service.
 
 ## View the data
 
