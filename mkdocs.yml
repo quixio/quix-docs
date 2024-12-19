@@ -27,7 +27,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.4.0-docsfix1'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.5.0'
   - 'Quix Connectors': 
     # Pages for "Quix Streams" section are imported from https://github.com/quixio/quix-streams
     - Quix Streams:
@@ -35,6 +35,7 @@ nav:
         - 'quix-streams/connectors/sources/README.md'
         - Amazon Kinesis Source: 'quix-streams/connectors/sources/amazon-kinesis-source.md'
         - Amazon S3 Source: 'quix-streams/connectors/sources/amazon-s3-source.md'
+        - Azure Blob Storage Source: 'quix-streams/connectors/sources/microsoft-azure-file-source.md'
         - CSV Source: 'quix-streams/connectors/sources/csv-source.md'
         - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
         - Kafka Replicator Source: 'quix-streams/connectors/sources/kafka-source.md'
@@ -46,6 +47,7 @@ nav:
         - Amazon Kinesis Sink: 'quix-streams/connectors/sinks/amazon-kinesis-sink.md'
         - Amazon S3 Sink: 'quix-streams/connectors/sinks/amazon-s3-sink.md'
         - Apache Iceberg Sink: 'quix-streams/connectors/sinks/apache-iceberg-sink.md'
+        - Azure Blob Storage Sink: 'quix-streams/connectors/sinks/microsoft-azure-file-sink.md'
         - CSV Sink: 'quix-streams/connectors/sinks/csv-sink.md'
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
@@ -88,7 +90,6 @@ nav:
         - Apache Iceberg source: quix-connectors/quix-streams/sources/coming-soon/ApacheIceberg-source.md
         - Apache Pulsar source: quix-connectors/quix-streams/sources/coming-soon/ApachePulsar-source.md
         - Astra source: quix-connectors/quix-streams/sources/coming-soon/Astra-source.md
-        - Azure Blob Storage source: quix-connectors/quix-streams/sources/coming-soon/AzureBlobStorage-source.md
         - Cassandra source: quix-connectors/quix-streams/sources/coming-soon/Cassandra-source.md
         - Chroma source: quix-connectors/quix-streams/sources/coming-soon/Chroma-source.md
         - Clickhouse source: quix-connectors/quix-streams/sources/coming-soon/Clickhouse-source.md
@@ -152,7 +153,6 @@ nav:
         - Amazon SQS sink: quix-connectors/quix-streams/sinks/coming-soon/AmazonSQS-sink.md
         - Apache Pulsar sink: quix-connectors/quix-streams/sinks/coming-soon/ApachePulsar-sink.md
         - Astra sink: quix-connectors/quix-streams/sinks/coming-soon/Astra-sink.md
-        - Azure Blob Storage sink: quix-connectors/quix-streams/sinks/coming-soon/AzureBlobStorage-sink.md
         - Cassandra sink: quix-connectors/quix-streams/sinks/coming-soon/Cassandra-sink.md
         - Chroma sink: quix-connectors/quix-streams/sinks/coming-soon/Chroma-sink.md
         - Clickhouse sink: quix-connectors/quix-streams/sinks/coming-soon/Clickhouse-sink.md
