@@ -113,24 +113,72 @@ This code uses the Quix Python library [`Quix streams`](../../../quix-streams) t
 To deploy this code to Quix Cloud, use the `Starter Transformation` from the templates and replace the code with this.
 
 
-## Configure existing Telegraf
+## Configure your existing Telegraf
 
-You can configure your existing Telegraf nodes to transmit data to Quix Cloud.
+You can configure your existing Telegraf 1.3.3+ nodes to transmit data to Quix Cloud.
 
-??? tip "Telegraf configuration"
-   
-    Telegraf requires a configuration file to run. If you don't have a configuration file, you can create one by following this [guide](https://docs.influxdata.com/telegraf/v1/get-started/#configure-telegraf){target=_blank}.
+Continue reading to learn how to add the Quix Telegraf Output to an existing Telegraf config to start sending data to Quix.
 
-### Modify your existing Telegraf configuration
+??? tip "Get Telegraf 1.3.3+"
+    
+    If you don't have Telegraf 1.3.3 (or newer) you can get started by following the guide [here](https://docs.influxdata.com/telegraf/v1/get-started/#configure-telegraf){target=_blank}.
+
+    `Note that the guide may not direct you to install the latest version, just make sure youre installing at least 1.3.3`
+
+<!-- ### Modify your existing Telegraf configuration
 
 To emit data to Quix, navigate to the Telegraf code for the service you deployed previously in this guide.
 
 (This short animated gif shows you how)
-  ![](telegraf-clip-2.gif)
+  ![](telegraf-clip-2.gif) -->
 
-### Configuration details
+### Telegraf Configuration
 
-These are standard Telegraf plugins and configuration, details of which can be found in the [Telegraf plugin directory](https://docs.influxdata.com/telegraf/v1/plugins/).
+The default configuration for our [Telegraf sample](https://github.com/quixio/quix-samples/tree/main/docker/sources/telegraf){target=_blank} is shown here.
+
+We have included some basic settings for the agent and some inputs like CPU and disk.
+
+We have also included `outputs.quix`, a new Telegraf plugin allowing users to transmit their Telegraf data to a Quix Cloud account.
+See below for how to configure the plugin.
+
+```yaml
+# Global Agent Configuration
+[agent]
+  interval = "10s"
+  round_interval = true
+  metric_batch_size = 1000
+  metric_buffer_limit = 10000
+  collection_jitter = "0s"
+  flush_interval = "1s"
+  flush_jitter = "0s"
+  precision = ""
+  debug = false
+  quiet = false
+  logfile = ""
+
+[[inputs.cpu]]
+  percpu = true
+  totalcpu = true
+  collect_cpu_time = false
+  report_active = false
+
+[[inputs.mem]]
+  ## Collect memory usage metrics
+
+[[inputs.disk]]
+  ## Collect disk usage metrics
+  ignore_fs = ["tmpfs", "devtmpfs"]
+
+[[outputs.quix]]
+  workspace = "${Quix__Workspace__Id}"
+  auth_token = "${Quix__Sdk__Token}"
+  api_url = "${Quix__Portal__Api}"
+  topic = "${output}"
+  data_format = "json" 
+  timestamp_units = "1ns"
+```
+
+Details about these Telegraf plugins can be found in the [Telegraf plugin directory](https://docs.influxdata.com/telegraf/v1/plugins/), however these are the basic details:
 
 * [Telegraf agent configuration](https://docs.influxdata.com/telegraf/v1/configuration/#agent-configuration)
   
