@@ -46,7 +46,7 @@ sdf = sdf[["role", "tokens_count"]]
 
 sdf = sdf.update(lambda row: print(row))
 
-app.run(sdf)
+app.run()
 ```
 
 Save the code in a file named `qs.py`.
