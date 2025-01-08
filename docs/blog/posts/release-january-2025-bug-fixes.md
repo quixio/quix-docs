@@ -16,9 +16,11 @@ Bug fixes and enhancements!
 <!-- more -->
 
 💎 **Enhancements** 💎
+
 * Enabled Latest Deployments version feature to Submodules.
 
 🦠 **Bug Fixes** 🦠
+
 * Fixed several issues with Linked topics working together with limited permissions.
 
 * Fixed a bug causing a bottleneck in the Streaming Reader service when handling a large number of parameter names, impacting the Waveform and Table views.
