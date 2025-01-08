@@ -31,8 +31,6 @@ AWS Route 53 is a highly scalable and reliable domain name system (DNS) web serv
 </div>
 
 
-UNRECOGNIZED TECH ALERT. 
-
 Quix is a good fit for integrating with AWS Route 53 due to its ability to enable data engineers to pre-process and transform data from various sources before loading it into a specific data format. This simplifies lakehouse architecture with customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, facilitates the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. 
 
 Moreover, Quix ensures efficient handling of data from source to destination with no throughput limits, automatic backpressure management, and checkpointing. The platform also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. Overall, Quix offers a cost-effective solution for managing data from source through transformation to destination, making it a suitable choice for integrating with AWS Route 53.

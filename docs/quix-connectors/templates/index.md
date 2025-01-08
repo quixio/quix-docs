@@ -1,13 +1,14 @@
 ---
-title: Quix Cloud Templates
-description: Quix prebuilt templates enable you to integrate with a variety of services.
+title: Quix Cloud Connectors
+description: Quix prebuilt solutions enable you to integrate with a variety of services.
 ---
 
-# Quix Cloud Templates
+# Quix Cloud Connectors and Samples
 
-Templates are part of our [open source](https://github.com/quixio/quix-samples){target="_blank"} repository of templates, examples and integrations.
+Connectors and Samples are part of our [open source](https://github.com/quixio/quix-samples){target="_blank"} repository of connectors, examples and integrations.
 
-Templates help our users connect with other vendors such as AWS and Kafka.
+ * Connectors are production ready and help you connect with other vendors such as AWS and Kafka.
+ * Samples provide a handy way to get started with creating your own connector. 
 
 You can explore the README files here in Quix Docs. When you are ready to start using them, head over to the Quix Code Samples [GitHub](https://github.com/quixio/quix-samples){target="_blank"} repository, or get a Quix Cloud account.
 

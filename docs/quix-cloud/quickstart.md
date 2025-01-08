@@ -116,3 +116,16 @@ Feel free to explore further.
     [Quix Cloud Tour :octicons-arrow-right-24:](../create/overview.md)
 
 </div>
+
+
+<div class="grid cards" markdown>
+
+- __1. Deploy a Connector__
+
+    ---
+
+    Deploy a connector to interface with an external system.
+
+    [Deploy a Connector :octicons-arrow-right-24:](../quix-cloud/deploying-connectors.md)
+
+</div>

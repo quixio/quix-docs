@@ -1,7 +1,7 @@
 ---
 title: "The stream processing glossary"
 date: 2023-07-12
-authors: [kiersten-thamm]
+authors: [steve-rosam]
 slug: stream-processing-glossary
 description: >
   Connector? Confluent? Cluster? Keep this article nearby to define tricky and emerging terms in stream processing.

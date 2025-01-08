@@ -18,7 +18,8 @@ Transform and pre-process data, with the new alternative to Confluent Kafka Conn
 
 ## Flask
 
-UNRECOGNIZED TECH ALERT
+Flask is a lightweight web framework for Python. It is designed to be simple and easy to use, allowing developers to build web applications quickly. Flask is often referred to as a "micro" framework because it does not require particular tools or libraries, making it highly flexible and extensible. It provides the essentials for web development, such as routing, request handling, and templating, while allowing developers to add additional functionality as needed through extensions. Flask is well-suited for small to medium-sized applications and is popular for its simplicity and ease of use.
+
 
 ## Integrations
 

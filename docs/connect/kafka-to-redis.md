@@ -31,8 +31,6 @@ Redis is an open-source, in-memory data structure store that is commonly used as
 </div>
 
 
-UNRECOGNIZED TECH ALERT. 
-
 Quix is a suitable choice for integrating with Redis due to its ability to enable data engineers to pre-process and transform data from various sources before loading it into a specific data format. This capability simplifies lakehouse architecture and allows for customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, facilitates the transformation of data using streaming DataFrames, supporting operations like aggregation, filtering, and merging during the transformation process. 
 
 Moreover, Quix ensures efficient handling of data from source to destination with features such as no throughput limits, automatic backpressure management, and checkpointing. The platform also supports sinking transformed data to cloud storage in a specific format, ensuring seamless integration and storage efficiency at the destination. 

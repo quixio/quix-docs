@@ -31,8 +31,6 @@ Supabase is an open-source alternative to Google's Firebase, offering developers
 </div>
 
 
-UNRECOGNIZED TECH ALERT
-
 Quix is an ideal solution for integrating with Supabase due to its ability to empower data engineers with customizable connectors for different destinations. By enabling users to pre-process and transform data from various sources before loading it into a specific format, Quix simplifies the lakehouse architecture, making it easier to work with Supabase.
 
 Additionally, Quix Streams, an open-source Python library, facilitates the transformation of data using streaming DataFrames, allowing for operations such as aggregation, filtering, and merging during the transformation process. This capability seamlessly aligns with the flexibility and efficiency offered by Supabase in handling data.
