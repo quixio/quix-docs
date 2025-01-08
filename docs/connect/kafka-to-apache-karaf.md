@@ -30,9 +30,6 @@ Apache Karaf is an open-source OSGi runtime that provides a lightweight containe
 
 </div>
 
-
-UNRECOGNIZED TECH ALERT. 
-
 Quix is a suitable choice for integrating with Apache Karaf due to its ability to allow data engineers to pre-process and transform data from multiple sources before loading it into a specific format. This capability simplifies the lakehouse architecture by providing customizable connectors for different destinations. Additionally, Quix Streams, an open-source Python library, enables the transformation of data using streaming DataFrames, which supports operations such as aggregation, filtering, and merging during the transformation process. 
 
 Furthermore, the platform ensures efficient data handling from source to destination with features like no throughput limits, automatic backpressure management, and checkpointing. Quix also supports sinking transformed data to cloud storage in a particular format, ensuring seamless integration and storage efficiency at the destination. In terms of cost, Quix offers a cost-effective solution for managing data throughout the integration process, making it a more economical choice compared to other alternatives.

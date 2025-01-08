@@ -18,7 +18,8 @@ Transform and pre-process data, with the new alternative to Confluent Kafka Conn
 
 ## AWS DynamoDB
 
-UNRECOGNIZED TECH ALERT
+Amazon DynamoDB is a fully managed NoSQL database service provided by Amazon Web Services (AWS). It offers fast and predictable performance with seamless scalability. DynamoDB allows developers to store and retrieve any amount of data and serve any level of request traffic. It automatically scales up and down to adjust for capacity and maintain performance, and it handles the administrative burdens of operating and scaling a distributed database, such as hardware provisioning, setup and configuration, replication, software patching, and cluster scaling.
+
 
 ## Integrations
 

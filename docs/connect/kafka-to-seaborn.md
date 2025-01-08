@@ -31,8 +31,6 @@ Seaborn is a powerful data visualization library in Python that was built on top
 </div>
 
 
-UNRECOGNIZED TECH ALERT
-
 Quix is a well-suited tool for integrating with Seaborn due to its versatile capabilities in data pre-processing and transformation. With Quix, data engineers have the flexibility to tailor the integration process according to their requirements, using customizable connectors to streamline the architecture of their data lakehouse. Additionally, Quix Streams, an open-source Python library, empowers users to transform data efficiently through streaming DataFrames, enabling operations such as aggregation, filtering, and merging in real-time.
 
 Moreover, Quix ensures smooth data handling from source to destination by eliminating throughput limits, managing backpressure automatically, and incorporating checkpointing mechanisms. This seamless flow of data is further enhanced by the platform's ability to sink transformed data into cloud storage in a specific format, promoting seamless integration and efficient storage practices. Additionally, the cost-effective nature of Quix makes it a compelling choice for managing data throughout its journey, offering a more economical solution compared to other alternatives on the market.

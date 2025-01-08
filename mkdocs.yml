@@ -575,7 +575,6 @@ nav:
         - kafka-to-redisjson: connect/kafka-to-redisjson.md
         - kafka-to-redshift: connect/kafka-to-redshift.md
         - kafka-to-ringcentral: connect/kafka-to-ringcentral.md
-        - kafka-to-ruby-on-rails: connect/kafka-to-ruby-on-rails.md
         - kafka-to-rust: connect/kafka-to-rust.md
         - kafka-to-salesforce: connect/kafka-to-salesforce.md
         - kafka-to-sas: connect/kafka-to-sas.md
@@ -607,7 +606,6 @@ nav:
         - kafka-to-wrike: connect/kafka-to-wrike.md
         - kafka-to-xml-commons: connect/kafka-to-xml-commons.md
         - kafka-to-xml-graphics: connect/kafka-to-xml-graphics.md
-        - kafka-to-xml-rpc: connect/kafka-to-xml-rpc.md
         - kafka-to-xml-security: connect/kafka-to-xml-security.md
         - kafka-to-xmlbeans: connect/kafka-to-xmlbeans.md
         - kafka-to-zoho: connect/kafka-to-zoho.md
