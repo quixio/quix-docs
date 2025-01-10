@@ -281,6 +281,7 @@ nav:
       - '3. Deploy a service':
         - 'Overview': 'deploy/overview.md'
         - 'Environment variables': 'deploy/environment-variables.md'
+        - 'Quix variables': 'deploy/quix-variables.md'
         - 'Secrets management': 'deploy/secrets-management.md'
         - 'YAML variables': 'deploy/yaml-variables.md'
         - 'Configuring network ports': 'deploy/ports.md'  
