@@ -26,6 +26,6 @@ Use them to access deployment, application, and environment-specific metadata in
 | `Quix__Application__Git__Ref`         | The application's git reference (such as a tag) the deployment is built from.                         |
 | `Quix__Build__Id`                     | The build Id of the deployment. Multiple deployments will have the same build id if referencing the same commit of a application. |
 | `Quix__Portal__Api`                   | The portal API endpoint, which depends on the environment.                                            |
-| `Quix__Sdk__Token`                    | SDK Token 1, as described in [docs].                                                                  |
+| `Quix__Sdk__Token`                    | SDK Token 1, as described [here](../develop/authentication/streaming-token.md).                       |
 
 > **Note:** State-related variables are only present when state is enabled. Similarly, `Quix__Deployment__Network__PublicUrl` is only present when public access is enabled.
