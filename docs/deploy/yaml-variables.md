@@ -151,11 +151,10 @@ deployments:
 
 1. **Create Variables:**
    - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`). During this step, you can specify:
-     - A default value: Used when no environment-specific value is provided (e.g., Default: `MEMORY` = 750, `REPLICAS` = 2).
-     - Environment-specific values: For example:
-       - Development: `MEMORY` = 500, `REPLICAS` = 1.
-       - Production: `MEMORY` = 1000, `REPLICAS` = 3.
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
+     - Default: `MEMORY` = 750, `REPLICAS` = 2
+     - Development: `MEMORY` = 500, `REPLICAS` = 1
+     - Production: `MEMORY` = 1000, `REPLICAS` = 3
 
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
@@ -187,6 +186,7 @@ deployments:
 
 3. **Sync the Environment:**
    - After making changes in the development environment, merge these changes into the production environment and sync it. This ensures that the production YAML file reflects the updated variable configurations.
+   - **Note:** When variables are updated or changed, the corresponding environment may enter an "out-of-sync" state. You will need to manually sync the environment to apply these changes. This ensures that all updated variable values are correctly reflected in the deployment pipeline.
 
 ### Validate Changes
 
