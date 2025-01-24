@@ -112,9 +112,11 @@ You can watch a video on YAML variables here:
 
 ## Example
 
-In the pipeline view, click on the service you want to configure, and then click the YAML button in the top right of the view. You see the `quix.yaml` code, such as the following:
+### View the `quix.yaml` File
 
-``` yaml
+To configure a deployment, start by accessing the YAML file in the pipeline view. Click on the service you want to configure and select the `YAML` button in the top right. For example:
+
+```yaml
 # Quix Project Descriptor
 # This file describes the data pipeline and configuration of resources of a Quix Project.
 
@@ -143,38 +145,51 @@ deployments:
         description: Name of the output topic to write to.
         required: false
         value: transform
-  - name: CPU Alert SMS
-  ...
 ```
 
-In this case you want to configure the memory for the service.
+### Add and Use Variables
 
-Click the `Variables` tab and then click `+ New variable`. Click `+ New variable` on the dialog and create a variable called `MEMORY`. Set the values for memory for each of the environments, such as develop and production. For example, you might set `MEMORY` to 1000 for production, and 500 for develop.
+1. **Create Variables:**
+   - Navigate to the `Variables` tab and click `+ New variable`.
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`) and assign values for each environment:
+     - Development: 500 for `MEMORY`, 1 for `REPLICAS`
+     - Production: 1000 for `MEMORY`, 3 for `REPLICAS`
 
-Now create any other variables you would like to have, such as `CPU`. This might be set to 1000 for production and 200 for develop.
+2. **Update the YAML File:**
+   - Replace hard-coded values with variable placeholders. For instance:
 
-Now edit the `quix.yaml`:
+   ```yaml
+   resources:
+     cpu: 200
+     memory: 500
+     replicas: 1
+   ```
 
-``` yaml
-    resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
-```
+   Becomes:
 
-Change this to:
+   ```yaml
+   resources:
+     cpu: {{CPU}}
+     memory: {{MEMORY}}
+     replicas: {{REPLICAS}}
+   ```
 
-``` yaml
-    resources:
-      cpu: {{CPU}}
-      memory: {{MEMORY}}
-      replicas: 1
-```
+   !!! note
+       Curly braces are required to denote YAML variables.
 
-This specifies that the variable values should be used, rather than the hard-coded values.
+   This approach is particularly useful when deployments have different scalability needs based on the environment. For example:
+   - A production deployment might require higher CPU, memory, and more replicas to handle larger workloads.
+   - In contrast, a development environment can operate with lower values for cost efficiency.
 
-!!! note
+   YAML variables allow you to define these resource requirements for each environment dynamically, without duplicating configurations.
 
-    Curly braces are required to denote YAML variables.
+3. **Sync the Environment:**
+   - After making changes in the development environment, merge these changes into the production environment and sync it. This ensures that the production YAML file reflects the updated variable configurations.
 
-Now sync up your environment. If you've made your changes to your develop environment, you will now need to merge those into your production environment, and then sync production.
+### Validate Changes
+
+Once synced, verify the deployment configurations:
+- Check that the appropriate values are applied based on the environment (e.g., `CPU: 800`, `MEMORY: 1000`, and `REPLICAS: 3` in production, `CPU: 200`, `MEMORY: 500`, and `REPLICAS: 1` in development).
+- Ensure the pipeline reflects the desired resource allocations.
+
+By leveraging YAML variables, you streamline the process of managing environment-specific configurations, reducing manual edits and ensuring consistency across deployments.
