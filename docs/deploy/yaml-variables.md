@@ -1,6 +1,10 @@
 # Configure Deployments Using YAML Variables
 
-YAML variables enable you to create dynamic configurations by assigning different values across environments. For instance, you can allocate more memory for a production deployment compared to a development environment using a variable like `MEMORY`. In development, you might set `MEMORY` to 500, while in production, you set it to 1000.
+## Introduction
+
+YAML variables enable you to manage environment-specific configurations dynamically within the `quix.yaml` file. This file serves as the Infrastructure as Code (IaC) representation of your pipeline, defining deployments, resources, and other configurations. By using YAML variables, you can simplify the management of different settings, such as resource allocation, across development, staging, and production environments.
+
+For example, you can define variables like `MEMORY` or `CPU` with different values for production and development environments, ensuring scalability and cost-efficiency.
 
 ## Watch a Video
 
@@ -110,11 +114,107 @@ Learn more about YAML variables by watching the following video:
 
     11:57 See you in the next video.
 
-## Example Workflow
+## Using YAML Variables in `quix.yaml`
 
-### View the `quix.yaml` File
+### Creating Variables
 
-To configure a deployment, start by accessing the YAML file in the pipeline view. Click on the service you want to configure and select the `YAML` button in the top right. For example:
+To create variables, navigate to the `Variables` tab and click `+ New variable`. Define variables like `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`, `URL_PREFIX`, and `ENV_NAME`.
+
+For example:
+- **Development Environment**:
+  - `MEMORY`: 500
+  - `REPLICAS`: 1
+  - `CPU`: 200
+  - `DISABLED`: `true`
+  - `ENV_NAME`: `dev`
+- **Production Environment**:
+  - `MEMORY`: 1000
+  - `REPLICAS`: 3
+  - `CPU`: 800
+  - `DISABLED`: `false`
+  - `ENV_NAME`: `prod`
+
+Default values can be specified to ensure consistency across environments without requiring specific values for each one.
+- `URL_PREFIX`: `cpu-threshold`
+
+### Updating the YAML File
+
+Replace hard-coded values with placeholders to dynamically inject environment-specific values.
+
+For example, the following:
+
+```yaml
+resources:
+  cpu: 200
+  memory: 500
+  replicas: 1
+```
+
+Becomes:
+
+```yaml
+resources:
+  cpu: {{CPU}}
+  memory: {{MEMORY}}
+  replicas: {{REPLICAS}}
+```
+
+Similarly, for disabling deployments:
+
+```yaml
+deployments:
+  - name: CPU Threshold
+    disabled: true
+```
+
+Becomes:
+
+```yaml
+deployments:
+  - name: CPU Threshold
+    disabled: {{DISABLED}}
+```
+
+### Combining Multiple Variables
+
+You can also concatenate multiple variables in a single string, such as for the `urlPrefix`:
+
+```yaml
+publicAccess:
+  enabled: true
+  urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
+```
+
+!!! note
+    Curly braces are required to denote YAML variables.
+
+### Practical Use Cases
+
+1. **Scalability**: A production deployment might require higher CPU, memory, and replicas to handle larger workloads, whereas a development environment operates with reduced resources for cost efficiency.
+2. **Testing with Mocked Data**: Use the `DISABLED` property to disable deployments or simulate conditions with mocked data in non-production environments.
+
+## Synchronizing and Validating Changes
+
+After updating variables in the `quix.yaml` file, you must synchronize the environment to apply the changes. Changes made in the development environment can be merged into production.
+
+### Steps to Sync
+1. Make changes to the `quix.yaml` file in the development environment and sync them to validate their correctness.
+2. Merge changes into the production environment.
+3. Sync the production environment to ensure the pipeline reflects updated configurations.
+
+**Note:** When variables are updated, the corresponding environment may enter an "out-of-sync" state. Manual synchronization ensures all variable values are applied correctly.
+
+### Verifying Configurations
+
+Once synced, verify that the appropriate values are applied for each environment. For example:
+- Production: `CPU: 800`, `MEMORY: 1000`, `REPLICAS: 3`, `DISABLED: false`
+- Development: `CPU: 200`, `MEMORY: 500`, `REPLICAS: 1`, `DISABLED: true`
+
+By leveraging YAML variables, you streamline environment-specific configurations, reduce manual edits, and ensure consistent deployments.
+
+## Full Example of `quix.yaml`
+
+Below is an example of a `quix.yaml` file utilizing YAML variables:
 
 ```yaml
 # Quix Project Descriptor
@@ -150,79 +250,3 @@ deployments:
         required: false
         value: transform
 ```
-
-### Add and Use Variables
-
-1. **Create Variables:**
-   - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`, `URL_PREFIX`, `ENV_NAME`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
-     - Development: `MEMORY` = 500, `REPLICAS` = 1, `CPU` = 200, `DISABLED` = `true`, `URL_PREFIX` = `my-app`, `ENV_NAME` = `dev`
-     - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`, `URL_PREFIX` = `my-app`, `ENV_NAME` = `prod`
-You can specify a default value during this step, which will be used if environment-specific values are not provided,
-so that you are not forced to define a value for each environment.
-
-2. **Update the YAML File:**
-   - Replace hard-coded values with variable placeholders. For instance:
-
-   ```yaml
-   resources:
-     cpu: 200
-     memory: 500
-     replicas: 1
-   ```
-
-   Becomes:
-
-   ```yaml
-   resources:
-     cpu: {{CPU}}
-     memory: {{MEMORY}}
-     replicas: {{REPLICAS}}
-   ```
-
-   Similarly, for disabling deployments:
-
-   ```yaml
-   deployments:
-     - name: CPU Threshold
-       disabled: true
-   ```
-
-   Becomes:
-
-   ```yaml
-   deployments:
-     - name: CPU Threshold
-       disabled: {{DISABLED}}
-   ```
-
-   For concatenating multiple variables into a single string, such as creating a `urlPrefix`:
-
-   ```yaml
-   publicAccess:
-     enabled: true
-     urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
-   ```
-
-   !!! note
-       Curly braces are required to denote YAML variables.
-
-   This approach is particularly useful when deployments have different scalability needs based on the environment. For example:
-   - A production deployment might require higher CPU, memory, and more replicas to handle larger workloads.
-   - In contrast, a development environment can operate with lower values for cost efficiency.
-
-   YAML variables allow you to define these resource requirements for each environment dynamically, with default values ensuring consistency where specific configurations are not provided.
-
-   The `disabled` property can also be useful for testing scenarios where you may have deployments producing mocked or dummy data instead of real production data. For example, in a staging environment, you could set `DISABLED` to `true` to disable a production-like deployment that simulates real-world conditions with test data. This helps to validate the system without impacting live environments.
-
-3. **Sync the Environment:**
-   - After making changes in the development environment, merge these changes into the production environment and sync it. This ensures that the production YAML file reflects the updated variable configurations.
-   - **Note:** When variables are updated or changed, the corresponding environment may enter an "out-of-sync" state. You will need to manually sync the environment to apply these changes. This ensures that all updated variable values are correctly reflected in the deployment pipeline.
-
-### Validate Changes
-
-Once synced, verify the deployment configurations:
-- Check that the appropriate values are applied based on the environment (e.g., `CPU: 800`, `MEMORY: 1000`, `REPLICAS: 3`, and `DISABLED: false` in production, `CPU: 200`, `MEMORY: 500`, `REPLICAS: 1`, and `DISABLED: true` in development).
-- Ensure the pipeline reflects the desired resource allocations.
-
-By leveraging YAML variables, you streamline the process of managing environment-specific configurations, reducing manual edits and ensuring consistency across deployments.
