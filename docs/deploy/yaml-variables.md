@@ -1,10 +1,10 @@
-# Configure deployments using YAML variables
+# Configure Deployments Using YAML Variables
 
-YAML variables enable you to create variables that can have different values across different environments. For example, if you want to allocate more memory for a deployment in your production environment, you could have a variable `MEMORY` that has a value of 500 in the development environment and 1000 in production.
+YAML variables enable you to create dynamic configurations by assigning different values across environments. For instance, you can allocate more memory for a production deployment compared to a development environment using a variable like `MEMORY`. In development, you might set `MEMORY` to 500, while in production, you set it to 1000.
 
-## Watch a video
+## Watch a Video
 
-You can watch a video on YAML variables here:
+Learn more about YAML variables by watching the following video:
 
 <div style="position: relative; padding-bottom: 51.728110599078335%; height: 0;"><iframe src="https://www.loom.com/embed/c66029f67b8747bbb28c0605f5ea3fad?sid=ce696556-b98d-4231-8282-a4bbfdf9795c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
@@ -137,7 +137,7 @@ deployments:
     disabled: {{DISABLED}}
     publicAccess:
       enabled: true
-      urlPrefix: {{APP_NAME}}-{{ENV_NAME}}
+      urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
     variables:
       - name: input
         inputType: InputTopic
@@ -155,12 +155,12 @@ deployments:
 
 1. **Create Variables:**
    - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`).
-   For instance:
-     - Development: `MEMORY` = 500, `REPLICAS` = 1, `CPU` = 200, `DISABLED` = `true`
-     - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`, `URL_PREFIX`, `ENV_NAME`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
+     - Development: `MEMORY` = 500, `REPLICAS` = 1, `CPU` = 200, `DISABLED` = `true`, `URL_PREFIX` = `my-app`, `ENV_NAME` = `dev`
+     - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`, `URL_PREFIX` = `my-app`, `ENV_NAME` = `prod`
 You can specify a default value during this step, which will be used if environment-specific values are not provided,
 so that you are not forced to define a value for each environment.
+
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
 
@@ -196,12 +196,12 @@ so that you are not forced to define a value for each environment.
        disabled: {{DISABLED}}
    ```
 
-   You can also combine multiple variables into a single string, for example if you want to create some composed `urlPrefix`:
+   For concatenating multiple variables into a single string, such as creating a `urlPrefix`:
 
    ```yaml
    publicAccess:
      enabled: true
-     urlPrefix: {{APP_NAME}}-{{ENV_NAME}}
+     urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
    ```
 
    !!! note
