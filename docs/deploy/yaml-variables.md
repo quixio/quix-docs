@@ -151,9 +151,11 @@ deployments:
 
 1. **Create Variables:**
    - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`) and assign values for each environment:
-     - Development: 500 for `MEMORY`, 1 for `REPLICAS`
-     - Production: 1000 for `MEMORY`, 3 for `REPLICAS`
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`). During this step, you can specify:
+     - A default value: Used when no environment-specific value is provided (e.g., Default: `MEMORY` = 750, `REPLICAS` = 2).
+     - Environment-specific values: For example:
+       - Development: `MEMORY` = 500, `REPLICAS` = 1.
+       - Production: `MEMORY` = 1000, `REPLICAS` = 3.
 
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
@@ -181,7 +183,7 @@ deployments:
    - A production deployment might require higher CPU, memory, and more replicas to handle larger workloads.
    - In contrast, a development environment can operate with lower values for cost efficiency.
 
-   YAML variables allow you to define these resource requirements for each environment dynamically, without duplicating configurations.
+   YAML variables allow you to define these resource requirements for each environment dynamically, with default values ensuring consistency where specific configurations are not provided.
 
 3. **Sync the Environment:**
    - After making changes in the development environment, merge these changes into the production environment and sync it. This ensures that the production YAML file reflects the updated variable configurations.
