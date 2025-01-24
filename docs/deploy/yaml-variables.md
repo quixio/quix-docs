@@ -135,6 +135,9 @@ deployments:
       replicas: {{REPLICAS}}
     desiredStatus: Stopped
     disabled: {{DISABLED}}
+    publicAccess:
+      enabled: true
+      urlPrefix: {{APP_NAME}}-{{ENV_NAME}}
     variables:
       - name: input
         inputType: InputTopic
@@ -158,7 +161,6 @@ deployments:
      - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`
 You can specify a default value during this step, which will be used if environment-specific values are not provided,
 so that you are not forced to define a value for each environment.
-
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
 
@@ -192,6 +194,14 @@ so that you are not forced to define a value for each environment.
    deployments:
      - name: CPU Threshold
        disabled: {{DISABLED}}
+   ```
+
+   You can also combine multiple variables into a single string, for example if you want to create some composed `urlPrefix`:
+
+   ```yaml
+   publicAccess:
+     enabled: true
+     urlPrefix: {{APP_NAME}}-{{ENV_NAME}}
    ```
 
    !!! note
