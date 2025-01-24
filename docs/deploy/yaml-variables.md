@@ -152,10 +152,12 @@ deployments:
 
 1. **Create Variables:**
    - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
-     - Default: `MEMORY` = 750, `REPLICAS` = 2, `CPU` = 500, `DISABLED` = `false`
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`).
+   For instance:
      - Development: `MEMORY` = 500, `REPLICAS` = 1, `CPU` = 200, `DISABLED` = `true`
      - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`
+You can specify a default value during this step, which will be used if environment-specific values are not provided,
+so that you are not forced to define a value for each environment.
 
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
