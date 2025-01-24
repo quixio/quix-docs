@@ -110,7 +110,7 @@ You can watch a video on YAML variables here:
 
     11:57 See you in the next video.
 
-## Example
+## Example Workflow
 
 ### View the `quix.yaml` File
 
@@ -130,10 +130,11 @@ deployments:
     deploymentType: Service
     version: transform-v2
     resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
+      cpu: {{CPU}}
+      memory: {{MEMORY}}
+      replicas: {{REPLICAS}}
     desiredStatus: Stopped
+    disabled: {{DISABLED}}
     variables:
       - name: input
         inputType: InputTopic
@@ -151,10 +152,10 @@ deployments:
 
 1. **Create Variables:**
    - Navigate to the `Variables` tab and click `+ New variable`.
-   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
-     - Default: `MEMORY` = 750, `REPLICAS` = 2
-     - Development: `MEMORY` = 500, `REPLICAS` = 1
-     - Production: `MEMORY` = 1000, `REPLICAS` = 3
+   - In the dialog, define a variable (e.g., `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`). You can specify a default value during this step, which will be used if environment-specific values are not provided. For instance:
+     - Default: `MEMORY` = 750, `REPLICAS` = 2, `CPU` = 500, `DISABLED` = `false`
+     - Development: `MEMORY` = 500, `REPLICAS` = 1, `CPU` = 200, `DISABLED` = `true`
+     - Production: `MEMORY` = 1000, `REPLICAS` = 3, `CPU` = 800, `DISABLED` = `false`
 
 2. **Update the YAML File:**
    - Replace hard-coded values with variable placeholders. For instance:
@@ -175,6 +176,22 @@ deployments:
      replicas: {{REPLICAS}}
    ```
 
+   Similarly, for disabling deployments:
+
+   ```yaml
+   deployments:
+     - name: CPU Threshold
+       disabled: true
+   ```
+
+   Becomes:
+
+   ```yaml
+   deployments:
+     - name: CPU Threshold
+       disabled: {{DISABLED}}
+   ```
+
    !!! note
        Curly braces are required to denote YAML variables.
 
@@ -184,6 +201,8 @@ deployments:
 
    YAML variables allow you to define these resource requirements for each environment dynamically, with default values ensuring consistency where specific configurations are not provided.
 
+   The `disabled` property can also be useful for testing scenarios where you may have deployments producing mocked or dummy data instead of real production data. For example, in a staging environment, you could set `DISABLED` to `true` to disable a production-like deployment that simulates real-world conditions with test data. This helps to validate the system without impacting live environments.
+
 3. **Sync the Environment:**
    - After making changes in the development environment, merge these changes into the production environment and sync it. This ensures that the production YAML file reflects the updated variable configurations.
    - **Note:** When variables are updated or changed, the corresponding environment may enter an "out-of-sync" state. You will need to manually sync the environment to apply these changes. This ensures that all updated variable values are correctly reflected in the deployment pipeline.
@@ -191,7 +210,7 @@ deployments:
 ### Validate Changes
 
 Once synced, verify the deployment configurations:
-- Check that the appropriate values are applied based on the environment (e.g., `CPU: 800`, `MEMORY: 1000`, and `REPLICAS: 3` in production, `CPU: 200`, `MEMORY: 500`, and `REPLICAS: 1` in development).
+- Check that the appropriate values are applied based on the environment (e.g., `CPU: 800`, `MEMORY: 1000`, `REPLICAS: 3`, and `DISABLED: false` in production, `CPU: 200`, `MEMORY: 500`, `REPLICAS: 1`, and `DISABLED: true` in development).
 - Ensure the pipeline reflects the desired resource allocations.
 
 By leveraging YAML variables, you streamline the process of managing environment-specific configurations, reducing manual edits and ensuring consistency across deployments.
