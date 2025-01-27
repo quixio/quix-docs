@@ -1,10 +1,14 @@
-# Configure deployments using YAML variables
+# Configure Deployments Using YAML Variables
 
-YAML variables enable you to create variables that can have different values across different environments. For example, if you want to allocate more memory for a deployment in your production environment, you could have a variable `MEMORY` that has a value of 500 in the development environment and 1000 in production.
+## Introduction
 
-## Watch a video
+YAML variables enable you to manage environment-specific configurations dynamically within the `quix.yaml` file. This file serves as the Infrastructure as Code (IaC) representation of your pipeline, defining deployments, resources, and other configurations. By using YAML variables, you can simplify the management of different settings, such as resource allocation, across development, staging, and production environments.
 
-You can watch a video on YAML variables here:
+For example, you can define variables like `CPU` or `MEMORY` with different values for production and development environments, ensuring scalability and cost-efficiency.
+
+## Watch a Video
+
+Learn more about YAML variables by watching the following video:
 
 <div style="position: relative; padding-bottom: 51.728110599078335%; height: 0;"><iframe src="https://www.loom.com/embed/c66029f67b8747bbb28c0605f5ea3fad?sid=ce696556-b98d-4231-8282-a4bbfdf9795c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
@@ -110,11 +114,95 @@ You can watch a video on YAML variables here:
 
     11:57 See you in the next video.
 
-## Example
+## Using YAML Variables in `quix.yaml`
 
-In the pipeline view, click on the service you want to configure, and then click the YAML button in the top right of the view. You see the `quix.yaml` code, such as the following:
+### Example Use Cases
 
-``` yaml
+* **Scalability**: A production deployment might require higher CPU, memory, and replicas to handle larger workloads, whereas a development environment operates with reduced resources for cost efficiency.
+* **Testing with Mocked Data**: Use the `DISABLED` property to disable deployments or simulate conditions with mocked data in non-production environments.
+
+### Creating Variables
+
+To create variables, navigate to the `Variables` tab and click `+ New variable`. Define variables like `CPU`, `MEMORY`, `REPLICAS`, `DISABLED`, `URL_PREFIX`, and `ENV_NAME`.
+
+![Example](../images/yaml-variables.png)
+
+Default values can be specified to ensure consistency across environments without requiring specific values for each one.
+
+### Updating the YAML File
+
+Replace hard-coded values with placeholders to dynamically inject environment-specific values.
+
+For example, the following:
+
+```yaml
+resources:
+  cpu: 200
+  memory: 500
+  replicas: 1
+```
+
+Becomes:
+
+```yaml
+resources:
+  cpu: {{CPU}}
+  memory: {{MEMORY}}
+  replicas: {{REPLICAS}}
+```
+
+Similarly, for disabling deployments:
+
+```yaml
+deployments:
+  - name: CPU Threshold
+    disabled: true
+```
+
+Becomes:
+
+```yaml
+deployments:
+  - name: CPU Threshold
+    disabled: {{DISABLED}}
+```
+
+### Combining Multiple Variables
+
+You can also concatenate multiple variables in a single string, such as for the `urlPrefix`:
+
+```yaml
+publicAccess:
+  enabled: true
+  urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
+```
+
+!!! note
+    Curly braces are required to denote YAML variables.
+
+## Synchronizing and Validating Changes
+
+After updating variables in the `quix.yaml` file, you must synchronize the environment to apply the changes. Changes made in the development environment can be merged into production.
+
+### Steps to Sync
+1. Make changes to the `quix.yaml` file in the development environment and sync them to validate their correctness.
+2. Merge changes into the production environment.
+3. Sync the production environment to ensure the pipeline reflects updated configurations.
+
+Once synced, verify that the appropriate values are applied for each environment. For example:
+
+!!! note
+    When variables are updated, the corresponding environment may enter an "out-of-sync" state. Manual synchronization ensures all variable values are applied correctly.
+
+### Verifying Configurations
+
+By leveraging YAML variables, you streamline environment-specific configurations, reduce manual edits, and ensure consistent deployments.
+
+## Full Example of `quix.yaml`
+
+Below is an example of a `quix.yaml` file utilizing YAML variables:
+
+```yaml
 # Quix Project Descriptor
 # This file describes the data pipeline and configuration of resources of a Quix Project.
 
@@ -128,10 +216,14 @@ deployments:
     deploymentType: Service
     version: transform-v2
     resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
+      cpu: {{CPU}}
+      memory: {{MEMORY}}
+      replicas: {{REPLICAS}}
     desiredStatus: Stopped
+    disabled: {{DISABLED}}
+    publicAccess:
+      enabled: true
+      urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
     variables:
       - name: input
         inputType: InputTopic
@@ -143,38 +235,6 @@ deployments:
         description: Name of the output topic to write to.
         required: false
         value: transform
-  - name: CPU Alert SMS
-  ...
 ```
 
-In this case you want to configure the memory for the service.
-
-Click the `Variables` tab and then click `+ New variable`. Click `+ New variable` on the dialog and create a variable called `MEMORY`. Set the values for memory for each of the environments, such as develop and production. For example, you might set `MEMORY` to 1000 for production, and 500 for develop.
-
-Now create any other variables you would like to have, such as `CPU`. This might be set to 1000 for production and 200 for develop.
-
-Now edit the `quix.yaml`:
-
-``` yaml
-    resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
-```
-
-Change this to:
-
-``` yaml
-    resources:
-      cpu: {{CPU}}
-      memory: {{MEMORY}}
-      replicas: 1
-```
-
-This specifies that the variable values should be used, rather than the hard-coded values.
-
-!!! note
-
-    Curly braces are required to denote YAML variables.
-
-Now sync up your environment. If you've made your changes to your develop environment, you will now need to merge those into your production environment, and then sync production.
+See [this](../quix-cli/yaml-reference/pipeline-descriptor.md) reference for more information about the quix.yaml file.
