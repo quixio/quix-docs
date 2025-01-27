@@ -4,7 +4,7 @@
 
 YAML variables enable you to manage environment-specific configurations dynamically within the `quix.yaml` file. This file serves as the Infrastructure as Code (IaC) representation of your pipeline, defining deployments, resources, and other configurations. By using YAML variables, you can simplify the management of different settings, such as resource allocation, across development, staging, and production environments.
 
-For example, you can define variables like `MEMORY` or `CPU` with different values for production and development environments, ensuring scalability and cost-efficiency.
+For example, you can define variables like `CPU` or `MEMORY` with different values for production and development environments, ensuring scalability and cost-efficiency.
 
 ## Watch a Video
 
@@ -116,26 +116,18 @@ Learn more about YAML variables by watching the following video:
 
 ## Using YAML Variables in `quix.yaml`
 
+### Example Use Cases
+
+* **Scalability**: A production deployment might require higher CPU, memory, and replicas to handle larger workloads, whereas a development environment operates with reduced resources for cost efficiency.
+* **Testing with Mocked Data**: Use the `DISABLED` property to disable deployments or simulate conditions with mocked data in non-production environments.
+
 ### Creating Variables
 
-To create variables, navigate to the `Variables` tab and click `+ New variable`. Define variables like `MEMORY`, `REPLICAS`, `DISABLED`, `CPU`, `URL_PREFIX`, and `ENV_NAME`.
+To create variables, navigate to the `Variables` tab and click `+ New variable`. Define variables like `CPU`, `MEMORY`, `REPLICAS`, `DISABLED`, `URL_PREFIX`, and `ENV_NAME`.
 
-For example:
-- **Development Environment**:
-  - `MEMORY`: 500
-  - `REPLICAS`: 1
-  - `CPU`: 200
-  - `DISABLED`: `true`
-  - `ENV_NAME`: `dev`
-- **Production Environment**:
-  - `MEMORY`: 1000
-  - `REPLICAS`: 3
-  - `CPU`: 800
-  - `DISABLED`: `false`
-  - `ENV_NAME`: `prod`
+![Example](../images/yaml-variables.png)
 
 Default values can be specified to ensure consistency across environments without requiring specific values for each one.
-- `URL_PREFIX`: `cpu-threshold`
 
 ### Updating the YAML File
 
@@ -188,11 +180,6 @@ publicAccess:
 !!! note
     Curly braces are required to denote YAML variables.
 
-### Practical Use Cases
-
-1. **Scalability**: A production deployment might require higher CPU, memory, and replicas to handle larger workloads, whereas a development environment operates with reduced resources for cost efficiency.
-2. **Testing with Mocked Data**: Use the `DISABLED` property to disable deployments or simulate conditions with mocked data in non-production environments.
-
 ## Synchronizing and Validating Changes
 
 After updating variables in the `quix.yaml` file, you must synchronize the environment to apply the changes. Changes made in the development environment can be merged into production.
@@ -202,13 +189,12 @@ After updating variables in the `quix.yaml` file, you must synchronize the envir
 2. Merge changes into the production environment.
 3. Sync the production environment to ensure the pipeline reflects updated configurations.
 
-**Note:** When variables are updated, the corresponding environment may enter an "out-of-sync" state. Manual synchronization ensures all variable values are applied correctly.
+Once synced, verify that the appropriate values are applied for each environment. For example:
+
+!!! note
+    When variables are updated, the corresponding environment may enter an "out-of-sync" state. Manual synchronization ensures all variable values are applied correctly.
 
 ### Verifying Configurations
-
-Once synced, verify that the appropriate values are applied for each environment. For example:
-- Production: `CPU: 800`, `MEMORY: 1000`, `REPLICAS: 3`, `DISABLED: false`
-- Development: `CPU: 200`, `MEMORY: 500`, `REPLICAS: 1`, `DISABLED: true`
 
 By leveraging YAML variables, you streamline environment-specific configurations, reduce manual edits, and ensure consistent deployments.
 
@@ -250,3 +236,5 @@ deployments:
         required: false
         value: transform
 ```
+
+See [this](../quix-cli/yaml-reference/pipeline-descriptor.md) reference for more information about the quix.yaml file.
