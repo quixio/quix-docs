@@ -1,5 +1,5 @@
 ---
-title: "Quix Release #2: January 2025 Shared Folders"
+title: "Shared Folders - Quix Cloud January 2025 Release #2"
 date: 2025-01-29
 authors: [steve-rosam]
 slug: quix-release-2-january-2025-shared-folders
@@ -15,29 +15,29 @@ Bug fixes and enhancements!
 
 <!-- more -->
 
-## 🌱 **New Features**
+## 🌱 **New Features** 🌱
 
 ### Shared folders
 
 * We added support for code reuse across multiple applications within the same project. 
 
-  Users can now declare shared folders in the app.yaml, enabling shared code to be available in the build process.
+    Users can now declare shared folders in the app.yaml, enabling shared code to be available in the build process.
 
-  Additionally, we introduced UI components that allow users to easily configure included folders directly from the Online IDE.
+    Additionally, we introduced UI components that allow users to easily configure included folders directly from the Online IDE.
 
-  An example of how to configure shared folders from the app.yaml file:
-  ```
-  app.yaml
+    An example of how to configure shared folders from the app.yaml file:
+    ```
+    app.yaml
 
-  includedFolders:
-    - shared_module
-    - shared_lib
-  ```
+    includedFolders:
+      - shared_module
+      - shared_lib
+    ```
 
-  !!! info
+    !!! info
         With this setup, both shared_module and shared_lib will be available for import within the application. More info in the [docs](https://quix.io/docs/quix-cli/yaml-reference/app-descriptor.html#4-included-folders).
 
-  !!! warning     
+    !!! warning     
         This feature needs an update to a new version of your Application dockerfile. More info in the [docs](https://quix.io/docs/quix-cli/yaml-reference/dockerfile.html). 
 
 ### Disable Deployments
@@ -57,7 +57,7 @@ Bug fixes and enhancements!
 * Introduced the ability to provision and configure Dedicated Brokers tied directly to your Dedicated Compute Nodes. This provides optimized messaging performance and seamless integration with your dedicated infrastructure in specific regions.
 
 
-## 💎 Enhancements
+## 💎 Enhancements 💎
 
 ### Pipeline
 
@@ -92,7 +92,7 @@ Bug fixes and enhancements!
 * Optimized the branch creation process to handle large repositories more efficiently.
 
 
-## 🦠Bug Fixes
+## 🦠 Bug Fixes 🦠
 
 ### Projects
 
