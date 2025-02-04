@@ -1,4 +1,4 @@
-name: Merge Dev->Main, Deploy GH-Pages
+name: Deploy Prod from MAIN branch
 
 on:
   # Runs on pushes targeting the default branch
@@ -127,7 +127,7 @@ jobs:
           AccessToken: ${{ secrets.QUIX_STREAMS_ACCESS_TOKEN }}
       
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           path: ./site
 
