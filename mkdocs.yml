@@ -27,7 +27,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.8.0'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.8.1'
   - 'Quix Connectors': 
     # Pages for "Quix Streams" section are imported from https://github.com/quixio/quix-streams
     - Quix Streams:
@@ -40,6 +40,7 @@ nav:
         - Google Cloud Pub/Sub Source: 'quix-streams/connectors/sources/google-cloud-pubsub-source.md'
         - Kafka Replicator Source: 'quix-streams/connectors/sources/kafka-source.md'
         - Local File Source: 'quix-streams/connectors/sources/local-file-source.md'
+        - Pandas DataFrame Source: 'quix-streams/connectors/sources/pandas-source.md'
         - Quix Environment Source: 'quix-streams/connectors/sources/quix-source.md'
         - Creating a Custom Source: 'quix-streams/connectors/sources/custom-sources.md'
       - Sinks:
