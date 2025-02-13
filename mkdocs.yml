@@ -243,6 +243,7 @@ nav:
           - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
           - 'Streaming Token': 'develop/authentication/streaming-token.md'
         - 'Using Code Samples': 'develop/code-samples.md'
+        - 'Including Shared Folders': 'develop/shared-folders.md'
         - 'Integrate your data': 
           - 'Overview': 'develop/integrate-data/overview.md'
           - 'Ingest your data - source':
