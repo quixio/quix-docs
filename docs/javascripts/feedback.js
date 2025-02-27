@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
       query.addEventListener("blur", function() {
         if (this.value)
           gtag("event", "search", { search_term: this.value })
+          post_hog_event('docs-search', {search_term: this.value})
       })
     }
     
@@ -55,5 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
         pageview: url.pathname,
         page_view: url.pathname
       })
+      post_hog_event('docs-navigation', {page: url.pathname})
     })
   })

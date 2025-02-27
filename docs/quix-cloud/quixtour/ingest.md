@@ -5,7 +5,7 @@ In this part of the tour you'll get some data flowing into your pipeline. You do
 ## Step 1: Sign in to Quix Cloud
 
 ??? info "Start for free"
-    [Book a session](https://quix.io/book-a-demo) with us to start for free.
+    [Book a session](https://quix.io/book-a-demo){target=_blank} with us to start for free.
     
     We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 

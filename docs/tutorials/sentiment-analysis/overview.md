@@ -63,7 +63,7 @@ If you need any assistance while following the tutorial, we're here to help in t
 Get a Quix Cloud account.
 
 ??? info "Start for free"
-    [Book a session](https://quix.io/book-a-demo) with us to start for free.
+    [Book a session](https://quix.io/book-a-demo){target=_blank} with us to start for free.
     
     We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 

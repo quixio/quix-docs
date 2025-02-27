@@ -21,5 +21,20 @@ if (consent && consent.posthog) {
   /* The user accepted the cookie */
   this.posthog.opt_in_capturing();
 }else{
-    this.posthog.opt_out_capturing();
+  this.posthog.opt_out_capturing();
 }
+
+function post_hog_event(event_name, params){
+    if (consent && consent.posthog) {
+        posthog.capture(event_name, params);
+    }
+}
+
+const elements = document.querySelectorAll('p, span, div, a'); // Add other tags if needed
+elements.forEach(element => {
+    console.log(element.innerText)
+    if (element.innerText === 'Book a session') { // Replace 'Click Me' with your specific text
+        // element.addEventListener('click', handleClick);
+        console.log("Book link")
+    }
+});

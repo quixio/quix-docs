@@ -25,7 +25,7 @@ To complete this tutorial you will need the following accounts:
 * [Quix Cloud account](https://quix.io){target=_blank} - This enables you to create the real-time stream processing pipeline.
 
 ??? info "Start for free"
-      [Book a session](https://quix.io/book-a-demo) with us to start for free.
+      [Book a session](https://quix.io/book-a-demo){target=_blank} with us to start for free.
       
       We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 

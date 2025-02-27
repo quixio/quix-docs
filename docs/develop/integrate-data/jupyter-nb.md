@@ -17,7 +17,7 @@ You'll need some data stored in Quix. You can use any of the Quix [data sources]
 You can also follow the onboarding process after you login for the first time. The onboarding process helps you create your first `source`.
 
 ??? info "Start for free"
-	[Book a session](https://quix.io/book-a-demo) with us to start for free.
+	[Book a session](https://quix.io/book-a-demo){target=_blank} with us to start for free.
 	
 	We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
 
