@@ -1,5 +1,5 @@
 ---
-title: "Shared Folders - Quix Cloud January 2025 Release #2"
+title: "Shared Folders - Quix Release #2 January 2025"
 date: 2025-01-29
 authors: [steve-rosam]
 slug: quix-release-2-january-2025-shared-folders
