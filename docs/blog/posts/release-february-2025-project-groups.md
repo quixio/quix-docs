@@ -1,6 +1,6 @@
 ---
 title: "Project Groups - Quix Release #3 February 2025"
-date: 2025-01-07
+date: 2025-02-27
 authors: [steve-rosam]
 slug: quix-release-february-2025-project-groups
 description: >

@@ -1,6 +1,6 @@
 ---
 title: "Bug Fixes - Quix Release #1 January 2025"
-date: 2025-02-27
+date: 2025-01-07
 authors: [steve-rosam]
 slug: quix-release-january-2025-bug-fix-release
 description: >
