@@ -353,11 +353,8 @@ nav:
           - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
         - 'Weaviate':
           - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
-    - 'Bring Your Own Cluster (BYOC)':
-      - 'Overview': 'byoc/overview.md'
-      - 'Requirements': 'byoc/requirements.md'
-      - 'Installation': 'byoc/installation.md'
-      - 'BYOC vs. Cloud': 'byoc/byoc-vs-cloud.md'
+    - 'Hosting Options':
+      - 'Overview': 'hosting/overview.md'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'
