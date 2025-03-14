@@ -31,10 +31,6 @@ Example external image reference:
 dockerhub.io/myorg/my-service:1.2.3
 ```
 
-!!! tip
-
-    Ensure your external image is accessible from the platform. For private repositories, ensure the correct credentials or access policies are in place.
-
 ## Deployment Settings for External Images
 
 The deployment settings for external images are similar to application deployments, with slight differences. Below is a description of the main features:
@@ -50,9 +46,49 @@ The deployment settings for external images are similar to application deploymen
 
 ## Working on the Command Line
 
-To deploy an external image from the command line, modify your [`quix.yaml`](../quix-cli/yaml-reference/pipeline-descriptor.md) file to include the image, then use the following commands:
+To deploy an external image from the command line, modify your [`quix.yaml`](../quix-cli/yaml-reference/pipeline-descriptor.md) file to include the image. 
+
+Example:
+
+```yaml
+- name: custom-service
+    image: my-registry.com/my-service:1.2.3
+    deploymentType: Service
+    resources:
+      cpu: 300
+      memory: 600
+      replicas: 2
+    desiredStatus: Running
+```
+
+Then use the following commands:
 
 - **Sync local changes**: Use the `quix local pipeline sync --update` command. This updates your pipeline in Quix Cloud based on your `quix.yaml` file.
 - **Sync remote environment**: Use the `quix envs sync` command to synchronize an environment with its project repository.
 
 For more details on CLI usage, see the [CLI documentation](../quix-cli/overview.md).
+
+## Private Container Registries
+
+When deploying an external image hosted in a private container registry, you must configure registry credentials in the platform to enable secure access during deployments.
+
+### Required Information:
+
+Provide the following details when configuring credentials:
+
+| Field           | Description                                                                                           | Example                      |
+|-----------------|-------------------------------------------------------------------------------------------------------|------------------------------|
+| **Display Name**| A friendly name to easily identify your registry.                                                     | `My Org Private Registry`    |
+| **Address**     | The address of your registry.                                                                         | `my-registry.com`            |
+| **Auth Type**   | Authentication type. Supported values: `BasicAuth` or `Token`.                                        | `BasicAuth` or `Token`       |
+| **Credentials** | Depending on the authentication method selected:                                                      |                              |
+|                 | - **BasicAuth**: Provide a Username & Password                                                        | Username/password            |
+|                 | - **Token**: Provide a long-lived token                                                               | Token string                 |
+
+!!! warning
+
+    Ensure the credentials provided are long-lived, as the platform does not support automatic credential refresh.
+
+!!! note
+
+    If the image was deployed prior to configuring the credentials, you may need to restart the deployment for changes to take effect.
