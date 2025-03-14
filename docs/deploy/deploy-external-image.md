@@ -92,3 +92,5 @@ Provide the following details when configuring credentials:
 !!! note
 
     If the image was deployed prior to configuring the credentials, you may need to restart the deployment for changes to take effect.
+
+More details about private registry authentication can be found [here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
