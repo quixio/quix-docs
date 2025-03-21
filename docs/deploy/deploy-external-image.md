@@ -70,9 +70,15 @@ For more details on CLI usage, see the [CLI documentation](../quix-cli/overview.
 
 ## Private Container Registries
 
-When deploying an external image hosted in a private container registry, you must configure registry credentials in the platform to enable secure access during deployments.
+When deploying an external image hosted in a private container registry, you must configure registry credentials in the platform to ensure secure access during deployments.
+
+To configure these credentials, navigate to your organization's Settings page and locate the Container Registries section. Here, you can create, edit, and delete container registry configurations as needed.
+
+![Settings](../images/container-registies/container-registries-settings.png)
 
 ### Required Information:
+
+![Create](../images/container-registies/container-registries-create.png)
 
 Provide the following details when configuring credentials:
 
