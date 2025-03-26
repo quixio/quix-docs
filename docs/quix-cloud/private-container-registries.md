@@ -1,8 +1,12 @@
-
 # Private Container Registries
 
-When using an image hosted in a private container registry, you must configure registry credentials in the platform to ensure secure access during deployments.
+The platform supports images hosted in private container registries for both scenarios:
 
+- **Using as a base image** in your Dockerfile for the build process.
+- **Deploying directly** as described [here](../deploy/deploy-external-image.md).
+
+In either case, you must configure the registry credentials on the platform to securely access the images during deployments.
+ 
 To configure these credentials, navigate to your organization's Settings page and locate the Container Registries section. Here, you can create, edit, and delete container registry configurations as needed.
 
 ![Settings](../images/container-registies/container-registries-settings.png)
