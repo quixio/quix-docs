@@ -319,8 +319,8 @@ nav:
       - 'Pipeline YAML (quix.yaml)': './quix-cli/yaml-reference/pipeline-descriptor.md'
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
-
     - 'Security': 'quix-cloud/security.md'
+    - 'Private Container Registries': 'quix-cloud/private-container-registries.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
