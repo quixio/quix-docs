@@ -3,7 +3,7 @@
 The platform supports images hosted in private container registries for both scenarios:
 
 - **Using as a base image** in your Dockerfile for the build process.
-- **Deploying directly** as described [here](../deploy/deploy-external-image.md).
+- **Deploying directly** as described [here](./deploy-external-image.md).
 
 In either case, you must configure the registry credentials on the platform to securely access the images during deployments.
  

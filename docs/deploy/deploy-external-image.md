@@ -70,4 +70,4 @@ For more details on CLI usage, see the [CLI documentation](../quix-cli/overview.
 
 ## Private Container Registries
 
-If the external image you wish to deploy is hosted in a private container registry, check out [this](../quix-cloud/private-container-registries.md) page to learn how to configure it.
+If the external image you wish to deploy is hosted in a private container registry, check out [this](./private-container-registries.md) page to learn how to configure it.

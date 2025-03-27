@@ -292,6 +292,7 @@ nav:
         - 'State management': 'deploy/state-management.md'  
         - 'Deploy public services': 'deploy/deploy-public-page.md'
         - 'Deploy an external image': 'deploy/deploy-external-image.md'
+        - 'Private container registries': 'deploy/private-container-registries.md'
       - '4. Manage your pipelines':
         - 'Overview': 'manage/overview.md'
         - 'Troubleshooting': 'manage/troubleshooting.md'
@@ -320,7 +321,6 @@ nav:
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
     - 'Security': 'quix-cloud/security.md'
-    - 'Private Container Registries': 'quix-cloud/private-container-registries.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
