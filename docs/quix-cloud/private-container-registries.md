@@ -13,7 +13,7 @@ To configure these credentials, navigate to your organization's Settings page an
 
 ## Required Information:
 
-![Create](../images/container-registies/container-registries-create.png)
+![Create](../images/container-registies/container-registries-create.png){width=60%}
 
 Provide the following details when configuring credentials:
 
