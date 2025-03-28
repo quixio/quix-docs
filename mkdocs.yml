@@ -50,7 +50,7 @@ nav:
         - Apache Iceberg Sink: 'quix-streams/connectors/sinks/apache-iceberg-sink.md'
         - Azure Blob Storage Sink: 'quix-streams/connectors/sinks/microsoft-azure-file-sink.md'
         - CSV Sink: 'quix-streams/connectors/sinks/csv-sink.md'
-        - Elasticsearch Sink: 'quix-streams/connectors/sinks/elasticsearch-sink.md',
+        - Elasticsearch Sink: 'quix-streams/connectors/sinks/elasticsearch-sink.md'
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
         - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
