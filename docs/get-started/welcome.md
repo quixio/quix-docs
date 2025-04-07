@@ -23,6 +23,6 @@ Your Quix workflow:
 
     Start building your stream processing pipeline locally on the command line with Quix Streams.
 
-    [Install Quix Streams :octicons-arrow-right-24:](quix-streams/quickstart.md)
+    [Install Quix Streams :octicons-arrow-right-24:](../quix-streams/quickstart.md)
 
 </div>
