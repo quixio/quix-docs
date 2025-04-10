@@ -1,5 +1,7 @@
-mkdocs-multirepo-plugin
-mkdocs-glightbox
-mkdocs-redirects
-mkdocs-include-markdown-plugin
-mkdocs-exclude-search
+mkdocs-material[imaging]>=9.5.0
+mkdocs-glightbox>=0.1.0
+mkdocs-multirepo-plugin>=0.1.0
+mkdocs-redirects>=1.2.0
+mkdocs-include-markdown-plugin>=4.0.4
+mkdocs-exclude-search>=0.6.4
+cffi>=1.15.0
