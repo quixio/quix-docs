@@ -26,7 +26,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.15.0'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.16.0'
   - 'Quix Connectors': 
     # Pages for "Quix Streams" section are imported from https://github.com/quixio/quix-streams
     - Quix Streams:
