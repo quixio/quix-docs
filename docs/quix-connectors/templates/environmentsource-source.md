@@ -4,7 +4,7 @@ This project provides a ready-to-use solution for mirroring data from one Quix e
 
 ## How to run
 
-1. Create a [Quix](https://portal.platform.quix.io/signup?xlink=github) account or log in if you already have one.
+1. Create a [Quix](https://portal.cloud.quix.io/signup?xlink=github) account or log in if you already have one.
 2. Navigate to the project samples and deploy this project directly to your environment by clicking `Deploy`.
 3. After deployment, configure the necessary environment variables as outlined below.
 4. You can also fork this project to your own GitHub repository for customization by clicking `Edit code` before deployment.

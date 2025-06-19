@@ -6,7 +6,7 @@ To find out more about the Quix Telegraf plugin and how to use it [please read t
 
 ## How to run
 
-Create a [Quix](https://portal.platform.quix.io/signup?xlink=github) account or log-in and visit the Samples to use this project.
+Create a [Quix](https://portal.cloud.quix.io/signup?xlink=github) account or log-in and visit the Samples to use this project.
 
 Clicking `Deploy` on the Template, deploys a pre-built version of the code to a container running in Quix. Complete the environment variables to configure the container.
 
