@@ -57,7 +57,7 @@ To summarize this functionality:
 
 To set up the CoinAPI source, follow these steps:
 
-1. In [Quix](https://portal.platform.quix.io/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
+1. In [Quix](https://portal.cloud.quix.io/){target=_blank}, click the `Code Samples` icon in the main left-hand navigation.
 
 2. In the search box on the Code Samples page, enter "CoinAPI - Exchange Rate Feed".
    

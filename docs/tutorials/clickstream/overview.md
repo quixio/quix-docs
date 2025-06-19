@@ -13,7 +13,7 @@ This tutorial uses the [Quix Clickstream analysis template project](https://gith
 You'll fork the complete project from GitHub, and then create a Quix project from the forked repo, so you have a copy of the full application code running in your Quix account. You then examine the data flow through the project's pipeline, using tools provided by Quix.
 
 <div>
-<a class="md-button md-button--primary" href="https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
+<a class="md-button md-button--primary" href="https://portal.cloud.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b" target="_blank" style="margin-right:.5rem;">See the project running in Quix</a>
 
 <a class="md-button md-button" href="https://demo-webshop-frontend-demo-clickstreamanalysis-prod.deployments.quix.ai/" target="_blank" style="margin-right:.5rem;">See the deployed project</a>
 
@@ -151,7 +151,7 @@ You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or
 
 ## The pipeline
 
-There are several *main* stages in the [pipeline](https://portal.platform.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}:
+There are several *main* stages in the [pipeline](https://portal.cloud.quix.io/pipeline?workspace=demo-clickstreamanalysis-prod&token=pat-b88b3caf912641a1b0fa8b47b262868b){target=_blank}:
 
 1. *Clickstream producer* - loads clickstream data from a CSV file. This represents user interactions with a shopping website over a period of 15 days. This runs as a service and the CSV file is automatically read repeatedly.
 2. *Data aggregation* - this service reads enriched data, performs various aggregations, and writes the results to Redis Cloud. These aggregations are then consumed by a Streamlit dashboard for visualization and analysis.
