@@ -26,7 +26,7 @@ nav:
 # Mostly out of date
 #    - 'Project templates': 'get-started/project-templates.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.16.1'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.17.0'
   - 'Quix Connectors': 
     # Pages for "Quix Streams" section are imported from https://github.com/quixio/quix-streams
     - Quix Streams:
@@ -54,6 +54,7 @@ nav:
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
         - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
+        - InfluxDB v1 Sink: 'quix-streams/connectors/sinks/influxdb1-sink.md'
         - Local File Sink: 'quix-streams/connectors/sinks/local-file-sink.md'
         - MongoDB Sink: 'quix-streams/connectors/sinks/mongodb-sink.md'
         - Neo4j Sink: 'quix-streams/connectors/sinks/neo4j-sink.md'
