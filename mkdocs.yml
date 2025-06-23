@@ -54,6 +54,7 @@ nav:
         - Google Cloud BigQuery Sink: 'quix-streams/connectors/sinks/google-cloud-bigquery-sink.md'
         - Google Cloud Pub/Sub Sink: 'quix-streams/connectors/sinks/google-cloud-pubsub-sink.md'
         - InfluxDB v3 Sink: 'quix-streams/connectors/sinks/influxdb3-sink.md'
+        - InfluxDB v1 Sink: 'quix-streams/connectors/sinks/influxdb1-sink.md'
         - Local File Sink: 'quix-streams/connectors/sinks/local-file-sink.md'
         - MongoDB Sink: 'quix-streams/connectors/sinks/mongodb-sink.md'
         - Neo4j Sink: 'quix-streams/connectors/sinks/neo4j-sink.md'
