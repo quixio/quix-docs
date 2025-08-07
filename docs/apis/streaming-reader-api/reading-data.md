@@ -27,7 +27,7 @@ const options = {
 };
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://reader-YOUR_ENVIRONMENT_ID.platform.quix.io/hub", options)
+    .withUrl("https://reader-YOUR_ENVIRONMENT_ID.cloud.quix.io/hub", options)
     .build();
 
 // Establish connection (1)
@@ -57,5 +57,5 @@ connection.start().then(() => {
 Note that SignalR will confirm its connection method, with logging such as the following:
 
 ``` shell
-[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.platform.quix.io/hub?id=ABC9Ctg5zdQ7aAzXYX.
+[2023-10-09T15:23:27.993Z] Information: WebSocket connected to wss://reader-joeengland-apitests-testing.cloud.quix.io/hub?id=ABC9Ctg5zdQ7aAzXYX.
 ```

@@ -116,7 +116,7 @@ signalrcore.hub.errors.UnAuthorizedHubError
 
 Quix provided APIs require a valid bearer token, such as the Portal API:
 
-- https://portal-api.platform.quix.io/swagger/index.html
+- https://portal-api.cloud.quix.io/swagger/index.html
     
 ## Service keeps failing and restarting
 
