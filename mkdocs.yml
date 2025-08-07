@@ -255,7 +255,6 @@ nav:
             - 'Polling a REST API': 'develop/integrate-data/polling.md'
             - 'Handling inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
             - 'Using an external source': 'develop/integrate-data/external-source.md'
-            - 'Using the Quix Streaming APIs': 'develop/integrate-data/streaming-apis.md'
             - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
             - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
             - 'Handling compressed data': 'develop/integrate-data/compressed-data.md'
@@ -271,14 +270,6 @@ nav:
           - 'Generating events': 'develop/process/timeseries-events.md'
         - 'Using Quix Streaming APIs': 
           - 'Overview': 'develop/apis-overview.md'
-          - 'Streaming Writer API': 
-            - 'Overview': 'apis/streaming-writer-api/overview.md'
-            - 'Setup': 'apis/streaming-writer-api/setup.md'
-            - 'HTTP requests': 'apis/streaming-writer-api/http-requests.md'
-            - 'Create a new Stream': 'apis/streaming-writer-api/create-stream.md'
-            - 'Add Stream metadata': 'apis/streaming-writer-api/stream-metadata.md'
-            - 'Send Parameter data': 'apis/streaming-writer-api/send-data.md'
-            - 'Send an Event': 'apis/streaming-writer-api/send-event.md'
           - 'Streaming Reader API': 
             - 'Overview': 'apis/streaming-reader-api/overview.md'
             - 'Setup': 'apis/streaming-reader-api/setup.md'
@@ -772,7 +763,6 @@ plugins:
         'platform/tutorials/sentiment-analysis/summary.md': 'tutorials/sentiment-analysis/summary.md'
         'platform/tutorials/slack-alerting/slack-alerting.md': 'tutorials/slack-alerting/slack-alerting.md'
         'platform/tutorials/train-and-deploy-ml/index.md': 'tutorials/train-and-deploy-ml/overview.md'
-        'apis/streaming-writer-api/index.md': 'apis/streaming-writer-api/overview.md'
         'apis/streaming-reader-api/index.md': 'apis/streaming-reader-api/overview.md'
         'apis/portal-api/index.md': 'apis/portal-api/overview.md'
         'apis/query-api/index.md': 'apis/query-api/overview.md'

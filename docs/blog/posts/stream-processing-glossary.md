@@ -497,7 +497,7 @@ clarifies and emphasizes that the data involved is produced in real time.
 In Quix, a stream represents a session of one data set that has a beginning
 and an (optional) ending, such as the journey of a single car during a race or
 one run-through of a game. Read more about Quix streams in our
-[documentation](https://quix.io/docs/apis/streaming-writer-api/intro.html).
+[documentation](https://quix.io/docs/quix-streams/introduction.html).
 
 ### Streaming analytics
 

@@ -66,7 +66,7 @@ So, simplifying, after connection to the Quix topic, on a `ParameterDataReceived
 
 !!! note
 
-    A web client can also write data into a Quix topic using the [Quix Streaming Writer API](../../apis/streaming-writer-api/overview.md), but in this app you only consume (read) data. 
+    In this app you only consume (read) data from Quix topics. 
 
 The data read from the topic is as follows:
 

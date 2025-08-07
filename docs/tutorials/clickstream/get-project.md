@@ -22,7 +22,7 @@ You'll need to add the following secrets:
 | `redis_port` | Data ingestion, Real-time dashboard, Data aggregation, Data enrichment, Event detection | Port for the Redis Cloud database |
 | `redis_username` | Data ingestion, Real-time dashboard, Data aggregation, Data enrichment, Event detection | Username for the Redis Cloud database - typically `default`|
 | `redis_password` | Data ingestion, Real-time dashboard, Data aggregation, Data enrichment, Event detection | Password for the Redis Cloud database - found from Security section |
-| `bearer_token` | Webshop frontend | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs |
+| `bearer_token` | Webshop frontend | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader API |
 
 You need to [create secrets](../../deploy/secrets-management.md) for these and then assign them to the corresponding [environment variables](../../deploy/environment-variables.md).
 

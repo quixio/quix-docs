@@ -119,12 +119,8 @@ The APIs that require a valid bearer token are:
 1.  Portal API
 
     - https://portal-api.platform.quix.io/swagger/index.html
-
-2.  Streaming Writer API
-
-    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/index.html
         
-3.  Telemetry Query API
+2.  Telemetry Query API
 
     - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/swagger/index.html
     

@@ -96,7 +96,6 @@ The URLs for the API references are specific to your environment, so you can eas
 
 | API | API reference URL (Swagger documentation)|
 |---|---|
-| Streaming Writer | https://writer-`<environment-id>`.platform.quix.io/swagger |
 | Streaming Reader | No HTTP/REST interface - SignalR (WebSockets or Long Polling)|
 | Portal | https://portal-api.platform.quix.io/swagger |
 | Query | https://telemetry-query-`<environment-id>`.platform.quix.io/swagger |

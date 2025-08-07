@@ -2,7 +2,6 @@
 
 Quix provides several APIs. These are:
 
-* Streaming Writer API
 * Streaming Reader API
 * Portal API
 * Query API
@@ -13,7 +12,7 @@ While [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) is the
 * There are resource constraints which mean you can't run Quix Streams
 * The nature of the client (for example, a web browser)
 
-In these situations Streaming Reader and Writer APIs can provide an alternative solution - for example, they can easily be accommodated in a modern web browser, or using most modern programming languages with an HTTP or SignalR client. 
+In these situations the Streaming Reader API can provide an alternative solution - for example, it can easily be accommodated in a modern web browser, or using most modern programming languages with a SignalR client. 
 
 Portal API is useful for automating processes normally carried out manually in Quix.
 
@@ -27,18 +26,9 @@ Use cases for these APIs are shown in the following table:
 
 | API | Interface | Purpose | Typical use case | Docs link |
 |---|---|---|---|----|
-| Streaming Writer API | HTTP, SignalR (WebSockets) | Publish data to a Quix topic | External service, command line client | [Streaming Writer API](../apis/streaming-writer-api/overview.md) | 
 | Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](../apis/streaming-reader-api/overview.md) |
 | Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](../apis/portal-api/overview.md) |
 | Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly | [Query API](../apis/query-api/overview.md) |
-
-## Streaming Writer API
-
-The [Streaming Writer API](../apis/streaming-writer-api/overview.md) enables you to stream data into a Quix topic. 
-
-Streaming Writer provides both an HTTP interface and a [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} interface, with SignalR supporting WebSockets, for real-time data transfer.
-
-* [Read more about Streaming Writer API](../apis/streaming-writer-api/overview.md)
 
 ## Streaming Reader API
 

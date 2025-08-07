@@ -202,10 +202,6 @@ Read more about [streams](https://quix.io/docs/quix-streams/introduction.html).
 
 A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix.
 
-## Streaming Writer API
-
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](https://quix.io/docs/quix-streams/introduction.html). Your application **writes** data into Quix.
-
 ## Template project
 
 A public project in GitHub that you can fork and import into Quix. See the [templates page](https://quix.io/templates){target=_blank}.

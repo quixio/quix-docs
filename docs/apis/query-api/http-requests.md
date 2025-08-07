@@ -30,13 +30,13 @@ The API endpoint URL has the following format:
 https://<api-name>-<environment-id>.platform.quix.io/<action>
 ```
 
-So, for example, the endpoint URL for the streaming writer might resemble the following:
+So, for example, the endpoint URL for the query API might resemble the following:
 
 ```
-https://writer-acme-weather.platform.quix.io/<action>
+https://telemetry-query-acme-weather.platform.quix.io/<action>
 ```
 
-The API is `writer`, and the environment ID is `acme-weather`.
+The API is `telemetry-query`, and the environment ID is `acme-weather`.
 
 ## HTTP method
 
