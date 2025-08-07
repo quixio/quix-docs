@@ -8,7 +8,7 @@ In this documentation, you learn how to use Jupyter Notebook to analyze data per
 
 ## Why this is important
 
-Although Quix is a real-time platform, to build real-time in-memory models and data processing pipelines, you need to understand data first. To help with that, Quix offers the option to persist data in topics. This data can be accessed using the [Query API](../../apis/query-api/overview.md). This helps make data discovery and analysis easier.
+Although Quix is a real-time platform, to build real-time in-memory models and data processing pipelines, you need to understand data first. To help with that, Quix offers the option to persist data in topics. This helps make data discovery and analysis easier.
 
 ## Prerequisites
 

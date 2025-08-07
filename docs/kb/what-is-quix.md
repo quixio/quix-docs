@@ -146,7 +146,6 @@ Quix provides numerous standard [connectors](../connectors/index.md) for both so
 Quix provides several APIs to help you work with streaming data. These include:
 
 * [**Streaming Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. **Note:** available to legacy customers only.
 * [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams

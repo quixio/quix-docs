@@ -4,7 +4,7 @@
 
     This tutorial is out of date. Please check the [tutorials overview](../overview.md) for our latest tutorials.
 
-From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the [Quix data store](../../apis/query-api/overview.md). 
+From a Jupyter Notebook, you retrieve the data that was generated in Quix in the [previous part](./create-data.md), and which was persisted into the Quix data store. 
 
 ## Run Jupyter Notebook
 

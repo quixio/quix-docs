@@ -63,9 +63,7 @@ Quix also has an additional capability called persistence. Enabling persistence 
 
 ![Enable persistence](../images/manage/topic-persistence.png)
 
-Enabling this feature persists topic data into a database for later retrieval using the [Query API](../apis/query-api/overview.md), or for replay using the replay service. 
-
-The Query API is useful for testing and reviewing historical data. 
+Enabling this feature persists topic data into a database for later retrieval or for replay using the replay service. 
 
 The replay service is used to play back persisted data into a topic. 
 
@@ -78,16 +76,6 @@ The replay service is used to play back persisted data into a topic.
 The replay service enables you to play persisted data back into a topic.
 
 You can read more about the [replay service](./replay.md) in the docs.
-
-## Query API
-
-!!! danger "Legacy feature"
-
-	This feature is not available to new users. However, legacy users may still have access to this functionality.
-
-The Query API enables you to programmatically retrieve persisted data from the database.
-
-You can read more about the [Query API](../apis/query-api/overview.md) in the docs.
 
 ## Portal API
 

@@ -46,6 +46,6 @@ Now generate the actual data for use later in the tutorial by completing the fol
 
 Once this service is deployed it will run as a [job](../../kb/glossary.md#job) and generate real-time data to the `f1-data`, and this will be persisted. 
 
-This data is retrieved later in this tutorial using Python code that uses the [Query API](../../apis/query-api/overview.md), generated for you by Quix.
+This data is retrieved later in this tutorial using Python code generated for you by Quix.
 
 [Import data into Jupyter Notebook :material-arrow-right-circle:{ align=right }](./import-data.md)

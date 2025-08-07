@@ -45,9 +45,9 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 ## Get environment ID
 
-When using APIs you’ll need to obtain an ID based on a specific environment. For example, endpoints for the Query API use a domain with the following pattern:
+When using APIs you'll need to obtain an ID based on a specific environment. For example, endpoints for environment-specific APIs use a domain with the following pattern:
 
-    https://telemetry-query-${environment-id}.platform.quix.io/
+    https://<api-name>-${environment-id}.platform.quix.io/
 
 The environment ID is a combination of your organization and environment names, converted to URL friendly values. 
 
@@ -103,7 +103,6 @@ The URLs for the API references are specific to your environment, so you can eas
 |---|---|
 | Streaming Reader | No HTTP/REST interface - SignalR (WebSockets or Long Polling)|
 | Portal | https://portal-api.platform.quix.io/swagger |
-| Query | https://telemetry-query-`<environment-id>`.platform.quix.io/swagger |
 
 Replace `<environment-id>` with your environment ID.
 

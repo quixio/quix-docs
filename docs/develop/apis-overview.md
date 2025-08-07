@@ -4,7 +4,6 @@ Quix provides several APIs. These are:
 
 * Streaming Reader API
 * Portal API
-* Query API
 
 While [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) is the main client library for Quix, there are certain use cases where you need an alternative:
 
@@ -16,8 +15,6 @@ In these situations the Streaming Reader API can provide an alternative solution
 
 Portal API is useful for automating processes normally carried out manually in Quix.
 
-Query API is useful for testing and examining data persisted into the Quix internal database.
-
 Each of these APIs is described in more detail in the following sections.
 
 ## Comparing the APIs
@@ -28,7 +25,6 @@ Use cases for these APIs are shown in the following table:
 |---|---|---|---|----|
 | Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](../apis/streaming-reader-api/overview.md) |
 | Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](../apis/portal-api/overview.md) |
-| Query API | HTTP (REST) | Retrieve persisted data | Evaluate service is processing data correctly | [Query API](../apis/query-api/overview.md) |
 
 ## Streaming Reader API
 
@@ -43,13 +39,3 @@ Streaming Reader uses Microsoft's [SignalR](https://learn.microsoft.com/en-us/as
 The [Portal API](../apis/portal-api/overview.md) gives access to Quix, enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deploy, and monitor services.
 
 [Read more about Portal API](../apis/portal-api/overview.md)
-
-## Query API
-
-The [Query API](../apis/query-api/overview.md) enables you to fetch persisted data from Quix. You can use it for exploring Quix, testing, prototyping applications, or working with persisted data in any language with HTTP capabilities.
-
-!!! note
-
-    Query API was previously known as Data Catalogue API. You may still see occasional references to the Data Catalogue API in the UI and docs.
-
-[Read more about Query API](../apis/query-api/overview.md)
