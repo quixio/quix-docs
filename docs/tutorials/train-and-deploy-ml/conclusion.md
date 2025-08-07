@@ -8,7 +8,7 @@ In this tutorial you've learned how to use Quix to generate real-time data. You'
 
 ![Data explorer](./images/visualize-result.png)
 
-The objective of the tutorial was not to create the most accurate model, but to step you through the overall process, and show you some of the useful features of Quix. It shows one possible workflow, where you train your ML model in Jupyter Notebook, and the integration between Quix and Jupyter was demonstrated. It is also possible to train your ML model directly in Quix, on live data, or persisted data using the [replay functionality](../../manage/replay.md).
+The objective of the tutorial was not to create the most accurate model, but to step you through the overall process, and show you some of the useful features of Quix. It shows one possible workflow, where you train your ML model in Jupyter Notebook, and the integration between Quix and Jupyter was demonstrated. It is also possible to train your ML model directly in Quix, on live data.
 
 ## Next Steps
 

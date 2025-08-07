@@ -26,9 +26,6 @@ To make things a little easier, first create a **persisted topic** to receive th
 
 6. Click `Done`. Now wait while the topic is created for you.
 
-7. Once the topic has been created, click the persistence slider button to ensure your data is persisted, as shown in the following screenshot: 
-
-    ![Enable topic persistence](./images/enable-topic-persistence.png)
 
 ## Generate data from the demo data source
 
@@ -44,7 +41,7 @@ Now generate the actual data for use later in the tutorial by completing the fol
 
 5. Make sure `Topic` is set to `f1-data` and then click `Deploy`.
 
-Once this service is deployed it will run as a [job](../../kb/glossary.md#job) and generate real-time data to the `f1-data`, and this will be persisted. 
+Once this service is deployed it will run as a [job](../../kb/glossary.md#job) and generate real-time data to the `f1-data`. 
 
 This data is retrieved later in this tutorial using Python code generated for you by Quix.
 

@@ -49,34 +49,6 @@ The message view shows the raw message format. The message viewer is available n
 
 The data explorer also has a message viewer tab, as can be seen in the [data explorer section](#data-explorer).
 
-## Persistence
-
-!!! danger "Legacy feature"
-
-	This feature is not available to new users. However, legacy users may still have access to this functionality.
-
-While data in a Kafka topic is retained according to the topic retention time configured when you create a new topic:
-
-![New topic](../images/manage/new-topic.png)
-
-Quix also has an additional capability called persistence. Enabling persistence is done by simply activating a slider control:
-
-![Enable persistence](../images/manage/topic-persistence.png)
-
-Enabling this feature persists topic data into a database for later retrieval or for replay using the replay service. 
-
-The replay service is used to play back persisted data into a topic. 
-
-## Replay service
-
-!!! danger "Legacy feature"
-
-	This feature is not available to new users. However, legacy users may still have access to this functionality.
-
-The replay service enables you to play persisted data back into a topic.
-
-You can read more about the [replay service](./replay.md) in the docs.
-
 ## Portal API
 
 The Portal API enables you to programmatically control Quix, and most objects in it. Using the Portal API you can manage entities including:

@@ -291,7 +291,6 @@ nav:
         - 'Troubleshooting': 'manage/troubleshooting.md'
         - 'Security': 'manage/security.md'
         - 'MLOps': 'manage/MLOps.md'
-        - 'Using replay service': 'manage/replay.md'
         - 'Testing multiple environments': 'manage/testing-environments.md'
         - 'Portal API': 
           - 'Overview': 'apis/portal-api/overview.md'
@@ -776,7 +775,6 @@ plugins:
         'connectors/slacksink-destination.md': 'quix-connectors/templates/slacksink-destination.md'
         'connectors/websocketdestination-destination.md': 'quix-connectors/templates/websocketdestination-destination.md'
         'platform/how-to/personal-access-token-pat.md': 'develop/authentication/personal-access-token.md'
-        'platform/how-to/replay.md': 'manage/replay.md'
         'platform/how-to/create-project.md': 'create/create-project.md'
         'client-library-intro.md': 'quix-streams/introduction.md'
         'quix-streams/client-library-intro.md': 'quix-streams/introduction.md'
