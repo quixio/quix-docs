@@ -613,16 +613,7 @@ nav:
         - '5. Alerts': 'tutorials/predictive-maintenance/alert-service.md'
         - '6. InfluxDB - raw data': 'tutorials/predictive-maintenance/influxdb-raw-data.md'
         - '7. InfluxDB - alerts': 'tutorials/predictive-maintenance/influxdb-alerts.md'
-  #      - '8. Printers dashboard': 'tutorials/predictive-maintenance/printers-dashboard.md'
-  #      - '8. Lab: Add phone alerts': 'tutorials/predictive-maintenance/phone-alerts.md'
         - '8. Summary': 'tutorials/predictive-maintenance/summary.md'
-      # Pulling this one as apparently the app is no longer available in Google Store
-      #- 'Real-time event detection':
-      #  - 'Overview': 'tutorials/event-detection/overview.md'
-      #  - '1. Data acquisition': 'tutorials/event-detection/data-acquisition.md'
-      #  - '2. Event detection': 'tutorials/event-detection/crash-detection.md'
-      #  - '3. Demo UI': 'tutorials/event-detection/crash-detection-ui.md'
-      #  - '4. Conclusion': 'tutorials/event-detection/conclusion.md'
   - Blog Index:
     - blog/index.md
     
@@ -809,6 +800,8 @@ plugins:
         'get-started/produce.md': 'get-started/streaming.md'
         'get-started/consume.md': 'get-started/streaming.md'
         'get-started/process.md': 'get-started/streaming.md'
+        'tutorials/predictive-maintenance/printers-dashboard.md': 'tutorials/predictive-maintenance/overview.md'
+        'tutorials/predictive-maintenance/phone-alerts.md': 'tutorials/predictive-maintenance/overview.md'
 
 
 

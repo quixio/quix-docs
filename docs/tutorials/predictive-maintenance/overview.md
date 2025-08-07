@@ -54,18 +54,6 @@ You'll need a Quix Cloud account.
 
 You'll need a [free InfluxDB](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank} account to try this out in your Quix account.
 
-<!-- removed as there's no longer a Pushover destination
-### Pushover 
-
-If you want to implement the optional lab task to add phone alerts to your pipeline, you will need to sign up for a free [Pushover](https://pushover.net/signup){target=_blank} account. 
-
-Enter your details, and click `Signup`. You will receive a welcome email, and you can log in to Pushover to retrieve your user key and generate an API token. 
-
-This enables you to send notifications to your phone. 
-
-Install the Pushover mobile app from the [Apple App store](https://apps.apple.com/us/app/pushover-notifications/id506088175){target=_blank} or [Google Play](https://play.google.com/store/apps/details?id=net.superblock.pushover&hl=en){target=_blank}.
--->
-
 ### Git provider
 
 You also need to have a Git account. This could be GitHub, Bitbucket, GitLab, or any other Git provider you are familar with, and that supports SSH keys. The simplest option is to create a free [GitHub account](){target=_blank}.
