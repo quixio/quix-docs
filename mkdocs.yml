@@ -23,8 +23,6 @@ nav:
 #      - 'Produce data': 'get-started/produce.md'
 #      - 'Consume data': 'get-started/consume.md'
 #      - 'Process data': 'get-started/process.md'
-# Mostly out of date
-#    - 'Project templates': 'get-started/project-templates.md'
 
   - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.21.0'
   - 'Quix Connectors': 
@@ -814,6 +812,7 @@ plugins:
         quix-streams/connectors/sources/file-source.md: quix-streams/connectors/sources/local-file-source.md
         'quix-connectors/quix-streams/sources/coming-soon/AzureBlobStorage-source.md': 'quix-streams/connectors/sources/microsoft-azure-file-source.md'
         'quix-connectors/quix-streams/sinks/coming-soon/AzureBlobStorage-sink.md': 'quix-streams/connectors/sinks/microsoft-azure-file-sink.md'
+        'get-started/project-templates.md': 'tutorials/overview.md'
 
 
 theme:

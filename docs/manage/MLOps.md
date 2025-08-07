@@ -53,5 +53,4 @@ In Quix, data teams can:
 Here are some suggested next steps to find out more about MLOps in Quix:
 
 * [Quickstart](../quix-cloud/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
-* [Building real-time ML pipelines tutorial](../tutorials/train-and-deploy-ml/overview.md) - train and run an ML model in Quix.
-* [Building real-time ML predictions](../tutorials/data-science/overview.md) - use data science and ML to predict bicycle availability in New York.
+* [Predictive maintenance tutorial](../tutorials/predictive-maintenance/overview.md) - build a complete ML pipeline for predicting equipment failures using real-time data.

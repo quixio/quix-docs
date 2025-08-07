@@ -15,5 +15,5 @@ The alerting can be placed in the inbound pipeline, where you can detect issues 
 
 * In-depth tutorial that takes you through setting up pipelines using Quix, Quix Streams, InfluxDB, and [PagerDuty for alerting](../../../tutorials/influxdb-alerting/overview.md).
 * Quix Cloud Tour demonstrates [building alerting](../../../quix-cloud/quixtour/serve-sms.md) from scratch with the Vonage APIs, which are simple to use.
-* Currency alerting tutorial demonstrates using [Pushover to implement alerting](../../../tutorials/currency-alerting/currency-alerting.md#setting-up-the-pushover-destination).
+* The [InfluxDB alerting tutorial](../../../tutorials/influxdb-alerting/overview.md) demonstrates implementing alerting with InfluxDB and PagerDuty.
 * The Predictive maintrenance project tutorial uses the Pushover service for [sending alerts](../../../tutorials/predictive-maintenance/phone-alerts.md).

@@ -17,10 +17,7 @@ Here are some suggested next steps to continue on your Quix learning journey:
 
 * Build something with our [Code Samples](../../develop/code-samples.md).
 
-<!-- These are now out of date, as the templates need to be updating to QS v2
-* Try the [Clickstream analysis tutorial](../clickstream/overview.md).
-* Try the [Computer vision tutorial](../computer-vision/overview.md).
--->
+* Try another tutorial from our [tutorials overview](../overview.md).
 
 ## Get help
 
