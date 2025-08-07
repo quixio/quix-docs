@@ -38,7 +38,7 @@ So, for example, the endpoint URL for the portal API might resemble the followin
 https://reader-demo-project-env.cloud.quix.io/<action>
 ```
 
-Note that the Portal API is account-wide and doesn't require an environment ID in the URL.
+Note that the Portal API is not bound to environment and therefore doesn't require an environment ID in the URL.
 
 ## HTTP method
 
