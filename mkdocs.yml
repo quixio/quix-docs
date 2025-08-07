@@ -262,7 +262,6 @@ nav:
           - 'Publish your data - sink':
             - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
             - 'Using an external destination': 'develop/integrate-data/external-destination.md'
-            - 'Exporting Quix data to Jupyter notebooks': 'develop/integrate-data/jupyter-nb.md'
         - 'Process your data':
           - 'Overview': 'develop/process/overview.md'
           - 'Types of processing': 'develop/process/types-of-processing.md'
@@ -702,8 +701,12 @@ plugins:
         'tutorials/data-science/4-train.md': 'tutorials/outdated-tutorial.md'
         'tutorials/data-science/5-run.md': 'tutorials/outdated-tutorial.md'
         'tutorials/data-science/6-conclusion.md': 'tutorials/outdated-tutorial.md'
-        'platform/tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/data-stream-processing/data-stream-processing.md'
-        'platform/tutorials/event-detection/index.md': 'tutorials/event-detection/overview.md'
+        # Event Detection tutorial (all pages)
+        'tutorials/event-detection/overview.md': 'tutorials/outdated-tutorial.md'
+        'tutorials/event-detection/data-acquisition.md': 'tutorials/outdated-tutorial.md'
+        'tutorials/event-detection/crash-detection.md': 'tutorials/outdated-tutorial.md'
+        'tutorials/event-detection/crash-detection-ui.md': 'tutorials/outdated-tutorial.md'
+        'tutorials/event-detection/conclusion.md': 'tutorials/outdated-tutorial.md'
         # Sentiment Analysis tutorial (all pages)
         'platform/tutorials/sentiment-analysis/index.md': 'tutorials/outdated-tutorial.md'
         'platform/tutorials/sentiment-analysis/get-project.md': 'tutorials/outdated-tutorial.md'
@@ -745,10 +748,13 @@ plugins:
         'platform/tutorials/matlab/matlab-and-simulink.md': 'tutorials/outdated-tutorial.md'
         'platform/tutorials/rss-tutorial/rss-processing-pipeline.md': 'tutorials/outdated-tutorial.md'
         'platform/tutorials/slack-alerting/slack-alerting.md': 'tutorials/outdated-tutorial.md'
+        'platform/tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/outdated-tutorial.md'
+        'platform/tutorials/event-detection/index.md': 'tutorials/outdated-tutorial.md'
         'tutorials/currency-alerting/currency-alerting.md': 'tutorials/outdated-tutorial.md'
         'tutorials/matlab/matlab-and-simulink.md': 'tutorials/outdated-tutorial.md'
         'tutorials/rss-tutorial/rss-processing-pipeline.md': 'tutorials/outdated-tutorial.md'
         'tutorials/slack-alerting/slack-alerting.md': 'tutorials/outdated-tutorial.md'
+        'tutorials/data-stream-processing/data-stream-processing.md': 'tutorials/outdated-tutorial.md'
         # Outdated tutorial redirects END
         'apis/streaming-reader-api/index.md': 'apis/streaming-reader-api/overview.md'
         'apis/portal-api/index.md': 'apis/portal-api/overview.md'

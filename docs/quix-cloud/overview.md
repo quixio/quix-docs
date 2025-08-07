@@ -16,7 +16,7 @@ The components that make up the Quix Cloud enable developers to:
     - Increase project visibility and assign permissions to various projects and environments.
 
 3. **Monitor and Observe in Real-Time**:
-    - Gain deep insights into pipeline performance with real-time logs, metrics, and data explorers.
+    - Gain deep insights into pipeline performance with real-time logs, metrics, and live data monitoring tools.
     - Monitor real-time data metrics, consumer lag, and other critical metrics.
 
 4. **Scale and Manage Flexibly**:
@@ -32,7 +32,7 @@ The components that make up the Quix Cloud enable developers to:
     - Leverage support for DevContainers for enhanced development workflows.
 
 7. **Explore and Visualize Data**:
-    - Use data explorers to query and explore data using waveform and table views.
+    - Use live data monitoring tools to query and explore data using waveform and table views.
     - Visualize messages in data topics and track metrics with real-time data monitoring.
 
 8. **Implement Robust CI/CD Processes**:

@@ -27,7 +27,7 @@ In Quix you can:
 
 ## Test models on live data
 
-In Quix you can connect models to live input topics to test them against live data sources. You can then review the results in the Data Explorer.
+In Quix you can connect models to live input topics to test them against live data sources. You can then review the results in the live data monitoring.
 
 ## Build a production pipeline
 

@@ -387,8 +387,7 @@ allows a system to hold larger amounts of historical data than a stream alone.
 Persistent data can also be useful in a recovery from a catastrophic event or
 for correcting historical inaccuracies caused by bugs.
 
-Quix offers persistence at the topic level. If you persist a topic, you'll be
-able to explore data streamed to it via the data explorer.
+Quix offers data monitoring at the topic level, enabling you to view data streamed to topics in real time.
 
 ### Pipeline
 

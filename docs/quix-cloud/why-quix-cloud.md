@@ -9,7 +9,7 @@ description: Uncover the streamlined features of Quix Cloud, designed for easy d
 
 - **Streamlined Development and Deployment**: Simplifies the development and deployment of data pipelines with integrated online code editors, CI/CD tools, and YAML synchronization features.
 - **Enhanced Collaboration**: Enables efficient collaboration with multiple users, permission management, and project visibility.
-- **Comprehensive Monitoring and Observability**: Provides real-time logs, metrics, and data explorers for deep insights into pipeline performance.
+- **Comprehensive Monitoring and Observability**: Provides real-time logs, metrics, and live data monitoring tools for deep insights into pipeline performance.
 - **Scalability and Flexibility**: Easily scales resources and manages multiple environments, suitable for both small teams and large organizations.
 - **Security and Compliance**: Securely manages secrets and ensures compliance with dedicated infrastructure and SLA options.
 - **Fully Managed Infrastructure**: Isolated cloud infrastructure, managed Kafka or BYO broker, topics management, and YAML-based infrastructure as code.
@@ -45,7 +45,7 @@ description: Uncover the streamlined features of Quix Cloud, designed for easy d
     - **Dev Containers Support**: (Coming soon) Support for development containers.
 
 6. **Data Exploration**
-    - **Data Explorer**: Query and explore data using waveform and table views.
+    - **live data monitoring**: Query and explore data using waveform and table views.
     - **Message Visualizer**: Visualize messages in your data topics.
     - **Metrics Monitoring**: Track consumer lag and other metrics.
 
