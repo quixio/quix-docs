@@ -98,4 +98,4 @@ In the above code, the event generating code has been removed for simplicity. No
 * [Example code](https://github.com/quixio/tutorial-code/blob/main/generate-events/README.md){target=_blank} - the complete code for the example.
 * [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) - documentation on data formats, publishing, and subscribing to topics.
 * [Quix Cloud Tour](../../quix-cloud/quixtour/overview.md) - generates processing based on threshold triggering.
-* [Currency alerting](../../tutorials/currency-alerting/currency-alerting.md) - tutorial on generating events based on a threshold.
+* [InfluxDB alerting tutorial](../../tutorials/influxdb-alerting/overview.md) - tutorial on generating events based on thresholds with real-time alerting.

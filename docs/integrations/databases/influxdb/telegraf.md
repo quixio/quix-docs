@@ -225,7 +225,6 @@ Details about these Telegraf plugins can be found in the [Telegraf plugin direct
 ## Next steps
 
 * Learn how to build a complete [Python stream processing pipeline](../../../quix-cloud/quixtour/overview.md)
-* Read about [Streaming Writer](../../../apis/streaming-writer-api/overview.md)
 * Try one of our [tutorials](../../../tutorials/overview.md)
 * Obtain an [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
 * Read the comprehensive [Telegraf documentation](https://docs.influxdata.com/telegraf/v1/){target=_blank}

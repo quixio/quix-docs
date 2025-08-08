@@ -45,9 +45,9 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 ## Get environment ID
 
-When using APIs you’ll need to obtain an ID based on a specific environment. For example, endpoints for the Query API use a domain with the following pattern:
+When using APIs you'll need to obtain an ID based on a specific environment. For example, endpoints for environment-specific APIs use a domain with the following pattern:
 
-    https://telemetry-query-${environment-id}.platform.quix.io/
+    https://<api-name>-${environment-id}.cloud.quix.io/
 
 The environment ID is a combination of your organization and environment names, converted to URL friendly values. 
 
@@ -101,10 +101,8 @@ The URLs for the API references are specific to your environment, so you can eas
 
 | API | API reference URL (Swagger documentation)|
 |---|---|
-| Streaming Writer | https://writer-`<environment-id>`.platform.quix.io/swagger |
 | Streaming Reader | No HTTP/REST interface - SignalR (WebSockets or Long Polling)|
-| Portal | https://portal-api.platform.quix.io/swagger |
-| Query | https://telemetry-query-`<environment-id>`.platform.quix.io/swagger |
+| Portal | https://portal-api.cloud.quix.io/swagger |
 
 Replace `<environment-id>` with your environment ID.
 
@@ -155,24 +153,6 @@ You should replace the text `YOUR_PAT` with your PAT.
 
 You should also replace `YOUR_ENVIRONMENT_ID` with your environment ID.
 
-=== "Writer API"
-
-    ```javascript
-    var signalR = require("@microsoft/signalr");
-    const token = "YOUR_PAT"
-    const environmentId = "YOUR_ENVIRONMENT_ID"
-
-    const options = {
-        accessTokenFactory: () => token
-    };
-
-    const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://writer-" + environmentId + ".platform.quix.io/hub", options)
-        .build();
-
-    connection.start().then(() => console.log("SignalR connected."));
-    ```
-
 === "Reader API"
 
       ```javascript
@@ -183,7 +163,7 @@ You should also replace `YOUR_ENVIRONMENT_ID` with your environment ID.
       };
 
       const connection = new signalR.HubConnectionBuilder()
-          .withUrl("https://reader-YOUR_ENVIRONMNENT_ID.platform.quix.io/hub", options)
+          .withUrl("https://reader-YOUR_ENVIRONMNENT_ID.cloud.quix.io/hub", options)
           .build();
 
       connection.start().then(() => console.log("SignalR connected."));

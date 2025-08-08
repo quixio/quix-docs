@@ -114,19 +114,9 @@ Example of the error received when trying to connect to the Streaming Reader API
 
 signalrcore.hub.errors.UnAuthorizedHubError
 
-The APIs that require a valid bearer token are:
+Quix provided APIs require a valid bearer token, such as the Portal API:
 
-1.  Portal API
-
-    - https://portal-api.platform.quix.io/swagger/index.html
-
-2.  Streaming Writer API
-
-    - https://writer-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/index.html
-        
-3.  Telemetry Query API
-
-    - https://telemetry-query-[YOUR_ORGANIZATION_ID]-[YOUR_ENVIRONMENT_ID].platform.quix.io/swagger/index.html
+- https://portal-api.cloud.quix.io/swagger/index.html
     
 ## Service keeps failing and restarting
 

@@ -29,16 +29,16 @@ Read the documentation on how to obtain your environment ID.
 The API endpoint URL has the following format:
 
 ```
-https://<api-name>-<environment-id>.platform.quix.io/<action>
+https://<api-name>-<environment-id>.cloud.quix.io/<action>
 ```
 
-So, for example, the endpoint URL for the streaming writer might resemble the following:
+So, for example, the endpoint URL for the portal API might resemble the following:
 
 ```
-https://writer-acme-weather.platform.quix.io/<action>
+https://reader-demo-project-env.cloud.quix.io/<action>
 ```
 
-The API is `writer`, and the environment ID is `acme-weather`.
+Note that the Portal API is not bound to environment and therefore doesn't require an environment ID in the URL.
 
 ## HTTP method
 
@@ -81,5 +81,5 @@ You should structure most of your requests to the API around this pattern:
 curl -H "Authorization: bearer ${token}" \
      -H "Content-Type: application/json" \
      -d "@data.json" \
-     https://${api-name}-${environment-id}.platform.quix.io/<action>
+     https://${api-name}-${environment-id}.cloud.quix.io/<action>
 ```

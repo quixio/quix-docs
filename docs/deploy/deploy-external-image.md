@@ -5,7 +5,7 @@ This section of the documentation provides guidance on how to ***deploy an exter
 
 Deploying an external image directly allows you to bypass application and version configurations, offering flexibility for non-standardized services or third-party containers. The deployment process is straightforward and integrated into the UI.
 
-To summarize, your workflow for deploying an external image is:
+To summarize, the steps for deploying an external image are:
 
 1. **Prepare the external image**: Ensure it's built and pushed to a container registry accessible by the platform.
 

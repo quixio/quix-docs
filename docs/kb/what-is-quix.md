@@ -93,7 +93,7 @@ To achieve these goals, the Quix UI includes the following features:
 
 * **Pipeline view**: Visualize your pipeline architecture with the information provided from the deployment variables. You can also monitor your pipeline in real time.
 
-* **Data Explorer**: Explore live and historical data of your applications to test that your code is working as expected.
+* **Live data monitoring**: Monitor your application data in real time to test that your code is working as expected.
 
 * **Command-line Interface (CLI)**: Powerful command-line tool for managing all aspects of your Python stream processing pipelines, including permissions.
 
@@ -121,7 +121,7 @@ Read more about [selecting your broker option](../create/create-environment.md#b
 
 ### Docker integration
 
-When you create an application from a template in Quix, a Dockerfile is provided for you in the `build` directory of the application. This uses a base image, and additions only need to be made in the case of special requirements, such as to include a library that is not part of the base image. The Dockerfile, combined with your code and configuration, is used to drive the Quix build service, which ensures the generated Docker image is registered with the Quix Docker registry. This image is then submitted to the Quix serverless engine, as part of the deployment process. All this is largely transparent to the developer - you simply click `Deploy` to build and deploy your application, and then monitor the deployment using the tools provided, such as the Data Explorer, logs, CPU monitor, and memory monitor.
+When you create an application from a template in Quix, a Dockerfile is provided for you in the `build` directory of the application. This uses a base image, and additions only need to be made in the case of special requirements, such as to include a library that is not part of the base image. The Dockerfile, combined with your code and configuration, is used to drive the Quix build service, which ensures the generated Docker image is registered with the Quix Docker registry. This image is then submitted to the Quix serverless engine, as part of the deployment process. All this is largely transparent to the developer - you simply click `Deploy` to build and deploy your application, and then monitor the deployment using the tools provided, such as live data monitoring, logs, CPU monitor, and memory monitor.
 
 ### Infrastructure as code
 
@@ -146,7 +146,6 @@ Quix provides numerous standard [connectors](../connectors/index.md) for both so
 Quix provides several APIs to help you work with streaming data. These include:
 
 * [**Streaming Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Query API**](../apis/query-api/overview.md): enables you to query persisted data streams. This is provided primarily for testing purposes. **Note:** available to legacy customers only.
 * [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams
@@ -192,39 +191,11 @@ In Quix you create a project to contain your Python stream processing applicatio
 
 Quix provides a suite of tools to enable you to monitor and manage your data. These include:
 
-* Data Explorer - The Data Explorer enables you to view your data graphically in real time. Graph, table and messages views.
+* Live data monitoring - View your data in real time through topic-based data streams.
 * Logs - Real-time logging information is displayed in a console tab. You also have the option of downloading your logs.
 * CPU monitor - you can monitor the CPU utilization of your deployment in real time.
 * Memory monitor - you can monitor the memory usage of the deployment in real time.
 * CLI - a powerful command line interface, see the [CLI documentation](../quix-cli/overview.md).
-
-[See the Data Explorer in action](https://www.loom.com/share/0e3c24fb5f8c48038fe5cf02859b7ebc?sid=743fbdf7-fad5-4c26-831d-b6dad78b9b06).
-
-??? "Transcript"
-
-    0:01 Hello, welcome to the Quix quick start. In this short video I'll give you a few tips to help you get through the quick start.
-
-    0:11 First thing I'll show you is how to get your streaming token which you'll need for your command line program that you're going to build.
-
-    0:19 So to do that we click on settings then APIs and tokens and then streaming token. Then copy your streaming token to the clipboard then you can paste that into your.env file for your command line program to read.
-
-    0:47 Then once you've done that you can run the command line program. So obviously I have run this program before the first time you run this program you will see that the topic is automatically.
-
-    1:00 Created for you. So now the command line program is printing out CPU load on my computer. And publishing that data to the CPU load topic inside the quix platform.
-
-    1:16 So if we go back to platform. And click on topics. You can see these green bars represent inbound data. Here's the topic name CPU load.
-
-    1:37 If I click in the view live data. You can see the tool tip comes up. I'm taken to the data explorer where I can view live data.
-
-    1:49 I can select a topic in this case. I only have one topic. The stream. There's one string in this case.
-
-    1:58 And the parameter that I want to look at. Once I've done that, you can see that the the waveform view I see a graph of the CPU load against time.
-
-    2:11 And down here in the bottom right corner, I can see that these green bars represent inbound data. The other thing I can do here is.
-
-    2:21 I can look at the table view, which shows me the CPU load and table format in real time. Or I can look at the messages view where I can see individual messages such as stream metadata message or the actual inbound data.
-
-    2:41 If I click here, you can see the message JSON. Okay, that's it for this short video. Thanks very much for watching and see you in the next video.
 
 ## Next steps
 

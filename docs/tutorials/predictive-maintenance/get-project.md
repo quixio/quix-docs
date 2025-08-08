@@ -21,7 +21,7 @@ You'll need to configure the following credentials for each Quix service that ne
 | `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
 | `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
 | `CONSUMER_GROUP_NAME` | The name of the consumer group to use when consuming from Kafka. |
-<!--| `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader and Streaming Writer APIs. |-->
+<!--| `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader API. |-->
 
 The above is a list of environment variables that you are going to configure.
 

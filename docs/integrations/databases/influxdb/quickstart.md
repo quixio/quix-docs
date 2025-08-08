@@ -200,13 +200,13 @@ You can now explore data queried from InfluxDB and published to the Quix topic `
 
 3. You can now see the live messages. Click on a message to display it.
 
-Data is being queried from InfluxDB by the Quix connector, and then published to the Quix topic, `influxdb`. The Quix data explorer is then used to display this data in real time.
+Data is being queried from InfluxDB by the Quix connector, and then published to the Quix topic, `influxdb`. The Quix live data monitoring is then used to display this data in real time.
 
 ## Summary
 
 In this quickstart you have learned how to publish data to InfluxDB, and also how to read data from InfluxDB. You also learned the basics of adding a simple transform to your stream processing pipeline.
 
-You also learned how to view the messages in a Quix topic in real time, using the Quix data explorer. 
+You also learned how to view the messages in a Quix topic in real time, using the Quix live data monitoring. 
 
 ## Next steps
 

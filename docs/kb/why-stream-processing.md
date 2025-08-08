@@ -141,7 +141,7 @@ The main benefits of using stream processing in this scenario are:
 
 By implementing stream processing for real-time personalized marketing and inventory management, the retail company can gain a competitive edge in today's dynamic and fast-paced market environment.
 
-See the [Clickstream analysis tutorial](../tutorials/clickstream/overview.md) for a step-by-step guide to building a similar project.
+See our [tutorials overview](../tutorials/overview.md) for step-by-step guides to building real-time data processing projects.
 
 ## Use Case: Real-time website performance monitoring and personalization
 
@@ -197,7 +197,7 @@ The main benefits of using stream processing in this scenario are:
 
 By leveraging real-time web analytics for performance monitoring and personalization, the company can drive higher user engagement, increase conversions, and ultimately achieve its business objectives more effectively in the competitive online marketplace.
 
-See the [Clickstream analysis tutorial](../tutorials/clickstream/overview.md) for a step-by-step guide to building a similar project.
+See our [tutorials overview](../tutorials/overview.md) for step-by-step guides to building real-time data processing projects.
 
 ## Use Case: Real-time fleet monitoring and optimization
 
@@ -253,7 +253,7 @@ The main benefits of using stream processing in this scenario are:
 
 By implementing real-time telemetry for fleet monitoring and optimization, the transportation company can gain a competitive advantage in the market by offering faster, more efficient, and safer transportation services to its customers.
 
-See the [Real-time Machine Learning predictions tutorial](https://quix.io/docs/tutorials/data-science/overview.html) for a related example.
+See the [Predictive maintenance tutorial](../tutorials/predictive-maintenance/overview.md) for a related example of real-time ML.
 
 ## Use Case: Real-time process monitoring and anomaly detection
 

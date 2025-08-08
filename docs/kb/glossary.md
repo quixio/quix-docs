@@ -159,14 +159,6 @@ A project is an entity that corresponds to a Git repository. That Git repository
 
 A project contains one or more [environments](#environment), so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
 
-## Query API
-
-!!! danger "Legacy feature"
-
-	This feature is not available to new users. However, legacy users may still have access to this functionality.
-
-The [Query API](../apis/query-api/overview.md) is used to query persisted data. Most commonly used for dashboards, analytics and training ML models. Also useful to call historical data when running an ML model, or to call historical data from an external application. This API is primarily iused for testing and debugging purposes.
-
 ## Quix UI
 
 Quix provides an online Integrated Development Environment (IDE) for Python projects. When you open any project, you will see the **Run** button, and a console during runtime, in addition to the IntelliSense. It also provides general UI for deploying your code, and managing your projects and environments.
@@ -201,10 +193,6 @@ Read more about [streams](https://quix.io/docs/quix-streams/introduction.html).
 ## Streaming Reader API
 
 A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix.
-
-## Streaming Writer API
-
-An [HTTP API](../apis/streaming-writer-api/overview.md) used to send telemetry data from any source to a topic in Quix. It should be used when it is not possible to use [Quix Streams](https://quix.io/docs/quix-streams/introduction.html). Your application **writes** data into Quix.
 
 ## Template project
 
