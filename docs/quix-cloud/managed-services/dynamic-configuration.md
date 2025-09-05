@@ -55,6 +55,10 @@ Note
 
 - Besides defining it in YAML, you can also add this managed service from the Quix UI: open the side panel, go to Services → Add service → Dynamic Configuration Manager, then configure and deploy.
 
+## Embedded UI (plugin)
+
+Dynamic Configuration uses the Plugin system implicitly. When you open the deployment in the Portal, Deployment Details renders an embedded UI (iframe) for browsing and editing configuration. Learn more in the [Plugin system](./plugin.md).
+
 ## Configuration
 
 Managed services use a simplified configuration block. At deploy time, Quix maps these keys to the underlying environment variables and wiring required by the managed image.
