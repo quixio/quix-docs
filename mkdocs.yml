@@ -215,6 +215,7 @@ nav:
     - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
     - 'Managed services':
       - 'quix-cloud/managed-services/overview.md'
+      - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
       - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
     - 'Quix Cloud Tour':
       - '1. Create your project':
