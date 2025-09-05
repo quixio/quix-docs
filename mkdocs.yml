@@ -213,6 +213,9 @@ nav:
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
     - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
+    - 'Managed services':
+      - 'quix-cloud/managed-services/overview.md'
+      - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
     - 'Quix Cloud Tour':
       - '1. Create your project':
         - 'Overview': 'create/overview.md'
