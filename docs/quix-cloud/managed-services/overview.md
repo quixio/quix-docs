@@ -2,6 +2,10 @@
 
 Managed services are Quix-provided applications built from Quix-maintained container images. You deploy them like any other application; the difference is you set `deploymentType: Managed`, choose a supported `application`, and pick a `version`. Quix manages the image lifecycle (versions and updates).
 
+Note
+
+- In the Quix UI, some managed services are also available from the side panel as Connectors or Services. You can add them from there or reference them directly in YAML as shown below.
+
 ## Why use managed services?
 
 - Pre-built and supported by Quix – no code to maintain
@@ -16,9 +20,10 @@ Managed services are Quix-provided applications built from Quix-maintained conta
 
 ## Quick example
 
-Here’s an example managed service definition you can add to your pipeline YAML:
+Here’s an example managed service definition you can add to your pipeline YAML in:
 
 ```yaml
+deployments:
 - name: Dynamic Configuration Manager
   application: DynamicConfiguration
   version: latest
