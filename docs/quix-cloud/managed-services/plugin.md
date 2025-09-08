@@ -6,13 +6,13 @@ The plugin system enables services to expose an embedded UI inside Deployment De
 
 - Embed a UI in Deployment Details when enabled
 
-  ![Embedded UI](images/dynamic-configuration-embedded-view.png){width=80%}
+  ![Embedded View](images/dynamic-configuration-embedded-view.png){width=80%}
 
-- Optionally show a sidebar shortcut to the embedded UI
+- Optionally show a sidebar shortcut to the embedded view
 
   ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
-## YAML support (non‑managed and managed)
+## YAML
 
 In your deployment YAML, you can enable the embedded UI and, optionally, a sidebar item:
 
@@ -28,11 +28,14 @@ plugin:
 
 Notes
 
-- plugin.embeddedView: boolean. true → FE renders embedded UI; false/null → legacy details.
+- plugin.embeddedView: boolean. true → FE renders embedded UI.
 - plugin.sidebarItem: optional object configuring the Environment’s left sidebar item.
-- Do not include embeddedViewUrl in YAML; it is derived and exposed by the API.
 
 ## Public Url
 
 - Managed service → derived from Managed Services internal conventions.
 - Non‑managed service → uses the deployment’s publicUrl.
+
+## Authentication
+
+The embedded view inherits authentication and authorization from the main platform. No separate login is required, and the same user/environment permissions apply to the emmbedded view.
