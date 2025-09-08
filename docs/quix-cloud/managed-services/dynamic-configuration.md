@@ -59,6 +59,8 @@ Note
 
 Dynamic Configuration uses the Plugin system implicitly. When you open the deployment in the Portal, Deployment Details renders an embedded UI (iframe) for browsing and editing configuration. Learn more in the [Plugin system](./plugin.md).
 
+![Embedded UI](images/dynamic-configuration-embedded-view.png)
+
 ## Configuration
 
 Managed services use a simplified configuration block. At deploy time, Quix maps these keys to the underlying environment variables and wiring required by the managed image.

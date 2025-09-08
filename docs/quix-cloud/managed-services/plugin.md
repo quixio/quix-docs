@@ -4,9 +4,13 @@ The plugin system enables services to expose an embedded UI inside Deployment De
 
 ## What it does
 
-- Embed a service UI in Deployment Details when enabled
+- Embed a UI in Deployment Details when enabled
+
+  ![Embedded UI](images/dynamic-configuration-embedded-view.png){width=80%}
+
 - Optionally show a sidebar shortcut to the embedded UI
-- Keep YAML simple: only declare intent;
+
+  ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
 ## YAML support (non‑managed and managed)
 
