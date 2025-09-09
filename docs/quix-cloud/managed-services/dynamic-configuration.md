@@ -85,7 +85,6 @@ real time without pushing them directly through Kafka.
 - Any scenario where **large configuration files** must be applied in
     real time alongside data streams.
 
-
 ## Embedded View (Plugin)
 
 Dynamic Configuration uses the Plugin system implicitly.
