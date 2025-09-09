@@ -135,6 +135,7 @@ required by the managed image.
   - In **file mode**, content is stored in blob/object storage (S3,
       GCS, Azure Blob, etc.).
   - Provider-specific credentials are configured via Quix secrets.
+  - In **mongo mode**, only JSON configuration documents are supported and each configuration payload must be ≤ 16 MB. Use `file` (blob) mode for larger or non-JSON artifacts.
 
 ------------------------------------------------------------------------
 
