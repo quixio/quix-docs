@@ -125,6 +125,12 @@ required by the managed image.
   - Provider-specific credentials are configured via Quix secrets.
   - In **mongo mode**, only JSON configuration documents are supported and each configuration payload must be ≤ 16 MB. Use `file` (blob) mode for larger or non-JSON artifacts.
 
+### Blob Storage
+
+This service can leverage a blob storage configured on our platform (see [blob storage docs](../../deploy/blob-storage.md) for setup instructions).
+
+The blob storage configuration is automatically injected only when `contentStore` is set to `file`.
+
 ## SDK Integration
 
 The **Quix Streams SDK** provides built-in functionality to:
