@@ -18,8 +18,6 @@ values.
 
 Identifier: `DynamicConfiguration`
 
-------------------------------------------------------------------------
-
 ## Example YAML
 
 ``` yaml
@@ -51,8 +49,6 @@ deployments:
     contentStore: mongo   # mongo | file
 ```
 
-------------------------------------------------------------------------
-
 ## Key Capabilities
 
 - Stores and versions large configuration files (JSON or Binary).
@@ -67,8 +63,6 @@ deployments:
   storage (file mode).
 - Works seamlessly with the Quix Streams SDK to fetch, cache, and join configs with live data.
 
-------------------------------------------------------------------------
-
 ## How It Works (High-Level)
 
 1. A new or updated configuration is **persisted and versioned** in the
@@ -81,8 +75,6 @@ deployments:
 This design makes it possible to use very large configuration files in
 real time without pushing them directly through Kafka.
 
-------------------------------------------------------------------------
-
 ## Typical Use Cases
 
 - **IoT sensor mappings** that change during operation.
@@ -93,7 +85,6 @@ real time without pushing them directly through Kafka.
 - Any scenario where **large configuration files** must be applied in
     real time alongside data streams.
 
-------------------------------------------------------------------------
 
 ## Embedded View (Plugin)
 
@@ -104,8 +95,6 @@ an embedded view (iframe) for browsing and editing configuration.
 Learn more in the [Plugin system](./plugin.md).
 
 ![Embedded View](images/dynamic-configuration-embedded-view.png)
-
-------------------------------------------------------------------------
 
 ## Configuration
 
@@ -136,8 +125,6 @@ required by the managed image.
       GCS, Azure Blob, etc.).
   - Provider-specific credentials are configured via Quix secrets.
   - In **mongo mode**, only JSON configuration documents are supported and each configuration payload must be ≤ 16 MB. Use `file` (blob) mode for larger or non-JSON artifacts.
-
-------------------------------------------------------------------------
 
 ## SDK Integration
 
