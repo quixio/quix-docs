@@ -217,6 +217,13 @@ nav:
       - 'quix-cloud/managed-services/overview.md'
       - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
       - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
+      - "Data Lake Sink": quix-cloud/managed-services/sink.md
+      - "Data Lake Replay": quix-cloud/managed-services/replay.md
+    - Data Lake:
+      - 'Overview': 'quix-cloud/datalake/overview.md'
+      - "Open format": quix-cloud/datalake/open-format.md
+      - "Catalog": quix-cloud/datalake/catalog.md
+      - 'Blob storage': 'deploy/blob-storage.md'
     - 'Quix Cloud Tour':
       - '1. Create your project':
         - 'Overview': 'create/overview.md'
@@ -278,6 +285,7 @@ nav:
         - 'Deploy public services': 'deploy/deploy-public-page.md'
         - 'Deploy an external image': 'deploy/deploy-external-image.md'
         - 'Private container registries': 'deploy/private-container-registries.md'
+        - 'Blob storage connections': 'deploy/blob-storage.md'
       - '4. Manage your pipelines':
         - 'Overview': 'manage/overview.md'
         - 'Troubleshooting': 'manage/troubleshooting.md'
