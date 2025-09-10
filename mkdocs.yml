@@ -216,9 +216,10 @@ nav:
     - 'Managed services':
       - 'quix-cloud/managed-services/overview.md'
       - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
-      - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
-      - "Data Lake Sink": quix-cloud/managed-services/sink.md
-      - "Data Lake Replay": quix-cloud/managed-services/replay.md
+      - Services:
+        - "Data Lake Sink": quix-cloud/managed-services/sink.md
+        - "Data Lake Replay": quix-cloud/managed-services/replay.md
+        - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
     - Data Lake:
       - 'Overview': 'quix-cloud/datalake/overview.md'
       - "Open format": quix-cloud/datalake/open-format.md
