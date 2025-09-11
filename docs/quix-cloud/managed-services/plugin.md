@@ -4,19 +4,19 @@ The plugin system enables services to expose an embedded UI inside Deployment De
 
 Managed services may populate these plugin properties automatically via the Managed Framework, and you can always override them explicitly in YAML.
 
-Non‑managed services can also define these properties in YAML, making any deployment behave like a plugin without being a managed service.
+Non-managed services can also define these properties in YAML, making any deployment behave like a plugin without being a managed service.
 
 ## What it does
 
-- Embed a UI in Deployment Details when enabled
+* Embed a UI in Deployment Details when enabled
 
   ![Embedded View](images/dynamic-configuration-embedded-view.png){width=80%}
 
-- Optionally show a sidebar shortcut to the embedded view
+* Optionally show a sidebar shortcut to the embedded view
 
   ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
-- Provide basic authentication integration with Quix Cloud so publicly exposed services don’t require a separate login
+* Provide basic authentication integration with Quix Cloud so publicly exposed services don’t require a separate login
 
 ## YAML configuration
 
@@ -34,8 +34,8 @@ plugin:
 
 Notes
 
-- plugin.embeddedView: boolean. true → FE renders embedded UI.
-- plugin.sidebarItem: optional object configuring the Environment’s left sidebar item.
+* plugin.embeddedView: boolean. true → FE renders embedded UI.
+* plugin.sidebarItem: optional object configuring the Environment’s left sidebar item.
 
 ## Embedded view URL
 
@@ -43,8 +43,8 @@ When the plugin feature is enabled, the deployment exposes a public URL dedicate
 
 Population rules:
 
-- Managed service → Derived from Managed Services conventions.
-- Non‑managed service → Requires `publicAccess` to be enabled; resolves from the deployment’s public URL.
+* Managed service → Derived from Managed Services conventions.
+* Non-managed service → Requires `publicAccess` to be enabled; resolves from the deployment’s public URL.
 
 ## Authentication and authorization
 
@@ -54,6 +54,61 @@ When an embedded view loads, the Plugin system injects the Quix user token into 
 ### How the token is injected in the embedded view
 
 On initial load of the embedded view (and on reload), the Portal provides the user token to the iframe so the UI can authenticate calls to the backend.
+
+#### Frontend token exchange (postMessage)
+
+The token is passed via `window.postMessage` between the parent (Portal) and the embedded iframe.
+
+**Message types**
+
+* `REQUEST_AUTH_TOKEN` — sent by the iframe to ask the parent for a token
+* `AUTH_TOKEN` — sent by the parent with `{ token: string }`
+
+**In the embedded view (iframe)**
+
+```ts
+// Ask the parent window (Portal) for a token
+window.parent.postMessage({ type: 'REQUEST_AUTH_TOKEN' }, '*');
+
+// Listen for the token response from the parent
+function messageHandler(event: MessageEvent) {
+  const { data } = event;
+  if (data?.type === 'AUTH_TOKEN' && data.token) {
+    // Your app-specific setter
+    setToken(data.token);
+    // Optionally remove the listener if you only need the token once
+    // window.removeEventListener('message', messageHandler);
+  }
+}
+
+window.addEventListener('message', messageHandler);
+```
+
+**In the Portal (parent window)**
+
+```ts
+// Listen for requests from the target iframe
+function messageHandler(event: MessageEvent) {
+  const { origin, data } = event;
+
+  // Ensure the origin matches the iframe URL you expect
+  if (origin !== targetUrl) return;
+
+  if (data?.type === 'REQUEST_AUTH_TOKEN') {
+    // Reply with the token to the requesting iframe
+    const iframeWindow = deploymentIframe?.contentWindow;
+    iframeWindow?.postMessage({ type: 'AUTH_TOKEN', token }, targetUrl);
+  }
+}
+
+window.addEventListener('message', messageHandler);
+```
+
+**Security notes**
+
+* Always validate `event.origin` in the parent before responding.
+* Prefer using a specific `targetUrl` over `'*'` when posting back to the iframe.
+* Remove listeners when no longer needed to avoid leaks.
 
 ### How to handle the token in the backend
 
@@ -66,9 +121,7 @@ pip install -i https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479
 Then, in the backend service, validate the token and enforce authorization for each request. For example:
 
 ```python
-
 import os
-
 from quixportal.auth import Auth
 
 # Instantiate authentication client. By default it will read
@@ -94,5 +147,4 @@ if auth.validate_permissions(
     print("Bearer is authorized to access the resource")
 else:
     print("Bearer is not authorized to access the resource")
-
 ```
