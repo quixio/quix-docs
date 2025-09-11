@@ -3,6 +3,7 @@
 The **Dynamic Configuration Manager** is a managed service for handling
 **large, versioned configuration files** related to devices, sensors, or
 physical assets.
+
 These configurations often change in real time (e.g., updates to
 equipment parameters, IoT sensor mappings, or lab/test system setups),
 but are **too large to send through Kafka directly**.
