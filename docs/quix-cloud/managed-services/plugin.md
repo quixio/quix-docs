@@ -48,4 +48,6 @@ Population rules:
 
 ## Authentication and authorization
 
-The embedded view inherits authentication and authorization from the Quix platform. No separate login is required, and the same user/environment permissions apply to the embedded view.
+The embedded view inherits authentication and authorization from the Quix platform: no separate login is required, and the same user/environment permissions apply.
+When an embedded view loads, the Plugin system injects the Quix user token into the iframe. The UI uses this token to call the backend securely.
+
