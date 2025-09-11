@@ -5,9 +5,9 @@ description: Connect your cluster to external object storage (S3, GCS, Azure Blo
 
 # Blob storage connections
 
-Connect your cluster to a bucket/container so Quix can enable **Quix Lake**-the platform’s open storage layer for Kafka topic data.
+Connect your cluster to a bucket/container so Quix can enable **Quix Lake** or any other managed service that requires a Blob storage connection.
 
-![Connections list](../images/blob-storage/connections-list-running.png)
+![Connections list](../../images/blob-storage/connections-list-running.png)
 
 !!! important "One connection per cluster"
     Each **cluster** supports **one** blob storage connection.  
@@ -37,7 +37,7 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Lake**-the 
 
 ## Test before saving
 
-![Testing connection](../images/blob-storage/test-connecting.png)
+![Testing connection](../../images/blob-storage/test-connecting.png)
 
 When you click **Test connection**, Quix runs a short round-trip check to make sure your details are correct and that the platform can both see and use your storage.
 
@@ -55,7 +55,7 @@ Each step is shown in the dialog. Successful steps are marked with a ✓, and yo
 **Failure**  
 If a step fails, you’ll see ✗ next to it along with the reason (for example, “Access denied” or “Wrong region”). This makes it easy to fix permissions or update your settings.
 
-![Access denied example](../images/blob-storage/test-error.png)
+![Access denied example](../../images/blob-storage/test-error.png)
 
 ## Providers
 
@@ -132,6 +132,6 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
 
 * [What is Quix Lake](../quix-cloud/quixlake/overview.md) - what it is and why it exists
 * [Open format](../quix-cloud/quixlake/open-format.md) - layout and schemas (Avro, Parquet)
-* [Quix Lake Catalog](../quix-cloud/quixlake/catalog.md) - browse, search, and manage datasets
-* [Quix Lake Sink](../quix-cloud/managed-services/sink.md) - persist topics to your bucket/container
-* [Quix Lake Replay (managed)](../quix-cloud/managed-services/replay.md) - re-run datasets back to Kafka
+* [Quix Lake - API](../quix-cloud/quixlake/api.md) - browse, search, and manage datasets
+* [Quix Lake - Sink](../quix-cloud/managed-services/sink.md) - persist topics to your bucket/container
+* [Quix Lake - Replay](../quix-cloud/managed-services/replay.md) - re-run datasets back to Kafka

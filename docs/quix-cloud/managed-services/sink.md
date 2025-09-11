@@ -1,9 +1,9 @@
 ---
-title: Quix Lake Sink
+title: Quix Lake - Sink
 description: Connector that persists Kafka data into Quix Lake.
 ---
 
-# Quix Lake Sink
+# Quix Lake - Sink
 
 The Quix Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **Replay**.
 
@@ -44,7 +44,7 @@ Metadata:
 ## How to run (UI)
 
 1. Create or log in to your Quix account.
-2. Go to **Connectors → Add connector → Quix quixlake Sink**.
+2. Go to **Connectors → Add connector → Quix Lake - Sink**.
 3. Click **Set up connector**, fill the parameters below, then **Test connection & deploy**.
 
 !!! info "Managed service"
@@ -78,7 +78,7 @@ You can configure the sink in **YAML** or via the **Quix Cloud UI**.
 * `consumerGroup` - Kafka consumer group ID (default: `quixstreams-default`)
 * `autoOffsetReset` - `latest` or `earliest` (default: `latest`)
 
-#### Quix Lake settings
+#### Sink settings
 
 * `avroCompression` - `snappy` or `gzip` (default: `snappy`)
 * `maxWorkers` - threads for uploading (default: `5`)
@@ -90,8 +90,8 @@ You can configure the sink in **YAML** or via the **Quix Cloud UI**.
 
 ```yaml
 deployments:
-- name: Quix Lake Sink
-  application: quixlake.Sink
+- name: Quix Lake - Sink
+  application: DataLake.Sink
   version: latest
   deploymentType: Managed
   resources:
@@ -132,7 +132,7 @@ deployments:
 * **Parquet (Custom metadata, optional)**
   Your key–value annotations (`Topic`, `Key`, `MetadataKey`, `MetadataValue`, `UpdatedUtc`) used for search and grouping in the Catalog.
 
-See **Open format** for full schemas and layout.
+See [Open format](../quixlake/open-format.md) for full schemas and layout.
 
 ## Operational behavior
 
@@ -151,20 +151,20 @@ See **Open format** for full schemas and layout.
 
 * **Logs**: per-segment lifecycle (rolling, upload, index write), retries, and timings
 * **Metrics**: records persisted, bytes uploaded, active uploads, average upload speed
-* **Catalog**: new datasets appear as index files land; use **Refresh** if you need to surface them sooner
+* **Data Lake UI*: new datasets appear as index files land; use **Refresh** if you need to surface them sooner
 
 ## Security
 
 * Uses the **cluster’s** blob storage connection (scoped credentials; one bucket/container per connection)
 * Honor your cloud controls: IAM roles, key rotation, server-side encryption, access logs, retention
-* The sink does not delete raw data; deletion flows through **Catalog** with soft-delete and trash retention
+* The sink does not delete raw data; deletion flows through **Data Lake API** with soft-delete and trash retention
 
 ## Troubleshooting
 
 * **Access denied**
   Verify the blob connection’s permissions: list, read, write, and delete on the bucket/container.
-* **Nothing appears in Catalog**
-  Check sink logs for successful index writes; click **Refresh** in Catalog; ensure time filters include the new data.
+* **Nothing appears in Data Lake UI**
+  Check sink logs for successful index writes; click **Refresh** in the UI; ensure time filters include the new data.
 * **Small-file explosion**
   Increase `rollBytes` and/or `rollSeconds`, or add a replica to smooth throughput.
 * **Slow uploads**
@@ -173,6 +173,6 @@ See **Open format** for full schemas and layout.
 ## See also
 
 * [Open format](../quixlake/open-format.md)
-* [Quix Lake User Interface](../quixlake/user-interface.md)
-* [Quix Lake Replay (managed)](./replay.md)
-* [Blob storage connections](../../deploy/blob-storage.md)
+* [Quix Lake - User Interface](../quixlake/user-interface.md)
+* [Quix Lake - Replay](./replay.md)
+* [Blob storage connections](./blob-storage.md)

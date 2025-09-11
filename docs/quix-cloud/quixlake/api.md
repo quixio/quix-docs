@@ -1,7 +1,7 @@
 ---
 
-title: Quix Lake API
-description: Programmatic access to Quix Lake for search, metadata, file discovery, and lifecycle operations. Backend for the Quix Lake UI; Metadata endpoints are the primary integration surface for your applications.
+title: Quix Lake - API
+description: Programmatic access to Quix Lake for search, metadata, file discovery, and lifecycle operations. Backend for the Quix Lake UI; Metadata endpoints are the primary integration surface for your external re-indexing applications.
 ---
 
 # Overview
@@ -17,9 +17,19 @@ See the UI page: [Quix Lake User Interface](./user-interface.md).
 
   ![Open API](./images/user-interface-open-swagger.png)
 
-## Catalog
 
-These routes back the catalog’s topic/key lists, facets, and search results.
+## Catalog endpoints
+
+The **Catalog** endpoints powers discovery features across workspaces and topics. These endpoints let you search indexed stream metadata, explore available topics and keys, and manage cache refreshes to ensure results are up to date.
+
+Use these routes to:
+
+* Perform flexible searches (text, fuzzy, prefix/suffix, and time-bound queries).
+* Enumerate available topics, keys, and metadata facets for filtering.
+* Keep catalog results fresh with cache refresh operations at the workspace or topic level.
+* Retrieve workspace and global metadata keys to support consistent UI-driven filtering.
+
+Together, these endpoints back the catalog’s search grid, topic/key lists, and filtering facets.
 
 ### Search stream metadata
 
@@ -74,9 +84,22 @@ Returns workspace identifiers that have discoverable data for the caller.
 !!! note
     The search response includes a total-count header so clients can page results consistently with the UI.
 
-## Data
 
-Programmatic visibility into raw objects and time bounds—useful for exports, verification, and operational tooling.
+Here’s a refined introduction for the **Data** section that aligns in tone and clarity with the improved **Catalog** section:
+
+
+
+## Data endpoints
+
+The **Data** endpoints provides direct visibility into raw storage objects and their temporal ranges. These endpoints are designed for operational use cases such as exports, audits, verification, and impact analysis.
+
+Use these routes to:
+
+* Enumerate the exact Avro segment files that make up a selection.
+* Identify all files associated with a key to preview or audit deletions.
+* Compute temporal bounds (min/max timestamps and partitions) for sets of keys.
+
+Together, these endpoints give precise, programmatic insight into how cataloged data is physically stored and bounded in time.
 
 ### Get timestamped file descriptors
 
@@ -96,9 +119,18 @@ Reports minimum/maximum timestamps and observed partitions for a set of keys. Us
 !!! tip
     A common flow is to use **search** to find candidate keys, then use **files** to enumerate exact object paths.
 
+
+
 ## Data Deletion
 
-Safe lifecycle operations. Defaults are **soft delete** to protect data; hard delete removes both metadata and files.
+The **Data Deletion API** supports safe lifecycle management of cataloged data. By default, deletions are **soft**, preserving underlying files and enabling recovery. When required, **hard deletes** can permanently remove both metadata and storage objects.
+
+Use these routes to:
+
+* Delete metadata and files for a single key or multiple keys (soft or hard).
+* Restore streams that were previously soft-deleted, individually or in batches.
+
+These operations ensure controlled data cleanup while supporting compliance and recovery workflows.
 
 ### Delete metadata/files for a single key
 
@@ -123,11 +155,28 @@ Clears soft-delete markers for multiple keys.
 !!! warning
     Use hard delete only when retention and compliance requirements allow it.
 
+
+
 ## Metadata
 
-Attach custom **key/value properties** to datasets and query by those properties. This is intended for your applications to enrich datasets created by the [Quix Lake Sink (managed)](../managed-services/sink.md), so they’re easy to group, filter, and audit across API and UI.
+The **Metadata API** lets you enrich datasets with custom **key/value properties** and query them later for grouping, filtering, lineage, and auditing. This is especially useful when working with datasets produced by the [Quix Lake Sink (managed)](../managed-services/sink.md), enabling your applications to attach meaningful business or operational context.
 
-**Good examples of properties:** machine id, sensor range, driver, concrete batch, simple JSON flattened to strings, experiment or run identifiers, quality tiers.
+Typical metadata examples include:
+
+* Machine or device identifiers
+* Sensor calibration ranges
+* Driver, batch, or run identifiers
+* Experiment tags or quality tiers
+* Flattened JSON values
+
+Use these routes to:
+
+* Add or update metadata properties for a key.
+* Retrieve all metadata associated with a key.
+* Soft-delete all metadata for a key, or selectively remove specific properties.
+
+These operations provide a lightweight but powerful mechanism for managing dataset context across both API and UI.
+
 
 ### Upsert metadata entries
 
@@ -151,6 +200,8 @@ Removes only the listed property names.
 
 !!! tip
     When searching, you can request the full tag set per result to drive rules without extra reads.
+
+
 
 ## Security
 

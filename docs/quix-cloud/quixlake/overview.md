@@ -5,7 +5,7 @@ description: The central storage layer of Quix Cloud for capturing and managing 
 
 # What is Quix Lake
 
-Quix Lake is the central storage layer of Quix Cloud. It captures, organizes, and manages Kafka topic data in an open, file-based format on blob storage systems such as Amazon S3, Azure Blob, Google Cloud Storage, or MinIO.
+**Quix Lake** is the central storage layer of **Quix Cloud**. It captures, organizes, and manages Kafka topic data in an open, file-based format on blob storage systems such as Amazon S3, Azure Blob, Google Cloud Storage, or MinIO.
 
 Instead of relying on proprietary databases, Quix Lake uses open formats and Hive-style partitioning so your data stays:
 
@@ -23,7 +23,7 @@ Earlier persistence options were tied to specific databases and SDKs, which limi
 
 * Kafka messages are persisted exactly as they arrive, including timestamps, headers, partitions, offsets, and idle gaps
 * Metadata is indexed alongside raw data to enable fast discovery without scanning Avro
-* Services like **Catalog**, **Replay**, and sinks operate directly on the open files in your bucket
+* Services like **API**, **Replay**, and **Sink** operate directly on the open files in your bucket
 * You keep full control of storage, security, and lifecycle in your own cloud account
 
 ## Where your data lives
@@ -47,7 +47,7 @@ See **[open format](./open-format.md)** for the full layout and schemas.
 
 ## What you can do
 
-* **Explore datasets** with the **Quix Lake Catalog** UI or API
+* **Explore datasets** with the **Quix Lake** UI or API
 * **Replay** persisted datasets back into Kafka with full fidelity
 * **Search and filter** by time ranges, topics, keys, and custom metadata
 * **Query externally** using DuckDB, Spark, Trino, Athena, or BigQuery over Avro and Parquet
@@ -59,7 +59,7 @@ See **[open format](./open-format.md)** for the full layout and schemas.
 
 1. **Ingest**: a sink writes raw Kafka messages to Avro files in your storage
 2. **Index**: Parquet index files summarize time, partition, offsets, and sizes
-3. **Discover**: the Catalog and APIs read the index to list and filter quickly
+3. **Discover**: the UI and APIs read the index to list and filter quickly
 4. **Replay**: any discovered dataset can be streamed back to Kafka with original order and timing preserved or simulated
 5. **Use**: build pipelines that mix historical data with live streams, and run queries over Parquet
 
@@ -71,7 +71,8 @@ See **[open format](./open-format.md)** for the full layout and schemas.
 ## See also
 
 * [Open format](./open-format.md)
-* [Quix Lake User Interface](./user-interface.md)
-* [Quix Lake Replay (managed)](../managed-services/replay.md)
-* [Quix Lake Sink (managed)](../managed-services/sink.md)
-* [Blob storage connections](../../deploy/blob-storage.md)
+* [Quix Lake - Sink](../managed-services/sink.md)
+* [Quix Lake - User Interface](./user-interface.md)
+* [Quix Lake - API](./user-interface.md)
+* [Quix Lake - Replay](../managed-services/replay.md)
+* [Blob storage connections](../managed-services/blob-storage.md)

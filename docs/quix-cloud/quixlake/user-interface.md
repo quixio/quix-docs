@@ -1,9 +1,9 @@
 ---
-title: Quix Lake User Interface
+title: Quix Lake - User Interface
 description: Explore, search, and manage persisted datasets in Quix Lake.
 ---
 
-# Quix Lake User Interface
+# Quix Lake - User Interface
 
 The **Quix Lake User Interface** lets you browse, search, and manage datasets persisted into Quix Lake. It surfaces Avro data segments and their Parquet index metadata, making datasets easy to discover and replay.
 
@@ -14,7 +14,7 @@ You can open the catalog from any **environment** that has a blob storage connec
 !!! info "Prerequisites"
     - A **Blob storage connection** is configured for at least one environment.  
     - The **Quix Lake services** are running.  
-    See: [Blob storage connections](../../deploy/blob-storage.md).
+    See: [Blob storage connections](../managed-services/blob-storage.md).
 
 ## Exploring datasets
 
@@ -73,6 +73,6 @@ From the catalog you can:
 
 ## Related
 
-- [Blob storage connections](../..deploy/blob-storage.md) 
-- [Quix Lake Replay (managed)](../managed-services/replay.md)
-- [Quix Lake API](./api.md)
+- [Blob storage connections](../managed-services/blob-storage.md) 
+- [Quix Lake - Replay](../managed-services/replay.md)
+- [Quix Lake - API](./api.md)

@@ -287,18 +287,18 @@ nav:
     - Quix Lake:
       - 'Overview': 'quix-cloud/quixlake/overview.md'
       - "Open format": quix-cloud/quixlake/open-format.md
-      - "DataLake.Sink": quix-cloud/managed-services/sink.md
-      - "DataLake.Replay": quix-cloud/managed-services/replay.md
-      - "DataLake.API": quix-cloud/quixlake/api.md
+      - "API": quix-cloud/quixlake/api.md
+      - "Sink": quix-cloud/managed-services/sink.md
+      - "Replay": quix-cloud/managed-services/replay.md
       - "User Interface": quix-cloud/quixlake/user-interface.md
     - 'Managed services':
       - 'Overview': 'quix-cloud/managed-services/overview.md'
-      - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
-      - 'Blob storage': 'deploy/blob-storage.md'
+      - 'Blob storage': 'quix-cloud/managed-services/blob-storage.md'
       - Services:
         - "DataLake.Sink": quix-cloud/managed-services/sink.md
         - "DataLake.Replay": quix-cloud/managed-services/replay.md
         - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
+      - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
     - 'File Reference':
       - 'Pipeline YAML (quix.yaml)': './quix-cli/yaml-reference/pipeline-descriptor.md'
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'

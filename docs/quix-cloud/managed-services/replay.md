@@ -1,10 +1,10 @@
 ---
 
-title: Quix Lake Replay (managed)
+title: Quix Lake - Replay
 description: Managed service that replays persisted datasets from Quix Lake back into Kafka with full fidelity.
 ---
 
-# Quix Lake Replay
+# Quix Lake - Replay
 
 Quix Lake Replay is a managed service that streams persisted datasets from **Quix Lake** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
 
@@ -19,17 +19,17 @@ You can launch a replay from multiple places in the Portal:
 Use the pipeline canvas to add a Replay tile and start it in context of your flow. The screenshot shows the entry point on the canvas.
 ![Start from pipeline](./images/replay/start-from-pipeline.png)
 
-### From the Data Catalog
+### From the Data Lake UI
 
-Open **Quix Lake → Catalog**, select the dataset (topic + time window/keys/partitions), and start a replay directly from the catalog. The screenshot highlights the replay action on a selected dataset.
-![Start from Data Catalog](./images/replay/start-from-catalog.png)
+Open **Data Lake**, select the dataset (topic + time window/keys/partitions), and start a replay directly from the catalog. The screenshot highlights the replay action on a selected dataset.
+![Start from Data Lake UI](./images/replay/start-from-catalog.png)
 
 ## Example YAML (basic)
 
 ```yaml
 deployments:
-  - name: Quix Lake Replay
-    application: quixlake.Replay
+  - name: Quix Lake - Replay
+    application: DataLake.Replay
     version: latest
     deploymentType: Managed
     resources:

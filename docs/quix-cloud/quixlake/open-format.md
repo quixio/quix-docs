@@ -1,10 +1,10 @@
 ---
 
-title: Open format
+title: Quix Lake - Open format
 description: How Quix Lake structures data in Avro and Parquet for portability and performance.
 ---
 
-# Open format
+# Quix Lake - Open format
 
 Quix Lake stores Kafka messages and metadata as **open files** in your blob storage (S3, GCS, Azure Blob, MinIO). The layout favors portability, fast discovery, and full-fidelity replay.
 
@@ -92,10 +92,10 @@ Quix Lake stores Kafka messages and metadata as **open files** in your blob stor
 
 ## How it flows
 
-* Ingest: write Avro into partitioned folders
-* Index: write Parquet descriptors alongside
-* Discover: Catalog and APIs read Parquet to list and filter quickly
-* Use: Replay to Kafka, or query with your engines of choice
+* Ingest: write Avro into partitioned folders ([Quix Lake - Sink](../managed-services/sink.md))
+* Index: write Parquet descriptors alongside ([Quix Lake - Sink](../managed-services/sink.md))
+* Discover: UI and APIs read Parquet to list and filter your datasets ([Quix Lake - API](./api.md))
+* Use: Replay to Kafka, or query with your engines of choice ([Quix Lake - Replay](../managed-services/replay.md))
 
 ## Guarantees
 
@@ -106,6 +106,8 @@ Quix Lake stores Kafka messages and metadata as **open files** in your blob stor
 
 ## See also
 
-* [Quix Lake User Interface](./user-interface.md) - discover datasets programmatically
-* [Quix Lake Replay (managed)](../managed-services/replay.md) - send datasets back to Kafka
-* [Blob storage connections](../../deploy/blob-storage.md) - wire up your bucket or container
+* [Quix Lake - Sink](../managed-services/sink.md) - persist data from Kafka to your Blob Storage
+* [Quix Lake - API](./api.md) - discover datasets programmatically
+* [Quix Lake - User Interface](./user-interface.md) - discover datasets using Quix Cloud user interface
+* [Quix Lake - Replay](../managed-services/replay.md) - send datasets back to Kafka
+* [Blob storage connections](../managed-services/blob-storage.md) - wire up your bucket or container
