@@ -17,7 +17,7 @@ See the UI page: [Quix Lake User Interface](./user-interface.md).
 
   ![Open API](./images/user-interface-open-swagger.png)
 
-# Catalog
+## Catalog
 
 These routes back the catalog’s topic/key lists, facets, and search results.
 
@@ -74,7 +74,7 @@ Returns workspace identifiers that have discoverable data for the caller.
 !!! note
     The search response includes a total-count header so clients can page results consistently with the UI.
 
-# Data
+## Data
 
 Programmatic visibility into raw objects and time bounds—useful for exports, verification, and operational tooling.
 
@@ -96,7 +96,7 @@ Reports minimum/maximum timestamps and observed partitions for a set of keys. Us
 !!! tip
     A common flow is to use **search** to find candidate keys, then use **files** to enumerate exact object paths.
 
-# Data Deletion
+## Data Deletion
 
 Safe lifecycle operations. Defaults are **soft delete** to protect data; hard delete removes both metadata and files.
 
@@ -123,7 +123,7 @@ Clears soft-delete markers for multiple keys.
 !!! warning
     Use hard delete only when retention and compliance requirements allow it.
 
-# Metadata
+## Metadata
 
 Attach custom **key/value properties** to datasets and query by those properties. This is intended for your applications to enrich datasets created by the [Quix Lake Sink (managed)](../managed-services/sink.md), so they’re easy to group, filter, and audit across API and UI.
 
@@ -152,7 +152,7 @@ Removes only the listed property names.
 !!! tip
     When searching, you can request the full tag set per result to drive rules without extra reads.
 
-# Security
+## Security
 
 * Authenticate with **Bearer** JWT.
 * Authorization is enforced per workspace.
