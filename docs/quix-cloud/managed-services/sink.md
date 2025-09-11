@@ -1,5 +1,5 @@
 ---
-title: Quix Lake - Sink
+title: "DataLake.Sink"
 description: Connector that persists Kafka data into Quix Lake.
 ---
 

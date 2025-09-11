@@ -1,6 +1,6 @@
 ---
 
-title: Quix Lake - Replay
+title: "DataLake.Replay"
 description: Managed service that replays persisted datasets from Quix Lake back into Kafka with full fidelity.
 ---
 

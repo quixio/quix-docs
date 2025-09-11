@@ -4,7 +4,7 @@ title: Quix Lake - API
 description: Programmatic access to Quix Lake for search, metadata, file discovery, and lifecycle operations. Backend for the Quix Lake UI; Metadata endpoints are the primary integration surface for your external re-indexing applications.
 ---
 
-# Overview
+# Quix Lake - API
 
 The Quix Lake API powers the **Quix Lake User Interface** and also exposes a clean surface for your own applications to **tag datasets, search, discover files, and perform safe deletes/restores**.
 See the UI page: [Quix Lake User Interface](./user-interface.md).
@@ -121,9 +121,9 @@ Reports minimum/maximum timestamps and observed partitions for a set of keys. Us
 
 
 
-## Data Deletion
+## Data Deletion endpoints
 
-The **Data Deletion API** supports safe lifecycle management of cataloged data. By default, deletions are **soft**, preserving underlying files and enabling recovery. When required, **hard deletes** can permanently remove both metadata and storage objects.
+The **Data Deletion** endpoints supports safe lifecycle management of cataloged data. By default, deletions are **soft**, preserving underlying files and enabling recovery. When required, **hard deletes** can permanently remove both metadata and storage objects.
 
 Use these routes to:
 
@@ -157,9 +157,9 @@ Clears soft-delete markers for multiple keys.
 
 
 
-## Metadata
+## Metadata endpoints
 
-The **Metadata API** lets you enrich datasets with custom **key/value properties** and query them later for grouping, filtering, lineage, and auditing. This is especially useful when working with datasets produced by the [Quix Lake Sink (managed)](../managed-services/sink.md), enabling your applications to attach meaningful business or operational context.
+The **Metadata** endpoints lets you enrich datasets with custom **key/value properties** and query them later for grouping, filtering, lineage, and auditing. This is especially useful when working with datasets produced by the [Quix Lake Sink (managed)](../managed-services/sink.md), enabling your applications to attach meaningful business or operational context.
 
 Typical metadata examples include:
 

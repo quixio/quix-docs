@@ -130,8 +130,8 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
 
 ## See more
 
-* [What is Quix Lake](../quix-cloud/quixlake/overview.md) - what it is and why it exists
-* [Open format](../quix-cloud/quixlake/open-format.md) - layout and schemas (Avro, Parquet)
-* [Quix Lake - API](../quix-cloud/quixlake/api.md) - browse, search, and manage datasets
-* [Quix Lake - Sink](../quix-cloud/managed-services/sink.md) - persist topics to your bucket/container
-* [Quix Lake - Replay](../quix-cloud/managed-services/replay.md) - re-run datasets back to Kafka
+* [What is Quix Lake](../quixlake/overview.md) - what it is and why it exists
+* [Open format](../quixlake/open-format.md) - layout and schemas (Avro, Parquet)
+* [Quix Lake - API](../quixlake/api.md) - browse, search, and manage datasets
+* [Quix Lake - Sink](./sink.md) - persist topics to your bucket/container
+* [Quix Lake - Replay](./replay.md) - re-run datasets back to Kafka

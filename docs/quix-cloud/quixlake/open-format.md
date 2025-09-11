@@ -1,10 +1,10 @@
 ---
 
-title: Quix Lake - Open format
+title: Quix Lake Open format
 description: How Quix Lake structures data in Avro and Parquet for portability and performance.
 ---
 
-# Quix Lake - Open format
+# Quix Lake Open format
 
 Quix Lake stores Kafka messages and metadata as **open files** in your blob storage (S3, GCS, Azure Blob, MinIO). The layout favors portability, fast discovery, and full-fidelity replay.
 
