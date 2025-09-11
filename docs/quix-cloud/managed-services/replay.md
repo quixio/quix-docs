@@ -1,12 +1,12 @@
 ---
 
-title: Data Lake Replay (managed)
-description: Managed service that replays persisted datasets from Quix Data Lake back into Kafka with full fidelity.
+title: Quix Lake Replay (managed)
+description: Managed service that replays persisted datasets from Quix Lake back into Kafka with full fidelity.
 ---
 
-# Data Lake Replay
+# Quix Lake Replay
 
-Data Lake Replay is a managed service that streams persisted datasets from **Quix Data Lake** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
+Quix Lake Replay is a managed service that streams persisted datasets from **Quix Lake** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
 
 Identifier: `DataLake.Replay`
 
@@ -21,15 +21,15 @@ Use the pipeline canvas to add a Replay tile and start it in context of your flo
 
 ### From the Data Catalog
 
-Open **Data Lake → Catalog**, select the dataset (topic + time window/keys/partitions), and start a replay directly from the catalog. The screenshot highlights the replay action on a selected dataset.
+Open **Quix Lake → Catalog**, select the dataset (topic + time window/keys/partitions), and start a replay directly from the catalog. The screenshot highlights the replay action on a selected dataset.
 ![Start from Data Catalog](./images/replay/start-from-catalog.png)
 
 ## Example YAML (basic)
 
 ```yaml
 deployments:
-  - name: Data Lake Replay
-    application: DataLake.Replay
+  - name: Quix Lake Replay
+    application: quixlake.Replay
     version: latest
     deploymentType: Managed
     resources:
@@ -99,12 +99,14 @@ deployments:
 
 ### Details & metrics
 
-Operate the run and inspect configuration from the **Details** panel. The same view shows **Metrics** updating in real time: progress %, effective speed (e.g., `x9.15`), and upload/download rates.  
+Operate the run and inspect configuration from the **Details** panel. The same view shows **Metrics** updating in real time: progress %, effective speed (e.g., `x9.15`), and upload/download rates.
+
 ![Details panel with live metrics](./images/replay/details-panel.png)
 
 ### Logs
 
-Per-file reads, computed waits, gap trimming, queue length, and throttling-useful for timing decisions during playback.  
+Per-file reads, computed waits, gap trimming, queue length, and throttling-useful for timing decisions during playback.
+
 ![Replay logs view](./images/replay/logs.png)
 
 !!! tip "Advanced options"
@@ -121,7 +123,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## How it works (high-level)
 
-1. Queries the **Data Lake Catalog** to locate Avro segments for your topic, keys, partitions, and time window.
+1. Queries the **Quix Lake Catalog** to locate Avro segments for your topic, keys, partitions, and time window.
 2. Streams records in order, applying **timestampsType** and **replaySpeed**.
 3. Optional controls adjust gaps, throughput caps, key remapping, and partition routing.
 4. Produces records to the **destinationTopic** in Kafka.
@@ -129,7 +131,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## Configuration
 
-Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Data Lake Catalog API URL**, which is injected automatically).
+Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Quix Lake Catalog API URL**, which is injected automatically).
 
 ### Required
 
@@ -159,13 +161,17 @@ Managed services use simplified config. Quix maps these keys to underlying envir
 * **useOriginalMessagePartition** or **destinationPartition**
 
 The **Basic configuration** panel lets you set the destination topic, timestamp mode, and speed:
+
 ![Replay config basic](./images/replay/config-basic.png)
 
 Toggle **Advanced settings** to reveal time range, gaps, throughput limits, partitions, and deployment resources:
+
 ![Replay config advanced toggles](./images/replay/config-advanced-toggles.png)
 
 Pick a precise **Time range** with date-time inputs and the slider for quick refinement:
+
 ![Replay config time range](./images/replay/config-time-range.png)
 
 Choose **source partitions** to read from and how to route to **destination partitions**; adjust **CPU** and **Memory** to tune performance:
+
 ![Replay config partitions and deployment](./images/replay/config-partitions-deploy.png)

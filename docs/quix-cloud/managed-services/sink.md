@@ -1,11 +1,13 @@
 ---
-title: Data Lake Sink
-description: Connector that persists Kafka data into Quix Data Lake.
+title: Quix Lake Sink
+description: Connector that persists Kafka data into Quix Lake.
 ---
 
-# Data Lake Sink
+# Quix Lake Sink
 
-The Data Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **Replay**.
+The Quix Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **Replay**.
+
+Identifier: `DataLake.Sink`
 
 ## Purpose
 
@@ -17,7 +19,7 @@ The Data Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw
 
 * Consumes from a Kafka topic (single or many sinks per environment)
 * Rolls **Avro** segments and writes them under the **Raw** prefix using a stable, partitioned layout (topic, key, partition, date)
-* Emits **Parquet** index files under **Metadata** so the **Data Lake Catalog** and APIs can list and filter datasets without scanning Avro
+* Emits **Parquet** index files under **Metadata** so the **Quix Lake Catalog** and APIs can list and filter datasets without scanning Avro
 * Optionally accepts **custom metadata** you attach later via the Metadata API
 
 **Example object names**
@@ -42,7 +44,7 @@ Metadata:
 ## How to run (UI)
 
 1. Create or log in to your Quix account.
-2. Go to **Connectors → Add connector → Quix Datalake Sink**.
+2. Go to **Connectors → Add connector → Quix quixlake Sink**.
 3. Click **Set up connector**, fill the parameters below, then **Test connection & deploy**.
 
 !!! info "Managed service"
@@ -76,7 +78,7 @@ You can configure the sink in **YAML** or via the **Quix Cloud UI**.
 * `consumerGroup` - Kafka consumer group ID (default: `quixstreams-default`)
 * `autoOffsetReset` - `latest` or `earliest` (default: `latest`)
 
-#### Data Lake settings
+#### Quix Lake settings
 
 * `avroCompression` - `snappy` or `gzip` (default: `snappy`)
 * `maxWorkers` - threads for uploading (default: `5`)
@@ -88,8 +90,8 @@ You can configure the sink in **YAML** or via the **Quix Cloud UI**.
 
 ```yaml
 deployments:
-- name: Data Lake Sink
-  application: DataLake.Sink
+- name: Quix Lake Sink
+  application: quixlake.Sink
   version: latest
   deploymentType: Managed
   resources:
@@ -100,7 +102,7 @@ deployments:
     # Source
     # sourceTopic in YAML; UI may label this as "topic"
     sourceTopic: csv-data
-    consumerGroup: datalake-sink-v1
+    consumerGroup: quixlake-sink-v1
 
     # Quix Streams
     commitTimeInterval: 60
@@ -170,7 +172,7 @@ See **Open format** for full schemas and layout.
 
 ## See also
 
-* [Open format](../datalake/open-format.md)
-* [Data Lake Catalog](../datalake/catalog.md)
-* [Data Lake Replay (managed)](./replay.md)
+* [Open format](../quixlake/open-format.md)
+* [Quix Lake User Interface](../quixlake/user-interface.md)
+* [Quix Lake Replay (managed)](./replay.md)
 * [Blob storage connections](../../deploy/blob-storage.md)

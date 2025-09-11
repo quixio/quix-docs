@@ -1,11 +1,11 @@
 ---
 title: Blob storage connections
-description: Connect your cluster to external object storage (S3, GCS, Azure Blob, MinIO) to enable Quix Data Lake.
+description: Connect your cluster to external object storage (S3, GCS, Azure Blob, MinIO) to enable Quix Lake.
 ---
 
 # Blob storage connections
 
-Connect your cluster to a bucket/container so Quix can enable **Quix Data Lake**-the platform’s open storage layer for Kafka topic data.
+Connect your cluster to a bucket/container so Quix can enable **Quix Lake**-the platform’s open storage layer for Kafka topic data.
 
 ![Connections list](../images/blob-storage/connections-list-running.png)
 
@@ -13,8 +13,8 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Data Lake**
     Each **cluster** supports **one** blob storage connection.  
     You can configure different connections for different clusters.
     
-???+ info "Quix Data Lake at a glance"
-    **Summary** - Quix Data Lake persists Kafka topic data as **Avro/Parquet** in your own bucket (S3, GCS, Azure Blob, MinIO), partitioned for fast discovery and full-fidelity **Replay**.
+???+ info "Quix Lake at a glance"
+    **Summary** - Quix Lake persists Kafka topic data as **Avro/Parquet** in your own bucket (S3, GCS, Azure Blob, MinIO), partitioned for fast discovery and full-fidelity **Replay**.
 
     **Why it exists** - Preserve exact Kafka messages (timestamps, headers, partitions, offsets, gaps) with indexed metadata so **Catalog**, **Replay**, **Sinks**, and future services operate on open formats you control.
 
@@ -26,7 +26,7 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Data Lake**
 
     **Flow** - **Ingest** (Avro) → **Index** (Parquet metadata) → **Discover** (Data Catalog & Metadata API) → **Replay** (full fidelity back to Kafka) → **Use** (explore, combine historical + live, run queries/export).
 
-    [Learn more about Quix Data Lake →](../quix-cloud/datalake/overview.md)
+    [Learn more about Quix Lake →](../quix-cloud/quixlake/overview.md)
 
 ## Create a connection
 
@@ -46,7 +46,7 @@ When you click **Test connection**, Quix runs a short round-trip check to make s
 1. **Connect** - Quix creates a storage client using the details you entered.  
 2. **Upload** - it writes a small temporary file into a `tmp/` folder in your bucket or container.  
 3. **Check visibility** - it confirms the file shows up in the storage listing.  
-4. **Query** - it runs a simple check to ensure the file is discoverable for later Data Lake operations.  
+4. **Query** - it runs a simple check to ensure the file is discoverable for later Quix Lake operations.  
 5. **Clean up** - the temporary file is deleted so your storage stays tidy.
 
 **Success**  
@@ -130,8 +130,8 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
 
 ## See more
 
-* [What is Quix Data Lake](../quix-cloud/datalake/overview.md) - what it is and why it exists
-* [Open format](../quix-cloud/datalake/open-format.md) - layout and schemas (Avro, Parquet)
-* [Data Lake Catalog](../quix-cloud/datalake/catalog.md) - browse, search, and manage datasets
-* [Data Lake Sink](../quix-cloud/managed-services/sink.md) - persist topics to your bucket/container
-* [Data Lake Replay (managed)](../quix-cloud/managed-services/replay.md) - re-run datasets back to Kafka
+* [What is Quix Lake](../quix-cloud/quixlake/overview.md) - what it is and why it exists
+* [Open format](../quix-cloud/quixlake/open-format.md) - layout and schemas (Avro, Parquet)
+* [Quix Lake Catalog](../quix-cloud/quixlake/catalog.md) - browse, search, and manage datasets
+* [Quix Lake Sink](../quix-cloud/managed-services/sink.md) - persist topics to your bucket/container
+* [Quix Lake Replay (managed)](../quix-cloud/managed-services/replay.md) - re-run datasets back to Kafka

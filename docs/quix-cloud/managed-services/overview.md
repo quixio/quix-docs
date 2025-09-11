@@ -15,8 +15,8 @@ Note
 ## Available managed services
 
 - Dynamic Configuration Manager (`DynamicConfiguration`)
-- Data Lake Sink (`DataLake.Sink`)
-- Data Lake Replay (`DataLake.Replay`)
+- Quix Lake Sink (`quixlake.Sink`)
+- Quix Lake Replay (`quixlake.Replay`)
 
 ## Quick example
 
