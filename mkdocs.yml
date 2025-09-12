@@ -208,7 +208,7 @@ nav:
         - Yugabytedb sink: quix-connectors/quix-streams/sinks/coming-soon/Yugabytedb-sink.md
 
 
-  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.4.5-docs'
+  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.5.0-docs'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
