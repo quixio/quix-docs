@@ -16,7 +16,7 @@ Non-managed services can also define these properties in YAML, making any deploy
 
   ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
-* Provide basic authentication integration with Quix Cloud so publicly exposed services don’t require a separate login
+* Provide basic authentication integration with Quix Cloud so publicly exposed services don’t require a separate login (optional)
 
 ## YAML configuration
 
@@ -47,10 +47,15 @@ Population rules:
 * Managed service → Derived from Managed Services conventions.
 * Non-managed service → Requires `publicAccess` to be enabled; resolves from the deployment’s public URL.
 
-## Authentication and authorization
+## Authentication and authorization (optional)
 
-The embedded view inherits authentication and authorization from the Quix platform: no separate login is required, and the same user/environment permissions apply.
-When an embedded view loads, the Plugin system injects the Quix user token into the iframe. The UI uses this token to call the backend securely.
+> **Note**
+> Authentication is **not required**. If your frontend app doesn’t need it, you can ignore this section.
+> The details below are only useful if you want your embedded app to reuse Quix’s authentication and authorization system, so it follows the same user and environment permissions.
+
+When used, the embedded view inherits authentication and authorization from the Quix platform: no separate login is required, and the same user/environment permissions apply.
+
+When an embedded view loads, the Plugin system injects the Quix user token into the iframe. The UI can then use this token to call the backend securely.
 
 ### How the token is injected in the embedded view
 
@@ -113,7 +118,7 @@ window.addEventListener('message', messageHandler);
 
 ### How to handle the token in the backend
 
-Install the Quix Portal helper package from the public feed:
+If you want to validate and authorize requests against Quix, you can install the Quix Portal helper package from the public feed:
 
 ```bash
 pip install -i https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/ quixportal
@@ -149,4 +154,3 @@ if auth.validate_permissions(
 else:
     print("Bearer is not authorized to access the resource")
 ```
-
