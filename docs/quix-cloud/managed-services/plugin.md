@@ -27,15 +27,16 @@ plugin:
   embeddedView: true            # Enables embedded UI (frontend renders iframe)
   sidebarItem:                  # Optional environment sidebar shortcut
     show: true                  # Whether to display a shortcut in the sidebar
-    label: "Configuration"       # Text for the menu item
-    icon: "tune"                 # Material icon name
+    label: "Configuration"      # Text for the menu item
+    icon: "tune"                # Material icon name (see notes below)
     order: 1                    # Ordering (lower = higher)
 ```
 
 Notes
 
-* plugin.embeddedView: boolean. true → FE renders embedded UI.
-* plugin.sidebarItem: optional object configuring the Environment’s left sidebar item.
+* `plugin.embeddedView`: boolean. true → FE renders embedded UI.
+* `plugin.sidebarItem`: optional object configuring the Environment’s left sidebar item.
+* `plugin.sidebarItem.icon`: must be a [Google Material icon](https://fonts.google.com/icons). Use the **internal icon code**, typically written in **lowercase** (e.g. `tune`, `settings`, `play_arrow`).
 
 ## Embedded view URL
 
@@ -148,3 +149,4 @@ if auth.validate_permissions(
 else:
     print("Bearer is not authorized to access the resource")
 ```
+
