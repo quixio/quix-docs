@@ -128,7 +128,7 @@ required by the managed image.
 
 ### Blob Storage
 
-This service can leverage a blob storage configured on our platform (see [blob storage docs](../../deploy/blob-storage.md) for setup instructions).
+This service can leverage a blob storage configured on our platform (see [blob storage docs](./blob-storage.md) for setup instructions).
 
 The blob storage configuration is automatically injected only when `contentStore` is set to `file`.
 
