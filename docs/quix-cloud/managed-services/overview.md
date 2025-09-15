@@ -1,6 +1,11 @@
-# Overview
+---
+title: Managed services
+description: Quix-managed applications you can deploy without writing or maintaining code. Pre-built, versioned, and updated by Quix to simplify your pipelines and keep them secure.
+---
 
-Managed services are Quix-provided applications built from Quix-maintained container images. You deploy them like any other application; the difference is you set `deploymentType: Managed`, choose a supported `application`, and pick a `version`. Quix manages the image lifecycle (versions and updates).
+# Managed services
+
+**Managed services** are Quix-provided applications built from Quix-maintained container images. You deploy them like any other application; the difference is you set `deploymentType: Managed`, choose a supported `application`, and pick a `version`. Quix manages the image lifecycle (versions and updates).
 
 Note
 
