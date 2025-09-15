@@ -16,7 +16,7 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Lake** or a
 ???+ info "Quix Lake at a glance"
     **Summary** - Quix Lake persists Kafka topic data as **Avro/Parquet** in your own bucket (S3, GCS, Azure Blob, MinIO), partitioned for fast discovery and full-fidelity **Replay**.
 
-    **Why it exists** - Preserve exact Kafka messages (timestamps, headers, partitions, offsets, gaps) with indexed metadata so **Catalog**, **Replay**, **Sinks**, and future services operate on open formats you control.
+    **Why it exists** - Preserve exact Kafka messages (timestamps, headers, partitions, offsets, gaps) with indexed metadata so **API**, **Replay**, **Sinks**, and future services operate on open formats you control.
 
     **Key properties**
     - **Portable** - open Avro & Parquet
@@ -24,7 +24,7 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Lake** or a
     - **Flexible** - historical + live workflows
     - **Replay** - preserves order, partitions, timestamps, headers, gaps
 
-    **Flow** - **Ingest** (Avro) → **Index** (Parquet metadata) → **Discover** (Data Catalog & Metadata API) → **Replay** (full fidelity back to Kafka) → **Use** (explore, combine historical + live, run queries/export).
+    **Flow** - **Ingest** (Avro) → **Index** (Parquet metadata) → **Discover** (Data Lake API & Metadata API) → **Replay** (full fidelity back to Kafka) → **Use** (explore, combine historical + live, run queries/export).
 
     [Learn more about Quix Lake →](../quix-cloud/quixlake/overview.md)
 

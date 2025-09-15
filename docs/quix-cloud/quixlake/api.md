@@ -13,7 +13,7 @@ See the UI page: [Quix Lake User Interface](./user-interface.md).
 
 * Authenticate with a **Bearer** JWT in the `Authorization` header.
 * Most routes are namespaced by **workspace** and **topic**.
-* You can open the in-product Swagger from the Catalog header in the UI.
+* You can open the in-product Swagger from the catalog header in the Data Lake UI.
 
   ![Open API](./images/user-interface-open-swagger.png)
 
@@ -34,7 +34,7 @@ Together, these endpoints back the catalog’s search grid, topic/key lists, and
 ### Search stream metadata
 
 `POST /{workspaceId}/{topic}/search`
-Searches stream metadata and returns matches with a total count for paging and analytics. Results mirror the catalog grid. Supports free text, exact/prefix/suffix/fuzzy matching, time windows, sorting, paging, and optional inclusion of all tag fields.
+Searches stream metadata and returns matches with a total count for paging and analytics. Results mirror the catalog grid in the Data Lake UI. Supports free text, exact/prefix/suffix/fuzzy matching, time windows, sorting, paging, and optional inclusion of all tag fields.
 
 **Behavior notes**
 
@@ -83,9 +83,6 @@ Returns workspace identifiers that have discoverable data for the caller.
 
 !!! note
     The search response includes a total-count header so clients can page results consistently with the UI.
-
-
-Here’s a refined introduction for the **Data** section that aligns in tone and clarity with the improved **Catalog** section:
 
 
 
