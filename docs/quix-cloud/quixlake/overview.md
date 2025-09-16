@@ -53,7 +53,7 @@ See **[open format](./open-format.md)** for the full layout and schemas.
 * **Query externally** using DuckDB, Spark, Trino, Athena, or BigQuery over Avro and Parquet
 
 !!! tip "Cross-environment access"
-    With the right permissions, you can browse datasets written by other environments using the Environment switcher in the Catalog.
+    With the right permissions, you can browse datasets written by other environments using the Environment switcher in the Data Lake UI.
 
 ## How it works
 

@@ -19,7 +19,7 @@ Identifier: `DataLake.Sink`
 
 * Consumes from a Kafka topic (single or many sinks per environment)
 * Rolls **Avro** segments and writes them under the **Raw** prefix using a stable, partitioned layout (topic, key, partition, date)
-* Emits **Parquet** index files under **Metadata** so the **Quix Lake Catalog** and APIs can list and filter datasets without scanning Avro
+* Emits **Parquet** index files under **Metadata** so the **Quix Lake UI and API** can list and filter datasets without scanning Avro
 * Optionally accepts **custom metadata** you attach later via the Metadata API
 
 **Example object names**
@@ -130,7 +130,7 @@ deployments:
 * **Parquet (Index)**
   Compact descriptors with `Path`, `Topic`, `Key`, `Partition`, `TimestampStart/End`, `OffsetStart/End`, `RecordCount`, `FileSizeBytes`, `CreatedAt`, `DeletedAt?`.
 * **Parquet (Custom metadata, optional)**
-  Your key–value annotations (`Topic`, `Key`, `MetadataKey`, `MetadataValue`, `UpdatedUtc`) used for search and grouping in the Catalog.
+  Your key–value annotations (`Topic`, `Key`, `MetadataKey`, `MetadataValue`, `UpdatedUtc`) used for search and grouping in the UI.
 
 See [Open format](../quixlake/open-format.md) for full schemas and layout.
 

@@ -123,7 +123,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## How it works (high-level)
 
-1. Queries the **Quix Lake Catalog** to locate Avro segments for your topic, keys, partitions, and time window.
+1. Queries the **Quix Lake API** to locate Avro segments for your topic, keys, partitions, and time window.
 2. Streams records in order, applying **timestampsType** and **replaySpeed**.
 3. Optional controls adjust gaps, throughput caps, key remapping, and partition routing.
 4. Produces records to the **destinationTopic** in Kafka.
@@ -131,7 +131,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## Configuration
 
-Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Quix Lake Catalog API URL**, which is injected automatically).
+Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Quix Lake API URL**, which is injected automatically).
 
 ### Required
 

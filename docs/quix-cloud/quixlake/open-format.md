@@ -53,7 +53,7 @@ Quix Lake stores Kafka messages and metadata as **open files** in your blob stor
 
 === "Index metadata (Parquet)"
 
-    Compact **Parquet** descriptors summarize where raw Avro files live so Catalog/UI/APIs can **discover datasets without scanning Avro**.
+    Compact **Parquet** descriptors summarize where raw Avro files live so UI and APIs can **discover datasets without scanning Avro**.
 
     **Columns**
 
