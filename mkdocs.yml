@@ -660,7 +660,7 @@ plugins:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
         'contribute.md': 'kb/contribute.md'
-        'platform/changes.md': 'get-started/welcome.md'
+        'platform/changes.md': 'https://quix.io/blog?category=Releases'
         'platform/ingest-data.md': 'develop/overview.md'
         'platform/quickstart.md': 'quix-cloud/quickstart.md'
         'platform/what-is-quix.md': 'kb/what-is-quix.md'
@@ -817,6 +817,15 @@ plugins:
         'get-started/process.md': 'get-started/streaming.md'
         'tutorials/predictive-maintenance/printers-dashboard.md': 'tutorials/predictive-maintenance/overview.md'
         'tutorials/predictive-maintenance/phone-alerts.md': 'tutorials/predictive-maintenance/overview.md'
+        'blog/posts/release-2-january-2025-shared-folders.md': 'https://quix.io/blog?category=Releases'
+        'blog/posts/release-january-2025-bug-fixes.md': 'https://quix.io/blog?category=Releases'
+        'blog/posts/release-february-2025-project-groups.md': 'https://quix.io/blog?category=Releases'
+        'blog/posts/release-linked-projects.md': 'https://quix.io/blog?category=Releases'
+        'blog/posts/release-scratchpads.md': 'https://quix.io/blog?category=Releases'
+        'CHANGELOG.md': 'https://quix.io/blog?category=Releases'
+        'changelog.md': 'https://quix.io/blog?category=Releases'
+        'changelogs/2022-archive.md': 'https://quix.io/blog?category=Releases'
+        'changelogs/2023-archive.md': 'https://quix.io/blog?category=Releases'
 
 
 
