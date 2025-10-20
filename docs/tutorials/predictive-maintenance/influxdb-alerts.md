@@ -1,6 +1,6 @@
 # InfluxDB - alerts
 
-This service uses the standard Quix InfluxDB 3.0 [connector](../../connectors/index.md). This connector enables the service to subscribe to messages on a Quix topic to be stored in InfluxDB.
+This service uses the standard Quix InfluxDB 3.0 [connector](../../quix-connectors/templates/index.md). This connector enables the service to subscribe to messages on a Quix topic to be stored in InfluxDB.
 
 ![InfluxDB raw data pipeline segment](./images/influxdb-alerts-pipeline-segment.png)
 
