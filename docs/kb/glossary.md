@@ -22,7 +22,7 @@ Quix contains a large number of [open source](https://github.com/quixio/quix-sam
 
 ## Connectors
 
-There are [many ways](../develop/integrate-data/overview.md) to get data into Quix. One option is to use the many connectors already provided by Quix. These can be viewed in Quix by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../connectors/index.md).
+There are [many ways](../develop/integrate-data/overview.md) to get data into Quix. One option is to use the many connectors already provided by Quix. These can be viewed in Quix by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../quix-connectors/templates/index.md).
 
 ## Consumer
 
@@ -69,7 +69,7 @@ The number of instances of the deployment (service). If the replicas are part of
 
 ## Destination
 
-A type of [connector](../connectors/index.md) where data is consumed from a Quix topic by an output (destination) such as a database or dashboard.
+A type of [connector](../quix-connectors/templates/index.md#destinations) where data is consumed from a Quix topic by an output (destination) such as a database or dashboard.
 
 ## Environment
 
@@ -178,7 +178,7 @@ Any application code that runs continuously in the serverless environment. For e
 
 ## Source
 
-A type of [connector](../connectors/index.md) where data is published to a Quix topic from an input (source), such as a web service or command line program.
+A type of [connector](../quix-connectors/templates/index.md#sources) where data is published to a Quix topic from an input (source), such as a web service or command line program.
 
 ## Stream
 
