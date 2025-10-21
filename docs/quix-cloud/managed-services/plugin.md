@@ -27,6 +27,7 @@ plugin:
   embeddedView:                # Can be a boolean or object
     enabled: true              # Enables embedded view
     hideHeader: false          # Optional. If true, hides the header (deployment name + menu)
+    default: true              # Optional. If true, shows embedded view by default when opening deployment
   sidebarItem:                 # Optional environment sidebar shortcut
     show: true                 # Whether to display a shortcut in the sidebar
     label: "Configuration"     # Text for the menu item
@@ -37,12 +38,10 @@ plugin:
 
 Configuration details
 
-* `plugin.embeddedView`: accepts boolean or object.
-  * If boolean `true`, equivalent to `{ enabled: true, hideHeader: false }`.
-  * If boolean `false`, embedded view is disabled.
-  * If object, use `enabled` (boolean, default = `false`) and `hideHeader` (boolean, default = `false`).
-
-* `plugin.embeddedView.hideHeader`: if `true`, the deployment name and menu are not rendered in the embedded view.
+* `plugin.embeddedView`: object configuring the embedded view behavior.
+  * `enabled` (boolean, default = `false`): Enables the embedded view.
+  * `hideHeader` (boolean, default = `false`): If `true`, hides the deployment name and menu in the embedded view.
+  * `default` (boolean, default = `false`): If `true`, displays the embedded view by default when opening the deployment.
 
 * `plugin.sidebarItem`: optional object configuring the environment's left sidebar shortcut.
   * `show`: boolean. Whether to display the shortcut.
