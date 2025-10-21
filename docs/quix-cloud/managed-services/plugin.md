@@ -24,19 +24,32 @@ In your deployment YAML, you can enable the embedded UI and, optionally, a sideb
 
 ```yaml
 plugin:
-  embeddedView: true            # Enables embedded UI (frontend renders iframe)
-  sidebarItem:                  # Optional environment sidebar shortcut
-    show: true                  # Whether to display a shortcut in the sidebar
-    label: "Configuration"      # Text for the menu item
-    icon: "tune"                # Material icon name (see notes below)
-    order: 1                    # Ordering (lower = higher)
+  embeddedView:                # Can be a boolean or object
+    enabled: true              # Enables embedded view
+    hideHeader: false          # Optional. If true, hides the header (deployment name + menu)
+  sidebarItem:                 # Optional environment sidebar shortcut
+    show: true                 # Whether to display a shortcut in the sidebar
+    label: "Configuration"     # Text for the menu item
+    icon: "tune"               # Material icon name
+    order: 1                   # Ordering (lower = higher)
+    badge: "Alpha"             # Optional. Add a short label next to the sidebar item
 ```
 
-Notes
+Configuration details
 
-* `plugin.embeddedView`: boolean. true → FE renders embedded UI.
-* `plugin.sidebarItem`: optional object configuring the Environment’s left sidebar item.
-* `plugin.sidebarItem.icon`: must be a [Google Material icon](https://fonts.google.com/icons). Use the **internal icon code**, typically written in **lowercase** (e.g. `tune`, `settings`, `play_arrow`).
+* `plugin.embeddedView`: accepts boolean or object.
+  * If boolean `true`, equivalent to `{ enabled: true, hideHeader: false }`.
+  * If boolean `false`, embedded view is disabled.
+  * If object, use `enabled` (boolean, default = `false`) and `hideHeader` (boolean, default = `false`).
+
+* `plugin.embeddedView.hideHeader`: if `true`, the deployment name and menu are not rendered in the embedded view.
+
+* `plugin.sidebarItem`: optional object configuring the environment's left sidebar shortcut.
+  * `show`: boolean. Whether to display the shortcut.
+  * `label`: string. Text for the menu item.
+  * `icon`: string. Must be a [Google Material icon](https://fonts.google.com/icons) code (e.g., `tune`, `settings`, `play_arrow`).
+  * `order`: number. Lower values appear higher in the sidebar.
+  * `badge`: optional string (max 15 characters). Adds a short label next to the sidebar item (e.g., "Alpha", "Beta", "Experimental").
 
 ## Embedded view URL
 
@@ -63,14 +76,12 @@ On initial load of the embedded view (and on reload), the Portal provides the us
 
 #### Frontend token exchange (postMessage)
 
-The token is passed via `window.postMessage` between the parent (Portal) and the embedded iframe.
-
-**Message types**
+The token is passed via `window.postMessage` between the parent (Portal) and the embedded iframe. The following message types are exchanged:
 
 * `REQUEST_AUTH_TOKEN` — sent by the iframe to ask the parent for a token
 * `AUTH_TOKEN` — sent by the parent with `{ token: string }`
 
-**In the embedded view (iframe)**
+Example implementation in the embedded view (iframe):
 
 ```ts
 // Ask the parent window (Portal) for a token
@@ -90,7 +101,7 @@ function messageHandler(event: MessageEvent) {
 window.addEventListener('message', messageHandler);
 ```
 
-**In the Portal (parent window)**
+Example implementation in the Portal (parent window):
 
 ```ts
 // Listen for requests from the target iframe
@@ -110,7 +121,7 @@ function messageHandler(event: MessageEvent) {
 window.addEventListener('message', messageHandler);
 ```
 
-**Security notes**
+Important security considerations:
 
 * Always validate `event.origin` in the parent before responding.
 * Prefer using a specific `targetUrl` over `'*'` when posting back to the iframe.
