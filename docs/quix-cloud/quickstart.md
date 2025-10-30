@@ -104,10 +104,9 @@ Feel free to explore further.
 
 ## Next steps
 
-
 <div class="grid cards" markdown>
 
-- __1. Quix Cloud tour__
+- __Quix Cloud tour__
 
     ---
 
@@ -115,12 +114,7 @@ Feel free to explore further.
 
     [Quix Cloud Tour :octicons-arrow-right-24:](../create/overview.md)
 
-</div>
-
-
-<div class="grid cards" markdown>
-
-- __1. Deploy a Connector__
+- __Deploy a Connector__
 
     ---
 

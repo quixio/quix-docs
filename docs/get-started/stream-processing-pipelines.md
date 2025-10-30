@@ -13,4 +13,4 @@ The applications (services) are connected in the pipeline by topics. The service
 
 ![Example pipeline](../images/example-pipeline.png)
 
-[Read more about connectors](../connectors/index.md).
+[Read more about connectors](../quix-connectors/templates/index.md).

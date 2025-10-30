@@ -98,8 +98,8 @@ Use the following tiles to easily jump to the relevant section of this documenta
 - __4. Manage your pipeline__
 
     ---
-    
-    Once all the services in a pipeline are deployed, your stream proecessing solution is fully operational
+
+    Once all the services in a pipeline are deployed, your stream processing solution is fully operational
 
     [Manage your pipeline :octicons-arrow-right-24:](../manage/overview.md)
 

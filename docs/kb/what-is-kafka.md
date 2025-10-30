@@ -41,6 +41,6 @@ Kafka is extensively used in stream processing due to its ability to handle real
 
 * **Scalability**: Stream processing applications built with Kafka can scale horizontally by adding more instances of processing nodes. Kafka handles the distribution of data and load balancing across these instances, ensuring scalability without downtime.
 
-* **Integration with external systems**: Kafka integrates seamlessly with external systems, enabling stream processing applications to interact with various data sinks and sources. For example, processed data can be stored in databases, sent to analytics platforms, or used to trigger downstream actions. Quix features a wide variety of [connectors](../connectors/index.md) and [integrations](../integrations/overview.md) to enable this.
+* **Integration with external systems**: Kafka integrates seamlessly with external systems, enabling stream processing applications to interact with various data sinks and sources. For example, processed data can be stored in databases, sent to analytics platforms, or used to trigger downstream actions. Quix features a wide variety of [connectors](../quix-connectors/templates/index.md) and [integrations](../integrations/overview.md) to enable this.
 
 Overall, Quix's integration with the Kafka provides a powerful framework for building scalable, fault-tolerant, and real-time stream processing applications, making it a popular choice in the streaming data ecosystem.
