@@ -876,3 +876,14 @@ div.blog-header>div>ul>li {
 .md-content__inner{
     padding-top: 3.2rem !important;
 }
+
+@media screen and (min-width: 125em) {
+    html {
+        font-size: 125%;
+    }
+}
+@media screen and (min-width: 100em) {
+    html {
+        font-size: 125%;
+    }
+}
