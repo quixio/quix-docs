@@ -443,9 +443,7 @@ button.header-btn-inner:hover {
 
 .md-container {
     height: calc(100vh - 64px) !important;
-    margin-top: 64px;
 }
-
 
 /* Update button styling CSS */
 
