@@ -872,3 +872,7 @@ div.blog-header>div>ul>li {
     box-shadow: none;
     transition: none;
 }
+
+.md-content__inner{
+    padding-top: 3.2rem !important;
+}
