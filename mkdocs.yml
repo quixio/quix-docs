@@ -837,7 +837,7 @@ theme:
   # TODO
   #custom_dir: 'theme'
   favicon: 'assets/favicon.ico'
-  logo: 'assets/Quix-logo-2025-White-(mono).png'
+  logo: 'assets/Quix-Docs-logo-2025-Dark.png'
   
   palette: 
   # Palette toggle for light mode
