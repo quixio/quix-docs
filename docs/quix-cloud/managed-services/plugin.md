@@ -1,6 +1,6 @@
 # Plugin System
 
-The plugin system enables services to expose an embedded UI inside Deployment Details (rendered as an iframe), and optionally add a shortcut in the environment’s left sidebar.
+The plugin system enables services to expose an embedded UI inside Deployment Details (rendered as an iframe), and optionally add shortcuts in the environment's left sidebar or globally in the top header.
 
 Managed services may populate these plugin properties automatically via the Managed Framework, and you can always override them explicitly in YAML.
 
@@ -12,15 +12,17 @@ Non-managed services can also define these properties in YAML, making any deploy
 
   ![Embedded View](images/dynamic-configuration-embedded-view.png){width=80%}
 
-* Optionally show a sidebar shortcut to the embedded view
+* Optionally show a sidebar shortcut to the embedded view (environment-scoped)
 
   ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
-* Provide basic authentication integration with Quix Cloud so publicly exposed services don’t require a separate login (optional)
+* Optionally show a global shortcut in the top header (organization-wide access)
+
+* Provide basic authentication integration with Quix Cloud so publicly exposed services don't require a separate login (optional)
 
 ## YAML configuration
 
-In your deployment YAML, you can enable the embedded UI and, optionally, a sidebar item:
+In your deployment YAML, you can enable the embedded UI and, optionally, sidebar or global shortcuts:
 
 ```yaml
 plugin:
@@ -34,6 +36,11 @@ plugin:
     icon: "tune"               # Material icon name
     order: 1                   # Ordering (lower = higher)
     badge: "Alpha"             # Optional. Add a short label next to the sidebar item
+  globalItem:                  # Optional global header shortcut (organization-wide)
+    show: true                 # Whether to display in the global header
+    label: "Test Manager"      # Text for the menu item
+    order: 1                   # Ordering (lower = higher)
+    badge: "Beta"              # Optional. Add a short label next to the item
 ```
 
 Configuration details
@@ -49,6 +56,71 @@ Configuration details
   * `icon`: string. Must be a [Google Material icon](https://fonts.google.com/icons) code (e.g., `tune`, `settings`, `play_arrow`).
   * `order`: number. Lower values appear higher in the sidebar.
   * `badge`: optional string (max 15 characters). Adds a short label next to the sidebar item (e.g., "Alpha", "Beta", "Experimental").
+
+* `plugin.globalItem`: optional object configuring a global shortcut in the top header (organization-wide access).
+  * `show`: boolean. Whether to display the global shortcut.
+  * `label`: string. Text for the menu item.
+  * `order`: number. Lower values appear first (left to right). Plugins with the same order are sorted by the default workspace order in the project.
+  * `badge`: optional string (max 15 characters). Adds a short label next to the item (e.g., "Beta", "Preview").
+
+## Global plugins
+
+Global plugins appear in the top header of Quix Cloud and provide organization-wide access to a plugin's embedded UI, regardless of which environment or workspace is currently active.
+
+### What are global plugins?
+
+Unlike environment-scoped `sidebarItem` shortcuts (which only appear within a specific environment), global plugins:
+
+* Are accessible from anywhere in Quix Cloud via the top header.
+* Provide cross-workspace and cross-environment access to the plugin.
+* Are visible to all users in the organization who have the `plugins:read` permission for that deployment.
+* Appear in the order specified by the `order` field (lower values appear first, left to right).
+* When multiple plugins share the same `order` value, they are sorted by the default workspace order in the project.
+
+### When to use global plugins
+
+Use `globalItem` for plugins that:
+
+* Provide organization-wide services or dashboards (e.g., test managers, monitoring tools, admin panels).
+* Need to be accessible regardless of the current environment context.
+* Serve multiple workspaces or projects.
+
+### Permissions and access control
+
+Global plugins use a specialized permission model:
+
+* Users need the `plugins:read` permission on the deployment to see and access the global plugin.
+* The Operator role automatically grants access to global plugins.
+* Users can access a global plugin deployment even without `workspace:read` permissions on the workspace containing the deployment, as long as they have `plugins:read` on that specific deployment.
+* This allows you to expose specific tools organization-wide without granting full workspace access.
+
+### Configuration example
+
+To create a global plugin for a test manager:
+
+```yaml
+deployments:
+  - name: Test Manager
+    application: TestManager
+    version: latest
+    deploymentType: Managed
+    plugin:
+      embeddedView:
+        enabled: true
+        default: true
+      globalItem:
+        show: true
+        label: "Test Manager"
+        order: 1
+        badge: "Beta"
+```
+
+This configuration:
+
+* Enables the embedded view and makes it the default view when opening the deployment.
+* Creates a global shortcut labeled "Test Manager" in the top header.
+* Sets the display order to `1` (appears first).
+* Adds a "Beta" badge to indicate the feature status.
 
 ## Embedded view URL
 
