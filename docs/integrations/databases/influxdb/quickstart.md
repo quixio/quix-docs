@@ -7,7 +7,7 @@ search:
 
 # Quickstart
 
-This quickstart shows you how to integrate Quix with InfluxDB using our standard [connectors](../../../connectors/index.md).
+This quickstart shows you how to integrate Quix with InfluxDB using our standard [connectors](../../../quix-connectors/templates/index.md).
 
 In the first part of this quickstart, you'll read F1 car telemetry data, transform it, and then publish it to InfluxDB.
 
