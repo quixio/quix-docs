@@ -175,3 +175,32 @@ Pick a precise **Time range** with date-time inputs and the slider for quick ref
 Choose **source partitions** to read from and how to route to **destination partitions**; adjust **CPU** and **Memory** to tune performance:
 
 ![Replay config partitions and deployment](./images/replay/config-partitions-deploy.png)
+
+---
+
+## Message Transformations
+
+Transform messages during replay to modify headers, keys, or JSON values on-the-fly. Use transformations to:
+
+- Update API endpoints or URLs in message payloads
+- Anonymize or mask sensitive data for testing
+- Adapt messages for different environments
+- Remove or modify headers
+- Replace configuration values
+
+### Basic Example
+
+```yaml
+deployments:
+  - name: Quix Lake - Replay
+    application: DataLake.Replay
+    configuration:
+      sourceTopic: source-topic
+      destinationTopic: destination-topic
+      transformations:
+        - AT value.api_url REPLACE TEXT https://old.api.com WITH https://new.api.com
+        - AT header.x-environment SET TO staging
+        - REMOVE value.user.ssn
+```
+
+**[Learn more about Message Transformations →](./replay-transformations.md)**
