@@ -12,15 +12,19 @@ This documentation includes guides, tutorials, and API references for Quix Cloud
 ## Quix Features
 
 **Data consolidation**: Connect sensors, data acquisition systems, MATLAB/Simulink outputs, and legacy instruments through pre-built connectors or custom Python code. All data streams to a centralized data store. 
-* [Learn about data integration →](../../develop/integrate-data/overview.md)
+
+* [Learn about data integration →](../develop/integrate-data/overview.md)
 
 **Configuration and measurement linkage**: Store test configurations alongside sensor measurements. Query by test parameters to find specific runs, or trace measurement anomalies back to their exact test setup.
-* [Learn about dynamic configuration →](../../quix-cloud/managed-services/dynamic-configuration.md)
+
+* [Learn about dynamic configuration →](../quix-cloud/managed-services/dynamic-configuration.md)
 
 **Real-time processing and historical replay**: Process live telemetry as it arrives, then replay historical data later to investigate issues or validate changes without re-running physical tests. 
-* [Learn about replay →](../../quix-cloud/managed-services/replay.md)
+
+* [Learn about replay →](../quix-cloud/managed-services/replay.md)
 
 **Python-based pipeline development**: Use Quix Streams to build data processing pipelines in Python. Develop and test locally, then deploy to managed infrastructure without requiring Kafka or DevOps expertise.
+
 * [Get started with Quix Streams →](../quix-streams/quickstart.md)
 
 ## Typical Workflow
