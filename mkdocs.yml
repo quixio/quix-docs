@@ -223,6 +223,7 @@ nav:
         - 'Protected environments': 'create/protected-environment.md'
         - 'Syncing an environment': 'create/syncing-environment.md'
         - 'Project structure': 'create/project-structure.md'
+        - 'Git submodules': 'create/submodules.md'
         - 'Create a topic': 'create/create-topic.md'
         - 'Data tiers': 'create/data-tiers.md'    
         - 'Create a scratchpad': 'create/create-scratchpad.md'
