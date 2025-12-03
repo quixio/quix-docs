@@ -101,4 +101,8 @@ There is also a `requirements.txt` file - this is the standard Python file that 
 
 Any data files required by the application can also be located in the application's folder. In this example there is a `demo-data.csv` file that is loaded by the application code.
 
-While this documentation has explored a simple project consisting of a pipeline with one application (service), pipelines with multiple applications have a similar structure, with a `quix.yaml` defining the pipeline, and with each application having its own folder, containing its application-specific files and an `app.yaml` file. 
+While this documentation has explored a simple project consisting of a pipeline with one application (service), pipelines with multiple applications have a similar structure, with a `quix.yaml` defining the pipeline, and with each application having its own folder, containing its application-specific files and an `app.yaml` file.
+
+!!! tip
+
+    Your project repository can also include Git submodules to reference external repositories. See [Git submodules](submodules.md) for details and limitations. 

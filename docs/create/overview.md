@@ -13,6 +13,8 @@ Quix now introduces the concept of a "monorepo" known as a **project**, where al
 
 The monorepo (project) contains all the branches for the project, and all revision history for all services that make up the pipeline. This enables you to manage the complete pipeline development with full revision history, and use branches to develop features that are then merged after testing, as is usual for development processes based around Git.
 
+Your project repository can also include [Git submodules](submodules.md) to reference external repositories for shared code.
+
 With these changes, you now start your pipeline development by creating a project. A project is an entity that corresponds to a Git repository. That Git repository can be hosted for you on Quix, or you can use another provider such as GitHub or Bitbucket. 
 
 A project contains one or more environments (which is mapped to a Git branch), so typically you create an environment as part of the project creation workflow, and then create additional environments as required.
