@@ -48,6 +48,15 @@ Customers may also use Two-factor authentication to access Quix. This is welcome
 
 Multi-factor authentication splits channels of an authentication process, rendering just one compromised system or device to be insufficient for use for unauthorised access. It is a widely used technique with a proven record.
 
+### Role-Based Access Control
+
+Quix Cloud implements a role-based access control (RBAC) system that allows you to manage what users can do within your organisation. Users are assigned roles at specific scopes (organisation, project, or environment level), providing granular control over access to resources.
+
+For detailed information on user roles and permissions, see:
+
+- [Roles](./roles.md) - Understanding user roles and their capabilities
+- [Permissions](./permissions.md) - Technical details on the permission system
+
 ### Employee access policies
 
 At Quix, systems that make up the Quix platform are only ever accessed when necessary and only by authorised personnel. We take our commitment to security and confidentiality seriously.
