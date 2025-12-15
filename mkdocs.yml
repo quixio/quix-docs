@@ -309,6 +309,8 @@ nav:
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
     - 'Security': 'quix-cloud/security.md'
+    - 'Roles': 'quix-cloud/roles.md'
+    - 'Permissions': 'quix-cloud/permissions.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
