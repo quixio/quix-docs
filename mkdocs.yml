@@ -290,11 +290,10 @@ nav:
       - 'Blob storage': 'quix-cloud/managed-services/blob-storage.md'
       - Services:
         - 'DataLake.Sink': quix-cloud/managed-services/sink.md
-        - 'DataLake.Replay': 
+        - 'DataLake.Replay':
           - 'Overview': quix-cloud/managed-services/replay.md
           - 'Message Transformations': quix-cloud/managed-services/replay-transformations.md
         - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
-      - 'Plugin system': 'quix-cloud/managed-services/plugin.md'
     - Quix Lake:
       - 'Overview': 'quix-cloud/quixlake/overview.md'
       - "Open format": quix-cloud/quixlake/open-format.md
@@ -308,9 +307,10 @@ nav:
       - 'Pipeline YAML (quix.yaml)': './quix-cli/yaml-reference/pipeline-descriptor.md'
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
-    - 'Security': 'quix-cloud/security.md'
-    - 'Roles': 'quix-cloud/roles.md'
-    - 'Permissions': 'quix-cloud/permissions.md'
+    - 'Security':
+      - 'Overview': 'quix-cloud/security.md'
+      - 'Roles': 'quix-cloud/roles.md'
+    - 'Plugin system': 'quix-cloud/plugin.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
@@ -666,6 +666,8 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
+        'quix-cloud/managed-services/plugin.md': 'quix-cloud/plugin.md'
+        'quix-cloud/permissions.md': 'quix-cloud/roles.md'
         'contribute.md': 'kb/contribute.md'
         'platform/changes.md': 'https://quix.io/blog?category=Releases'
         'platform/ingest-data.md': 'develop/overview.md'

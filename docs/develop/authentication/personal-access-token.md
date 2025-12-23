@@ -23,10 +23,9 @@ This means a PAT can only have equal or fewer permissions than you have. This is
 - Limiting tokens to specific environments
 - Reducing risk if a token is compromised
 
-For more details on how permissions work, see [Permissions](../../quix-cloud/permissions.md).
+For more details on how permissions work, see [Roles](../../quix-cloud/roles.md).
 
 ## See also
 
-- [Roles](../../quix-cloud/roles.md) - Understanding user roles
-- [Permissions](../../quix-cloud/permissions.md) - How permissions work
+- [Roles](../../quix-cloud/roles.md) - Understanding user roles and permissions
 - [Streaming Token](./streaming-token.md) - SDK tokens for Quix Streams
