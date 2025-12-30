@@ -15,4 +15,4 @@ This section of the documentation provides more detailed information on integrat
 | Upstash | Kafka broker | [Guide](./brokers/upstash.md) |
 | InfluxDB | Time series database | [Overview](./databases/influxdb/overview.md) |
 
-See also the [Quix connectors](../connectors/index.md).
+See also the [Quix connectors](../quix-connectors/templates/index.md).
