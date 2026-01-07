@@ -113,7 +113,7 @@ Quix Cloud provides fine-grained access control through a role-based permission 
 
 | Role | Access level |
 |------|--------------|
-| Admin | Full control including billing and user management |
+| Admin | Full control, including billing and user management |
 | Manager | Manage resources and users (no billing) |
 | Editor | Manage resources (no user management) |
 | Viewer | Read-only access |
