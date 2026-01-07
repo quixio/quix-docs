@@ -105,6 +105,51 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
 </div>
 
+## Access control
 
+Quix Cloud provides fine-grained access control through a role-based permission system. You can assign different roles at the organisation, project, or environment level to control what users can do.
 
+**Available roles:**
 
+| Role | Access level |
+|------|--------------|
+| Admin | Full control including billing and user management |
+| Manager | Manage resources and users (no billing) |
+| Editor | Manage resources (no user management) |
+| Viewer | Read-only access |
+| Operator | Plugin access only |
+
+### Quick start
+
+**Invite a user to your organisation:**
+
+1. Go to **Settings** → **Users**
+2. Click **Invite User**
+3. Enter their email and select a default role
+
+**Assign a role at a specific scope:**
+
+1. Go to **Settings** → **Users**
+2. Click on the user
+3. Select the project or environment
+4. Choose the role (Admin, Manager, Editor, Viewer, None)
+
+**Restrict access to a sensitive environment:**
+
+1. Set the user's organisation-level role to **Viewer** (read-only everywhere)
+2. Override with **None** on the sensitive environment (blocks all access)
+3. Override with **Editor** on environments they need to work in
+
+You can also manage access using the [Quix CLI](../quix-cli/cli-reference/cloud/users/permissions/index.md):
+
+```bash
+# Set a user as Editor for a specific environment
+quix cloud users permissions set user@example.com \
+  --scope Workspace:myorg-project-environment \
+  --role Editor
+```
+
+For more information, see:
+
+- [Roles](./roles.md) - Complete guide to roles and permissions
+- [Security](./security.md) - Overview of Quix Cloud security
