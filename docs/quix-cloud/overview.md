@@ -151,5 +151,5 @@ quix cloud users permissions set user@example.com \
 
 For more information, see:
 
-- [Roles](./roles.md) - Complete guide to roles and permissions
+- [Roles and Permissions](./roles.md) - Complete guide to roles and permissions
 - [Security](./security.md) - Overview of Quix Cloud security

@@ -309,7 +309,7 @@ nav:
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
     - 'Security':
       - 'Overview': 'quix-cloud/security.md'
-      - 'Roles': 'quix-cloud/roles.md'
+      - 'Roles and Permissions': 'quix-cloud/roles.md'
     - 'Plugin system': 'quix-cloud/plugin.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'

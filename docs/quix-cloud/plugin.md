@@ -99,7 +99,7 @@ Global plugins use a specialized permission model:
 * Users can access a global plugin deployment even without `workspace:read` permissions on the workspace containing the deployment, as long as they have `plugins:read` on that specific deployment.
 * This allows you to expose specific tools organization-wide without granting full workspace access.
 
-For more information about roles and permissions, see the [Roles](./roles.md) documentation.
+For more information about roles and permissions, see the [Roles and Permissions](./roles.md) documentation.
 
 ### Configuration example
 
@@ -324,6 +324,6 @@ For developers building integrations, you can check [permissions](./roles.md) us
 
 ## See also
 
-- [Roles](./roles.md) - Understanding user roles and permissions
+- [Roles and Permissions](./roles.md) - Understanding user roles and permissions
 - [Personal Access Tokens](../develop/authentication/personal-access-token.md) - Token-based authentication
 - [Portal API](../apis/portal-api/overview.md) - Full API documentation
