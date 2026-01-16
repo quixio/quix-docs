@@ -54,7 +54,7 @@ Quix Cloud implements a role-based access control (RBAC) system that allows you 
 
 For detailed information on user roles and permissions, see:
 
-- [Roles](./roles.md) - Understanding user roles, permissions, and access control
+- [Roles and Permissions](./roles.md) - Understanding user roles, permissions, and access control
 
 ### Employee access policies
 
