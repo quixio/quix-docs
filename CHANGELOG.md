@@ -1,8 +1,6 @@
 # Quix Cloud changelog
 
-This is the Quix Cloud changelog for the current year. 
-
-See [here](https://github.com/quixio/quix-docs/wiki/Docs-Releases) for the docs changelog.
+This is the Quix Cloud changelog for the current year.
 
 
 
