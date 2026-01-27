@@ -8,11 +8,50 @@ Enable state management during service deployment if your code relies on state o
 
 ![state management](../images/state/state-management.png){width=80%}
 
-Enabling state creates a `state` folder that can be accessed by your code. 
+Enabling state creates a storage volume that can be accessed by your code. By default, this is mounted at `/app/state`, but you can configure a custom path in the deployment settings or via the `quix.yaml` file.
+
+The mount path is available to your code via the `Quix__Deployment__State__Path` environment variable.
 
 !!! important
 
     Note that data stored in this area is retained between service restarts and is shared between all replicas of the service, but it is not available globally to other services.
+
+## Configuring a custom state path
+
+By default, state is mounted at `/app/state`. To specify a different path, configure it in your `quix.yaml`:
+
+```yaml
+deployments:
+  - name: my-service
+    application: my-app
+    state:
+      enabled: true
+      size: 5
+      path: /data/state  # Custom mount path
+```
+
+This is useful when:
+
+- Your application expects state at a specific location (e.g., `/var/lib/myapp`)
+- You're deploying third-party containers with predefined data directories
+- You want to align with existing application conventions
+
+### Reading the state path in code
+
+Use the `Quix__Deployment__State__Path` environment variable to dynamically resolve the state location:
+
+```python
+import os
+
+state_path = os.environ.get("Quix__Deployment__State__Path", "/app/state")
+model_file = f"{state_path}/model.dat"
+```
+
+This allows your code to work correctly regardless of the configured mount path.
+
+!!! warning "Deprecation notice"
+
+    The `Quix__State__Dir` environment variable is deprecated. Use `state.path` in your `quix.yaml` instead. The platform will set `Quix__Deployment__State__Path` automatically.
 
 ## Storing files in the state folder
 
@@ -20,20 +59,23 @@ You can use this `state` folder as a place to download and store model and other
 
 !!! note
 
-    While the `state` folder is not visible in the UI, it is still available for use.
+    While the contents of the state folder are not browsable in the UI, the folder is available for use by your code.
 
-For example, the following code downloads a model file to the `state` folder. It subsequently loads the model file from the `state` folder when needed:
+For example, the following code downloads a model file to the state folder. It subsequently loads the model file from the state folder when needed:
 
 ``` python
+import os
 import requests
 
+state_path = os.environ.get("Quix__Deployment__State__Path", "/app/state")
+
 model = requests.get('https://acme.com/models/model1.dat')
-f = open('./state/model1.dat', 'wb')
-f.write(model)
-f.close()
-...
-f = open('./state/model1.dat', 'rb')
-...
+with open(f'{state_path}/model1.dat', 'wb') as f:
+    f.write(model.content)
+
+# Later, load the model
+with open(f'{state_path}/model1.dat', 'rb') as f:
+    model_data = f.read()
 ```
 
 The model can be modified at run time, and its state is preserved between service restarts.
