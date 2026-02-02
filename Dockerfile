@@ -6,7 +6,7 @@ WORKDIR /docs
 RUN apt-get update && apt-get install -y \
     git \
     libcairo2-dev \
-    libgdk-pixbuf2.0-dev \
+    libgdk-pixbuf-2.0-dev \
     libpango1.0-dev \
     && rm -rf /var/lib/apt/lists/*
 
