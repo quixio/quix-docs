@@ -15,6 +15,7 @@ Use them to access deployment, application, and environment-specific metadata in
 | `Quix__Deployment__State__Enabled`    | Whether a storage for state is attached to the deployment. Used by the Quix streaming client when using state functionality. |
 | `Quix__Deployment__State__Size`       | State size limit (in GB).                                                                             |
 | `Quix__Deployment__State__Type`       | State storage type (Local / Shared).                                                                  |
+| `Quix__Deployment__State__Path`       | The mount path for the state volume (default: `/app/state`). Used by the Quix Streams client for state storage location. |
 | `Quix__Deployment__Network__PublicUrl`| The public URL of the deployment when public access is enabled.                                       |
 | `Quix__Deployment__Id`                | The unique Id of the deployment. Same for all replicas.                                               |
 | `Quix__Deployment__Type`              | Type of Deployment (Job / Service).                                                                   |
