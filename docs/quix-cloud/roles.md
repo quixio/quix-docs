@@ -12,12 +12,12 @@ Quix Cloud provides six roles, each granting different levels of access:
 
 | Role | Description | Use when... |
 |------|-------------|-------------|
-| Admin | Full control including billing and user management | The user needs complete control of the organisation |
-| Manager | Manage resources and users (read-only billing) | The user needs to manage resources but not billing |
-| Editor | Create and manage resources (read-only user access) | The user needs to work with resources but not manage users |
-| Viewer | Read-only access to view resources | The user only needs to observe (stakeholders, auditors) |
-| Operator | Full plugin access only | The user only needs to manage plugins |
-| None | No permissions - blocks access at this scope | You want to explicitly block access to a specific scope |
+| Admin | Full control including global variables and user management | All permissions within the scope including global variables and user management |
+| Manager | Manage resources, users, and global variables | Create, delete, edit, view resources within the scope |
+| Editor | Create and manage resources (read-only user access) | Edit, view resources within the scope |
+| Viewer | Read-only access to view resources | View resources within the scope |
+| Operator | Full plugin access only | Manage plugins with limited access to other resources |
+| None | No permissions - blocks access at this scope | No permissions within the scope |
 
 ## Permissions matrix
 
@@ -25,8 +25,8 @@ The following table shows what each role can do with different resource types:
 
 | Resource | Admin | Manager | Editor | Viewer | Operator |
 |----------|:-----:|:-------:|:------:|:------:|:--------:|
-| **Organisation** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Billing** | ✅ | read | ❌ | ❌ | ❌ |
+| **Organisation** | ✅ | read | read | read | ❌ |
+| **Global Variables** | ✅ | ✅ | read/update | read | ❌ |
 | **Users** | ✅ | ✅ | read | ❌ | ❌ |
 | **Profile** | ✅ | ✅ | ✅ | read | read |
 | **Workspace** | ✅ | ✅ | ✅ | read | ❌ |
@@ -37,7 +37,6 @@ The following table shows what each role can do with different resource types:
 **Legend:**
 
 - ✅ Full access (create, read, update, delete)
-- `read` Read-only access
 - ❌ No access
 
 !!! note
@@ -78,7 +77,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 
 - **Start with Viewer**: Give new users read-only access, then increase as needed
 - **Use inheritance**: Set a base role at organisation level, override only where needed
-- **Limit Admin access**: Only give Admin to users who need billing and user management
+- **Limit Admin access**: Only give Admin to users who need global variables and user management
 - **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
 
 ## Managing roles with the CLI
@@ -135,7 +134,7 @@ When you assign a role to a user, they receive all the permissions associated wi
 | Resource | resourceId | Description |
 |----------|------------|-------------|
 | `organisation` | organisation ID | Organisation-level settings |
-| `billing` | organisation ID | Billing and subscription management |
+| `globalVariable` | organisation ID | Global variable management |
 | `user` | user ID | User account management |
 | `profile` | user ID | User profile information |
 | `repository` | repository ID | Git repository access |
