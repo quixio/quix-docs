@@ -79,7 +79,7 @@ To achieve these goals, the Quix UI includes the following features:
 
 * **Online IDE**: Develop and run your streaming applications directly in the browser without setting up a local environment.
 
-* **Code Samples**: Choose from the [prebuilt Code Samples](../connectors/index.md) ready to run and deploy from the IDE.
+* **Code Samples**: Choose from the [prebuilt Code Samples](../quix-connectors/templates/index.md) ready to run and deploy from the IDE.
 
 * **Project templates**: Open source application templates that demonstrate what’s possible with Quix. You can fork them and use them as a starting point to build your own Python stream processing pipelines. 
 
@@ -129,13 +129,13 @@ When you develop your Python stream processing applications, you build a pipelin
 
 ## Integrating your data with Quix
 
-There are [various ways](../develop/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../connectors/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+There are [various ways](../develop/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../quix-connectors/templates/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
 For a simple example of getting data from your laptop into Quix, see the [Quickstart](../quix-cloud/quickstart.md).
 
 ### Connectors
 
-Quix provides numerous standard [connectors](../connectors/index.md) for both source, and destination functions. These enable you to easily stream data in and out of Quix. In addition, a number of prebuilt data transforms to perform processing on your streaming data are also available. 
+Quix provides numerous standard [connectors](../quix-connectors/templates/index.md) for both source, and destination functions. These enable you to easily stream data in and out of Quix. In addition, a number of prebuilt data transforms to perform processing on your streaming data are also available. 
 
 !!! tip
 

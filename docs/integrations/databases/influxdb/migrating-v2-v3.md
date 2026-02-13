@@ -2,7 +2,7 @@
 
 If you have data in a v2 InfluxDB database, and you want to migrate it to InfluxDB v3, then Quix can help.
 
-Quix provides the following InfluxDB [connectors](../../../connectors/index.md):
+Quix provides the following InfluxDB [connectors](../../../quix-connectors/templates/index.md):
 
 * InfluxDB v2 source
 * InfluxDB v3 source

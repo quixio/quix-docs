@@ -19,7 +19,7 @@ There are several reasons why organizations choose stream processing:
 
 * **Complex event processing**: Stream processing frameworks, such as Quix, often include capabilities for complex event processing (CEP), enabling organizations to detect patterns, correlations, and anomalies in real-time data streams. This is valuable for use cases such as monitoring, anomaly detection, and predictive maintenance.
 
-* **Integration with modern data architectures**: Stream processing complements other components of modern data architectures such as data lakes, data warehouses, and real-time databases. By integrating stream processing into these architectures, organizations can build end-to-end data pipelines that support both real-time and batch processing needs. Read about Quix [connectors](../connectors/index.md) and [integrations](../integrations/overview.md).
+* **Integration with modern data architectures**: Stream processing complements other components of modern data architectures such as data lakes, data warehouses, and real-time databases. By integrating stream processing into these architectures, organizations can build end-to-end data pipelines that support both real-time and batch processing needs. Read about Quix [connectors](../quix-connectors/templates/index.md) and [integrations](../integrations/overview.md).
 
 * **Continuous computation**: Stream processing enables continuous computation, where computations are ongoing and incremental rather than being triggered by **batch jobs** at fixed intervals. This facilitates more responsive and agile applications that can adapt to changing conditions in real time.
 
@@ -27,7 +27,7 @@ Overall, stream processing provides organizations with the ability to harness th
 
 With Quix, you can perform stream processing much more easily, as all necessary infrastructure, such as Kafka, Docker, and Kubernetes can be provisioned for you, and you can develop your stream processing logic using Python and the [Quix Streams client library](https://quix.io/docs/quix-streams/introduction.html). 
 
-As an alternative to having Quix host your stream processing infrastructure, you can easily [connect](../connectors/index.md) with third-party providers, or [integrate](../integrations/overview.md) Quix with your existing stream processing infrastructure.
+As an alternative to having Quix host your stream processing infrastructure, you can easily [connect](../quix-connectors/templates/index.md) with third-party providers, or [integrate](../integrations/overview.md) Quix with your existing stream processing infrastructure.
 
 The following sections review some common stream processing use cases. See also the [templates gallery](https://quix.io/templates){target=_blank} for more examples.
 
