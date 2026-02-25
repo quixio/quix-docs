@@ -2,11 +2,41 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-02-refinements | 17 FEB 2026
 
+`NEW FEATURES`
+
+- **Options Input Type for Applications & Deployments**: Applications and Deployments now support an **Options input type**, allowing variables to be configured using predefined dropdown selections. Options are defined in `app.yaml`, and can be edited from IDE Sessions. During deployment creation and updates, the user can select the variable values from a dropdown list.
+- **Cluster Disk Metrics**: The cluster monitoring UI now displays disk usage summaries and historical disk metrics, providing better visibility into storage consumption over time.
+
+`ENHANCEMENTS`
+
+- Deployment Experience:
+    - Deployment state handling is now available for Job-type deployments in the UI, aligning their behavior with Service deployments.
+    - Managed Service deployments can now be modified using the generic edit dialog, laying the foundation for safer and more consistent configuration changes.
+    - Deployments no longer have a restart limit enforced by the platform.
+- State Management:
+    - State volumes can now be mounted at custom paths (instead of only `/app/state`), enabling more flexible application layouts and SDK integrations.
+- DataLake:
+    - DataLake storage has been restructured under a dedicated `data-lake` hierarchy, organizing datasets into isolated, per-application folders for raw data and metadata.
+    - DuckDB now supports air-gapped and network-restricted environments, allowing extensions to be preinstalled or bundled locally and eliminating the need for runtime downloads.
+
+`BUG FIXES`
+
+- Plugins:
+    - Sidebar plugin enable/disable actions now apply immediately without requiring a page refresh.
+    - Fixed sidebar scrolling issues so long plugin lists are fully accessible without layout problems.
+- Portal:
+    - Fixed race conditions on login causing some users to have to log in more than once.
+    - Fixed users getting redirected to login.quix.io rather than the portal after logging in.
+- Deployments:
+    - Fixed a scenario when deployment could not start.
+- Other:
+    - Fixed an issue where unsubscribing from a single topic could remove clients from all subscriptions, preventing unintended message delivery failures.
 
 ## 2026-01-global-plugins-3 | 26 JAN 2026
 
-:microbe: Bug Fixes :microbe:
+`BUG FIXES`
 
 - Other:
     - Fixed an issue where Secrets were mandatory when using Library items, but the item variable was marked as non-required
@@ -15,7 +45,7 @@ This is the Quix Cloud changelog for the current year.
 
 ## 2026-01-global-plugins-2 | 16 JAN 2026
 
-:microbe: Bug Fixes :microbe:
+`BUG FIXES`
 
 - Other:
     - Fixed an issue with Url redirections when using a workspace parameter on portal urls
@@ -24,11 +54,11 @@ This is the Quix Cloud changelog for the current year.
 
 ## 2026-01-global-plugins | 15 JAN 2026
 
-:seedling: New Features :seedling:
+`NEW FEATURES`
 
-- Global Plugins: Introducing Global Plugins for organization-wide plugin management. Plugins can now be configured at the organization level and shared across all workspaces. The system includes a new Advanced tab in Deployments dialog to setup all the available Plugin options.
+- **Global Plugins**: Introducing Global Plugins for organization-wide plugin management. Plugins can now be configured at the organization level and shared across all workspaces. The system includes a new Advanced tab in Deployments dialog to setup all the available Plugin options.
 
-:gem: Enhancements :gem:
+`ENHANCEMENTS`
 
 - Projects:
     - Introduced a new project dropdown selector that highlights recently used projects, making navigation faster and more intuitive.
@@ -43,7 +73,7 @@ This is the Quix Cloud changelog for the current year.
     - Notifications can now be stacked for better visibility when multiple notifications occur simultaneously.
     - Added syntax highlighting support in markdown and code editor for several new languages, including YAML syntax.
 
-:microbe: Bug Fixes :microbe:
+`BUG FIXES`
 
 - Library:
     - Fixed Git lock errors in Portal Library by implementing stale lock file cleanup with age checks and retry logic.
