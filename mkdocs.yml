@@ -231,6 +231,10 @@ nav:
       - '2. Develop an application':
         - 'Overview': 'develop/overview.md'
         - 'Create an application': 'develop/create-application.md'
+        - 'Dev Sessions':
+          - 'Overview': 'develop/dev-sessions/overview.md'
+          - 'VS Code': 'develop/dev-sessions/vscode-devsessions.md'
+          - 'Marimo': 'develop/dev-sessions/marimo-devsessions.md'
         - 'Authentication':
           - 'Authenticating Quix Streams': 'develop/authentication/quix-streams.md'
           - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
