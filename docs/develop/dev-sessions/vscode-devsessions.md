@@ -20,19 +20,29 @@ The base image includes:
 
 To add Python packages, put them in `requirements.txt` or `pyproject.toml` in your application folder. They install automatically on session start. The RunOnSave extension also re-runs `pip install` when you save either file, so you don't need to restart.
 
-To install system packages, use a lifecycle hook: `onCreateCommand: "sudo apt-get update && sudo apt-get install -y <package>"`. This runs once on first session start and persists on storage.
+!!! tip
+    To install system packages, use a lifecycle hook: `onCreateCommand: "sudo apt-get update && sudo apt-get install -y <package>"`. This runs once on first session start and persists on storage.
 
 ## Customizing with devcontainer.json
 
-VS Code sessions merge configuration from three layers, applied in order:
+Quix parses the following fields from `devcontainer.json`:
+
+- `customizations.vscode.settings` -- editor and extension settings.
+- `customizations.vscode.extensions` -- extension IDs to install from [Open VSX](https://open-vsx.org/){target=_blank} (code-server uses Open VSX, not the Microsoft marketplace).
+- `onCreateCommand`, `updateContentCommand`, `postCreateCommand`, `postStartCommand` -- lifecycle hooks (see [below](#lifecycle-hooks)).
+
+All other fields (`image`, `features`, `mounts`, `forwardPorts`, `dockerComposeFile`) are ignored. For full spec details, see the [Dev Containers specification](https://containers.dev/){target=_blank}.
+
+Settings and extensions merge from three layers, applied in order:
 
 1. **Base image** -- built-in defaults baked into the container (Python, Ruff, Claude Code, dark theme, format-on-save).
 2. **`/.devcontainer/devcontainer.json`** -- at the root of your repo. Applies to all applications in the project.
 3. **`/your-app/.devcontainer/devcontainer.json`** -- inside a specific application folder. Overrides root settings for that app only.
 
-Each layer's `customizations.vscode.settings` overrides the previous layer's values. Extensions from all layers are deduplicated (case-insensitive) and installed once. Browse available extensions at [Open VSX](https://open-vsx.org/){target=_blank} -- code-server uses Open VSX, not the Microsoft marketplace.
+Each layer's `customizations.vscode.settings` overrides the previous layer's values. Extensions from all layers are deduplicated (case-insensitive) and installed once.
 
-For full syntax details, see the [Dev Containers specification](https://containers.dev/){target=_blank}.
+!!! warning
+    Changes to `devcontainer.json` require a session restart to take effect.
 
 ```json title=".devcontainer/devcontainer.json"
 {
@@ -73,13 +83,6 @@ To run tasks in parallel, use the object format -- each key runs as a separate p
 }
 ```
 
-### What's not supported
-
-- Custom base images (the `image` field is ignored)
-- Dev Container Features
-- Volume mounts and `mounts` configuration
-- Port forwarding via `forwardPorts` (use the built-in proxy instead)
-- Docker Compose (`dockerComposeFile`)
 
 ## Auto-commit
 
