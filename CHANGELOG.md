@@ -14,9 +14,9 @@ This is the Quix Cloud changelog for the current year.
 
     <p align="center">
     <img src="./changelogs/images/2026-03-pipeline-view-metrics-1.webp" alt="Cluster Metrics Node View" height="250">
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;
     <img src="./changelogs/images/2026-03-pipeline-view-metrics-2.webp" alt="Cluster Metrics Charts" height="250">
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;
     <img src="./changelogs/images/2026-03-pipeline-view-metrics-3.webp" alt="Storage Metrics per Deployment" height="250">
     </p>
 
