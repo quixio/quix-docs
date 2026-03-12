@@ -8,11 +8,19 @@ This is the Quix Cloud changelog for the current year.
 
 - **Customisable Pipeline Layout**: The Pipeline view now supports manual layout customisation. Users can reposition deployments, adjust connections, control topic visibility, and change layout orientation to better organise their pipelines. The layout is saved per workspace so teams can maintain their preferred visual structure.
 
-    ![Customisable Pipeline Layout](./changelogs/images/2026-03-pipeline-view.webp){width=80%}
+    <p align="center"><img src="./changelogs/images/2026-03-pipeline-view.webp" alt="Customisable Pipeline Layout" style="width:60%"></p>
 
-- **Enhanced Cluster Metrics with Node View**: Cluster monitoring now includes a node-based view for dedicated clusters, providing a clearer breakdown of resource usage across nodes. Metrics charts also offer additional perspectives—including Usage, Request, Limit, and Committed—to help users better understand cluster resource consumption.
+<br>
 
-- **Disk Metrics Across Cluster Nodes and Deployments**: Disk metrics are now available for shared and dedicated cluster monitoring, with disk usage visible at the node level and drill-down access to deployment details. In the deployment details sidebar, users can also view per-deployment PVC usage percentage and prediction.
+- **Enhanced Cluster Metrics**: Cluster monitoring now includes a node-based view for dedicated clusters, providing a clearer breakdown of resource usage across nodes. Metrics charts offer additional perspectives—including Usage, Request, Limit, and Committed. A new Storage metrics section provides a breakdown per deployment in the cluster, with drill-down access to per-deployment PVC usage percentage and prediction.
+
+    <p align="center">
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-1.webp" alt="Cluster Metrics Node View" style="height:270px; display:inline-block; margin:0 8px">
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-2.webp" alt="Cluster Metrics Charts" style="height:270px; display:inline-block; margin:0 8px">
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-3.webp" alt="Storage Metrics per Deployment" style="height:270px; display:inline-block; margin:0 8px">
+    </p>
+
+<br>
 
 - **Files Browser**: The Documentation section has been replaced with a more flexible Files browser, enabling users to navigate and edit repository files directly from the platform. It includes syntax highlighting, markdown and image previews, and built-in commit or cancel actions for streamlined editing workflows.
 
