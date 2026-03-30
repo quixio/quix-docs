@@ -31,6 +31,8 @@ Quix parses the following fields from `devcontainer.json`:
 - `customizations.vscode.extensions` -- extension IDs to install from [Open VSX](https://open-vsx.org/){target=_blank} (code-server uses Open VSX, not the Microsoft marketplace).
 - `onCreateCommand`, `updateContentCommand`, `postCreateCommand`, `postStartCommand` -- lifecycle hooks (see [below](#lifecycle-hooks)).
 
+JSONC syntax is supported -- you can use `//` line comments, `/* */` block comments, and trailing commas, just like in VS Code's own settings files.
+
 All other fields (`image`, `features`, `mounts`, `forwardPorts`, `dockerComposeFile`) are ignored. For full spec details, see the [Dev Containers specification](https://containers.dev/){target=_blank}.
 
 Settings and extensions merge from three layers, applied in order:
@@ -84,9 +86,38 @@ To run tasks in parallel, use the object format -- each key runs as a separate p
 ```
 
 
+### UI scaling
+
+The base image sets a default UI zoom of **1.2x** to match the Quix platform's visual density. This scales the entire code-server interface uniformly -- fonts, icons, sidebar, tabs, menus, and status bar.
+
+To override the zoom level, set `quix.ui.zoom` in your `devcontainer.json`:
+
+```json title=".devcontainer/devcontainer.json"
+{
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "quix.ui.zoom": 1.0  // disable zoom (native code-server size)
+      }
+    }
+  }
+}
+```
+
+The `quix.*` settings are a custom Quix namespace -- the entrypoint extracts them and applies them as CSS before code-server starts. They don't appear in VS Code's settings UI and won't trigger "unknown setting" warnings.
+
+You can combine `quix.ui.zoom` with native VS Code font settings for fine-tuning:
+
+| Setting | What it controls |
+|---|---|
+| `quix.ui.zoom` | Entire UI scale (fonts, icons, spacing) |
+| `editor.fontSize` | Editor font size only |
+| `terminal.integrated.fontSize` | Terminal font size only |
+| `window.zoomLevel` | Not supported in code-server (use `quix.ui.zoom` instead) |
+
 ## Auto-commit
 
-A file watcher monitors your application folder for changes. It uses the `watchdog` library (inotify on Linux) for instant detection, falling back to `git status` polling or mtime scanning if watchdog is unavailable. When changes are detected, a **60-second debounce timer** starts. Each subsequent edit resets the timer. After the timer expires, the session:
+A file watcher monitors your application folder for changes. It uses the `watchdog` library (inotify on Linux) for instant detection, falling back to `git status` polling or mtime scanning if watchdog is unavailable. When changes are detected, a **5-second debounce timer** starts. Each subsequent edit resets the timer. After the timer expires, the session:
 
 1. Stashes uncommitted changes.
 2. Runs `git pull --rebase` to incorporate remote changes.
@@ -94,7 +125,7 @@ A file watcher monitors your application folder for changes. It uses the `watchd
 4. Stages and commits all pending files with the message `[AutoCommit] Updated <file list>`.
 5. Pushes to the remote branch.
 
-Auto-commit batches all changes within the debounce window into a single commit. You can also commit manually from the terminal or VS Code's source control panel -- the session detects both manual and auto-commits.
+Auto-commit batches all changes within the debounce window into a single commit. You can also commit manually from the terminal or VS Code's source control panel. Manual commits use a git hook that auto-generates the message in the same `[AutoCommit] Updated <file list>` format, so you can commit from VS Code's source control panel without typing a message.
 
 ## Python environment
 

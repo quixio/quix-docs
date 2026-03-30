@@ -37,7 +37,7 @@ You select the deployment when you create the session, and it cannot be changed 
 
 ## Auto-commit behavior
 
-A file watcher detects changes in your application folder and starts a **60-second debounce timer**. Each subsequent change resets the timer. After 60 seconds of inactivity, all pending files are committed in a single batch. The commit message is prefixed with `[AutoCommit]`.
+A file watcher detects changes in your application folder and starts a **5-second debounce timer**. Each subsequent change resets the timer. After the timer expires, all pending files are committed in a single batch with the message `[AutoCommit] Updated <file list>`.
 
 When a config file changes (`app.yaml` or `quix.yaml`), a banner prompts you to redeploy the linked deployment. The session also pulls remote changes every 5 seconds, so edits made elsewhere (for example, through the Quix online code editor) appear automatically. Local edits take priority over remote changes during a 10-second guard window.
 
