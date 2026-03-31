@@ -78,6 +78,8 @@ runEntryPoint: main.py
 defaultFile: main.py
 ```
 
+### Variable input types
+
 Variables can use different input types to control how they appear in the UI. The `Options` input type lets you define a set of predefined values that users can select from:
 
 ``` yaml

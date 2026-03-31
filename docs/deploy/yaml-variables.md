@@ -253,6 +253,6 @@ deployments:
 
 !!! tip "Options Input Type"
 
-    The `Options` input type lets you restrict a variable to a set of predefined values displayed as a dropdown in the UI. Each option requires a `label` (display text) and `value` (actual value). When deploying, the platform validates that the provided value matches one of the defined options.
+    The `Options` input type lets you restrict a variable to a set of predefined values displayed as a dropdown in the UI. Each option requires a `label` (display text) and `value` (actual value). The `value` field should match one of the defined option values.
 
 See [this](../quix-cli/yaml-reference/pipeline-descriptor.md) reference for more information about the quix.yaml file.
