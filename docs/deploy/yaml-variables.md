@@ -235,6 +235,24 @@ deployments:
         description: Name of the output topic to write to.
         required: false
         value: transform
+      - name: log_level
+        inputType: Options
+        description: Application logging level.
+        required: false
+        value: INFO
+        options:
+          - label: DEBUG
+            value: DEBUG
+          - label: INFO
+            value: INFO
+          - label: WARNING
+            value: WARNING
+          - label: ERROR
+            value: ERROR
 ```
+
+!!! tip "Options Input Type"
+
+    The `Options` input type lets you restrict a variable to a set of predefined values displayed as a dropdown in the UI. Each option requires a `label` (display text) and `value` (actual value). When deploying, the platform validates that the provided value matches one of the defined options.
 
 See [this](../quix-cli/yaml-reference/pipeline-descriptor.md) reference for more information about the quix.yaml file.
