@@ -237,8 +237,4 @@ deployments:
         value: transform
 ```
 
-!!! tip "Options Input Type"
-
-    The `Options` input type is defined in `app.yaml` and `library.json` to restrict a variable to a set of predefined values displayed as a dropdown in the UI. Each option requires a `label` (display text) and `value` (actual value). In `quix.yaml`, only the selected `value` is specified.
-
 See [this](../quix-cli/yaml-reference/pipeline-descriptor.md) reference for more information about the quix.yaml file.
