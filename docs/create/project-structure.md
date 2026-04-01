@@ -84,15 +84,15 @@ Variables can use different input types to control how they appear in the UI. Th
 
 ``` yaml
 variables:
-  - name: METADATA_BACKEND
+  - name: CONTENT_STORE
     inputType: Options
-    description: Metadata storage backend
-    defaultValue: json
+    description: Where to store the content
+    defaultValue: mongo
     options:
-      - label: json
-        value: json
-      - label: mongo
+      - label: MongoDB
         value: mongo
+      - label: File System
+        value: file
 ```
 
 Each option has a `label` (shown in the UI dropdown) and a `value` (the actual value set in the environment variable). Other available input types include `FreeText`, `Secret`, `InputTopic`, and `OutputTopic`.
