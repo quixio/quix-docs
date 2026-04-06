@@ -78,6 +78,25 @@ runEntryPoint: main.py
 defaultFile: main.py
 ```
 
+### Variable input types
+
+Variables can use different input types to control how they appear in the UI. The `Options` input type lets you define a set of predefined values that users can select from:
+
+``` yaml
+variables:
+  - name: CONTENT_STORE
+    inputType: Options
+    description: Where to store the content
+    defaultValue: mongo
+    options:
+      - label: MongoDB
+        value: mongo
+      - label: File System
+        value: file
+```
+
+Each option has a `label` (shown in the UI dropdown) and a `value` (the actual value set in the environment variable). Other available input types include `FreeText`, `Secret`, `InputTopic`, and `OutputTopic`.
+
 This provides a reference to the Dockerfile that is to be used to build the application before it is deployed. This is located in the `build` directory, and the full Dockerfile for this application is shown here:
 
 ``` yaml
