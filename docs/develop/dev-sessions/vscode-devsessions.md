@@ -137,7 +137,7 @@ If the base image Python version changes between sessions, the entrypoint detect
 
 ## Storage and persistence
 
-Each session gets a persistent volume mounted at `/state/`. The default size is **1 GB**, configurable when you create the session but not resizable afterward.
+Each session gets a persistent volume mounted at `/project/`. The default size is **1 GB**, configurable when you create the session but not resizable afterward.
 
 **What persists across restarts:** your git repo, `.venv`, uncommitted file changes, and Claude Code configuration.
 
