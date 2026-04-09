@@ -2,11 +2,54 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-03-pipeline-view | 11 MAR 2026
+
+`NEW FEATURES`
+
+- **Customisable Pipeline Layout**: The Pipeline view now supports manual layout customisation. Users can reposition deployments, adjust connections, control topic visibility, and change layout orientation to better organise their pipelines. The layout is saved per workspace so teams can maintain their preferred visual structure.
+
+    <p align="center"><img src="./changelogs/images/2026-03-pipeline-view.webp" alt="Customisable Pipeline Layout" style="width:80%"></p>
+
+- **Enhanced Cluster Metrics**: Cluster monitoring now includes a node-based view for dedicated clusters, providing a clearer breakdown of resource usage across nodes. Metrics charts offer additional perspectives—including Usage, Request, Limit, and Committed. A new Storage metrics section provides a breakdown per deployment in the cluster, with drill-down access to per-deployment PVC usage percentage and prediction.
+
+    <p align="center">
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-1.webp" alt="Cluster Metrics Node View" height="250">
+    &nbsp;
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-2.webp" alt="Cluster Metrics Charts" height="250">
+    &nbsp;
+    <img src="./changelogs/images/2026-03-pipeline-view-metrics-3.webp" alt="Storage Metrics per Deployment" height="250">
+    </p>
+
+- **Files Browser**: The Documentation section has been replaced with a more flexible Files browser, enabling users to navigate and edit repository files directly from the platform. It includes syntax highlighting, markdown and image previews, and built-in commit or cancel actions for streamlined editing workflows.
+
+
+`ENHANCEMENTS`
+
+- Replay:
+    - Included an optional data density histogram that visualises where data exists within the replay time range, helping users understand what is being replayed.
+- Plugins:
+    - Improved icon picker to expose all available icons.
+
+`BUG FIXES`
+
+- Deployments:
+    - Fixed disk metrics returning "Shared node groups are not supported" error for shared clusters.
+    - Fixed corrupted build recovery not triggering due to error message string mismatch and wrong loop variable, causing deployments to fail indefinitely when ACR images went missing.
+- Replay:
+    - Replay notifications now correctly display "Replay" instead of "Deployment" with clickable navigation links.
+- Users / Permissions:
+    - Fixed Viewer role being incorrectly treated as Operator.
+- Authentication:
+    - Fixed legacy auth config backward compatibility causing the site to not load when Auth0 was configured in the old format.
+- Cluster metrics:
+    - Fixed missing region shown as "undefined" — now omitted when no region is defined.
+
 ## 2026-02-refinements | 17 FEB 2026
 
 `NEW FEATURES`
 
 - **Options Input Type for Applications & Deployments**: Applications and Deployments now support an **Options input type**, allowing variables to be configured using predefined dropdown selections. Options are defined in `app.yaml`, and can be edited from IDE Sessions. During deployment creation and updates, the user can select the variable values from a dropdown list.
+
 - **Cluster Disk Metrics**: The cluster monitoring UI now displays disk usage summaries and historical disk metrics, providing better visibility into storage consumption over time.
 
 `ENHANCEMENTS`
