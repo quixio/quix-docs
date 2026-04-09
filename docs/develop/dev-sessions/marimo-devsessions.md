@@ -37,7 +37,9 @@ You select the deployment when you create the session, and it cannot be changed 
 
 ## Auto-commit behavior
 
-A file watcher detects changes in your application folder and starts a **5-second debounce timer**. Each subsequent change resets the timer. After the timer expires, all pending files are committed in a single batch with the message `[AutoCommit] Updated <file list>`.
+Auto-commit is enabled by default. You can disable it or change the commit interval when creating or editing the session -- see [Auto-commit settings](./overview.md#auto-commit-settings).
+
+When enabled, a file watcher detects changes in your application folder and starts a debounce timer (default: **5 seconds**). Each subsequent change resets the timer. After the timer expires, all pending files are committed in a single batch with the message `[AutoCommit] Updated <file list>`.
 
 When a config file changes (`app.yaml` or `quix.yaml`), a banner prompts you to redeploy the linked deployment. The session also pulls remote changes every 5 seconds, so edits made elsewhere (for example, through the Quix online code editor) appear automatically. Local edits take priority over remote changes during a 10-second guard window.
 
@@ -57,11 +59,11 @@ Each session gets a persistent volume mounted at `/app/`. The default size is **
 
 **What is lost on restart:** `/tmp` contents and process state.
 
-Terminating a session deletes the volume and everything in it.
+Stopping a session preserves the volume. Terminating a session deletes the volume and everything in it. See [Session lifecycle](./overview.md#session-lifecycle) for the difference.
 
 ## Resource defaults
 
-Each Marimo session starts with **2000m CPU** and **4096 MB memory**. The minimum you can set is 50m CPU / 100 MB memory.
+Each Marimo session starts with **2000m CPU** and **4096 MB memory**. The minimum you can set is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session.
 
 ## Troubleshooting
 

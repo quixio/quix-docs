@@ -117,7 +117,9 @@ You can combine `quix.ui.zoom` with native VS Code font settings for fine-tuning
 
 ## Auto-commit
 
-A file watcher monitors your application folder for changes. It uses the `watchdog` library (inotify on Linux) for instant detection, falling back to `git status` polling or mtime scanning if watchdog is unavailable. When changes are detected, a **5-second debounce timer** starts. Each subsequent edit resets the timer. After the timer expires, the session:
+Auto-commit is enabled by default. You can disable it or change the commit interval when creating or editing the session -- see [Auto-commit settings](./overview.md#auto-commit-settings).
+
+When enabled, a file watcher monitors your application folder for changes. It uses the `watchdog` library (inotify on Linux) for instant detection, falling back to `git status` polling or mtime scanning if watchdog is unavailable. When changes are detected, a debounce timer starts (default: **5 seconds**). Each subsequent edit resets the timer. After the timer expires, the session:
 
 1. Stashes uncommitted changes.
 2. Runs `git pull --rebase` to incorporate remote changes.
@@ -143,13 +145,15 @@ Each session gets a persistent volume mounted at `/project/`. The default size i
 
 **What's lost on restart:** terminal state, open editor tabs, and anything in `/tmp`.
 
-**What's lost on terminate:** everything -- the persistent volume is deleted when the session is terminated.
+**What's lost on terminate:** everything -- the persistent volume is deleted when the session is terminated. See [Session lifecycle](./overview.md#session-lifecycle) for the difference between stop and terminate.
 
-You can pass environment variables and secret references to your session when you create or edit it. Variables defined in your application's `app.yaml` are also loaded automatically. If you edit `app.yaml` inside the session, updated values are picked up without a restart.
+You can pass environment variables and secret references to your session when you create or edit it -- see [Environment variables and secrets](./overview.md#environment-variables-and-secrets). Variables defined in your application's `app.yaml` are also loaded automatically. If you edit `app.yaml` inside the session, updated values are picked up without a restart.
+
+When a config file changes (`app.yaml` or `quix.yaml`), a banner prompts you to redeploy the linked deployment so your changes take effect.
 
 ### Resource limits
 
-Sessions default to **2000m CPU / 2048 MB memory**. The minimum is 50m CPU / 100 MB memory. Both are configurable at creation time.
+Sessions default to **2000m CPU / 2048 MB memory**. The minimum is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session.
 
 ## Troubleshooting
 
