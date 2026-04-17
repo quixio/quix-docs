@@ -330,4 +330,4 @@ deployments:
 ## See also
 
 - [DataLake.Replay Overview](./replay.md) - Main replay service documentation
-- [Quix Lake](../quixlake/overview.md) - Learn about data persistence
+- [Quix Lake](./overview.md) - Learn about data persistence

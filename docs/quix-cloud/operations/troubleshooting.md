@@ -66,7 +66,7 @@ Sometimes you may receive Kafka message too large errors, if your messages are l
 KafkaError{code=MSG_SIZE_TOO_LARGE,val=10,str="Unable to produce message: Broker: Message size too large"}
 ```
 
-To work around this, see our [documentation on handling compressed messages](../develop/integrate-data/compressed-data.md).
+To work around this, see our [documentation on handling compressed messages](../applications/integrate-data/compressed-data.md).
 
 ## Data is not being received into a Topic
 

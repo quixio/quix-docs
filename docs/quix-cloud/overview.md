@@ -77,7 +77,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Create a project (Git repository) with at least one environment (branch). You can optionally copy or fork a template project to get started more quickly with a specific use case.
 
-    [Create a project :octicons-arrow-right-24:](../create/overview.md)
+    [Create a project :octicons-arrow-right-24:](projects/overview.md)
 
 - __2. Develop your application__
 
@@ -85,7 +85,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Use Quix Streams and Python to develop your application (service).
 
-    [Develop your application :octicons-arrow-right-24:](../develop/overview.md)
+    [Develop your application :octicons-arrow-right-24:](applications/overview.md)
 
 - __3. Deploy your application__
 
@@ -93,7 +93,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
     
     Deploy your application as a service in your stream processing pipeline.
 
-    [Deploy your application :octicons-arrow-right-24:](../deploy/overview.md)
+    [Deploy your application :octicons-arrow-right-24:](deployments/overview.md)
 
 - __4. Manage your pipeline__
 
@@ -101,7 +101,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Once all the services in a pipeline are deployed, your stream processing solution is fully operational
 
-    [Manage your pipeline :octicons-arrow-right-24:](../manage/overview.md)
+    [Manage your pipeline :octicons-arrow-right-24:](operations/overview.md)
 
 </div>
 

@@ -71,8 +71,8 @@ See **[open format](./open-format.md)** for the full layout and schemas.
 ## See also
 
 * [Open format](./open-format.md)
-* [Quix Lake - Sink](../managed-services/sink.md)
+* [Quix Lake - Sink](./sink.md)
 * [Quix Lake - User Interface](./user-interface.md)
 * [Quix Lake - API](./user-interface.md)
-* [Quix Lake - Replay](../managed-services/replay.md)
-* [Blob storage connections](../managed-services/blob-storage.md)
+* [Quix Lake - Replay](./replay.md)
+* [Blob storage connections](./blob-storage.md)

@@ -104,8 +104,8 @@ Quix Lake stores Kafka messages and metadata as **open files** in your blob stor
 
 ## See also
 
-* [Quix Lake - Sink](../managed-services/sink.md) - persist data from Kafka to your Blob Storage
+* [Quix Lake - Sink](./sink.md) - persist data from Kafka to your Blob Storage
 * [Quix Lake - API](./api.md) - discover datasets programmatically
 * [Quix Lake - User Interface](./user-interface.md) - discover datasets using Quix Cloud user interface
-* [Quix Lake - Replay](../managed-services/replay.md) - send datasets back to Kafka
-* [Blob storage connections](../managed-services/blob-storage.md) - wire up your bucket or container
+* [Quix Lake - Replay](./replay.md) - send datasets back to Kafka
+* [Blob storage connections](./blob-storage.md) - wire up your bucket or container

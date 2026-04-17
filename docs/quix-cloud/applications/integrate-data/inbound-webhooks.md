@@ -68,4 +68,4 @@ serve(flask_app, host='0.0.0.0', port = 80)
 
 When you deploy your service you can configure public access in the `Deploy` dialog. You can then obtain the public access URL needed to configure the inbound webhook from the `Deploy` dialog or from the service itself.
 
-See also [How to deploy a public service](../../deploy/deploy-public-page.md) for more information.
+See also [How to deploy a public service](../../deployments/deploy-public-page.md) for more information.

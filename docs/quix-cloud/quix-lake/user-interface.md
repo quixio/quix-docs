@@ -14,7 +14,7 @@ You can open the catalog from any **environment** that has a blob storage connec
 !!! info "Prerequisites"
     - A **Blob storage connection** is configured for at least one environment.  
     - The **Quix Lake services** are running.  
-    See: [Blob storage connections](../managed-services/blob-storage.md).
+    See: [Blob storage connections](./blob-storage.md).
 
 ## Exploring datasets
 
@@ -73,6 +73,6 @@ From the catalog you can:
 
 ## Related
 
-- [Blob storage connections](../managed-services/blob-storage.md) 
-- [Quix Lake - Replay](../managed-services/replay.md)
+- [Blob storage connections](./blob-storage.md) 
+- [Quix Lake - Replay](./replay.md)
 - [Quix Lake - API](./api.md)

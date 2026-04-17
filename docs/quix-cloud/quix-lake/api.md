@@ -156,7 +156,7 @@ Clears soft-delete markers for multiple keys.
 
 ## Metadata endpoints
 
-The **Metadata** endpoints lets you enrich datasets with custom **key/value properties** and query them later for grouping, filtering, lineage, and auditing. This is especially useful when working with datasets produced by the [Quix Lake Sink (managed)](../managed-services/sink.md), enabling your applications to attach meaningful business or operational context.
+The **Metadata** endpoints lets you enrich datasets with custom **key/value properties** and query them later for grouping, filtering, lineage, and auditing. This is especially useful when working with datasets produced by the [Quix Lake Sink (managed)](./sink.md), enabling your applications to attach meaningful business or operational context.
 
 Typical metadata examples include:
 

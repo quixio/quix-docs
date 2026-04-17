@@ -70,7 +70,7 @@ includedFolders:
 
    ![The selected folders will now appear in the online IDE](../images/shared-folders/result.png){: style="max-width:500px"}
 
-Whenever you [deploy your application](../deploy/overview.md), run it in the online IDE, or execute it [locally using the CLI](../quix-cli/local-development/local-debug.md), all directories listed under `includedFolders` will be bundled with your application to ensure they are available at runtime.
+Whenever you [deploy your application](../deployments/overview.md), run it in the online IDE, or execute it [locally using the CLI](../quix-cli/local-development/local-debug.md), all directories listed under `includedFolders` will be bundled with your application to ensure they are available at runtime.
 
 !!! warning
     Make sure your Dockerfile is up-to-date if you’re updating an existing application. Refer to the [dockerfile reference](../quix-cli/yaml-reference/dockerfile.md) for details.

@@ -26,7 +26,7 @@ Connect your cluster to a bucket/container so Quix can enable **Quix Lake** or a
 
     **Flow** - **Ingest** (Avro) → **Index** (Parquet metadata) → **Discover** (Data Lake API & Metadata API) → **Replay** (full fidelity back to Kafka) → **Use** (explore, combine historical + live, run queries/export).
 
-    [Learn more about Quix Lake →](../quix-cloud/quixlake/overview.md)
+    [Learn more about Quix Lake →](./overview.md)
 
 ## Create a connection
 
@@ -130,8 +130,8 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
 
 ## See more
 
-* [What is Quix Lake](../quixlake/overview.md) - what it is and why it exists
-* [Open format](../quixlake/open-format.md) - layout and schemas (Avro, Parquet)
-* [Quix Lake - API](../quixlake/api.md) - browse, search, and manage datasets
+* [What is Quix Lake](./overview.md) - what it is and why it exists
+* [Open format](./open-format.md) - layout and schemas (Avro, Parquet)
+* [Quix Lake - API](./api.md) - browse, search, and manage datasets
 * [Quix Lake - Sink](./sink.md) - persist topics to your bucket/container
 * [Quix Lake - Replay](./replay.md) - re-run datasets back to Kafka

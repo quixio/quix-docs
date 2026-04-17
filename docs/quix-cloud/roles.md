@@ -44,7 +44,7 @@ The following table shows what each role can do with different resource types:
     The Operator role is designed for users who only need to manage plugins (e.g., external monitoring tools or dashboards). See the [Plugin system](./plugin.md) documentation for details.
 
 ??? info "Looking for Kafka access?"
-    Roles control access to Quix Cloud features. For Kafka/streaming access in your applications, use a [Streaming Token](../develop/authentication/streaming-token.md) instead.
+    Roles control access to Quix Cloud features. For Kafka/streaming access in your applications, use a [Streaming Token](../applications/authentication/streaming-token.md) instead.
 
 ## Permission levels
 
@@ -162,7 +162,7 @@ When checking permissions, the system looks at the three [permission levels](#pe
 
 ### Personal Access Tokens
 
-When using [Personal Access Tokens](../develop/authentication/personal-access-token.md) (PATs), the effective permissions are the **intersection** of:
+When using [Personal Access Tokens](../applications/authentication/personal-access-token.md) (PATs), the effective permissions are the **intersection** of:
 
 - The user's permissions (based on their role)
 - The token's configured permissions
@@ -174,5 +174,5 @@ This means a PAT can only have equal or fewer permissions than the user who crea
 - [Checking permissions programmatically](./plugin.md#checking-permissions-programmatically) - API endpoint to query permissions
 - [Plugin system](./plugin.md) - Build embedded UIs with permission-aware authentication
 - [Security](./security.md) - Overview of Quix Cloud security
-- [Personal Access Tokens](../develop/authentication/personal-access-token.md) - Token-based authentication
+- [Personal Access Tokens](../applications/authentication/personal-access-token.md) - Token-based authentication
 - [Quix CLI](../quix-cli/overview.md) - Command-line interface documentation

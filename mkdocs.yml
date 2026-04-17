@@ -213,108 +213,102 @@ nav:
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
     - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
-    - 'Quix Cloud Tour':
-      - '1. Create your project':
-        - 'Overview': 'create/overview.md'
-        - 'Clone a project': 'create/clone-project.md'
-        - 'Fork a project': 'create/fork-project.md'
-        - 'Create a project': 'create/create-project.md'
-        - 'Create an environment': 'create/create-environment.md'
-        - 'Protected environments': 'create/protected-environment.md'
-        - 'Syncing an environment': 'create/syncing-environment.md'
-        - 'Project structure': 'create/project-structure.md'
-        - 'Git submodules': 'create/submodules.md'
-        - 'Create a topic': 'create/create-topic.md'
-        - 'Data tiers': 'create/data-tiers.md'    
-        - 'Create a scratchpad': 'create/create-scratchpad.md'
-        - 'Create a linked project': 'create/create-linked-project.md'
-      - '2. Develop an application':
-        - 'Overview': 'develop/overview.md'
-        - 'Create an application': 'develop/create-application.md'
-        - 'Dev Sessions':
-          - 'Overview': 'develop/dev-sessions/overview.md'
-          - 'VS Code': 'develop/dev-sessions/vscode-devsessions.md'
-          - 'Marimo': 'develop/dev-sessions/marimo-devsessions.md'
-        - 'Authentication':
-          - 'Authenticating Quix Streams': 'develop/authentication/quix-streams.md'
-          - 'Personal Access Token (PAT)': 'develop/authentication/personal-access-token.md'
-          - 'Streaming Token': 'develop/authentication/streaming-token.md'
-        - 'Using Code Samples': 'develop/code-samples.md'
-        - 'Including Shared Folders': 'develop/shared-folders.md'
-        - 'Integrate your data': 
-          - 'Overview': 'develop/integrate-data/overview.md'
-          - 'Ingest your data - source':
-            - 'Using a prebuilt source connector': 'develop/integrate-data/prebuilt-connector.md'
-            - 'Reading a CSV file': 'develop/integrate-data/read-csv.md'
-            - 'Polling a REST API': 'develop/integrate-data/polling.md'
-            - 'Handling inbound webhooks': 'develop/integrate-data/inbound-webhooks.md'
-            - 'Using an external source': 'develop/integrate-data/external-source.md'
-            - 'Using Quix Streams': 'develop/integrate-data/quix-streams.md'
-            - 'Posting data to a Quix web app': 'develop/integrate-data/web-app.md'
-            - 'Handling compressed data': 'develop/integrate-data/compressed-data.md'
-            - 'Handling IoT data with MessagePack': 'develop/integrate-data/iot-data.md'
-          - 'Publish your data - sink':
-            - 'Using a prebuilt destination connector': 'develop/integrate-data/prebuilt-connector-destination.md'
-            - 'Using an external destination': 'develop/integrate-data/external-destination.md'
-        - 'Process your data':
-          - 'Overview': 'develop/process/overview.md'
-          - 'Types of processing': 'develop/process/types-of-processing.md'
-          - 'Types of transform': 'develop/process/types-of-transform.md'
-          - 'Generating events': 'develop/process/timeseries-events.md'
-        - 'Using Quix Streaming APIs': 
-          - 'Overview': 'develop/apis-overview.md'
-          - 'Streaming Reader API': 
-            - 'Overview': 'apis/streaming-reader-api/overview.md'
-            - 'Setup': 'apis/streaming-reader-api/setup.md'
-            - 'Reading data': 'apis/streaming-reader-api/reading-data.md'
-            - 'Subscription and events': 'apis/streaming-reader-api/subscriptions.md'
-      - '3. Deploy a service':
-        - 'Overview': 'deploy/overview.md'
-        - 'Environment variables': 'deploy/environment-variables.md'
-        - 'Quix variables': 'deploy/quix-variables.md'
-        - 'Secrets management': 'deploy/secrets-management.md'
-        - 'YAML variables': 'deploy/yaml-variables.md'
-        - 'Configuring network ports': 'deploy/ports.md'  
-        - 'State management': 'deploy/state-management.md'  
-        - 'Deploy public services': 'deploy/deploy-public-page.md'
-        - 'Deploy an external image': 'deploy/deploy-external-image.md'
-        - 'Private container registries': 'deploy/private-container-registries.md'
-      - '4. Manage your pipelines':
-        - 'Overview': 'manage/overview.md'
-        - 'Troubleshooting': 'manage/troubleshooting.md'
-        - 'Security': 'manage/security.md'
-        - 'MLOps': 'manage/MLOps.md'
-        - 'Testing multiple environments': 'manage/testing-environments.md'
-        - 'Portal API': 
-          - 'Overview': 'apis/portal-api/overview.md'
-          - 'Setup': 'apis/portal-api/setup.md'
-          - 'HTTP requests': 'apis/portal-api/http-requests.md'
-    - 'Managed services':
-      - 'Overview': 'quix-cloud/managed-services/overview.md'
-      - 'Blob storage': 'quix-cloud/managed-services/blob-storage.md'
-      - Services:
-        - 'DataLake.Sink': quix-cloud/managed-services/sink.md
-        - 'DataLake.Replay':
-          - 'Overview': quix-cloud/managed-services/replay.md
-          - 'Message Transformations': quix-cloud/managed-services/replay-transformations.md
-        - 'Dynamic Configuration Manager': 'quix-cloud/managed-services/dynamic-configuration.md'
-    - Quix Lake:
-      - 'Overview': 'quix-cloud/quixlake/overview.md'
-      - "Open format": quix-cloud/quixlake/open-format.md
-      - "User Interface": quix-cloud/quixlake/user-interface.md
-      - "API": quix-cloud/quixlake/api.md
-      - "DataLake.Sink": quix-cloud/managed-services/sink.md
-      - 'DataLake.Replay': 
-        - 'Overview': quix-cloud/managed-services/replay.md
-        - 'Message Transformations': quix-cloud/managed-services/replay-transformations.md
+    - 'Hosting Options': 'quix-cloud/hosting.md'
+    - 'Projects':
+      - 'Projects & Environments': 'quix-cloud/projects/overview.md'
+      - 'Project Structure': 'quix-cloud/projects/project-structure.md'
+      - 'Create a Project': 'quix-cloud/projects/create-project.md'
+      - 'Create an Environment': 'quix-cloud/projects/create-environment.md'
+      - 'Clone a Project': 'quix-cloud/projects/clone-project.md'
+      - 'Fork a Project': 'quix-cloud/projects/fork-project.md'
+      - 'Create a Scratchpad': 'quix-cloud/projects/create-scratchpad.md'
+      - 'Create a Linked Project': 'quix-cloud/projects/create-linked-project.md'
+      - 'Topics': 'quix-cloud/projects/create-topic.md'
+      - 'Data Tiers': 'quix-cloud/projects/data-tiers.md'
+      - 'Protected Environments': 'quix-cloud/projects/protected-environment.md'
+      - 'Syncing an Environment': 'quix-cloud/projects/syncing-environment.md'
+      - 'Git Submodules': 'quix-cloud/projects/submodules.md'
+    - 'Applications':
+      - 'Overview': 'quix-cloud/applications/overview.md'
+      - 'Create an Application': 'quix-cloud/applications/create-application.md'
+      - 'Code Samples': 'quix-cloud/applications/code-samples.md'
+      - 'Shared Folders': 'quix-cloud/applications/shared-folders.md'
+      - 'Dev Sessions':
+        - 'Overview': 'quix-cloud/applications/dev-sessions/overview.md'
+        - 'VS Code': 'quix-cloud/applications/dev-sessions/vscode-devsessions.md'
+        - 'Marimo': 'quix-cloud/applications/dev-sessions/marimo-devsessions.md'
+      - 'Authentication':
+        - 'Personal Access Token (PAT)': 'quix-cloud/applications/authentication/personal-access-token.md'
+        - 'Streaming Token': 'quix-cloud/applications/authentication/streaming-token.md'
+        - 'Authenticating Quix Streams': 'quix-cloud/applications/authentication/quix-streams.md'
+      - 'Integrate Data':
+        - 'Overview': 'quix-cloud/applications/integrate-data/overview.md'
+        - 'Sources':
+          - 'Prebuilt Source Connector': 'quix-cloud/applications/integrate-data/prebuilt-connector.md'
+          - 'Read a CSV File': 'quix-cloud/applications/integrate-data/read-csv.md'
+          - 'Poll a REST API': 'quix-cloud/applications/integrate-data/polling.md'
+          - 'Inbound Webhooks': 'quix-cloud/applications/integrate-data/inbound-webhooks.md'
+          - 'External Source': 'quix-cloud/applications/integrate-data/external-source.md'
+          - 'Quix Streams': 'quix-cloud/applications/integrate-data/quix-streams.md'
+          - 'Web App': 'quix-cloud/applications/integrate-data/web-app.md'
+          - 'Compressed Data': 'quix-cloud/applications/integrate-data/compressed-data.md'
+          - 'IoT / MessagePack': 'quix-cloud/applications/integrate-data/iot-data.md'
+        - 'Sinks':
+          - 'Prebuilt Destination Connector': 'quix-cloud/applications/integrate-data/prebuilt-connector-destination.md'
+          - 'External Destination': 'quix-cloud/applications/integrate-data/external-destination.md'
+      - 'Process Data':
+        - 'Overview': 'quix-cloud/applications/process/overview.md'
+        - 'Types of Processing': 'quix-cloud/applications/process/types-of-processing.md'
+        - 'Types of Transform': 'quix-cloud/applications/process/types-of-transform.md'
+        - 'Generating Events': 'quix-cloud/applications/process/timeseries-events.md'
+    - 'Deployments':
+      - 'Overview': 'quix-cloud/deployments/overview.md'
+      - 'Deploy a Public Service': 'quix-cloud/deployments/deploy-public-page.md'
+      - 'Deploy an External Image': 'quix-cloud/deployments/deploy-external-image.md'
+      - 'Private Container Registries': 'quix-cloud/deployments/private-container-registries.md'
+      - 'Environment Variables': 'quix-cloud/deployments/environment-variables.md'
+      - 'Secrets Management': 'quix-cloud/deployments/secrets-management.md'
+      - 'Quix Variables': 'quix-cloud/deployments/quix-variables.md'
+      - 'YAML Variables': 'quix-cloud/deployments/yaml-variables.md'
+      - 'Network Ports': 'quix-cloud/deployments/ports.md'
+      - 'State Management': 'quix-cloud/deployments/state-management.md'
+    - 'Quix Lake':
+      - 'Overview': 'quix-cloud/quix-lake/overview.md'
+      - 'Open Format': 'quix-cloud/quix-lake/open-format.md'
+      - 'User Interface': 'quix-cloud/quix-lake/user-interface.md'
+      - 'API': 'quix-cloud/quix-lake/api.md'
+      - 'Blob Storage': 'quix-cloud/quix-lake/blob-storage.md'
+      - 'DataLake.Sink': 'quix-cloud/quix-lake/sink.md'
+      - 'DataLake.Replay':
+        - 'Overview': 'quix-cloud/quix-lake/replay.md'
+        - 'Message Transformations': 'quix-cloud/quix-lake/replay-transformations.md'
+    - 'Platform Services':
+      - 'Overview': 'quix-cloud/services/overview.md'
+      - 'Deploying Connectors': 'quix-cloud/services/deploying-connectors.md'
+      - 'Dynamic Configuration': 'quix-cloud/services/dynamic-configuration.md'
+      - 'Plugin System': 'quix-cloud/services/plugin.md'
+    - 'Operations':
+      - 'Security & Compliance': 'quix-cloud/security.md'
+      - 'Roles & Permissions': 'quix-cloud/roles.md'
+      - 'Troubleshooting': 'quix-cloud/operations/troubleshooting.md'
+      - 'MLOps': 'quix-cloud/operations/MLOps.md'
+      - 'Testing Environments': 'quix-cloud/operations/testing-environments.md'
+      - 'Manage Overview': 'quix-cloud/operations/overview.md'
+    - 'APIs':
+      - 'Overview': 'quix-cloud/applications/apis-overview.md'
+      - 'Streaming Reader API':
+        - 'Overview': 'quix-cloud/apis/streaming-reader-api/overview.md'
+        - 'Setup': 'quix-cloud/apis/streaming-reader-api/setup.md'
+        - 'Reading Data': 'quix-cloud/apis/streaming-reader-api/reading-data.md'
+        - 'Subscriptions & Events': 'quix-cloud/apis/streaming-reader-api/subscriptions.md'
+      - 'Portal API':
+        - 'Overview': 'quix-cloud/apis/portal-api/overview.md'
+        - 'Setup': 'quix-cloud/apis/portal-api/setup.md'
+        - 'HTTP Requests': 'quix-cloud/apis/portal-api/http-requests.md'
     - 'File Reference':
       - 'Pipeline YAML (quix.yaml)': './quix-cli/yaml-reference/pipeline-descriptor.md'
       - 'Application YAML (app.yaml)': './quix-cli/yaml-reference/app-descriptor.md'
       - 'Docker Configuration (dockerfile)': './quix-cli/yaml-reference/dockerfile.md'
-    - 'Security':
-      - 'Overview': 'quix-cloud/security.md'
-      - 'Roles and Permissions': 'quix-cloud/roles.md'
-    - 'Plugin system': 'quix-cloud/plugin.md'
     - 'Integrations':
       - 'Overview': 'integrations/overview.md'
       - 'Brokers':
@@ -329,7 +323,7 @@ nav:
         - 'InfluxDB':
           - 'Overview': 'integrations/databases/influxdb/overview.md'
           - 'Quickstart': 'integrations/databases/influxdb/quickstart.md'
-          - 'Guides': 
+          - 'Guides':
             - 'Using Telegraf': 'integrations/databases/influxdb/telegraf.md'
             - 'Replacing Flux': 'integrations/databases/influxdb/replacing-flux.md'
             - 'Replacing Kapacitor': 'integrations/databases/influxdb/replacing-kapacitor.md'
@@ -347,8 +341,6 @@ nav:
           - 'Overview': 'integrations/vector-databases/qdrant/overview.md'
         - 'Weaviate':
           - 'Overview': 'integrations/vector-databases/weaviate/overview.md'
-    - 'Hosting Options':
-      - 'Overview': 'hosting/overview.md'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'
@@ -830,6 +822,87 @@ plugins:
         'get-started/process.md': 'get-started/streaming.md'
         'tutorials/predictive-maintenance/printers-dashboard.md': 'tutorials/predictive-maintenance/overview.md'
         'tutorials/predictive-maintenance/phone-alerts.md': 'tutorials/predictive-maintenance/overview.md'
+        # create/ → quix-cloud/projects/
+        'create/overview.md': 'quix-cloud/projects/overview.md'
+        'create/clone-project.md': 'quix-cloud/projects/clone-project.md'
+        'create/fork-project.md': 'quix-cloud/projects/fork-project.md'
+        'create/create-project.md': 'quix-cloud/projects/create-project.md'
+        'create/create-environment.md': 'quix-cloud/projects/create-environment.md'
+        'create/protected-environment.md': 'quix-cloud/projects/protected-environment.md'
+        'create/syncing-environment.md': 'quix-cloud/projects/syncing-environment.md'
+        'create/project-structure.md': 'quix-cloud/projects/project-structure.md'
+        'create/submodules.md': 'quix-cloud/projects/submodules.md'
+        'create/create-topic.md': 'quix-cloud/projects/create-topic.md'
+        'create/data-tiers.md': 'quix-cloud/projects/data-tiers.md'
+        'create/create-scratchpad.md': 'quix-cloud/projects/create-scratchpad.md'
+        'create/create-linked-project.md': 'quix-cloud/projects/create-linked-project.md'
+        # develop/ → quix-cloud/applications/
+        'develop/overview.md': 'quix-cloud/applications/overview.md'
+        'develop/create-application.md': 'quix-cloud/applications/create-application.md'
+        'develop/code-samples.md': 'quix-cloud/applications/code-samples.md'
+        'develop/shared-folders.md': 'quix-cloud/applications/shared-folders.md'
+        'develop/apis-overview.md': 'quix-cloud/applications/apis-overview.md'
+        'develop/dev-sessions/overview.md': 'quix-cloud/applications/dev-sessions/overview.md'
+        'develop/dev-sessions/vscode-devsessions.md': 'quix-cloud/applications/dev-sessions/vscode-devsessions.md'
+        'develop/dev-sessions/marimo-devsessions.md': 'quix-cloud/applications/dev-sessions/marimo-devsessions.md'
+        'develop/authentication/quix-streams.md': 'quix-cloud/applications/authentication/quix-streams.md'
+        'develop/authentication/personal-access-token.md': 'quix-cloud/applications/authentication/personal-access-token.md'
+        'develop/authentication/streaming-token.md': 'quix-cloud/applications/authentication/streaming-token.md'
+        'develop/integrate-data/overview.md': 'quix-cloud/applications/integrate-data/overview.md'
+        'develop/integrate-data/prebuilt-connector.md': 'quix-cloud/applications/integrate-data/prebuilt-connector.md'
+        'develop/integrate-data/read-csv.md': 'quix-cloud/applications/integrate-data/read-csv.md'
+        'develop/integrate-data/polling.md': 'quix-cloud/applications/integrate-data/polling.md'
+        'develop/integrate-data/inbound-webhooks.md': 'quix-cloud/applications/integrate-data/inbound-webhooks.md'
+        'develop/integrate-data/external-source.md': 'quix-cloud/applications/integrate-data/external-source.md'
+        'develop/integrate-data/quix-streams.md': 'quix-cloud/applications/integrate-data/quix-streams.md'
+        'develop/integrate-data/web-app.md': 'quix-cloud/applications/integrate-data/web-app.md'
+        'develop/integrate-data/compressed-data.md': 'quix-cloud/applications/integrate-data/compressed-data.md'
+        'develop/integrate-data/iot-data.md': 'quix-cloud/applications/integrate-data/iot-data.md'
+        'develop/integrate-data/prebuilt-connector-destination.md': 'quix-cloud/applications/integrate-data/prebuilt-connector-destination.md'
+        'develop/integrate-data/external-destination.md': 'quix-cloud/applications/integrate-data/external-destination.md'
+        'develop/process/overview.md': 'quix-cloud/applications/process/overview.md'
+        'develop/process/types-of-processing.md': 'quix-cloud/applications/process/types-of-processing.md'
+        'develop/process/types-of-transform.md': 'quix-cloud/applications/process/types-of-transform.md'
+        'develop/process/timeseries-events.md': 'quix-cloud/applications/process/timeseries-events.md'
+        # deploy/ → quix-cloud/deployments/
+        'deploy/overview.md': 'quix-cloud/deployments/overview.md'
+        'deploy/environment-variables.md': 'quix-cloud/deployments/environment-variables.md'
+        'deploy/quix-variables.md': 'quix-cloud/deployments/quix-variables.md'
+        'deploy/secrets-management.md': 'quix-cloud/deployments/secrets-management.md'
+        'deploy/yaml-variables.md': 'quix-cloud/deployments/yaml-variables.md'
+        'deploy/ports.md': 'quix-cloud/deployments/ports.md'
+        'deploy/state-management.md': 'quix-cloud/deployments/state-management.md'
+        'deploy/deploy-public-page.md': 'quix-cloud/deployments/deploy-public-page.md'
+        'deploy/deploy-external-image.md': 'quix-cloud/deployments/deploy-external-image.md'
+        'deploy/private-container-registries.md': 'quix-cloud/deployments/private-container-registries.md'
+        # manage/ → quix-cloud/operations/
+        'manage/overview.md': 'quix-cloud/operations/overview.md'
+        'manage/troubleshooting.md': 'quix-cloud/operations/troubleshooting.md'
+        'manage/security.md': 'quix-cloud/security.md'
+        'manage/MLOps.md': 'quix-cloud/operations/MLOps.md'
+        'manage/testing-environments.md': 'quix-cloud/operations/testing-environments.md'
+        # apis/ → quix-cloud/apis/
+        'apis/streaming-reader-api/overview.md': 'quix-cloud/apis/streaming-reader-api/overview.md'
+        'apis/streaming-reader-api/setup.md': 'quix-cloud/apis/streaming-reader-api/setup.md'
+        'apis/streaming-reader-api/reading-data.md': 'quix-cloud/apis/streaming-reader-api/reading-data.md'
+        'apis/streaming-reader-api/subscriptions.md': 'quix-cloud/apis/streaming-reader-api/subscriptions.md'
+        'apis/portal-api/overview.md': 'quix-cloud/apis/portal-api/overview.md'
+        'apis/portal-api/setup.md': 'quix-cloud/apis/portal-api/setup.md'
+        'apis/portal-api/http-requests.md': 'quix-cloud/apis/portal-api/http-requests.md'
+        # quix-cloud/ internal reorganization
+        'quix-cloud/quixlake/overview.md': 'quix-cloud/quix-lake/overview.md'
+        'quix-cloud/quixlake/open-format.md': 'quix-cloud/quix-lake/open-format.md'
+        'quix-cloud/quixlake/user-interface.md': 'quix-cloud/quix-lake/user-interface.md'
+        'quix-cloud/quixlake/api.md': 'quix-cloud/quix-lake/api.md'
+        'quix-cloud/managed-services/blob-storage.md': 'quix-cloud/quix-lake/blob-storage.md'
+        'quix-cloud/managed-services/sink.md': 'quix-cloud/quix-lake/sink.md'
+        'quix-cloud/managed-services/replay.md': 'quix-cloud/quix-lake/replay.md'
+        'quix-cloud/managed-services/replay-transformations.md': 'quix-cloud/quix-lake/replay-transformations.md'
+        'quix-cloud/managed-services/overview.md': 'quix-cloud/services/overview.md'
+        'quix-cloud/managed-services/dynamic-configuration.md': 'quix-cloud/services/dynamic-configuration.md'
+        'quix-cloud/plugin.md': 'quix-cloud/services/plugin.md'
+        'quix-cloud/deploying-connectors.md': 'quix-cloud/services/deploying-connectors.md'
+        'hosting/overview.md': 'quix-cloud/hosting.md'
 
 
 

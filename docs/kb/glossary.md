@@ -4,7 +4,7 @@ The following is a list of terms useful when working with Quix and streaming dat
 
 ## APIs
 
-In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [APIs overview](../develop/apis-overview.md).
+In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [APIs overview](../quix-cloud/applications/apis-overview.md).
 
 ## Application
 
@@ -12,7 +12,7 @@ A set of code in Quix that can be edited, compiled, run, and deployed as one Doc
 
 Applications in Quix exist inside the Git branch associated with an [environment](#environment), and are therefore fully version controlled. You can also tag your code as an easy way to manage deployments.
 
-Read more about [applications](../create/overview.md).
+Read more about [applications](../quix-cloud/projects/overview.md).
 
 ## Code Samples
 
@@ -22,7 +22,7 @@ Quix contains a large number of [open source](https://github.com/quixio/quix-sam
 
 ## Connectors
 
-There are [many ways](../develop/integrate-data/overview.md) to get data into Quix. One option is to use the many connectors already provided by Quix. These can be viewed in Quix by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../quix-connectors/templates/index.md).
+There are [many ways](../quix-cloud/applications/integrate-data/overview.md) to get data into Quix. One option is to use the many connectors already provided by Quix. These can be viewed in Quix by clicking Code Samples and then selecting Source and Destination filters. Alternatively, you can see a useful page in our documentation, that lists the [available connectors](../quix-connectors/templates/index.md).
 
 ## Consumer
 
@@ -38,7 +38,7 @@ If the consumers (replicas) are not in a consumer group, then all messages are p
 
 Data ingestion is the means by which you get your data into Quix.
 
-Read more about [data ingestion](../develop/integrate-data/overview.md).
+Read more about [data ingestion](../quix-cloud/applications/integrate-data/overview.md).
 
 ## Data types
 
@@ -77,7 +77,7 @@ An environment is an entity that encapsulates a branch in your [project](#projec
 
 Each environment can use Kafka hosted by Quix, self-hosted Kafka, or on Confluent Cloud.
 
-Read more about [environments](../create/overview.md).
+Read more about [environments](../quix-cloud/projects/overview.md).
 
 ## Events
 
@@ -147,7 +147,7 @@ Applications implementing a source, transform, or destination, are connected tog
 
 ## Portal API
 
-An [HTTP API](../apis/portal-api/overview.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
+An [HTTP API](../quix-cloud/apis/portal-api/overview.md) used to interact with most portal-related features such as creation of [environments](#environment), users, and [deployments](#deployment).
 
 ## Producer
 
@@ -192,7 +192,7 @@ Read more about [streams](https://quix.io/docs/quix-streams/introduction.html).
 
 ## Streaming Reader API
 
-A [WebSockets API](../apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix.
+A [WebSockets API](../quix-cloud/apis/streaming-reader-api/overview.md) used to stream any data directly from a topic to an external application. Most commonly used to read the results of a model or service to a real-time web application. Your application **reads** data from Quix.
 
 ## Template project
 

@@ -112,7 +112,7 @@ Feel free to explore further.
 
     Continue exploring Quix Cloud features.
 
-    [Quix Cloud Tour :octicons-arrow-right-24:](../create/overview.md)
+    [Quix Cloud Tour :octicons-arrow-right-24:](projects/overview.md)
 
 - __Deploy a Connector__
 

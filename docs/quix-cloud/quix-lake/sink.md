@@ -132,7 +132,7 @@ deployments:
 * **Parquet (Custom metadata, optional)**
   Your key–value annotations (`Topic`, `Key`, `MetadataKey`, `MetadataValue`, `UpdatedUtc`) used for search and grouping in the UI.
 
-See [Open format](../quixlake/open-format.md) for full schemas and layout.
+See [Open format](./open-format.md) for full schemas and layout.
 
 ## Operational behavior
 
@@ -172,7 +172,7 @@ See [Open format](../quixlake/open-format.md) for full schemas and layout.
 
 ## See also
 
-* [Open format](../quixlake/open-format.md)
-* [Quix Lake - User Interface](../quixlake/user-interface.md)
+* [Open format](./open-format.md)
+* [Quix Lake - User Interface](./user-interface.md)
 * [Quix Lake - Replay](./replay.md)
 * [Blob storage connections](./blob-storage.md)

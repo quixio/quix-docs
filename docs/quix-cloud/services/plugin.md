@@ -325,5 +325,5 @@ For developers building integrations, you can check [permissions](./roles.md) us
 ## See also
 
 - [Roles and Permissions](./roles.md) - Understanding user roles and permissions
-- [Personal Access Tokens](../develop/authentication/personal-access-token.md) - Token-based authentication
+- [Personal Access Tokens](../applications/authentication/personal-access-token.md) - Token-based authentication
 - [Portal API](../apis/portal-api/overview.md) - Full API documentation

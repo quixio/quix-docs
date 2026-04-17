@@ -105,7 +105,7 @@ Quix has the ability to create projects where all code and configuration is cont
 
 Quix requires a Kafka broker (or a broker compatible with the Apache Kafka broker) to provide streaming infrastructure for your solutions.
 
-When you create a new Quix environment, there are three Kafka [broker hosting options](../create/create-environment.md#broker-settings):
+When you create a new Quix environment, there are three Kafka [broker hosting options](../quix-cloud/projects/create-environment.md#broker-settings):
 
 1. Quix Broker - Quix hosts Apache Kafka for you. This is the simplest option as Quix provides hosting and configuration.
 2. Managed Kafka - use Quix integrations with common Kafka broker hosting providers such as Confluent Cloud, Redpanda, Aiven, and Upstash.
@@ -117,7 +117,7 @@ This enables you to select a Kafka broker hosting option according to requiremen
 
     To get your Python stream processing applications to the testing stage as quickly as possible, the Quix-hosted Kafka option is recommended, as it requires zero configuration to get Kafka running. You can focus on your application code, without needing to do the up front work of creating a powerful scalable Kafka cluster, as that work has already been done for you by Quix.
 
-Read more about [selecting your broker option](../create/create-environment.md#broker-settings).
+Read more about [selecting your broker option](../quix-cloud/projects/create-environment.md#broker-settings).
 
 ### Docker integration
 
@@ -129,7 +129,7 @@ When you develop your Python stream processing applications, you build a pipelin
 
 ## Integrating your data with Quix
 
-There are [various ways](../develop/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../quix-connectors/templates/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
+There are [various ways](../quix-cloud/applications/integrate-data/overview.md) to connect your data to Quix. Quix provides a number of [connectors](../quix-connectors/templates/index.md) that you can use with only some simple configuration. In addition, there are a range of [APIs](#apis), both REST and WebSockets that are available. There is also the [Quix Streams](#quix-streams) client library, that can be used to get data quickly and easily into Quix.
 
 For a simple example of getting data from your laptop into Quix, see the [Quickstart](../quix-cloud/quickstart.md).
 
@@ -145,8 +145,8 @@ Quix provides numerous standard [connectors](../quix-connectors/templates/index.
 
 Quix provides several APIs to help you work with streaming data. These include:
 
-* [**Streaming Reader API**](../apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
-* [**Portal API**](../apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
+* [**Streaming Reader API**](../quix-cloud/apis/streaming-reader-api/overview.md): enables you to push live data from a Quix topic to your application, ensuring low latency by avoiding any disk operations.
+* [**Portal API**](../quix-cloud/apis/portal-api/overview.md): enables you to automate Quix tasks such as creating environments, topics, and deployments.
 
 ### Quix Streams
 

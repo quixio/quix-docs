@@ -6,7 +6,7 @@ Once you have the project running in your Quix account, you can modify the proje
 
 ## Clone the project
 
-See the [clone a project documentation](../../create/clone-project.md) for further information on how to do this.
+See the [clone a project documentation](../../quix-cloud/projects/clone-project.md) for further information on how to do this.
 
 ## Add secrets
 
@@ -21,11 +21,11 @@ You'll need to configure the following credentials for each Quix service that ne
 | `INFLUXDB_MEASUREMENT_NAME` | The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used. |
 | `TIMESTAMP_COLUMN` | This is the field in your data that represents the timestamp in nanoseconds. If you leave this blank, the message timestamp received from the broker is used. Case sensitive. Optional. |
 | `CONSUMER_GROUP_NAME` | The name of the consumer group to use when consuming from Kafka. |
-<!--| `bearer_token` | Printers dashboard | A [PAT](../../develop/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader API. |-->
+<!--| `bearer_token` | Printers dashboard | A [PAT](../../quix-cloud/applications/authentication/personal-access-token.md) that the web app uses to authenticate the Streaming Reader API. |-->
 
 The above is a list of environment variables that you are going to configure.
 
-For `INFLUXDB_TOKEN`, you need to [create a secret](../../deploy/secrets-management.md) to assign to the corresponding [environment variables](../../deploy/environment-variables.md).
+For `INFLUXDB_TOKEN`, you need to [create a secret](../../quix-cloud/deployments/secrets-management.md) to assign to the corresponding [environment variables](../../quix-cloud/deployments/environment-variables.md).
 
 To create the secret:
 
@@ -36,7 +36,7 @@ To create the secret:
 3. In the `Secrets management` dialog, click `+ New secret` and use this to create the `INFLUXDB_TOKEN` secret, and assign it to the `INFLUXDB_TOKEN` variable.
 
 <!-->
-4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../develop/authentication/personal-access-token.md).
+4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../quix-cloud/applications/authentication/personal-access-token.md).
 -->
 
 These secrets are then assigned to their corresponding environment variables.

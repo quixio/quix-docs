@@ -6,7 +6,7 @@ The following example shows a Python Flask web app hosted in Quix. Data is recei
 
 !!! note
 
-    When deploying this service in Quix, it's important to enable public access in the deployment dialog, and make a note of the [service public URL](../../deploy/deploy-public-page.md). 
+    When deploying this service in Quix, it's important to enable public access in the deployment dialog, and make a note of the [service public URL](../../deployments/deploy-public-page.md). 
 
 The following shows the code for a simple web app that enables you to post data using HTTP, and then publish this to a Quix topic using Quix Streams:
 
@@ -70,7 +70,7 @@ In this example, `data.json` contains your JSON data, such as:
 
 !!! tip
 
-    You'll need to change the URL in the Curl example to the one provided in the [deployment dialog](../../deploy/deploy-public-page.md) for your service.
+    You'll need to change the URL in the Curl example to the one provided in the [deployment dialog](../../deployments/deploy-public-page.md) for your service.
 
 Quix can bring real-time web functionality to you client applications. The following types of applications are good candidates for using Quix as their data plane:
 

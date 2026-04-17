@@ -22,11 +22,11 @@ Enter the project's environment, and the `Sync your environment` dialog is displ
 
 Click the `Sync environment` button to make sure all data is synchronized between the project's repository, and your environment.
 
-You now have the opportunity to configure any **secrets** required, such as [Personal Access Tokens (PATs)](../develop/authentication/personal-access-token.md), sometimes referred to as bearer tokens, or input credentials required for external services such as InfluxDB, Redpanda, Aiven, and so on.
+You now have the opportunity to configure any **secrets** required, such as [Personal Access Tokens (PATs)](../applications/authentication/personal-access-token.md), sometimes referred to as bearer tokens, or input credentials required for external services such as InfluxDB, Redpanda, Aiven, and so on.
 
 Click `Add secrets`, configure your secrets as required, 
 
-See also the [secrets management documentation](../deploy/secrets-management.md).
+See also the [secrets management documentation](../deployments/secrets-management.md).
 
 Once you have added your secrets, click `Synchronize pipeline` and `Go to pipeline` to complete the project configuration. The services in the pipeline now start.
 

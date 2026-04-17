@@ -81,4 +81,4 @@ These precautions help maintain the **reliability and stability** of your projec
 
 ## 🏃‍♀️ Next Steps
 
-[Learn about creating an application in Quix :material-arrow-right-circle:{ align=right }](../develop/create-application.md)
+[Learn about creating an application in Quix :material-arrow-right-circle:{ align=right }](../applications/create-application.md)

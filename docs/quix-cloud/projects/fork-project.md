@@ -189,6 +189,6 @@ You now need to create an environment. See the [create environment documentation
 
 ## Configure secrets
 
-You'll need to [create any secrets](../deploy/secrets-management.md) the project requires, for example, for external services such as InfluxDB Cloud.
+You'll need to [create any secrets](../deployments/secrets-management.md) the project requires, for example, for external services such as InfluxDB Cloud.
 
 Once you've added your secrets, you can Synchronize and then go to the completed pipeline and monitor all services as they start.
