@@ -144,10 +144,17 @@ The **Quix Plugin SDK** is a small JavaScript library hosted by the Portal. It's
 
 ### Quick start
 
+!!! warning "Use your own Portal domain"
+    The SDK must be loaded from the **same Portal that hosts your plugin** — the auth and navigation contracts only line up between the SDK and the Portal it came from. Substitute `<your-portal-domain>` in the snippets below before copying:
+
+    * **Quix Cloud:** `portal.cloud.quix.io`
+    * **Quix Cloud (dev):** `portal.dev.quix.io`
+    * **Self-hosted / dedicated / custom domain:** the host you use to access your Portal (for example `portal.example.com`).
+
 Add the SDK script to your embedded UI's HTML, then call `init()` and (optionally) register a token callback:
 
 ```html
-<script src="https://portal.platform.quix.io/sdk/quix-plugin.js"></script>
+<script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
 <script>
   QuixPlugin
     .init()
@@ -158,14 +165,6 @@ Add the SDK script to your embedded UI's HTML, then call `init()` and (optionall
 ```
 
 That's it. When the embedded view loads, the SDK requests the auth token from the Portal, and your `onToken` callback fires as soon as it arrives. URL synchronisation is enabled at the same time — no extra code required.
-
-!!! tip "SDK URL"
-    The SDK is served from the Portal that hosts your plugin:
-
-    * **Quix Cloud:** `https://portal.platform.quix.io/sdk/quix-plugin.js`
-    * **Self-hosted / dedicated / custom domain:** replace the host with the URL of your Portal (for example `https://portal.example.com/sdk/quix-plugin.js`).
-
-    Plugins served from a customer-branded Portal should always load the SDK from that same Portal so the auth and navigation contracts line up.
 
 ### What the SDK does
 
@@ -236,7 +235,7 @@ Quix supports two ways to deliver the auth token to your plugin:
     Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal and exposes the result via `onToken(callback)`:
 
     ```html
-    <script src="https://portal.platform.quix.io/sdk/quix-plugin.js"></script>
+    <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
     <script>
       QuixPlugin
         .init()
@@ -245,6 +244,8 @@ Quix supports two ways to deliver the auth token to your plugin:
         });
     </script>
     ```
+
+    Replace `<your-portal-domain>` with the host of the Portal serving your plugin (for example `portal.cloud.quix.io` on Quix Cloud, or your custom domain). See the [Quick start](#quick-start) admonition for the full list.
 
     Use the token as a Bearer credential when calling Quix APIs, or pass it to your own backend and validate it there — see [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) below.
 
