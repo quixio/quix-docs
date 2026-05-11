@@ -2,7 +2,7 @@
 
 This is the Quix Cloud changelog for the current year.
 
-## 2026-05-scan | 11 MAY 2026
+## 2026-05-scan | 12 MAY 2026
 
 `NEW FEATURES`
 
