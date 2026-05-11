@@ -2,6 +2,38 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-05-scan | 11 MAY 2026
+
+`NEW FEATURES`
+
+- **Image scanning for builds**: Container images built on the platform are now **scanned for vulnerabilities** as part of the build. Findings are surfaced in a new **Image Scan tab** in the Deployment details, so you can review them in context before deploying.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-05-scan.png" alt="Image Scan tab" style="width:60%"></p>
+
+
+`ENHANCEMENTS`
+
+- Projects:
+    - **Cascading project deletion** — you can now delete a project in a single step, even if it still contains environments. The deletion runs asynchronously: environments are cleaned up automatically and the project's status reflects the in-progress operation, so you no longer have to delete environments one by one first.
+- Deployments:
+    - **Better handling of missing applications** — when a deployment references an application that no longer exists, YAML sync no longer fails, the deployment shows a clear **Missing** badge, and you can relink it to another application from the Edit Deployment dialog.
+- Quix AI (Preview):
+    - Improved **Knowledge Base error messages** so authentication and repository-not-found failures are surfaced clearly instead of as a generic clone error.
+
+
+`BUG FIXES`
+
+- Pipeline:
+    - Fixed **connection waypoints** not rendering in the Pipeline view.
+    - Fixed **linked project navigation** — clicking (and right-clicking, to open in a new tab) a linked project node in the Pipeline view again navigates to the linked environment.
+- Cluster Metrics:
+    - Fixed **cluster summary cards** showing CPU/Memory **Usage** instead of **Committed**, now matching the rest of the cluster metrics views.
+    - Fixed **cluster summary cards** showing incorrect values for dedicated clusters.
+    - Fixed **unassigned projects, environments, and deployments** not being represented correctly in cluster metrics charts.
+    - **System pods** are now included in the node overview metrics again.
+- Quix AI (Preview):
+    - Fixed an exception when querying the built-in (static) knowledge base.
+
 ## 2026-04-devsessions | 21 APR 2026
 
 `NEW FEATURES`
