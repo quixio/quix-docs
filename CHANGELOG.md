@@ -8,7 +8,7 @@ This is the Quix Cloud changelog for the current year.
 
 - **Image scanning for builds**: Container images built on the platform are now **scanned for vulnerabilities** as part of the build. Findings are surfaced in a new **Image Scan tab** in the Deployment details, so you can review them in context before deploying.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-05-scan.png" alt="Image Scan tab" style="width:60%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-05-scan.webp" alt="Image Scan tab" style="width:60%"></p>
 
 
 `ENHANCEMENTS`
