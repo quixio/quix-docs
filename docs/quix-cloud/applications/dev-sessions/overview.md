@@ -1,11 +1,15 @@
 ---
 title: Dev Sessions
-description: Browser-based cloud development environments for building and testing stream processing applications.
+description: Write, run, and debug Python code in your browser — no local setup required. Dev Sessions give you a live coding environment connected to your Quix project and Git repository.
 ---
 
 # Dev Sessions
 
-Dev sessions are ephemeral, browser-based development environments that run as Kubernetes pods in your Quix Cloud cluster. Each session connects to your project's Git repository and comes preconfigured with Python tooling and AI assistance. Each session is private to the user who created it. To create a dev session, open your environment in Quix and click **Dev Sessions** in the left sidebar.
+Dev Sessions give you a live, browser-based coding environment directly in your Quix project — no local setup required. Write code, install packages, explore data, and get AI assistance while your changes commit back to Git automatically. Sessions are private to the user who created them.
+
+To create a dev session, open your environment in Quix and click **Dev Sessions** in the left sidebar.
+
+Under the hood, each session runs as an ephemeral Kubernetes pod in your Quix Cloud cluster, preconfigured with Python tooling and connected to your project's Git repository.
 
 Quix offers two session types:
 
@@ -16,12 +20,18 @@ Both types come with Python and common dev tools preinstalled. See each page for
 
 ## Session lifecycle
 
-Sessions have distinct states: **Starting**, **Initializing**, **Running**, **Stopping**, **Stopped**, and **Failed**. The current state is shown as a status chip in the session list and detail views.
+Sessions have distinct states, shown as a status chip in the session list and detail views:
+
+- **Starting** — the session container is being scheduled and launched.
+- **Initializing** — the session is running setup steps (installing dependencies, running lifecycle hooks). This can take up to a minute on first start.
+- **Running** — the session is ready to use.
+- **Stopping / Stopped** — the session has been stopped; your files are preserved.
+- **Failed** — the session could not start. Check the session logs for details.
 
 **Stop vs Terminate** -- these are different actions:
 
-- **Stop** shuts down the session pod but **keeps the persistent volume**. Your files, venv, and git state are preserved. You can start the session again later and pick up where you left off.
-- **Terminate** (or Delete) shuts down the pod **and deletes the persistent volume**. All data is permanently lost.
+- **Stop** shuts down the session but **keeps your files**. Your code, Python environment, and uncommitted changes are preserved. You can start the session again later and pick up where you left off.
+- **Terminate** (or Delete) shuts down the session **and permanently deletes all your local files**. Any changes you have already committed are safe in Git; only uncommitted work is lost.
 
 If your session has no persistent storage configured, stopping and terminating have the same effect -- both destroy all session state.
 
@@ -29,7 +39,7 @@ If your session has no persistent storage configured, stopping and terminating h
 
 You can pass environment variables and secret references to any session type. Set them when you create the session (in the Advanced tab) or edit them later. Variables defined in your application's `app.yaml` are also loaded automatically.
 
-**Environment variables** are plain key-value pairs passed directly to the session container.
+**Environment variables** are plain key-value pairs passed directly to your session.
 
 **Secret keys** reference secrets stored in Quix. The key is the environment variable name exposed in the session, and the value is the name of the secret in your Quix project. This keeps sensitive values out of your session configuration.
 
@@ -38,19 +48,19 @@ You can pass environment variables and secret references to any session type. Se
 Both session types support auto-commit, which watches your application folder for file changes and pushes them to Git automatically. You can configure this when creating or editing a session:
 
 - **Auto-commit toggle** -- enabled by default. Turn it off if you prefer to commit manually.
-- **Commit interval** -- the debounce window before changes are committed (default: 5 seconds, range: 1--3600 seconds). A shorter interval commits more frequently; a longer one batches more changes together.
+- **Commit interval** -- how long the session waits after your last edit before committing (default: 5 seconds, range: 1--3600 seconds). A shorter interval commits more frequently; a longer one batches more changes together.
 
 See each session type's page for details on how auto-commit works.
 
 ## Session logs
 
-Every session streams its logs in real time. You can view logs from the session detail page or from the session list's action menu. Logs are available while the session is running and during startup -- useful for diagnosing lifecycle hook failures or dependency install errors. You can also download logs for offline review.
+Every session streams its logs in real time. You can view logs from the session detail page or from the session list's action menu. Logs are available while the session is running and during startup — useful for diagnosing startup failures or dependency install errors. You can also download logs for offline review.
 
 ## Version updates
 
-Quix tracks the image version installed in each session. When a newer version is available, the session shows an **Outdated** badge. You can update by choosing **Start & update** (for stopped sessions) or **Restart & update** (for running sessions). This pulls the latest image without losing your persistent storage.
+Quix tracks whether a newer version of the dev session software is available. When an update exists, the session shows an **Outdated** badge. You can update by choosing **Start & update** (for stopped sessions) or **Restart & update** (for running sessions). This updates the session software without losing your files.
 
-For Marimo sessions, version changes come from the linked deployment's image. For VS Code sessions, they come from the platform's base image.
+For Marimo sessions, updates come from the linked deployment. For VS Code sessions, they come from the platform's base session image.
 
 ## Organization-level management
 

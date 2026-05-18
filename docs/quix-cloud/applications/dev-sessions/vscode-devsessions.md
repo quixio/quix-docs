@@ -1,11 +1,11 @@
 ---
 title: VS Code dev sessions
-description: Devcontainer configuration, auto-commit behavior, and Python environment details for VS Code dev sessions.
+description: A full browser-based IDE for building, editing, and debugging your Quix applications — with a terminal, AI assistance, and automatic Git commits.
 ---
 
 # VS Code dev sessions
 
-VS Code dev sessions run a full code-server IDE in your browser. For a comparison with Marimo sessions and general concepts, see the [overview](./overview.md).
+VS Code dev sessions give you a full browser-based IDE for building and debugging your Quix applications — no local install needed. You get a terminal, file explorer, AI assistance via Claude Code, and automatic commits back to your project's Git repository. Use this session type when you're editing multiple files, running commands, installing packages, or stepping through code. For a comparison with Marimo sessions and general concepts, see the [overview](./overview.md).
 
 ## What's preinstalled
 
@@ -25,7 +25,9 @@ To add Python packages, put them in `requirements.txt` or `pyproject.toml` in yo
 
 ## Customizing with devcontainer.json
 
-Quix parses the following fields from `devcontainer.json`:
+A `devcontainer.json` file lets you customize your session's editor settings, install extra VS Code extensions, and run setup commands automatically on start. Place one in your repo and Quix picks it up when the session starts.
+
+Supported fields:
 
 - `customizations.vscode.settings` -- editor and extension settings.
 - `customizations.vscode.extensions` -- extension IDs to install from [Open VSX](https://open-vsx.org/){target=_blank} (code-server uses Open VSX, not the Microsoft marketplace).
@@ -35,9 +37,9 @@ JSONC syntax is supported -- you can use `//` line comments, `/* */` block comme
 
 All other fields (`image`, `features`, `mounts`, `forwardPorts`, `dockerComposeFile`) are ignored. For full spec details, see the [Dev Containers specification](https://containers.dev/){target=_blank}.
 
-Settings and extensions merge from three layers, applied in order:
+Settings and extensions are applied in order, with more specific configurations overriding broader ones:
 
-1. **Base image** -- built-in defaults baked into the container (Python, Ruff, Claude Code, dark theme, format-on-save).
+1. **Base image** -- defaults included in every session (Python, Ruff, Claude Code, dark theme, format-on-save).
 2. **`/.devcontainer/devcontainer.json`** -- at the root of your repo. Applies to all applications in the project.
 3. **`/your-app/.devcontainer/devcontainer.json`** -- inside a specific application folder. Overrides root settings for that app only.
 
@@ -63,7 +65,7 @@ Each layer's `customizations.vscode.settings` overrides the previous layer's val
 
 ### Lifecycle hooks
 
-Hooks run from the application folder as the `coder` user. Each hook has a **300-second timeout** (configurable via `DEVCONTAINER_LIFECYCLE_TIMEOUT`).
+Use lifecycle hooks to run setup commands automatically when a session starts — for example, installing system packages, running database migrations, or seeding test data. Each hook has a **300-second timeout**. To change it, set `DEVCONTAINER_LIFECYCLE_TIMEOUT` (in seconds) as an environment variable in the session's Advanced settings.
 
 | Hook | Runs when | Re-runs on restart |
 |---|---|---|
@@ -72,7 +74,7 @@ Hooks run from the application folder as the `coder` user. Each hook has a **300
 | `postCreateCommand` | First session start, after `updateContentCommand` | No |
 | `postStartCommand` | Every session start | Yes |
 
-A marker file on persistent storage tracks whether create hooks have already run. Only `postStartCommand` executes on subsequent restarts.
+Once-only hooks (`onCreateCommand`, `updateContentCommand`, `postCreateCommand`) run on first start and are skipped on subsequent restarts. Only `postStartCommand` runs every time.
 
 To run tasks in parallel, use the object format -- each key runs as a separate process:
 
@@ -88,7 +90,7 @@ To run tasks in parallel, use the object format -- each key runs as a separate p
 
 ### UI scaling
 
-The base image sets a default UI zoom of **1.2x** to match the Quix platform's visual density. This scales the entire code-server interface uniformly -- fonts, icons, sidebar, tabs, menus, and status bar.
+The session editor is zoomed in slightly by default (**1.2x**) so it fits comfortably alongside the Quix platform UI. This scales the entire interface uniformly — fonts, icons, sidebar, tabs, menus, and status bar.
 
 To override the zoom level, set `quix.ui.zoom` in your `devcontainer.json`:
 
@@ -104,7 +106,7 @@ To override the zoom level, set `quix.ui.zoom` in your `devcontainer.json`:
 }
 ```
 
-The `quix.*` settings are a custom Quix namespace -- the entrypoint extracts them and applies them as CSS before code-server starts. They don't appear in VS Code's settings UI and won't trigger "unknown setting" warnings.
+The `quix.*` settings are a custom Quix namespace applied before the editor loads. They don't appear in VS Code's settings UI and won't trigger "unknown setting" warnings.
 
 You can combine `quix.ui.zoom` with native VS Code font settings for fine-tuning:
 
@@ -119,15 +121,9 @@ You can combine `quix.ui.zoom` with native VS Code font settings for fine-tuning
 
 Auto-commit is enabled by default. You can disable it or change the commit interval when creating or editing the session -- see [Auto-commit settings](./overview.md#auto-commit-settings).
 
-When enabled, a file watcher monitors your application folder for changes. It uses the `watchdog` library (inotify on Linux) for instant detection, falling back to `git status` polling or mtime scanning if watchdog is unavailable. When changes are detected, a debounce timer starts (default: **5 seconds**). Each subsequent edit resets the timer. After the timer expires, the session:
+When enabled, a file watcher monitors your application folder for changes. After your last edit, a short delay starts (default: **5 seconds**); each new edit resets it. Once the delay expires, all pending changes are bundled into a single commit, any remote edits are merged in (your local changes win on conflict), and the result is pushed to your branch.
 
-1. Stashes uncommitted changes.
-2. Runs `git pull --rebase` to incorporate remote changes.
-3. Restores the stash (on conflict, local changes win).
-4. Stages and commits all pending files with the message `[AutoCommit] Updated <file list>`.
-5. Pushes to the remote branch.
-
-Auto-commit batches all changes within the debounce window into a single commit. You can also commit manually from the terminal or VS Code's source control panel. Manual commits use a git hook that auto-generates the message in the same `[AutoCommit] Updated <file list>` format, so you can commit from VS Code's source control panel without typing a message.
+Auto-commit batches all changes within the delay window into a single commit. You can also commit manually from the terminal at any time with a message of your choosing. Committing from VS Code's source control panel (without typing a message) auto-generates a message in the same `[AutoCommit] Updated <file list>` format — type a message in the panel if you want something more descriptive.
 
 ## Python environment
 
@@ -135,17 +131,17 @@ The session creates a virtual environment at `.venv` inside your application fol
 
 If a `requirements.txt` exists, dependencies install automatically on session start. A `pyproject.toml` triggers an editable install (`pip install -e .`) instead. A RunOnSave extension re-runs `pip install` whenever you save either file, keeping the environment in sync as you edit dependencies.
 
-If the base image Python version changes between sessions, the entrypoint detects the broken symlink in `.venv/bin/python` and recreates the environment automatically.
+If a session update changes the Python version, the environment is automatically recreated on next start — you don't need to do anything.
 
 ## Storage and persistence
 
-Each session gets a persistent volume mounted at `/project/`. The default size is **1 GB**, configurable when you create the session but not resizable afterward.
+Each session has **1 GB of persistent storage** (configurable when you create the session, but not resizable afterward) where your files and Python environment are kept between restarts.
 
 **What persists across restarts:** your git repo, `.venv`, uncommitted file changes, and Claude Code configuration.
 
 **What's lost on restart:** terminal state, open editor tabs, and anything in `/tmp`.
 
-**What's lost on terminate:** everything -- the persistent volume is deleted when the session is terminated. See [Session lifecycle](./overview.md#session-lifecycle) for the difference between stop and terminate.
+**What's lost on terminate:** everything — all your files are permanently deleted. See [Session lifecycle](./overview.md#session-lifecycle) for the difference between stop and terminate.
 
 You can pass environment variables and secret references to your session when you create or edit it -- see [Environment variables and secrets](./overview.md#environment-variables-and-secrets). Variables defined in your application's `app.yaml` are also loaded automatically. If you edit `app.yaml` inside the session, updated values are picked up without a restart.
 
@@ -157,8 +153,8 @@ Sessions default to **2000m CPU / 2048 MB memory**. The minimum is 50m CPU / 100
 
 ## Troubleshooting
 
-**Stale venv after image rebuild** -- If packages fail to import despite being in `requirements.txt`, delete the `.venv` folder and restart the session. The entrypoint recreates it on next start.
+**Stale venv after image rebuild** -- If packages fail to import despite being in `requirements.txt`, delete the `.venv` folder and restart the session. The environment is recreated automatically on next start.
 
-**Session stuck in Starting** -- Check the session logs for lifecycle hook output. A hook exceeding the 300-second timeout is terminated and logged as a warning. Cluster resource pressure (CPU/memory limits) can also delay pod scheduling.
+**Session stuck in Starting** -- Check the session logs for lifecycle hook output. A hook exceeding the 300-second timeout is cancelled and logged as a warning. If no hook is running, the cluster may be under resource pressure — wait a moment and try again.
 
 **Environment variables not updating** -- The session polls `app.yaml` for configuration changes, but some environment variables require a full session restart to take effect. If you update variables in the Quix UI, restart the session to pick up the new values.

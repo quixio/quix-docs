@@ -2,6 +2,104 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-05-scan | 12 MAY 2026
+
+`NEW FEATURES`
+
+- **Image scanning for builds**: Container images built on the platform are now **scanned for vulnerabilities** as part of the build. Findings are surfaced in a new **Image Scan tab** in the Deployment details, so you can review them in context before deploying.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-05-scan.webp" alt="Image Scan tab" style="width:60%"></p>
+
+
+`ENHANCEMENTS`
+
+- Projects:
+    - **Cascading project deletion** — you can now delete a project in a single step, even if it still contains environments. The deletion runs asynchronously: environments are cleaned up automatically and the project's status reflects the in-progress operation, so you no longer have to delete environments one by one first.
+- Deployments:
+    - **Better handling of missing applications** — when a deployment references an application that no longer exists, YAML sync no longer fails, the deployment shows a clear **Missing** badge, and you can relink it to another application from the Edit Deployment dialog.
+- Quix AI (Preview):
+    - Improved **Knowledge Base error messages** so authentication and repository-not-found failures are surfaced clearly instead of as a generic clone error.
+
+
+`BUG FIXES`
+
+- Pipeline:
+    - Fixed **connection waypoints** not rendering in the Pipeline view.
+    - Fixed **linked project navigation** — clicking (and right-clicking, to open in a new tab) a linked project node in the Pipeline view again navigates to the linked environment.
+- Cluster Metrics:
+    - Fixed **cluster summary cards** showing CPU/Memory **Usage** instead of **Committed**, now matching the rest of the cluster metrics views.
+    - Fixed **cluster summary cards** showing incorrect values for dedicated clusters.
+    - Fixed **unassigned projects, environments, and deployments** not being represented correctly in cluster metrics charts.
+    - **System pods** are now included in the node overview metrics again.
+- Quix AI (Preview):
+    - Fixed an exception when querying the built-in (static) knowledge base.
+
+## 2026-04-devsessions | 21 APR 2026
+
+`NEW FEATURES`
+
+- **Dev Sessions (Beta)**: Spin up a browser-based IDE for any app in one click — no local setup, no installs. Choose a **VS Code** session or a **Marimo notebook** depending on how you want to work. Sessions come pre-loaded with the app's code and environment, so you can edit, experiment, and commit back to git without leaving the Portal. Dev Sessions are the successor to the current **IDE Sessions** and will replace them entirely in the next release, when IDE Sessions will be removed. The new editor is a full VS Code, so you get the complete debugging toolkit, and you have much more control over how sessions are created and how their resources are managed. VS Code sessions also ship with **Claude Code preconfigured with Quix AI keys**, ready to use for AI-assisted coding and agentic workflows the moment your session starts — no API keys or local setup required. See the [Dev Sessions documentation](https://quix.io/docs/quix-cloud/applications/dev-sessions/overview.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-04-devsessions.webp" alt="Dev Sessions" style="width:60%"></p>
+
+- **Repository (Beta)**: A new file-browser-centric way to work with your project. The Repository view replaces the **Applications** option (now deprecated), showing your entire project as a unified file tree instead of a table of apps. Browse and edit any file directly in the browser, create/upload/delete/download files and folders from the context menu, and rename in place. Every application action you had before — **deploy, duplicate, download, delete** — is still available, just now triggered from the folder itself. A full **git history** explorer is built in, scoped to the whole repo, a folder, or a single file, with side-by-side commit diffs and searchable commit messages. Active **Dev Sessions** show up as chips on the relevant folder, and you can launch or jump into a Dev Session for any folder or file in one click.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-04-devsessions-repo.webp" alt="Repository" style="width:60%"></p>
+
+
+`PREVIEW`
+
+Preview features are **disabled by default** and available **on request** — contact your Quix account manager to enable them for your organisation. They are early access to capabilities heading for general availability in a future release.
+
+- **Quix AI (Preview)**: Chat with an AI assistant directly inside the Portal. A new **right-side panel** sits alongside the application, so you can ask questions or have the assistant take actions without leaving the page you're on. For more involved tasks, Quix AI **delegates to specialised agents** (planning, investigation, code changes) and keeps the conversation going across sessions, retries, and handovers. Organisation admins get a dedicated **AI settings** page to upload **Knowledge Base files** (so answers are grounded in your own docs), connect **MCP tools** via a per-agent allowlist, **bring their own LLM key** with per-user and per-org usage tracking, and monitor quota. A built-in **quix-patterns Knowledge Base** ships with the release so the assistant already understands Quix-specific concepts out of the box.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-04-devsessions-quixai.webp" alt="Quix AI" style="width:60%"></p>
+
+
+`ENHANCEMENTS`
+
+- YAML / Synchronization:
+    - **YAML 2.0 is now the default descriptor version** for new projects. With **`quix.yaml` 2.0**, variables declared in `app.yaml` are now **inherited**, so deployments only need to spell out the values they actually override — significantly reducing the size of your `quix.yaml`. The **Sync dialog** highlights inherited vs overridden values so it's clear what's coming from where. Existing projects keep their current version — no migration required.
+    - **Replica count** defaults to 1 when not specified in YAML, preventing zero-replica deployments.
+- Pipeline:
+    - The pipeline **filter panel is now draggable**, so users can move it out of the way of the nodes they're working on.
+- Deployments / Library:
+    - **Deployment dialog** port field is clearer and now pre-fills existing values when editing.
+    - Library items with **build errors** can now still be customised instead of blocking you from opening them.
+- Cluster Metrics:
+    - Cluster charts now support **GroupBy Deployment and Replica** (enabled once a matching Environment/Deployment filter is active).
+- Other:
+    - **Icon Picker** is faster and easier to search, with better handling of synonyms and common icons.
+    - **Notifications** display and dismiss now more smoothly.
+
+
+`BUG FIXES`
+
+- Pipeline:
+    - Fixed **Edit Layout mode** persisting across navigation instead of resetting when leaving the pipeline page.
+    - Fixed **Edit Layout** getting stuck in the services-only view.
+    - Fixed **Data Lake API** incorrectly appearing in unrelated workspaces' Pipeline/Deployments views.
+- YAML / Synchronization:
+    - Fixed automatic updates to `quix.yaml` (e.g. topic deletion) rewriting **templated values** like `version: {{VERSION}}` to a resolved value.
+    - Fixed **NullReferenceException** during sync when the descriptor has no `resources` section.
+- Topics / Visualization:
+    - Fixed **Topics Metrics, Waveform and Table views** freezing after network disruptions or long-running sessions — visualisations now recover automatically without requiring a page refresh.
+- Library:
+    - **Deploy from library** now keeps the deployment settings from the original library item, so apps saved from a sample deploy with the sample's intended configuration.
+- Authentication / Users:
+    - Fixed users occasionally stuck in a **logout/login loop**.
+    - **Keycloak tokens now refresh** automatically instead of expiring silently.
+    - Several **Auth0 fixes**: refresh tokens now work correctly, invitation links no longer require a second click to apply the email, logout and login-callback flows hardened against race conditions.
+    - Fixed **token revocation** occasionally failing under race conditions, leaving revoked tokens valid indefinitely.
+    - Fixed **project manager** being unable to create an environment when not an organisation manager.
+- Library / Samples:
+    - Fixed **input Options** not being copied from a template/sample `template.yaml` to the deployed `app.yaml`.
+    - Fixed library deployments colliding on **service name** when the user has no control over naming — unique names are now generated automatically.
+- Cluster Metrics:
+    - Fixed **Deployments dropdown** not refreshing when Project/Environment filters changed in cluster metrics.
+- Plugins:
+    - Global plugins in **disabled environments** are now correctly treated as non-existent and hidden from the UI.
+
 ## 2026-03-pipeline-view | 11 MAR 2026
 
 `NEW FEATURES`

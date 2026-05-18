@@ -138,6 +138,87 @@ Population rules:
 * Managed service → Derived from Managed Services conventions.
 * Non-managed service → Requires `publicAccess` to be enabled; resolves from the deployment's public URL.
 
+## Quix Plugin SDK
+
+The **Quix Plugin SDK** is a small JavaScript library hosted by the Portal. It's the standard integration layer for any embedded plugin UI and we recommend including it in every plugin: it handles the auth handshake with the Portal, keeps the Portal URL in sync with your plugin's internal navigation, and is the place future cross-frame contracts will be added. Including it gets you all of these for free and keeps your plugin forward-compatible.
+
+### Quick start
+
+!!! warning "Use your own Portal domain"
+    The SDK must be loaded from the **same Portal that hosts your plugin** — the auth and navigation contracts only line up between the SDK and the Portal it came from. Substitute `<your-portal-domain>` in the snippets below before copying:
+
+    * **Quix Cloud:** `portal.cloud.quix.io`
+    * **Self-hosted / dedicated / custom domain:** the host you use to access your Portal (for example `portal.example.com`).
+
+Add the SDK script to your embedded UI's HTML, then call `init()` and (optionally) register a token callback:
+
+```html
+<script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+<script>
+  QuixPlugin
+    .init()
+    .onToken(function (token) {
+      myApi.setAuthHeader('Bearer ' + token);
+    });
+</script>
+```
+
+That's it. When the embedded view loads, the SDK requests the auth token from the Portal, and your `onToken` callback fires as soon as it arrives. URL synchronisation is enabled at the same time — no extra code required.
+
+### What the SDK does
+
+Calling `QuixPlugin.init()` switches on the full set of plugin/Portal integrations. Today this covers two things; expect more to be layered on over time without requiring changes in your plugin.
+
+#### Auth handshake
+
+The SDK posts `REQUEST_AUTH_TOKEN` to the parent Portal, listens for the `AUTH_TOKEN` response, and caches the token internally. Any callback you register via `onToken(...)` receives the token — including callbacks registered *after* the token has already arrived (no race conditions on late registration).
+
+You only need this if your plugin makes authenticated calls to Quix APIs or to a backend that validates the Quix token. See [Authentication and authorization](#authentication-and-authorization-recommended) below for the auth options and [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) for backend validation.
+
+#### URL synchronisation
+
+The SDK keeps the Portal's browser URL in sync with your plugin's internal route. This means deep links into your plugin's UI just work:
+
+* When your plugin navigates internally (via `history.pushState`, `replaceState`, `popstate`, or `hashchange`), the SDK posts the new path to the Portal.
+* The Portal mirrors the path into its own URL bar — without reloading the iframe.
+* The full URL fragment is preserved: pathname, query string, and hash. So a plugin route like `/dashboard/items?filter=open#section` survives a refresh, a copy-paste, or a shared link.
+
+No code is required on your side for URL sync — `init()` enables it automatically. Just use normal browser navigation (or your framework's router) inside the plugin and the Portal URL will follow.
+
+### API reference
+
+The SDK exposes a single global, `QuixPlugin`, with two methods:
+
+**`QuixPlugin.init()`**
+
+Starts the SDK and enables all of the integrations described above. Returns the `QuixPlugin` object so calls can be chained.
+
+Calling `init()` more than once is a no-op — the SDK is idempotent and will not double-register listeners or fire duplicate messages.
+
+**`QuixPlugin.onToken(callback)`**
+
+Registers a function to receive the auth token. The callback is invoked with the token string as its only argument:
+
+```js
+QuixPlugin.onToken(function (token) {
+  // token is the Bearer token, e.g. 'eyJhbGciOi…'
+});
+```
+
+You can register multiple callbacks; they all fire when the token arrives.
+
+If a token has already been received before you register the callback (for example, you register it asynchronously after some other startup work), the callback is invoked **immediately** with the cached token. This means late registrations don't miss the token, and you don't need to track the SDK's lifecycle yourself.
+
+Returns the `QuixPlugin` object so calls can be chained.
+
+### Verifying the SDK is loaded
+
+On a successful `init()`, the SDK logs a collapsed group to the browser console headed by a blue `Quix` badge and the SDK version. When the auth token arrives, a `✓ Auth token received` line is added. If you don't see that group, the SDK script either failed to load or `init()` was never called.
+
+### Migrating from the manual `postMessage` integration
+
+Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds URL synchronisation on top — replace the hand-rolled handshake with `QuixPlugin.init().onToken(...)`. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
+
 ## Authentication and authorization (recommended)
 
 !!! note
@@ -146,70 +227,35 @@ Population rules:
 
 When used, the embedded view inherits authentication and authorization from the Quix platform: no separate login is required, and the same user/environment permissions apply.
 
-Quix supports two authentication methods for embedded plugins:
+Quix supports two ways to deliver the auth token to your plugin:
 
-=== "Token-based (postMessage)"
+=== "SDK-based (recommended)"
 
-    When an embedded view loads, the Plugin system injects the Quix user token into the iframe via `postMessage`. The UI can then use this token to call the backend securely.
+    Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal and exposes the result via `onToken(callback)`:
 
-    #### How the token is injected
-
-    On initial load of the embedded view (and on reload), the Portal provides the user token to the iframe so the UI can authenticate calls to the backend.
-
-    The token is passed via `window.postMessage` between the parent (Portal) and the embedded iframe. The following message types are exchanged:
-
-    * `REQUEST_AUTH_TOKEN` — sent by the iframe to ask the parent for a token
-    * `AUTH_TOKEN` — sent by the parent with `{ token: string }`
-
-    **Example implementation in the embedded view (iframe):**
-
-    ```ts
-    // Ask the parent window (Portal) for a token
-    window.parent.postMessage({ type: 'REQUEST_AUTH_TOKEN' }, '*');
-
-    // Listen for the token response from the parent
-    function messageHandler(event: MessageEvent) {
-      const { data } = event;
-      if (data?.type === 'AUTH_TOKEN' && data.token) {
-        // Your app-specific setter
-        setToken(data.token);
-        // Optionally remove the listener if you only need the token once
-        // window.removeEventListener('message', messageHandler);
-      }
-    }
-
-    window.addEventListener('message', messageHandler);
+    ```html
+    <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+    <script>
+      QuixPlugin
+        .init()
+        .onToken(function (token) {
+          myApi.setAuthHeader('Bearer ' + token);
+        });
+    </script>
     ```
 
-    **Example implementation in the Portal (parent window):**
+    Replace `<your-portal-domain>` with the host of the Portal serving your plugin (for example `portal.cloud.quix.io` on Quix Cloud, or your custom domain). See the [Quick start](#quick-start) admonition for the full list.
 
-    ```ts
-    // Listen for requests from the target iframe
-    function messageHandler(event: MessageEvent) {
-      const { origin, data } = event;
+    Use the token as a Bearer credential when calling Quix APIs, or pass it to your own backend and validate it there — see [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) below.
 
-      // Ensure the origin matches the iframe URL you expect
-      if (origin !== targetUrl) return;
-
-      if (data?.type === 'REQUEST_AUTH_TOKEN') {
-        // Reply with the token to the requesting iframe
-        const iframeWindow = deploymentIframe?.contentWindow;
-        iframeWindow?.postMessage({ type: 'AUTH_TOKEN', token }, targetUrl);
-      }
-    }
-
-    window.addEventListener('message', messageHandler);
-    ```
-
-    **Important security considerations:**
-
-    * Always validate `event.origin` in the parent before responding.
-    * Prefer using a specific `targetUrl` over `'*'` when posting back to the iframe.
-    * Remove listeners when no longer needed to avoid leaks.
+    For full SDK details (other methods, console logging, idempotency, late registration), see the [Quix Plugin SDK](#quix-plugin-sdk) section above.
 
 === "Cookie-based"
 
     For simpler integrations, embedded plugins can use the Portal's `quix_access_token` cookie for authentication. When the user is logged into Quix Cloud, this cookie contains a Bearer token that is automatically sent with requests to same-domain endpoints.
+
+    !!! note
+        Cookie-based auth is an alternative for the **token delivery** step only. You should still include the [Quix Plugin SDK](#quix-plugin-sdk) so your plugin gets URL synchronisation and stays forward-compatible with future cross-frame contracts — even if you don't use `onToken`.
 
     **Cookie details:**
 
