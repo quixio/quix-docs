@@ -26,7 +26,7 @@ You now have the opportunity to configure any **secrets** required, such as [Per
 
 Click `Add secrets`, configure your secrets as required, 
 
-See also the [secrets management documentation](../deploy/secrets-management.md).
+See also the [project variables documentation](../deploy/project-variables.md).
 
 Once you have added your secrets, click `Synchronize pipeline` and `Go to pipeline` to complete the project configuration. The services in the pipeline now start.
 

@@ -72,4 +72,4 @@ topics:
     dataTier: {{dataTier}}
 ```
 Then, simply set the `dataTier` variable to the appropriate value for each environment.
-For more details on using YAML variables, refer to the [YAML Variables Guide](../deploy/yaml-variables.md).
+For more details on per-environment variable substitution in `quix.yaml`, refer to the [project variables documentation](../deploy/project-variables.md).

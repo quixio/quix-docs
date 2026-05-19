@@ -272,8 +272,7 @@ nav:
         - 'Overview': 'deploy/overview.md'
         - 'Environment variables': 'deploy/environment-variables.md'
         - 'Quix variables': 'deploy/quix-variables.md'
-        - 'Secrets management': 'deploy/secrets-management.md'
-        - 'YAML variables': 'deploy/yaml-variables.md'
+        - 'Project variables': 'deploy/project-variables.md'
         - 'Configuring network ports': 'deploy/ports.md'  
         - 'State management': 'deploy/state-management.md'  
         - 'Deploy public services': 'deploy/deploy-public-page.md'
@@ -670,6 +669,8 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'get-started/welcome.md'
+        'deploy/secrets-management.md': 'deploy/project-variables.md'
+        'deploy/yaml-variables.md': 'deploy/project-variables.md'
         'quix-cloud/managed-services/plugin.md': 'quix-cloud/plugin.md'
         'quix-cloud/permissions.md': 'quix-cloud/roles.md'
         'contribute.md': 'kb/contribute.md'
