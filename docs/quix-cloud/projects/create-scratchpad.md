@@ -54,15 +54,15 @@ Follow these steps to create a scratchpad in Quix:
 
 - **Create from Environment**: Use the dropdown menu in the environment list to start creating a scratchpad.
 
-  ![Creating Scratchpad from Environment](../images/create-scratchpad/create-scratchpad-environment.png)
+  ![Creating Scratchpad from Environment](../../images/create-scratchpad/create-scratchpad-environment.png)
 
 - **Create from Topic**: You can also create a scratchpad directly from a topic in the pipeline view.
 
-  ![Creating Scratchpad from Topic in Pipeline View](../images/create-scratchpad/create-scratchpad-topic.png)
+  ![Creating Scratchpad from Topic in Pipeline View](../../images/create-scratchpad/create-scratchpad-topic.png)
 
 **3. Name Your Scratchpad**: Assign a name that indicates its purpose, such as "Scratchpad" or "Temporary Environment".
 
-  ![Scratchpad Creation View](../images/create-scratchpad/create-scratchpad-new.png)
+  ![Scratchpad Creation View](../../images/create-scratchpad/create-scratchpad-new.png)
 
 **4. Configure Branch and Link Topics**: Choose an existing branch or create a new one (e.g., `dev-temp`) to keep your scratchpad changes isolated. In the configuration settings, select which topics to link from the existing environment, such as those from staging or production.
 
@@ -70,7 +70,7 @@ Follow these steps to create a scratchpad in Quix:
 
 **6. View the Result**: After creating your scratchpad, you will see an overview of the environment. Confirm that your linked topics and deployments are correctly set up. Once verified, your scratchpad is ready for use, allowing you to test and experiment without impacting other environments.
 
-  ![Locked and linked sample](../images/create-scratchpad/create-scratchpad-result.png)
+  ![Locked and linked sample](../../images/create-scratchpad/create-scratchpad-result.png)
 
 To maintain stability, scratchpads feature certain elements that are locked:
 

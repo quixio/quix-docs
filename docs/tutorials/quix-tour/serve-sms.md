@@ -102,7 +102,7 @@ If you want to send an alert SMS follow these steps:
     | VONAGE_API_SECRET | `secret` |
     | TO_NUMBER | `secret` |
                
-    See also [how to add environment variables](../../deployments/environment-variables.md).
+    See also [how to add environment variables](../../quix-cloud/deployments/environment-variables.md).
 
 4. You now need to add the `vonage` module to the `requirements.txt` file in your project. Click to open it and add a line for `vonage`. This ensures the module is built into the deployment.
 
@@ -119,11 +119,11 @@ Again generate a CPU spike by opening several large applications on your laptop.
 
 ## Conclusion
 
-You've now completed the Quix Cloud Tour. You've built a simple but complete stream processing pipeline. You can reuse the code, with some modifications, in your own projects. With a small amount of work, the SMS service you created could be turned into a general purpose SMS alaerting module, using the Vonage APIs. It could also be adapted to build out other alerting services, such as [PagerDuty](../../tutorials/influxdb-alerting/add-alerting.md).
+You've now completed the Quix Cloud Tour. You've built a simple but complete stream processing pipeline. You can reuse the code, with some modifications, in your own projects. With a small amount of work, the SMS service you created could be turned into a general purpose SMS alerting module, using the Vonage APIs. It could also be adapted to build out other alerting services, such as [PagerDuty](../influxdb-alerting/add-alerting.md).
 
 ## Next steps
 
 To continue your Quix learning journey, you may want to consider some of the following resources:
 
 * [Quix Streams docs](https://quix.io/docs/quix-streams/introduction.html)
-* [InfluxDB alerting tutorial](../../tutorials/influxdb-alerting/overview.md)
+* [InfluxDB alerting tutorial](../influxdb-alerting/overview.md)

@@ -10,7 +10,7 @@ In our Code Samples you can find our `Web API Template` which demonstrates how t
 
 There are also examples dashboard and web/UI examples using `Dash`, `Streamlit` and `Angular`.
 
-![Code Samples](../images/code-samples-dashboard.png)
+![Code Samples](../../images/code-samples-dashboard.png)
 
 ## The code
 
@@ -40,7 +40,7 @@ To access your public facing service or web site you must enable `Public Access`
 
 2. If needed adjust the `URL prefix` to suit your needs.
 
-![Deployment dialog](../images/deploy/deployment-dialog.png){width=450px}
+![Deployment dialog](../../images/deploy/deployment-dialog.png){width=450px}
 
 ## Security
 

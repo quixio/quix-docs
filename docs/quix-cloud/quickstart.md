@@ -120,6 +120,6 @@ Feel free to explore further.
 
     Deploy a connector to interface with an external system.
 
-    [Deploy a Connector :octicons-arrow-right-24:](../quix-cloud/deploying-connectors.md)
+    [Deploy a Connector :octicons-arrow-right-24:](./services/deploying-connectors.md)
 
 </div>

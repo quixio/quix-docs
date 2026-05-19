@@ -65,7 +65,7 @@ The environment ID is a combination of your organization and environment names, 
 
 You can also get the environment ID from Settings. Click `Settings` in the bottom-left corner of the portal, select the environment of interest. You can then copy the environment ID (previously known as the workspace ID) from the settings panel, as shown in the following screenshot:
 
-![Get environment ID from settings](../../images/get-environment-id/get-environment-id-settings.png){width=80%}
+![Get environment ID from settings](../../../images/get-environment-id/get-environment-id-settings.png){width=80%}
 
 ### Example environment ID
 

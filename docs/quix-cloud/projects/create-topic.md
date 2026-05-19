@@ -7,7 +7,7 @@ To create a topic:
 1. On the left-hand main menu, click `Topics`.
 2. In the top right of the screen click `+ New topic`. The `New topic` dialog is displayed:
 
-    ![New topic dialog](../images/new-topic-dialog.png)
+    ![New topic dialog](../../images/new-topic-dialog.png)
 
 3. Give your topic a suitable name.
 4. If you want to set some specific parameters for the topic, click `Advanced settings` to display the panel with [configurable parameters](#advanced-settings) for your broker.

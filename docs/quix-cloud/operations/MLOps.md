@@ -35,7 +35,7 @@ In Quix you can:
 
 * Connect validated models to live output topics.
 * Connect models using the UI to form a pipeline. Pipelines consist of transforms connected together using input and output topics.
-* Work seamlessly with engineers to connect software services. You can leverage a number of prebuilt [connectors](../quix-connectors/templates/index.md) to connect to common services.
+* Work seamlessly with engineers to connect software services. You can leverage a number of prebuilt [connectors](../../quix-connectors/templates/index.md) to connect to common services.
 
 ## Deploy production models
 
@@ -52,5 +52,5 @@ In Quix, data teams can:
 
 Here are some suggested next steps to find out more about MLOps in Quix:
 
-* [Quickstart](../quix-cloud/quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
-* [Predictive maintenance tutorial](../tutorials/predictive-maintenance/overview.md) - build a complete ML pipeline for predicting equipment failures using real-time data.
+* [Quickstart](../quickstart.md) - get data into Quix and displayed in real time in under 10 minutes.
+* [Predictive maintenance tutorial](../../tutorials/predictive-maintenance/overview.md) - build a complete ML pipeline for predicting equipment failures using real-time data.

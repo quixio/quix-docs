@@ -97,7 +97,7 @@ To do anything useful with Quix, you'll need at least one project, and one envir
 
 2. Click on `+ New project`.
 
-    ![+ New project](../images/create-project/create-project.png)
+    ![+ New project](../../images/create-project/create-project.png)
 
 3. Give your project a name, such as `My project`.
 
@@ -129,7 +129,7 @@ You'll now create an environment in which you can do your development work (reme
 
 1. There are various ways to add an environment. One way is to click the kebab menu next to the panel that displays your environments:
 
-    ![+ New project](../images/create-project/add-environment.png)
+    ![+ New project](../../images/create-project/add-environment.png)
 
 2. Now click `+ New environment`.
 

@@ -53,23 +53,23 @@ You can create a linked project in Quix by linking topics from another environme
 
 - **Topics View**: Navigate to the topic list:
 
-  ![Create Linked Project from Topic](../images/create-linked-project/create-from-topic.png)
+  ![Create Linked Project from Topic](../../images/create-linked-project/create-from-topic.png)
 
 - **Pipeline View**: Navigate to the environment pipeline and click on the plus icon of an existing deployment:
 
-  ![Create Linked Project from Deployment](../images/create-linked-project/create-from-deployment.png)
+  ![Create Linked Project from Deployment](../../images/create-linked-project/create-from-deployment.png)
 
 **3. Select the Topics to Link**: Identify and select the topics you want to link from the other environment.
 
-  ![Linked Topic Selection](../images/create-linked-project/select-topic-to-link.png)
+  ![Linked Topic Selection](../../images/create-linked-project/select-topic-to-link.png)
 
 **4. Finalize the Linking Process**: Confirm your configurations and click 'Create Link' to add the linked topics. Once completed, you will see the new topics reflected in your environment's pipeline view.
 
-  ![Linked Topic Environment Pipeline view](../images/create-linked-project/linked-topic-pipeline-view.png)
+  ![Linked Topic Environment Pipeline view](../../images/create-linked-project/linked-topic-pipeline-view.png)
 
 **5. Visualize in the Project Pipeline View**: The project pipeline view will now show a graphical representation of the linked topics, clearly illustrating the relationship between projects and environments.
 
-  ![Linked Project Result View](../images/create-linked-project/linked-project-pipeline.png)
+  ![Linked Project Result View](../../images/create-linked-project/linked-project-pipeline.png)
 
 ## Adding Linked Topics to Your Existing Environment
 
@@ -79,7 +79,7 @@ If you already have an environment and want to add linked topics, you can follow
 
 2. **Click on "Import Topics"**: Simply click on the "Import Topics" button, and you'll be able to select the topics you want to link. You'll see the same image below during this process:
 
-  ![Linked Topic Selection](../images/create-linked-project/select-topic-to-link.png)
+  ![Linked Topic Selection](../../images/create-linked-project/select-topic-to-link.png)
 
 Alternatively, you can manipulate linked topics using YAML configuration.
 

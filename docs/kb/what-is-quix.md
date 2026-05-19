@@ -181,7 +181,7 @@ Further, changes in this file in one environment can be merged into another envi
 
 You can see that a typical pipeline is built from sources, transforms, and destinations.
 
-You can see how to build a simple pipeline in the [Quix Cloud Tour](../quix-cloud/quixtour/overview.md). 
+You can see how to build a simple pipeline in the [Quix Cloud Tour](../tutorials/quix-tour/process-threshold.md). 
 
 ### Multiple environments
 
@@ -200,5 +200,5 @@ Quix provides a suite of tools to enable you to monitor and manage your data. Th
 ## Next steps
 
 * [Quickstart](../quix-cloud/quickstart.md) - get data into Quix and display it in less than 10 minutes
-* [Quix Cloud Tour](../quix-cloud/quixtour/overview.md) - build a complete pipeline in less than 30 minutes
+* [Quix Cloud Tour](../tutorials/quix-tour/process-threshold.md) - build a complete pipeline in less than 30 minutes
 * Watch [a video](https://www.youtube.com/watch?v=0cr19MfATfY){target=_blank} on the art of the possible with Quix

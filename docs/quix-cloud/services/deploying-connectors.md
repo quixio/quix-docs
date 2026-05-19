@@ -5,7 +5,7 @@ description: Deploy Connectors to Quix Cloud to integrate with external systems.
 
 # Deploying Connectors
 
-[Connectors](../quix-connectors/templates/index.md) allow you to quickly connect with other systems. 
+[Connectors](../../quix-connectors/templates/index.md) allow you to quickly connect with other systems. 
 
 Follow these steps to find and deploy a connector:
 

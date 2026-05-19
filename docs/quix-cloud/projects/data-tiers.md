@@ -20,7 +20,7 @@ The **Data Tiers** configuration can be found within the **Organization Settings
 
 #### Organization Settings Section
 
-![Data Tiers in Organization Settings](../images/data-tiers/data-tiers-section.png)
+![Data Tiers in Organization Settings](../../images/data-tiers/data-tiers-section.png)
 
 In the Organization Settings section, you can see the list of current data tiers, including the default **Gold**, **Silver**, and **Bronze** tiers. You can edit, delete, or add new tiers as needed.
 
@@ -28,7 +28,7 @@ In the Organization Settings section, you can see the list of current data tiers
 
 To add a new data tier, click on **Add new data tier**. This will open a dialog where you can specify:
 
-![Add Data Tier Dialog](../images/data-tiers/add-data-tier.png)
+![Add Data Tier Dialog](../../images/data-tiers/add-data-tier.png)
 
 - **Name**: The name of the tier (e.g., "Gold", "Silver").
 - **Accent Color**: A color to visually distinguish the tier.
@@ -44,13 +44,13 @@ You can set the data tier for topics in two ways: through the **UI** and by usin
 
 In the topic configuration section within the UI, select the desired data tier (e.g., Bronze, Silver, or Gold) when adding a new topic. This is a straightforward way to categorize topics based on data quality and processing level.
 
-![Add Topic with Data Tier Selection](../images/data-tiers/new-topic.png)
+![Add Topic with Data Tier Selection](../../images/data-tiers/new-topic.png)
 
 This visual interface allows users to easily assign tiers without requiring code, making it accessible for quick, manual configurations.
 
 Additionally, you can view a list of topics with their respective data tiers in the topics list:
 
-![Topics List](../images/data-tiers/topics-list.png)
+![Topics List](../../images/data-tiers/topics-list.png)
 
 ### Setting Data Tier Using quix.yaml
 

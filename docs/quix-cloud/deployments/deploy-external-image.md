@@ -11,11 +11,11 @@ To summarize, the steps for deploying an external image are:
 
 2. **Access the `New deployment` dialog in the UI**: Select the option to deploy an external image from the menu.
 
-   ![Menu showing external image deployment option](../images/deploy/new-deployment-menu.png)
+   ![Menu showing external image deployment option](../../images/deploy/new-deployment-menu.png)
 
 3. **Provide the external image uri and configure settings**: In the dialog, specify the image and adjust settings like resources, replicas, and public access.
 
-   ![External Image Deployment settings dialog](../images/deploy/deployment-image-dialog.png)
+   ![External Image Deployment settings dialog](../../images/deploy/deployment-image-dialog.png)
 
 ## External Image Reference
 

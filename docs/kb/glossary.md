@@ -4,7 +4,7 @@ The following is a list of terms useful when working with Quix and streaming dat
 
 ## APIs
 
-In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [APIs overview](../quix-cloud/applications/apis-overview.md).
+In addition to the Quix Streams client library, there are several APIs that you can use with Quix. See the [APIs overview](../quix-cloud/apis/overview.md).
 
 ## Application
 

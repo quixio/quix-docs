@@ -10,11 +10,11 @@ Non-managed services can also define these properties in YAML, making any deploy
 
 * Embed a UI in Deployment Details when enabled
 
-  ![Embedded View](managed-services/images/dynamic-configuration-embedded-view.png){width=80%}
+  ![Embedded View](images/dynamic-configuration-embedded-view.png){width=80%}
 
 * Optionally show a sidebar shortcut to the embedded view (environment-scoped)
 
-  ![Sidebar example](managed-services/images/plugin-sidebar.png){height=50%}
+  ![Sidebar example](images/plugin-sidebar.png){height=50%}
 
 * Optionally show a global shortcut in the top header (organization-wide access)
 
@@ -70,7 +70,7 @@ Configuration details
 
 Global plugins appear in the top header of Quix Cloud and provide organization-wide access to a plugin's embedded UI, regardless of which environment or workspace is currently active.
 
-![Global plugin in header](../images/quix-cloud/plugin-global-header.png)
+![Global plugin in header](../../images/quix-cloud/plugin-global-header.png)
 
 ### What are global plugins?
 
@@ -99,7 +99,7 @@ Global plugins use a specialized permission model:
 * Users can access a global plugin deployment even without `workspace:read` permissions on the workspace containing the deployment, as long as they have `plugins:read` on that specific deployment.
 * This allows you to expose specific tools organization-wide without granting full workspace access.
 
-For more information about roles and permissions, see the [Roles and Permissions](./roles.md) documentation.
+For more information about roles and permissions, see the [Roles and Permissions](../roles.md) documentation.
 
 ### Configuration example
 
@@ -330,7 +330,7 @@ else:
 
 ## Checking permissions programmatically
 
-For developers building integrations, you can check [permissions](./roles.md) using the Portal API.
+For developers building integrations, you can check [permissions](../roles.md) using the Portal API.
 
 ### API endpoint
 
@@ -370,6 +370,6 @@ For developers building integrations, you can check [permissions](./roles.md) us
 
 ## See also
 
-- [Roles and Permissions](./roles.md) - Understanding user roles and permissions
+- [Roles and Permissions](../roles.md) - Understanding user roles and permissions
 - [Personal Access Tokens](../applications/authentication/personal-access-token.md) - Token-based authentication
 - [Portal API](../apis/portal-api/overview.md) - Full API documentation

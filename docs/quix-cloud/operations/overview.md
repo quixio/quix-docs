@@ -11,13 +11,13 @@ This section of the documentation covers **managing your projects, pipelines, an
 
 When you build an application for deployment, you can view build logs for it:
 
-![Build logs](../images/manage/build-logs.png)
+![Build logs](../../images/manage/build-logs.png)
 
 Any problems with the build are shown here. There is also a button to enable you to download the build logs for offline viewing.
 
 When looking at a deployment at run time, you can view logs for the service or job. Any run time errors are shown here.
 
-![Logs](../images/manage/logs.png)
+![Logs](../../images/manage/logs.png)
 
 There is also a button to enable you to download the logs for offline viewing.
 
@@ -27,7 +27,7 @@ There is also a tab with messages view. This is described in a later section.
 
 The message view shows the raw message format. The message viewer is available next to the Build logs, and logs tabs, as shown in the following screenshot:
 
-![Message viewer](../images/manage/messages.png)
+![Message viewer](../../images/manage/messages.png)
 
 
 ## Portal API

@@ -18,7 +18,7 @@ To use the `External destination` connector, step through the following procedur
 
 7. In the Pipeline view click the newly created source and the following is displayed:
 
-    ![External destination options](../../images/external-destination-options.png){width=80%}
+    ![External destination options](../../../images/external-destination-options.png){width=80%}
 
 8. For this example, select `WebSockets API - JavaScript`. Code is generated for you that uses the Streaming Reader API (SignalR - WebSockets interface).
 

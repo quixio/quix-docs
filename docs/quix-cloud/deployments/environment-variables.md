@@ -6,11 +6,11 @@ In Quix, it is possible to create new environment variables that your code can t
 
 To add environment variables that you can access from your code, open the code view for your service, and in the `Environment variables` panel, click `+ Add`. 
 
-![Add environment variable](../images/env-variables/add-env-var.png){width=60%}
+![Add environment variable](../../images/env-variables/add-env-var.png){width=60%}
 
 The `Add Variable` dialog is displayed:
 
-![Add variable dialog](../images/env-variables/add-env-var-dialog.png){width=60%}
+![Add variable dialog](../../images/env-variables/add-env-var-dialog.png){width=60%}
 
 Complete the information for the environment variable. You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
 

@@ -6,7 +6,7 @@ When deploying a service, enabling state management enables the service to maint
 
 Enable state management during service deployment if your code relies on state or expects files to persist across restarts:
 
-![state management](../images/state/state-management.png){width=80%}
+![state management](../../images/state/state-management.png){width=80%}
 
 Enabling state creates a storage volume that can be accessed by your code. By default, this is mounted at `/app/state`, but you can configure a custom path in the deployment settings or via the `quix.yaml` file.
 

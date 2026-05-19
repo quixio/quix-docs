@@ -14,7 +14,7 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 A PAT inherits permissions from the user who created it, but can be configured with more restricted access. The effective permissions are the **intersection** of:
 
-- The user's permissions (based on their [role](../../quix-cloud/roles.md))
+- The user's permissions (based on their [role](../../roles.md))
 - The token's configured permissions
 
 This means a PAT can only have equal or fewer permissions than you have. This is useful for:
@@ -25,5 +25,5 @@ This means a PAT can only have equal or fewer permissions than you have. This is
 
 ## See also
 
-- [Roles and Permissions](../../quix-cloud/roles.md) - Understanding user roles and permissions
+- [Roles and Permissions](../../roles.md) - Understanding user roles and permissions
 - [Streaming Token](./streaming-token.md) - SDK tokens for Quix Streams

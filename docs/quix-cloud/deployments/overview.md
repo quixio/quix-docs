@@ -18,7 +18,7 @@ To recap, your typical workflow is:
 
 When you deploy your application the dialog you see is the `New deployment` dialog:
 
-![New deployment](../images/deploy/new-deployment-dialog.png){width=80%}
+![New deployment](../../images/deploy/new-deployment-dialog.png){width=80%}
 
 ## Deployment version
 
@@ -26,17 +26,17 @@ The version of the code you are going to deploy. You can use the latest version 
 
 If you're using the latest version of the code you'll see `Latest` displayed in the corresponding service panel:
 
-![Latest version](../images/deploy/deployment-latest-version.png)
+![Latest version](../../images/deploy/deployment-latest-version.png)
 
 If you're using a pinned (tagged or specified commit) you'll see the tag or commit number as appropriate:
 
-![Tagged version](../images/deploy/deployment-tagged-version.png)
+![Tagged version](../../images/deploy/deployment-tagged-version.png)
 
 !!! tip
 
     If you modify the code for a deployment and commit it, then the system recognizes that your pipeline is out of sync with the code in the project, and you are prompted to sync your environment. 
     
-    ![Out of sync](../images/deploy/out-of-sync.png)
+    ![Out of sync](../../images/deploy/out-of-sync.png)
     
     However, this deploys the service with the new code immediately, which might not be what you want. If you want to continue editing your code, simply ignore the sync request, edit your code, then redeploy to either the latest version or a pinned version as required. The `sync environment` prompt will disappear at this point, as your project is now synchronized, that is the pipeline is running the version of code you specified.
 
@@ -44,7 +44,7 @@ If you're using a pinned (tagged or specified commit) you'll see the tag or comm
 
 The following screenshot shows the deployment settings panel:
 
-![Deployment settings](../images/deploy/deployment-settings.png){width=80%}
+![Deployment settings](../../images/deploy/deployment-settings.png){width=80%}
 
 The main features are described in the following table:
 

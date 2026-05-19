@@ -98,8 +98,6 @@ To find out more about the source Amazon S3 Kafka connector offered by Quix, [bo
 
 Yes, Quix also provides an Amazon S3 sink connector for Kafka.
 
-[Learn more about it](../../../quix-streams/sinks/coming-soon/AmazonS3-sink.md).
-
 In fact, Quix offers 130+ Kafka sink and source connectors, enabling you to move data from a variety of sources into Kafka, process it, and then send it to your desired destination(s). All in real time.
 
 [Explore the library of Quix Kafka connectors](https://quix.io/connectors)

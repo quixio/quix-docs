@@ -2,13 +2,13 @@
 
 One of the simplest ways to get started with Quix is to clone one of the projects in the [project gallery](https://quix.io/templates){target=_blank}.
 
-![Clone a project](../images/clone-project/clone-project-template.png)
+![Clone a project](../../images/clone-project/clone-project-template.png)
 
 If you see a project that you are interested in, click the `Clone this project` button.
 
 This **copies** the project into your Quix account. The `Import project` dialog is displayed:
 
-![import project](../images/clone-project/import-project.png)
+![import project](../../images/clone-project/import-project.png)
 
 You have a couple of options here. The quickest and simplest way is to use the "One click" option, where are the configuration is done for you. 
 
@@ -18,7 +18,7 @@ The wizard then creates a copy of the project in your Quix account.
 
 Enter the project's environment, and the `Sync your environment` dialog is displayed:
 
-![Sync your environment](../images/clone-project/sync-your-environment.png)
+![Sync your environment](../../images/clone-project/sync-your-environment.png)
 
 Click the `Sync environment` button to make sure all data is synchronized between the project's repository, and your environment.
 

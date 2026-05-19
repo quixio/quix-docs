@@ -8,7 +8,7 @@ Quix includes an extensive collection of Code Samples, that can help you rapidly
 
 Sources, and Destinations are collectively known as "Connectors". In the `TYPE` facet selector you can choose `Connectors` to list just the connectors. Source connectors provide a way to get data into Quix, and Destination connectors provide a way of getting data out of Quix. 
 
-![Code Samples](../images/code-samples.png)
+![Code Samples](../../images/code-samples.png)
 
 You can of course create your own custom code samples or connectors, if the functionality you require is not already available.
 

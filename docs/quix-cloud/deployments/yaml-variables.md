@@ -125,7 +125,7 @@ Learn more about YAML variables by watching the following video:
 
 To create variables, navigate to the `Variables` tab and click `+ New variable`. Define variables like `CPU`, `MEMORY`, `REPLICAS`, `DISABLED`, `URL_PREFIX`, and `ENV_NAME`.
 
-![Example](../images/yaml-variables.png)
+![Example](../../images/yaml-variables.png)
 
 Default values can be specified to ensure consistency across environments without requiring specific values for each one.
 

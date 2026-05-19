@@ -1,6 +1,6 @@
 # Secrets management
 
-Sometimes you connect the [Quix Connectors](../quix-connectors/templates/index.md), or services you have created, to other services, such as AWS, Vonage, Twilio, Azure and so on. You usually need to provide credentials to access these third-party APIs and services, using environment variables. 
+Sometimes you connect the [Quix Connectors](../../quix-connectors/templates/index.md), or services you have created, to other services, such as AWS, Vonage, Twilio, Azure and so on. You usually need to provide credentials to access these third-party APIs and services, using environment variables. 
 
 You do not want to expose these credentials through the use of environment variables in your YAML code, service code, Git repository, or even the UI, which may have shared access. Quix provides a feature to enable your credentials to be stored securely - secrets management.
 
@@ -12,7 +12,7 @@ To create a secret variable:
 
 1. In the code view for your application, select `Secrets management`:
 
-    ![secrets management](../images/env-variables/secrets-management.png)
+    ![secrets management](../../images/env-variables/secrets-management.png)
 
 2. Click `+ New variable`.
 

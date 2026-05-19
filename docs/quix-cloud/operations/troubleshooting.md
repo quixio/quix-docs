@@ -128,11 +128,11 @@ There are currently two scenarios in which you might encounter an issue caused b
 
 1. Quix data store has been deployed but DNS entries have not fully propagated. In this scenario you might see a banner when accessing the Quix data store.
 
-    ![Quix data storage warning](../images/quix-data-store.png)
+    ![Quix data storage warning](../../images/quix-data-store.png)
 
 2. A dashboard or other publicly visible deployment is not yet accessible, again due to DNS propagation.
 
-    ![Site can't be reached](../images/site-cant-be-reached.png)
+    ![Site can't be reached](../../images/site-cant-be-reached.png)
 
 !!! tip
 

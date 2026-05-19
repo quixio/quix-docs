@@ -9,11 +9,11 @@ In either case, you must configure the registry credentials on the platform to s
  
 To configure these credentials, navigate to your organization's Settings page and locate the Container Registries section. Here, you can create, edit, and delete container registry configurations as needed.
 
-![Settings](../images/container-registies/container-registries-settings.png)
+![Settings](../../images/container-registies/container-registries-settings.png)
 
 ## Required Information:
 
-![Create](../images/container-registies/container-registries-create.png){width=60%}
+![Create](../../images/container-registies/container-registries-create.png){width=60%}
 
 Provide the following details when configuring credentials:
 

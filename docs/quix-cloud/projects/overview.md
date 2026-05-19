@@ -49,7 +49,7 @@ To protect your investment in Quix, legacy workspaces will be supported for some
 
 If you already have a legacy workspace, or you wish to create one for some reason, such as to follow some old content, then this is still supported. You can create a legacy workspace by clicking `+ New workspace`, as shown in the following screenshot:
 
-![Legacy Workspace](../images/legacy-workspaces.png)
+![Legacy Workspace](../../images/legacy-workspaces.png)
 
 !!! tip
 

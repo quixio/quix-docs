@@ -38,17 +38,17 @@ When you [create a project](create-project.md), you'll need to create at least o
 
 There are several ways you can create a new environment, if you've not created one as part of creating the project. For example, you can do it from the top-level kebab menu:
 
-![Create environment - kebab menu](../images/create-environment/create-environment-kebab-menu.png){width=60%}
+![Create environment - kebab menu](../../images/create-environment/create-environment-kebab-menu.png){width=60%}
 
 You can also create an environment from the main project screen:
 
-![Create environment - main project screen](../images/create-environment/create-environment-project-screen.png){width=60%}
+![Create environment - main project screen](../../images/create-environment/create-environment-project-screen.png){width=60%}
 
 ## Name and branch
 
 You now need to give your environment a name, and select (or create) the branch it is associated with:
 
-![Name and branch](../images/create-environment/name-branch.png){width=60%}
+![Name and branch](../../images/create-environment/name-branch.png){width=60%}
 
 You can enter any suitable name for your environment. Examples could be: production, testing, develop, staging, prototype, and so on. Any name that suits the use case can be used.
 
@@ -68,11 +68,11 @@ Each of these is described briefly in the following sections.
 
 ### Quix broker
 
-The simplest and most convenient choice is to use Quix-managed Kafka. No installation of Kafka is required, and configuration can be done through the UI if you need to change the sensible default values. Very little knowledge of Kafka is expected, beyond basic familiarity with concepts such as [topics](../kb/glossary.md#topic).
+The simplest and most convenient choice is to use Quix-managed Kafka. No installation of Kafka is required, and configuration can be done through the UI if you need to change the sensible default values. Very little knowledge of Kafka is expected, beyond basic familiarity with concepts such as [topics](../../kb/glossary.md#topic).
 
 There is a small charge for storage for messages persisted in a topic: 
 
-![Topic storage](../images/create-environment/topic-storage.png){width=80%}
+![Topic storage](../../images/create-environment/topic-storage.png){width=80%}
 
 ### Managed Kafka
 
@@ -89,13 +89,13 @@ Select your managed broker option, and then follow the detailed setup guide prov
 
 If you want to install and manage your own Kafka installation, you can do this too, as long as the Kafka Cluster is available on the Internet. You'll need to do more configuration, and be very familiar with details of Kafka hosting and configuration. Selecting this option presents you with a setup guide:
 
-![Self-hosted Kafka](../images/create-environment/self-hosted-kafka.png){width=90%}
+![Self-hosted Kafka](../../images/create-environment/self-hosted-kafka.png){width=90%}
 
 You also have the option to test your connection with the Kafka server before continuing.
 
 ### Broker setup guides
 
-As well as the guides built into Quix Cloud to help set up your broker, there are also some setup guides in the [Integrations documentation](../integrations/brokers/overview.md).
+As well as the guides built into Quix Cloud to help set up your broker, there are also some setup guides in the [Integrations documentation](../../integrations/brokers/overview.md).
 
 ### Use cases
 

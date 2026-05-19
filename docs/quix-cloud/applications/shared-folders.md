@@ -44,11 +44,11 @@ root
 
 #### Click the folder button
 
-   ![The button screenshot](../images/shared-folders/online-ide.png){: style="max-width:500px"}
+   ![The button screenshot](../../images/shared-folders/online-ide.png){: style="max-width:500px"}
 
 #### Select your folder
 
-   ![Folder selection popup](../images/shared-folders/folder-selection.png){: style="max-width:500px"}
+   ![Folder selection popup](../../images/shared-folders/folder-selection.png){: style="max-width:500px"}
 
 !!! tip
     You can also edit `app.yaml` manually to add or remove folders.
@@ -68,7 +68,7 @@ includedFolders:
 
 #### Confirmation
 
-   ![The selected folders will now appear in the online IDE](../images/shared-folders/result.png){: style="max-width:500px"}
+   ![The selected folders will now appear in the online IDE](../../images/shared-folders/result.png){: style="max-width:500px"}
 
 Whenever you [deploy your application](../deployments/overview.md), run it in the online IDE, or execute it [locally using the CLI](../quix-cli/local-development/local-debug.md), all directories listed under `includedFolders` will be bundled with your application to ensure they are available at runtime.
 

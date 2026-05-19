@@ -8,7 +8,7 @@ There are various ways to create an application:
 
 When you create your application, you are prompted for an application name and path:
 
-![Application name and path](../images/application/save-code-sample.png)
+![Application name and path](../../images/application/save-code-sample.png)
 
 The application name can be any suitable name, the application path is the folder in which the application is stored in the Git repository. 
 
@@ -16,7 +16,7 @@ By default the path is set to be the same as the application name, but you can c
 
 By way of example, if you created an application with the name `My Application Name`, and left the path as the default value, you Git repository would look similar to the following:
 
-![Application path](../images/application/application-path.png)
+![Application path](../../images/application/application-path.png)
 
 Note the path is the same as the application name.
 

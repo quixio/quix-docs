@@ -38,7 +38,7 @@ In order to familarise you with the Quix Telegraf connector you will first deplo
     * Provide the name for the output topic, which is where the data will be published.
     * Click `Customise connector`, this will save a copy of the files to your project.
     * You can now edit the `telegraf.conf` file to add more inputs, and see how the Quix output is configured.
-    * When you are happy with the configuration, you can [deploy](../../../quix-cloud/deployments/overview.html){target=_blank} the service.
+    * When you are happy with the configuration, you can [deploy](../../../quix-cloud/deployments/overview.md){target=_blank} the service.
 
 ## View the data
 
@@ -224,7 +224,7 @@ Details about these Telegraf plugins can be found in the [Telegraf plugin direct
 
 ## Next steps
 
-* Learn how to build a complete [Python stream processing pipeline](../../../quix-cloud/quixtour/overview.md)
+* Learn how to build a complete [Python stream processing pipeline](../../../tutorials/quix-tour/process-threshold.md)
 * Try one of our [tutorials](../../../tutorials/overview.md)
 * Obtain an [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}
 * Read the comprehensive [Telegraf documentation](https://docs.influxdata.com/telegraf/v1/){target=_blank}

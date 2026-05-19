@@ -8,11 +8,11 @@ A project in Quix maps to a Git repository. Within a project you can create mult
 
 This section shows an example pipeline consisting of one application, `Demo Data`, as illustrated by the following screenshot:
 
-![Pipeline](../images/project-structure/pipeline.png)
+![Pipeline](../../images/project-structure/pipeline.png)
 
 Looking at the project stored in Git, it would have the following structure:
 
-![Project structure](../images/project-structure/project-structure.png)
+![Project structure](../../images/project-structure/project-structure.png)
 
 Note the `quix.yaml` file that defines the entire pipeline. There is aso a folder for the application, `Demo Data`.
 
@@ -60,7 +60,7 @@ This defines one or more deployments, and their allocated resources, as well as 
 
 Opening the `Demo Data` folder in the Git repository, you see the structure of the application (one service in the pipeline) itself:
 
-![Application structure](../images/project-structure/app-structure.png)
+![Application structure](../../images/project-structure/app-structure.png)
 
 The notable file here is the `app.yaml` file that defines important aspects of the application. The full `app.yaml` for this application is shown here:
 
