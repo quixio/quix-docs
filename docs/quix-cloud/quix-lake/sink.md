@@ -1,9 +1,9 @@
 ---
-title: "DataLake.Sink"
+title: Sink
 description: Connector that persists Kafka data into Quix Lake.
 ---
 
-# Quix Lake - Sink
+# Sink
 
 The Quix Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **Replay**.
 

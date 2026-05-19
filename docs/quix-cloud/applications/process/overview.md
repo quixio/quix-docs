@@ -1,8 +1,8 @@
 ---
-title: Processing data
+title: Process data overview
 description: This section of the documentation covers processing your data.
 ---
 
-# Overview - Processing data
+# Process data overview
 
 This section of the documentation covers **processing your data**.

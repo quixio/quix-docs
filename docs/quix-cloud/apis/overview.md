@@ -1,4 +1,4 @@
-# Quix APIs Overview
+# APIs overview
 
 Quix provides several APIs. These are:
 

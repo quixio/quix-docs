@@ -6,7 +6,7 @@ If you're using Quix Streams for local development, you'll need to set some envi
 Quix__Sdk__Token="sdk-12345"
 ```
 
-You can read the documentation on [obtaining your SDK token](./streaming-token.md), also known as the streaming token.
+You can read the documentation on [obtaining your SDK token](../../access-security/streaming-token.md), also known as the streaming token.
 
 You code can then load the `.env` file:
 

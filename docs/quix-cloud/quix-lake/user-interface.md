@@ -1,9 +1,9 @@
 ---
-title: Quix Lake - User Interface
+title: User interface
 description: Explore, search, and manage persisted datasets in Quix Lake.
 ---
 
-# Quix Lake - User Interface
+# User interface
 
 The **Quix Lake User Interface** lets you browse, search, and manage datasets persisted into Quix Lake. It surfaces Avro data segments and their Parquet index metadata, making datasets easy to discover and replay.
 

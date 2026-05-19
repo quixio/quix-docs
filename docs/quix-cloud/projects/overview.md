@@ -1,9 +1,9 @@
 ---
-title: Projects and environments
+title: Projects overview
 description: Quix projects represent Git repositories and environments branches.
 ---
 
-# Projects and environments
+# Projects overview
 
 This section of the documentation covers **creating your project and environments**.
 

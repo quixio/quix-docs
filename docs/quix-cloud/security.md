@@ -1,4 +1,4 @@
-# Quix Cloud Security
+# Security and compliance
 
 Quix follows the latest best practices in securing your application and its data on our platform. Security and safety is a core tenet of the way we work.
 

@@ -1,10 +1,10 @@
 ---
 
-title: Quix Lake - API
+title: API
 description: Programmatic access to Quix Lake for search, metadata, file discovery, and lifecycle operations. Backend for the Quix Lake UI; Metadata endpoints are the primary integration surface for your external re-indexing applications.
 ---
 
-# Quix Lake - API
+# API
 
 The Quix Lake API powers the **Quix Lake User Interface** and also exposes a clean surface for your own applications to **tag datasets, search, discover files, and perform safe deletes/restores**.
 See the UI page: [Quix Lake User Interface](./user-interface.md).

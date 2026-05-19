@@ -1,9 +1,9 @@
 ---
-title: Deploy your application
+title: Deployments overview
 description: Deploy your application as a service in the pipeline. This documentation describes how to deploy and redeploy a service.
 ---
 
-# Deploy your application
+# Deployments overview
 
 This section of the documentation covers how to **deploy and scale your application**. 
 

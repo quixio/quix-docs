@@ -1,9 +1,9 @@
 ---
-title: What is Quix Lake
+title: Quix Lake overview
 description: The central storage layer of Quix Cloud for capturing and managing Kafka data in open formats.
 ---
 
-# What is Quix Lake
+# Quix Lake overview
 
 **Quix Lake** is the central storage layer of **Quix Cloud**. It captures, organizes, and manages Kafka topic data in an open, file-based format on blob storage systems such as Amazon S3, Azure Blob, Google Cloud Storage, or MinIO.
 

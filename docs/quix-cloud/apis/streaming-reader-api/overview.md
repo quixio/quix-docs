@@ -1,9 +1,9 @@
 ---
-title: Streaming Reader API
+title: Streaming Reader API overview
 description: Streaming Reader API supports real-time data streaming over WebSockets.
 ---
 
-# Overview - Streaming Reader API
+# Streaming Reader API overview
 
 Quix supports real-time data streaming over WebSockets (or Long Polling depending on client support). 
 

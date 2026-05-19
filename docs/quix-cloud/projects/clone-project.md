@@ -22,7 +22,7 @@ Enter the project's environment, and the `Sync your environment` dialog is displ
 
 Click the `Sync environment` button to make sure all data is synchronized between the project's repository, and your environment.
 
-You now have the opportunity to configure any **secrets** required, such as [Personal Access Tokens (PATs)](../applications/authentication/personal-access-token.md), sometimes referred to as bearer tokens, or input credentials required for external services such as InfluxDB, Redpanda, Aiven, and so on.
+You now have the opportunity to configure any **secrets** required, such as [Personal Access Tokens (PATs)](../access-security/personal-access-token.md), sometimes referred to as bearer tokens, or input credentials required for external services such as InfluxDB, Redpanda, Aiven, and so on.
 
 Click `Add secrets`, configure your secrets as required, 
 

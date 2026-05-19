@@ -1,9 +1,9 @@
 ---
-title: "Replay Message Transformations"
+title: Message transformations
 description: Transform Kafka messages during replay to modify headers, keys, and values on-the-fly using a simple transformation language.
 ---
 
-# Replay Message Transformations
+# Message transformations
 
 Transform Kafka messages during replay to modify headers, keys, or JSON values on-the-fly. The transformation language uses simple, English-like syntax to describe operations on message data.
 

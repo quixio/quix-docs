@@ -2,7 +2,7 @@
 
 Sometimes you want a Quix Streams client to initially use one environment, and then configure it to work with another environment. This is sometimes done to test different environments. This can be achieved by simply changing the streaming token used to authenticate your Quix Streams client.
 
-In Quix Streams a [streaming token](../applications/authentication/streaming-token.md) is used to authenticate Quix Streams with a specific environment. 
+In Quix Streams a [streaming token](../access-security/streaming-token.md) is used to authenticate Quix Streams with a specific environment. 
 
 !!! tip
 

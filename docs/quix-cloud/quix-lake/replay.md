@@ -1,10 +1,10 @@
 ---
 
-title: "DataLake.Replay"
+title: Replay
 description: Managed service that replays persisted datasets from Quix Lake back into Kafka with full fidelity.
 ---
 
-# Quix Lake - Replay
+# Replay
 
 Quix Lake Replay is a managed service that streams persisted datasets from **Quix Lake** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
 

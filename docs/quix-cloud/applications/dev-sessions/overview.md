@@ -1,9 +1,9 @@
 ---
-title: Dev Sessions
+title: Dev Sessions overview
 description: Write, run, and debug Python code in your browser — no local setup required. Dev Sessions give you a live coding environment connected to your Quix project and Git repository.
 ---
 
-# Dev Sessions
+# Dev Sessions overview
 
 Dev Sessions give you a live, browser-based coding environment directly in your Quix project — no local setup required. Write code, install packages, explore data, and get AI assistance while your changes commit back to Git automatically. Sessions are private to the user who created them.
 

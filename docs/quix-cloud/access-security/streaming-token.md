@@ -42,4 +42,4 @@ You have two main options regarding how you rotate:
 
 ## See also
 
-* [Testing multiple environments](../../operations/testing-environments.md)
+* [Testing multiple environments](../operations/testing-environments.md)

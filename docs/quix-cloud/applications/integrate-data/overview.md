@@ -1,9 +1,9 @@
 ---
-title: Integrate your data
+title: Integrate data overview
 description: Integrate your data with Quix.
 ---
 
-# Integrate your data with Quix
+# Integrate data overview
 
 There are various ways to ingest data into Quix, as well as write data out from Quix to external products and services. The main methods are listed here.
 

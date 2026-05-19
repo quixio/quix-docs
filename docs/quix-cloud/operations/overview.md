@@ -1,9 +1,9 @@
 ---
-title: Manage projects
-description: Managing your projects, pipelines, and applications.
+title: Operations overview
+description: Managing your deployed projects, pipelines, and applications.
 ---
 
-# Manage your projects
+# Operations overview
 
 This section of the documentation covers **managing your projects, pipelines, and applications**.
 

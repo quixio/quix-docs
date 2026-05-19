@@ -1,9 +1,9 @@
 ---
-title: Develop your app
+title: Applications overview
 description: Applications are developed using Python and deployed as services.
 ---
 
-# Develop your application
+# Applications overview
 
 This section of the documentation covers **developing your application**.
 
