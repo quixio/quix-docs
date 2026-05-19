@@ -20,8 +20,8 @@ The code sample uses the following environment variables:
 
 ## Configuration
 
-If deploying to Quix Cloud you will need to create secrets for the username and password.
-See the [docs](https://quix.io/docs/deploy/secrets-management.html) for more information on how to do this.
+If deploying to Quix Cloud you will need to create secret project variables for the username and password.
+See the [docs](https://quix.io/docs/deploy/project-variables.html) for more information on how to do this.
 
 ## Connecting
 

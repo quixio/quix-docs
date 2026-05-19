@@ -25,7 +25,7 @@ You'll need to configure the following credentials for each Quix service that ne
 
 The above is a list of environment variables that you are going to configure.
 
-For `INFLUXDB_TOKEN`, you need to [create a secret](../../deploy/secrets-management.md) to assign to the corresponding [environment variables](../../deploy/environment-variables.md).
+For `INFLUXDB_TOKEN`, you need to [create a secret project variable](../../deploy/project-variables.md) to assign to the corresponding [environment variables](../../deploy/environment-variables.md).
 
 To create the secret:
 

@@ -14,6 +14,8 @@ The `Add Variable` dialog is displayed:
 
 Complete the information for the environment variable. You can select properties such as `Text Hidden` for variables that represent API secrets, keys, and passwords. If necessary, you can also make a variable required.
 
+To pass a value defined at project scope, set the variable's input type to `ProjectVariable` and select the project variable to bind. See [Project variables](project-variables.md) for how to define project variables and use them across environments.
+
 ## To access an environment variable
 
 Once the variable has been created, you can then access the variable in your code using `os.environ["variable"]`. For example, to access the environment variable `API_SECRET`, your code would be:
