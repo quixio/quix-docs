@@ -101,7 +101,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Once all the services in a pipeline are deployed, your stream processing solution is fully operational
 
-    [Manage your pipeline :octicons-arrow-right-24:](operations/overview.md)
+    [Manage your pipeline :octicons-arrow-right-24:](deployments/overview.md)
 
 </div>
 

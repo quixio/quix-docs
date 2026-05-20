@@ -25,6 +25,7 @@ nav:
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
     - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
+    - 'Hosting options': 'quix-cloud/deployments/hosting.md'
     - 'Projects':
       - 'Projects and environments': 'quix-cloud/projects/overview.md'
       - 'Creating projects':
@@ -37,13 +38,11 @@ nav:
         - 'Create an environment': 'quix-cloud/projects/create-environment.md'
         - 'Protected environments': 'quix-cloud/projects/protected-environment.md'
         - 'Syncing an environment': 'quix-cloud/projects/syncing-environment.md'
-      - 'Topics and data':
-        - 'Create a topic': 'quix-cloud/projects/create-topic.md'
-        - 'Data tiers': 'quix-cloud/projects/data-tiers.md'
+        - 'Testing environments': 'quix-cloud/projects/testing-environments.md'
+      - 'Project structure': 'quix-cloud/applications/project-structure.md'
       - 'Git submodules': 'quix-cloud/projects/submodules.md'
     - 'Applications':
       - 'Overview': 'quix-cloud/applications/overview.md'
-      - 'Project structure': 'quix-cloud/applications/project-structure.md'
       - 'Create an application': 'quix-cloud/applications/create-application.md'
       - 'Code samples': 'quix-cloud/applications/code-samples.md'
       - 'Shared folders': 'quix-cloud/applications/shared-folders.md'
@@ -67,14 +66,8 @@ nav:
         - 'Sinks':
           - 'Prebuilt destination connector': 'quix-cloud/applications/integrate-data/prebuilt-connector-destination.md'
           - 'External destination': 'quix-cloud/applications/integrate-data/external-destination.md'
-      - 'Process data':
-        - 'Overview': 'quix-cloud/applications/process/overview.md'
-        - 'Types of processing': 'quix-cloud/applications/process/types-of-processing.md'
-        - 'Types of transform': 'quix-cloud/applications/process/types-of-transform.md'
-        - 'Generating events': 'quix-cloud/applications/process/timeseries-events.md'
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
-      - 'Hosting options': 'quix-cloud/deployments/hosting.md'
       - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
       - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
       - 'Deploying connectors': 'quix-cloud/deployments/deploying-connectors.md'
@@ -85,6 +78,15 @@ nav:
       - 'YAML variables': 'quix-cloud/deployments/yaml-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
+      - 'Plugin system': 'quix-cloud/services/plugin.md'
+      - 'Troubleshooting': 'quix-cloud/deployments/troubleshooting.md'
+    - 'Topics and data':
+      - 'Create a topic': 'quix-cloud/projects/create-topic.md'
+      - 'Data tiers': 'quix-cloud/projects/data-tiers.md'
+      - 'Process data':
+        - 'Types of processing': 'quix-cloud/applications/process/types-of-processing.md'
+        - 'Types of transform': 'quix-cloud/applications/process/types-of-transform.md'
+        - 'Generating events': 'quix-cloud/applications/process/timeseries-events.md'
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
       - 'Open format': 'quix-cloud/quix-lake/open-format.md'
@@ -98,11 +100,11 @@ nav:
     - 'Managed services':
       - 'Overview': 'quix-cloud/services/overview.md'
       - 'Dynamic configuration': 'quix-cloud/services/dynamic-configuration.md'
-      - 'Plugin system': 'quix-cloud/services/plugin.md'
-    - 'Operations':
-      - 'Overview': 'quix-cloud/operations/overview.md'
-      - 'Troubleshooting': 'quix-cloud/operations/troubleshooting.md'
-      - 'Testing environments': 'quix-cloud/operations/testing-environments.md'
+      - 'Blob storage': 'quix-cloud/quix-lake/blob-storage.md'
+      - 'Sink': 'quix-cloud/quix-lake/sink.md'
+      - 'Replay':
+        - 'Overview': 'quix-cloud/quix-lake/replay.md'
+        - 'Message transformations': 'quix-cloud/quix-lake/replay-transformations.md'
     - 'Access and security':
       - 'Personal access token (PAT)': 'quix-cloud/access-security/personal-access-token.md'
       - 'Streaming token': 'quix-cloud/access-security/streaming-token.md'
@@ -868,7 +870,7 @@ plugins:
         'develop/integrate-data/iot-data.md': 'quix-cloud/applications/integrate-data/iot-data.md'
         'develop/integrate-data/prebuilt-connector-destination.md': 'quix-cloud/applications/integrate-data/prebuilt-connector-destination.md'
         'develop/integrate-data/external-destination.md': 'quix-cloud/applications/integrate-data/external-destination.md'
-        'develop/process/overview.md': 'quix-cloud/applications/process/overview.md'
+        'develop/process/overview.md': 'quix-cloud/applications/process/types-of-processing.md'
         'develop/process/types-of-processing.md': 'quix-cloud/applications/process/types-of-processing.md'
         'develop/process/types-of-transform.md': 'quix-cloud/applications/process/types-of-transform.md'
         'develop/process/timeseries-events.md': 'quix-cloud/applications/process/timeseries-events.md'
@@ -883,13 +885,16 @@ plugins:
         'deploy/deploy-public-page.md': 'quix-cloud/deployments/deploy-public-page.md'
         'deploy/deploy-external-image.md': 'quix-cloud/deployments/deploy-external-image.md'
         'deploy/private-container-registries.md': 'quix-cloud/deployments/private-container-registries.md'
-        # manage/ → quix-cloud/operations/
-        'manage/overview.md': 'quix-cloud/operations/overview.md'
-        'manage/troubleshooting.md': 'quix-cloud/operations/troubleshooting.md'
+        # manage/ → quix-cloud/deployments/ (folded into Deployments)
+        'manage/overview.md': 'quix-cloud/deployments/overview.md'
+        'manage/troubleshooting.md': 'quix-cloud/deployments/troubleshooting.md'
         'manage/security.md': 'quix-cloud/security.md'
         'manage/MLOps.md': 'kb/mlops.md'
         'quix-cloud/operations/MLOps.md': 'kb/mlops.md'
-        'manage/testing-environments.md': 'quix-cloud/operations/testing-environments.md'
+        'quix-cloud/operations/overview.md': 'quix-cloud/deployments/overview.md'
+        'quix-cloud/operations/troubleshooting.md': 'quix-cloud/deployments/troubleshooting.md'
+        'quix-cloud/operations/testing-environments.md': 'quix-cloud/projects/testing-environments.md'
+        'manage/testing-environments.md': 'quix-cloud/projects/testing-environments.md'
         # apis/ → quix-cloud/apis/
         'apis/streaming-reader-api/overview.md': 'quix-cloud/apis/streaming-reader-api/overview.md'
         'apis/streaming-reader-api/setup.md': 'quix-cloud/apis/streaming-reader-api/setup.md'

@@ -5,7 +5,7 @@ description: Deploy your application as a service in the pipeline. This document
 
 # Deployments overview
 
-This section of the documentation covers how to **deploy and scale your application**. 
+This section of the documentation covers how to **deploy, observe, and scale your application**.
 
 An application can be deployed as a service or job. A service runs continually, a job runs just once and then terminates.
 
@@ -61,6 +61,24 @@ The main features are described in the following table:
 ## Redeploying a service
 
 If you subsequently edit your service code (application) and then click `Redeploy`, you are presented with the `Edit deployment` dialog. The same options previously mentioned are displayed in the dialog. Change the deployment settings as required (perhaps to allocate more resources, or use the latest or a pinned version of the code), and then click `Redeploy`.
+
+## Logs
+
+Each deployment has a logs panel that surfaces both build-time and run-time output, so you can observe and debug the service or job without leaving the portal.
+
+When you build a deployment, build logs are available on the deployment page. Any compile or container build errors are surfaced here, and the logs can be downloaded for offline viewing.
+
+![Build logs](../../images/manage/build-logs.png)
+
+At run time, the same panel switches to live service / job logs — useful for following start-up, watching for runtime errors, or confirming that a deployment is processing messages as expected.
+
+![Logs](../../images/manage/logs.png)
+
+## Message viewer
+
+Next to the Build logs and Logs tabs is the Message viewer, which shows the raw messages flowing through the deployment's input and output topics. Use it to confirm that data is reaching the deployment, or to inspect the payload shape your code is actually receiving.
+
+![Message viewer](../../images/manage/messages.png)
 
 ## Working on the command line
 
