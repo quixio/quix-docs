@@ -95,13 +95,13 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     [Deploy your application :octicons-arrow-right-24:](deployments/overview.md)
 
-- __4. Manage your pipeline__
+- __4. Observe your pipeline__
 
     ---
 
-    Once all the services in a pipeline are deployed, your stream processing solution is fully operational
+    Once your services are running, inspect build and runtime logs, browse messages flowing through topics, and troubleshoot from the deployment page.
 
-    [Manage your pipeline :octicons-arrow-right-24:](deployments/overview.md)
+    [Observe your pipeline :octicons-arrow-right-24:](deployments/overview.md#logs)
 
 </div>
 

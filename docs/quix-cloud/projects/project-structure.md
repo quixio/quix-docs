@@ -124,4 +124,4 @@ While this documentation has explored a simple project consisting of a pipeline 
 
 !!! tip
 
-    Your project repository can also include Git submodules to reference external repositories. See [Git submodules](../projects/submodules.md) for details and limitations. 
+    Your project repository can also include Git submodules to reference external repositories. See [Git submodules](./submodules.md) for details and limitations. 

@@ -120,5 +120,5 @@ These measures help keep the data **secure and consistent** across projects, ena
 
 ## 🏃‍♀️ Next Steps
 
-[Learn about Data Tiers in Quix :material-arrow-right-circle:{ align=right }](./data-tiers.md)
+[Learn about Data Tiers in Quix :material-arrow-right-circle:{ align=right }](../topics/data-tiers.md)
 

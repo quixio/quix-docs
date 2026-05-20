@@ -68,7 +68,7 @@ The key terminology changes are shown in the following table:
 
 ## Topics
 
-Typically, topics are automatically created for you when you need them. They are created with default settings. However, you can [manually create a topic](./create-topic.md), if you want to specify more advanced settings for the topic, such as the number of partitions to allocate to a topic.
+Typically, topics are automatically created for you when you need them. They are created with default settings. However, you can [manually create a topic](../topics/create-topic.md), if you want to specify more advanced settings for the topic, such as the number of partitions to allocate to a topic.
 
 ## 🏃‍♀️ Next step
 
