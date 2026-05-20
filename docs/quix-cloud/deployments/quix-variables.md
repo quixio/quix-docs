@@ -1,8 +1,10 @@
 
 # Quix Variables
 
-These environment variables are automatically injected by the Quix platform into your deployment's runtime environment. 
+These [environment variables](./environment-variables.md) are automatically injected by the Quix platform into your deployment's runtime environment.
 Use them to access deployment, application, and environment-specific metadata in your project code.
+
+State-related variables are only present when [state management](./state-management.md) is enabled, and `Quix__Deployment__Network__PublicUrl` is only present when [public access](./deploy-public-page.md) is enabled.
 
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -28,5 +30,3 @@ Use them to access deployment, application, and environment-specific metadata in
 | `Quix__Build__Id`                     | The build Id of the deployment. Multiple deployments will have the same build id if referencing the same commit of a application. |
 | `Quix__Portal__Api`                   | The portal API endpoint, which depends on the environment.                                            |
 | `Quix__Sdk__Token`                    | SDK Token 1, as described [here](../access-security/streaming-token.md).                       |
-
-> **Note:** State-related variables are only present when state is enabled. Similarly, `Quix__Deployment__Network__PublicUrl` is only present when public access is enabled.

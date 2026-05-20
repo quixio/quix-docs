@@ -10,7 +10,7 @@ Enable state management during service deployment if your code relies on state o
 
 Enabling state creates a storage volume that can be accessed by your code. By default, this is mounted at `/app/state`, but you can configure a custom path in the deployment settings or via the `quix.yaml` file.
 
-The mount path is available to your code via the `Quix__Deployment__State__Path` environment variable.
+The mount path is available to your code via the [`Quix__Deployment__State__Path`](./quix-variables.md) environment variable.
 
 !!! important
 

@@ -37,3 +37,8 @@ You can now edit the code in the online IDE or pull the code to your local machi
 Note: You will not affect the code in the Connectors library and no-one outside of your organization will recieve your code updates.
 
 If you'd like to contribute code or fixes to connectors or code samples please contact us.
+
+## See also
+
+- [Deploy a public service](./deploy-public-page.md) — deploy a web page or API with a public URL.
+- [Deploy an external image](./deploy-external-image.md) — deploy a prebuilt container from a registry.

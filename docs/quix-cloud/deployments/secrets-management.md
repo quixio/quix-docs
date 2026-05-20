@@ -22,7 +22,7 @@ To create a secret variable:
 
 ## To use a secret variable
 
-You can't use the secret variable directly, you need to create an environment variable that uses it. 
+You can't use the secret variable directly, you need to create an [environment variable](./environment-variables.md) that uses it.
 
 To create an environment variable that uses a secret variable:
 

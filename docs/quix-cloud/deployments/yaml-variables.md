@@ -4,6 +4,8 @@
 
 YAML variables enable you to manage environment-specific configurations dynamically within the `quix.yaml` file. This file serves as the Infrastructure as Code (IaC) representation of your pipeline, defining deployments, resources, and other configurations. By using YAML variables, you can simplify the management of different settings, such as resource allocation, across development, staging, and production environments.
 
+YAML variables differ from [environment variables](./environment-variables.md): they are substituted into `quix.yaml` at sync time (CPU, memory, replicas, deployment names) rather than injected into your container at runtime.
+
 For example, you can define variables like `CPU` or `MEMORY` with different values for production and development environments, ensuring scalability and cost-efficiency.
 
 ## Watch a Video

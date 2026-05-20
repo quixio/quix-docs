@@ -51,3 +51,9 @@ Quix advises you to build in a security layer to ensure your data is secure and 
 Read more about Python API security [here](https://betterprogramming.pub/secure-your-python-api-7e52c475665e){target="_blank"} and [here](https://curity.io/resources/guides/api/python/){target="_blank"}
 
 Find out more [here](https://auth0.com/blog/complete-guide-to-angular-user-authentication/){target="_blank"}, if you're interested in securing an Angular application.
+
+## See also
+
+- [Deploy an external image](./deploy-external-image.md) — deploy a prebuilt container instead of building from source.
+- [Deploy a connector](./deploying-connectors.md) — deploy a prebuilt source or sink.
+- [Network ports](./ports.md) — expose additional ports to other services in the same environment.
