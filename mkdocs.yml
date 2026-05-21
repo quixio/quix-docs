@@ -110,7 +110,6 @@ nav:
     - 'Managed services':
       - 'Overview': 'quix-cloud/services/overview.md'
       - 'Dynamic configuration': 'quix-cloud/services/dynamic-configuration.md'
-      - 'Blob storage': 'quix-cloud/quix-lake/blob-storage.md'
       - 'Data Lake Sink': 'quix-cloud/quix-lake/data-lake/sink.md'
       - 'Data Lake Replay':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/replay.md'
