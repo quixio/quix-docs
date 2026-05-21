@@ -68,11 +68,6 @@ nav:
           - 'External destination': 'quix-cloud/applications/integrate-data/external-destination.md'
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
-      - 'Create a deployment':
-        - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
-        - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
-        - 'Deploy a connector': 'quix-cloud/deployments/deploying-connectors.md'
-        - 'Private container registries': 'quix-cloud/deployments/private-container-registries.md'
       - 'Variables':
         - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'
         - 'Secrets management': 'quix-cloud/deployments/secrets-management.md'
@@ -81,6 +76,10 @@ nav:
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
+      - 'External images':
+        - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
+        - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
+        - 'Private container registries': 'quix-cloud/deployments/private-container-registries.md'
       - 'Troubleshooting': 'quix-cloud/deployments/troubleshooting.md'
     - 'Topics and data':
       - 'Create a topic': 'quix-cloud/topics/create-topic.md'
@@ -189,6 +188,7 @@ nav:
       - Contribution Guide: 'quix-streams/connectors/contribution-guide.md'
       - Community and Core Connectors: 'quix-streams/connectors/community-and-core.md'
     - Quix Cloud:
+      - 'Deploy a connector': 'quix-cloud/deployments/deploying-connectors.md'
       - 'Index': 'quix-connectors/templates/index.md'
       - 'Sources':
         - 'Confluent Kafka': 'quix-connectors/templates/confluentkafkasource-source.md'
