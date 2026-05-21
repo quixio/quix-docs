@@ -21,7 +21,7 @@ This documentation includes guides, tutorials, and API references for Quix Cloud
 
 **Real-time processing and historical replay**: Process live telemetry as it arrives, then replay historical data later to investigate issues or validate changes without re-running physical tests. 
 
-* [Learn about replay →](../quix-cloud/quix-lake/replay.md)
+* [Learn about replay →](../quix-cloud/quix-lake/data-lake/replay.md)
 
 **Python-based pipeline development**: Use Quix Streams to build data processing pipelines in Python. Develop and test locally, then deploy to managed infrastructure without requiring Kafka or DevOps expertise.
 

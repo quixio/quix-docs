@@ -1,20 +1,22 @@
 ---
-title: User interface
-description: Explore, search, and manage persisted datasets in Quix Lake.
+title: Data Lake UI
+description: Explore, search, and manage persisted datasets in Quix Data Lake.
 ---
 
-# User interface
+# Data Lake UI
 
-The **Quix Lake User Interface** lets you browse, search, and manage datasets persisted into Quix Lake. It surfaces Avro data segments and their Parquet index metadata, making datasets easy to discover and replay.
+The **Data Lake UI** lets you browse, search, and manage datasets persisted into [Data Lake](./overview.md). It surfaces raw Avro data segments and their Parquet index metadata, making datasets easy to discover and replay.
 
 You can open the catalog from any **environment** that has a blob storage connection. With permission, you can also explore catalogs from **other environments**.
 
 ![Catalog main view](images/user-interface-main.png)
 
 !!! info "Prerequisites"
-    - A **Blob storage connection** is configured for at least one environment.  
-    - The **Quix Lake services** are running.  
-    See: [Blob storage connections](./blob-storage.md).
+    - A [blob storage connection](../blob-storage.md) is configured for at least one environment.
+    - The **Data Lake services** are running.
+
+!!! tip "Looking for SQL?"
+    This UI browses raw Data Lake datasets. To run SQL over columnar tables, use the **[Lakehouse UI](../lakehouse/ui.md)**.
 
 ## Exploring datasets
 
@@ -59,7 +61,7 @@ From the catalog you can:
 - Inspect datasets across environments  
 - Trigger **Replay** from a topic or individual dataset  
 - **Refresh cache** to surface newly ingested data sooner  
-- Open **deployment details** for the Quix Lake service
+- Open **deployment details** for the Data Lake services
 
 ![Catalog actions](images/user-interface-actions.png)
 
@@ -73,6 +75,8 @@ From the catalog you can:
 
 ## Related
 
-- [Blob storage connections](./blob-storage.md) 
-- [Quix Lake - Replay](./replay.md)
-- [Quix Lake - API](./api.md)
+- [Data Lake overview](./overview.md)
+- [Replay](./replay.md)
+- [Data Lake API](./api.md)
+- [Blob storage connections](../blob-storage.md)
+- [Lakehouse UI](../lakehouse/ui.md) — query-first counterpart

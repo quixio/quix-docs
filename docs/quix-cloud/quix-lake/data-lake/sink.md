@@ -1,18 +1,21 @@
 ---
-title: Sink
-description: Connector that persists Kafka data into Quix Lake.
+title: Data Lake Sink
+description: Connector that persists Kafka data into Quix Data Lake as raw Avro plus Parquet index files.
 ---
 
-# Sink
+# Data Lake Sink
 
-The Quix Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **Replay**.
+The Data Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **[Replay](./replay.md)**.
 
 Identifier: `DataLake.Sink`
+
+!!! tip "Looking for SQL-queryable storage?"
+    The Data Lake Sink preserves Kafka messages **byte-for-byte** for replay. If you want **columnar Parquet tables you can query with SQL**, use the **[Lakehouse Sink](../lakehouse/sink.md)** instead — or run both against the same topic for replay *and* analytics.
 
 ## Purpose
 
 * Persist raw Kafka messages exactly as they arrive (timestamps, headers, partitions, offsets, and gaps)
-* Enable **Replay** and external **Query** over open files
+* Enable **[Replay](./replay.md)** and external query over open files (DuckDB, Spark, Trino, etc.)
 * Maintain a durable, auditable record of streams in your own storage
 
 ## How it works
@@ -44,7 +47,7 @@ Metadata:
 ## How to run (UI)
 
 1. Create or log in to your Quix account.
-2. Go to **Connectors → Add connector → Quix Lake - Sink**.
+2. Go to **Connectors → Add connector → Data Lake - Sink**.
 3. Click **Set up connector**, fill the parameters below, then **Test connection & deploy**.
 
 !!! info "Managed service"
@@ -90,7 +93,7 @@ You can configure the sink in **YAML** or via the **Quix Cloud UI**.
 
 ```yaml
 deployments:
-- name: Quix Lake - Sink
+- name: Data Lake - Sink
   application: DataLake.Sink
   version: latest
   deploymentType: Managed
@@ -151,7 +154,7 @@ See [Open format](./open-format.md) for full schemas and layout.
 
 * **Logs**: per-segment lifecycle (rolling, upload, index write), retries, and timings
 * **Metrics**: records persisted, bytes uploaded, active uploads, average upload speed
-* **Data Lake UI*: new datasets appear as index files land; use **Refresh** if you need to surface them sooner
+* **[Data Lake UI](./user-interface.md)** — new datasets appear as index files land; use **Refresh** if you need to surface them sooner
 
 ## Security
 
@@ -172,7 +175,10 @@ See [Open format](./open-format.md) for full schemas and layout.
 
 ## See also
 
+* [Data Lake overview](./overview.md)
 * [Open format](./open-format.md)
-* [Quix Lake - User Interface](./user-interface.md)
-* [Quix Lake - Replay](./replay.md)
-* [Blob storage connections](./blob-storage.md)
+* [Data Lake UI](./user-interface.md)
+* [Data Lake API](./api.md)
+* [Replay](./replay.md)
+* [Lakehouse Sink](../lakehouse/sink.md) — query-first alternative
+* [Blob storage connections](../blob-storage.md)

@@ -1,14 +1,16 @@
 ---
-
 title: Replay
-description: Managed service that replays persisted datasets from Quix Lake back into Kafka with full fidelity.
+description: Managed service that replays persisted datasets from Quix Data Lake back into Kafka with full fidelity.
 ---
 
 # Replay
 
-Quix Lake Replay is a managed service that streams persisted datasets from **Quix Lake** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
+Replay is a managed service that streams persisted datasets from **[Data Lake](./overview.md)** back into **Kafka**, preserving timestamps, partitions, offsets, headers, and gaps for high-fidelity re-runs and simulations.
 
 Identifier: `DataLake.Replay`
+
+!!! note "Data Lake only"
+    Replay operates on Data Lake's raw Avro segments. The [Lakehouse](../lakehouse/overview.md) is query-first and does not have an equivalent byte-perfect replay surface — if you need to push historical messages back into Kafka, the Data Lake Sink is what you want.
 
 ## Where you can start a replay
 
@@ -28,7 +30,7 @@ Open **Data Lake**, select the dataset (topic + time window/keys/partitions), an
 
 ```yaml
 deployments:
-  - name: Quix Lake - Replay
+  - name: Data Lake - Replay
     application: DataLake.Replay
     version: latest
     deploymentType: Managed
@@ -123,7 +125,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## How it works (high-level)
 
-1. Queries the **Quix Lake API** to locate Avro segments for your topic, keys, partitions, and time window.
+1. Queries the **[Data Lake API](./api.md)** to locate Avro segments for your topic, keys, partitions, and time window.
 2. Streams records in order, applying **timestampsType** and **replaySpeed**.
 3. Optional controls adjust gaps, throughput caps, key remapping, and partition routing.
 4. Produces records to the **destinationTopic** in Kafka.
@@ -131,7 +133,7 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 
 ## Configuration
 
-Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Quix Lake API URL**, which is injected automatically).
+Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Data Lake API URL**, which is injected automatically).
 
 ### Required
 
@@ -192,7 +194,7 @@ Transform messages during replay to modify headers, keys, or JSON values on-the-
 
 ```yaml
 deployments:
-  - name: Quix Lake - Replay
+  - name: Data Lake - Replay
     application: DataLake.Replay
     configuration:
       sourceTopic: source-topic
