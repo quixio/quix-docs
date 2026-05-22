@@ -1,41 +1,10 @@
 # APIs overview
 
-Quix provides several APIs. These are:
-
-* Streaming Reader API
-* Portal API
-
-While [Quix Streams](https://quix.io/docs/quix-streams/introduction.html) is the main client library for Quix, there are certain use cases where you need an alternative:
-
-* The client uses a language that is not supported by Quix Streams (Quix Streams supports Python only)
-* There are resource constraints which mean you can't run Quix Streams
-* The nature of the client (for example, a web browser)
-
-In these situations the Streaming Reader API can provide an alternative solution - for example, it can easily be accommodated in a modern web browser, or using most modern programming languages with a SignalR client. 
-
-Portal API is useful for automating processes normally carried out manually in Quix.
-
-Each of these APIs is described in more detail in the following sections.
+Quix provides two APIs that complement [Quix Streams](https://quix.io/docs/quix-streams/introduction.html), the main client library, for use cases where Quix Streams isn't a fit — for example a non-Python client, a resource-constrained environment, or a web browser.
 
 ## Comparing the APIs
 
-Use cases for these APIs are shown in the following table:
-
-| API | Interface | Purpose | Typical use case | Docs link |
+| API | Interface | Purpose | Typical use case | Docs |
 |---|---|---|---|----|
-| Streaming Reader API | SignalR (WebSockets and Long Polling)| Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](../apis/streaming-reader-api/overview.md) |
-| Portal API | HTTP (REST)| Automate Quix | Creating and monitoring deployments | [Portal API](../apis/portal-api/overview.md) |
-
-## Streaming Reader API
-
-The [Streaming Reader](../apis/streaming-reader-api/overview.md) API enables you to stream data out of a Quix topic. 
-
-Streaming Reader uses Microsoft's [SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr){target=_blank} technology, which provides both WebSockets and Long Polling, depending on client capabilities.
-
-* [Read more about Streaming Reader API](../apis/streaming-reader-api/overview.md)
-
-## Portal API
-
-The [Portal API](../apis/portal-api/overview.md) gives access to Quix, enabling you to automate your project deployment, management and monitoring. For example, you could build command line tools in any language with an HTTP interface available, to create, deploy, and monitor services.
-
-[Read more about Portal API](../apis/portal-api/overview.md)
+| Streaming Reader API | SignalR (WebSockets and Long Polling) | Subscribe to a Quix topic | Web browser client, dashboard, command line client | [Streaming Reader API](streaming-reader-api/overview.md) |
+| Portal API | HTTP (REST) | Automate Quix | Creating and monitoring deployments | [Portal API](portal-api/overview.md) |

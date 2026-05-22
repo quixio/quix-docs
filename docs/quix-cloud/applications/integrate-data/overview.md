@@ -15,7 +15,7 @@ To ingest data:
 4. Inbound webhooks
 5. External source
 6. Using Quix Streams
-8. Using a web app
+7. Using a web app
 
 To publish data:
 

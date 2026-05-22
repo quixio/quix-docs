@@ -24,7 +24,7 @@ nav:
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
-    - 'Why Use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
+    - 'Why use Quix Cloud': 'quix-cloud/why-quix-cloud.md'
     - 'Hosting options': 'quix-cloud/deployments/hosting.md'
     - 'Projects':
       - 'Projects and environments': 'quix-cloud/projects/overview.md'

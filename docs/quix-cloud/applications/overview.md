@@ -24,6 +24,6 @@ For example, a pipeline on the develop branch of Project Alpha might be:
 
 ## Application name and path
 
-A new feature in Quix is the ability to change an application name and path. For example, when creating a new application from a Code Sample, you are prompted for the application name and path. 
+When creating a new application from a Code Sample, you are prompted for the application name and path. 
 
 The application name can be any suitable name, the application path is the folder in which the application is stored in the Git repository. By default the path is set to be the same as the application name, but you can choose any path name - for example, you might not want to use spaces in folder names, so you use underscores instead of spaces in the path.
