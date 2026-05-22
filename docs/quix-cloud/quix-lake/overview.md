@@ -43,13 +43,13 @@ Pick based on **what you want to do with the data after it lands**:
     - You want **Replay fidelity** for ops/incident response **and** **SQL access** for analytics over the same topic.
     - You're starting with Data Lake (replay) today and plan to layer analytics on top later.
 
-    Run a `DataLake.Sink` deployment and a Lakehouse sink deployment side-by-side with **different consumer groups** on the same topic. Storage cost roughly doubles for that topic.
+    Run a Data Lake Sink and a Lakehouse Sink deployment side-by-side with **different consumer groups** on the same topic. Storage cost roughly doubles for that topic.
 
 ## Two distinct sinks
 
 The two storage options have **separate connector applications** — they don't share an image, configuration surface, or library:
 
-| | [`DataLake.Sink`](./data-lake/sink.md) | [Lakehouse Sink](./lakehouse/sink.md) |
+| | [Data Lake Sink](./data-lake/sink.md) | [Lakehouse Sink](./lakehouse/sink.md) |
 |---|---|---|
 | **Output** | Raw Kafka messages as Avro + Parquet index | Apache Iceberg tables (Parquet + snapshots) |
 | **Schema-aware?** | No — bytes pass through | Yes — schema auto-discovered from messages |

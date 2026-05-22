@@ -22,7 +22,7 @@ If you need byte-for-byte replay fidelity rather than query access, see **[Data 
 
 ## Components
 
-A Lakehouse provisioning is shared across all workspaces that use the same blob storage connection. Once it's set up, you interact with two surfaces:
+A Lakehouse is provisioned per blob storage connection and shared across the workspaces that use it. Once it's set up, you interact with two surfaces:
 
 | Surface | What it does |
 |---|---|
@@ -60,7 +60,7 @@ flowchart LR
 ## Multi-workspace sharing
 
 * The Lakehouse backend is **provisioned per blob storage connection**. Workspaces that share a connection share the Lakehouse and its tables.
-* Sinks are **deployed per workspace** and bind to the Lakehouse automatically when they detect that a Lakehouse exists for the workspace's blob storage.
+* Sinks are **deployed per workspace** and bind to the Lakehouse for the workspace's blob storage automatically.
 
 ## Operational behavior
 

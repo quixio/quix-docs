@@ -32,7 +32,7 @@ Supported out of the box:
 * Multi-table joins
 * Aggressive Parquet pruning — DuckDB's columnar reader uses Iceberg statistics from the catalog to skip files that can't match your predicates
 
-Not supported (use the alternatives below):
+Not supported:
 
 * TimescaleDB-style `time_bucket`, `gap_fill`, `last` — use `date_trunc` + window functions instead.
 
