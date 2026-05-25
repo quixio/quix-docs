@@ -32,7 +32,7 @@ To see more documentation on these variables, and examples, you can refer to the
 
 !!! tip
 
-    If you need help on [configuring environment variables](../../deploy/environment-variables.md) or [secrets](../../deploy/secrets-management.md), the please refer to the documentation.
+    If you need help on [configuring environment variables](../../quix-cloud/deployments/environment-variables.md) or [secrets](../../quix-cloud/deployments/secrets-management.md), the please refer to the documentation.
 
 When you have completed the configuration, deploy the service.
 

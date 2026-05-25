@@ -12,4 +12,4 @@ When connecting to a provider, each option comes with its own setup guide. Simpl
 
 ## See also
 
-* [Create an environment](../../create/create-environment.md)
+* [Create an environment](../../quix-cloud/projects/create-environment.md)
