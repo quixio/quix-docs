@@ -20,10 +20,11 @@ description: Quix-managed applications you can deploy without writing or maintai
 ## Available managed services
 
 - [Dynamic Configuration Manager](./dynamic-configuration.md) (`DynamicConfiguration`)
-- [Quix Lake — Sink](../quix-lake/sink.md) (`DataLake.Sink`)
-- [Quix Lake — Replay](../quix-lake/replay.md) (`DataLake.Replay`)
+- [Data Lake — Sink](../quix-lake/data-lake/sink.md) (`DataLake.Sink`)
+- [Data Lake — Replay](../quix-lake/data-lake/replay.md) (`DataLake.Replay`)
+- [Lakehouse — Sink](../quix-lake/lakehouse/sink.md) (`Lakehouse.Sink`)
 
-Quix Lake managed services rely on a [blob storage connection](../quix-lake/blob-storage.md) configured at the cluster level — that's a connection rather than a deployable application, but it's required infrastructure for Sink and Replay.
+Quix Lake managed services rely on a [blob storage connection](../quix-lake/blob-storage.md) configured at the cluster level — that's a connection rather than a deployable application, but it's required infrastructure for the sinks and Replay.
 
 ## Quick example
 

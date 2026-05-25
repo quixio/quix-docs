@@ -1,78 +1,95 @@
 ---
 title: Quix Lake overview
-description: The central storage layer of Quix Cloud for capturing and managing Kafka data in open formats.
+description: The storage layer of Quix Cloud. Choose between Data Lake (open-file, replay-first) and Lakehouse (queryable, analytics-first), or use them together.
 ---
 
 # Quix Lake overview
 
-**Quix Lake** is the central storage layer of **Quix Cloud**. It captures, organizes, and manages Kafka topic data in an open, file-based format on blob storage systems such as Amazon S3, Azure Blob, Google Cloud Storage, or MinIO.
+**Quix Lake** is the persistence layer of **Quix Cloud**. It captures Kafka topic data into your own cloud storage (Amazon S3, Azure Blob, Google Cloud Storage, or MinIO) in open formats — so you keep full control of the bytes and can reuse them across replay, analytics, and ad-hoc query workloads.
 
-Instead of relying on proprietary databases, Quix Lake uses open formats and Hive-style partitioning so your data stays:
+Quix Lake ships **two complementary storage options**, each with its own managed sink:
 
-* **Portable**: readable by tools that support Avro and Parquet
-* **Efficient**: optimized for analytics with Parquet plus partitions
-* **Flexible**: usable in both real-time and historical pipelines
-* **Future-proof**: foundation for Replay, metadata search, and time series queries
+| Option | Writes | Best for |
+|---|---|---|
+| **[Data Lake](./data-lake/overview.md)** | Raw Kafka messages as **Avro segments + Parquet index** | High-fidelity **Replay**, audit/compliance, append-only forensic record |
+| **[Lakehouse](./lakehouse/overview.md)** | **Apache Iceberg tables** (Parquet + snapshots) registered in a Catalog | SQL analytics, dashboards, time-series queries |
 
-!!! info "Prerequisites"
-    A blob storage connection must be configured for the environment. See **Blob storage connections** in the related links.
+You can run **either**, **both**, or fan a single topic out to both — they share the same blob storage connection but are independent connectors with independent consumer groups.
 
-## Why it exists
+## Choosing between them
 
-Earlier persistence options were tied to specific databases and SDKs, which limited replay fidelity and format choice. Quix Lake rethinks this:
+Pick based on **what you want to do with the data after it lands**:
 
-* Kafka messages are persisted exactly as they arrive, including timestamps, headers, partitions, offsets, and idle gaps
-* Metadata is indexed alongside raw data to enable fast discovery without scanning Avro
-* Services like **API**, **Replay**, and **Sink** operate directly on the open files in your bucket
-* You keep full control of storage, security, and lifecycle in your own cloud account
+=== "Use Data Lake when…"
 
-## Where your data lives
+    - You need **Replay** to push historical data back into Kafka, byte-for-byte, with original timestamps, partitions, offsets, headers, and gaps preserved.
+    - You need a **forensic record** of every message — audit, regulatory, or incident-replay use cases.
+    - Your payloads are **arbitrary bytes** (binary, mixed schemas, encrypted) and you don't want the platform to interpret them.
+    - You want to point external tools at the raw Avro and do your own indexing.
 
-Data is written to your bucket in a predictable layout for easy discovery and external tooling.
+    **[Data Lake docs →](./data-lake/overview.md)**
 
-**Examples**
+=== "Use Lakehouse when…"
 
+    - You want to **query** topic data with SQL without standing up your own warehouse.
+    - You have **structured payloads** (the Lakehouse sink auto-discovers schema from Kafka messages).
+    - You need **time-series queries** (range scans, aggregations) at interactive speed.
+    - You're building dashboards, reports, or analytics features that consume historical data.
+
+    **[Lakehouse docs →](./lakehouse/overview.md)**
+
+=== "Use both when…"
+
+    - You want **Replay fidelity** for ops/incident response **and** **SQL access** for analytics over the same topic.
+    - You're starting with Data Lake (replay) today and plan to layer analytics on top later.
+
+    Run a Data Lake Sink and a Lakehouse Sink deployment side-by-side with **different consumer groups** on the same topic. Storage cost roughly doubles for that topic.
+
+## Two distinct sinks
+
+The two storage options have **separate connector applications** — they don't share an image, configuration surface, or library:
+
+| | [Data Lake Sink](./data-lake/sink.md) | [Lakehouse Sink](./lakehouse/sink.md) |
+|---|---|---|
+| **Output** | Raw Kafka messages as Avro + Parquet index | Apache Iceberg tables (Parquet + snapshots) |
+| **Schema-aware?** | No — bytes pass through | Yes — schema auto-discovered from messages |
+| **Iceberg support** | No | Yes |
+| **Primary consumer** | Replay, external tools | SQL via the Lakehouse Query engine |
+
+Both share these traits:
+
+- Consume from a **single Kafka topic** per deployment (run more than one for multiple topics).
+- Use the cluster's [blob storage connection](./blob-storage.md) — you don't paste credentials into the sink.
+- Are **managed services** — Quix hosts and updates them; you provide configuration only.
+- Honor your cloud's IAM, encryption, and retention controls.
+
+## Architecture at a glance
+
+```mermaid
+flowchart TB
+    topic([Kafka topic])
+    dlSink["DataLake.Sink<br/>Avro + Parquet index"]
+    lhSink["Lakehouse sink<br/>Iceberg tables"]
+    bucket[("Your blob storage<br/>S3 / GCS / Azure / MinIO")]
+    dlUi["Data Lake UI / API<br/>Replay → Kafka"]
+    lhQuery["Lakehouse Query + UI<br/>SQL → dashboards"]
+    external["External tools<br/>Spark, Trino, DuckDB, …"]
+
+    topic --> dlSink
+    topic --> lhSink
+    dlSink --> bucket
+    lhSink --> bucket
+    bucket --> dlUi
+    bucket --> lhQuery
+    bucket --> external
 ```
-Raw Avro:
-<bucket>/<workspaceId>/Raw/Topic=csv-data/Key=B/Start=2025-08-21/
-  ts_1755776884034_1755776886089_part_0_off_331135_331334.avro.snappy
 
-Parquet index and custom metadata:
-<bucket>/<workspaceId>/Metadata/Topic=data-source-json/Key=6/
-  index_raw_0_129879.parquet
-  metadata_<...>.parquet
-```
+## Prerequisites
 
-See **[open format](./open-format.md)** for the full layout and schemas.
+Both options require a **blob storage connection** configured for the cluster. See [Blob storage connections](./blob-storage.md). The Lakehouse is then provisioned on top of that connection — see the [Lakehouse overview](./lakehouse/overview.md) for what gets set up.
 
-## What you can do
+## Where to next
 
-* **Explore datasets** with the **Quix Lake** UI or API
-* **Replay** persisted datasets back into Kafka with full fidelity
-* **Search and filter** by time ranges, topics, keys, and custom metadata
-* **Query externally** using DuckDB, Spark, Trino, Athena, or BigQuery over Avro and Parquet
-
-!!! tip "Cross-environment access"
-    With the right permissions, you can browse datasets written by other environments using the Environment switcher in the Data Lake UI.
-
-## How it works
-
-1. **Ingest**: a sink writes raw Kafka messages to Avro files in your storage
-2. **Index**: Parquet index files summarize time, partition, offsets, and sizes
-3. **Discover**: the UI and APIs read the index to list and filter quickly
-4. **Replay**: any discovered dataset can be streamed back to Kafka with original order and timing preserved or simulated
-5. **Use**: build pipelines that mix historical data with live streams, and run queries over Parquet
-
-## Operational behavior
-
-* **Soft deletion**: catalog deletions move items to Trash for a short retention window before permanent removal, with restore and delete-forever actions
-* **Security**: you control IAM, keys, encryption, retention, and audit in your own cloud account
-
-## See also
-
-* [Open format](./open-format.md)
-* [Quix Lake - Sink](./sink.md)
-* [Quix Lake - User Interface](./user-interface.md)
-* [Quix Lake - API](./user-interface.md)
-* [Quix Lake - Replay](./replay.md)
-* [Blob storage connections](./blob-storage.md)
+- **[Data Lake overview](./data-lake/overview.md)** — replay-first storage, raw Kafka fidelity, open Avro/Parquet
+- **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Iceberg tables
+- **[Blob storage connections](./blob-storage.md)** — wire up the bucket or container that both use

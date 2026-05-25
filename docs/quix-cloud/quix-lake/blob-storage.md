@@ -5,28 +5,22 @@ description: Connect your cluster to external object storage (S3, GCS, Azure Blo
 
 # Blob storage connections
 
-Connect your cluster to a bucket/container so Quix can enable **Quix Lake** or any other managed service that requires a Blob storage connection.
+Connect your cluster to a bucket/container so Quix can enable **[Quix Lake](./overview.md)** (Data Lake, Lakehouse, or both) or any other managed service that requires a blob storage connection.
 
 ![Connections list](../../images/blob-storage/connections-list-running.png)
 
 !!! important "One connection per cluster"
-    Each **cluster** supports **one** blob storage connection.  
+    Each **cluster** supports **one** blob storage connection.
     You can configure different connections for different clusters.
-    
+    Both the [Data Lake Sink](./data-lake/sink.md) and the [Lakehouse Sink](./lakehouse/sink.md) use this same connection.
+
 ???+ info "Quix Lake at a glance"
-    **Summary** - Quix Lake persists Kafka topic data as **Avro/Parquet** in your own bucket (S3, GCS, Azure Blob, MinIO), partitioned for fast discovery and full-fidelity **Replay**.
+    Quix Lake is the persistence layer of Quix Cloud. It ships in two flavors that share this blob storage connection:
 
-    **Why it exists** - Preserve exact Kafka messages (timestamps, headers, partitions, offsets, gaps) with indexed metadata so **API**, **Replay**, **Sinks**, and future services operate on open formats you control.
+    - **[Data Lake](./data-lake/overview.md)** — raw Kafka messages in Avro plus a Parquet index. Replay-first, byte-perfect.
+    - **[Lakehouse](./lakehouse/overview.md)** — columnar Parquet tables registered in a catalog. Query-first, SQL-ready.
 
-    **Key properties**
-    - **Portable** - open Avro & Parquet
-    - **Efficient** - Hive-style partitions + Parquet metadata
-    - **Flexible** - historical + live workflows
-    - **Replay** - preserves order, partitions, timestamps, headers, gaps
-
-    **Flow** - **Ingest** (Avro) → **Index** (Parquet metadata) → **Discover** (Data Lake API & Metadata API) → **Replay** (full fidelity back to Kafka) → **Use** (explore, combine historical + live, run queries/export).
-
-    [Learn more about Quix Lake →](./overview.md)
+    Run one, the other, or both — see the [Quix Lake overview](./overview.md) for how to choose.
 
 ## Create a connection
 
@@ -130,8 +124,8 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
 
 ## See more
 
-* [What is Quix Lake](./overview.md) - what it is and why it exists
-* [Open format](./open-format.md) - layout and schemas (Avro, Parquet)
-* [Quix Lake - API](./api.md) - browse, search, and manage datasets
-* [Quix Lake - Sink](./sink.md) - persist topics to your bucket/container
-* [Quix Lake - Replay](./replay.md) - re-run datasets back to Kafka
+* [Quix Lake overview](./overview.md) — what it is and how to choose between Data Lake and Lakehouse
+* [Data Lake overview](./data-lake/overview.md) — replay-first storage
+* [Lakehouse overview](./lakehouse/overview.md) — query-first storage
+* [Data Lake Sink](./data-lake/sink.md) — persist topics as Avro + Parquet index
+* [Lakehouse Sink](./lakehouse/sink.md) — persist topics as queryable Parquet tables

@@ -9,7 +9,7 @@ Transform Kafka messages during replay to modify headers, keys, or JSON values o
 
 ## Purpose
 
-Message transformations let you modify messages as they're replayed from Quix Lake back into Kafka. Common use cases include:
+Message transformations let you modify messages as they're replayed from Data Lake back into Kafka. Common use cases include:
 
 - Update API endpoints when replaying between environments
 - Anonymize or mask sensitive data for testing
@@ -20,7 +20,7 @@ Message transformations let you modify messages as they're replayed from Quix La
 
 ```yaml
 deployments:
-  - name: Quix Lake - Replay
+  - name: Data Lake - Replay
     application: DataLake.Replay
     version: latest
     configuration:
