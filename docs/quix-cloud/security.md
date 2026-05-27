@@ -1,4 +1,4 @@
-# Quix Cloud Security
+# Security and compliance
 
 Quix follows the latest best practices in securing your application and its data on our platform. Security and safety is a core tenet of the way we work.
 
@@ -40,6 +40,12 @@ All networking technologies utilised during the delivery of the Quix Platform fo
 
 ## Authentication and Authorisation
 
+### OAuth and Identity Providers
+
+OAuth is the protocol Quix uses when you authenticate against our servers using Google or your preferred Identity Provider. Customers are responsible for integrating and managing their identity provider (for single sign-on and provisioning) as well as assigning roles in Quix.
+
+Data in flight is protected with Authentication (OAuth 2.0 tokens, SASL, SSL Certificates), Authorisation (RBAC) and Encryption (TLS 1.2).
+
 ### Two-Factor Authentication
 
 We access our key systems with multi-factor authentication enforced. This helps us verify the identity of the person accessing these services and reduce the chance of unauthorised access by way of compromised channels or devices.
@@ -70,7 +76,7 @@ ISO-27001 details IT security management systems and procedures.
 
 An ISO-27001 certification is a quick and easy way to judge the general security posture of an organisation. By obtaining this certification soon, we aim to demonstrate our commitment to information security.
 
-Quix is ISO-27001 certified.
+Quix is ISO-27001 certified. You can verify the validity of our ISO certificate by entering the certificate number 251068 using the [certification verification link](https://www.british-assessment.co.uk/verify-certification/){target=_blank}.
 
 ### Availability, Data security and Business Continuity
 

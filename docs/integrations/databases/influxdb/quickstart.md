@@ -30,7 +30,7 @@ To complete this quickstart you will need:
     
 * An [InfluxDB account](https://www.influxdata.com/products/influxdb-cloud/serverless/){target=_blank}.
 
-You also need to [create a project](../../../create/create-project.md) with an environment, or simply use your default environment.
+You also need to [create a project](../../../quix-cloud/projects/create-project.md) with an environment, or simply use your default environment.
 
 ## Create your InfluxDB bucket
 
@@ -46,7 +46,7 @@ An "all access" token can be created. Also provide a useful description such as 
 
 You now need to create a sample data source in Quix, so you have some data to store in InfluxDB. 
 
-Assuming you have [created your project](../../../create/create-project.md) and environment, you can add a sample data source as follows:
+Assuming you have [created your project](../../../quix-cloud/projects/create-project.md) and environment, you can add a sample data source as follows:
 
 1. In the pipeline view of your environment, click `+ Sample data source`. 
 
@@ -210,6 +210,6 @@ You also learned how to view the messages in a Quix topic in real time, using th
 
 ## Next steps
 
-* [See other methods for integrating your data](../../../develop/integrate-data/overview.md)
+* [See other methods for integrating your data](../../../quix-cloud/applications/integrate-data/overview.md)
 * [See the predictive maintenance tutorial, which uses InfluxDB](../../../tutorials/predictive-maintenance/overview.md)
 * [Try another tutorial](../../../tutorials/overview.md)
