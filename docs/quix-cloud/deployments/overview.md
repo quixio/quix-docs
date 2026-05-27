@@ -52,7 +52,7 @@ The main features are described in the following table:
 |----|----|
 | Application | You can select the name of the application you are deploying from here. |
 | Version | The version of the code you are going to deploy. See [deployment version](#deployment-version) for further details. |
-| Environment variables | Any environment variables your application uses are shown here. |
+| Environment variables | Any environment variables your application uses are shown here. Bind a variable to a [project variable](./project-variables.md) to vary its value per environment or to inject a secret. |
 | Deployment settings | Here you can select whether you want the application to run as a job or a service. You can also provide vertical scaling here by allocating more CPU and memory to the application. You can also provide some horizontal scaling by having more than one replica. A replica is an instance of the application running. When replicas are part of a consumer group, they can spread processing of streams across all replicas. |
 | Public access | This is where you want to make the application accessible to the Internet. For example, if the service implements a UI it will usually be available through the web. |
 | State management | If you enable state, your application can preserve state between restarts. A `state` folder is created that is used for data structures and files you want to preserve in the event of service crashes or restarts. See also the [docs on state management](./state-management.md). |
