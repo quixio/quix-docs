@@ -1,10 +1,23 @@
 # Project variables
 
-A project variable is a named value defined at project scope, with per-environment overrides and an optional `secret` flag that encrypts the value. Project variables give you one place to manage configuration that differs between environments (such as `develop` and `production`) and configuration that must be kept private (such as API keys and database passwords).
+**Project variables are a single store for any value your pipeline needs that varies between environments or has to be kept private.** Define a value once at project scope, give it per-environment overrides, optionally mark it as a secret, and Quix resolves the right value at deployment time.
 
-!!! note
+## One store, replacing two
 
-    Project variables replace the features previously documented as **YAML variables** and **Secrets management**. Existing values are preserved.
+Before project variables, Quix had two separate features doing closely related jobs:
+
+| Old feature | What it did |
+|---|---|
+| **YAML variables** | Per-environment values substituted into `quix.yaml` with `{{ }}` placeholders — typically used for CPU, memory, replicas, public URLs, and feature toggles. |
+| **Secrets management** | A separate encrypted store for credentials, accessed only by binding a secret to an application's environment variable. |
+
+The boundary between "configurable" and "secret" was an implementation detail forced on you by the platform — two UIs, two mental models, two places to look when something was missing.
+
+Project variables replace both. A single primitive carries the per-environment values, and a `Secret` flag on the variable turns on encryption at rest and hides the value from the UI, the YAML view, and Git. You get one panel to manage configuration, and one place to fix things when an environment is missing a value.
+
+!!! note "Existing projects keep working"
+
+    Values you previously stored as YAML variables or secrets are preserved as project variables. The `{{ }}` references in your `quix.yaml` and any application variables bound to secrets continue to resolve as before.
 
 ## When to use project variables
 
@@ -123,9 +136,11 @@ Use project variables to:
 
 ## Create a project variable
 
+Project variables live on a dedicated `Project variables` panel attached to the project. The panel is the same across every environment in the project — environments share the variable definitions and only differ in the values they assign.
+
 To create a project variable:
 
-1. Open the `Project variables` panel for your project.
+1. From your project, open the `Project variables` panel.
 
     <!-- TODO: screenshot of the Project variables panel (overview list view). -->
 
@@ -133,15 +148,21 @@ To create a project variable:
 
 3. Give the variable a `Name`. The name is the key you reference in `quix.yaml` and from your application code.
 
-4. Provide a value for each environment in the project. You can also set a default value that applies when an environment-specific value is not defined.
+4. Set the variable's `Default value`. The default applies to every environment that does not provide its own value, and serves as the fallback when an environment is created later.
 
-    <!-- TODO: screenshot of the create-variable dialog showing per-environment fields. -->
+5. For any environment that needs a different value, set a per-environment override. The override replaces the default for that environment only; other environments continue to use the default.
 
-5. To store the value securely, enable the `Secret` toggle. The value is then encrypted at rest and hidden in the UI, the YAML view, and the Git repository.
+    <!-- TODO: screenshot of the create-variable dialog showing the Default value plus per-environment override fields. -->
+
+6. To store the value securely, enable the `Secret` toggle. Encryption applies to both the default and every per-environment override, and the value is hidden in the UI, the YAML view, and Git.
 
     <!-- TODO: screenshot of the create-variable dialog with the Secret toggle highlighted. -->
 
-6. Click `Save changes`.
+7. Click `Save changes`.
+
+!!! tip "Settings menu"
+
+    `Settings → Project variables` opens the same panel from anywhere in the project, replacing the legacy `Settings → Secrets management` entry.
 
 ### Naming rules
 
@@ -241,6 +262,10 @@ Pick the pattern that matches what you want to configure:
     3. The key of the project variable to read. Resolution happens per environment at deployment time.
 
     In this example, the application receives an environment variable named `API_KEY` whose value is taken from the project variable `THIRD_PARTY_API_KEY` in the current environment. Combine this pattern with the `Secret` toggle to feed encrypted credentials to your code without exposing them in `quix.yaml`.
+
+    !!! tip "Multiple values that belong together"
+
+        When several variables are always set together — for example, the host, port, and token of a database connection — group them into a *variable group* and reference the group from a single application variable with `inputType: Group`. A group bundles related project variables under one name so a deployment can pull them all in at once. <!-- TODO: link to the Variable Groups page once it ships. -->
 
     See the [Application YAML reference](../projects/project-structure.md#variable-input-types) for the full list of supported `inputType` values.
 
