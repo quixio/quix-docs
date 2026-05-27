@@ -64,7 +64,7 @@ topics:
 
 #### Data Tier per Environment
 
-To assign different data tiers to the same topic across environments, you can utilize YAML variables:
+To assign different data tiers to the same topic across environments, you can use a project variable as a substitution placeholder:
 
 ```yaml
 topics:

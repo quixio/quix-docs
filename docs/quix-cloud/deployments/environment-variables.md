@@ -2,7 +2,7 @@
 
 In Quix, it is possible to create new environment variables that your code can then access. This is useful for things like API keys, secrets, and passwords for other services that your code may need to access.
 
-For credentials, prefer storing the value as a [secret](./secrets-management.md) and exposing it through an environment variable. Quix also injects a set of [platform-provided variables](./quix-variables.md) into every deployment.
+For credentials and any value that varies between environments, prefer defining a [project variable](./project-variables.md) and binding it to the environment variable. Quix also injects a set of [platform-provided variables](./quix-variables.md) into every deployment.
 
 ## To create an environment variable
 
