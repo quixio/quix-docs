@@ -166,10 +166,7 @@ To create a project variable:
 
 ### Naming rules
 
-A project variable name must:
-
-* Be no longer than 254 characters.
-* Match the regular expression `^[a-zA-Z_][a-zA-Z0-9_]*$` (letters, digits, and underscores only, and the first character must be a letter or an underscore).
+A project variable name must be a non-empty, non-whitespace string. Pick names that are valid environment-variable identifiers in your application's language (typically uppercase letters, digits, and underscores starting with a letter or underscore) so they map cleanly when bound to a container environment variable.
 
 ## Use a project variable in `quix.yaml`
 
@@ -265,7 +262,7 @@ Pick the pattern that matches what you want to configure:
 
     !!! tip "Multiple values that belong together"
 
-        When several variables are always set together — for example, the host, port, and token of a database connection — group them into a *variable group* and reference the group from a single application variable with `inputType: Group`. A group bundles related project variables under one name so a deployment can pull them all in at once. <!-- TODO: link to the Variable Groups page once it ships. -->
+        When several variables are always set together — for example, the host, port, and token of a database connection — group them into a *variable group* and reference the group from a single application variable with `inputType: VariableGroup` and `variableGroupKey: <group-name>`. A group bundles related project variables under one name so a deployment can pull them all in at once. <!-- TODO: link to the Variable Groups page once it ships. -->
 
     See the [Application YAML reference](../projects/project-structure.md#variable-input-types) for the full list of supported `inputType` values.
 
@@ -309,18 +306,18 @@ When you sync an environment, Quix validates every project variable and `{{ }}` 
 | **Type mismatch** | A `{{ }}` template resolves to a value that cannot be converted to the field's expected type. For example, a non-numeric value used in `replicas`, which expects an integer. |
 | **Secret in template** | A `{{ }}` template references a project variable that has `Secret` enabled. See the warning in the previous section. |
 
-If the missing variable is a required reference, Quix opens the `Missing values` dialog and lists the variables it needs:
+If the target environment is missing required values, Quix blocks the sync and opens the `Missing project variables` dialog. The dialog explains: *"The YAML references project variables that aren't defined yet. Add them before launching the sync into the [environment] environment."* and lists the missing keys.
 
-![Missing values dialog](../../images/env-variables/secrets-management.png)
+![Missing project variables dialog](../../images/env-variables/secrets-management.png)
 
-<!-- TODO: replace the screenshot above with the new "Missing values" modal once it ships in the platform UI. The current image still shows the legacy "Missing secrets" copy. -->
+<!-- TODO: replace the screenshot above with the current 'Missing project variables' modal once the frontend rename ships. -->
 
 From this dialog you can:
 
-* Click `Add secrets` to provide values inline.
-* Click `Edit YAML` to open the project variables panel and configure values across environments.
+* Click `Add project variables` to provide the missing values inline.
+* Click `Edit YAML` to open `quix.yaml` and remove or rename the offending references instead.
 
-The deployment does not start until every required project variable has a value for the target environment.
+The deployment does not start until every referenced project variable has a value for the target environment.
 
 ## Full `quix.yaml` example
 
