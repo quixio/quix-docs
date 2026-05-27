@@ -27,23 +27,23 @@ The above is a list of environment variables that you are going to configure.
 
 For `INFLUXDB_TOKEN`, you need to [create a secret project variable](../../quix-cloud/deployments/project-variables.md) to assign to the corresponding [environment variables](../../quix-cloud/deployments/environment-variables.md).
 
-To create the secret:
+To create the secret project variable:
 
-1. Click on Settings in the botton left-hand corner of the Quix UI.
+1. Click on Settings in the bottom left-hand corner of the Quix UI.
 
-2. Scroll down to the bottom of the screen and click on `Secrets management`.
+2. Click on `Project variables`.
 
-3. In the `Secrets management` dialog, click `+ New secret` and use this to create the `INFLUXDB_TOKEN` secret, and assign it to the `INFLUXDB_TOKEN` variable.
+3. In the `Project variables` panel, click `+ New variable`. Name it `INFLUXDB_TOKEN`, enable the `Secret` toggle, and set the value for each environment.
 
 <!-->
-4. Also create a secret for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../quix-cloud/access-security/personal-access-token.md).
+4. Also create a secret project variable for `bearer_token` - the value will be a PAT. You can learn how to generate a PAT [here](../../quix-cloud/access-security/personal-access-token.md).
 -->
 
-These secrets are then assigned to their corresponding environment variables.
+These project variables are then assigned to their corresponding environment variables on each deployment.
 
 !!! note
 
-    You will need to restart services (if they are running) where you have just added a secret.
+    You will need to restart services (if they are running) where you have just added or changed a project variable.
 
 ## 🏃‍♀️ Next step
 
