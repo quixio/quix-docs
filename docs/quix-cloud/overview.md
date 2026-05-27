@@ -77,7 +77,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Create a project (Git repository) with at least one environment (branch). You can optionally copy or fork a template project to get started more quickly with a specific use case.
 
-    [Create a project :octicons-arrow-right-24:](../create/overview.md)
+    [Create a project :octicons-arrow-right-24:](projects/overview.md)
 
 - __2. Develop your application__
 
@@ -85,7 +85,7 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
     Use Quix Streams and Python to develop your application (service).
 
-    [Develop your application :octicons-arrow-right-24:](../develop/overview.md)
+    [Develop your application :octicons-arrow-right-24:](applications/overview.md)
 
 - __3. Deploy your application__
 
@@ -93,63 +93,18 @@ Use the following tiles to easily jump to the relevant section of this documenta
     
     Deploy your application as a service in your stream processing pipeline.
 
-    [Deploy your application :octicons-arrow-right-24:](../deploy/overview.md)
+    [Deploy your application :octicons-arrow-right-24:](deployments/overview.md)
 
-- __4. Manage your pipeline__
+- __4. Observe your pipeline__
 
     ---
 
-    Once all the services in a pipeline are deployed, your stream processing solution is fully operational
+    Once your services are running, inspect build and runtime logs, browse messages flowing through topics, and troubleshoot from the deployment page.
 
-    [Manage your pipeline :octicons-arrow-right-24:](../manage/overview.md)
+    [Observe your pipeline :octicons-arrow-right-24:](deployments/overview.md#logs)
 
 </div>
 
 ## Access control
 
-Quix Cloud provides fine-grained access control through a role-based permission system. You can assign different roles at the organisation, project, or environment level to control what users can do.
-
-**Available roles:**
-
-| Role | Access level |
-|------|--------------|
-| Admin | Full control, including billing and user management |
-| Manager | Manage resources and users (no billing) |
-| Editor | Manage resources (no user management) |
-| Viewer | Read-only access |
-| Operator | Plugin access only |
-
-### Quick start
-
-**Invite a user to your organisation:**
-
-1. Go to **Settings** → **Users**
-2. Click **Invite User**
-3. Enter their email and select a default role
-
-**Assign a role at a specific scope:**
-
-1. Go to **Settings** → **Users**
-2. Click on the user
-3. Select the project or environment
-4. Choose the role (Admin, Manager, Editor, Viewer, None)
-
-**Restrict access to a sensitive environment:**
-
-1. Set the user's organisation-level role to **Viewer** (read-only everywhere)
-2. Override with **None** on the sensitive environment (blocks all access)
-3. Override with **Editor** on environments they need to work in
-
-You can also manage access using the [Quix CLI](../quix-cli/cli-reference/cloud/users/permissions/index.md):
-
-```bash
-# Set a user as Editor for a specific environment
-quix cloud users permissions set user@example.com \
-  --scope Workspace:myorg-project-environment \
-  --role Editor
-```
-
-For more information, see:
-
-- [Roles and Permissions](./roles.md) - Complete guide to roles and permissions
-- [Security](./security.md) - Overview of Quix Cloud security
+Quix Cloud uses a role-based permission system (Admin, Manager, Editor, Viewer, Operator) that can be applied at the organisation, project, or environment level. See [Roles and permissions](roles.md) for the full guide, or [Security and compliance](security.md) for the broader security overview.
