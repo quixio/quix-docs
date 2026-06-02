@@ -17,7 +17,7 @@ on:
     types: [opened, reopened, synchronize, ready_for_review, edited]
 
 concurrency:
-  group: ${{ github.workflow }}-pr-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -30,12 +30,24 @@ jobs:
     steps:
     - name: Set deployment directory
       run: |
-        if [ "${{ github.ref_type }}" = "tag" ]; then
-          Deployment_Dir="tag-${{ github.ref_name }}"
-        elif [ "${{ github.event_name }}" = "pull_request" ]; then
-          Deployment_Dir="pr${{ github.event.pull_request.number }}"
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          raw_dir="pr${{ github.event.pull_request.number }}"
+        elif [ "${{ github.ref_type }}" = "tag" ]; then
+          raw_dir="tag-${{ github.ref_name }}"
+        elif [ "${{ github.ref_type }}" = "branch" ]; then
+          raw_dir="branch-${{ github.ref_name }}"
         else
-          Deployment_Dir="pr${{ github.ref_name }}"
+          raw_dir="run-${{ github.run_id }}"
+        fi
+
+        Deployment_Dir=$(printf '%s' "$raw_dir" \
+          | tr '[:upper:]' '[:lower:]' \
+          | sed -E 's/[^a-z0-9-]+/-/g; s/^-+//; s/-+$//; s/-+/-/g' \
+          | cut -c1-63 \
+          | sed -E 's/^-+//; s/-+$//')
+
+        if [ -z "$Deployment_Dir" ]; then
+          Deployment_Dir="run-${{ github.run_id }}"
         fi
 
         echo "Deployment_Dir=$Deployment_Dir" >> "$GITHUB_ENV"
