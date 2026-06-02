@@ -14,50 +14,34 @@ on:
     tags:
       - test-*
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, synchronize, ready_for_review, edited]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-html:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pull-requests: write
     steps:
-    - name: Get branch name
-      id: getbr
-      uses: tj-actions/branch-names@v6
-    
-    - name: Get the branch output
-      run: echo "The output of get-branch is ${{ steps.getbr.outputs.ref_branch }}"
-      
-    - name: Remove last part of PR ref
-      uses: mad9000/actions-find-and-replace-string@3
-      id: findandreplace
-      with:
-        source: 'pr${{ steps.getbr.outputs.ref_branch }}'
-        find: '/merge'    
-        replace: '' 
-        
-    - name: Get the above output
-      run: echo "The output of findandreplace is $Deployment_Dir"
-
-    - name: BuildHasTag
-      if: ${{ github.ref_type=='tag' }}
-      run:  |
-          echo "Setting Deployment_Dir to tag-${{ github.ref_name }} -- ${{ github.ref_type }}"
-          echo "Deployment_Dir=tag-${{ github.ref_name }}" >> $GITHUB_ENV
-
-    - name: BuildHasNoTag
-      if: ${{ github.ref_type!='tag' }}
+    - name: Set deployment directory
       run: |
-          echo "Setting Deployment_Dir to ${{ steps.findandreplace.outputs.value }} -- BLAH"
-          echo "Deployment_Dir=${{ steps.findandreplace.outputs.value }}" >> $GITHUB_ENV
+        if [ "${{ github.ref_type }}" = "tag" ]; then
+          Deployment_Dir="tag-${{ github.ref_name }}"
+        elif [ "${{ github.event_name }}" = "pull_request" ]; then
+          Deployment_Dir="pr${{ github.event.pull_request.number }}"
+        else
+          Deployment_Dir="pr${{ github.ref_name }}"
+        fi
+
+        echo "Deployment_Dir=$Deployment_Dir" >> "$GITHUB_ENV"
+        echo "Deployment_Dir=$Deployment_Dir"
 
     - name: blob
       run: echo $Deployment_Dir
 
-    - name: Checkout Dev
-      uses: actions/checkout@v3
+    - name: Checkout docs
+      uses: actions/checkout@v4
     
     - uses: actions/setup-python@v2
       with:
