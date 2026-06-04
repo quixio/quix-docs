@@ -6,8 +6,6 @@ Use them to access deployment, application, and environment-specific metadata in
 
 State-related variables are only present when [state management](./state-management.md) is enabled, and `Quix__Deployment__Network__PublicUrl` is only present when [public access](./deploy-public-page.md) is enabled.
 
-The blob storage and Quix Lake variables (`Quix__BlobStorage__Connection__Json`, `Quix__Lakehouse__*`, and their aliases) are only present when a [blob storage connection](../quix-lake/blob-storage.md) is bound — and, for the Quix Lake variables, when [Quix Lake](../quix-lake/overview.md) is enabled. The same variables are injected into [dev sessions](../applications/dev-sessions/overview.md).
-
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|
 | `Quix__Workspace__Id`                 | The id of the environment the deployment is running in.                                               |
@@ -32,8 +30,20 @@ The blob storage and Quix Lake variables (`Quix__BlobStorage__Connection__Json`,
 | `Quix__Build__Id`                     | The build Id of the deployment. Multiple deployments will have the same build id if referencing the same commit of a application. |
 | `Quix__Portal__Api`                   | The portal API endpoint, which depends on the environment.                                            |
 | `Quix__Sdk__Token`                    | SDK Token 1, as described [here](../access-security/streaming-token.md).                       |
-| `Quix__BlobStorage__Connection__Json` | The bound [blob storage connection](../quix-lake/blob-storage.md) as a JSON document — provider plus credentials and bucket/container. Injected as a secret. Present only when a connection is bound, and also injected into [dev sessions](../applications/dev-sessions/overview.md). |
-| `Quix__Lakehouse__Catalog__Url`       | The [Quix Lake](../quix-lake/overview.md) Catalog URL (preferred name).                                |
+
+## Storage and Quix Lake variables
+
+The variables below are **conditional** — unlike the ones above, they are not always present:
+
+- **`Quix__BlobStorage__Connection__Json`** is injected only when the deployment has a [blob storage connection](../quix-lake/blob-storage.md) **bound**.
+- The **`Quix__Lakehouse__*`** variables (and the `CATALOG_URL` / `QUIX_LAKE_URL` aliases) are injected only when that connection also has **[Quix Lake](../quix-lake/overview.md) enabled**.
+
+If neither condition is met, none of these variables are set, so guard for their absence in your code. The same variables are also injected into [dev sessions](../applications/dev-sessions/overview.md).
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__BlobStorage__Connection__Json` | The bound blob storage connection as a JSON document — provider plus credentials and bucket/container. Injected as a secret. |
+| `Quix__Lakehouse__Catalog__Url`       | The Quix Lake Catalog URL (preferred name).                                                           |
 | `CATALOG_URL`                         | The Catalog URL — legacy / PyIceberg alias of `Quix__Lakehouse__Catalog__Url`.                        |
 | `QUIX_LAKE_URL`                       | The Catalog URL — QuixLake / QuixLab alias of `Quix__Lakehouse__Catalog__Url`.                        |
 | `Quix__Lakehouse__Catalog__AuthToken` | Auth token your code sends to authenticate requests to the Catalog — use it together with `Quix__Lakehouse__Catalog__Url`. Injected as a secret. |
