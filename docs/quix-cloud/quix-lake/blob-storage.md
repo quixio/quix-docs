@@ -115,6 +115,27 @@ If a step fails, you’ll see ✗ next to it along with the reason (for example,
     6. Copy the information into the Quix MinIO connector form.  
     7. Click **Test Connection**.  
 
+## Variables injected into bound deployments
+
+When a deployment — or a [dev session](../applications/dev-sessions/overview.md) — is bound to this blob storage connection, Quix injects the connection itself as a secret:
+
+| Variable | Description |
+|----------|-------------|
+| `Quix__BlobStorage__Connection__Json` | The full connection as a JSON document — provider plus credentials and the bucket/container. Injected as a secret so values stay hidden in logs and the UI. |
+
+The JSON carries the selected **Provider** (S3, GCS, Azure Blob, or MinIO) and the matching credential and location fields you entered above. Your code reads this one variable and deserializes it to connect to the storage.
+
+When [Quix Lake](./overview.md) is enabled, the Lakehouse endpoints are injected too, so your code can reach the Catalog and Query services without hard-coding URLs:
+
+| Variable | Description |
+|----------|-------------|
+| `Quix__Lakehouse__Catalog__Url` | The Catalog URL (preferred name). Also injected as `CATALOG_URL` (legacy / PyIceberg alias) and `QUIX_LAKE_URL` (QuixLake / QuixLab alias). |
+| `Quix__Lakehouse__Catalog__AuthToken` | Authenticates your code's requests to the Catalog — pair it with `Quix__Lakehouse__Catalog__Url`. Only injected under the `Quix__` name (no alias). Injected as a secret. |
+| `Quix__Lakehouse__Query__Url` | The Query URL. |
+| `Quix__Lakehouse__Query__AuthToken` | Authenticates your code's requests to the Query service — pair it with `Quix__Lakehouse__Query__Url`. Injected as a secret. |
+
+See [Quix Variables](../deployments/quix-variables.md) for the full list of variables the platform injects into deployments.
+
 ## Security & operations
 
 - Dedicated principals per connection (IAM user / Service Account / MinIO user)  
