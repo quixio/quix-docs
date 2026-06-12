@@ -20,7 +20,7 @@ nav:
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.23.7'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.24.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
