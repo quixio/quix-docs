@@ -1,5 +1,6 @@
 
 site/
+_site_preview/
 lib/
 .idea/
 .vscode/
@@ -18,3 +19,5 @@ __pycache__/
 .env
 venv/
 SCRATCHPAD.md
+
+serve.log
