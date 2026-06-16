@@ -363,7 +363,7 @@ li {
 }
 
 button.header-btn-inner {
-    color: #ffffff;
+    color: var(--black);
     background-color: var(--orange);
     padding: 8px 16px;
     font-size: 16px;
@@ -427,6 +427,7 @@ button.header-btn-inner:hover {
 
 #__consent>aside>form>div.md-consent__controls>button {
     background-color: var(--orange);
+    color: var(--black);
 }
 
 .md-feedback__note {
@@ -492,7 +493,7 @@ button.header-btn-inner:hover {
 .md-typeset .md-button--primary {
     background-color: var(--orange);
     border-color: var(--orange);
-    color: #ffffff;
+    color: var(--black);
 }
 
 
@@ -502,7 +503,7 @@ button.header-btn-inner:hover {
 .md-typeset .md-button:hover {
     background-color: var(--orange-dark);
     border-color: var(--orange-dark);
-    color: #ffffff;
+    color: var(--black);
 }
 
 .github-buttons body {
