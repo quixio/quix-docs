@@ -37,8 +37,10 @@
     --md-primary-fg-color--dark: var(--black);
     --md-primary-bg-color: var(--almost-black);
 
-    /* Accent & links — brand orange (high contrast on near-black) */
-    --md-accent-fg-color: var(--orange);
+    /* Accent & links — brand orange (high contrast on near-black).
+       Links brighten on hover via the lighter accent colour below. */
+    --orange-bright: #FFA94D;   /* derived: brand orange lightened for hover */
+    --md-accent-fg-color: var(--orange-bright);
     --md-typeset-a-color: var(--orange) !important;
 
     /* Typography */
@@ -47,7 +49,7 @@
 
     /* Code */
     --md-code-fg-color: #e6e6e6;
-    --md-code-bg-color: #161616;
+    --md-code-bg-color: #2E2E2E;
     --md-code-bg-color--darker: #0d0d0d;
     --md-code-hl-comment-color: #8a8a8a;
 
@@ -90,6 +92,14 @@ p {
 
 li {
     color: var(--p-color);
+}
+
+/* Bold/strong text sits a step brighter than body copy (which is 72% white)
+   so emphasised terms like inline lead-ins read with clearer contrast. */
+.md-typeset strong,
+p strong,
+li strong {
+    color: hsla(0, 0%, 100%, 0.92);
 }
 
 .md-typeset h1 {
@@ -427,6 +437,13 @@ button.header-btn-inner:hover {
 
 #__consent>aside>form>div.md-consent__controls>button {
     background-color: var(--orange);
+    color: var(--black);
+    transition: background-color .25s;
+}
+
+#__consent>aside>form>div.md-consent__controls>button:focus,
+#__consent>aside>form>div.md-consent__controls>button:hover {
+    background-color: var(--orange-dark);
     color: var(--black);
 }
 
