@@ -18,6 +18,9 @@ __pycache__/
 
 .env
 venv/
+.venv/
 SCRATCHPAD.md
 
 serve.log
+
+serve.preview.log
