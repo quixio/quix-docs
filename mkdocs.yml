@@ -73,6 +73,7 @@ nav:
         - 'Secrets management': 'quix-cloud/deployments/secrets-management.md'
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
         - 'YAML variables': 'quix-cloud/deployments/yaml-variables.md'
+        - 'Global variables': 'quix-cloud/deployments/global-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
