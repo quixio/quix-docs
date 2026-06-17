@@ -27,8 +27,8 @@
 [data-md-color-scheme="default"] {
     /* Surfaces */
     --md-default-bg-color: var(--almost-black);
-    --md-default-fg-color: #ffffff;
-    --md-default-fg-color--light: hsla(0, 0%, 100%, 0.72);
+    --md-default-fg-color: #ffffffcf;
+    --md-default-fg-color--light: hsl(0deg 0% 100% / 55%);
     --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.45);
 
     /* Header / footer "primary" colour — near-black (see .md-header / .footer).
@@ -45,7 +45,7 @@
 
     /* Typography */
     --md-typeset-h1-font-weight: 600;
-    --p-color: hsla(0, 0%, 100%, 0.72);
+    --p-color: hsl(0deg 0% 100% / 55%);
 
     /* Code */
     --md-code-fg-color: #e6e6e6;
@@ -99,7 +99,7 @@ li {
 .md-typeset strong,
 p strong,
 li strong {
-    color: hsla(0, 0%, 100%, 0.92);
+    color: hsl(0deg 0% 100% / 80%);
 }
 
 .md-typeset h1 {
@@ -490,8 +490,12 @@ button.header-btn-inner:hover {
     transform-origin: 0 0;
 }
 
+/* Keep the footer at the bottom of the viewport on short pages. Uses min-height
+   (not height) so long pages grow to their full content height — a fixed height
+   clamps the container shorter than its content and breaks Material's scroll-based
+   TOC active-item tracking (every page lands on the last "On this page" item). */
 .md-container {
-    height: calc(100vh - 64px) !important;
+    min-height: calc(100vh - 64px);
 }
 
 /* Update button styling CSS */
