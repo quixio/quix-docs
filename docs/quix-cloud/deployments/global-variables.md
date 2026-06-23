@@ -131,7 +131,7 @@ The rest of this page walks through each step.
 
 !!! note "Creator override"
 
-    The user who creates a group can always edit, delete, and manage assignments for it, even if their role does not grant the general `Update` or `Delete` permission on variable groups. Reading and creating groups still require the standard role permissions.
+    The user who creates a group can update it, add value sets, and manage its assignments even if their role lacks the general `Update` permission. The override does **not** cover deletions: deleting the group still requires the `Delete` permission, and deleting a value set requires the `Update` permission. Reading and creating groups also require the standard permissions.
 
 ### Add variables
 
@@ -144,9 +144,9 @@ The rest of this page walks through each step.
 
 Editing a value updates every project and environment that resolves against that value set.
 
-!!! warning "Secrets cannot be turned back into plain values"
+!!! note "Turning a secret back into a plain value"
 
-    Once a variable is marked as a secret, it cannot be demoted. To replace a secret with a plain value, delete the variable and recreate it with the `Secret` toggle off.
+    You can clear the `Secret` toggle to make a variable plain again, but you must enter a **new value** in the same edit. A demotion with no new value is rejected — the platform never exposes the stored encrypted value as plaintext.
 
 ## Assign a group to a project
 
@@ -268,10 +268,10 @@ After you change a variable's value, an assignment, or a value set, the affected
 
 Deletes cascade:
 
-* **Delete a value set** — removes every variable's value for that set within the group. Assignments pointing at it lose their selection and must be re-pointed.
+* **Delete a value set** — removes every variable's value for that set within the group, and deletes the assignments that selected it. Affected projects and environments must be re-assigned a value set.
 * **Delete a group** — removes the group, all its variables, and every assignment that referenced it. Projects depending on it lose access immediately.
 
-The portal asks for confirmation and lists the affected projects and environments so you can see the blast radius first. Re-creating a group with the same identifier does **not** restore previous assignments.
+The portal asks you to confirm before deleting. Because the delete cascades to variables and assignments across every project that uses the group, check which projects depend on it first. Re-creating a group with the same identifier does **not** restore previous assignments.
 
 ## Full example
 
@@ -342,7 +342,7 @@ A deployment variable that references a group is an entry in `deployments[].vari
 * A group **identifier is immutable** after the group is created. It must match `^[A-Za-z0-9][A-Za-z0-9_-]*$` (letters, digits, hyphens, underscores; not starting with a separator), at most 254 characters. Duplicate detection at creation is case-insensitive.
 * A reference's **`name` is a label**, never an injected environment variable. Injected names come from the variables inside the group.
 * **Global variable names cannot contain spaces** (recommended pattern `[a-zA-Z_][a-zA-Z0-9_]*`), because each becomes an OS environment-variable name.
-* A **secret variable cannot be demoted** to a plain value — delete and recreate it.
+* A **secret variable can be demoted** to a plain value only by supplying a new value in the same edit; a demotion with no new value is rejected (the stored encrypted value is never exposed).
 * A project needs an **assignment** (project-level or environment-level) before a deployment can resolve a group.
 * The **environment-level override wins** over the project-level default when both are set.
 * Changing values or assignments marks affected environments **out of sync**; **syncing the environment redeploys** the deployments that use the group so they restart with the new values. (The background out-of-sync check only flags the drift; the sync applies it.)

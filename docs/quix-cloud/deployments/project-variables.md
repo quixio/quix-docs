@@ -224,6 +224,7 @@ When you sync an environment, Quix validates every project-variable reference. T
 | **Missing reference** | A deployment variable (`inputType: ProjectVariable`) or a `{{ }}` template references a key that does not exist as a project variable in this environment. | Create the variable, or remove/rename the reference. |
 | **Type mismatch** | A `{{ }}` template resolves to a value that cannot be converted to the field's expected type. For example, `replicas` expects an integer; the resolved value is `"two"`. | Set a value of the correct type for that environment. |
 | **Secret in template** | A `{{ }}` template references a project variable that has `Secret` enabled. | Switch to Pattern 2 (`inputType: ProjectVariable` + `variableKey`). |
+| **Secret mismatch** | A deployment variable declares a `secret:` value in `quix.yaml` that contradicts the stored project variable's `Secret` flag. | Align the YAML `secret:` hint with the variable, or drop the hint and let the stored flag apply. |
 
 If the target environment is missing required values, Quix blocks the sync and opens the `Missing project variables` dialog. The dialog explains: *"The YAML references project variables that aren't defined yet. Add them before launching the sync into the [environment] environment."* and lists the missing keys.
 
@@ -425,7 +426,7 @@ A condensed reference for tools and integrations that consume this page.
 * **Binding pattern** — inside a deployment's `variables:` block, `inputType: ProjectVariable` + `variableKey: <name>`. Resolved at deployment runtime. Required for secrets.
 * **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
 * **Resolution order** — per-environment value > default value.
-* **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`. Surface in the `Missing project variables` dialog at sync time.
+* **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`, `Secret mismatch`. Surface in the `Missing project variables` dialog at sync time.
 * **Encryption** — `Secret` flag encrypts both default and per-environment values at rest and hides them from UI, YAML view, and Git.
 * **Migration** — legacy `inputType: Secret` / `secretKey:` shapes are accepted on read and rewritten to the modern shapes on write.
 
