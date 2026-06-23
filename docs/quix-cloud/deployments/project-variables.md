@@ -168,7 +168,20 @@ deployments:
 
 The application receives an environment variable named `API_KEY` whose value is the project variable `THIRD_PARTY_API_KEY` in the current environment. Mark `THIRD_PARTY_API_KEY` as `Secret` in the project variables panel to encrypt the value at rest and keep it out of YAML.
 
-See the [Application YAML reference](../projects/project-structure.md#variable-input-types) for the full list of supported `inputType` values.
+!!! note "`quix.yaml` or `app.yaml`?"
+
+    The binding above is shown on a deployment in `quix.yaml`. The identical `variables:` entry is also valid in an application's `app.yaml`, where it becomes part of the application and applies to every deployment of that app:
+
+    ```yaml
+    # app.yaml — the binding travels with the application
+    variables:
+      - name: API_KEY
+        inputType: ProjectVariable
+        variableKey: THIRD_PARTY_API_KEY
+        required: true
+    ```
+
+See the [Application YAML reference](../projects/project-structure.md#variable-input-types) for the full list of supported `inputType` values, and [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
 
 ## Access the value from your application code
 

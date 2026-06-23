@@ -202,6 +202,21 @@ Two things to keep in mind:
 * **One reference, many env vars.** You do not list the individual variables. Adding a variable to the group later reaches this deployment automatically on the next sync.
 * **The `name` field is a label.** It identifies the reference in the UI and in error messages but is **not** injected. The injected names come from the variables defined inside the group.
 
+!!! note "`quix.yaml` or `app.yaml`?"
+
+    The example above shows the reference on a deployment in the pipeline file `quix.yaml`. The identical entry is also valid in an application's `app.yaml` (`variables:` block) — declare it there to make the binding part of the application itself, so every deployment of that app inherits it:
+
+    ```yaml
+    # app.yaml — the binding travels with the application
+    variables:
+      - name: redis
+        inputType: VariableGroup
+        variableGroupId: redis-config
+        required: true
+    ```
+
+    See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
+
 To pull in more than one group, add one entry per group:
 
 ```yaml
