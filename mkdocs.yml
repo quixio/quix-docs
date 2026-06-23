@@ -896,6 +896,9 @@ plugins:
         'deploy/project-variables.md': 'quix-cloud/deployments/project-variables.md'
         'quix-cloud/deployments/secrets-management.md': 'quix-cloud/deployments/project-variables.md'
         'quix-cloud/deployments/yaml-variables.md': 'quix-cloud/deployments/project-variables.md'
+        # global variables page (SC-73368); the portal links to deploy/variable-groups today
+        'deploy/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
+        'quix-cloud/deployments/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
         'deploy/ports.md': 'quix-cloud/deployments/ports.md'
         'deploy/state-management.md': 'quix-cloud/deployments/state-management.md'
         'deploy/deploy-public-page.md': 'quix-cloud/deployments/deploy-public-page.md'
