@@ -125,7 +125,7 @@ The rest of this page walks through each step.
     <!-- TODO: screenshot of the org-level Global Variables page. -->
 
 2. Click `New variable group`.
-3. Enter an **identifier**, a **display name**, and an optional **description**. The identifier is what you reference in `quix.yaml` and **cannot be changed after creation**.
+3. Enter an **identifier**, a **display name**, and an optional **description**. The identifier is what you reference in `quix.yaml` and **cannot be changed after creation**. It accepts letters, digits, hyphens, and underscores (up to 254 characters) and must start with a letter or digit. Identifiers are compared case-insensitively when checking for duplicates, so `redis-config` and `Redis-Config` cannot both exist.
 4. Add one or more **value sets**, for example `DEV` and `PROD`.
 5. Click `Save`.
 
@@ -258,11 +258,11 @@ Secret values are decrypted before injection, so your code receives the plaintex
 
 ## Keep environments in sync
 
-After you change a variable's value, an assignment, or a value set, the affected environments go **out of sync**. Sync each one to apply the change. Quix tracks which environments a given change affects, so you only sync where it matters.
+After you change a variable's value, an assignment, or a value set, the affected environments go **out of sync**. Sync each one to apply the change. Quix tracks which environments a given change affects, so you only sync where it matters, and the sync diff shows which group changed (including a switch from one value set to another).
 
-!!! note "Running containers don't hot-reload"
+!!! note "Syncing redeploys the affected deployments"
 
-    Syncing updates the deployment definition, but a container that is already running keeps the value it received at start time. **Redeploy or restart the deployment** for a new value to take effect inside the running process.
+    A running container reads its environment variables once at start, so it does not pick up a new value while running. When you **sync the environment**, Quix detects that the group's resolved values changed and **redeploys the deployments that use it**, so they restart with the new values — you don't need to redeploy them by hand. (The background out-of-sync check only flags the drift; applying it is the sync.)
 
 ### Delete a group or value set
 
@@ -339,13 +339,13 @@ A deployment variable that references a group is an entry in `deployments[].vari
 
 ### Rules and constraints
 
-* A group **identifier is immutable** after the group is created.
+* A group **identifier is immutable** after the group is created. It must match `^[A-Za-z0-9][A-Za-z0-9_-]*$` (letters, digits, hyphens, underscores; not starting with a separator), at most 254 characters. Duplicate detection at creation is case-insensitive.
 * A reference's **`name` is a label**, never an injected environment variable. Injected names come from the variables inside the group.
 * **Global variable names cannot contain spaces** (recommended pattern `[a-zA-Z_][a-zA-Z0-9_]*`), because each becomes an OS environment-variable name.
 * A **secret variable cannot be demoted** to a plain value — delete and recreate it.
 * A project needs an **assignment** (project-level or environment-level) before a deployment can resolve a group.
 * The **environment-level override wins** over the project-level default when both are set.
-* Changing values or assignments marks affected environments **out of sync**; **running containers require a restart/redeploy** to pick up new values.
+* Changing values or assignments marks affected environments **out of sync**; **syncing the environment redeploys** the deployments that use the group so they restart with the new values. (The background out-of-sync check only flags the drift; the sync applies it.)
 * Deleting a group or value set **cascades** to its variables and assignments.
 
 ### Resolution and failure modes
