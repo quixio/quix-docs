@@ -202,7 +202,7 @@ A project variable bound via Pattern 2 arrives in the container as a standard en
 
 ## Related concept — Variable groups
 
-When several variables are always set together — for example, the host, port, and token of a database connection — bundle them into a *variable group*. A group exposes a set of related project variables under one name so a deployment can pull them all in at once with a single application variable:
+When a set of related values is shared across **multiple projects** — for example, the host, port, and token of a database every service connects to — define them once as organization-scoped **global variables** and bundle them into a *variable group*. A deployment then pulls in the whole group with a single reference:
 
 ```yaml
 variables:
@@ -210,10 +210,10 @@ variables:
     inputType: VariableGroup
     description: Database connection
     required: true
-    variableGroupKey: production-db
+    variableGroupId: production-db
 ```
 
-`inputType: VariableGroup` (referenced via `variableGroupKey`) sits alongside `inputType: ProjectVariable` and is resolved at runtime in the same way. <!-- TODO: link to the Variable Groups page once it ships. -->
+`inputType: VariableGroup` resolves at runtime like `inputType: ProjectVariable`, but the values come from an organization-scoped variable group rather than this project's variables. Use project variables for values local to one project; use a variable group when the same set is shared across projects. See [Global variables](global-variables.md) for the full feature.
 
 ## Validation errors and the missing-values flow
 
@@ -313,15 +313,21 @@ publicAccess:
 
 Goal — host, port, and token all need to be available, all per-environment, and the token must be encrypted.
 
-1. In `Project variables`, create `DB_HOST`, `DB_PORT`, and `DB_TOKEN` (with `Secret` enabled). Bundle them as the variable group `production-db`.
-2. In `quix.yaml`:
+1. In `Project variables`, create `DB_HOST`, `DB_PORT`, and `DB_TOKEN` (with `Secret` enabled), each with per-environment values.
+2. In `quix.yaml`, bind each one:
 
 ```yaml
 variables:
-  - name: DB
-    inputType: VariableGroup
+  - name: DB_HOST
+    inputType: ProjectVariable
+    variableKey: DB_HOST
+  - name: DB_PORT
+    inputType: ProjectVariable
+    variableKey: DB_PORT
+  - name: DB_TOKEN
+    inputType: ProjectVariable
     required: true
-    variableGroupKey: production-db
+    variableKey: DB_TOKEN
 ```
 
 3. In your code:
@@ -333,6 +339,10 @@ host = os.environ["DB_HOST"]
 port = os.environ["DB_PORT"]
 token = os.environ["DB_TOKEN"]
 ```
+
+!!! tip "Shared across projects?"
+
+    If the same database is used by several projects, define these as an organization-scoped **global variable group** instead and inject all three with a single reference. See [Global variables](global-variables.md).
 
 ## Full `quix.yaml` example
 
@@ -413,7 +423,7 @@ A condensed reference for tools and integrations that consume this page.
 * **Storage** — a project variable is a `(key, default value, per-environment values, secret flag)` record at project scope. One store backs both substitution-style and binding-style references.
 * **Substitution pattern** — `{{ NAME }}` in any `quix.yaml` field. Resolved at sync time. Rejected for variables with `Secret` enabled.
 * **Binding pattern** — inside a deployment's `variables:` block, `inputType: ProjectVariable` + `variableKey: <name>`. Resolved at deployment runtime. Required for secrets.
-* **Group pattern** — `inputType: VariableGroup` + `variableGroupKey: <group>` references a named bundle of related project variables.
+* **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
 * **Resolution order** — per-environment value > default value.
 * **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`. Surface in the `Missing project variables` dialog at sync time.
 * **Encryption** — `Secret` flag encrypts both default and per-environment values at rest and hides them from UI, YAML view, and Git.
