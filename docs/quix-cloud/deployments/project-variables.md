@@ -228,9 +228,7 @@ When you sync an environment, Quix validates every project-variable reference. T
 
 If the target environment is missing required values, Quix blocks the sync and opens the `Missing project variables` dialog. The dialog explains: *"The YAML references project variables that aren't defined yet. Add them before launching the sync into the [environment] environment."* and lists the missing keys.
 
-![Missing project variables dialog](../../images/env-variables/secrets-management.png)
-
-<!-- TODO: replace the screenshot above with the current 'Missing project variables' modal screenshot. -->
+<!-- TODO: add a screenshot of the 'Missing project variables' modal once captured. -->
 
 From this dialog you can:
 
@@ -429,12 +427,6 @@ A condensed reference for tools and integrations that consume this page.
 * **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`, `Secret mismatch`. Surface in the `Missing project variables` dialog at sync time.
 * **Encryption** — `Secret` flag encrypts both default and per-environment values at rest and hides them from UI, YAML view, and Git.
 * **Migration** — legacy `inputType: Secret` / `secretKey:` shapes are accepted on read and rewritten to the modern shapes on write.
-
-## Watch a video
-
-A short walkthrough of the per-environment substitution flow. The video uses the now-deprecated "YAML variables" naming, but the mechanics are unchanged — the same `{{ }}` substitution is the Pattern 1 of project variables.
-
-<div style="position: relative; padding-bottom: 51.728110599078335%; height: 0;"><iframe src="https://www.loom.com/embed/c66029f67b8747bbb28c0605f5ea3fad?sid=ce696556-b98d-4231-8282-a4bbfdf9795c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Related documentation
 
