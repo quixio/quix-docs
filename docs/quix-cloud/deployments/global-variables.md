@@ -150,13 +150,13 @@ Editing a value updates every project and environment that resolves against that
 
 ## Assign a group to a project
 
-*(Project level — `Variables` in the project sidebar → `Variable Groups` tab.)*
+*(Project level — `Variables` in the project sidebar → `Global variables` tab.)*
 
 A project must assign a group before any of its deployments can reference the group's variables.
 
-1. Open your project, select `Variables` in the sidebar, and switch to the `Variable Groups` tab.
+1. Open your project, select `Variables` in the sidebar, and switch to the `Global variables` tab. (The sibling `Project variables` tab holds this project's own variables.)
 
-    <!-- TODO: screenshot of the project Variables → Variable Groups tab. -->
+    <!-- TODO: screenshot of the project Variables → Global variables tab. -->
 
 2. Click `Assign variable group`. (If the group does not exist yet, the empty state also offers `Create new group`, which opens the org-level dialog.)
 3. In the dialog, pick the **group**, then the **default value set** for this project. The dialog orders its fields to match where you started: from the project, the project and environment are already filled in; from `Global Variables` at the org level, you pick the project and environment instead.
@@ -170,7 +170,7 @@ The project now resolves every variable in the group against the chosen value se
 
 ### Override the value set per environment
 
-The `Variable Groups` tab lists each assigned group as a row, with a column per environment. To make one environment use a different value set:
+The `Global variables` tab lists each assigned group as a row, with a column per environment. To make one environment use a different value set:
 
 1. In the group's row, open the value set dropdown for the environment you want to change.
 2. Pick a different value set — for example `PROD`.
