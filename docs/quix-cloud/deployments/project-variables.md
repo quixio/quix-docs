@@ -84,12 +84,18 @@ Key facts the diagram encodes:
 
 Project variables live on a dedicated `Project variables` panel attached to the project. The panel is the same across every environment in the project — environments share the variable definitions and only differ in the values they assign.
 
-1. From your project, open the `Project variables` panel. <!-- TODO: screenshot of the panel (overview list view). -->
+1. From your project, open the `Project variables` panel.
+
+    ![The Project variables panel listing this project's variables with default and per-environment values](../../images/variables/pv-panel.png)
 2. Click `+ New variable`.
 3. Give the variable a `Name`. The name is the key you reference in `quix.yaml` and from your application code. Use uppercase letters, digits, and underscores starting with a letter or underscore so the name maps cleanly to a container environment variable.
 4. Set the variable's `Default value`. The default applies to every environment that does not provide its own value, and is the fallback when a new environment is later created.
-5. For any environment that needs a different value, set a per-environment override. The override replaces the default for that environment only; other environments continue to use the default. <!-- TODO: screenshot of the create dialog showing default + per-env override columns. -->
-6. To store the value securely, enable the `Secret` toggle. Encryption applies to both the default and every per-environment override, and the value is hidden in the UI, the YAML view, and Git. <!-- TODO: screenshot of the create dialog with the Secret toggle on. -->
+5. For any environment that needs a different value, set a per-environment override. The override replaces the default for that environment only; other environments continue to use the default.
+
+    ![The variable editor with a Default column and a per-environment value column](../../images/variables/pv-create.png)
+6. To store the value securely, enable the `Secret` toggle. Encryption applies to both the default and every per-environment override, and the value is hidden in the UI, the YAML view, and Git.
+
+    ![A variable row with the Secret lock enabled](../../images/variables/pv-create-secret.png)
 7. Click `Save changes`.
 
 !!! tip "Settings menu shortcut"
@@ -241,7 +247,7 @@ When you sync an environment, Quix validates every project-variable reference. T
 
 If the target environment is missing required values, Quix blocks the sync and opens the `Missing project variables` dialog. The dialog explains: *"The YAML references project variables that aren't defined yet. Add them before launching the sync into the [environment] environment."* and lists the missing keys.
 
-<!-- TODO: add a screenshot of the 'Missing project variables' modal once captured. -->
+![The Missing project variables modal, shown when a sync references a variable that is not yet defined](../../images/variables/pv-missing-modal.png)
 
 From this dialog you can:
 

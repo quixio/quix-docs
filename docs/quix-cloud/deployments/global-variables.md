@@ -122,7 +122,7 @@ The rest of this page walks through each step.
 
 1. In the Quix Cloud portal, open the organization sidebar and select `Global Variables`.
 
-    <!-- TODO: screenshot of the org-level Global Variables page. -->
+    ![The Redis config group in the organization's Global Variables settings](../../images/variables/gv-org-group.png)
 
 2. Click `New variable group`.
 3. Enter an **identifier**, a **display name**, and an optional **description**. The identifier is what you reference in `quix.yaml` and **cannot be changed after creation**. It accepts letters, digits, hyphens, and underscores (up to 254 characters) and must start with a letter or digit. Identifiers are compared case-insensitively when checking for duplicates, so `redis-config` and `Redis-Config` cannot both exist.
@@ -156,7 +156,7 @@ A project must assign a group before any of its deployments can reference the gr
 
 1. Open your project, select `Variables` in the sidebar, and switch to the `Global variables` tab. (The sibling `Project variables` tab holds this project's own variables.)
 
-    <!-- TODO: screenshot of the project Variables → Global variables tab. -->
+    ![The Global variables tab in the project's Variables panel, with assigned groups](../../images/variables/gv-project-tab.png)
 
 2. Click `Assign variable group`. (If the group does not exist yet, the empty state also offers `Create new group`, which opens the org-level dialog.)
 3. In the dialog, pick the **group**, then the **default value set** for this project. The dialog orders its fields to match where you started: from the project, the project and environment are already filled in; from `Global Variables` at the org level, you pick the project and environment instead.
@@ -175,7 +175,7 @@ The `Global variables` tab lists each assigned group as a row, with a column per
 1. In the group's row, open the value set dropdown for the environment you want to change.
 2. Pick a different value set — for example `PROD`.
 
-    <!-- TODO: screenshot of the per-environment value set dropdown. -->
+    ![Choosing a value set for an environment from the per-environment dropdown](../../images/variables/gv-valueset-dropdown.png)
 
 Environments without an explicit override keep the project-level default. Where both exist, the environment-level override wins.
 
