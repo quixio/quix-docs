@@ -53,10 +53,12 @@ flowchart LR
     VS2 --> V4["REDIS_PASSWORD = prod-pw"]
 ```
 
-A project consumes a group through an **assignment**:
+A project consumes a group through an **assignment**, and a group can be assigned at two levels that coexist:
 
-* A **project-level assignment** picks the default value set for every environment in the project.
-* An **environment-level override** swaps that choice for a single environment. Both coexist; the environment-level override wins where it is set.
+* A **project-level assignment** picks the value set used by **every environment** in the project. In the `Global variables` tab this is the **`Default`** column.
+* An **environment-level assignment** sets the value set for a **single environment**, overriding the default. Each environment has its own column in that tab.
+
+Where both exist, the environment-level assignment wins; an environment with no assignment of its own falls back to the project-level `Default`.
 
 !!! tip "One reference injects the whole group"
 
@@ -163,14 +165,14 @@ The project now resolves every variable in the group against the chosen value se
 
 ### Override the value set per environment
 
-The `Global variables` tab lists each assigned group as a row, with a column per environment. To make one environment use a different value set:
+The `Global variables` tab lists each assigned group as a row, with a **`Default`** column (the project-level assignment) and a column for each environment. The `Default` value set applies to every environment that doesn't have its own. To make one environment use a different value set:
 
-1. In the group's row, open the value set dropdown for the environment you want to change.
+1. In the group's row, open the value set dropdown for the environment you want to change (not the `Default` column).
 2. Pick a different value set — for example `PROD`.
 
     ![Choosing a value set for an environment from the per-environment dropdown](../../images/variables/gv-valueset-dropdown.png)
 
-Environments without an explicit override keep the project-level default. Where both exist, the environment-level override wins.
+That environment now uses its own value set; the others keep following the `Default`. Clearing an environment's selection makes it fall back to the `Default` again.
 
 ## Reference a group in `quix.yaml`
 
