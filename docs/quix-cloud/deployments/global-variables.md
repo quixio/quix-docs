@@ -32,15 +32,15 @@ flowchart LR
     G --> C["Project C"]
 ```
 
-## What a global variable is
+## How global variables are organized
 
-Global variables are organized into **variable groups**. Understanding three terms is enough to use the feature:
+**Global variables** is the organization-scoped feature as a whole — not a single value. A value is built from three pieces:
 
 | Term | What it is |
 |---|---|
 | **Variable group** | A named, organization-level container of related variables — for example `redis-config`. It has an immutable identifier (used in `quix.yaml`), a display name, and an optional description. It is the unit a project assigns. |
 | **Value set** | A named variant within a group — for example `DEV` and `PROD`. Every variable in the group holds one value per value set, so the same group supplies different values in different environments. |
-| **Global variable** | A key/value pair inside a group. Its name becomes the **environment-variable name** injected into the container. It can be marked **secret**, in which case the value is encrypted at rest and hidden in the UI, the YAML view, and Git. |
+| **Variable** | A key/value pair inside a group (a row under the group's `Variables` tab). Its name becomes the **environment-variable name** injected into the container. It can be marked **secret**, in which case the value is encrypted at rest and hidden in the UI, the YAML view, and Git. |
 
 ```mermaid
 flowchart LR
@@ -90,9 +90,19 @@ flowchart TD
 | Set a static value on one deployment | [Environment variables](./environment-variables.md) |
 | Read a platform-provided identifier | [Quix variables](./quix-variables.md) |
 
+!!! info "Global variables vs project variables"
+
+    Both can hold per-environment values and secrets, so the deciding factors are **scope** and **shape**:
+
+    * **Scope** — [project variables](./project-variables.md) belong to **one project**; global variables are **organization-wide**, shared by every project that assigns the group.
+    * **Grouping** — global variables come bundled in a **group** of related keys; a project variable is a single value.
+    * **Injection** — one `inputType: VariableGroup` reference injects **every variable in the group at once**; a project variable is bound **one key at a time** (`inputType: ProjectVariable` + `variableKey`).
+
+    Use project variables for values a single project owns; reach for a global variable group when the same set of values is shared across projects and you want to define, rotate, and inject them together.
+
 ## How it works end to end
 
-Setting up and consuming a global variable is four steps, split between an organization admin and a project developer:
+Setting up and consuming global variables is four steps, split between an organization admin and a project developer:
 
 ```mermaid
 sequenceDiagram
@@ -285,7 +295,7 @@ The portal asks you to confirm before deleting. Because the delete cascades to v
 
 ## Full example
 
-This `quix.yaml` pulls global variables from two groups, alongside YAML variables for resource scaling. Each `VariableGroup` reference expands at deploy time into every variable in its group:
+This `quix.yaml` pulls variables from two groups, alongside YAML variables for resource scaling. Each `VariableGroup` reference expands at deploy time into every variable in its group:
 
 ```yaml
 # Quix Project Descriptor
@@ -351,7 +361,7 @@ A deployment variable that references a group is an entry in `deployments[].vari
 
 * A group **identifier is immutable** after the group is created. It must match `^[A-Za-z0-9][A-Za-z0-9_-]*$` (letters, digits, hyphens, underscores; not starting with a separator), at most 254 characters. Duplicate detection at creation is case-insensitive.
 * A reference's **`name` is a label**, never an injected environment variable. Injected names come from the variables inside the group.
-* **Global variable names cannot contain spaces** (recommended pattern `[a-zA-Z_][a-zA-Z0-9_]*`), because each becomes an OS environment-variable name.
+* A **variable's name (the key inside a group) cannot contain spaces** (recommended pattern `[a-zA-Z_][a-zA-Z0-9_]*`), because each becomes an OS environment-variable name.
 * A **secret variable can be demoted** to a plain value only by supplying a new value in the same edit; a demotion with no new value is rejected (the stored encrypted value is never exposed).
 * A project needs an **assignment** (project-level or environment-level) before a deployment can resolve a group.
 * The **environment-level override wins** over the project-level default when both are set.
@@ -383,8 +393,9 @@ The value set used is the environment-level override if present, otherwise the p
 
 | Term | Definition |
 |---|---|
-| **Variable group** | Organization-level container of related global variables; the unit a project assigns. Identified by an immutable identifier. |
+| **Global variables** | The organization-scoped variable feature as a whole — variable groups, their value sets, and the variables inside them — shared across projects. |
+| **Variable group** | Organization-level container of related variables; the unit a project assigns. Identified by an immutable identifier. |
 | **Value set** | A named set of values within a group (e.g. `DEV`, `PROD`). Each variable has one value per value set. |
-| **Global variable** | A key/value pair inside a group. Its name is the injected environment-variable name. May be a secret. |
+| **Variable** | A key/value pair inside a group. Its name is the injected environment-variable name. May be a secret. |
 | **Assignment** | The link between a project and a group that selects which value set the project (or one of its environments) uses. |
 | **Override** | An environment-level assignment that replaces the project-level default value set for a single environment. |
