@@ -18,32 +18,7 @@ Define a value once on the project, give each environment its own value when nee
 
     Both are **deprecated**. Their URLs (`deploy/yaml-variables.html`, `deploy/secrets-management.html`, and the same paths under `quix-cloud/deployments/`) now redirect here, and the standalone UI panels they had have been replaced by the single `Project variables` panel.
 
-    Existing projects keep working — the legacy YAML shapes are still accepted on read and continue to resolve. New work should use the project-variable patterns described on this page. See [Backward compatibility](#backward-compatibility) for the YAML migration table.
-
-## Problems project variables solve
-
-### Problem 1 — Two stores, two mental models
-
-YAML Variables and Secrets Management were two separate stores. Project variables unify the **store** while keeping how you *use* each — the behavior is the same, there's just one store now instead of two:
-
-| Was | What it did | In project variables |
-|---|---|---|
-| **YAML Variables** | Per-environment values substituted into `quix.yaml` with `{{ }}` placeholders — CPU, memory, replicas, public URLs, feature toggles. | The same `{{ }}` substitution (Pattern 1), now reading from the unified store. |
-| **Secrets Management** | An encrypted store for credentials, bound to an application's environment variable. | The same runtime binding (Pattern 2) plus a per-variable `Secret` flag, from the same store. |
-
-Both usage patterns carry over unchanged — the substitution still substitutes, the binding still binds. What's gone is the *second store* and the need to choose between two systems when their uses overlapped. A single store now holds per-environment values, and a `Secret` flag turns on encryption per variable; existing `{{ }}` references and secret bindings keep resolving exactly as before.
-
-### Problem 2 — Configuration scattered across many places
-
-Pipeline configuration used to live in three places at once: hard-coded literals in `quix.yaml`, free-text values in each application's variables list, and entries in the secrets store. Changing one value often meant editing several places.
-
-Project variables centralize the source of truth: one named value in one panel, referenced from `quix.yaml` wherever it's needed.
-
-### Problem 3 — Credentials in version control
-
-Hard-coding credentials in `quix.yaml` (or any committed file) put them in Git history. The legacy `inputType: Secret` pattern existed to avoid this, but it only worked for a subset of usage.
-
-Project variables marked `Secret` are encrypted at rest, hidden in the UI, hidden in the YAML view, and never written into committed files — for both substitution-style and binding-style references.
+    Existing projects keep working — the legacy YAML shapes are still accepted on read and continue to resolve. New work should use the project-variable patterns described on this page. See [Why we deprecated Secrets and YAML variables](#why-we-deprecated-secrets-and-yaml-variables) for the rationale, and [Backward compatibility](#backward-compatibility) for the YAML migration table.
 
 ## When to use a project variable
 
@@ -365,56 +340,64 @@ token = os.environ["DB_TOKEN"]
 
     If the same database is used by several projects, define these as an organization-scoped **global variable group** instead and inject all three with a single reference. See [Global variables](global-variables.md).
 
-## Full `quix.yaml` example
+## Full example
 
-Per-environment resource scaling, a disabled flag, a composed public URL prefix, and an application variable bound to a project variable, all in one file. Hover the numbered markers for an explanation of each piece.
+In the version 2.0 pipeline format, variables are **defined on the application** in `app.yaml`, and the deployment **inherits** them. `{{ }}` substitution stays in `quix.yaml`, because it substitutes into pipeline fields (resources, the public URL).
 
-```yaml { .annotate }
+**`app.yaml`** — in the application folder, defines the application's variables:
+
+```yaml
+name: Starter transformation
+language: python
+variables:
+  - name: input
+    inputType: InputTopic
+    description: Name of the input topic to listen to.
+    required: false
+    defaultValue: cpu-load
+  - name: output
+    inputType: OutputTopic
+    description: Name of the output topic to write to.
+    required: false
+    defaultValue: transform
+  - name: API_KEY
+    inputType: ProjectVariable
+    description: Third-party API key
+    required: true
+    defaultValue: THIRD_PARTY_API_KEY
+    secret: true
+dockerfile: build/dockerfile
+runEntryPoint: main.py
+```
+
+**`quix.yaml`** — the pipeline; the deployment references the application, inherits the variables above, and substitutes per-environment values into its fields:
+
+```yaml
 # Quix Project Descriptor
-# This file describes the data pipeline and configuration of resources of a Quix Project.
-
 metadata:
-  version: 1.0
+  version: 2.0
 
 deployments:
   - name: CPU Threshold
     application: Starter transformation
+    version: latest
     deploymentType: Service
-    version: transform-v2
     resources:
-      cpu: {{CPU}}                            # (1)!
+      cpu: {{CPU}}
       memory: {{MEMORY}}
       replicas: {{REPLICAS}}
-    desiredStatus: Stopped
-    disabled: {{DISABLED}}                    # (2)!
+    disabled: {{DISABLED}}
     publicAccess:
       enabled: true
-      urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}  # (3)!
-    variables:
-      - name: input
-        inputType: InputTopic
-        description: Name of the input topic to listen to.
-        required: false
-        value: cpu-load
-      - name: output
-        inputType: OutputTopic
-        description: Name of the output topic to write to.
-        required: false
-        value: transform
-      - name: API_KEY                         # (4)!
-        inputType: ProjectVariable
-        description: Third-party API key
-        required: true
-        variableKey: THIRD_PARTY_API_KEY      # (5)!
-        secret: true                          # (6)!
+      urlPrefix: {{URL_PREFIX}}-{{ENV_NAME}}
+    # input, output, and API_KEY are inherited from the application's app.yaml
 ```
 
-1. **Per-environment scaling.** Each environment sets its own `CPU`, `MEMORY`, and `REPLICAS` project variables, so `develop` can run small and `production` can run large without a YAML change.
-2. **Disable per environment.** Set `DISABLED` to `true` in environments where this deployment should not provision.
-3. **Composed URL prefix.** Two project variables concatenated into a single string at sync time.
-4. **Container environment variable.** The application reads `API_KEY` from `os.environ` (or the equivalent in its language).
-5. **Secret-safe reference.** The value of `THIRD_PARTY_API_KEY` resolves at runtime and never lands in the YAML file. Mark `THIRD_PARTY_API_KEY` as `Secret` in the project variables panel to encrypt it at rest.
-6. **Secret hint.** `secret: true` records that the referenced variable is a secret. It must match the variable's panel flag, and the portal sets it for you.
+In this example:
+
+* `CPU`, `MEMORY`, `REPLICAS`, `DISABLED`, `URL_PREFIX`, and `ENV_NAME` are project variables substituted into the deployment's fields with `{{ }}` at sync time — so `develop` can run small and `production` large with no YAML change.
+* `input`, `output`, and `API_KEY` are application variables defined in `app.yaml`; the deployment inherits them, so they don't have to be repeated in `quix.yaml`.
+* `API_KEY` binds to the project variable `THIRD_PARTY_API_KEY`. With `secret: true` and the variable marked secret in the panel, the value resolves at runtime and never lands in YAML.
 
 See the [Pipeline YAML reference](../../quix-cli/yaml-reference/pipeline-descriptor.md) for the complete schema.
 
@@ -427,6 +410,31 @@ After you change project variables or update `quix.yaml`, the affected environme
 3. Sync the production environment.
 
 Once synced, confirm the resolved values match what you expect for each environment. The same `{{CPU}}` placeholder can produce `200` in `develop` and `800` in `production`, depending on the per-environment values you defined.
+
+## Why we deprecated Secrets and YAML variables
+
+### Problem 1 — Two stores, two mental models
+
+YAML Variables and Secrets Management were two separate stores. Project variables unify the **store** while keeping how you *use* each — the behavior is the same, there's just one store now instead of two:
+
+| Was | What it did | In project variables |
+|---|---|---|
+| **YAML Variables** | Per-environment values substituted into `quix.yaml` with `{{ }}` placeholders — CPU, memory, replicas, public URLs, feature toggles. | The same `{{ }}` substitution (Pattern 1), now reading from the unified store. |
+| **Secrets Management** | An encrypted store for credentials, bound to an application's environment variable. | The same runtime binding (Pattern 2) plus a per-variable `Secret` flag, from the same store. |
+
+Both usage patterns carry over unchanged — the substitution still substitutes, the binding still binds. What's gone is the *second store* and the need to choose between two systems when their uses overlapped. A single store now holds per-environment values, and a `Secret` flag turns on encryption per variable; existing `{{ }}` references and secret bindings keep resolving exactly as before.
+
+### Problem 2 — Configuration scattered across many places
+
+Pipeline configuration used to live in three places at once: hard-coded literals in `quix.yaml`, free-text values in each application's variables list, and entries in the secrets store. Changing one value often meant editing several places.
+
+Project variables centralize the source of truth: one named value in one panel, referenced from `quix.yaml` wherever it's needed.
+
+### Problem 3 — Credentials in version control
+
+Hard-coding credentials in `quix.yaml` (or any committed file) put them in Git history. The legacy `inputType: Secret` pattern existed to avoid this, but it only worked for a subset of usage.
+
+Project variables marked `Secret` are encrypted at rest, hidden in the UI, hidden in the YAML view, and never written into committed files — for both substitution-style and binding-style references.
 
 ## Backward compatibility
 

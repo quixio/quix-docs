@@ -295,37 +295,49 @@ The portal asks you to confirm before deleting. Because the delete cascades to v
 
 ## Full example
 
-This `quix.yaml` pulls variables from two groups, alongside YAML variables for resource scaling. Each `VariableGroup` reference expands at deploy time into every variable in its group:
+In the version 2.0 pipeline format, the group references are **defined on the application** in `app.yaml` and the deployment **inherits** them; `{{ }}` substitution stays in `quix.yaml` for the resource fields. Each `VariableGroup` reference expands at deploy time into every variable in its group.
+
+**`app.yaml`** — in the `order-processor` application folder, references two groups:
+
+```yaml
+name: order-processor
+language: python
+variables:
+  - name: input
+    inputType: InputTopic
+    required: true
+    defaultValue: orders
+  - name: redis
+    inputType: VariableGroup
+    description: Shared Redis connection
+    required: true
+    variableGroupId: redis-config
+  - name: payments
+    inputType: VariableGroup
+    description: Payment provider credentials
+    required: true
+    variableGroupId: payment-provider
+dockerfile: build/dockerfile
+runEntryPoint: main.py
+```
+
+**`quix.yaml`** — the pipeline; the deployment references the application and inherits the group references above:
 
 ```yaml
 # Quix Project Descriptor
-# This file describes the data pipeline and configuration of resources of a Quix Project.
-
 metadata:
-  version: 1.0
+  version: 2.0
 
 deployments:
   - name: Order processor
     application: order-processor
+    version: latest
     deploymentType: Service
-    version: v1
     resources:
       cpu: {{CPU}}
       memory: {{MEMORY}}
       replicas: {{REPLICAS}}
-    variables:
-      - name: input
-        inputType: InputTopic
-        required: true
-        value: orders
-      - name: redis
-        inputType: VariableGroup
-        variableGroupId: redis-config
-        required: true
-      - name: payments
-        inputType: VariableGroup
-        variableGroupId: payment-provider
-        required: true
+    # input, redis, and payments are inherited from the application's app.yaml
 ```
 
 In this example:
@@ -334,7 +346,7 @@ In this example:
 * The `redis` reference injects every variable in `redis-config` — for example `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`.
 * The `payments` reference injects every variable in `payment-provider` — for example `PAYMENT_API_KEY`, `PAYMENT_API_URL`. Variables the group marks as secret arrive decrypted at runtime.
 
-If a `REDIS_DB_INDEX` variable is later added to `redis-config`, it reaches this deployment on the next sync with no edit to `quix.yaml`.
+If a `REDIS_DB_INDEX` variable is later added to `redis-config`, it reaches this deployment on the next sync — no edit to `app.yaml` or `quix.yaml` required.
 
 ## Reference
 
