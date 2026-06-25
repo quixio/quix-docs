@@ -24,16 +24,14 @@ Define a value once on the project, give each environment its own value when nee
 
 ### Problem 1 — Two stores, two mental models
 
-Project variables replace two now-deprecated features:
+YAML Variables and Secrets Management were two separate stores. Project variables unify the **store** while keeping how you *use* each — the behavior is the same, there's just one store now instead of two:
 
-| Deprecated feature | What it did | Where it broke down |
+| Was | What it did | In project variables |
 |---|---|---|
-| **YAML Variables** | Per-environment values substituted into `quix.yaml` with `{{ }}` placeholders. Used for CPU, memory, replicas, public URLs, feature toggles. | Couldn't hold secrets — values landed in Git via `quix.yaml`. |
-| **Secrets Management** | A separate encrypted store for credentials, accessed only by binding a secret to an application's environment variable. | Couldn't be substituted into `quix.yaml` fields. No per-environment overrides for non-credential settings. |
+| **YAML Variables** | Per-environment values substituted into `quix.yaml` with `{{ }}` placeholders — CPU, memory, replicas, public URLs, feature toggles. | The same `{{ }}` substitution (Pattern 1), now reading from the unified store. |
+| **Secrets Management** | An encrypted store for credentials, bound to an application's environment variable. | The same runtime binding (Pattern 2) plus a per-variable `Secret` flag, from the same store. |
 
-The split forced you to learn two systems, choose between them when there was overlap, and look in two places when something was missing.
-
-Project variables collapse both into one primitive. A single store carries per-environment values, and a `Secret` flag on the variable turns on encryption — there is no separate secrets store and no separate YAML-variables store anymore.
+Both usage patterns carry over unchanged — the substitution still substitutes, the binding still binds. What's gone is the *second store* and the need to choose between two systems when their uses overlapped. A single store now holds per-environment values, and a `Secret` flag turns on encryption per variable; existing `{{ }}` references and secret bindings keep resolving exactly as before.
 
 ### Problem 2 — Configuration scattered across many places
 
