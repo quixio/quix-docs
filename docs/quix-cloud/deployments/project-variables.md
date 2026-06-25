@@ -345,7 +345,7 @@ token = os.environ["DB_TOKEN"]
 From descriptor **version 2.0**, an application's variables are defined **once** in its **`app.yaml`**, and every deployment of that application **inherits** them — `quix.yaml` does not redeclare them.
 
 - **`app.yaml` is the source of truth.** It declares each variable's `inputType`, `description`, `required`, and value or key (`defaultValue`). A deployment that references the application by `application` + `version` picks up the whole set. The portal writes `app.yaml` for you when you add an application variable in the UI.
-- **`quix.yaml` records only overrides.** A deployment lists a variable *only* to change a property for that deployment — a different value or key. Anything left at the application default is omitted, so a deployment that uses every default has **no `variables:` block at all** (see the [full example](#full-example)). On write-back the platform strips properties that match the app, keeping `quix.yaml` minimal.
+- **`quix.yaml` records only overrides.** A deployment lists a variable *only* to change a property for that deployment — a different value or key. Anything left at the application default is omitted, so a deployment that uses every default has **no `variables:` block at all** (see the [full example](#full-example)). On write-back (after a sync or deployment update) the platform strips properties that match the app, keeping `quix.yaml` minimal.
 - **To override one deployment**, declare just that variable in its `variables:` block with the changed property; the rest stays inherited.
 
 The same variable uses a different field name on each side:
@@ -356,6 +356,17 @@ The same variable uses a different field name on each side:
 | Project-variable key | `defaultValue: THIRD_PARTY_API_KEY` | `variableKey: THIRD_PARTY_API_KEY` |
 | Variable-group reference | `variableGroupId: redis-config` | `variableGroupId: redis-config` |
 | Secret flag | `secret: true` | `secret: true` *(inherited)* |
+
+For example, an `app.yaml` default of `defaultValue: info` on a `LOG_LEVEL` variable is inherited by every deployment. To run one deployment at `debug`, that deployment alone adds the override:
+
+```yaml
+# quix.yaml — override LOG_LEVEL for this one deployment
+variables:
+  - name: LOG_LEVEL
+    value: debug
+```
+
+Every other deployment keeps inheriting `info`, and `LOG_LEVEL` stays absent from their blocks.
 
 Inheritance applies to deployments that reference an `application` + `version`; managed services don't inherit. See [Project structure](../projects/project-structure.md) for how the two files relate.
 
