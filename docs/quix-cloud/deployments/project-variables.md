@@ -166,28 +166,31 @@ deployments:
         description: Third-party API key
         required: true
         variableKey: THIRD_PARTY_API_KEY  # (3)!
+        secret: true            # (4)!
 ```
 
 1. The name of the environment variable as it appears inside the running container. Your code reads this.
 2. Tells Quix to resolve the value from a project variable instead of using a literal `value:` field.
 3. The key of the project variable to read. Resolution is per-environment at deployment time.
+4. Optional hint that the referenced project variable is a secret. It must match the variable's `Secret` flag in the panel (a mismatch fails the sync — see [Validation errors](#validation-errors-and-the-missing-values-flow)); the portal writes it for you. Omit it for a non-secret variable, or set `secret: false`.
 
 The application receives an environment variable named `API_KEY` whose value is the project variable `THIRD_PARTY_API_KEY` in the current environment. Mark `THIRD_PARTY_API_KEY` as `Secret` in the project variables panel to encrypt the value at rest and keep it out of YAML.
 
-!!! note "`quix.yaml` or `app.yaml`?"
+!!! note "`quix.yaml` or `app.yaml`? (the field name differs)"
 
-    The binding above is shown on a deployment in `quix.yaml`. The identical `variables:` entry is also valid in an application's `app.yaml`, where it becomes part of the application and applies to every deployment of that app:
+    The binding above is on a deployment in `quix.yaml`, where the project-variable key goes in `variableKey`. You can also declare the same binding on the **application** in `app.yaml`, so it travels with the app to every deployment — but the application descriptor names the field **`defaultValue`** instead of `variableKey`:
 
     ```yaml
-    # app.yaml — the binding travels with the application
+    # app.yaml — on the application; the project-variable key goes in `defaultValue`
     variables:
       - name: API_KEY
         inputType: ProjectVariable
-        variableKey: THIRD_PARTY_API_KEY
+        defaultValue: THIRD_PARTY_API_KEY
         required: true
+        secret: true
     ```
 
-See the [Application YAML reference](../projects/project-structure.md#variable-input-types) for the full list of supported `inputType` values, and [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
+    The portal writes `app.yaml` in this form when you add an application variable in the UI. See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
 
 ## Access the value from your application code
 
@@ -236,7 +239,7 @@ variables:
 
 ## Validation errors and the missing-values flow
 
-When you sync an environment, Quix validates every project-variable reference. Three error kinds can be reported:
+When you sync an environment, Quix validates every project-variable reference. These error kinds can be reported:
 
 | Error | Cause | Fix |
 |---|---|---|
@@ -291,6 +294,7 @@ variables:
     inputType: ProjectVariable
     required: true
     variableKey: THIRD_PARTY_API_KEY
+    secret: true
 ```
 
 3. In `main.py`:
@@ -346,6 +350,7 @@ variables:
     inputType: ProjectVariable
     required: true
     variableKey: DB_TOKEN
+    secret: true
 ```
 
 3. In your code:
@@ -403,6 +408,7 @@ deployments:
         description: Third-party API key
         required: true
         variableKey: THIRD_PARTY_API_KEY      # (5)!
+        secret: true                          # (6)!
 ```
 
 1. **Per-environment scaling.** Each environment sets its own `CPU`, `MEMORY`, and `REPLICAS` project variables, so `develop` can run small and `production` can run large without a YAML change.
@@ -410,6 +416,7 @@ deployments:
 3. **Composed URL prefix.** Two project variables concatenated into a single string at sync time.
 4. **Container environment variable.** The application reads `API_KEY` from `os.environ` (or the equivalent in its language).
 5. **Secret-safe reference.** The value of `THIRD_PARTY_API_KEY` resolves at runtime and never lands in the YAML file. Mark `THIRD_PARTY_API_KEY` as `Secret` in the project variables panel to encrypt it at rest.
+6. **Secret hint.** `secret: true` records that the referenced variable is a secret. It must match the variable's panel flag, and the portal sets it for you.
 
 See the [Pipeline YAML reference](../../quix-cli/yaml-reference/pipeline-descriptor.md) for the complete schema.
 
@@ -440,7 +447,8 @@ A condensed reference for tools and integrations that consume this page.
 
 * **Storage** — a project variable is a `(key, default value, per-environment values, secret flag)` record at project scope. One store backs both substitution-style and binding-style references.
 * **Substitution pattern** — `{{ NAME }}` in any `quix.yaml` field. Resolved at sync time. Rejected for variables with `Secret` enabled.
-* **Binding pattern** — inside a deployment's `variables:` block, `inputType: ProjectVariable` + `variableKey: <name>`. Resolved at deployment runtime. Required for secrets.
+* **Binding pattern** — inside a deployment's `variables:` block in `quix.yaml`, `inputType: ProjectVariable` + `variableKey: <name>`. On an **application** in `app.yaml` the same binding uses `defaultValue: <name>` instead of `variableKey`. Resolved at deployment runtime. Required for secrets.
+* **Secret hint** — an optional `secret: true|false` on the binding records whether the referenced variable is a secret. It must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`.
 * **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
 * **Resolution order** — per-environment value > default value.
 * **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`, `Secret mismatch`. Surface in the `Missing project variables` dialog at sync time.

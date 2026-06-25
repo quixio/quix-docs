@@ -22,21 +22,14 @@ Global variables remove the duplication:
 * Rotating the password is a **single edit** that reaches every project and environment that consumes the group.
 * Adding `REDIS_DB_INDEX` to the group makes it available everywhere — no change to any project's `quix.yaml`.
 
+With global variables, one group is the single source of truth that every project draws from — so a change is made once, not copied into each project:
+
 ```mermaid
 flowchart LR
-    subgraph Before["Without global variables — rotate = edit every copy"]
-        direction TB
-        P1["Project A<br/>own REDIS_* copy"]
-        P2["Project B<br/>own REDIS_* copy"]
-        P3["Project C<br/>own REDIS_* copy"]
-    end
-    subgraph After["With global variables — rotate once"]
-        direction TB
-        G["redis-config group<br/>DEV / PROD value sets"]
-        G --> PA["Project A"]
-        G --> PB["Project B"]
-        G --> PC["Project C"]
-    end
+    G["redis-config group<br/>DEV / PROD value sets<br/>edit once"]
+    G --> A["Project A"]
+    G --> B["Project B"]
+    G --> C["Project C"]
 ```
 
 ## What a global variable is
