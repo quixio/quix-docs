@@ -220,7 +220,7 @@ Two things to keep in mind:
         required: true
     ```
 
-    See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
+    A group reference inherits exactly like any other variable — see [Inheriting variables from `app.yaml`](project-variables.md#inheriting-variables-from-appyaml) for the full model (`quix.yaml` keeps only overrides), and [Project structure](../projects/project-structure.md) for how the two files relate.
 
 To pull in more than one group, add one entry per group:
 

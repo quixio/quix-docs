@@ -163,7 +163,7 @@ The application receives an environment variable named `API_KEY` whose value is 
         secret: true
     ```
 
-    The portal writes `app.yaml` in this form when you add an application variable in the UI. See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
+    The portal writes `app.yaml` in this form when you add an application variable in the UI. A deployment of the app then inherits this binding — see [Inheriting variables from `app.yaml`](#inheriting-variables-from-appyaml) for how that works and when a deployment overrides it.
 
 ## Access the value from your application code
 
@@ -340,9 +340,28 @@ token = os.environ["DB_TOKEN"]
 
     If the same database is used by several projects, define these as an organization-scoped **global variable group** instead and inject all three with a single reference. See [Global variables](global-variables.md).
 
+## Inheriting variables from `app.yaml`
+
+From descriptor **version 2.0**, an application's variables are defined **once** in its **`app.yaml`**, and every deployment of that application **inherits** them — `quix.yaml` does not redeclare them.
+
+- **`app.yaml` is the source of truth.** It declares each variable's `inputType`, `description`, `required`, and value or key (`defaultValue`). A deployment that references the application by `application` + `version` picks up the whole set. The portal writes `app.yaml` for you when you add an application variable in the UI.
+- **`quix.yaml` records only overrides.** A deployment lists a variable *only* to change a property for that deployment — a different value or key. Anything left at the application default is omitted, so a deployment that uses every default has **no `variables:` block at all** (see the [full example](#full-example)). On write-back the platform strips properties that match the app, keeping `quix.yaml` minimal.
+- **To override one deployment**, declare just that variable in its `variables:` block with the changed property; the rest stays inherited.
+
+The same variable uses a different field name on each side:
+
+| Concept | `app.yaml` (define once) | `quix.yaml` deployment (override only) |
+|---|---|---|
+| Plain value | `defaultValue: cpu-load` | `value: cpu-load` |
+| Project-variable key | `defaultValue: THIRD_PARTY_API_KEY` | `variableKey: THIRD_PARTY_API_KEY` |
+| Variable-group reference | `variableGroupId: redis-config` | `variableGroupId: redis-config` |
+| Secret flag | `secret: true` | `secret: true` *(inherited)* |
+
+Inheritance applies to deployments that reference an `application` + `version`; managed services don't inherit. See [Project structure](../projects/project-structure.md) for how the two files relate.
+
 ## Full example
 
-In the version 2.0 pipeline format, variables are **defined on the application** in `app.yaml`, and the deployment **inherits** them. `{{ }}` substitution stays in `quix.yaml`, because it substitutes into pipeline fields (resources, the public URL).
+The two files below show this together — `app.yaml` defines the variables, and the `quix.yaml` deployment inherits them while using `{{ }}` only for the per-environment pipeline fields it substitutes (resources, the public URL).
 
 **`app.yaml`** — in the application folder, defines the application's variables:
 
