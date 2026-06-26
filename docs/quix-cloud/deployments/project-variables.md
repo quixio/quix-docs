@@ -487,9 +487,9 @@ Both forms resolve identically. Whenever the platform writes `app.yaml` or `quix
 
 A condensed reference for tools and integrations that consume this page.
 
-### `quix.yaml` variable fields (binding)
+### `quix.yaml` variable fields
 
-A binding-style reference is an entry in a deployment's `variables:` block:
+A binding-style reference (`inputType: ProjectVariable`) is an entry in a deployment's `variables:` block — distinct from the `{{ }}` substitution form ([Pattern 1](#pattern-1-substitute-into-a-quixyaml-field)), which has no such entry:
 
 | Field | Required | Type | Meaning |
 |---|---|---|---|
@@ -500,7 +500,7 @@ A binding-style reference is an entry in a deployment's `variables:` block:
 | `required` | no | boolean | When `true`, the deployment fails to deploy if the variable cannot be resolved. |
 | `secret` | no | boolean | Hint that the referenced variable is a secret. Must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`. |
 
-### `app.yaml` variable fields (binding)
+### `app.yaml` variable fields
 
 On an **application** in `app.yaml`, the same binding uses the same fields — except the project-variable key goes in **`defaultValue`** instead of `variableKey`:
 
