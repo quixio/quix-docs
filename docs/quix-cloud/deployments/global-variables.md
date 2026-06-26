@@ -337,6 +337,11 @@ deployments:
     application: order-processor
     version: latest
     deploymentType: Service
+    resources:
+      limits:
+        cpu: 200
+        memory: 500
+      replicas: 1
     # input, redis and payments are inherited from app.yaml (see note below)
 ```
 
