@@ -346,6 +346,7 @@ deployments:
     The deployment references the `order-processor` application, so under descriptor **version 2.0** it **inherits** the variables declared in that application's `app.yaml` — they aren't repeated here. Each environment's actual values come from the variable group's assigned value set, not from `quix.yaml`.
 
 In this example:
+
 * The `redis` reference injects every variable in `redis-config` — for example `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`.
 * The `payments` reference injects every variable in `payment-provider` — for example `PAYMENT_API_KEY`, `PAYMENT_API_URL`. Variables the group marks as secret arrive decrypted at runtime.
 
