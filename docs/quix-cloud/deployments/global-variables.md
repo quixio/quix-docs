@@ -431,7 +431,7 @@ On an **application** in `app.yaml`, a variable-group entry carries the same ide
 | `variableGroupDescription` | no | string | Optional human-readable echo of the group's description. Informational only. |
 | `variables` | no | list | The group's variable schema. **`app.yaml` only** — a `quix.yaml` deployment never lists these; it references the group by `variableGroupId` alone. Each entry has the fields below. |
 
-Each entry under `variables:`:
+Each entry in the `variables` list:
 
 | Field | Required | Type | Meaning |
 |---|---|---|---|
