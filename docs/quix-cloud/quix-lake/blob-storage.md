@@ -14,6 +14,8 @@ Connect your cluster to a bucket/container so Quix can enable **[Quix Lake](./ov
     You can configure different connections for different clusters.
     Both the [Data Lake Sink](./data-lake/sink.md) and the [Lakehouse Sink](./lakehouse/sink.md) use this same connection.
 
+    One shared connection doesn't mean one shared view of the data: each team only sees its own data, and the bucket's keys stay locked away. See the [Storage Access Gateway](./secure-storage-access.md).
+
 ???+ info "Quix Lake at a glance"
     Quix Lake is the persistence layer of Quix Cloud. It ships in two flavors that share this blob storage connection:
 

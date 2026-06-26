@@ -91,10 +91,11 @@ nav:
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
       - 'Blob storage': 'quix-cloud/quix-lake/blob-storage.md'
+      - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
-        - 'Sink': 'quix-cloud/quix-lake/data-lake/sink.md'
+        - 'Data Lake Sink': 'quix-cloud/quix-lake/data-lake/sink.md'
         - 'User interface': 'quix-cloud/quix-lake/data-lake/user-interface.md'
         - 'API': 'quix-cloud/quix-lake/data-lake/api.md'
         - 'Replay':
@@ -102,7 +103,7 @@ nav:
           - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse':
         - 'Overview': 'quix-cloud/quix-lake/lakehouse/overview.md'
-        - 'Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
+        - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
         - 'Query': 'quix-cloud/quix-lake/lakehouse/query.md'
         - 'Catalog': 'quix-cloud/quix-lake/lakehouse/catalog.md'
         - 'UI': 'quix-cloud/quix-lake/lakehouse/ui.md'
