@@ -69,10 +69,10 @@ nav:
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
       - 'Variables':
+        - 'Project variables': 'quix-cloud/deployments/project-variables.md'
+        - 'Global variables': 'quix-cloud/deployments/global-variables.md'
         - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'
-        - 'Secrets management': 'quix-cloud/deployments/secrets-management.md'
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
-        - 'YAML variables': 'quix-cloud/deployments/yaml-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
@@ -891,8 +891,15 @@ plugins:
         'deploy/overview.md': 'quix-cloud/deployments/overview.md'
         'deploy/environment-variables.md': 'quix-cloud/deployments/environment-variables.md'
         'deploy/quix-variables.md': 'quix-cloud/deployments/quix-variables.md'
-        'deploy/secrets-management.md': 'quix-cloud/deployments/secrets-management.md'
-        'deploy/yaml-variables.md': 'quix-cloud/deployments/yaml-variables.md'
+        # secrets-management and yaml-variables were consolidated into project-variables (SC-72422)
+        'deploy/secrets-management.md': 'quix-cloud/deployments/project-variables.md'
+        'deploy/yaml-variables.md': 'quix-cloud/deployments/project-variables.md'
+        'deploy/project-variables.md': 'quix-cloud/deployments/project-variables.md'
+        'quix-cloud/deployments/secrets-management.md': 'quix-cloud/deployments/project-variables.md'
+        'quix-cloud/deployments/yaml-variables.md': 'quix-cloud/deployments/project-variables.md'
+        # global variables page (SC-73368); the portal links to deploy/variable-groups today
+        'deploy/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
+        'quix-cloud/deployments/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
         'deploy/ports.md': 'quix-cloud/deployments/ports.md'
         'deploy/state-management.md': 'quix-cloud/deployments/state-management.md'
         'deploy/deploy-public-page.md': 'quix-cloud/deployments/deploy-public-page.md'

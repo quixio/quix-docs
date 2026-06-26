@@ -64,7 +64,7 @@ topics:
 
 #### Data Tier per Environment
 
-To assign different data tiers to the same topic across environments, you can utilize YAML variables:
+To assign different data tiers to the same topic across environments, you can use a project variable as a substitution placeholder:
 
 ```yaml
 topics:
@@ -72,4 +72,5 @@ topics:
     dataTier: {{dataTier}}
 ```
 Then, simply set the `dataTier` variable to the appropriate value for each environment.
-For more details on using YAML variables, refer to the [YAML Variables Guide](../deployments/yaml-variables.md).
+
+The double-brace `{{ }}` substitution is one of two patterns supported for project variables. See the [project variables documentation](../deployments/project-variables.md) for full details on substitution syntax, secret values, and binding project variables to application environment variables.
