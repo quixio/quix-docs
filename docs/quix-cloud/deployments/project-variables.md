@@ -487,9 +487,35 @@ Both forms resolve identically. Whenever the platform writes `app.yaml` or `quix
 
 A condensed reference for tools and integrations that consume this page.
 
+### `quix.yaml` variable fields (binding)
+
+A binding-style reference is an entry in a deployment's `variables:` block:
+
+| Field | Required | Type | Meaning |
+|---|---|---|---|
+| `name` | yes | string | The environment-variable name injected into the container. Your code reads this. |
+| `inputType` | yes | string | Must be `ProjectVariable` to bind to a project variable. |
+| `variableKey` | yes | string | The **key** of the project variable to read. Resolved per-environment at deployment runtime. |
+| `description` | no | string | Human-readable description, shown in the UI and error messages. |
+| `required` | no | boolean | When `true`, the deployment fails to deploy if the variable cannot be resolved. |
+| `secret` | no | boolean | Hint that the referenced variable is a secret. Must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`. |
+
+### `app.yaml` variable fields (binding)
+
+On an **application** in `app.yaml`, the same binding uses the same fields — except the project-variable key goes in **`defaultValue`** instead of `variableKey`:
+
+| Field | Required | Type | Meaning |
+|---|---|---|---|
+| `name` | yes | string | The environment-variable name injected into the container. |
+| `inputType` | yes | string | Must be `ProjectVariable` to bind to a project variable. |
+| `defaultValue` | yes | string | The **key** of the project variable to read — the `app.yaml` equivalent of `quix.yaml`'s `variableKey`. |
+| `description` | no | string | Human-readable description. |
+| `required` | no | boolean | When `true`, the deployment fails to deploy if the variable cannot be resolved. |
+| `secret` | no | boolean | Hint that the referenced variable is a secret; must match the variable's stored `Secret` flag. |
+
 * **Storage** — a project variable is a `(key, default value, per-environment values, secret flag)` record at project scope. One store backs both substitution-style and binding-style references.
 * **Substitution pattern** — `{{ NAME }}` in any `quix.yaml` field. Resolved at sync time. Rejected for variables with `Secret` enabled.
-* **Binding pattern** — inside a deployment's `variables:` block in `quix.yaml`, `inputType: ProjectVariable` + `variableKey: <name>`. On an **application** in `app.yaml` the same binding uses `defaultValue: <name>` instead of `variableKey`. Resolved at deployment runtime. Required for secrets.
+* **Binding pattern** — `inputType: ProjectVariable` with the project-variable key in `variableKey` (`quix.yaml`) or `defaultValue` (`app.yaml`); see the field tables above. Resolved at deployment runtime. Required for secrets.
 * **Secret hint** — an optional `secret: true|false` on the binding records whether the referenced variable is a secret. It must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`.
 * **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
 * **Resolution order** — per-environment value > default value.
