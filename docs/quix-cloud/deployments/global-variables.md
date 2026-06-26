@@ -217,10 +217,12 @@ Two things to keep in mind:
       - name: redis
         inputType: VariableGroup
         variableGroupId: redis-config
+        variableGroupName: Redis config
+        variableGroupDescription: Shared Redis connection
         required: true
     ```
 
-    A group reference inherits exactly like any other variable — see [Inheriting a group reference from `app.yaml`](#inheriting-a-group-reference-from-appyaml) below, and [Project structure](../projects/project-structure.md) for how the two files relate.
+    Declaring it on the application makes every deployment of that app inherit the reference. See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
 
 To pull in more than one group, add one entry per group:
 
@@ -293,18 +295,9 @@ Deletes cascade:
 
 The portal asks you to confirm before deleting. Because the delete cascades to variables and assignments across every project that uses the group, check which projects depend on it first. Re-creating a group with the same identifier does **not** restore previous assignments.
 
-## Inheriting a group reference from `app.yaml`
-
-A group reference inherits like any other variable (descriptor **version 2.0**+): define it once in the application's **`app.yaml`**, and every deployment of that application **inherits** it — `quix.yaml` doesn't repeat it.
-
-- **The reference lives in `app.yaml`** — one `inputType: VariableGroup` entry with the group's `variableGroupId`. Every deployment picks it up, so a deployment that adds nothing else has **no `variables:` block at all**. `variableGroupId` is the same field on both sides (unlike a project variable, whose key is `defaultValue` in `app.yaml` but `variableKey` in `quix.yaml`).
-- **Per-environment values come from the value set, not from YAML.** Which value set the group resolves to in each environment is set by its [assignment to the project or environment](#assign-a-group-to-a-project) — *not* by a `quix.yaml` override. You declare the reference once and switch values per environment from the UI, with no YAML change.
-
-See [Inheriting variables from `app.yaml`](project-variables.md#inheriting-variables-from-appyaml) for the general model (overrides, the field mapping, and how `quix.yaml` stays minimal).
-
 ## Full example
 
-The two files below put this together — `app.yaml` defines the group references, the `quix.yaml` deployment inherits them and uses `{{ }}` only for its resource fields, and each `VariableGroup` reference expands at deploy time into every variable in its group.
+The two files below put this together — `app.yaml` defines the group references, and the `quix.yaml` deployment inherits them. Each `VariableGroup` reference expands at deploy time into every variable in its group.
 
 **`app.yaml`** — in the `order-processor` application folder, references two groups:
 
@@ -318,14 +311,16 @@ variables:
     defaultValue: orders
   - name: redis
     inputType: VariableGroup
-    description: Shared Redis connection
     required: true
     variableGroupId: redis-config
+    variableGroupName: Redis config
+    variableGroupDescription: Shared Redis connection
   - name: payments
     inputType: VariableGroup
-    description: Payment provider credentials
     required: true
     variableGroupId: payment-provider
+    variableGroupName: Payment provider
+    variableGroupDescription: Payment provider credentials
 dockerfile: build/dockerfile
 runEntryPoint: main.py
 ```
@@ -342,16 +337,15 @@ deployments:
     application: order-processor
     version: latest
     deploymentType: Service
-    resources:
-      cpu: {{CPU}}
-      memory: {{MEMORY}}
-      replicas: {{REPLICAS}}
-    # input, redis, and payments are inherited from the application's app.yaml
+    # input, redis and payments are inherited from app.yaml (see note below)
 ```
 
-In this example:
+<!-- TODO(SC-73484): point this collapsible at the YAML 2.0 inheritance docs once that page exists. -->
+??? info "Where are `input`, `redis` and `payments`?"
 
-* `CPU`, `MEMORY`, and `REPLICAS` are [project variables](./project-variables.md) scoped to this project, substituted with `{{ }}`.
+    The deployment references the `order-processor` application, so under descriptor **version 2.0** it **inherits** the variables declared in that application's `app.yaml` — they aren't repeated here. Each environment's actual values come from the variable group's assigned value set, not from `quix.yaml`.
+
+In this example:
 * The `redis` reference injects every variable in `redis-config` — for example `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`.
 * The `payments` reference injects every variable in `payment-provider` — for example `PAYMENT_API_KEY`, `PAYMENT_API_URL`. Variables the group marks as secret arrive decrypted at runtime.
 
@@ -373,10 +367,6 @@ A deployment variable that references a group is an entry in `deployments[].vari
 | `required` | no | boolean | Default `false`. When `true`, the deployment fails to deploy if the group cannot be resolved. When `false`, an unresolved group is skipped. |
 | `variableGroupName` | no | string | Optional human-readable echo of the group's display name. Informational only — written by the portal for readability; does not affect resolution. |
 | `variableGroupDescription` | no | string | Optional human-readable echo of the group's description. Informational only. |
-
-!!! warning "Field name is `variableGroupId`, not `variableGroupKey`"
-
-    Earlier internal builds used `variableGroupKey`. The current, supported field is **`variableGroupId`**. Use `variableGroupId`.
 
 ### Rules and constraints
 
