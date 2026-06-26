@@ -204,4 +204,4 @@ Removes only the listed property names.
 ## Security
 
 * Authenticate with **Bearer** JWT.
-* Authorization is enforced per workspace.
+* Authorization is enforced per workspace; a token only reaches the workspaces it belongs to. See the [Storage Access Gateway](../secure-storage-access.md).

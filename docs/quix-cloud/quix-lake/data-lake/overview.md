@@ -58,7 +58,7 @@ See **[Open format](./open-format.md)** for the full layout and schemas.
 ## Operational behavior
 
 * **Soft deletion** — catalog deletions move items to Trash for a short retention window before permanent removal, with restore and delete-forever actions.
-* **Security** — you control IAM, keys, encryption, retention, and audit in your own cloud account.
+* **Security** — you control IAM, keys, encryption, retention, and audit in your own cloud account. Within Quix, each team only sees its own data by default. See the [Storage Access Gateway](../secure-storage-access.md).
 
 ## See also
 
@@ -68,3 +68,4 @@ See **[Open format](./open-format.md)** for the full layout and schemas.
 * [Data Lake API](./api.md) — programmatic search, metadata, deletion
 * [Replay](./replay.md) — push persisted datasets back into Kafka
 * [Blob storage connections](../blob-storage.md) — connect your bucket or container
+* [Storage Access Gateway](../secure-storage-access.md): how private-by-default, per-team access works
