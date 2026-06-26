@@ -46,19 +46,20 @@ The deployment settings for external images are similar to application deploymen
 
 ## Working on the Command Line
 
-To deploy an external image from the command line, modify your [`quix.yaml`](../quix-cli/yaml-reference/pipeline-descriptor.md) file to include the image. 
+To deploy an external image from the command line, modify your [`quix.yaml`](../../quix-cli/yaml-reference/pipeline-descriptor.md) file to include the image. 
 
 Example:
 
 ```yaml
 - name: custom-service
-    image: my-registry.com/my-service:1.2.3
-    deploymentType: Service
-    resources:
+  image: my-registry.com/my-service:1.2.3
+  deploymentType: Service
+  resources:
+    limits:
       cpu: 300
       memory: 600
-      replicas: 2
-    desiredStatus: Running
+    replicas: 2
+  desiredStatus: Running
 ```
 
 Then use the following commands:
@@ -66,7 +67,7 @@ Then use the following commands:
 - **Sync local changes**: Use the `quix local pipeline sync --update` command. This updates your pipeline in Quix Cloud based on your `quix.yaml` file.
 - **Sync remote environment**: Use the `quix envs sync` command to synchronize an environment with its project repository.
 
-For more details on CLI usage, see the [CLI documentation](../quix-cli/overview.md).
+For more details on CLI usage, see the [CLI documentation](../../quix-cli/overview.md).
 
 ## Private Container Registries
 

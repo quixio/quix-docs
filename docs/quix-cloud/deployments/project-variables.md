@@ -373,7 +373,7 @@ variables:
 
 Every other deployment keeps inheriting `info`, and `LOG_LEVEL` stays absent from their blocks.
 
-Inheritance applies to deployments that reference an `application` + `version`; managed services don't inherit. See [Project structure](../projects/project-structure.md) for how the two files relate.
+Inheritance applies to deployments that reference an `application` + `version`; managed services don't inherit. See [YAML 1.0 and 2.0](../projects/yaml-2-0.md) for the full inheritance and resolution model, including what the platform stores versus what it computes.
 
 ## Full example
 

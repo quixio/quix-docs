@@ -37,9 +37,10 @@ deployments:
   version: latest
   deploymentType: Managed
   resources:
-   cpu: 200
-   memory: 500
-   replicas: 1
+    limits:
+      cpu: 200
+      memory: 500
+    replicas: 1
   configuration:
    topic: config-updates
    mongoDatabase: quix
