@@ -85,8 +85,9 @@ Use this pattern for fields that need to vary per environment but don't need to 
 
 ```yaml
 resources:
-  cpu: 200
-  memory: 500
+  limits:
+    cpu: 200
+    memory: 500
   replicas: 1
 ```
 
@@ -94,8 +95,9 @@ resources:
 
 ```yaml
 resources:
-  cpu: {{CPU}}
-  memory: {{MEMORY}}
+  limits:
+    cpu: {{CPU}}
+    memory: {{MEMORY}}
   replicas: {{REPLICAS}}
 ```
 
@@ -206,6 +208,8 @@ variables:
     description: Database connection
     required: true
     variableGroupId: production-db
+    variableGroupName: Production DB
+    variableGroupDescription: Shared database connection
 ```
 
 `inputType: VariableGroup` resolves at runtime like `inputType: ProjectVariable`, but the values come from an organization-scoped variable group rather than this project's variables. Use project variables for values local to one project; use a variable group when the same set is shared across projects. See [Global variables](global-variables.md) for the full feature.
@@ -247,8 +251,9 @@ Goal — `develop` runs small, `production` runs big, same `quix.yaml`.
 deployments:
   - name: my-service
     resources:
-      cpu: {{CPU}}
-      memory: {{MEMORY}}
+      limits:
+        cpu: {{CPU}}
+        memory: {{MEMORY}}
       replicas: {{REPLICAS}}
 ```
 
@@ -413,8 +418,9 @@ deployments:
     version: latest
     deploymentType: Service
     resources:
-      cpu: {{CPU}}
-      memory: {{MEMORY}}
+      limits:
+        cpu: {{CPU}}
+        memory: {{MEMORY}}
       replicas: {{REPLICAS}}
     disabled: {{DISABLED}}
     publicAccess:

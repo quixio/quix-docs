@@ -207,23 +207,6 @@ Two things to keep in mind:
 * **One reference, many env vars.** You do not list the individual variables. Adding a variable to the group later reaches this deployment automatically on the next sync.
 * **The `name` field is a label.** It identifies the reference in the UI and in error messages but is **not** injected. The injected names come from the variables defined inside the group.
 
-!!! note "`quix.yaml` or `app.yaml`?"
-
-    The example above shows the reference on a deployment in the pipeline file `quix.yaml`. The identical entry is also valid in an application's `app.yaml` (`variables:` block) — declare it there to make the binding part of the application itself, so every deployment of that app inherits it:
-
-    ```yaml
-    # app.yaml — the binding travels with the application
-    variables:
-      - name: redis
-        inputType: VariableGroup
-        variableGroupId: redis-config
-        variableGroupName: Redis config
-        variableGroupDescription: Shared Redis connection
-        required: true
-    ```
-
-    Declaring it on the application makes every deployment of that app inherit the reference. See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
-
 To pull in more than one group, add one entry per group:
 
 ```yaml
@@ -248,6 +231,44 @@ Set `required: true` to make the deployment **fail fast** at deploy time when th
 ```
 
 A required reference fails with a clear error when the `variableGroupId` is empty, or when the group is not assigned to the current environment (no project-level assignment and no override). A non-required reference that cannot be resolved is logged and skipped, and the container starts without those variables.
+
+## Define a group in `app.yaml`
+
+The examples above put the reference in `quix.yaml`. You can also declare it on the **application** in its `app.yaml` — then it travels with the app, and every deployment of that app inherits the reference.
+
+`app.yaml` can go further and carry the group's **full definition**: its `variableGroupId`, `variableGroupName`, `variableGroupDescription`, and the **nested `variables:`** that make up the group. Each nested variable has a `key`, `description`, `defaultValue`, `secret`, and `required`.
+
+```yaml
+# app.yaml — the application declares the group and its variables
+variables:
+  - name: redis
+    inputType: VariableGroup
+    variableGroupId: redis-config
+    variableGroupName: Redis config
+    variableGroupDescription: Shared Redis connection
+    required: true
+    variables:                          # the group's variables
+      - key: REDIS_HOST
+        description: Redis server hostname
+        defaultValue: localhost
+        secret: false
+        required: true
+      - key: REDIS_PASSWORD
+        description: Redis auth password
+        secret: true
+        required: true
+      - key: REDIS_PORT
+        description: Redis server port
+        defaultValue: "6379"
+        secret: false
+        required: false
+```
+
+!!! info "Nested variables live in `app.yaml` only"
+
+    The nested `variables:` list belongs to the **application** definition. A deployment in `quix.yaml` only ever references the group by `variableGroupId` — it never lists the group's nested variables. At deploy time the actual values come from the value set assigned to the environment, not from this schema.
+
+See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
 
 ## Access the values from your code
 
