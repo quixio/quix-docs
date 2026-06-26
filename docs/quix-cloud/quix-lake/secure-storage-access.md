@@ -44,13 +44,13 @@ You set a folder's visibility from the menu on its row in the **Storage permissi
 
 ## Who can read and write
 
-You get the same access to an environment's data as you already have to the environment itself:
+Your access to the data is the same as your access to the environment:
 
-| Your access to the environment | What you can do with its data |
+| What you can do in the environment | What you can do with its data |
 |---|---|
-| **Can view** | Read it |
-| **Can edit** | Read it and change it |
-| **No access** | Nothing, unless the data has been shared |
+| **View** it | **Read** it |
+| **Edit** it | **Read and change** it |
+| **Nothing** | **Nothing**, unless it has been shared |
 
 The same applies to things acting on your behalf:
 
