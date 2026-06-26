@@ -44,18 +44,18 @@ You set a folder's visibility from the menu on its row in the **Storage permissi
 
 ## Who can read and write
 
-For an environment folder, what you can do follows your access to that environment:
+You get the same access to an environment's data as you already have to the environment itself:
 
 | Your access to the environment | What you can do with its data |
 |---|---|
-| **Can view** | Browse, search, query, and replay |
-| **Can edit** | The above, plus write and delete |
-| **No access** | The data is not shown to you, unless it has been shared |
+| **Can view** | Read it |
+| **Can edit** | Read it and change it |
+| **No access** | Nothing, unless the data has been shared |
 
-The same rules apply to anything acting on your behalf:
+The same applies to things acting on your behalf:
 
-* A **dev session** uses your permissions. It can reach exactly what you can.
-* A **deployed application** works on behalf of its own environment. It can read its own data and anything shared across the organization, and write to its own environment and anywhere shared for editing. It cannot reach another team's private data.
+* A **dev session** can do exactly what you can.
+* A **deployed application** acts as its own environment: it can read its own data and anything shared, and change its own data. It cannot see another team's private data.
 
 ## Where it applies
 
