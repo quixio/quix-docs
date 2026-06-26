@@ -419,10 +419,16 @@ A deployment variable that references a group is an entry in `deployments[].vari
 
 ### `app.yaml` variable fields
 
-On an **application** in `app.yaml`, a variable-group entry uses the same fields as the `quix.yaml` reference above (`name`, `inputType`, `variableGroupId`, `variableGroupName`, `variableGroupDescription`, `required`), and may additionally declare the group's variables under `variables:`:
+On an **application** in `app.yaml`, a variable-group entry carries the same identifying fields as the `quix.yaml` reference, plus the group's nested variable schema under `variables:` (which a `quix.yaml` deployment never has):
 
 | Field | Required | Type | Meaning |
 |---|---|---|---|
+| `name` | yes | string | A label for the reference, shown in the UI and error messages. **Not injected** as an environment variable. |
+| `inputType` | yes | string | Must be exactly `VariableGroup` to reference a group. |
+| `variableGroupId` | yes | string | The **identifier** of the variable group to inject. Resolution is keyed solely on this value. |
+| `required` | no | boolean | Default `false`. When `true`, the deployment fails to deploy if the group cannot be resolved. When `false`, an unresolved group is skipped. |
+| `variableGroupName` | no | string | Optional human-readable echo of the group's display name. Informational only. |
+| `variableGroupDescription` | no | string | Optional human-readable echo of the group's description. Informational only. |
 | `variables` | no | list | The group's variable schema. **`app.yaml` only** — a `quix.yaml` deployment never lists these; it references the group by `variableGroupId` alone. Each entry has the fields below. |
 
 Each entry under `variables:`:
