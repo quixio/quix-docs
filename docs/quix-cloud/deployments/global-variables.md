@@ -336,12 +336,34 @@ variables:
     variableGroupId: redis-config
     variableGroupName: Redis config
     variableGroupDescription: Shared Redis connection
+    variables:
+      - key: REDIS_HOST
+        description: Redis server hostname
+        defaultValue: localhost
+        required: true
+      - key: REDIS_PORT
+        description: Redis server port
+        defaultValue: "6379"
+        required: true
+      - key: REDIS_PASSWORD
+        description: Redis auth password
+        secret: true
+        required: true
   - name: payments
     inputType: VariableGroup
     required: true
     variableGroupId: payment-provider
     variableGroupName: Payment provider
     variableGroupDescription: Payment provider credentials
+    variables:
+      - key: PAYMENT_API_KEY
+        description: Payment provider API key
+        secret: true
+        required: true
+      - key: PAYMENT_API_URL
+        description: Payment provider base URL
+        defaultValue: https://api.payments.example
+        required: true
 dockerfile: build/dockerfile
 runEntryPoint: main.py
 ```
@@ -380,7 +402,7 @@ If a `REDIS_DB_INDEX` variable is later added to `redis-config`, it reaches this
 
 ## Reference
 
-This section is a precise specification of the `quix.yaml` shape, the rules the platform enforces, and the resolution behavior — useful for power users and for tooling or AI assistants that generate `quix.yaml`.
+This section is a precise specification of the `quix.yaml` and `app.yaml` shapes, the rules the platform enforces, and the resolution behavior — useful for power users and for tooling or AI assistants that generate the YAML.
 
 ### `quix.yaml` variable fields
 
@@ -394,6 +416,24 @@ A deployment variable that references a group is an entry in `deployments[].vari
 | `required` | no | boolean | Default `false`. When `true`, the deployment fails to deploy if the group cannot be resolved. When `false`, an unresolved group is skipped. |
 | `variableGroupName` | no | string | Optional human-readable echo of the group's display name. Informational only — written by the portal for readability; does not affect resolution. |
 | `variableGroupDescription` | no | string | Optional human-readable echo of the group's description. Informational only. |
+
+### `app.yaml` variable fields
+
+On an **application** in `app.yaml`, a variable-group entry uses the same fields as the `quix.yaml` reference above (`name`, `inputType`, `variableGroupId`, `variableGroupName`, `variableGroupDescription`, `required`), and may additionally declare the group's variables under `variables:`:
+
+| Field | Required | Type | Meaning |
+|---|---|---|---|
+| `variables` | no | list | The group's variable schema. **`app.yaml` only** — a `quix.yaml` deployment never lists these; it references the group by `variableGroupId` alone. Each entry has the fields below. |
+
+Each entry under `variables:`:
+
+| Field | Required | Type | Meaning |
+|---|---|---|---|
+| `key` | yes | string | The variable's name — the environment-variable name injected into the container. |
+| `description` | no | string | Human-readable description of the variable. |
+| `defaultValue` | no | string | Default value for the variable. |
+| `secret` | no | boolean | When `true`, the value is encrypted at rest and hidden in the UI. |
+| `required` | no | boolean | When `true`, the variable must resolve to a value. |
 
 ### Rules and constraints
 
