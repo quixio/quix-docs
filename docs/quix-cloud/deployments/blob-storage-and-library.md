@@ -1,15 +1,15 @@
 ---
 title: Blob storage
-description: Bind workspace blob storage to a deployment with the Advanced-tab toggle, then read it in your code with the quixportal Python library.
+description: Bind your environment's blob storage to a deployment with the Advanced-tab toggle, then read it in your code with the quixportal Python library.
 ---
 
 # Blob storage
 
-Giving a deployment access to cloud object storage is two halves of one workflow: the **blob storage toggle** binds your workspace credentials to the deployment (injected as a secret), and the **`quixportal`** Python library reads that secret and hands your code a ready-to-use filesystem. You never parse credentials or branch per provider.
+Giving a deployment access to cloud object storage is two halves of one workflow: the **blob storage toggle** binds your environment's credentials to the deployment (injected as a secret), and the **`quixportal`** Python library reads that secret and hands your code a ready-to-use filesystem. You never parse credentials or branch per provider.
 
 ## Blob storage toggle
 
-If your workspace has a [blob storage connection](../quix-lake/blob-storage.md), you can bind it to a deployment so your code can reach that storage. The bound connection is injected as a secret, so your code never holds hard-coded credentials.
+If the cluster or your environment has a [blob storage connection](../quix-lake/blob-storage.md), you can bind it to a deployment so your code can reach that storage. The bound connection is injected as a secret, so your code never holds hard-coded credentials.
 
 ### Enabling it
 
@@ -18,7 +18,7 @@ In the deployment dialog, open the **Advanced** tab and expand the **Blob Storag
 ![Blob storage toggle in the deployment Advanced tab](../../images/blob-storage/deployment-blob-storage-toggle.png){width=80%}
 
 !!! note "A connection must exist first"
-    The toggle binds the connection already configured for your workspace. If none exists, the deployment has nothing to bind to, so create one under **Settings → Blob storage connections** first. See [Blob storage connections](../quix-lake/blob-storage.md).
+    The toggle binds the connection already configured for your environment. If none exists, the deployment has nothing to bind to, so create one under **Settings → Blob storage connections** first. See [Blob storage connections](../quix-lake/blob-storage.md).
 
 ### What you get
 
