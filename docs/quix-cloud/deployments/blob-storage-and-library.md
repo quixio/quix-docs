@@ -75,6 +75,8 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 `serviceUrl` points at the gateway endpoint. Key names are case-insensitive, so `s3Compatible` (what Quix injects) and `S3Compatible` both parse.
 
+The gateway is there for two reasons. The first is security: your real bucket credentials never leave it. Instead of handing storage keys to every deployment, the gateway checks each request and grants access scoped to the environment, so one environment cannot reach another's data even though the whole organization shares a single bucket. The second is abstraction: whatever you connect from the Quix Portal (S3, Azure, GCS, or MinIO) is exposed to your code through the same S3-compatible interface, so the same code works regardless of the storage behind it. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for how access is governed.
+
 The library *can* also target Azure, GCS, and a local directory directly (useful for tests or running outside Quix), but those are configs you build yourself with the [helpers below](#generating-the-json-yourself), not something the platform injects.
 
 ### Generating the JSON yourself
