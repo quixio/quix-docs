@@ -268,7 +268,7 @@ variables:
 
     The nested `variables:` list belongs to the **application** definition. A deployment in `quix.yaml` only ever references the group by `variableGroupId` — it never lists the group's nested variables. At deploy time the actual values come from the value set assigned to the environment, not from this schema.
 
-See [Project structure](../projects/project-structure.md) for how `app.yaml` and `quix.yaml` relate.
+See [YAML 1.0 and 2.0](../projects/yaml-2-0.md) for how a deployment inherits these declarations from `app.yaml`.
 
 ## Access the values from your code
 
@@ -388,10 +388,9 @@ deployments:
     # input, redis and payments are inherited from app.yaml (see note below)
 ```
 
-<!-- TODO(SC-73484): point this collapsible at the YAML 2.0 inheritance docs once that page exists. -->
 ??? info "Where are `input`, `redis` and `payments`?"
 
-    The deployment references the `order-processor` application, so under descriptor **version 2.0** it **inherits** the variables declared in that application's `app.yaml` — they aren't repeated here. Each environment's actual values come from the variable group's assigned value set, not from `quix.yaml`.
+    The deployment references the `order-processor` application, so under descriptor **version 2.0** it **inherits** the variables declared in that application's `app.yaml` — they aren't repeated here. Each environment's actual values come from the variable group's assigned value set, not from `quix.yaml`. See [YAML 1.0 and 2.0](../projects/yaml-2-0.md) for the full inheritance and resolution model, including the resolved deployment the platform computes.
 
 In this example:
 
