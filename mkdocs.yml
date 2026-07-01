@@ -81,6 +81,7 @@ nav:
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
+      - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
