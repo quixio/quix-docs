@@ -10,29 +10,29 @@ This is the Quix Cloud changelog for the current year.
 
     See the [Quix Lake documentation](https://quix.io/docs/quix-cloud/quix-lake/overview.html) for more details.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lake.webp" alt="Quix Lake" style="width:50%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lake.webp" alt="Quix Lake" style="width:60%"></p>
 
 - **Quix Lab — reactive notebooks for your data**: Quix Lab is Quix's official notebook environment, now available as a new **Dev Session** type alongside VS Code and Marimo. It pairs a **reactive** notebook — change any input and everything downstream re-runs — with an infinite, Miro-style **canvas**, so you build and connect your analysis visually instead of scrolling a single linear file. Quix Lab is wired straight into your data: query **Quix Lake** with `ql.sql(...)`, tap a **live Kafka topic** with `ql.topic(...)`, and read or write **blob storage** as ordinary variables — no credentials to set up, they're injected for you. Parameterise cells with interactive widgets and visualise results inline as tables, charts and Plotly/Matplotlib figures. Notebooks are saved as plain, Git-friendly Python files and persist across restarts, all embedded directly in the Portal.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lab.webp" alt="Quix Lab" style="width:50%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lab.webp" alt="Quix Lab" style="width:60%"></p>
 
 - **Storage Access Gateway**: A new gateway secures access to your **Quix Lake** data with **per-user and per-workspace authorization**. Every read and query is scoped to the caller's permissions, credentials are provisioned and issued automatically, and a new Storage permissions UI lets you manage who can reach what.
 
     See the [Storage Access Gateway documentation](https://quix.io/docs/quix-cloud/quix-lake/secure-storage-access.html) for more details.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-storage-access-gateway.webp" alt="Storage Access Gateway" style="width:50%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-storage-access-gateway.webp" alt="Storage Access Gateway" style="width:60%"></p>
 
 - **Project Variables**: A single source of truth for any pipeline value that varies between environments (such as `develop` vs `production`) or has to be kept private (such as API keys and database passwords). Project Variables replace the previous **YAML Variables** and **Secrets Management** features, consolidating environment-specific configuration and secrets into one panel. Define a value once at the project level with optional **per-environment overrides**, and reference it either as a `{{ }}` template substitution in `quix.yaml` or bind it straight into a container as an environment variable. Mark a variable as **secret** to encrypt it at rest and keep it out of the rendered YAML and Git entirely.
 
     See the [Project Variables documentation](https://quix.io/docs/quix-cloud/deployments/project-variables.html) for more details.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-project-variables.webp" alt="Project Variables" style="width:50%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-project-variables.webp" alt="Project Variables" style="width:60%"></p>
 
 - **Global Variable Groups (Beta)**: Manage configuration that is shared across many projects from one place at the **organisation level**. Bundle related values — for example a Redis host, port and password — into a named **variable group**, and give it **value sets** for each environment (`DEV`, `PROD`, …). Projects assign a group as a project-wide default and can override it per environment, and a deployment pulls in the entire resolved value set with a single `quix.yaml` reference. Rotating a shared credential becomes one edit instead of repeating it in every project: affected environments are flagged out of sync and redeploy with the updated values automatically.
 
     See the [Global Variable Groups documentation](https://quix.io/docs/quix-cloud/deployments/global-variables.html) for more details.
 
-    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-global-variable-groups.webp" alt="Global Variable Groups" style="width:50%"></p>
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-global-variable-groups.webp" alt="Global Variable Groups" style="width:60%"></p>
 
 
 `ENHANCEMENTS`
