@@ -2,7 +2,7 @@
 
 This is the Quix Cloud changelog for the current year.
 
-## 2026-06-quix-lake | 07 JUL 2026
+## 2026-06-quix-lake | 08 JUL 2026
 
 `NEW FEATURES`
 
