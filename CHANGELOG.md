@@ -41,6 +41,7 @@ This is the Quix Cloud changelog for the current year.
     - **Embedded in empty environments** — Quix AI is now embedded directly in the empty-pipeline experience, so you can describe what you want to build and have it scaffolded from a blank environment.
 - Deployments:
     - **Blob storage binding** — bind blob storage (Quix Lake) to deployments and dev sessions directly from the UI.
+    - **Dynamic Configuration filter** — the Dynamic Configuration view now remembers the active filter when opening a detail page and navigating back.
 - Pipeline:
     - **Default pipeline filter** — the pipeline group filter now defaults to **All** instead of **Default**.
     - **Topic menu** — added **Replay data** and **Persist topic** entries to the topic menu.
