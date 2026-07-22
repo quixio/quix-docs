@@ -158,12 +158,14 @@ Add the SDK script to your embedded UI's HTML, then call `init()` and (optionall
   QuixPlugin
     .init()
     .onToken(function (token) {
+      // Fires with the initial token AND again on every silent refresh —
+      // always re-apply the latest token.
       myApi.setAuthHeader('Bearer ' + token);
     });
 </script>
 ```
 
-That's it. When the embedded view loads, the SDK requests the auth token from the Portal, and your `onToken` callback fires as soon as it arrives. URL synchronisation is enabled at the same time — no extra code required.
+That's it. When the embedded view loads, the SDK requests the auth token from the Portal, and your `onToken` callback fires as soon as it arrives — and again each time the SDK silently refreshes the token before it expires (see [Token refresh and expiration](#token-refresh-and-expiration)). URL synchronisation is enabled at the same time — no extra code required.
 
 ### What the SDK does
 
@@ -171,7 +173,7 @@ Calling `QuixPlugin.init()` switches on the full set of plugin/Portal integratio
 
 #### Auth handshake
 
-The SDK posts `REQUEST_AUTH_TOKEN` to the parent Portal, listens for the `AUTH_TOKEN` response, and caches the token internally. Any callback you register via `onToken(...)` receives the token — including callbacks registered *after* the token has already arrived (no race conditions on late registration).
+The SDK posts `REQUEST_AUTH_TOKEN` to the parent Portal, listens for the `AUTH_TOKEN` response, and caches the token internally. It also keeps the token fresh: it reads the token's expiry and requests a replacement from the Portal before the current one expires — see [Token refresh and expiration](#token-refresh-and-expiration). Any callback you register via `onToken(...)` receives every token — the initial one and each refreshed one — including callbacks registered *after* a token has already arrived (no race conditions on late registration).
 
 You only need this if your plugin makes authenticated calls to Quix APIs or to a backend that validates the Quix token. See [Authentication and authorization](#authentication-and-authorization-recommended) below for the auth options and [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) for backend validation.
 
@@ -197,19 +199,29 @@ Calling `init()` more than once is a no-op — the SDK is idempotent and will no
 
 **`QuixPlugin.onToken(callback)`**
 
-Registers a function to receive the auth token. The callback is invoked with the token string as its only argument:
+Registers a function to receive the auth token. The callback is invoked with the token string as its only argument, and it fires **repeatedly** — once with the initial token, and again every time the SDK silently refreshes the token before it expires (see [Token refresh and expiration](#token-refresh-and-expiration)). Re-apply the token on every invocation — for example, update your API client's `Authorization` header each time — and don't cache the first token or assume it stays valid for the whole session:
 
 ```js
 QuixPlugin.onToken(function (token) {
-  // token is the Bearer token, e.g. 'eyJhbGciOi…'
+  // Called with the initial token and again on every refresh.
+  // Always re-apply the latest token.
+  myApi.setAuthHeader('Bearer ' + token);
 });
 ```
 
-You can register multiple callbacks; they all fire when the token arrives.
+You can register multiple callbacks; they all fire each time a token arrives.
 
 If a token has already been received before you register the callback (for example, you register it asynchronously after some other startup work), the callback is invoked **immediately** with the cached token. This means late registrations don't miss the token, and you don't need to track the SDK's lifecycle yourself.
 
 Returns the `QuixPlugin` object so calls can be chained.
+
+### Token refresh and expiration
+
+Auth tokens are JWTs with an expiry (`exp`) claim — they don't stay valid forever. The SDK handles this for you: after each token arrives, it decodes the expiry and proactively posts a new `REQUEST_AUTH_TOKEN` to the parent Portal before the current token expires. Each fresh token fires your `onToken` callbacks again.
+
+If you use `onToken` and re-apply the token on every invocation (as in the examples above), there is nothing else to do — your plugin keeps working across token expiries without any extra code.
+
+If you implement the `postMessage` handshake yourself instead of using the SDK, refresh is your responsibility: decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` to the parent Portal before it passes, otherwise your plugin's API calls will start failing once the token expires.
 
 ### Verifying the SDK is loaded
 
@@ -217,7 +229,7 @@ On a successful `init()`, the SDK logs a collapsed group to the browser console 
 
 ### Migrating from the manual `postMessage` integration
 
-Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds URL synchronisation on top — replace the hand-rolled handshake with `QuixPlugin.init().onToken(...)`. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
+Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds [automatic token refresh](#token-refresh-and-expiration) and URL synchronisation on top — replace the hand-rolled handshake with `QuixPlugin.init().onToken(...)`. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
 
 ## Authentication and authorization (recommended)
 
@@ -231,7 +243,7 @@ Quix supports two ways to deliver the auth token to your plugin:
 
 === "SDK-based (recommended)"
 
-    Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal and exposes the result via `onToken(callback)`:
+    Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal, keeps the token fresh across expiries, and delivers every token via `onToken(callback)` — so re-apply it on each invocation:
 
     ```html
     <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
@@ -239,6 +251,7 @@ Quix supports two ways to deliver the auth token to your plugin:
       QuixPlugin
         .init()
         .onToken(function (token) {
+          // Fires with the initial token and again on every refresh.
           myApi.setAuthHeader('Bearer ' + token);
         });
     </script>
@@ -248,7 +261,7 @@ Quix supports two ways to deliver the auth token to your plugin:
 
     Use the token as a Bearer credential when calling Quix APIs, or pass it to your own backend and validate it there — see [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) below.
 
-    For full SDK details (other methods, console logging, idempotency, late registration), see the [Quix Plugin SDK](#quix-plugin-sdk) section above.
+    For full SDK details (token refresh, console logging, idempotency, late registration), see the [Quix Plugin SDK](#quix-plugin-sdk) section above.
 
 === "Cookie-based"
 
