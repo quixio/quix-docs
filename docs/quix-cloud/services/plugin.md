@@ -219,6 +219,9 @@ Returns the `QuixPlugin` object so calls can be chained.
 
 Auth tokens are JWTs with an expiry (`exp`) claim — they don't stay valid forever. The SDK handles this for you: after each token arrives, it decodes the expiry and proactively posts a new `REQUEST_AUTH_TOKEN` to the parent Portal before the current token expires. Each fresh token fires your `onToken` callbacks again.
 
+!!! note
+    Automatic token refresh requires **Quix Plugin SDK v1.1.0 or later** — if your browser has cached an older copy of `quix-plugin.js`, do a hard refresh to pick up the current version (check the version logged next to the `Quix` badge in the console).
+
 If you use `onToken` and re-apply the token on every invocation (as in the examples above), there is nothing else to do — your plugin keeps working across token expiries without any extra code.
 
 If you implement the `postMessage` handshake yourself instead of using the SDK, refresh is your responsibility: decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` to the parent Portal before it passes, otherwise your plugin's API calls will start failing once the token expires.
@@ -229,7 +232,31 @@ On a successful `init()`, the SDK logs a collapsed group to the browser console 
 
 ### Migrating from the manual `postMessage` integration
 
-Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds [automatic token refresh](#token-refresh-and-expiration) and URL synchronisation on top — replace the hand-rolled handshake with `QuixPlugin.init().onToken(...)`. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
+Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds [automatic token refresh](#token-refresh-and-expiration) and URL synchronisation on top. If your plugin still has a hand-rolled handshake, migrate it — hand-rolled integrations that never re-request the token stop working when it expires.
+
+To migrate:
+
+1. **Remove the hand-rolled handshake** — delete your `window.addEventListener('message', ...)` handler for `AUTH_TOKEN` and the code that posts `REQUEST_AUTH_TOKEN` to the parent window.
+2. **Load the SDK and register your token handler** — add the `quix-plugin.js` script tag and move the body of your old `AUTH_TOKEN` handler into `onToken`:
+
+    ```html
+    <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+    <script>
+      QuixPlugin
+        .init()
+        .onToken(function (token) {
+          // Fires with the initial token and again on every refresh.
+          myApi.setAuthHeader('Bearer ' + token);
+        });
+    </script>
+    ```
+
+3. **Make the handler re-entrant** — `onToken` fires again on every silent refresh, so re-apply the token each time rather than treating it as one-shot (see [`onToken`](#api-reference)).
+
+That's the whole migration: the SDK posts `REQUEST_AUTH_TOKEN`, receives `AUTH_TOKEN`, and — because it decodes the token's `exp` claim and re-requests before expiry — gives you [automatic token refresh](#token-refresh-and-expiration) for free. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
+
+!!! warning "Keeping a bespoke handshake? Refresh is on you — and clamp your timer"
+    If you keep a hand-rolled `postMessage` integration instead of the SDK, you **must** implement expiry-based refresh yourself: decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` to the parent Portal before it passes. When scheduling that with `setTimeout`, **clamp the computed delay to at most 24 hours** and re-check on wake: browsers store the delay as a 32-bit integer, so any delay above ~24.8 days overflows and the timer fires **immediately**, which can turn your refresh into a hot request loop. The SDK applies this clamp for you — one more reason to migrate.
 
 ## Authentication and authorization (recommended)
 
@@ -270,6 +297,9 @@ Quix supports two ways to deliver the auth token to your plugin:
     !!! note
         Cookie-based auth is an alternative for the **token delivery** step only. You should still include the [Quix Plugin SDK](#quix-plugin-sdk) so your plugin gets URL synchronisation and stays forward-compatible with future cross-frame contracts — even if you don't use `onToken`.
 
+    !!! warning "The cookie token expires — and is not refreshed"
+        The token inside `quix_access_token` is a JWT with an expiry, and unlike the SDK/`postMessage` path it is **not refreshed automatically**. Once it expires, requests relying on the cookie start failing with authentication errors. If you use cookie-based delivery, handle re-authentication yourself — detect `401` responses (or the token's `exp` claim passing) and obtain a fresh cookie, for example by prompting the user to reload the Portal page. If you need a token that stays valid without extra handling, use the [SDK-based delivery](#quix-plugin-sdk) instead.
+
     **Cookie details:**
 
     * **Cookie name:** `quix_access_token`
@@ -301,6 +331,7 @@ Quix supports two ways to deliver the auth token to your plugin:
     * Only works for same-origin deployments (cookie not sent cross-origin)
     * Only specific endpoints marked for cookie auth accept it (listed above)
     * Less flexible than token-based auth for cross-origin scenarios
+    * The token in the cookie expires and is **not** auto-refreshed — see the warning above
 
 ### How to handle the token in the backend
 
