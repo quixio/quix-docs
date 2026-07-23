@@ -153,7 +153,7 @@ The **Quix Plugin SDK** is a small JavaScript library hosted by the Portal. It's
 Add the SDK script to your embedded UI's HTML, then call `init()` and (optionally) register a token callback:
 
 ```html
-<script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+<script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
 <script>
   QuixPlugin
     .init()
@@ -240,7 +240,7 @@ To migrate:
 2. **Load the SDK and register your token handler** — add the `quix-plugin.js` script tag and move the body of your old `AUTH_TOKEN` handler into `onToken`:
 
     ```html
-    <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+    <script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
     <script>
       QuixPlugin
         .init()
@@ -273,7 +273,7 @@ Quix supports two ways to deliver the auth token to your plugin:
     Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal, keeps the token fresh across expiries, and delivers every token via `onToken(callback)` — so re-apply it on each invocation:
 
     ```html
-    <script src="https://<your-portal-domain>/sdk/quix-plugin.js"></script>
+    <script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
     <script>
       QuixPlugin
         .init()
