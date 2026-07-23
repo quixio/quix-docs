@@ -9,6 +9,95 @@ This is the Quix Cloud changelog for the current year.
 - Plugins:
     - **Embedded apps no longer stop working when their auth token expires** — embedded plugin UIs (such as QuixLab and Quix Lake) would start failing API calls once the injected token passed its expiry. The **Quix Plugin SDK (v1.1.0)** now automatically refreshes the token before it expires, so embedded apps keep working across long sessions with no user action required.
 
+## 2026-06-quix-lake | 08 JUL 2026
+
+`NEW FEATURES`
+
+- **Quix Lake — managed data lakehouse**: Quix Lake is now integrated and part of the platform. Persist your streaming topics into a managed, columnar lakehouse and query the data back without standing up any infrastructure of your own. The release includes a **Blob Storage Explorer** for browsing, searching and downloading lake data (including whole folders as a zip), an **Arrow Flight SQL** gateway for high-throughput access from connectors and notebooks, and a streaming query endpoint. Persisting a topic to the lakehouse is now a first-class option in the pipeline, with clearer persist settings and a dedicated **Quix Lake** menu in the environment.
+
+    See the [Quix Lake documentation](https://quix.io/docs/quix-cloud/quix-lake/overview.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lake.webp" alt="Quix Lake" style="width:60%"></p>
+
+- **Quix Lab — reactive notebooks for your data**: Quix Lab is Quix's official notebook environment, now available as a new **Dev Session** type alongside VS Code and Marimo. It pairs a **reactive** notebook — change any input and everything downstream re-runs — with an infinite **collaborative canvas** where multiple users can work simultaneously in real time, so you build and connect your analysis visually instead of scrolling a single linear file. Quix Lab is wired straight into your data: query **Quix Lake** with `ql.sql(...)`, tap a **live Kafka topic** with `ql.topic(...)`, and read or write **blob storage** as ordinary variables — no credentials to set up, they're injected for you. Parameterise cells with interactive widgets and visualise results inline as tables, charts and Plotly/Matplotlib figures. Notebooks are saved as plain, Git-friendly Python files and persist across restarts, all embedded directly in the Portal.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-quix-lab.webp" alt="Quix Lab" style="width:60%"></p>
+
+- **Storage Access Gateway**: A new gateway secures access to your **Quix Lake** data with **per-user and per-workspace authorization**. Every read and query is scoped to the caller's permissions, credentials are provisioned and issued automatically, and a new Storage permissions UI lets you manage who can reach what.
+
+    See the [Storage Access Gateway documentation](https://quix.io/docs/quix-cloud/quix-lake/secure-storage-access.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-storage-access-gateway.webp" alt="Storage Access Gateway" style="width:60%"></p>
+
+- **Project Variables**: A single source of truth for any pipeline value that varies between environments (such as `develop` vs `production`) or has to be kept private (such as API keys and database passwords). Project Variables replace the previous **YAML Variables** and **Secrets Management** features, consolidating environment-specific configuration and secrets into one panel. Define a value once at the project level with optional **per-environment overrides**, and reference it either as a `{{ }}` template substitution in `quix.yaml` or bind it straight into a container as an environment variable. Mark a variable as **secret** to encrypt it at rest and keep it out of the rendered YAML and Git entirely.
+
+    See the [Project Variables documentation](https://quix.io/docs/quix-cloud/deployments/project-variables.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-project-variables.webp" alt="Project Variables" style="width:60%"></p>
+
+- **Global Variable Groups (Beta)**: Manage configuration that is shared across many projects from one place at the **organisation level**. Bundle related values — for example a Redis host, port and password — into a named **variable group**, and give it **value sets** for each environment (`DEV`, `PROD`, …). Projects assign a group as a project-wide default and can override it per environment, and a deployment pulls in the entire resolved value set with a single `quix.yaml` reference. Rotating a shared credential becomes one edit instead of repeating it in every project: affected environments are flagged out of sync and redeploy with the updated values automatically.
+
+    See the [Global Variable Groups documentation](https://quix.io/docs/quix-cloud/deployments/global-variables.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-06-global-variable-groups.webp" alt="Global Variable Groups" style="width:60%"></p>
+
+
+`ENHANCEMENTS`
+
+- Quix AI (Preview):
+    - **Embedded in empty environments** — Quix AI is now embedded directly in the empty-pipeline experience, so you can describe what you want to build and have it scaffolded from a blank environment.
+- Deployments:
+    - **Blob storage binding** — bind blob storage (Quix Lake) to deployments and dev sessions directly from the UI.
+    - **Dynamic Configuration filter** — the Dynamic Configuration view now remembers the active filter when opening a detail page and navigating back.
+- Pipeline:
+    - **Default pipeline filter** — the pipeline group filter now defaults to **All** instead of **Default**.
+    - **Topic menu** — added **Replay data** and **Persist topic** entries to the topic menu.
+    - The pipeline **minimap** is now hidden on narrow screens to keep the view usable.
+- Navigation & UI:
+    - **Recent projects** dropdown added to the organisation overview search.
+    - The dev-session **application info panel** is now resizable.
+    - The environment sidenav now scrolls as a whole with edge-scroll cues.
+    - Repository icons sizes are now aligned with the font sizes.
+- Repository:
+    - **Download a folder as a zip** from the repository browser.
+    - **Editable git SSH URL** — update a project's git SSH URL in place, the same way tokens are already editable.
+    - **Clearer YAML error state** for applications with an invalid app.yaml.
+- Cluster Metrics:
+    - **Historical metrics for retired nodes** — nodes that have since been rolled out are now included in historical cluster metrics, and all resource-reservation types are shown correctly.
+
+
+`BUG FIXES`
+
+- Variables & Sync:
+    - Fixed several **false "out of sync" / "Variables have changed"** reports that blocked first deployments in new environments, including phantom `replicas` and `[hash]` diffs.
+    - Fixed the diff viewer **crashing** on `{ {` / `} }` sequences in quix.yaml.
+- Quix Lake:
+    - Fixed **Lakehouse Query 403** errors caused by auth tokens leaking as inline ciphertext on deployment updates.
+    - Lakehouse database now **self-heals a torn write-ahead log** when restoring from a backup, and reconciles its Postgres password to the current secret on boot.
+- Dev Sessions:
+    - Fixed dev sessions **reserving 4× the intended CPU/memory**.
+    - Fixed dev sessions and the Repository view not reloading on **workspace switch**.
+    - Fixed the **VS Code preview** not following the selected theme.
+    - Fixed terminating multiple dev sessions not refreshing the list.
+- Environments:
+    - Fixed the **pipeline empty state** not appearing for environments that contain only topics, plus empty-state flicker and a stray AI panel opening on load.
+    - Fixed the **browser freezing** when leaving the workspace-create page via Back or Cancel button.
+    - Fixed the **Repository** section not refreshing after an application upload.
+    - Fixed the plugin **sidebar** not refreshing when plugins are created or deleted.
+    - Fixed a failure when **creating an environment**.
+    - Fixed a missing **environment query parameter** in some URLs.
+    - A **Replay** is no longer added to an unwanted environment — it now opens in the host environment.
+- Deployments:
+    - Fixed being unable to **clear a deployment's desired status**.
+    - **Container registry** password-only updates now persist instead of silently reporting success.
+- Repository:
+    - Fixed a **git service error** when the upstream returned an empty response.
+- Authentication & Connectivity:
+    - Fixed **SignalR / WebSocket** connections not picking up refreshed tokens; connections are now aborted cleanly on token expiry instead of failing silently.
+    - Fixed an unexpected **Keycloak logout** prompt on an expired refresh token.
+- Streaming:
+    - Fixed **unsubscribing from one topic** unsubscribing from all topics in the Streaming Reader.
+
 ## 2026-05-scan | 12 MAY 2026
 
 `NEW FEATURES`
@@ -45,7 +134,7 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
-- **Dev Sessions (Beta)**: Spin up a browser-based IDE for any app in one click — no local setup, no installs. Choose a **VS Code** session or a **Marimo notebook** depending on how you want to work. Sessions come pre-loaded with the app's code and environment, so you can edit, experiment, and commit back to git without leaving the Portal. Dev Sessions are the successor to the current **IDE Sessions** and will replace them entirely in the next release, when IDE Sessions will be removed. The new editor is a full VS Code, so you get the complete debugging toolkit, and you have much more control over how sessions are created and how their resources are managed. VS Code sessions also ship with **Claude Code preconfigured with Quix AI keys**, ready to use for AI-assisted coding and agentic workflows the moment your session starts — no API keys or local setup required. See the [Dev Sessions documentation](https://quix.io/docs/quix-cloud/applications/dev-sessions/overview.html) for more details.
+- **Dev Sessions (Beta)**: Spin up a browser-based IDE for any app in one click — no local setup, no installs. Choose a **VS Code** session or a **Marimo notebook** depending on how you want to work. Sessions come pre-loaded with the app's code and environment, so you can edit, experiment, and commit back to git without leaving the Portal. Dev Sessions are the successor to the current **IDE Sessions** and will replace them entirely in the next release, when IDE Sessions will be removed. The new editor is a full VS Code, so you get the complete debugging toolkit, and you have much more control over how sessions are created and how their resources are managed. VS Code sessions also ship with **Claude Code preconfigured with Quix AI keys**, ready to use for AI-assisted coding and agentic workflows the moment your session starts — no API keys or local setup required.     See the [Dev Sessions documentation](https://quix.io/docs/quix-cloud/applications/dev-sessions/overview.html) for more details.
 
     <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-04-devsessions.webp" alt="Dev Sessions" style="width:60%"></p>
 

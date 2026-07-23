@@ -39,7 +39,13 @@ nav:
         - 'Protected environments': 'quix-cloud/projects/protected-environment.md'
         - 'Syncing an environment': 'quix-cloud/projects/syncing-environment.md'
         - 'Testing environments': 'quix-cloud/projects/testing-environments.md'
-      - 'Project structure': 'quix-cloud/projects/project-structure.md'
+      - 'Project structure':
+        - 'Overview': 'quix-cloud/projects/project-structure.md'
+        - 'YAML 1.0 and 2.0': 'quix-cloud/projects/yaml-2-0.md'
+        - 'File Reference':
+          - 'Pipeline YAML (quix.yaml)': 'quix-cli/yaml-reference/pipeline-descriptor.md'
+          - 'Application YAML (app.yaml)': 'quix-cli/yaml-reference/app-descriptor.md'
+          - 'Docker Configuration (dockerfile)': 'quix-cli/yaml-reference/dockerfile.md'
       - 'Git submodules': 'quix-cloud/projects/submodules.md'
     - 'Applications':
       - 'Overview': 'quix-cloud/applications/overview.md'
@@ -75,6 +81,7 @@ nav:
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
+      - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
@@ -347,7 +354,7 @@ nav:
         - Yugabytedb sink: quix-connectors/quix-streams/sinks/coming-soon/Yugabytedb-sink.md
 
 
-  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.6.1-docs'
+  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.6.2-docs'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'

@@ -54,8 +54,9 @@ deployments:
     version: latest
     deploymentType: Managed
     resources:
-      cpu: 500
-      memory: 1024
+      limits:
+        cpu: 500
+        memory: 1024
       replicas: 1
     configuration:
       topic: telemetry

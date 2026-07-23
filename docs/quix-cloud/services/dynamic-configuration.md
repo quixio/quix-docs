@@ -28,8 +28,9 @@ deployments:
   version: latest
   deploymentType: Managed
   resources:
-    cpu: 200
-    memory: 500
+    limits:
+      cpu: 200
+      memory: 500
     replicas: 1
   configuration:
     # Kafka topic for configuration updates
