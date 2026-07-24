@@ -56,6 +56,13 @@ This is the Quix Cloud changelog for the current year.
 - Topics:
     - Fixed **message values not rendering** in the Message View for TimeseriesDataRaw objects.
 
+## 2026-07-plugin-token-refresh | 22 JUL 2026
+
+`BUG FIXES`
+
+- Plugins:
+    - **Embedded apps no longer stop working when their auth token expires** — embedded plugin UIs (such as QuixLab and Quix Lake) would start failing API calls once the injected token passed its expiry. The **Quix Plugin SDK (v1.1.0)** now automatically refreshes the token before it expires, so embedded apps keep working across long sessions with no user action required.
+
 ## 2026-06-quix-lake | 08 JUL 2026
 
 `NEW FEATURES`
