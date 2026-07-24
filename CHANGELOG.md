@@ -2,6 +2,60 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-06-quix-lake-2 | 23 JUL 2026
+
+`ENHANCEMENTS`
+
+- Variables & Sync:
+    - **Variable Group usage warnings** — before editing or deleting a Global Variable Group or Value Set, the Portal now shows a warning listing all deployments currently using it.
+    - **Live updates** — changes to Project Variables and Variable Groups made by other users or in other tabs are now reflected automatically without requiring a manual refresh.
+    - **Variable Group assignments** — editing or assigning a Value Set to an environment now warns precisely about which deployments will be affected and requires explicit confirmation.
+    - **Managed apps in sync validation** — managed applications now participate in sync validation and diff, and the sync dialog renders their inherited Project Variable and Variable Group references.
+- Blob Explorer:
+    - **Zip upload and extract** — upload a zip file to the Blob Explorer and it is automatically extracted server-side.
+    - **Visibility controls** — a new visibility column and inline options let you change the visibility of any file or folder.
+    - **Auto-refresh after upload** — the file tree now refreshes automatically after a file is uploaded.
+- Quix Lake:
+    - **Lakehouse chat** — the built-in lakehouse chat UI is now backed by a Quix AI session.
+    - **DuckDB baked in** — DuckDB extensions are now pre-installed in the lakehouse images, so air-gapped environments no longer need to download them at runtime.
+    - **Admin service editing** — organisation-level Admins can now edit replicas and version for Quix Lake services, with a version chip added to the service list.
+    - **Clipboard support** — clipboard-write is now allowed in the Lakehouse UI iframe.
+- Quix AI:
+    - **Built-in Quix Lake tools** — Quix AI now has built-in tools for querying your Quix Lake directly from the chat.
+- Dev Sessions:
+    - **Marimo blob storage** — blob storage is now enabled by default for Marimo dev sessions.
+- Pipeline:
+    - **Topic details on click** — clicking a topic connection in the Pipeline view now navigates directly to the topic details page.
+- Replay:
+    - **Viewer permission support** — the Replay service can now read from environments where its service account has Viewer permissions.
+
+
+`BUG FIXES`
+
+- Variables & Sync:
+    - Fixed **Project Variable and Variable Group values not being injected** into dev sessions — literal key names were being used instead of the resolved values.
+    - Fixed **unassigning a Variable Group value set** not being detected as out-of-sync.
+    - Fixed a **concurrency error** when creating Variable Groups in quick succession.
+    - Fixed a **permission bypass** that allowed any user to assign any Variable Group or Value Set to an environment regardless of their role.
+    - Fixed **blob storage bind** being silently ignored when updating a deployment via PATCH.
+- Quix Lake & Blob Explorer:
+    - Fixed the **lakehouse empty state** not deploying the Storage Access Gateway first, causing lakehouse provisioning to fail.
+    - Fixed **public visibility not persisting** on the storage root after a reload.
+    - Fixed **delete and list failing** for files and folders with emoji or non-ASCII characters in their path.
+    - Fixed an **invalid marker error** on paginated LIST requests through the Storage Access Gateway.
+    - Fixed **folder rename issues** in the Blob Explorer.
+- Deployments:
+    - Fixed **service name and port conflicts** caused by the deployment service name being coupled to port bindings.
+    - Fixed **referenced builds remaining marked for deletion** after being re-referenced, causing build failures.
+    - Fixed **deployment creation not launching** after uploading an application as a zip.
+- Dev Sessions:
+    - Fixed the **VS Code Dev Session link** incorrectly appearing for managed deployments.
+- Pipeline & UI:
+    - Fixed **notifications appearing over the AI panel** instead of staying within the content container.
+    - Fixed the **Message Explorer** losing view state and crashing on skipped messages.
+- Topics:
+    - Fixed **message values not rendering** in the Message View for TimeseriesDataRaw objects.
+
 ## 2026-07-plugin-token-refresh | 22 JUL 2026
 
 `BUG FIXES`
