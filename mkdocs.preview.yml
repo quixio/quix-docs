@@ -20,7 +20,6 @@ nav:
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.24.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
@@ -39,13 +38,7 @@ nav:
         - 'Protected environments': 'quix-cloud/projects/protected-environment.md'
         - 'Syncing an environment': 'quix-cloud/projects/syncing-environment.md'
         - 'Testing environments': 'quix-cloud/projects/testing-environments.md'
-      - 'Project structure':
-        - 'Overview': 'quix-cloud/projects/project-structure.md'
-        - 'YAML 1.0 and 2.0': 'quix-cloud/projects/yaml-2-0.md'
-        - 'File Reference':
-          - 'Pipeline YAML (quix.yaml)': 'quix-cli/yaml-reference/pipeline-descriptor.md'
-          - 'Application YAML (app.yaml)': 'quix-cli/yaml-reference/app-descriptor.md'
-          - 'Docker Configuration (dockerfile)': 'quix-cli/yaml-reference/dockerfile.md'
+      - 'Project structure': 'quix-cloud/projects/project-structure.md'
       - 'Git submodules': 'quix-cloud/projects/submodules.md'
     - 'Applications':
       - 'Overview': 'quix-cloud/applications/overview.md'
@@ -75,13 +68,12 @@ nav:
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
       - 'Variables':
-        - 'Project variables': 'quix-cloud/deployments/project-variables.md'
-        - 'Global variables': 'quix-cloud/deployments/global-variables.md'
         - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'
+        - 'Secrets management': 'quix-cloud/deployments/secrets-management.md'
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
+        - 'YAML variables': 'quix-cloud/deployments/yaml-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
-      - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
@@ -98,11 +90,10 @@ nav:
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
       - 'Blob storage': 'quix-cloud/quix-lake/blob-storage.md'
-      - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
-        - 'Data Lake Sink': 'quix-cloud/quix-lake/data-lake/sink.md'
+        - 'Sink': 'quix-cloud/quix-lake/data-lake/sink.md'
         - 'User interface': 'quix-cloud/quix-lake/data-lake/user-interface.md'
         - 'API': 'quix-cloud/quix-lake/data-lake/api.md'
         - 'Replay':
@@ -110,7 +101,7 @@ nav:
           - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse':
         - 'Overview': 'quix-cloud/quix-lake/lakehouse/overview.md'
-        - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
+        - 'Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
         - 'Query': 'quix-cloud/quix-lake/lakehouse/query.md'
         - 'Catalog': 'quix-cloud/quix-lake/lakehouse/catalog.md'
         - 'UI': 'quix-cloud/quix-lake/lakehouse/ui.md'
@@ -354,7 +345,6 @@ nav:
         - Yugabytedb sink: quix-connectors/quix-streams/sinks/coming-soon/Yugabytedb-sink.md
 
 
-  - 'Quix CLI': '!import https://github.com/quixio/quix-cli/?branch=1.6.2-docs'
   - 'Knowledge base':
     - 'Guides':
       - 'What is Quix?': 'kb/what-is-quix.md'
@@ -665,17 +655,12 @@ hooks:
 plugins:
   - blog:
       blog_toc: true
-  - multirepo:
-      cleanup: false
   - include-markdown
   - search:
       separator: '[\s\-\.]' 
   - exclude-search:
       exclude:
         - connect/*
-  - social:
-      cards_layout_dir: layouts
-      cards_layout: quix
   - glightbox
   - redirects:
       redirect_maps:
@@ -898,15 +883,8 @@ plugins:
         'deploy/overview.md': 'quix-cloud/deployments/overview.md'
         'deploy/environment-variables.md': 'quix-cloud/deployments/environment-variables.md'
         'deploy/quix-variables.md': 'quix-cloud/deployments/quix-variables.md'
-        # secrets-management and yaml-variables were consolidated into project-variables (SC-72422)
-        'deploy/secrets-management.md': 'quix-cloud/deployments/project-variables.md'
-        'deploy/yaml-variables.md': 'quix-cloud/deployments/project-variables.md'
-        'deploy/project-variables.md': 'quix-cloud/deployments/project-variables.md'
-        'quix-cloud/deployments/secrets-management.md': 'quix-cloud/deployments/project-variables.md'
-        'quix-cloud/deployments/yaml-variables.md': 'quix-cloud/deployments/project-variables.md'
-        # global variables page (SC-73368); the portal links to deploy/variable-groups today
-        'deploy/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
-        'quix-cloud/deployments/variable-groups.md': 'quix-cloud/deployments/global-variables.md'
+        'deploy/secrets-management.md': 'quix-cloud/deployments/secrets-management.md'
+        'deploy/yaml-variables.md': 'quix-cloud/deployments/yaml-variables.md'
         'deploy/ports.md': 'quix-cloud/deployments/ports.md'
         'deploy/state-management.md': 'quix-cloud/deployments/state-management.md'
         'deploy/deploy-public-page.md': 'quix-cloud/deployments/deploy-public-page.md'

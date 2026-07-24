@@ -1,6 +1,6 @@
 ---
-title: Python stream processing made simple
-description: Quix brings DataFrames and the Python ecosystem to stream processing. Stateful, scalable and fault tolerant. No wrappers. No JVM. No cross-language debugging.
+title: "Quix: a data platform for hardware testing"
+description: Quix consolidates telemetry from test rigs, simulations, and sensors. Process data live or replay historical runs to accelerate R&D — born in Formula 1.
 ---
 
 # Quix: Python stream processing made simple
