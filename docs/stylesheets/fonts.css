@@ -1,0 +1,44 @@
+/* GeistPixel display fonts — imported from the Quix website design system.
+   Geist and Geist Mono themselves are loaded by Material via theme.font in
+   mkdocs.yml. These pixel faces are available for display use through the
+   --font-pixel-* tokens defined in extra.css. */
+
+@font-face {
+  font-family: 'GeistPixelSquare';
+  src: url('../fonts/GeistPixel-Square.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistPixelGrid';
+  src: url('../fonts/GeistPixel-Grid.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistPixelCircle';
+  src: url('../fonts/GeistPixel-Circle.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistPixelTriangle';
+  src: url('../fonts/GeistPixel-Triangle.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistPixelLine';
+  src: url('../fonts/GeistPixel-Line.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

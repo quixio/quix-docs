@@ -1,30 +1,60 @@
-[data-md-color-scheme="default"] {
-    --md-primary-fg-color: #0A0B24;
-    --md-default-fg-color--light: #646471;
-    --md-typeset-a-color: #0064ff !important;
-    --md-typeset-h1-font-weight: 600;
-    --p-color: rgb(0, 0, 0 / 70%);
-    --md-code-fg-color: #414141;
-    --md-code-bg-color: #f1f1f3;
-    --md-default-fg-color--lightest: #cbcbcb;
-    --md-code-hl-comment-color: #858585;
-    --md-blog-grid-bg-color: rgb(237, 237, 237);
+:root {
+    /* ── Quix brand design tokens (from the website design system) ──────────
+       Single source of truth for brand colours. Use these tokens — don't
+       hard-code hex values in component rules. See DESIGN-TOKENS.md in the
+       Quix website repo for the canonical reference. */
+    --orange: #FF8400;          /* primary accent */
+    --orange-dark: #D97000;     /* hovers / pressed states */
+    --white: #FFFFFF;
+    --almost-black: #0A0A0A;    /* default dark surface */
+    --black: #000000;
+    --card-bg: #0A0A0A;
+    --card-border: #3A2800;     /* warm dark brown */
+
+    /* Pixel display faces (loaded via stylesheets/fonts.css). Geist and
+       Geist Mono are loaded by Material through theme.font in mkdocs.yml. */
+    --font-pixel-square:   'GeistPixelSquare',   monospace;
+    --font-pixel-grid:     'GeistPixelGrid',     monospace;
+    --font-pixel-circle:   'GeistPixelCircle',   monospace;
+    --font-pixel-triangle: 'GeistPixelTriangle', monospace;
+    --font-pixel-line:     'GeistPixelLine',     monospace;
+    --font-pixel: var(--font-pixel-square);
 }
 
-[data-md-color-scheme="slate"] {
-    --md-primary-fg-color: #0A0B24;
-    --md-default-fg-color--light: rgb(255 255 255 / 70%);
-    --md-primary-fg-color--dark: #000000;
-    --md-default-bg-color: #0a0b16;
-    --md-typeset-a-color: #66a2ff !important;
+/* Dark-only theme. The selectors cover both Material schemes so the brand
+   renders identically regardless of which scheme is applied. */
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default"] {
+    /* Surfaces */
+    --md-default-bg-color: var(--almost-black);
+    --md-default-fg-color: #ffffffcf;
+    --md-default-fg-color--light: hsl(0deg 0% 100% / 55%);
+    --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.45);
+
+    /* Header / footer "primary" colour — near-black (see .md-header / .footer).
+       Header text is set to white explicitly in the component rules below. */
+    --md-primary-fg-color: var(--almost-black);
+    --md-primary-fg-color--dark: var(--black);
+    --md-primary-bg-color: var(--almost-black);
+
+    /* Accent & links — brand orange (high contrast on near-black).
+       Links brighten on hover via the lighter accent colour below. */
+    --orange-bright: #FFA94D;   /* derived: brand orange lightened for hover */
+    --md-accent-fg-color: var(--orange-bright);
+    --md-typeset-a-color: var(--orange) !important;
+
+    /* Typography */
     --md-typeset-h1-font-weight: 600;
-    --md-accent-fg-color: #409ed8;
-    --p-color: rgb(255 255 255 / 70%);
-    --md-code-bg-color: #1e1f29;
-    --md-code-hl-comment-color: #858585;
-    --md-default-fg-color--lightest: #cbcbcb;
-    --md-blog-grid-bg-color: rgb(75, 75, 75);
-    --md-default-fg-color: #ffffff;
+    --p-color: hsl(0deg 0% 100% / 62%);
+
+    /* Code */
+    --md-code-fg-color: #e6e6e6;
+    --md-code-bg-color: #2E2E2E;
+    --md-code-bg-color--darker: #0d0d0d;
+    --md-code-hl-comment-color: #8a8a8a;
+
+    /* Misc */
+    --md-blog-grid-bg-color: #1a1a1a;
 }
 
 .md-typeset code {
@@ -62,6 +92,14 @@ p {
 
 li {
     color: var(--p-color);
+}
+
+/* Bold/strong text sits a step brighter than body copy (which is 72% white)
+   so emphasised terms like inline lead-ins read with clearer contrast. */
+.md-typeset strong,
+p strong,
+li strong {
+    color: hsl(0deg 0% 100% / 80%);
 }
 
 .md-typeset h1 {
@@ -239,7 +277,7 @@ li {
 }
 
 .border-orange-dash {
-    border: 2px dashed #FF8536;
+    border: 2px dashed var(--orange);
 }
 
 .border-violet-dash {
@@ -266,7 +304,7 @@ li {
 }
 
 .sq.sq-orange span {
-    background-color: #FF8536;
+    background-color: var(--orange);
 }
 
 .sq.sq-violet span {
@@ -274,7 +312,8 @@ li {
 }
 
 .primary-fg {
-    filter: invert(40%) sepia(49%) saturate(4897%) hue-rotate(190deg) brightness(105%) contrast(103%);
+    /* Tints monochrome icons to the brand orange (#FF8400). */
+    filter: invert(58%) sepia(86%) saturate(1652%) hue-rotate(360deg) brightness(101%) contrast(105%);
 }
 
 .vertical-align {
@@ -286,9 +325,9 @@ li {
 
 @media screen and (min-width: 60em) {
     .md-search__form {
-        background-color: #fafafa;
+        background-color: hsla(0, 0%, 100%, 0.08);
         border-radius: 0.2rem;
-        border: 1px solid #ebebeb;
+        border: 1px solid hsla(0, 0%, 100%, 0.15);
         height: 1.8rem;
     }
     [dir=ltr] .md-header__source {
@@ -305,10 +344,10 @@ li {
         display: none;
     }
     .md-search__input::placeholder {
-        color: #646471;
+        color: hsla(0, 0%, 100%, 0.5);
     }
     .md-search__input+.md-search__icon {
-        color: var(--md-primary-fg-color);
+        color: hsla(0, 0%, 100%, 0.9);
     }
 }
 
@@ -334,8 +373,8 @@ li {
 }
 
 button.header-btn-inner {
-    color: #ffffff;
-    background-color: #0064ff;
+    color: var(--black);
+    background-color: var(--orange);
     padding: 8px 16px;
     font-size: 16px;
     line-height: 24px;
@@ -349,7 +388,7 @@ button.header-btn-inner {
 }
 
 button.header-btn-inner:hover {
-    background-color: #008eff;
+    background-color: var(--orange-dark);
     transition: background-color .25s;
 }
 
@@ -389,7 +428,7 @@ button.header-btn-inner:hover {
 .md-source__fact {
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--md-primary-fg-color);
+    color: hsla(0, 0%, 100%, 0.7);
 }
 
 #__consent>aside>form>div.md-consent__controls>label {
@@ -397,7 +436,15 @@ button.header-btn-inner:hover {
 }
 
 #__consent>aside>form>div.md-consent__controls>button {
-    background-color: #008eff;
+    background-color: var(--orange);
+    color: var(--black);
+    transition: background-color .25s;
+}
+
+#__consent>aside>form>div.md-consent__controls>button:focus,
+#__consent>aside>form>div.md-consent__controls>button:hover {
+    background-color: var(--orange-dark);
+    color: var(--black);
 }
 
 .md-feedback__note {
@@ -413,7 +460,7 @@ button.header-btn-inner:hover {
 }
 
 .md-code__button {
-    color: var(--md-default-fg-color--lightest);
+    color: hsla(0, 0%, 100%, 0.6);
 }
 
 .md-typeset iframe {
@@ -443,8 +490,12 @@ button.header-btn-inner:hover {
     transform-origin: 0 0;
 }
 
+/* Keep the footer at the bottom of the viewport on short pages. Uses min-height
+   (not height) so long pages grow to their full content height — a fixed height
+   clamps the container shorter than its content and breaks Material's scroll-based
+   TOC active-item tracking (every page lands on the last "On this page" item). */
 .md-container {
-    height: calc(100vh - 64px) !important;
+    min-height: calc(100vh - 64px);
 }
 
 /* Update button styling CSS */
@@ -452,7 +503,7 @@ button.header-btn-inner:hover {
 .md-typeset .md-button {
     border: 0.1rem solid;
     border-radius: 0.2rem;
-    color: #008eff;
+    color: var(--orange);
     cursor: pointer;
     display: inline-block;
     font-weight: 700;
@@ -461,9 +512,9 @@ button.header-btn-inner:hover {
 }
 
 .md-typeset .md-button--primary {
-    background-color: #0064ff;
-    border-color: #0064ff;
-    color: var(--md-primary-bg-color);
+    background-color: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
 }
 
 
@@ -471,9 +522,9 @@ button.header-btn-inner:hover {
 
 .md-typeset .md-button:focus,
 .md-typeset .md-button:hover {
-    background-color: #008eff;
-    border-color: #008eff;
-    color: var(--md-accent-bg-color);
+    background-color: var(--orange-dark);
+    border-color: var(--orange-dark);
+    color: var(--black);
 }
 
 .github-buttons body {
@@ -837,16 +888,16 @@ div.blog-header>div>ul>li {
 }
 
 .md-header {
-    background-color: var(--md-primary-bg-color);
+    background-color: var(--almost-black);
     /* box-shadow:0 0 .2rem #0000,0 .2rem .4rem #0000; */
-    color: var(--md-primary-fg-color);
+    color: #ffffff;
     display: block;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 4;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.12);
 }
 
 .connect-images {
@@ -863,10 +914,8 @@ div.blog-header>div>ul>li {
     }
 }
 
-:root {
-    --md-text-font: "Geist";
-    --md-code-font: "Geist Mono";
-}
+/* Geist / Geist Mono are configured via theme.font in mkdocs.yml, which sets
+   --md-text-font and --md-code-font and loads the faces from Google Fonts. */
 
 .md-header--shadow {
     box-shadow: none;
