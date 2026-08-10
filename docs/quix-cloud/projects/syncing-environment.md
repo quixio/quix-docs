@@ -9,7 +9,7 @@ You can always review the changes that will be made to your `quix.yaml` file, be
 The rules around manual and automatic synchronization are:
 
 1. Operations performed in Quix should not cause "out of sync", as those operations are automatically saved to the Git repository. This is the case for both Quix-managed and third-party hosted Git.
-2. The exception to this is [project variables](../deployments/project-variables.md) and [global variables](../deployments/global-variables.md). When a `{{ }}`-referenced project variable or global-variable group member changes, you need to perform manual synchronization to bake the new value into `quix.yaml`. You are prompted if this is required. See [Variables in quix.yaml](../deployments/variables-in-quix-yaml.md) for why this substitution is sync-time, not deploy-time.
+2. The exception to this is [project variables](../deployments/project-variables.md) and [global variables](../deployments/global-variables.md). When a `{{ }}`-referenced project variable or global-variable group member changes, you need to perform manual synchronization to apply the new value — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value. You are prompted if this is required. See [Variables in quix.yaml](../deployments/variables-in-quix-yaml.md) for why this substitution is sync-time, not deploy-time.
 3. If you change the `quix.yaml` in the Git repository, then you may get "out of sync". The `quix.yaml` file currently only includes topics and deployments.
 
 !!! important

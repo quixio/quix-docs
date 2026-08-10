@@ -230,9 +230,9 @@ Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assi
 
 !!! warning "Format and secrets"
 
-    A reference must be exactly `groupId:variableKey` — no more, no fewer colons, and no spaces around either half. `{{ redis-config : HOST }}` fails to sync: the sync dialog's row reads `` `redis-config : HOST` has whitespace around the variable group Id. `` and the hover adds `` Remove the spaces inside the reference. ``
+    A reference must be exactly `groupId:variableKey` — no more, no fewer colons, and no spaces immediately around the colon. (Spaces just inside the `{{ }}` braces, like `{{ redis-config:HOST }}`, are trimmed and fine.) `{{ redis-config : HOST }}` fails to sync: the sync dialog's row reads `` `redis-config : HOST` has whitespace around the variable group Id. `` and the hover adds `` Remove the spaces inside the reference. ``
 
-    Every malformed reference names which half broke and closes with the parser's own canonical form: `` Use `groupId:variableKey`. ``
+    A missing group id, a missing variable key, or more than one colon each get their own diagnostic, closing with the parser's canonical form: `` Use `groupId:variableKey`. `` Whitespace and invalid-character violations instead name the specific rule that was broken, as in the example above.
 
     A **secret** group member is never resolved this way. The sync dialog's `Unresolved variable groups` step reports *"Secret variables cannot be used in YAML templates"*, with *"Remove the secret reference from the YAML. Secret values are never displayed."* Unlike a project variable, a group member has no per-key escape hatch — fixing this means binding the **whole group** with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead of templating the one key. See [Variables in quix.yaml → Secrets are never available to `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for why the rule exists.
 
@@ -450,7 +450,7 @@ A template reference is plain text inside a `quix.yaml` field, not a `variables:
 
 | Rule | Detail |
 |---|---|
-| Form | Exactly one `:` — `groupId` before it, `variableKey` after. No spaces around either segment. |
+| Form | Exactly one `:` — `groupId` before it, `variableKey` after. No spaces immediately around the colon (spaces just inside `{{ }}` are trimmed and allowed). |
 | `groupId` charset | Same as a group's identifier: `^[A-Za-z0-9][A-Za-z0-9_-]*$`, at most 254 characters. |
 | `variableKey` charset | Same as an environment-variable name: `^[a-zA-Z_][a-zA-Z0-9_]*$`, at most 254 characters — no dots or hyphens. |
 | Zero colons | Parsed as a **project variable** reference instead — see [Project variables](project-variables.md). |
@@ -467,7 +467,7 @@ A template reference is plain text inside a `quix.yaml` field, not a `variables:
 * Changing values or assignments marks affected environments **out of sync**; **syncing the environment redeploys** the deployments that use the group so they restart with the new values. (The background out-of-sync check only flags the drift; the sync applies it.)
 * Deleting a group or value set **cascades** to its variables and assignments.
 
-### Resolution and failure modes
+### Group-binding resolution and failure modes
 
 At deploy time, for each `VariableGroup` reference:
 
@@ -483,14 +483,14 @@ The value set used is the environment-level override if present, otherwise the p
 
 At sync time, for each `{{ groupId:variableKey }}` reference:
 
-| Reason | Cause | Portal action |
+| Reason | Cause | Portal remediation |
 |---|---|---|
-| `NotFound` | The group does not exist. | Create Group |
-| `NotAssigned` | The group exists but has no value set assigned to this environment or its project. | Assign Set |
-| `ValueSetNotFound` | The assigned value set no longer exists in the group. | Assign Set |
-| `KeyNotFound` | `variableKey` does not exist in the assigned value set. | Add variable |
-| `SecretInTemplate` | The member exists but is marked `Secret`. | Edit YAML to remove this reference |
-| `InvalidReference` | The reference itself is malformed. | Edit YAML to correct this reference |
+| `NotFound` | The group does not exist. | `Create Group` button |
+| `NotAssigned` | The group exists but has no value set assigned to this environment or its project. | `Assign Set` button |
+| `ValueSetNotFound` | The assigned value set no longer exists in the group. | `Assign Set` button |
+| `KeyNotFound` | `variableKey` does not exist in the assigned value set. | `Add variable` button |
+| `SecretInTemplate` | The member exists but is marked `Secret`. | Caption only, no button: "Edit YAML to remove this reference." |
+| `InvalidReference` | Either the reference is malformed (bad colon count, missing half, invalid characters), or — rarely — a well-formed reference that a resolver consistency check could not confirm. | Malformed: caption "Edit YAML to correct this reference." Unconfirmed: no caption — the row's status says "Try syncing again." instead, since the YAML itself is fine. |
 
 Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` step, with the full detail available on hover in the Monaco editor.
 

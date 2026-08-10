@@ -119,7 +119,7 @@ publicAccess:
 
 !!! warning "Secrets cannot be referenced with `{{ }}`"
 
-    `{{ }}` substitution embeds the resolved value into the rendered `quix.yaml`, which is stored in Git. If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
+    `{{ }}` substitution embeds the resolved value into the rendered `quix.yaml` shown in the sync preview — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value (see [Variables in quix.yaml](variables-in-quix-yaml.md#when-each-one-resolves)). If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
 
     `Secret project variables ('MY_SECRET') cannot be referenced via {{ }} template syntax. Use inputType: ProjectVariable with variableKey instead.`
 

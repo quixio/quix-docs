@@ -54,22 +54,23 @@ deployments:
 |   | `{{ }}` substitution | `inputType:` binding |
 |---|---|---|
 | Resolved at | **Sync** — baked into the rendered descriptor | **Deploy** — injected into the container |
-| Visible in synced YAML / Git | Yes | No |
+| Committed to Git | **No** — only the `{{ }}` token is committed, never the resolved value | No |
+| Visible in the sync preview | **Yes** — the resolved value renders in the computed diff shown before you sync | No |
 | Applies to | Any `quix.yaml` field (`cpu`, `replicas`, `urlPrefix`, `disabled`, and so on) | Container environment variables only |
 | Reaches your code as an env var | No, not by itself | Yes |
 | Picking up a changed value | Re-**sync** | Redeploy |
 | Secrets allowed | **No** | Yes |
 
-Because `{{ }}` resolves at sync time, the value it substitutes is written into the descriptor that gets committed to Git. The next rule follows directly from that.
+Because `{{ }}` resolves at sync time, the resolved value renders in the sync preview shown before you commit — but the file Git actually stores keeps the `{{ }}` token itself, never the value. The next rule follows from that preview, not from Git.
 
 ## Secrets are never available to `{{ }}`
 
-A secret project variable, or a secret member of a global-variable group, is never resolved through `{{ }}` — doing so would write the secret's plaintext into the synced `quix.yaml`. Both sides reject the reference at sync time:
+A secret project variable, or a secret member of a global-variable group, is never resolved through `{{ }}` — doing so would render the secret's plaintext in the sync preview shown before you commit. Both sides reject the reference before that preview is built:
 
 * **Project variable** — the sync fails with: `Secret project variables ('MY_SECRET') cannot be referenced via {{ }} template syntax. Use inputType: ProjectVariable with variableKey instead.`
 * **Global-variable member** — the sync dialog's `Unresolved variable groups` step reports *"Secret variables cannot be used in YAML templates"*, with the remediation *"Remove the secret reference from the YAML. Secret values are never displayed."*
 
-The fix looks different on each side. A project variable's secret is one key among many — switch just that key to `inputType: ProjectVariable` with `variableKey`, and every other `{{ }}` reference stays as it was. A global-variable group has no per-key escape hatch: `inputType: VariableGroup` injects the **entire** group, so fixing one secret member this way also moves every non-secret member in the group from `{{ }}` text into a container environment variable.
+The fix looks different on each side. A project variable's secret is one key among many — switch just that key to `inputType: ProjectVariable` with `variableKey`, and every other `{{ }}` reference stays as it was. A global-variable group has no per-key escape hatch: `inputType: VariableGroup` injects the **entire** group. Adding that binding doesn't touch any existing `{{ groupId:variableKey }}` reference — the two resolve independently — so the fix is to add the group binding **alongside** the remaining template references, not to replace them.
 
 ## Related pages
 
