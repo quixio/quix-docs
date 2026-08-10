@@ -1,3 +1,8 @@
+---
+title: Global variables
+description: Organization-scoped configuration bundled into variable groups and shared across projects. Reference a whole group at deploy time, or a single non-secret member directly in quix.yaml.
+---
+
 # Global variables
 
 !!! info "Beta feature"
@@ -66,29 +71,7 @@ Where both exist, the environment-level assignment wins; an environment with no 
 
 ## When to use global variables
 
-Reach for global variables when **the same configuration is consumed by more than one project**, or when you want **one place** to manage a related set of values across environments. Concretely:
-
-* **Shared infrastructure** — a database, cache, message broker, or object store that several services connect to.
-* **Shared third-party credentials** — one API key used by every service that calls a given provider.
-* **Centralized rotation** — you want to change a value once and have it land everywhere automatically.
-* **Grouped configuration** — a set of related settings you would rather manage as a unit than as scattered individual variables.
-
-Use a **different mechanism** when the configuration belongs to a single project:
-
-```mermaid
-flowchart TD
-    A{Is the value shared<br/>across projects?} -->|Yes| G[Global variables]
-    A -->|No| B{Static value for<br/>one deployment?}
-    B -->|Yes| E[Environment variables]
-    B -->|"No — per-environment<br/>or a secret"| C[Project variables]
-```
-
-| You want to… | Use |
-|---|---|
-| Share config across multiple projects | **Global variables** |
-| A per-environment value or a secret within one project (`CPU`, `MEMORY`, `REPLICAS`, API keys) | [Project variables](./project-variables.md) |
-| Set a static value on one deployment | [Environment variables](./environment-variables.md) |
-| Read a platform-provided identifier | [Quix variables](./quix-variables.md) |
+Reach for global variables when **the same configuration is consumed by more than one project** — shared infrastructure, shared third-party credentials, or any set of values you want to rotate in one place instead of copying into every project. See [Which kind of variable do you need?](variables-in-quix-yaml.md#which-kind-of-variable-do-you-need) for the full decision guide against project variables, environment variables, and Quix variables.
 
 !!! info "Global variables vs project variables"
 
@@ -231,6 +214,27 @@ Set `required: true` to make the deployment **fail fast** at deploy time when th
 ```
 
 A required reference fails with a clear error when the `variableGroupId` is empty, or when the group is not assigned to the current environment (no project-level assignment and no override). A non-required reference that cannot be resolved is logged and skipped, and the container starts without those variables.
+
+## Reference a group member in `quix.yaml`
+
+The reference above binds an entire group to a container environment variable at deploy time. To substitute a **single non-secret member's** value directly into a `quix.yaml` field instead, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables-in-quix-yaml.md) for how the two patterns compare.
+
+```yaml
+deployments:
+  - name: my-service
+    resources:
+      replicas: {{release-tiers:REPLICA_COUNT}}
+```
+
+Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assigned to the environment — the same assignment a group-level reference uses. If `develop` is assigned the `DEV` value set and `production` is assigned `PROD`, the same `quix.yaml` line renders `replicas: 1` in one environment and `replicas: 3` in the other, and re-syncing each environment after the value changes picks it up.
+
+!!! warning "Format and secrets"
+
+    A reference must be exactly `groupId:variableKey` — no more, no fewer colons, and no spaces around either half. `{{ redis-config : HOST }}` fails to sync: the sync dialog's row reads `` `redis-config : HOST` has whitespace around the variable group Id. `` and the hover adds `` Remove the spaces inside the reference. ``
+
+    Every malformed reference names which half broke and closes with the parser's own canonical form: `` Use `groupId:variableKey`. ``
+
+    A **secret** group member is never resolved this way. The sync dialog's `Unresolved variable groups` step reports *"Secret variables cannot be used in YAML templates"*, with *"Remove the secret reference from the YAML. Secret values are never displayed."* Unlike a project variable, a group member has no per-key escape hatch — fixing this means binding the **whole group** with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead of templating the one key. See [Variables in quix.yaml → Secrets are never available to `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for why the rule exists.
 
 ## Define a group in `app.yaml`
 
@@ -440,6 +444,18 @@ Each entry in the `variables` list:
 | `secret` | no | boolean | When `true`, the value is encrypted at rest and hidden in the UI. |
 | `required` | no | boolean | When `true`, the variable must resolve to a value. |
 
+### Template reference (`{{ groupId:variableKey }}`)
+
+A template reference is plain text inside a `quix.yaml` field, not a `variables:` entry — there is no `inputType` and no nested schema, just the `{{ }}` token itself.
+
+| Rule | Detail |
+|---|---|
+| Form | Exactly one `:` — `groupId` before it, `variableKey` after. No spaces around either segment. |
+| `groupId` charset | Same as a group's identifier: `^[A-Za-z0-9][A-Za-z0-9_-]*$`, at most 254 characters. |
+| `variableKey` charset | Same as an environment-variable name: `^[a-zA-Z_][a-zA-Z0-9_]*$`, at most 254 characters — no dots or hyphens. |
+| Zero colons | Parsed as a **project variable** reference instead — see [Project variables](project-variables.md). |
+| Secret members | Never resolved — see [Reference a group member in `quix.yaml`](#reference-a-group-member-in-quixyaml). |
+
 ### Rules and constraints
 
 * A group **identifier is immutable** after the group is created. It must match `^[A-Za-z0-9][A-Za-z0-9_-]*$` (letters, digits, hyphens, underscores; not starting with a separator), at most 254 characters. Duplicate detection at creation is case-insensitive.
@@ -462,6 +478,21 @@ At deploy time, for each `VariableGroup` reference:
 | Group resolves to a value set | Every variable in that value set is injected as an environment variable | Same |
 
 The value set used is the environment-level override if present, otherwise the project-level default.
+
+### Template resolution and failure modes
+
+At sync time, for each `{{ groupId:variableKey }}` reference:
+
+| Reason | Cause | Portal action |
+|---|---|---|
+| `NotFound` | The group does not exist. | Create Group |
+| `NotAssigned` | The group exists but has no value set assigned to this environment or its project. | Assign Set |
+| `ValueSetNotFound` | The assigned value set no longer exists in the group. | Assign Set |
+| `KeyNotFound` | `variableKey` does not exist in the assigned value set. | Add variable |
+| `SecretInTemplate` | The member exists but is marked `Secret`. | Edit YAML to remove this reference |
+| `InvalidReference` | The reference itself is malformed. | Edit YAML to correct this reference |
+
+Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` step, with the full detail available on hover in the Monaco editor.
 
 ### How global variables compare with other variable types
 

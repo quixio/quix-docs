@@ -79,7 +79,7 @@ Project variables live on a dedicated `Project variables` panel attached to the 
 
 Wrap the variable name in double curly braces to substitute the resolved value of a project variable directly into a `quix.yaml` field. The substitution happens at sync time, so the value becomes part of the rendered pipeline configuration.
 
-Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles.
+Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles. For how this sync-time substitution compares with the deploy-time `inputType:` binding in Pattern 2 below, see [Variables in quix.yaml](variables-in-quix-yaml.md).
 
 **Before — hard-coded resources:**
 
@@ -212,7 +212,9 @@ variables:
     variableGroupDescription: Shared database connection
 ```
 
-`inputType: VariableGroup` resolves at runtime like `inputType: ProjectVariable`, but the values come from an organization-scoped variable group rather than this project's variables. Use project variables for values local to one project; use a variable group when the same set is shared across projects. See [Global variables](global-variables.md) for the full feature.
+`inputType: VariableGroup` resolves at runtime like `inputType: ProjectVariable`, but the values come from an organization-scoped variable group rather than this project's variables. See [Which kind of variable do you need?](variables-in-quix-yaml.md#which-kind-of-variable-do-you-need) for the full decision guide, and [Global variables](global-variables.md) for the feature.
+
+A single group member can also be substituted directly into a `quix.yaml` field with `{{ groupId:variableKey }}` — the group equivalent of this page's `{{ }}` Pattern 1. See [Global variables → Reference a group member](global-variables.md#reference-a-group-member-in-quixyaml).
 
 ## Validation errors and the missing-values flow
 
@@ -224,6 +226,7 @@ When you sync an environment, Quix validates every project-variable reference. T
 | **Type mismatch** | A `{{ }}` template resolves to a value that cannot be converted to the field's expected type. For example, `replicas` expects an integer; the resolved value is `"two"`. | Set a value of the correct type for that environment. |
 | **Secret in template** | A `{{ }}` template references a project variable that has `Secret` enabled. | Switch to Pattern 2 (`inputType: ProjectVariable` + `variableKey`). |
 | **Secret mismatch** | A deployment variable declares a `secret:` value in `quix.yaml` that contradicts the stored project variable's `Secret` flag. | Align the YAML `secret:` hint with the variable, or drop the hint and let the stored flag apply. |
+| **Group-member reference** | A `{{ groupId:variableKey }}` template (exactly one colon) is a global-variable reference, not a project variable — this table doesn't apply. | Surfaces separately in the sync dialog's `Unresolved variable groups` step — see [Global variables → Template resolution and failure modes](global-variables.md#template-resolution-and-failure-modes). |
 
 If the target environment is missing required values, Quix blocks the sync and opens the `Missing project variables` dialog. The dialog explains: *"The YAML references project variables that aren't defined yet. Add them before launching the sync into the [environment] environment."* and lists the missing keys.
 
@@ -518,6 +521,7 @@ On an **application** in `app.yaml`, the same binding uses the same fields — e
 * **Binding pattern** — `inputType: ProjectVariable` with the project-variable key in `variableKey` (`quix.yaml`) or `defaultValue` (`app.yaml`); see the field tables above. Resolved at deployment runtime. Required for secrets.
 * **Secret hint** — an optional `secret: true|false` on the binding records whether the referenced variable is a secret. It must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`.
 * **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
+* **Group template pattern** — `{{ groupId:variableKey }}` substitutes a single non-secret [global-variable group](global-variables.md) member — the exactly-one-colon form of `{{ }}`. See [Global variables → Reference a group member](global-variables.md#reference-a-group-member-in-quixyaml).
 * **Resolution order** — per-environment value > default value.
 * **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`, `Secret mismatch`. Surface in the `Missing project variables` dialog at sync time.
 * **Encryption** — `Secret` flag encrypts both default and per-environment values at rest and hides them from UI, YAML view, and Git.
@@ -525,6 +529,7 @@ On an **application** in `app.yaml`, the same binding uses the same fields — e
 
 ## Related documentation
 
+* [Variables in quix.yaml](variables-in-quix-yaml.md) — how `{{ }}` substitution and `inputType:` binding compare, and when each resolves.
 * [How to add environment variables](environment-variables.md) — UI walkthrough for the per-deployment `+ Add` dialog.
 * [Quix variables](quix-variables.md) — Reference for environment variables that Quix injects into every deployment.
 * [Application YAML reference — variable input types](../projects/project-structure.md#variable-input-types) — Full list of `inputType` values.

@@ -2,7 +2,7 @@
 
 In Quix, it is possible to create new environment variables that your code can then access. This is useful for things like API keys, secrets, and passwords for other services that your code may need to access.
 
-For credentials and any value that varies between environments, prefer defining a [project variable](./project-variables.md) and binding it to the environment variable. Quix also injects a set of [platform-provided variables](./quix-variables.md) into every deployment.
+For credentials and any value that varies between environments, prefer defining a [project variable](./project-variables.md) and binding it to the environment variable — or, if the value is shared across projects, a [global variable](./global-variables.md). See [Which kind of variable do you need?](./variables-in-quix-yaml.md#which-kind-of-variable-do-you-need) for the full picture. Quix also injects a set of [platform-provided variables](./quix-variables.md) into every deployment.
 
 ## To create an environment variable
 
