@@ -490,7 +490,7 @@ At sync time, for each `{{ groupId:variableKey }}` reference:
 | `ValueSetNotFound` | The assigned value set no longer exists in the group. | `Assign Set` button |
 | `KeyNotFound` | `variableKey` does not exist in the assigned value set. | `Add variable` button |
 | `SecretInTemplate` | The member exists but is marked `Secret`. | Caption only, no button: "Edit YAML to remove this reference." |
-| `InvalidReference` | Either the reference is malformed (bad colon count, missing half, invalid characters), or — rarely — a well-formed reference that a resolver consistency check could not confirm. | Malformed: caption "Edit YAML to correct this reference." Unconfirmed: no caption — the row's status says "Try syncing again." instead, since the YAML itself is fine. |
+| `InvalidReference` | Either the reference is malformed (bad colon count, missing half, invalid characters), or — rarely — a well-formed reference that a resolver consistency check could not confirm. | Malformed: caption "Edit YAML to correct this reference." Unconfirmed: no caption — the row reads "could not be checked against its variable group", and the hover adds "Try syncing again.", since the YAML itself is fine. |
 
 Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` step, with the full detail available on hover in the Monaco editor.
 

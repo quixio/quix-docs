@@ -55,17 +55,17 @@ deployments:
 |---|---|---|
 | Resolved at | **Sync** — baked into the rendered descriptor | **Deploy** — injected into the container |
 | Committed to Git | **No** — only the `{{ }}` token is committed, never the resolved value | No |
-| Visible in the sync preview | **Yes** — the resolved value renders in the computed diff shown before you sync | No |
+| Visible in the sync diff | **Yes** — the resolved value renders in the before/after comparison shown when you sync | No |
 | Applies to | Any `quix.yaml` field (`cpu`, `replicas`, `urlPrefix`, `disabled`, and so on) | Container environment variables only |
 | Reaches your code as an env var | No, not by itself | Yes |
 | Picking up a changed value | Re-**sync** | Redeploy |
 | Secrets allowed | **No** | Yes |
 
-Because `{{ }}` resolves at sync time, the resolved value renders in the sync preview shown before you commit — but the file Git actually stores keeps the `{{ }}` token itself, never the value. The next rule follows from that preview, not from Git.
+Because `{{ }}` resolves at sync time, the resolved value renders in the **sync diff** — the before/after comparison shown when you sync — while the file Git actually stores keeps the `{{ }}` token itself, never the value. (The YAML *editor* in the sync dialog also shows tokens rather than values; only the diff renders them resolved.) The next rule follows from that diff, not from Git.
 
 ## Secrets are never available to `{{ }}`
 
-A secret project variable, or a secret member of a global-variable group, is never resolved through `{{ }}` — doing so would render the secret's plaintext in the sync preview shown before you commit. Both sides reject the reference before that preview is built:
+A secret project variable, or a secret member of a global-variable group, is never resolved through `{{ }}` — doing so would render the secret's plaintext in the sync diff. Both sides reject the reference at sync time:
 
 * **Project variable** — the sync fails with: `Secret project variables ('MY_SECRET') cannot be referenced via {{ }} template syntax. Use inputType: ProjectVariable with variableKey instead.`
 * **Global-variable member** — the sync dialog's `Unresolved variable groups` step reports *"Secret variables cannot be used in YAML templates"*, with the remediation *"Remove the secret reference from the YAML. Secret values are never displayed."*
