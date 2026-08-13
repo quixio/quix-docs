@@ -58,7 +58,7 @@ deployments:
 | Visible in the sync diff | **Yes** — the resolved value renders in the before/after comparison shown when you sync | No |
 | Applies to | Any `quix.yaml` field (`cpu`, `replicas`, `urlPrefix`, `disabled`, and so on) | Container environment variables only |
 | Reaches your code as an env var | No, not by itself | Yes |
-| Picking up a changed value | **Sync the environment** | **Redeploy, normally by syncing the environment** |
+| Picking up a changed value | **Sync the environment** | **Sync the environment to redeploy** |
 | Secrets allowed | **No** | Yes |
 
 Because `{{ }}` resolves at sync time, the resolved value renders in the **sync diff** — the before/after comparison shown when you sync — while the file Git actually stores keeps the `{{ }}` token itself, never the value. (The YAML *editor* in the sync dialog also shows tokens rather than values; only the diff renders them resolved.) The next rule follows from that diff, not from Git.

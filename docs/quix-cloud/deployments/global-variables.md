@@ -234,7 +234,7 @@ Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assi
 
     Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead. See [Why secrets cannot use `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for the rule and supported alternatives.
 
-    The reference section below lists the complete syntax rules and exact sync diagnostics.
+    See [Template reference](#template-reference-groupidvariablekey) for the complete syntax rules and [Template resolution and failure modes](#template-resolution-and-failure-modes) for exact sync diagnostics.
 
 ## Define a group in `app.yaml`
 
