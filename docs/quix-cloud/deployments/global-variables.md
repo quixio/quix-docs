@@ -217,7 +217,7 @@ A required reference fails with a clear error when the `variableGroupId` is empt
 
 ## Reference a group member in `quix.yaml`
 
-The reference above binds an entire group to a container environment variable at deploy time. To substitute a **single non-secret member's** value directly into a `quix.yaml` field instead, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables-in-quix-yaml.md) for how the two patterns compare.
+The reference above injects all members of a group as container environment variables at deploy time. To substitute a **single non-secret member's** value directly into a `quix.yaml` field instead, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables-in-quix-yaml.md) for how the two patterns compare.
 
 ```yaml
 deployments:
@@ -230,11 +230,11 @@ Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assi
 
 !!! warning "Format and secrets"
 
-    A reference must be exactly `groupId:variableKey` — no more, no fewer colons, and no spaces immediately around the colon. (Spaces just inside the `{{ }}` braces, like `{{ redis-config:HOST }}`, are trimmed and fine.) `{{ redis-config : HOST }}` fails to sync: the sync dialog's row reads `` `redis-config : HOST` has whitespace around the variable group Id. `` and the hover adds `` Remove the spaces inside the reference. ``
+    Use the exact `groupId:variableKey` form. Spaces around the colon, a missing identifier, or additional colons cause the sync to fail. Spaces just inside the braces, as in `{{ redis-config:HOST }}`, are allowed.
 
-    A missing group id, a missing variable key, or more than one colon each get their own diagnostic, closing with the parser's canonical form: `` Use `groupId:variableKey`. `` Whitespace and invalid-character violations instead name the specific rule that was broken, as in the example above.
+    Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead. See [Why secrets cannot use `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for the rule and supported alternatives.
 
-    A **secret** group member is never resolved this way. The sync dialog's `Unresolved variable groups` step reports *"Secret variables cannot be used in YAML templates"*, with *"Remove the secret reference from the YAML. Secret values are never displayed."* Unlike a project variable, a group member has no per-key escape hatch — fixing this means binding the **whole group** with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead of templating the one key. See [Variables in quix.yaml → Secrets are never available to `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for why the rule exists.
+    The reference section below lists the complete syntax rules and exact sync diagnostics.
 
 ## Define a group in `app.yaml`
 
