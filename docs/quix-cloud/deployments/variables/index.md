@@ -1,9 +1,9 @@
 ---
-title: Variables in quix.yaml
+title: Variables overview
 description: Which kind of Quix variable to use, and how its value reaches a deployment — {{ }} substitution at sync time versus inputType binding at deploy time.
 ---
 
-# Variables in quix.yaml
+# Variables overview
 
 A deployment can take configuration from literal YAML or from a variable — for example, a CPU limit, hostname, or API key. Quix offers four kinds of variable, and two routes for getting a value out of one and into your pipeline. This page answers both questions: which kind of variable holds the value, and how that value reaches your `quix.yaml` or your running container. Each variable kind's own page covers its syntax in full.
 
@@ -87,7 +87,7 @@ Collisions apply only to values injected into the container environment — lite
 
 Use one owner for every injected environment-variable name. In particular, do not bind groups with overlapping member keys: their iteration order is not a public contract, so the result must not be relied on.
 
-Quix does not validate these overlaps, so avoid them rather than attempting to establish a precedence order.
+Quix does not validate these overlaps, so avoid them rather than attempting to establish a precedence order. If a collision does slip through, the value that reaches the container today comes from the variable group — bindings are merged after project variables, which are merged after literal values — but that ordering is an implementation detail, not a guarantee.
 
 ## A complete example
 

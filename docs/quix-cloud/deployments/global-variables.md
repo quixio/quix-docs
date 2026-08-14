@@ -142,7 +142,7 @@ That environment now uses its own value set; the others keep following the `Defa
 
 ## Pattern 1 — Substitute a group member into a `quix.yaml` field
 
-To substitute a **single non-secret member's** value directly into a `quix.yaml` field, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables/index.md) for how the two patterns compare.
+To substitute a **single non-secret member's** value directly into a `quix.yaml` field, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables overview](variables/index.md) for how the two patterns compare.
 
 Sizing values are a good fit for substitution, because they belong in a `quix.yaml` field rather than in the container's environment. The example below uses a second organization-level group, `release-tiers`, which holds a `REPLICA_COUNT` member in each of its `DEV` and `PROD` value sets:
 
@@ -484,6 +484,6 @@ Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` 
 
 ## Related documentation
 
-* [Variables in quix.yaml](variables/index.md) — which kind of variable to use, and how `{{ }}` substitution and `inputType:` binding compare.
+* [Variables overview](variables/index.md) — which kind of variable to use, and how `{{ }}` substitution and `inputType:` binding compare.
 * [Project variables](project-variables.md) — the single-project equivalent, for values one project owns.
 * [Roles and permissions](../roles.md) — the `globalVariable` permission each role carries.

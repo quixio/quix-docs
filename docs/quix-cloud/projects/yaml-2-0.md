@@ -265,12 +265,12 @@ This section specifies the resolution rules precisely, for power users and for t
 * **Materialized defaults.** Variables declared in `app.yaml` but omitted from a deployment are added to the computed descriptor at deploy time with their application defaults.
 * **Group members are not inlined.** A deployment carries a group's reference fields (`variableGroupId`, plus the inherited `variableGroupName` and `variableGroupDescription`), but never the group's **nested member variables** — those live in `app.yaml` and in the [variable group](../deployments/global-variables.md) definition. Their values resolve from the environment's assigned value set.
 * **Lazy write-back.** Switching to 2.0 does not rewrite `quix.yaml`. On the next descriptor save — any UI or API change that persists the file — each deployment property equal to the application default is stripped, keeping the stored file minimal.
-* **`{{ }}` substitution is a separate written→computed transformation.** A `{{ NAME }}` or `{{ groupId:variableKey }}` token in `quix.yaml` resolves into a literal value at **sync**, independently of the version-2.0 inheritance above — see [Variables in quix.yaml](../deployments/variables/index.md).
+* **`{{ }}` substitution is a separate written→computed transformation.** A `{{ NAME }}` or `{{ groupId:variableKey }}` token in `quix.yaml` resolves into a literal value at **sync**, independently of the version-2.0 inheritance above — see [Variables overview](../deployments/variables/index.md).
 
 ## Related pages
 
 * [Project structure](./project-structure.md) — how `quix.yaml` and `app.yaml` sit in the project repository.
-* [Variables in quix.yaml](../deployments/variables/index.md) — `{{ }}` substitution versus `inputType:` binding, and when each resolves.
+* [Variables overview](../deployments/variables/index.md) — `{{ }}` substitution versus `inputType:` binding, and when each resolves.
 * [Project variables](../deployments/project-variables.md) — per-environment values and secrets a deployment inherits from its application.
 * [Global variables](../deployments/global-variables.md) — organization-wide variable groups referenced from `app.yaml`.
 * [Pipeline descriptor reference](../../quix-cli/yaml-reference/pipeline-descriptor.md) — the full field reference for `quix.yaml`.
