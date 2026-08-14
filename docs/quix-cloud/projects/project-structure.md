@@ -101,7 +101,7 @@ The available input types are:
 | `InputTopic` / `OutputTopic` | A topic the application reads from / writes to. |
 | `Options` | A selection from a predefined `label`/`value` list (the list lives in `app.yaml`). |
 | `ProjectVariable` | A value looked up from the project's variables store; set `secret: true` for sensitive values such as API keys. |
-| `VariableGroup` | A reference to an organization-level [variable group](../deployments/global-variables.md). A single non-secret member can also be substituted into a `quix.yaml` field individually with `{{ groupId:variableKey }}` — see [Global variables → Reference a group member](../deployments/global-variables.md#reference-a-group-member-in-quixyaml). |
+| `VariableGroup` | A reference to an organization-level [variable group](../deployments/global-variables.md). A single non-secret member can also be substituted into a `quix.yaml` field individually with `{{ groupId:variableKey }}` — see [Global variables → Pattern 1](../deployments/global-variables.md#pattern-1-substitute-a-group-member-into-a-quixyaml-field). |
 
 To store a secret such as an API key, use a `ProjectVariable` with `secret: true` — the modern replacement for the older `Secret` input type:
 

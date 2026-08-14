@@ -79,7 +79,7 @@ Project variables live on a dedicated `Project variables` panel attached to the 
 
 Wrap the variable name in double curly braces to substitute the resolved value of a project variable directly into a `quix.yaml` field. The substitution happens at sync time, so the value becomes part of the rendered pipeline configuration.
 
-Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles. For how this sync-time substitution compares with the deploy-time `inputType:` binding in Pattern 2 below, see [Variables in quix.yaml](variables-in-quix-yaml.md).
+Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles. For how this sync-time substitution compares with the deploy-time `inputType:` binding in Pattern 2 below, see [Variables in quix.yaml](variables/index.md).
 
 **Before — hard-coded resources:**
 
@@ -119,7 +119,7 @@ publicAccess:
 
 !!! warning "Secrets cannot be referenced with `{{ }}`"
 
-    `{{ }}` substitution embeds the resolved value into the `quix.yaml` rendered in the sync diff — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value. See [Why secrets cannot use `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for the rule and supported alternatives. If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
+    `{{ }}` substitution embeds the resolved value into the `quix.yaml` rendered in the sync diff — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value. See [Why secrets are never substituted](variables/index.md#why-secrets-are-never-substituted) for the rule and supported alternatives. If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
 
     `Secret project variables ('MY_SECRET') cannot be referenced via {{ }} template syntax. Use inputType: ProjectVariable with variableKey instead.`
 
@@ -197,24 +197,9 @@ A project variable bound via Pattern 2 arrives in the container as a standard en
     apiKey := os.Getenv("API_KEY")
     ```
 
-## Related concept — Variable groups
+## Related concept — Global variables
 
-When a set of related values is shared across **multiple projects** — for example, the host, port, and token of a database every service connects to — define them once as organization-scoped **global variables** and bundle them into a *variable group*. A deployment then pulls in the whole group with a single reference:
-
-```yaml
-variables:
-  - name: DB
-    inputType: VariableGroup
-    description: Database connection
-    required: true
-    variableGroupId: production-db
-    variableGroupName: Production DB
-    variableGroupDescription: Shared database connection
-```
-
-`inputType: VariableGroup` resolves at runtime like `inputType: ProjectVariable`, but the values come from an organization-scoped variable group rather than this project's variables. See [Which kind of variable do you need?](variables-in-quix-yaml.md#which-kind-of-variable-do-you-need) for the full decision guide, and [Global variables](global-variables.md) for the feature.
-
-A single group member can also be substituted directly into a `quix.yaml` field with `{{ groupId:variableKey }}` — the group equivalent of this page's `{{ }}` Pattern 1. See [Global variables → Reference a group member](global-variables.md#reference-a-group-member-in-quixyaml).
+For a related set of values shared across multiple projects, use [global variables](global-variables.md). They use the same two delivery mechanisms, but group binding injects every member rather than one project-variable key. See [Variables in quix.yaml](variables/index.md) for the comparison.
 
 ## Validation errors and the missing-values flow
 
@@ -521,7 +506,7 @@ On an **application** in `app.yaml`, the same binding uses the same fields — e
 * **Binding pattern** — `inputType: ProjectVariable` with the project-variable key in `variableKey` (`quix.yaml`) or `defaultValue` (`app.yaml`); see the field tables above. Resolved at deployment runtime. Required for secrets.
 * **Secret hint** — an optional `secret: true|false` on the binding records whether the referenced variable is a secret. It must match the variable's stored `Secret` flag or the sync raises `Secret mismatch`.
 * **Group pattern** — `inputType: VariableGroup` + `variableGroupId: <group>` references an organization-scoped [variable group](global-variables.md) (a named bundle of global variables), not a project variable.
-* **Group template pattern** — `{{ groupId:variableKey }}` substitutes a single non-secret [global-variable group](global-variables.md) member — the exactly-one-colon form of `{{ }}`. See [Global variables → Reference a group member](global-variables.md#reference-a-group-member-in-quixyaml).
+* **Group template pattern** — `{{ groupId:variableKey }}` substitutes a single non-secret [global-variable group](global-variables.md) member — the exactly-one-colon form of `{{ }}`. See [Global variables → Pattern 1](global-variables.md#pattern-1-substitute-a-group-member-into-a-quixyaml-field).
 * **Resolution order** — per-environment value > default value.
 * **Validation errors** — `Missing reference`, `Type mismatch`, `Secret in template`, `Secret mismatch`. Surface in the `Missing project variables` dialog at sync time.
 * **Encryption** — `Secret` flag encrypts both default and per-environment values at rest and hides them from UI, YAML view, and Git.
@@ -529,7 +514,7 @@ On an **application** in `app.yaml`, the same binding uses the same fields — e
 
 ## Related documentation
 
-* [Variables in quix.yaml](variables-in-quix-yaml.md) — how `{{ }}` substitution and `inputType:` binding compare, and when each resolves.
+* [Variables in quix.yaml](variables/index.md) — how `{{ }}` substitution and `inputType:` binding compare, and when each resolves.
 * [How to add environment variables](environment-variables.md) — UI walkthrough for the per-deployment `+ Add` dialog.
 * [Quix variables](quix-variables.md) — Reference for environment variables that Quix injects into every deployment.
 * [Application YAML reference — variable input types](../projects/project-structure.md#variable-input-types) — Full list of `inputType` values.

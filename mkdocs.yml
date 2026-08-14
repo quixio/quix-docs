@@ -75,7 +75,7 @@ nav:
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
       - 'Variables':
-        - 'Variables in quix.yaml': 'quix-cloud/deployments/variables-in-quix-yaml.md'
+        - 'quix-cloud/deployments/variables/index.md'
         - 'Project variables': 'quix-cloud/deployments/project-variables.md'
         - 'Global variables': 'quix-cloud/deployments/global-variables.md'
         - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'

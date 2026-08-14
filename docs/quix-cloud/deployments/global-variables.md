@@ -27,15 +27,7 @@ Global variables remove the duplication:
 * Rotating the password is a **single edit** that reaches every project and environment that consumes the group.
 * Adding `REDIS_DB_INDEX` to the group makes it available everywhere — no change to any project's `quix.yaml`.
 
-With global variables, one group is the single source of truth that every project draws from — so a change is made once, not copied into each project:
-
-```mermaid
-flowchart LR
-    G["redis-config group<br/>DEV / PROD value sets<br/>edit once"]
-    G --> A["Project A"]
-    G --> B["Project B"]
-    G --> C["Project C"]
-```
+With global variables, one group is the single source of truth that every project draws from — so a change is made once, not copied into each project.
 
 ## How global variables are organized
 
@@ -47,17 +39,6 @@ flowchart LR
 | **Value set** | A named variant within a group — for example `DEV` and `PROD`. Every variable in the group holds one value per value set, so the same group supplies different values in different environments. |
 | **Variable** | A key/value pair inside a group (a row under the group's `Variables` tab). Its name becomes the **environment-variable name** injected into the container. It can be marked **secret**, in which case the value is encrypted at rest and hidden in the UI, the YAML view, and Git. |
 
-```mermaid
-flowchart LR
-    G["Variable group<br/>redis-config"]
-    G --> VS1["Value set: DEV"]
-    G --> VS2["Value set: PROD"]
-    VS1 --> V1["REDIS_HOST = dev.redis.local"]
-    VS1 --> V2["REDIS_PASSWORD = dev-pw"]
-    VS2 --> V3["REDIS_HOST = prod.redis.example.com"]
-    VS2 --> V4["REDIS_PASSWORD = prod-pw"]
-```
-
 A project consumes a group through an **assignment**, and a group can be assigned at two levels that coexist:
 
 * A **project-level assignment** picks the value set used by **every environment** in the project. In the `Global variables` tab this is the **`Default`** column.
@@ -67,11 +48,11 @@ Where both exist, the environment-level assignment wins; an environment with no 
 
 !!! tip "One reference injects the whole group"
 
-    A deployment references a group **once** in `quix.yaml`, and Quix injects **every variable in the resolved value set** as separate environment variables. You never list the individual variables — and adding a variable to the group later reaches every deployment that already references it, with no YAML change. See [Reference a group in `quix.yaml`](#reference-a-group-in-quixyaml).
+    A deployment references a group **once** in `quix.yaml`, and Quix injects **every variable in the resolved value set** as separate environment variables. You never list the individual variables — and adding a variable to the group later reaches every deployment that already references it, with no YAML change. See [Pattern 2: bind a whole group](#pattern-2-bind-a-whole-group-to-container-environment-variables).
 
 ## When to use global variables
 
-Reach for global variables when **the same configuration is consumed by more than one project** — shared infrastructure, shared third-party credentials, or any set of values you want to rotate in one place instead of copying into every project. See [Which kind of variable do you need?](variables-in-quix-yaml.md#which-kind-of-variable-do-you-need) for the full decision guide against project variables, environment variables, and Quix variables.
+Reach for global variables when **the same configuration is consumed by more than one project** — shared infrastructure, shared third-party credentials, or any set of values you want to rotate in one place instead of copying into every project. See [Which kind of variable do you need?](variables/index.md#which-kind-of-variable-do-you-need) for the full decision guide against project variables, environment variables, and Quix variables.
 
 !!! info "Global variables vs project variables"
 
@@ -87,18 +68,10 @@ Reach for global variables when **the same configuration is consumed by more tha
 
 Setting up and consuming global variables is four steps, split between an organization admin and a project developer:
 
-```mermaid
-sequenceDiagram
-    participant Admin as Org admin
-    participant Group as Variable group
-    participant Dev as Project developer
-    participant Deploy as Deployment
-    Admin->>Group: 1. Create group + value sets
-    Admin->>Group: 2. Add variables (values per set)
-    Dev->>Group: 3. Assign group to project,<br/>pick value set per environment
-    Dev->>Deploy: 4. Reference group in quix.yaml
-    Deploy-->>Deploy: On deploy: all group vars<br/>injected as env vars
-```
+1. An organization admin creates the group and its value sets.
+2. The admin adds variables and supplies one value per value set.
+3. A project developer assigns the group to a project and selects the value set for each environment.
+4. The developer references either one group member or the whole group from `quix.yaml`.
 
 The rest of this page walks through each step.
 
@@ -152,9 +125,9 @@ A project must assign a group before any of its deployments can reference the gr
 
 The project now resolves every variable in the group against the chosen value set.
 
-!!! note
+!!! note "Who can manage global variables"
 
-    The groups offered in the assignment dialog are gated by your role's permissions on global variables. Ask an organization admin if a group you expect is missing.
+    The groups offered in the assignment dialog are gated by your role's `globalVariable` permission. **Admin** and **Manager** can create, edit, and delete groups and value sets; **Editor** can view and edit existing ones but cannot create or delete them; **Viewer** has read-only access; **Operator** has none. See [Roles and permissions](../roles.md#permissions-matrix). Ask an organization admin if a group you expect is missing.
 
 ### Override the value set per environment
 
@@ -167,57 +140,11 @@ The `Global variables` tab lists each assigned group as a row, with a **`Default
 
 That environment now uses its own value set; the others keep following the `Default`. Clearing an environment's selection makes it fall back to the `Default` again.
 
-## Reference a group in `quix.yaml`
+## Pattern 1 — Substitute a group member into a `quix.yaml` field
 
-A deployment references a group by adding **one** entry under `variables` with `inputType: VariableGroup` and the group's identifier in `variableGroupId`:
+To substitute a **single non-secret member's** value directly into a `quix.yaml` field, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables/index.md) for how the two patterns compare.
 
-```yaml
-deployments:
-  - name: Order processor
-    application: order-processor
-    deploymentType: Service
-    variables:
-      - name: redis                 # label only — not injected
-        inputType: VariableGroup
-        variableGroupId: redis-config
-        required: true
-```
-
-At deploy time, Quix resolves the group against the value set currently assigned to the environment and injects **every variable in that value set** as a separate environment variable. If `redis-config` contains `REDIS_HOST`, `REDIS_PORT`, and `REDIS_PASSWORD`, all three appear in the container.
-
-Two things to keep in mind:
-
-* **One reference, many env vars.** You do not list the individual variables. Adding a variable to the group later reaches this deployment automatically on the next sync.
-* **The `name` field is a label.** It identifies the reference in the UI and in error messages but is **not** injected. The injected names come from the variables defined inside the group.
-
-To pull in more than one group, add one entry per group:
-
-```yaml
-variables:
-  - name: redis
-    inputType: VariableGroup
-    variableGroupId: redis-config
-  - name: payments
-    inputType: VariableGroup
-    variableGroupId: payment-provider
-```
-
-### Required references
-
-Set `required: true` to make the deployment **fail fast** at deploy time when the group cannot be resolved:
-
-```yaml
-- name: redis
-  inputType: VariableGroup
-  variableGroupId: redis-config
-  required: true
-```
-
-A required reference fails with a clear error when the `variableGroupId` is empty, or when the group is not assigned to the current environment (no project-level assignment and no override). A non-required reference that cannot be resolved is logged and skipped, and the container starts without those variables.
-
-## Reference a group member in `quix.yaml`
-
-The reference above injects all members of a group as container environment variables at deploy time. To substitute a **single non-secret member's** value directly into a `quix.yaml` field instead, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables in quix.yaml](variables-in-quix-yaml.md) for how the two patterns compare.
+Sizing values are a good fit for substitution, because they belong in a `quix.yaml` field rather than in the container's environment. The example below uses a second organization-level group, `release-tiers`, which holds a `REPLICA_COUNT` member in each of its `DEV` and `PROD` value sets:
 
 ```yaml
 deployments:
@@ -232,9 +159,41 @@ Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assi
 
     Use the exact `groupId:variableKey` form. Spaces around the colon, a missing identifier, or additional colons cause the sync to fail. Spaces just inside the braces, as in `{{ redis-config:HOST }}`, are allowed.
 
-    Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#reference-a-group-in-quixyaml) instead. See [Why secrets cannot use `{{ }}`](variables-in-quix-yaml.md#secrets-are-never-available-to) for the rule and supported alternatives.
+    Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#pattern-2-bind-a-whole-group-to-container-environment-variables) instead. See [Why secrets are never substituted](variables/index.md#why-secrets-are-never-substituted) for the rule and supported alternatives.
 
     See [Template reference](#template-reference-groupidvariablekey) for the complete syntax rules and [Template resolution and failure modes](#template-resolution-and-failure-modes) for exact sync diagnostics.
+
+!!! warning "`{{ groupId:variableKey }}` works in `quix.yaml` only"
+
+    An application **defines** a group in `app.yaml`; it cannot substitute a member's value into an `app.yaml` field, and neither can a code sample's `library.json`. Keep member substitutions in `quix.yaml` — see [Where references work](variables/index.md#where-references-work).
+
+## Pattern 2 — Bind a whole group to container environment variables
+
+To pass a global-variable group to your application as environment variables, add one entry under `variables` with `inputType: VariableGroup` and the group's identifier in `variableGroupId`:
+
+```yaml
+deployments:
+  - name: Order processor
+    application: order-processor
+    deploymentType: Service
+    variables:
+      - name: redis                 # label only — not injected
+        inputType: VariableGroup
+        variableGroupId: redis-config
+        required: true
+```
+
+At deploy time, Quix resolves the group against the value set currently assigned to the environment and injects **every variable in that value set** as a separate environment variable. If `redis-config` contains `REDIS_HOST`, `REDIS_PORT`, and `REDIS_PASSWORD`, all three appear in the container. This is different from Pattern 1: it does not substitute a descriptor field, and it cannot select one member.
+
+* **One reference, many env vars.** You do not list the individual variables. Adding a variable to the group later reaches this deployment when it is redeployed.
+* **The `name` field is a label.** It identifies the reference in the UI and in error messages but is **not** injected. The injected names come from the variables defined inside the group.
+* **The binding is additive.** It can sit alongside `{{ groupId:variableKey }}` references; adding it does not replace or alter those separate substitutions.
+
+To pull in more than one group, add one entry per group. Do not let groups have overlapping member keys; their iteration order is not a public contract.
+
+### Required references
+
+Set `required: true` to make the deployment **fail fast** at deploy time when the group cannot be resolved. A non-required reference that cannot be resolved is logged and skipped, and the container starts without those variables.
 
 ## Define a group in `app.yaml`
 
@@ -316,13 +275,21 @@ After you change a variable's value, an assignment, or a value set, the affected
 Deletes cascade:
 
 * **Delete a value set** — removes every variable's value for that set within the group, and deletes the assignments that selected it. Affected projects and environments must be re-assigned a value set.
-* **Delete a group** — removes the group, all its variables, and every assignment that referenced it. Projects depending on it lose access immediately.
+* **Delete a group** — removes the group, all its variables, and every assignment that referenced it. No project can resolve it afterwards.
 
 The portal asks you to confirm before deleting. Because the delete cascades to variables and assignments across every project that uses the group, check which projects depend on it first. Re-creating a group with the same identifier does **not** restore previous assignments.
 
+Deleting affects the next sync and the next deploy, not what is already running:
+
+* **A running deployment keeps the environment variables it started with.** A container reads its environment once, at start, and deleting a group does not restart it. The deployment runs on the old values until it is next redeployed.
+* **The next sync flags the reference as unresolved.** A deleted group reports `NotFound`; a group left with no assigned value set reports `NotAssigned`. See [Template resolution and failure modes](#template-resolution-and-failure-modes) for each reason and its portal remediation.
+* **The next deploy either fails or starts without the values.** A `required: true` reference fails the deployment with an error; a reference that is not required is skipped, and the group's member keys are **absent** from the container — not set to an empty string, so your code sees an unset variable rather than an empty one. See [Group-binding resolution and failure modes](#group-binding-resolution-and-failure-modes).
+
+Renaming is safe by comparison. You can change a group's display name, and a value set's name, without breaking anything: `quix.yaml` resolves against the group's immutable identifier, and an assignment binds to the value set's own id rather than its name.
+
 ## Full example
 
-The two files below put this together — `app.yaml` defines the group references, and the `quix.yaml` deployment inherits them. Each `VariableGroup` reference expands at deploy time into every variable in its group.
+The two files below put this together — `app.yaml` defines the group references, and the `quix.yaml` deployment inherits them. Each `VariableGroup` reference expands at deploy time into every variable in its group, and the deployment's `replicas` field substitutes one member of the `release-tiers` group directly into the YAML.
 
 **`app.yaml`** — in the `order-processor` application folder, references two groups:
 
@@ -388,7 +355,7 @@ deployments:
       limits:
         cpu: 200
         memory: 500
-      replicas: 1
+      replicas: {{release-tiers:REPLICA_COUNT}}
     # input, redis and payments are inherited from app.yaml (see note below)
 ```
 
@@ -400,8 +367,9 @@ In this example:
 
 * The `redis` reference injects every variable in `redis-config` — for example `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`.
 * The `payments` reference injects every variable in `payment-provider` — for example `PAYMENT_API_KEY`, `PAYMENT_API_URL`. Variables the group marks as secret arrive decrypted at runtime.
+* `{{release-tiers:REPLICA_COUNT}}` takes the opposite route: the sync resolves it into the `replicas` field itself, so it configures the deployment rather than reaching the container as an environment variable. It needs `release-tiers` assigned to the project, just as the two references above need theirs.
 
-If a `REDIS_DB_INDEX` variable is later added to `redis-config`, it reaches this deployment on the next sync — no edit to `app.yaml` or `quix.yaml` required.
+If a `REDIS_DB_INDEX` variable is later added to `redis-config`, it reaches this deployment when it is next redeployed. Syncing the environment detects the group change and triggers that redeploy; no edit to `app.yaml` or `quix.yaml` is required.
 
 ## Reference
 
@@ -454,7 +422,7 @@ A template reference is plain text inside a `quix.yaml` field, not a `variables:
 | `groupId` charset | Same as a group's identifier: `^[A-Za-z0-9][A-Za-z0-9_-]*$`, at most 254 characters. |
 | `variableKey` charset | Same as an environment-variable name: `^[a-zA-Z_][a-zA-Z0-9_]*$`, at most 254 characters — no dots or hyphens. |
 | Zero colons | Parsed as a **project variable** reference instead — see [Project variables](project-variables.md). |
-| Secret members | Never resolved — see [Reference a group member in `quix.yaml`](#reference-a-group-member-in-quixyaml). |
+| Secret members | Never resolved — see [Pattern 1: substitute a group member](#pattern-1-substitute-a-group-member-into-a-quixyaml-field). |
 
 ### Rules and constraints
 
@@ -513,3 +481,9 @@ Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` 
 | **Variable** | A key/value pair inside a group. Its name is the injected environment-variable name. May be a secret. |
 | **Assignment** | The link between a project and a group that selects which value set the project (or one of its environments) uses. |
 | **Override** | An environment-level assignment that replaces the project-level default value set for a single environment. |
+
+## Related documentation
+
+* [Variables in quix.yaml](variables/index.md) — which kind of variable to use, and how `{{ }}` substitution and `inputType:` binding compare.
+* [Project variables](project-variables.md) — the single-project equivalent, for values one project owns.
+* [Roles and permissions](../roles.md) — the `globalVariable` permission each role carries.
