@@ -79,7 +79,7 @@ Project variables live on a dedicated `Project variables` panel attached to the 
 
 Wrap the variable name in double curly braces to substitute the resolved value of a project variable directly into a `quix.yaml` field. The substitution happens at sync time, so the value becomes part of the rendered pipeline configuration.
 
-Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles. For how this sync-time substitution compares with the deploy-time `inputType:` binding in Pattern 2 below, see [Variables overview](variables/index.md).
+Use this pattern for fields that need to vary per environment but don't need to be secret — resource sizing, public URL prefixes, feature toggles. For how this sync-time substitution compares with the deploy-time `inputType:` binding in Pattern 2 below, see [Variables overview](variables-overview.md).
 
 **Before — hard-coded resources:**
 
@@ -119,7 +119,7 @@ publicAccess:
 
 !!! warning "Secrets cannot be referenced with `{{ }}`"
 
-    `{{ }}` substitution embeds the resolved value into the `quix.yaml` rendered in the sync diff — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value. See [Why secrets are never substituted](variables/index.md#why-secrets-are-never-substituted) for the rule and supported alternatives. If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
+    `{{ }}` substitution embeds the resolved value into the `quix.yaml` rendered in the sync diff — the *committed* `quix.yaml` keeps the `{{ }}` token itself, never the resolved value. See [Why secrets are never substituted](variables-overview.md#why-secrets-are-never-substituted) for the rule and supported alternatives. If you reference a project variable that has `Secret` enabled, the sync fails with an error such as:
 
     `Secret project variables ('MY_SECRET') cannot be referenced via {{ }} template syntax. Use inputType: ProjectVariable with variableKey instead.`
 
@@ -199,7 +199,7 @@ A project variable bound via Pattern 2 arrives in the container as a standard en
 
 ## Related concept — Global variables
 
-For a related set of values shared across multiple projects, use [global variables](global-variables.md). They use the same two delivery mechanisms, but group binding injects every member rather than one project-variable key. See [Variables overview](variables/index.md) for the comparison.
+For a related set of values shared across multiple projects, use [global variables](global-variables.md). They use the same two delivery mechanisms, but group binding injects every member rather than one project-variable key. See [Variables overview](variables-overview.md) for the comparison.
 
 ## Validation errors and the missing-values flow
 
@@ -514,7 +514,7 @@ On an **application** in `app.yaml`, the same binding uses the same fields — e
 
 ## Related documentation
 
-* [Variables overview](variables/index.md) — how `{{ }}` substitution and `inputType:` binding compare, and when each resolves.
+* [Variables overview](variables-overview.md) — how `{{ }}` substitution and `inputType:` binding compare, and when each resolves.
 * [How to add environment variables](environment-variables.md) — UI walkthrough for the per-deployment `+ Add` dialog.
 * [Quix variables](quix-variables.md) — Reference for environment variables that Quix injects into every deployment.
 * [Application YAML reference — variable input types](../projects/project-structure.md#variable-input-types) — Full list of `inputType` values.

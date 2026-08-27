@@ -52,7 +52,7 @@ Where both exist, the environment-level assignment wins; an environment with no 
 
 ## When to use global variables
 
-Reach for global variables when **the same configuration is consumed by more than one project** — shared infrastructure, shared third-party credentials, or any set of values you want to rotate in one place instead of copying into every project. See [Which kind of variable do you need?](variables/index.md#which-kind-of-variable-do-you-need) for the full decision guide against project variables, environment variables, and Quix variables.
+Reach for global variables when **the same configuration is consumed by more than one project** — shared infrastructure, shared third-party credentials, or any set of values you want to rotate in one place instead of copying into every project. See [Which kind of variable do you need?](variables-overview.md#which-kind-of-variable-do-you-need) for the full decision guide against project variables, environment variables, and Quix variables.
 
 !!! info "Global variables vs project variables"
 
@@ -142,7 +142,7 @@ That environment now uses its own value set; the others keep following the `Defa
 
 ## Pattern 1 — Substitute a group member into a `quix.yaml` field
 
-To substitute a **single non-secret member's** value directly into a `quix.yaml` field, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables overview](variables/index.md) for how the two patterns compare.
+To substitute a **single non-secret member's** value directly into a `quix.yaml` field, wrap `groupId:variableKey` in double curly braces. The substitution happens at sync time, the same as a project variable's `{{ }}` reference — see [Variables overview](variables-overview.md) for how the two patterns compare.
 
 Sizing values are a good fit for substitution, because they belong in a `quix.yaml` field rather than in the container's environment. The example below uses a second organization-level group, `release-tiers`, which holds a `REPLICA_COUNT` member in each of its `DEV` and `PROD` value sets:
 
@@ -159,13 +159,13 @@ Quix resolves `release-tiers:REPLICA_COUNT` against the value set currently assi
 
     Use the exact `groupId:variableKey` form. Spaces around the colon, a missing identifier, or additional colons cause the sync to fail. Spaces just inside the braces, as in `{{ redis-config:HOST }}`, are allowed.
 
-    Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#pattern-2-bind-a-whole-group-to-container-environment-variables) instead. See [Why secrets are never substituted](variables/index.md#why-secrets-are-never-substituted) for the rule and supported alternatives.
+    Secret group members cannot be substituted with `{{ }}`. Bind the entire group with [`inputType: VariableGroup`](#pattern-2-bind-a-whole-group-to-container-environment-variables) instead. See [Why secrets are never substituted](variables-overview.md#why-secrets-are-never-substituted) for the rule and supported alternatives.
 
     See [Template reference](#template-reference-groupidvariablekey) for the complete syntax rules and [Template resolution and failure modes](#template-resolution-and-failure-modes) for exact sync diagnostics.
 
 !!! warning "`{{ groupId:variableKey }}` works in `quix.yaml` only"
 
-    An application **defines** a group in `app.yaml`; it cannot substitute a member's value into an `app.yaml` field, and neither can a code sample's `library.json`. Keep member substitutions in `quix.yaml` — see [Where references work](variables/index.md#where-references-work).
+    An application **defines** a group in `app.yaml`; it cannot substitute a member's value into an `app.yaml` field, and neither can a code sample's `library.json`. Keep member substitutions in `quix.yaml` — see [Where references work](variables-overview.md#where-references-work).
 
 ## Pattern 2 — Bind a whole group to container environment variables
 
@@ -484,6 +484,6 @@ Each reason surfaces as a row in the sync dialog's `Unresolved variable groups` 
 
 ## Related documentation
 
-* [Variables overview](variables/index.md) — which kind of variable to use, and how `{{ }}` substitution and `inputType:` binding compare.
+* [Variables overview](variables-overview.md) — which kind of variable to use, and how `{{ }}` substitution and `inputType:` binding compare.
 * [Project variables](project-variables.md) — the single-project equivalent, for values one project owns.
 * [Roles and permissions](../roles.md) — the `globalVariable` permission each role carries.

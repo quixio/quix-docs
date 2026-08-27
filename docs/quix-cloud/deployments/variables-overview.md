@@ -9,30 +9,30 @@ A deployment can take configuration from literal YAML or from a variable — for
 
 !!! info "Beta feature"
 
-    [Global variables](../global-variables.md) are currently in beta. The other variable kinds on this page are generally available.
+    [Global variables](global-variables.md) are currently in beta. The other variable kinds on this page are generally available.
 
 ## Which kind of variable do you need?
 
 | You want to… | Use |
 |---|---|
-| Share config across multiple projects | [Global variables](../global-variables.md) |
-| Store a per-environment value or secret within one project (`CPU`, `MEMORY`, `REPLICAS`, API keys) | [Project variables](../project-variables.md) |
-| Set a static value on one deployment | [Environment variables](../environment-variables.md) |
-| Read a platform-provided identifier | [Quix variables](../quix-variables.md) |
+| Share config across multiple projects | [Global variables](global-variables.md) |
+| Store a per-environment value or secret within one project (`CPU`, `MEMORY`, `REPLICAS`, API keys) | [Project variables](project-variables.md) |
+| Set a static value on one deployment | [Environment variables](environment-variables.md) |
+| Read a platform-provided identifier | [Quix variables](quix-variables.md) |
 
-Environment variables are the simplest case: a literal, deployment-specific value that your container reads at runtime. In YAML, a literal variable uses `inputType: FreeText` and `value:`. Use a project or global variable instead when the value varies by environment, is a secret, or must be shared.
+Environment variables are the starting point for runtime configuration: your code receives a name/value pair from the deployment's container environment. `inputType` chooses whether that value is literal, comes from a project variable, or comes from a variable group. See [Environment variables](environment-variables.md) for the basics and minimal YAML examples.
 
 ## Two ways to reference a variable
 
 **`{{ }}` substitution** embeds the resolved value directly into a `quix.yaml` field, as text. Use it for fields that need to vary per environment or across projects but don't need to be secret — resource sizing, public URL prefixes, feature toggles.
 
-* `{{ VARIABLE_NAME }}` — a project variable. See [Project variables → Pattern 1](../project-variables.md#pattern-1-substitute-into-a-quixyaml-field).
-* `{{ groupId:variableKey }}` — a single member of a global-variable group. See [Global variables → Pattern 1](../global-variables.md#pattern-1-substitute-a-group-member-into-a-quixyaml-field).
+* `{{ VARIABLE_NAME }}` — a project variable. See [Project variables → Pattern 1](project-variables.md#pattern-1-substitute-into-a-quixyaml-field).
+* `{{ groupId:variableKey }}` — a single member of a global-variable group. See [Global variables → Pattern 1](global-variables.md#pattern-1-substitute-a-group-member-into-a-quixyaml-field).
 
 **`inputType:` binding** binds a deployment variable to a container environment variable at deploy time — the value never lands in `quix.yaml`.
 
-* `inputType: ProjectVariable` + `variableKey` — one project variable. See [Project variables → Pattern 2](../project-variables.md#pattern-2-bind-to-a-container-environment-variable).
-* `inputType: VariableGroup` + `variableGroupId` — an entire global-variable group, injected as one environment variable per member. See [Global variables → Pattern 2](../global-variables.md#pattern-2-bind-a-whole-group-to-container-environment-variables).
+* `inputType: ProjectVariable` + `variableKey` — one project variable. See [Project variables → Pattern 2](project-variables.md#pattern-2-bind-to-a-container-environment-variable).
+* `inputType: VariableGroup` + `variableGroupId` — an entire global-variable group, injected as one environment variable per member. See [Global variables → Pattern 2](global-variables.md#pattern-2-bind-a-whole-group-to-container-environment-variables).
 
 Both patterns can appear on the same deployment:
 
@@ -141,7 +141,7 @@ REDIS_PASSWORD=<the group's secret value, decrypted>
 
 ## Related documentation
 
-* [Project variables](../project-variables.md) — `{{ }}` and `inputType: ProjectVariable` in full, including validation errors and recipes.
-* [Global variables](../global-variables.md) — variable groups, value sets, `inputType: VariableGroup`, and `{{ groupId:variableKey }}` in full.
-* [Environment variables](../environment-variables.md) — static, per-deployment values.
-* [YAML 1.0 and 2.0](../../projects/yaml-2-0.md) — how `app.yaml` and `quix.yaml` compute the descriptor these variables end up in.
+* [Environment variables](environment-variables.md) — runtime configuration basics, value sources, and code examples.
+* [Project variables](project-variables.md) — `{{ }}` and `inputType: ProjectVariable` in full, including validation errors and recipes.
+* [Global variables](global-variables.md) — variable groups, value sets, `inputType: VariableGroup`, and `{{ groupId:variableKey }}` in full.
+* [YAML 1.0 and 2.0](../projects/yaml-2-0.md) — how `app.yaml` and `quix.yaml` compute the descriptor these variables end up in.
