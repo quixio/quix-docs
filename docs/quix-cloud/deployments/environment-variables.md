@@ -5,7 +5,9 @@ description: Learn how Quix supplies runtime environment variables from literal 
 
 # Environment variables
 
-An environment variable is a **name/value pair that Quix makes available to your deployment's container at runtime**. Your application reads it from its process environment, for example as `os.environ["LOG_LEVEL"]` in Python. Environment variables are the basic way to provide runtime configuration without hard-coding it in application code.
+An environment variable is the **basic form of runtime configuration that application code receives**: a name/value pair that Quix makes available to your deployment's container. Your application reads it from its process environment, for example as `os.environ["LOG_LEVEL"]` in Python.
+
+Project variables and global-variable groups are value sources. When you bind either one with `inputType`, the container still receives ordinary environment variables.
 
 In `quix.yaml`, add them under a deployment's `variables:` list. Each entry has a `name` and an `inputType`. The `inputType` selects the value source; it does not change how your code reads the resulting value.
 

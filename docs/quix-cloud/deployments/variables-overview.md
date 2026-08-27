@@ -20,7 +20,7 @@ A deployment can take configuration from literal YAML or from a variable — for
 | Set a static value on one deployment | [Environment variables](environment-variables.md) |
 | Read a platform-provided identifier | [Quix variables](quix-variables.md) |
 
-Environment variables are the starting point for runtime configuration: your code receives a name/value pair from the deployment's container environment. `inputType` chooses whether that value is literal, comes from a project variable, or comes from a variable group. See [Environment variables](environment-variables.md) for the basics and minimal YAML examples.
+Environment variables are the basic form of runtime configuration exposed to application code: each is a name/value pair in the deployment's container environment. `inputType` chooses whether that value is literal, comes from a project variable, or comes from a variable group. See [Environment variables](environment-variables.md) for the basics and minimal YAML examples.
 
 ## Two ways to reference a variable
 
