@@ -2,6 +2,22 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-08-multi-storage | 28 AUG 2026
+
+`NEW FEATURES`
+
+- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. The main storage is the root of the bucket, and every storage you add appears as **one folder at that root**, named after the storage. Your code keeps one endpoint, one credential, and one bucket: a listing at the root merges every storage into a single result, in order and with no duplicates. Add, edit, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. The storage explorer marks a storage folder so you can tell it from an ordinary folder, and permissions run over the merged namespace, so a permission set at the bucket root reaches every storage. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
+
+    See the [Quix Lake connections and storages documentation](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and the [S3-compatible endpoint documentation](https://quix.io/docs/quix-cloud/quix-lake/s3-endpoint.html) for more details.
+
+`ENHANCEMENTS`
+
+- Quix Lake:
+    - **Renamed in settings** — the **Blob Storage** settings page is now **Quix Lake**, and the storage permissions panel is now the **Default Permissions** tab.
+- Storage explorer:
+    - **Cut, copy, and paste** — move or copy a file or folder into another folder from the explorer.
+    - **Copy path** — copy the full path of any file or folder to the clipboard.
+
 ## 2026-06-quix-lake-2 | 23 JUL 2026
 
 `ENHANCEMENTS`
