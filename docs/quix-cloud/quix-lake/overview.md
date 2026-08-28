@@ -14,7 +14,7 @@ Quix Lake ships **two complementary storage options**, each with its own managed
 | **[Data Lake](./data-lake/overview.md)** | Raw Kafka messages as **Avro segments + Parquet index** | High-fidelity **Replay**, audit/compliance, append-only forensic record |
 | **[Lakehouse](./lakehouse/overview.md)** | **Apache Iceberg tables** (Parquet + snapshots) registered in a Catalog | SQL analytics, dashboards, time-series queries |
 
-You can run **either**, **both**, or fan a single topic out to both — they share the same blob storage connection but are independent connectors with independent consumer groups.
+You can run **either**, **both**, or fan a single topic out to both — they share the same Quix Lake connection but are independent connectors with independent consumer groups.
 
 ## Choosing between them
 
@@ -59,7 +59,7 @@ The two storage options have **separate connector applications** — they don't 
 Both share these traits:
 
 - Consume from a **single Kafka topic** per deployment (run more than one for multiple topics).
-- Use the cluster's [blob storage connection](./blob-storage.md) — you don't paste credentials into the sink.
+- Use the cluster's [Quix Lake connection](./blob-storage.md) — you don't paste credentials into the sink.
 - Are **managed services** — Quix hosts and updates them; you provide configuration only.
 - Honor your cloud's IAM, encryption, and retention controls.
 
@@ -70,7 +70,7 @@ flowchart TB
     topic([Kafka topic])
     dlSink["DataLake.Sink<br/>Avro + Parquet index"]
     lhSink["Lakehouse sink<br/>Iceberg tables"]
-    bucket[("Your blob storage<br/>S3 / GCS / Azure / MinIO")]
+    bucket[("Your object storage<br/>S3 / GCS / Azure / MinIO")]
     dlUi["Data Lake UI / API<br/>Replay → Kafka"]
     lhQuery["Lakehouse Query + UI<br/>SQL → dashboards"]
     external["External tools<br/>Spark, Trino, DuckDB, …"]
@@ -86,10 +86,10 @@ flowchart TB
 
 ## Prerequisites
 
-Both options require a **blob storage connection** configured for the cluster. See [Blob storage connections](./blob-storage.md). The Lakehouse is then provisioned on top of that connection — see the [Lakehouse overview](./lakehouse/overview.md) for what gets set up.
+Both options require a **Quix Lake connection** configured for the cluster. See [Quix Lake connections and storages](./blob-storage.md). The Lakehouse is then provisioned on top of that connection — see the [Lakehouse overview](./lakehouse/overview.md) for what gets set up.
 
 ## Where to next
 
 - **[Data Lake overview](./data-lake/overview.md)** — replay-first storage, raw Kafka fidelity, open Avro/Parquet
 - **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Iceberg tables
-- **[Blob storage connections](./blob-storage.md)** — wire up the bucket or container that both use
+- **[Quix Lake connections and storages](./blob-storage.md)** — wire up the bucket or container that both use
