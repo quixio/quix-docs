@@ -1,11 +1,11 @@
 ---
 title: Lakehouse overview
-description: Query-first storage layer of Quix Lake. SQL over Apache Iceberg tables on your own blob storage.
+description: Query-first storage layer of Quix Lake. SQL over Apache Iceberg tables on your own object storage.
 ---
 
 # Lakehouse overview
 
-**Lakehouse** is the **query-first** option in [Quix Lake](../overview.md). It persists Kafka topic data as **Apache Iceberg tables** on your blob storage, with a Quix-managed catalog and a SQL query engine — so you can run **interactive SQL** and **time-series analytics** without standing up a separate warehouse.
+**Lakehouse** is the **query-first** option in [Quix Lake](../overview.md). It persists Kafka topic data as **Apache Iceberg tables** on your object storage, with a Quix-managed catalog and a SQL query engine — so you can run **interactive SQL** and **time-series analytics** without standing up a separate warehouse.
 
 If you need byte-for-byte replay fidelity rather than query access, see **[Data Lake](../data-lake/overview.md)**. Not sure which to pick? Read [Choosing between them](../overview.md#choosing-between-them) in the Quix Lake overview.
 
@@ -15,10 +15,10 @@ If you need byte-for-byte replay fidelity rather than query access, see **[Data 
 * **Apache Iceberg tables** — open table format on your bucket. The Parquet files and Iceberg metadata are readable by external Iceberg-aware engines as well
 * **Time-series friendly** — Iceberg partitioning + columnar Parquet means range scans and aggregates prune aggressively
 * **Catalog-backed** — schemas, partitions, snapshots, and statistics tracked by a Quix-managed catalog so the Query engine and UI never have to scan storage
-* **Yours** — Parquet lives in your blob storage; only catalog metadata lives in Quix-managed services
+* **Yours** — Parquet lives in your object storage; only catalog metadata lives in Quix-managed services
 
 !!! info "Prerequisites"
-    A [blob storage connection](../blob-storage.md) must be configured for the cluster. The same connection can be shared with the [Data Lake Sink](../data-lake/sink.md) if you want both.
+    A [Quix Lake connection](../blob-storage.md) must be configured for the cluster. The same connection can be shared with the [Data Lake Sink](../data-lake/sink.md) if you want both.
 
 ## Components
 
@@ -37,7 +37,7 @@ Behind the scenes, the Lakehouse runs a small set of managed services — see **
 flowchart LR
     kafka([Kafka topic])
     sink[Lakehouse Sink]
-    bucket[("Your blob storage<br/>Parquet + Iceberg metadata")]
+    bucket[("Your object storage<br/>Parquet + Iceberg metadata")]
     query[Query engine]
     catalog[Catalog]
     ui[Lakehouse UI]
@@ -81,5 +81,5 @@ flowchart LR
 * [Query](./query.md) — SQL surface for your apps
 * [Catalog](./catalog.md) — how table metadata is tracked
 * [Database](./database.md) — backing storage for the Catalog
-* [Blob storage connections](../blob-storage.md)
+* [Quix Lake connections and storages](../blob-storage.md)
 * [Data Lake overview](../data-lake/overview.md) — replay-first alternative
