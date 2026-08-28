@@ -143,6 +143,9 @@ The storage name is the folder your code sees at the root of the bucket, so Quix
 * It must be unique on the connection.
 * It must not hide a folder that already exists at the root of the main storage. Quix runs that check when you save and rejects a name that would.
 
+!!! note "Quix runs the folder check once"
+    Quix checks for a clashing folder at the moment you add the storage. If someone later creates a folder at the bucket root with the same name, the storage answers that path from then on, and the folder stays in your bucket but clients no longer reach it.
+
 !!! warning "The storage name is fixed"
     You cannot change a storage name after you create the storage. To change it, delete the storage and create it again. Every path your code holds carries that name, so pick it with care.
 
