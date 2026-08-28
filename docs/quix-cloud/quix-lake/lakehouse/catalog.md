@@ -7,7 +7,7 @@ description: How Quix Lakehouse tracks Apache Iceberg tables, schemas, snapshots
 
 The **Catalog** is the source of truth for what exists in the [Lakehouse](./overview.md) — tables, schemas, partition specs, snapshots, and per-file statistics. The [Query](./query.md) engine uses it to plan SQL efficiently, and the [UI](./ui.md) uses it to list and browse tables without scanning storage.
 
-The Catalog is a Quix-managed service. You don't deploy or configure it directly — it's provisioned alongside the rest of the Lakehouse for your blob storage connection.
+The Catalog is a Quix-managed service. You don't deploy or configure it directly — Quix provisions it alongside the rest of the Lakehouse for your Quix Lake connection.
 
 ## What it tracks
 
@@ -17,7 +17,7 @@ The Catalog is a Quix-managed service. You don't deploy or configure it directly
 * **Snapshots** — every commit creates a new snapshot; queries pin to one for a consistent view
 * **File statistics** — per-file row counts, byte sizes, min/max per column (used by Query for file pruning)
 
-The actual Parquet data lives in **your blob storage**. The Catalog only holds the index over it.
+The actual Parquet data lives in **your object storage**. The Catalog only holds the index over it.
 
 !!! info "Iceberg interop"
     Tables on disk are standard Apache Iceberg (Parquet data + manifest/snapshot files). External Iceberg-aware engines (Spark, Trino, DuckDB with the Iceberg extension) can read them directly from the bucket. The Catalog's REST surface is Quix-specific; it's not a drop-in for engines that expect the public Apache Iceberg REST catalog protocol.
