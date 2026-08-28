@@ -22,7 +22,7 @@ If you need byte-for-byte replay fidelity rather than query access, see **[Data 
 
 ## Components
 
-A Lakehouse is provisioned per blob storage connection and shared across the workspaces that use it. Once it's set up, you interact with two surfaces:
+Quix provisions one Lakehouse per Quix Lake connection, and shares it across the environments that use it. Once it's set up, you interact with two surfaces:
 
 | Surface | What it does |
 |---|---|
@@ -57,14 +57,14 @@ flowchart LR
 3. **Query** — the [Query](./query.md) engine plans SQL against the latest snapshot, prunes files by partition + column statistics, and reads only the relevant Parquet.
 4. **Explore** — use the [UI](./ui.md) to browse tables and run queries in the portal, or call the Query service directly from your own apps.
 
-## Multi-workspace sharing
+## Sharing across environments
 
-* The Lakehouse backend is **provisioned per blob storage connection**. Workspaces that share a connection share the Lakehouse and its tables.
-* Sinks are **deployed per workspace** and bind to the Lakehouse for the workspace's blob storage automatically.
+* Quix provisions the Lakehouse backend **per Quix Lake connection**. Environments that share a connection share the Lakehouse and its tables.
+* You deploy sinks **per environment**. Each sink binds to the Lakehouse for that environment's storage automatically.
 
 ## Operational behavior
 
-* **Concurrent writers** — multiple sink replicas, and sinks from different workspaces that share the blob storage, all commit through Iceberg. Optimistic concurrency handles the merge.
+* **Concurrent writers** — multiple sink replicas, and sinks from different environments that share the storage, all commit through Iceberg. Optimistic concurrency handles the merge.
 * **Read isolation** — Iceberg snapshot isolation; in-flight writes don't change a query mid-flight.
 * **Schema evolution** — Iceberg's standard rules (additive columns, nullable widening) work by default.
 
@@ -72,7 +72,7 @@ flowchart LR
 
 * Sinks and the Query engine authenticate against the Catalog with a Quix-managed bearer token. You don't configure auth tokens manually.
 * Your data lives in your bucket; Quix never copies the Parquet anywhere outside it.
-* Workspace boundaries are enforced at the portal layer.
+* Quix enforces environment boundaries at the portal layer.
 
 ## See also
 
