@@ -39,7 +39,7 @@ The actual Parquet data lives in **your blob storage**. The Catalog only holds t
 
 ## Scope
 
-The Catalog is **shared per blob storage connection**. All workspaces that use that connection share the same Catalog and its tables.
+Quix shares one Catalog **per Quix Lake connection**. All environments that use that connection share the same Catalog and its tables.
 
 ## See also
 
