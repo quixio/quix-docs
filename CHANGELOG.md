@@ -6,14 +6,18 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
-- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. The main storage is the root of the bucket, and every storage you add appears as **one folder at that root**, named after the storage. Your code keeps one endpoint, one credential, and one bucket: a listing at the root merges every storage into a single result, in order and with no duplicates. Add, edit, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. The storage explorer marks a storage folder so you can tell it from an ordinary folder, and permissions run over the merged namespace, so a permission set at the bucket root reaches every storage. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
+- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. **Each storage is its own bucket.** The name you give a storage is the bucket name your clients use, on the same endpoint and with the same credential. A storage with no name of its own keeps the bucket name of the bucket behind it, and the main storage always works this way. So a customer with one storage sees no change, and a new storage never moves a storage that is already there. An S3 LIST covers one bucket, so a client calls `ListBuckets` to see every storage it may reach. Add, rename, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
 
     See the [Quix Lake connections and storages documentation](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and the [S3-compatible endpoint documentation](https://quix.io/docs/quix-cloud/quix-lake/s3-endpoint.html) for more details.
+
+- **Rename a storage**: A storage name is no longer fixed at creation. The name is the bucket name every client uses, so a rename changes the address of the whole storage. The old bucket name stops working at once, and every deployment bound to that storage must redeploy before it works again. The Portal warns you before it saves the rename.
 
 `ENHANCEMENTS`
 
 - Quix Lake:
-    - **Renamed in settings** — the **Blob Storage** settings page is now **Quix Lake**, and the storage permissions panel is now the **Default Permissions** tab.
+    - **Renamed in settings** — the **Blob Storage** settings page is now **Quix Lake** at `org-settings/quix-lake`, and the old `org-settings/storage` address redirects to it. The storage permissions panel is now the **Default Permissions** tab.
+    - **Every cluster listed** — the settings page now lists every cluster, and a cluster without a connection carries a **Not connected** badge.
+    - **Simpler connection editing** — the access key and the secret are now optional when you edit a connection. Leave them empty to keep the stored keys. Quix asks you to test the connection again only when you change a field that reaches the storage, so a new display name saves at once.
 - Storage explorer:
     - **Cut, copy, and paste** — move or copy a file or folder into another folder from the explorer.
     - **Copy path** — copy the full path of any file or folder to the clipboard.

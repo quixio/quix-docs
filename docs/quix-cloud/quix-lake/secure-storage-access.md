@@ -1,28 +1,29 @@
 ---
 title: Storage Access Gateway
-description: How Quix keeps your Quix Lake data private by default, so each team only sees its own data although the whole organization shares one bucket.
+description: How Quix keeps your Quix Lake data private by default, so each team only sees its own data although the whole organization shares one connection.
 ---
 
 # Storage Access Gateway
 
-Every cluster connects to a single bucket for [Quix Lake](./overview.md), and your whole organization shares that bucket. The **Storage Access Gateway** controls who can see and change what inside it, so each team only works with the data it is meant to.
+Every cluster connects to object storage for [Quix Lake](./overview.md), and your whole organization shares that storage. The **Storage Access Gateway** controls who can see and change what inside it, so each team only works with the data it is meant to.
 
 The gateway sits between the platform and your object storage. It checks every request. It confirms who is asking and which data the caller may reach, then passes through only what the caller may see.
 
 !!! info "Nothing to set up"
     The gateway starts automatically once a [Quix Lake connection](./blob-storage.md) exists for the cluster. You manage no keys and configure no settings.
 
-## One namespace across every storage
+## Each storage is its own bucket
 
-A connection holds one main storage and any number of extra storages that you add. The gateway presents all of them as **one bucket**. The main storage is the root of that bucket. Every storage you add is one folder at that root, named after the storage.
+A connection holds one main storage and any number of extra storages that an administrator adds. **Each storage is its own bucket.** The name of a storage is the bucket name your clients use. A storage with no name of its own keeps the bucket name of the bucket behind it, and the main storage always works this way.
 
 ```text
-<bucket>/                    the merged view
-<bucket>/<workspaceId>/      an environment's data in the main storage
-<bucket>/<storage-name>/     a storage you added
+s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://minio/reports/                  a folder in the storage named minio
 ```
 
-A client cannot tell a storage folder from an ordinary folder, and it does not need to. Routing, listing, and permissions all treat this merged path space as a single blob store. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
+The gateway routes each request on the bucket. A new storage never moves a storage that is already there, so a customer with one storage sees no change. Inside a bucket, the gateway treats the keys as one blob store for routing, listing, and permissions. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
+
+There is no listing across storages, because an S3 LIST covers one bucket. A client calls **ListBuckets** to see every storage it may reach.
 
 ## Two kinds of folders
 
@@ -43,8 +44,8 @@ You set a folder's visibility from the menu on its row in the **Default Permissi
 | **Anyone can read** | Everyone in your organization can read it | Opt-in |
 | **Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
-!!! warning "A grant on the bucket root reaches every storage"
-    The bucket is the root of one merged namespace, so a permission you set on the root applies to every storage inside it, not only to the main storage. Grant at the root only when you mean to open every storage. To open one storage alone, set the permission on that storage's folder.
+!!! warning "A grant on a bucket root reaches one storage only"
+    Each storage is its own bucket, so a permission you set on the root of a bucket applies to that storage alone. To open a second storage, set a permission on that storage too.
 
 !!! note "Sharing stays within your organization"
     Sharing only ever opens a folder to people signed in to your Quix organization. Quix never exposes it to the public internet.
@@ -87,7 +88,7 @@ You work with the lake exactly as before. The gateway only determines what appea
 
 **A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, only administrators reach it. Set it to **Anyone can read & write**, and anyone in the organization can read and write to it.
 
-**A second storage for archives.** An administrator adds a storage named `archive` to the connection. It appears as the folder `archive/` at the bucket root. A grant on `archive/` opens that storage alone. A grant on the bucket root opens `archive/` and the main storage together.
+**A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the bucket `archive`. A grant on the root of `archive` opens that storage alone. It opens nothing in the main storage, because the main storage is a different bucket.
 
 ## Next steps
 

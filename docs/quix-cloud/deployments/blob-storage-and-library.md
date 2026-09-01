@@ -26,18 +26,21 @@ With the toggle on, Quix injects the connection as a secret variable, `Quix__Blo
 
 Quix writes the variable at deploy time, so redeploy the service after you switch the toggle on. You can read the variable yourself, but the easiest way to consume it is the `quixportal` library below.
 
-## One bucket, several storages
+## One connection, several buckets
 
-Your code always addresses **one bucket**, whatever the connection holds behind it. The main storage is the root of that bucket. Every other storage on the connection is one folder at that root, named after the storage.
+A connection can hold more than one storage. **Each storage is its own bucket.** The name an administrator gives a storage is the bucket name your code uses. The main storage keeps the bucket name of the bucket behind it, and a new storage never moves it.
 
-So a deployment reads a second storage with an ordinary path, and no second credential:
+The injected document names the bucket of the storage your deployment binds to. Your code reaches a second storage with a second bucket name, on the same endpoint and with the same credential:
 
 ```python
-fs.ls("<your_bucket>/")            # every storage on the connection
-fs.ls("<your_bucket>/archive/")    # the storage named archive
+fs.ls("<your_bucket>/")            # the storage this deployment binds to
+fs.ls("minio/")                    # the storage named minio
 ```
 
-A listing at the bucket root returns keys from every storage, in order, with no duplicates and no gaps. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
+An S3 LIST covers one bucket, so there is no single listing across every storage. List each bucket in turn. Call `ListBuckets` to see every storage you may reach. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
+
+!!! warning "A rename needs a redeploy"
+    An administrator can rename a storage, and the name is the bucket. Quix writes the bucket name into the deployment at deploy time, so redeploy the service after a rename. The old bucket name fails at once. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
 
 !!! note "One copy cannot cross a storage"
     A copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Copy inside one storage, or read and write the object yourself.
@@ -95,9 +98,9 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 The gateway is there for three reasons:
 
-* **Security** — your real bucket credentials never leave it. Instead of handing storage keys to every deployment, the gateway checks each request and grants access scoped to the environment, so one environment cannot reach another's data although the whole organization shares a single bucket.
+* **Security** — your real bucket credentials never leave it. Instead of handing storage keys to every deployment, the gateway checks each request and grants access scoped to the environment, so one environment cannot reach another's data although the whole organization shares a single connection.
 * **Abstraction** — whatever you connect from the Quix Portal, S3, Azure, GCS, or MinIO, your code reaches it through the same S3-compatible interface. The same code works regardless of the storage behind it.
-* **One namespace** — several storages appear as folders in one bucket, so adding a storage changes no client configuration.
+* **One endpoint** — every storage answers on the same endpoint, with the same credential, so adding a storage changes no client configuration.
 
 See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for how the gateway governs access, and [S3-compatible endpoint](../quix-lake/s3-endpoint.md) for the exact API surface.
 
