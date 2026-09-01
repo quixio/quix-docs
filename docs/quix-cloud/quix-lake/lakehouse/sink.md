@@ -11,8 +11,8 @@ It is a separate connector from the [Data Lake Sink](../data-lake/sink.md). Choo
 
 ## Prerequisites
 
-* A [blob storage connection](../blob-storage.md) configured for the cluster
-* A [Lakehouse](./overview.md) provisioned for that blob storage
+* A [Quix Lake connection](../blob-storage.md) configured for the cluster
+* A [Lakehouse](./overview.md) provisioned for that connection
 
 ## Configuration
 
@@ -87,7 +87,7 @@ deployments:
 
 ## Security
 
-* Uses the cluster's [blob storage connection](../blob-storage.md).
+* Uses the cluster's [Quix Lake connection](../blob-storage.md).
 * Authenticates against the catalog with a Quix-managed token — you don't configure it.
 * Honors workspace boundaries enforced by Quix.
 
@@ -101,4 +101,4 @@ The Lakehouse Sink and the [Data Lake Sink](../data-lake/sink.md) are independen
 * [Query](./query.md) — SQL engine that reads what this sink writes
 * [UI](./ui.md)
 * [Data Lake Sink](../data-lake/sink.md) — separate, replay-first alternative
-* [Blob storage connections](../blob-storage.md)
+* [Quix Lake connections and storages](../blob-storage.md)
