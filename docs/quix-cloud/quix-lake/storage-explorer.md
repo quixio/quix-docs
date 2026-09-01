@@ -5,7 +5,7 @@ description: Browse, search, upload, and manage the files in your Quix Lake stor
 
 # Storage explorer
 
-The **storage explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. It shows the bucket your cluster connects to, and it lets you work with the files in it without leaving the Portal and without any storage credentials of your own.
+The **storage explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. It shows the storages your cluster connects to. You work with the files in them without leaving the Portal, and without any storage credentials of your own.
 
 Open it from the **Quix Lake** section of your environment.
 
@@ -15,13 +15,14 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer shows one bucket. The main storage of the connection is the root of that bucket, so its folders appear at the top level. Every other storage on the connection appears beside them as **one folder at the root**, marked with a storage icon.
+The explorer shows every storage on the connection that you may reach. **Each storage is its own bucket**, so you browse one storage at a time. The bucket name is the name an administrator gave the storage. The main storage keeps the bucket name of the bucket behind it.
 
 ```text
-<bucket>/                    what the explorer shows at the root
-<bucket>/<workspaceId>/      an environment's data in the main storage
-<bucket>/archive/            the storage named archive
+s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://minio/reports/                  a folder in the storage named minio
 ```
+
+A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working.
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
@@ -44,18 +45,20 @@ Switch between the **tree view** and the **file explorer view** with the buttons
 Search finds files by name from the folder you are in.
 
 !!! note "A copy cannot cross a storage"
-    A move or a copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Move or copy inside one storage, or download the file and upload it again.
+    A move or a copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Move or copy inside one storage. You can also download the file and upload it again.
 
-## Storage folders behave differently
+## A storage is not a folder
 
-A storage folder is a mount point, not an object in the bucket. The explorer marks it with a storage icon and turns off the actions that do not apply to it:
+A storage is a bucket of its own, not an object in another bucket. The explorer turns off the actions that do not apply to it:
 
-* You cannot rename it. The storage name is fixed when you create the storage.
-* You cannot delete it. Delete the storage from **Settings → Quix Lake** instead.
-* You cannot cut or copy it.
-* You cannot set its visibility. The storage carries its own upstream access rules.
+* You cannot rename a storage here. Rename it from **Settings → Quix Lake** instead. A rename changes the bucket name every client uses, and it breaks every old address at once.
+* You cannot delete a storage. Delete it from **Settings → Quix Lake** instead.
+* You cannot cut or copy a storage.
+* You cannot set the visibility of a storage. The storage carries its own upstream access rules.
 
-Everything **inside** a storage folder behaves like an ordinary folder. Rename, delete, move, copy, and visibility all work there.
+The explorer refuses these actions because they are connection-level facts, not files in your bucket.
+
+Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, copy, and visibility all work there.
 
 ## Visibility
 

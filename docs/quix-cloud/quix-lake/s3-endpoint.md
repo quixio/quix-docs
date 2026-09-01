@@ -1,6 +1,6 @@
 ---
 title: S3-compatible endpoint
-description: Reach your Quix Lake data from any S3 client through the Storage Access Gateway, with one endpoint, one credential, and one bucket.
+description: Reach your Quix Lake data from any S3 client through the Storage Access Gateway, with one endpoint, one credential, and one bucket for each storage.
 ---
 
 # S3-compatible endpoint
@@ -49,19 +49,34 @@ s3.list_objects_v2(Bucket="<your_bucket>", Prefix="<your_prefix>/")
 
 The gateway refuses virtual-host-style addressing, such as `https://<your_bucket>.<host>/<key>`, with a `400 InvalidRequest`. Use `https://<host>/<your_bucket>/<key>`.
 
-## One bucket, several storages
+## One connection, several buckets
 
-Your client sees one bucket, whatever the connection holds behind it. The main storage is the root of that bucket. Every other storage on the connection is one folder at that root, named after the storage:
+A connection can hold more than one storage. **Each storage is its own bucket.** The name an administrator gives a storage is the bucket name your client uses. A storage with no name of its own keeps the bucket name of the bucket behind it.
+
+Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage and names it `minio`:
 
 ```text
-<bucket>/                    one merged listing across every storage
-<bucket>/<workspaceId>/      an environment's data in the main storage
-<bucket>/archive/            the storage named archive
+s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://minio/reports/2026-08.csv       a file in the storage named minio
 ```
 
-Your client needs no extra configuration and no second credential to reach a second storage. Address it by its folder name.
+The main storage answers to `quixdevbucket` before the add and after it. A new storage never moves a storage that is already there.
 
-A listing at the bucket root merges every storage into one result. Keys come back in order, and a client that pages through a full listing sees every key exactly once, with no duplicates and no gaps.
+Your client needs no extra configuration and no second credential to reach a second storage. Address the second storage by its own bucket name, on the same endpoint.
+
+### See every storage with ListBuckets
+
+An S3 LIST covers one bucket, so there is no single listing across every storage. Call **ListBuckets** to see every storage you may reach:
+
+```python
+for bucket in s3.list_buckets()["Buckets"]:
+    print(bucket["Name"])
+```
+
+Each bucket in the answer is one storage. The gateway returns only the storages your credential may reach.
+
+!!! warning "A rename changes the bucket name"
+    An administrator can rename a storage. The name is the bucket, so the old bucket name stops working at once. Every deployment bound to that storage must redeploy before it works again. See [Rename a storage](./blob-storage.md#rename-a-storage).
 
 ## Supported operations
 
@@ -78,11 +93,10 @@ The gateway supports the operations an ordinary storage client needs:
 
 | Request | Answer |
 |---|---|
-| A copy whose source and destination sit in different storages | `400 InvalidRequest` |
-| A batch delete whose body spans two storages | `400 InvalidRequest` |
+| A copy whose source and destination sit in different buckets | `400 InvalidRequest` |
+| A batch delete whose body spans two buckets | `400 InvalidRequest` |
 | Virtual-host-style addressing | `400 InvalidRequest` |
 | A presigned URL | Rejected. Sign each request instead. |
-| A storage folder addressed as an object, such as `<bucket>/archive` | `404 NoSuchKey` |
 | Object tagging, ACLs, versioning, lifecycle, CORS, bucket policy, replication, encryption, notification, logging, object lock, legal hold, and retention | `501 NotImplemented` |
 
 The gateway refuses a cross-storage operation because it is a real transfer between two backends, not a change of path. The message says so:
@@ -95,13 +109,13 @@ A copy inside one storage keeps working.
 
 ## Limits to design for
 
-**Keep `max-keys` the same for a whole listing.** The continuation token holds one cursor per storage. If you shrink `max-keys` part-way through a listing, the cursors no longer line up and your client can see the same key twice.
+**A listing covers one bucket.** An S3 LIST reads one storage. To read two storages, list each bucket in turn. Call `ListBuckets` first to learn which buckets you may reach.
 
-**A storage added during a listing appears in the next listing.** The continuation token names only the storages that still hold unread keys, so a storage an administrator binds part-way through contributes nothing to the rest of that listing. Reading it at once would emit keys that sort before keys you already have. A storage an administrator unbinds simply stops contributing. Neither case is an error.
+**An operation stays inside one storage.** A copy, a batch delete, and a multipart upload all work inside one bucket. The gateway refuses a request that crosses two storages, because that is a real transfer between two backends.
 
-**A multipart upload stays in one storage.** The upload id is pinned to the storage that holds its parts. If that storage is no longer available, the request fails rather than assembling parts from two backends.
+**A rename breaks the old address at once.** An administrator who renames a storage changes the bucket name every client uses. Redeploy every service bound to that storage.
 
-**Every request is checked.** The gateway applies your folder permissions to each call, so a key you may not read answers `403 AccessDenied` and a listing hides what you may not see. See [Storage Access Gateway](./secure-storage-access.md).
+**Every request is checked.** The gateway applies your folder permissions to each call. A key you may not read answers `403 AccessDenied`, and a listing hides what you may not see. See [Storage Access Gateway](./secure-storage-access.md).
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Connect your cluster to object storage (S3, GCS, Azure Blob, MinIO)
 
 # Quix Lake connections and storages
 
-Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](./overview.md)**, the Data Lake, the Lakehouse, or any other managed service that needs storage. One connection can then hold several storages, and your code still sees a single bucket.
+Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](./overview.md)**, the Data Lake, the Lakehouse, or any other managed service that needs storage. One connection can then hold several storages. Each storage is its own bucket.
 
 ![Connections list](../../images/blob-storage/connections-list-running.png)
 
@@ -31,7 +31,9 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 3. Click **Test connection**, described below.
 4. Click **Save**.
 
-The bucket you name here becomes the **main storage** of the connection. It is the root of everything your code sees.
+The page lists every cluster in your organization. A cluster without a connection shows a **Not connected** badge, so you can see at a glance where Quix Lake is still to set up.
+
+The bucket you name here becomes the **main storage** of the connection. Your code addresses it by that bucket name. The main storage keeps that name for good. A storage you add later never moves it.
 
 ## Test before saving
 
@@ -52,6 +54,14 @@ The dialog shows each step. A successful step carries a ✓, and you get a confi
 If a step fails, you see ✗ next to it with the reason, such as "Access denied" or "Wrong region". Use the reason to fix the permissions or correct your settings.
 
 ![Access denied example](../../images/blob-storage/test-error.png)
+
+## Edit a connection
+
+Open a connection from **Settings → Quix Lake** to change it.
+
+The **Access key** and the **Secret** are optional when you edit. Leave both empty and Quix keeps the keys it already holds. Fill them in only when you rotate the credentials.
+
+Quix asks you to test again only when you change a field that reaches the storage, such as the endpoint, the bucket, or the credentials. A change to a display name saves at once.
 
 ## Providers
 
@@ -119,9 +129,9 @@ If a step fails, you see ✗ next to it with the reason, such as "Access denied"
 
 ## Add a storage
 
-A cluster still holds one connection, but that connection can serve more than one bucket. Each storage you add appears to your code as **one folder at the root of the same bucket**, so nothing on the client side changes: the same endpoint, the same credential, one namespace.
+A cluster still holds one connection, but that connection can serve more than one storage. Each storage is **its own bucket**. The name you give a storage is the bucket name your clients use. So a client reaches a second storage with a second bucket name, on the same endpoint and with the same credential.
 
-Add a storage when you want data in a different bucket, region, or provider without giving your services a second connection to manage.
+Add a storage when you want data in a different bucket, region, or provider. You give your services no second connection to manage.
 
 To add one:
 
@@ -131,39 +141,49 @@ To add one:
 4. Set a **Display name**, a **Storage name**, and the **Provider** with its credentials.
 5. Click **Test connection**, then **Save**.
 
-The **Storages** tab lists every storage on the connection, with its root folder and its provider. The main storage carries a **Main** badge, shows `/` as its root folder, and you cannot delete it from this tab.
+The **Storages** tab lists every storage on the connection. Each row shows the bucket name your clients use and the provider behind it. The main storage carries a **Main** badge. The `⋮` menu holds **Edit storage** and **Delete storage**.
+
+!!! note "A new storage never moves an old one"
+    A storage you add changes nothing about the storages that are already there. The main storage keeps its bucket name, and every path to it keeps working. A customer with one storage sees no change at all.
 
 ### Storage name rules
 
-The storage name is the folder your code sees at the root of the bucket, so Quix constrains it:
+The storage name is the bucket name your clients use, so Quix applies the bucket rules to it:
 
-* It starts with a lowercase letter or a digit, then holds only lowercase letters, digits, and `-`.
-* It is 1 to 63 characters long.
-* It must not take the shape of an environment id. That rule keeps an environment's own folder unambiguous.
-* It must be unique on the connection.
-* It must not hide a folder that already exists at the root of the main storage. Quix runs that check when you save and rejects a name that would.
+* It is 3 to 63 characters long.
+* It starts with a lowercase letter or a digit.
+* It then holds only lowercase letters, digits, and `-`.
+* It is unique on the connection. Two storages cannot share one bucket name.
 
-!!! note "Quix runs the folder check once"
-    Quix checks for a clashing folder at the moment you add the storage. If someone later creates a folder at the bucket root with the same name, the storage answers that path from then on, and the folder stays in your bucket but clients no longer reach it.
+A storage with **no** name of its own keeps the bucket name of the bucket behind it. The main storage works this way, and it takes no name in this release.
 
-!!! warning "The storage name is fixed"
-    You cannot change a storage name after you create the storage. To change it, delete the storage and create it again. Every path your code holds carries that name, so pick it with care.
+### Rename a storage
+
+You can rename a storage after you create it. Open **Edit storage** from the `⋮` menu on the **Storages** tab. Change the **Storage name** field. The display name is a label for the Portal only, so a change to it moves nothing.
+
+!!! warning "A rename changes the bucket name every client uses"
+    The name is the bucket, so a rename changes the address of the whole storage. The old bucket name stops working at once.
+
+    Every deployment bound to that storage must redeploy before it works again. Quix writes the bucket name into the deployment at deploy time.
+
+    A rename also stops every multipart upload that is still running. Quix shows a warning before it saves the rename. Update your code, your saved paths, and your sink configuration first.
 
 ### What your code sees
 
-With a storage named `archive` added to a connection whose bucket is `<bucket>`:
+Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage, names it `minio`, and points it at the real bucket `archive-bucket`:
 
 ```text
-<bucket>/                    one merged listing across every storage
-<bucket>/<workspaceId>/      an environment's data in the main storage
-<bucket>/archive/            the storage named archive
+s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://minio/reports/2026-08.csv       a file in the storage named minio
 ```
 
-A listing at the bucket root returns keys from every storage, in order, with no duplicates and no gaps. Read [S3-compatible endpoint](./s3-endpoint.md) for the client-side detail, and [Storage Access Gateway](./secure-storage-access.md) for who may see what.
+The main storage answers to `quixdevbucket` before the add and after it. The added storage answers to the name `minio`. Its real bucket name stays hidden from your clients.
+
+There is no listing across every storage, because an S3 LIST covers one bucket. Call **ListBuckets** to see every storage you may reach. Read [S3-compatible endpoint](./s3-endpoint.md) for the client-side detail. Read [Storage Access Gateway](./secure-storage-access.md) for who may see what.
 
 ### Delete a storage
 
-Delete a storage from the **Storages** tab. Quix refuses the delete while a service or a credential still uses that storage, and it refuses to delete the main storage while other storages remain. Deleting a storage removes it from the connection. Your data stays in your own bucket.
+Open **Delete storage** from the `⋮` menu on the **Storages** tab. Quix refuses the delete while a service or a credential still uses that storage. Quix also refuses to delete the main storage while other storages remain. Deleting a storage removes it from the connection. Your data stays in your own bucket.
 
 ## Variables injected into bound deployments
 
