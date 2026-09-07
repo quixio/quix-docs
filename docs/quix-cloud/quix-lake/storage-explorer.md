@@ -15,14 +15,14 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer shows every storage on the connection that you may reach. **Each storage is its own bucket**, so you browse one storage at a time. The bucket name is the name an administrator gave the storage. The main storage keeps the bucket name of the bucket behind it.
+The explorer shows every storage on the connection that you may reach. **Each storage is its own bucket**, so you browse one storage at a time. The bucket name is the name an administrator gave the storage. A storage with no name of its own keeps the bucket name of the bucket behind it.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
 s3://minio/reports/                  a folder in the storage named minio
 ```
 
-A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working.
+A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working. Making another storage the main storage moves no path either, because it changes no bucket name.
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 

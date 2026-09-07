@@ -14,16 +14,38 @@ The gateway sits between the platform and your object storage. It checks every r
 
 ## Each storage is its own bucket
 
-A connection holds one main storage and any number of extra storages that an administrator adds. **Each storage is its own bucket.** The name of a storage is the bucket name your clients use. A storage with no name of its own keeps the bucket name of the bucket behind it, and the main storage always works this way.
+A connection holds one main storage and any number of extra storages that an administrator adds. **Each storage is its own bucket.** The name of a storage is the bucket name your clients use. A storage with no name of its own keeps the bucket name of the bucket behind it. A connection starts with its main storage that way, but any storage may take a name, and a storage without one is not automatically the main storage.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://<workspaceId>/                  the same data, through the environment shortcut
 s3://minio/reports/                  a folder in the storage named minio
 ```
 
 The gateway routes each request on the bucket. A new storage never moves a storage that is already there, so a customer with one storage sees no change. Inside a bucket, the gateway treats the keys as one blob store for routing, listing, and permissions. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
 
+**The gateway rewrites the bucket name and nothing else.** Your object keys travel unchanged, so an object you write through the gateway lands at the same key it would land at if you wrote it to the bucket directly.
+
 There is no listing across storages, because an S3 LIST covers one bucket. A client calls **ListBuckets** to see every storage it may reach.
+
+## The environment shortcut
+
+`s3://<workspaceId>/` reaches that environment's folder inside the **main storage**. It is a shortcut to the real address, and both reach the same objects:
+
+```text
+s3://quixdevbucket/<workspaceId>/x   the real address, inside the main storage
+s3://<workspaceId>/x                 the shortcut — the same object
+```
+
+Every operation answers the same through either address, and a multipart upload you start at one address finishes at the other. The one difference you see is that a key read through the shortcut drops its `<workspaceId>/` lead.
+
+This is the single place the gateway changes a path. The shortcut takes an environment ID only. Any other first name that is not a storage answers `404 NoSuchBucket`. An environment ID can never be a storage name, so the two never clash.
+
+!!! note "The shortcut needs a main storage credential"
+    A credential issued against the **main storage** can use the shortcut. A credential issued against another storage reaches only its own bucket, so the shortcut answers `404 NoSuchBucket` for it. Use the full address, `s3://<bucket>/<workspaceId>/`, when your service binds to a storage that is not the main one.
+
+!!! note "The shortcut follows the main storage"
+    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. No bucket name changes, and no client of either storage breaks. Quix copies no data, so the shortcut answers empty until someone copies the environment folders across.
 
 ## Two kinds of folders
 
@@ -45,7 +67,7 @@ You set a folder's visibility from the menu on its row in the **Default Permissi
 | **Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A grant on a bucket root reaches one storage only"
-    Each storage is its own bucket, so a permission you set on the root of a bucket applies to that storage alone. To open a second storage, set a permission on that storage too.
+    Each storage is its own bucket, so a permission you set on the root of a bucket reaches every folder in that storage, and no folder in any other storage. To open a second storage, set a permission on that storage too.
 
 !!! note "Sharing stays within your organization"
     Sharing only ever opens a folder to people signed in to your Quix organization. Quix never exposes it to the public internet.
