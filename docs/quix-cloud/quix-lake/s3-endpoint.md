@@ -57,12 +57,30 @@ Take a connection whose main storage is the bucket `quixdevbucket`. An administr
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
+s3://<workspaceId>/                  the same data, through the environment shortcut
 s3://minio/reports/2026-08.csv       a file in the storage named minio
 ```
 
 The main storage answers to `quixdevbucket` before the add and after it. A new storage never moves a storage that is already there.
 
 Your client needs no extra configuration and no second credential to reach a second storage. Address the second storage by its own bucket name, on the same endpoint.
+
+The gateway rewrites the bucket name only. Your object keys travel unchanged, so an object you PUT through the gateway lands at the same key it would land at if you wrote it to the bucket directly.
+
+### The environment shortcut
+
+`s3://<workspaceId>/` reaches that environment's folder inside the main storage. Both addresses reach the same objects:
+
+```python
+s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
+s3.get_object(Bucket="<workspaceId>",  Key="reports/day.csv")
+```
+
+Every operation answers the same through either address, including LIST with `marker`, `continuation-token`, `start-after`, `delimiter`, and `encoding-type=url`. A multipart upload you start at one address finishes at the other. The one difference is the one the example shows: a key under the shortcut drops its `<workspaceId>/` lead, on the way in and on the way out.
+
+This is the only place the gateway changes a key. The shortcut takes an environment ID only, and it always points at the current main storage.
+
+The shortcut needs a credential issued against the **main storage**. A credential issued against another storage reaches only its own bucket, so the shortcut answers `404 NoSuchBucket` for it. Use the full address in that case.
 
 ### See every storage with ListBuckets
 
@@ -76,7 +94,10 @@ for bucket in s3.list_buckets()["Buckets"]:
 Each bucket in the answer is one storage. The gateway returns only the storages your credential may reach.
 
 !!! warning "A rename changes the bucket name"
-    An administrator can rename a storage. The name is the bucket, so the old bucket name stops working at once. Every deployment bound to that storage must redeploy before it works again. See [Rename a storage](./blob-storage.md#rename-a-storage).
+    An administrator can rename a storage. The name replaces the bucket name your client uses, so the old bucket name stops working at once. There is no alias and no grace period. Every deployment bound to that storage must redeploy before it works again. See [Rename a storage](./blob-storage.md#rename-a-storage).
+
+!!! note "A main storage move changes no bucket name"
+    An administrator can also make another storage the main storage. That move renames nothing, so every client of both storages keeps working. Only the [environment shortcut](#the-environment-shortcut) moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
 ## Supported operations
 
