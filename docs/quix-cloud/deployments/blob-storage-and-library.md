@@ -28,7 +28,9 @@ Quix writes the variable at deploy time, so redeploy the service after you switc
 
 ## One connection, several buckets
 
-A connection can hold more than one storage. **Each storage is its own bucket.** The name an administrator gives a storage is the bucket name your code uses. The main storage keeps the bucket name of the bucket behind it, and a new storage never moves it.
+A connection can hold more than one storage. **Each storage is its own bucket.** The name an administrator gives a storage is the bucket name your code uses. A storage with no name of its own keeps the bucket name of the bucket behind it, and a new storage never moves it.
+
+The gateway rewrites the bucket name only. Your object keys travel unchanged, so an object you write through the gateway lands at the same key it would land at if you wrote it to the bucket directly.
 
 The injected document names the bucket of the storage your deployment binds to. Your code reaches a second storage with a second bucket name, on the same endpoint and with the same credential:
 
@@ -40,7 +42,10 @@ fs.ls("minio/")                    # the storage named minio
 An S3 LIST covers one bucket, so there is no single listing across every storage. List each bucket in turn. Call `ListBuckets` to see every storage you may reach. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
 !!! warning "A rename needs a redeploy"
-    An administrator can rename a storage, and the name is the bucket. Quix writes the bucket name into the deployment at deploy time, so redeploy the service after a rename. The old bucket name fails at once. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
+    An administrator can rename a storage, and the name replaces the bucket name your code uses. Quix writes the bucket name into the deployment at deploy time, so redeploy the service after a rename. The old bucket name fails at once, with no alias and no grace period. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
+
+!!! note "A main storage move needs no redeploy"
+    An administrator can also make another storage the main storage. That move changes no bucket name, so your deployment keeps working and needs no redeploy. Your service also stays on the storage that holds its data: Quix never moves a running service to a different bucket. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
 
 !!! note "One copy cannot cross a storage"
     A copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Copy inside one storage, or read and write the object yourself.
