@@ -76,7 +76,9 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 s3.get_object(Bucket="<workspaceId>",  Key="reports/day.csv")
 ```
 
-Every operation answers the same through either address, including LIST with `marker`, `continuation-token`, `start-after`, `delimiter`, and `encoding-type=url`. A multipart upload you start at one address finishes at the other. The one difference is the one the example shows: a key under the shortcut drops its `<workspaceId>/` lead, on the way in and on the way out.
+Every object and listing operation answers the same through either address, including LIST with `marker`, `continuation-token`, `start-after`, `delimiter`, and `encoding-type=url`. The first difference is the one the example shows: a key under the shortcut drops its `<workspaceId>/` lead, on the way in and on the way out.
+
+The second difference is that the shortcut serves objects, not bucket metadata. A request that names the shortcut and carries NO key answers `501 NotImplemented` if it asks for bucket metadata: `?acl`, `?location`, any other bucket subresource, and a multipart create, complete or abort that names no key. Such a request describes the main storage as a whole, not your environment, so the gateway refuses it rather than answer for the whole bucket. Use the full `s3://<mainBucket>/` address for bucket metadata. The shortcut still serves LIST, batch delete, and the bucket HEAD, PUT and DELETE, because each of those stays inside your environment's folder. A multipart upload OF A KEY works through either address.
 
 This is the only place the gateway changes a key. The shortcut takes an environment ID only, and it always points at the current main storage.
 
@@ -108,7 +110,7 @@ The gateway supports the operations an ordinary storage client needs:
 * **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`.
 * **Multipart upload** — create, upload part, complete, and abort.
 * **Batch delete** — up to 1000 keys per request.
-* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets.
+* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`; use the full address.
 
 ## What the gateway refuses
 
