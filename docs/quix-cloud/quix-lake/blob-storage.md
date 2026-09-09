@@ -5,14 +5,14 @@ description: Connect your cluster to object storage (S3, GCS, Azure Blob, MinIO)
 
 # Quix Lake connections and storages
 
-Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](./overview.md)**, the Data Lake, the Lakehouse, or any other managed service that needs storage. One connection can then hold several storages. Each storage is its own bucket.
+Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](./overview.md)**, the Data Lake, the Lakehouse, or any other managed service that needs storage. One connection can then hold several storages. Your clients address **one bucket**, and each storage is a **folder** inside it.
 
 ![Connections list](../../images/blob-storage/connections-list-running.png)
 
 !!! important "One connection per cluster and node group"
     Each **cluster and node group** pair supports **one** Quix Lake connection. The Portal names a connection by that pair.
     You can configure different connections for different pairs.
-    One connection still holds as many storages as you need, so a second bucket needs no second connection.
+    One connection still holds as many storages as you need, so a second storage needs no second connection.
     Both the [Data Lake Sink](./data-lake/sink.md) and the [Lakehouse Sink](./lakehouse/sink.md) use this same connection.
 
     One shared connection doesn't mean one shared view of the data: each team only sees its own data, and the bucket's keys stay locked away. See the [Storage Access Gateway](./secure-storage-access.md).
@@ -34,9 +34,9 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 
 The page lists every cluster in your organization. A cluster without a connection shows a **Not connected** badge, so you can see at a glance where Quix Lake is still to set up.
 
-The bucket you name here becomes the **main storage** of the connection. Your code addresses it by that bucket name. A storage you add later never moves it.
+The bucket you name here becomes the **main storage** of the connection. Its name becomes the **shared bucket**, the one bucket name your code uses. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
 
-You can change both facts later. An administrator can [rename the storage](#rename-a-storage), and an administrator can [make another storage the main storage](#make-a-storage-the-main-storage). The two are separate: a rename changes a bucket name, and a main storage move changes no bucket name at all.
+You can change both facts later. An administrator can [rename the storage](#rename-a-storage), and an administrator can [make another storage the main storage](#make-a-storage-the-main-storage). The two are separate: a rename moves the folder of one storage, and a main storage move changes no folder at all.
 
 ## Test before saving
 
@@ -132,7 +132,13 @@ Quix asks you to test again only when you change a field that reaches the storag
 
 ## Add a storage
 
-A cluster still holds one connection, but that connection can serve more than one storage. Each storage is **its own bucket**. The name you give a storage is the bucket name your clients use. So a client reaches a second storage with a second bucket name, on the same endpoint and with the same credential.
+A cluster still holds one connection, but that connection can serve more than one storage. Your clients keep addressing **one bucket**, the shared bucket, and each storage is a **folder** inside it. The name you give a storage is that folder name. So a client reaches a second storage by putting the folder first in the key, on the same endpoint and with the same credential.
+
+```text
+s3://<sharedBucket>/<storage>/<key>
+```
+
+Each storage keeps its own bucket or container and its own credentials behind the gateway. One bucket name in your code can therefore hide several providers.
 
 Add a storage when you want data in a different bucket, region, or provider. You give your services no second connection to manage.
 
@@ -144,44 +150,55 @@ To add one:
 4. Set a **Display name**, a **Storage name**, and the **Provider** with its credentials.
 5. Click **Test connection**, then **Save**.
 
-The **Storages** tab lists every storage on the connection. Each row shows the bucket name your clients use and the provider behind it. The main storage carries a **Main** badge. The `⋮` menu holds **Edit storage** and **Delete storage**.
+The **Storages** tab lists every storage on the connection. Each row shows the folder name your clients use and the provider behind it. The main storage carries a **Main** badge. The `⋮` menu holds **Edit storage** and **Delete storage**.
 
 !!! note "A new storage never moves an old one"
-    A storage you add changes nothing about the storages that are already there. The main storage keeps its bucket name, and every path to it keeps working. A customer with one storage sees no change at all.
+    A storage you add changes nothing about the storages that are already there. The shared bucket keeps its name, and every path to it keeps working. A customer with one storage sees no change at all.
 
 ### Storage name rules
 
-The storage name is the bucket name your clients use, so Quix applies the bucket rules to it:
+The storage name is a folder name at the root of the shared bucket, and Quix applies the bucket rules to it:
 
 * It is 3 to 63 characters long.
 * It starts with a lowercase letter or a digit.
 * It then holds only lowercase letters, digits, and `-`.
-* It is unique on the connection. Two storages cannot share one bucket name.
+* It is unique on the connection. Two storages cannot share one folder.
+* It cannot start with your organization ID and a hyphen. Every environment ID starts that way, and the [environment shortcut](#the-environment-shortcut) needs that shape.
 
-A storage with **no** name of its own keeps the bucket name of the bucket behind it. A connection starts with its main storage that way, so an existing connection needs no change.
+Quix also refuses a name when a folder of that name **already exists** in the main storage. The new storage would hide that folder, and the objects in it could no longer be reached. Pick another name, or move the folder first.
 
-Every storage may take a name of its own, the main storage included. The Portal calls the field the **SAG bucket name**, and the **Storages** tab shows it in a column of that name. A storage with no name is not automatically the main storage: the **Main** badge marks the main storage, and nothing else does.
+The main storage may sit at the root of the shared bucket, or take a folder of its own. A connection starts with its main storage at the root, so an existing connection needs no change, and an administrator can give it a folder later.
+
+Every storage may take a name of its own, the main storage included. The Portal calls the field the **SAG bucket name**, and the **Storages** tab shows it in a column of that name. The value is the storage's folder in the shared bucket. A storage with no name is not automatically the main storage: the **Main** badge marks the main storage, and nothing else does.
 
 ### Rename a storage
 
 You can rename a storage after you create it. Open **Edit storage** from the `⋮` menu on the **Storages** tab. Change the **Storage name** field. The display name is a label for the Portal only, so a change to it moves nothing.
 
-!!! warning "A rename changes the bucket name every client uses"
-    The name is the bucket, so a rename changes the address of the whole storage. The old bucket name stops working at once.
+!!! warning "A rename moves the folder every client uses"
+    The name is the folder, so a rename moves the whole storage to another folder of the shared bucket. The bucket name does not change. The old folder stops working at once: there is no alias and no grace period.
 
-    Every deployment bound to that storage must redeploy before it works again. Quix writes the bucket name into the deployment at deploy time.
+    ```text
+    s3://quixdevbucket/minio/reports/day.csv      before the rename
+    s3://quixdevbucket/archive/reports/day.csv    after a rename to archive
+    ```
+
+    Quix moves the permissions of the storage with it, in every store that holds them, so nobody loses access and no grant stays behind on the old folder.
 
     A rename also stops every multipart upload that is still running. Quix shows a warning before it saves the rename. Update your code, your saved paths, and your sink configuration first.
+
+    A deployment needs no redeploy for the bucket name, because the bucket name does not change. It does need a code change, because the folder in its keys changes. Code that still addresses the storage by [its old bucket name](#the-old-per-storage-bucket-name) breaks at once and must redeploy.
 
 ### Make a storage the main storage
 
 Any storage on the connection can become the main storage. Open the `⋮` menu on the **Storages** tab and click **Make this the main storage**. Quix asks you to type a word to confirm.
 
-The move changes one thing only:
+The move changes these things:
 
-* **Both storages keep their bucket name.** The promoted storage answers on the same bucket name as before, and the old main storage answers on the same bucket name as before. **No client of either storage breaks.**
+* **Every storage keeps its folder.** The promoted storage answers under the same folder name as before, and so does the old main storage. **No running client of either storage breaks.**
+* **The shared bucket changes its name.** It takes the name of the bucket or container behind the promoted storage. Quix writes that name into a deployment at deploy time, so a service picks it up on its next deploy.
 * **The environment path moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](#the-environment-shortcut) below.
-* **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables. Quix never moves a running service to a bucket that holds none of its history.
+* **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables. Quix never moves a running service to a storage that holds none of its history.
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
 
@@ -205,27 +222,53 @@ s3://quixdevbucket/<workspaceId>/    the real location, inside the main storage
 s3://<workspaceId>/                  the same data, addressed by the shortcut
 ```
 
-Both addresses reach the same objects, and every operation answers the same through either one. Use whichever suits your code. The shortcut is the one place the gateway changes a path: a key you read through `s3://<workspaceId>/` drops its `<workspaceId>/` lead.
+Both addresses reach the same objects, and every operation answers the same through either one. Use whichever suits your code. A key you read through `s3://<workspaceId>/` drops its `<workspaceId>/` lead.
 
-The shortcut always follows the main storage. It works only for an environment ID. Any other name that is not a storage answers `404 NoSuchBucket`.
+If an administrator gives the main storage a folder of its own, the folder address works too, and all three reach the same objects:
 
-The shortcut also needs a credential issued against the main storage. A service bound to another storage reaches only its own bucket, so it must use the full address.
+```text
+s3://quixdevbucket/principal/<workspaceId>/   the main storage in the folder principal
+s3://quixdevbucket/<workspaceId>/             the same data, without the folder
+s3://<workspaceId>/                           the same data, through the environment shortcut
+```
+
+The shortcut always follows the main storage. It works only for an environment ID. Any other bucket name that names no storage answers `404 NoSuchBucket`.
+
+A deployment binds the **connection**, not one storage, so its credential always reaches the shortcut. What it may read and write inside the shared bucket still follows the [Storage Access Gateway](./secure-storage-access.md) rules.
 
 ### What your code sees
 
 Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage, names it `minio`, and points it at the real bucket `archive-bucket`:
 
 ```text
-s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
-s3://<workspaceId>/                  the same data, through the environment shortcut
-s3://minio/reports/2026-08.csv       a file in the storage named minio
+s3://quixdevbucket/<workspaceId>/               an environment's data in the main storage
+s3://<workspaceId>/                             the same data, through the environment shortcut
+s3://quixdevbucket/minio/reports/2026-08.csv    a file in the storage named minio
 ```
 
-The main storage answers to `quixdevbucket` before the add and after it. The added storage answers to the name `minio`. Its real bucket name stays hidden from your clients.
+Your clients keep one bucket name, `quixdevbucket`, before the add and after it. The added storage answers under the folder `minio`. Its real bucket name, `archive-bucket`, and its credentials stay hidden from your clients.
 
-The gateway rewrites the bucket name only. Your object keys travel unchanged, so an object you write through the gateway lands at the same key it would land at if you wrote it to the bucket directly. The [environment shortcut](#the-environment-shortcut) is the single exception.
+The gateway takes the folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so an object you write to `minio/reports/2026-08.csv` lands at `reports/2026-08.csv` in `archive-bucket`. The [environment shortcut](#the-environment-shortcut) works the same way for the main storage.
 
-There is no listing across every storage, because an S3 LIST covers one bucket. Call **ListBuckets** to see every storage you may reach. Read [S3-compatible endpoint](./s3-endpoint.md) for the client-side detail. Read [Storage Access Gateway](./secure-storage-access.md) for who may see what.
+A **LIST at the root of the shared bucket** names every storage you may reach, as a folder. The gateway merges the answer across the storages behind it, in key order and with paging, so one listing can cross storages.
+
+!!! warning "ListBuckets now answers one bucket"
+    **ListBuckets** used to answer one bucket per storage. It now answers the **one** shared bucket. Any tool you point at the [S3 endpoint](./s3-endpoint.md) sees that change.
+
+    To discover the storages, list the root of the shared bucket with `delimiter=/` and read the folders, browse the [storage explorer](./storage-explorer.md), or ask the Portal API.
+
+#### The old per-storage bucket name
+
+Before this change, each storage was a bucket of its own, and clients addressed a storage by its name as a bucket name. Quix keeps that address working for the change-over, so no code breaks the day an administrator adds a storage.
+
+```text
+s3://minio/reports/2026-08.csv                  the old address, kept for now
+s3://quixdevbucket/minio/reports/2026-08.csv    the address to use
+```
+
+Move your code to the folder address. The old address stays only for the change-over, and a [rename](#rename-a-storage) breaks it at once.
+
+Read [S3-compatible endpoint](./s3-endpoint.md) for the client-side detail. Read [Storage Access Gateway](./secure-storage-access.md) for who may see what.
 
 ### Delete a storage
 
@@ -233,11 +276,13 @@ Open **Delete storage** from the `⋮` menu on the **Storages** tab. Quix refuse
 
 ## Variables injected into bound deployments
 
-When a deployment — or a [dev session](../applications/dev-sessions/overview.md) — binds to this connection, Quix injects the storage as a secret:
+When a deployment — or a [dev session](../applications/dev-sessions/overview.md) — binds to this connection, Quix injects the connection as a secret:
 
 | Variable | Description |
 |----------|-------------|
-| `Quix__BlobStorage__Connection__Json` | The bound storage as a JSON document — the endpoint plus the credentials and the bucket. Injected as a secret, so values stay hidden in logs and the UI. |
+| `Quix__BlobStorage__Connection__Json` | The bound connection as a JSON document — the endpoint plus the credentials and the bucket. The bucket is the shared bucket. Injected as a secret, so values stay hidden in logs and the UI. |
+
+The document keeps the shape it always had. Only the bucket name in it can change, and it changes only when an administrator [makes another storage the main storage](#make-a-storage-the-main-storage).
 
 Your code reads this one variable and deserializes it to connect to the storage. See [Quix Lake storage](../deployments/blob-storage-and-library.md) for how to read it in Python.
 
