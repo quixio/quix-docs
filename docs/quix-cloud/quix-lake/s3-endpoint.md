@@ -1,6 +1,6 @@
 ---
 title: S3-compatible endpoint
-description: Reach your Quix Lake data from any S3 client through the Storage Access Gateway, with one endpoint, one credential, and one bucket for each storage.
+description: Reach your Quix Lake data from any S3 client through the Storage Access Gateway, with one endpoint, one credential, and one bucket that holds every storage as a folder.
 ---
 
 # S3-compatible endpoint
@@ -26,7 +26,7 @@ Quix issues the credentials for you. Bind a [Quix Lake storage](../deployments/b
 }
 ```
 
-Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and Quix scopes the key to what the deployment may reach. There is no separate place to create a key by hand, and the gateway never hands out your real bucket credentials.
+Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the shared bucket of the connection. Quix scopes the key to what the deployment may reach. There is no separate place to create a key by hand, and the gateway never hands out your real bucket credentials.
 
 ## Connect a client
 
@@ -49,23 +49,37 @@ s3.list_objects_v2(Bucket="<your_bucket>", Prefix="<your_prefix>/")
 
 The gateway refuses virtual-host-style addressing, such as `https://<your_bucket>.<host>/<key>`, with a `400 InvalidRequest`. Use `https://<host>/<your_bucket>/<key>`.
 
-## One connection, several buckets
+## One bucket, several storages
 
-A connection can hold more than one storage. **Each storage is its own bucket.** The name an administrator gives a storage is the bucket name your client uses. A storage with no name of its own keeps the bucket name of the bucket behind it.
-
-Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage and names it `minio`:
+A connection can hold more than one storage. Your client still addresses **one bucket**, the shared bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Put the folder first in every key:
 
 ```text
-s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
-s3://<workspaceId>/                  the same data, through the environment shortcut
-s3://minio/reports/2026-08.csv       a file in the storage named minio
+s3://<sharedBucket>/<storage>/<key>
 ```
 
-The main storage answers to `quixdevbucket` before the add and after it. A new storage never moves a storage that is already there.
+Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage, names it `minio`, and points it at the real bucket `archive-bucket`:
 
-Your client needs no extra configuration and no second credential to reach a second storage. Address the second storage by its own bucket name, on the same endpoint.
+```text
+s3://quixdevbucket/<workspaceId>/               an environment's data in the main storage
+s3://<workspaceId>/                             the same data, through the environment shortcut
+s3://quixdevbucket/minio/reports/2026-08.csv    a file in the storage named minio
+```
 
-The gateway rewrites the bucket name only. Your object keys travel unchanged, so an object you PUT through the gateway lands at the same key it would land at if you wrote it to the bucket directly.
+Your client keeps the bucket name `quixdevbucket` before the add and after it. A new storage never moves a storage that is already there.
+
+Your client needs no extra configuration, no second bucket, and no second credential to reach a second storage. Each storage keeps its own bucket and its own credentials behind the gateway, so one bucket name in your code can hide several providers.
+
+The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a PUT to `minio/reports/2026-08.csv` lands at `reports/2026-08.csv` in `archive-bucket`.
+
+The main storage may sit at the root of the shared bucket, or take a folder of its own. An administrator can change that later, and both addresses then reach the same objects:
+
+```python
+s3.get_object(Bucket="quixdevbucket", Key="principal/<workspaceId>/reports/day.csv")
+s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
+```
+
+!!! note "The old per-storage bucket name"
+    Before this change each storage was a bucket of its own, and a client addressed a storage by its name as a bucket name. Quix keeps `s3://minio/reports/2026-08.csv` working for the change-over, so today's code keeps running. Move it to the folder address: the old address stays only for the change-over, and a rename breaks it at once.
 
 ### The environment shortcut
 
@@ -80,26 +94,37 @@ Every object and listing operation answers the same through either address, incl
 
 The second difference is that the shortcut serves objects, not bucket metadata. A request that names the shortcut and carries NO key answers `501 NotImplemented` if it asks for bucket metadata: `?acl`, `?location`, any other bucket subresource, and a multipart create, complete or abort that names no key. Such a request describes the main storage as a whole, not your environment, so the gateway refuses it rather than answer for the whole bucket. Use the full `s3://<mainBucket>/` address for bucket metadata. The shortcut still serves LIST, batch delete, and the bucket HEAD, PUT and DELETE, because each of those stays inside your environment's folder. A multipart upload OF A KEY works through either address.
 
-This is the only place the gateway changes a key. The shortcut takes an environment ID only, and it always points at the current main storage.
+The shortcut takes an environment ID only, and it always points at the current main storage. The gateway changes a key in two places, and only in these two: it drops the `<workspaceId>/` lead under the shortcut, and it drops the storage folder before it calls the storage behind it.
 
-The shortcut needs a credential issued against the **main storage**. A credential issued against another storage reaches only its own bucket, so the shortcut answers `404 NoSuchBucket` for it. Use the full address in that case.
+### See every storage with a root listing
 
-### See every storage with ListBuckets
-
-An S3 LIST covers one bucket, so there is no single listing across every storage. Call **ListBuckets** to see every storage you may reach:
+A LIST at the root of the shared bucket names every storage you may reach, as a folder. Ask for `delimiter="/"` and read the common prefixes:
 
 ```python
-for bucket in s3.list_buckets()["Buckets"]:
-    print(bucket["Name"])
+answer = s3.list_objects_v2(Bucket="quixdevbucket", Delimiter="/")
+for folder in answer.get("CommonPrefixes", []):
+    print(folder["Prefix"])          # "minio/", "archive/", …
 ```
 
-Each bucket in the answer is one storage. The gateway returns only the storages your credential may reach.
+The gateway returns only the storages your credential may reach. You can also browse them in the [storage explorer](./storage-explorer.md), or ask the Portal API.
 
-!!! warning "A rename changes the bucket name"
-    An administrator can rename a storage. The name replaces the bucket name your client uses, so the old bucket name stops working at once. There is no alias and no grace period. Every deployment bound to that storage must redeploy before it works again. See [Rename a storage](./blob-storage.md#rename-a-storage).
+Drop the delimiter and the gateway merges the storages into **one** listing, in key order and with paging, so a listing can now cross storages. Pass the `NextContinuationToken` back as the gateway gave it to you.
 
-!!! note "A main storage move changes no bucket name"
-    An administrator can also make another storage the main storage. That move renames nothing, so every client of both storages keeps working. Only the [environment shortcut](#the-environment-shortcut) moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
+!!! warning "ListBuckets now answers one bucket"
+    **ListBuckets** used to answer one bucket for each storage. It now answers the **one** shared bucket, because a storage is no longer a bucket:
+
+    ```python
+    for bucket in s3.list_buckets()["Buckets"]:
+        print(bucket["Name"])        # one name, the shared bucket
+    ```
+
+    Any tool you point at this endpoint sees that change. A tool that builds its storage list from `ListBuckets` shows one entry, so use the root listing above instead.
+
+!!! warning "A rename moves the folder"
+    An administrator can rename a storage. The name is the folder, so the old folder stops working at once. There is no alias and no grace period. The bucket name does not change, so a deployment needs no redeploy for it, but the folder in your keys does change. See [Rename a storage](./blob-storage.md#rename-a-storage).
+
+!!! note "A main storage move changes no folder"
+    An administrator can also make another storage the main storage. That move renames no folder, so every running client keeps working. The [environment shortcut](#the-environment-shortcut) moves, and the shared bucket takes the bucket name of the promoted storage on your next deploy. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
 ## Supported operations
 
@@ -107,36 +132,30 @@ The gateway supports the operations an ordinary storage client needs:
 
 * **Objects** — GET, GET with a `Range` header, HEAD, PUT, and DELETE.
 * **Copy** — CopyObject inside one storage.
-* **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`.
-* **Multipart upload** — create, upload part, complete, and abort.
-* **Batch delete** — up to 1000 keys per request.
-* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`; use the full address.
+* **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`. A listing that covers more than one storage is merged for you.
+* **Multipart upload** — create, upload part, complete, and abort. The upload stays on the storage it started on.
+* **Batch delete** — up to 1000 keys per request, in one storage.
+* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. ListBuckets answers the one shared bucket. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`; use the full address.
 
 ## What the gateway refuses
 
 | Request | Answer |
 |---|---|
-| A copy whose source and destination sit in different buckets | `400 InvalidRequest` |
-| A batch delete whose body spans two buckets | `400 InvalidRequest` |
+| A copy whose source and destination sit in different storages | `501 NotImplemented` |
+| A batch delete whose body spans two storages | `501 NotImplemented` |
 | Virtual-host-style addressing | `400 InvalidRequest` |
 | A presigned URL | Rejected. Sign each request instead. |
 | Object tagging, ACLs, versioning, lifecycle, CORS, bucket policy, replication, encryption, notification, logging, object lock, legal hold, and retention | `501 NotImplemented` |
 
-The gateway refuses a cross-storage operation because it is a real transfer between two backends, not a change of path. The message says so:
-
-```text
-An operation that crosses a storage boundary is not supported. Source and destination must be in the same storage.
-```
-
-A copy inside one storage keeps working.
+The gateway refuses a cross-storage operation because it is a real transfer between two backends, not a change of path. Two keys sit in one bucket and still sit in two storages, so read the folder at the front of each key before you plan the operation. A copy inside one storage keeps working.
 
 ## Limits to design for
 
-**A listing covers one bucket.** An S3 LIST reads one storage. To read two storages, list each bucket in turn. Call `ListBuckets` first to learn which buckets you may reach.
+**A listing can cross storages, but an operation cannot.** The gateway merges a LIST across the storages the prefix reaches. A copy, a batch delete, and a multipart upload each stay inside one storage.
 
-**An operation stays inside one storage.** A copy, a batch delete, and a multipart upload all work inside one bucket. The gateway refuses a request that crosses two storages, because that is a real transfer between two backends.
+**Storage discovery is a root listing.** `ListBuckets` answers the one shared bucket, so list the root of that bucket with `delimiter=/` to see the storages.
 
-**A rename breaks the old address at once.** An administrator who renames a storage changes the bucket name every client uses. Redeploy every service bound to that storage.
+**A rename breaks the old folder at once.** An administrator who renames a storage changes the folder every client uses. Update the keys in your code and in your saved paths.
 
 **Every request is checked.** The gateway applies your folder permissions to each call. A key you may not read answers `403 AccessDenied`, and a listing hides what you may not see. See [Storage Access Gateway](./secure-storage-access.md).
 

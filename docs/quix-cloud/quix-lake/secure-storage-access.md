@@ -12,21 +12,21 @@ The gateway sits between the platform and your object storage. It checks every r
 !!! info "Nothing to set up"
     The gateway starts automatically once a [Quix Lake connection](./blob-storage.md) exists for the cluster. You manage no keys and configure no settings.
 
-## Each storage is its own bucket
+## Each storage is a folder of one bucket
 
-A connection holds one main storage and any number of extra storages that an administrator adds. **Each storage is its own bucket.** The name of a storage is the bucket name your clients use. A storage with no name of its own keeps the bucket name of the bucket behind it. A connection starts with its main storage that way, but any storage may take a name, and a storage without one is not automatically the main storage.
+A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, the shared bucket, and **each storage is a folder** inside it. The name of a storage is that folder name. The main storage may sit at the root of the bucket, or take a folder of its own.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
 s3://<workspaceId>/                  the same data, through the environment shortcut
-s3://minio/reports/                  a folder in the storage named minio
+s3://quixdevbucket/minio/reports/    a folder in the storage named minio
 ```
 
-The gateway routes each request on the bucket. A new storage never moves a storage that is already there, so a customer with one storage sees no change. Inside a bucket, the gateway treats the keys as one blob store for routing, listing, and permissions. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
+The gateway routes each request on the folder at the front of the key. Each storage keeps its own bucket and its own credentials behind the gateway, so one bucket name hides several backends. A new storage never moves a storage that is already there, so a customer with one storage sees no change. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
 
-**The gateway rewrites the bucket name and nothing else.** Your object keys travel unchanged, so an object you write through the gateway lands at the same key it would land at if you wrote it to the bucket directly.
+**The gateway takes the storage folder off the key and changes nothing else.** Everything after the folder travels unchanged, so an object you write lands at the same key it would land at if you wrote it to the bucket behind the storage directly.
 
-There is no listing across storages, because an S3 LIST covers one bucket. A client calls **ListBuckets** to see every storage it may reach.
+A LIST at the root of the shared bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers the one shared bucket, so a client discovers the storages with that root listing.
 
 ## The environment shortcut
 
@@ -39,13 +39,10 @@ s3://<workspaceId>/x                 the shortcut — the same object
 
 Every operation answers the same through either address, and a multipart upload you start at one address finishes at the other. The one difference you see is that a key read through the shortcut drops its `<workspaceId>/` lead.
 
-This is the single place the gateway changes a path. The shortcut takes an environment ID only. Any other first name that is not a storage answers `404 NoSuchBucket`. An environment ID can never be a storage name, so the two never clash.
-
-!!! note "The shortcut needs a main storage credential"
-    A credential issued against the **main storage** can use the shortcut. A credential issued against another storage reaches only its own bucket, so the shortcut answers `404 NoSuchBucket` for it. Use the full address, `s3://<bucket>/<workspaceId>/`, when your service binds to a storage that is not the main one.
+The shortcut takes an environment ID only. Any other bucket name that names no storage answers `404 NoSuchBucket`. An environment ID can never be a storage name, so the two never clash.
 
 !!! note "The shortcut follows the main storage"
-    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. No bucket name changes, and no client of either storage breaks. Quix copies no data, so the shortcut answers empty until someone copies the environment folders across.
+    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. No storage changes its folder, and no running client breaks. Quix copies no data, so the shortcut answers empty until someone copies the environment folders across.
 
 ## Two kinds of folders
 
@@ -66,8 +63,11 @@ You set a folder's visibility from the menu on its row in the **Default Permissi
 | **Anyone can read** | Everyone in your organization can read it | Opt-in |
 | **Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
-!!! warning "A grant on a bucket root reaches one storage only"
-    Each storage is its own bucket, so a permission you set on the root of a bucket reaches every folder in that storage, and no folder in any other storage. To open a second storage, set a permission on that storage too.
+!!! warning "A permission on the bucket root reaches every storage"
+    Every storage is a folder of one bucket, so a permission you set on the **root of the shared bucket** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead.
+
+!!! note "A rename carries the permissions with it"
+    When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder, in every store that holds them. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
 
 !!! note "Sharing stays within your organization"
     Sharing only ever opens a folder to people signed in to your Quix organization. Quix never exposes it to the public internet.
@@ -110,7 +110,7 @@ You work with the lake exactly as before. The gateway only determines what appea
 
 **A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, only administrators reach it. Set it to **Anyone can read & write**, and anyone in the organization can read and write to it.
 
-**A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the bucket `archive`. A grant on the root of `archive` opens that storage alone. It opens nothing in the main storage, because the main storage is a different bucket.
+**A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the folder `archive/` of the shared bucket. A permission on that folder opens that storage alone. A permission on the root of the shared bucket opens every storage, the main storage included, so set it on the folder when you mean one storage.
 
 ## Next steps
 
