@@ -14,7 +14,7 @@ The gateway sits between the platform and your object storage. It checks every r
 
 ## Each storage is a folder of one bucket
 
-A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, the shared bucket, and **each storage is a folder** inside it. The name of a storage is that folder name. The main storage may sit at the root of the bucket, or take a folder of its own.
+A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, its bucket, and **each storage is a folder** inside it. The name of a storage is that folder name. The main storage may sit at the root of the bucket, or take a folder of its own.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
@@ -26,7 +26,7 @@ The gateway routes each request on the folder at the front of the key. Each stor
 
 **The gateway takes the storage folder off the key and changes nothing else.** Everything after the folder travels unchanged, so an object you write lands at the same key it would land at if you wrote it to the bucket behind the storage directly.
 
-A LIST at the root of the shared bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers the one shared bucket, so a client discovers the storages with that root listing.
+A LIST at the root of the connection bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing.
 
 ## The environment shortcut
 
@@ -54,17 +54,17 @@ How a folder behaves by default depends on its kind. You see and change this in 
 
 ## Folder visibility
 
-You set a folder's visibility from the menu on its row in the **Default Permissions** tab. Opening a folder past its default is called *sharing*. There are two sharing levels: **Anyone can read** and **Anyone can read & write**. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.
+You set a folder's visibility from the menu on its row in the **Default Permissions** tab. Opening a folder past its default is called *sharing*. There are two sharing levels: **Public - Anyone can read** and **Public - Anyone can read & write**. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.
 
 | Visibility | What it means | Default for |
 |---|---|---|
 | **User Permissions** | Members get the same read and write access they have in that environment | Environment folders |
 | **Private** | No one in your organization can access it, administrators only | Other folders |
-| **Anyone can read** | Everyone in your organization can read it | Opt-in |
-| **Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
+| **Public - Anyone can read** | Everyone in your organization can read it | Opt-in |
+| **Public - Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A permission on the bucket root reaches every storage"
-    Every storage is a folder of one bucket, so a permission you set on the **root of the shared bucket** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead.
+    Every storage is a folder of one bucket, so a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead.
 
 !!! note "A rename carries the permissions with it"
     When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder, in every store that holds them. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
@@ -106,11 +106,11 @@ You work with the lake exactly as before. The gateway only determines what appea
 
 ## Examples
 
-**Two environments.** An analytics team and an operations team work in separate environments in the same organization. By default, each team sees only its own environment's data, and neither sees the other's when browsing the lake. If the analytics team sets a folder of reference data to **Anyone can read**, every team can then read it, but no one else can change it.
+**Two environments.** An analytics team and an operations team work in separate environments in the same organization. By default, each team sees only its own environment's data, and neither sees the other's when browsing the lake. If the analytics team sets a folder of reference data to **Public - Anyone can read**, every team can then read it, but no one else can change it.
 
-**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, only administrators reach it. Set it to **Anyone can read & write**, and anyone in the organization can read and write to it.
+**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, only administrators reach it. Set it to **Public - Anyone can read & write**, and anyone in the organization can read and write to it.
 
-**A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the folder `archive/` of the shared bucket. A permission on that folder opens that storage alone. A permission on the root of the shared bucket opens every storage, the main storage included, so set it on the folder when you mean one storage.
+**A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the folder `archive/` of its bucket. A permission on that folder opens that storage alone. A permission on the bucket root opens every storage, the main storage included, so set it on the folder when you mean one storage.
 
 ## Next steps
 

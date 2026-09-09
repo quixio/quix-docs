@@ -13,7 +13,7 @@ If the cluster or your environment has a [Quix Lake connection](../quix-lake/blo
 
 ### Enabling it
 
-In the deployment dialog, open the **Advanced** tab and expand the **Quix Lake** panel. Turn the bind toggle on.
+In the deployment dialog, open the **Advanced** tab and expand the **Blob Storage** panel. Turn the bind toggle on.
 
 ![Quix Lake bind toggle in the deployment Advanced tab](../../images/blob-storage/deployment-blob-storage-toggle.png){width=80%}
 
@@ -28,27 +28,27 @@ Quix writes the variable at deploy time, so redeploy the service after you switc
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your code still uses **one bucket**, the shared bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. A new storage never moves the storages that are already there.
+A connection can hold more than one storage. Your code still uses **one bucket**, its bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. A new storage never moves the storages that are already there.
 
-The injected document names the shared bucket. Put the folder first in the key to reach a second storage, on the same endpoint and with the same credential:
+The injected document names the connection bucket. Put the folder first in the key to reach a second storage, on the same endpoint and with the same credential:
 
 ```python
-fs.ls("<your_bucket>/")            # the root of the shared bucket, one folder per storage
+fs.ls("<your_bucket>/")            # the root of the connection bucket, one folder per storage
 fs.ls("<your_bucket>/minio/")      # the storage named minio
 ```
 
 The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
 
-A listing at the root of the shared bucket names every storage you may reach, as a folder, and the gateway merges the answer across the storages behind it. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it, so a storage you may not read never appears.
+A listing at the root of the connection bucket names every storage you may reach, as a folder, and the gateway merges the answer across the storages behind it. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it, so a storage you may not read never appears.
 
 !!! warning "ListBuckets now answers one bucket"
-    **ListBuckets** used to answer one bucket for each storage. It now answers the one shared bucket. List the root of that bucket instead to see the storages.
+    **ListBuckets** used to answer one bucket for each storage. It now answers the one connection bucket. List the root of that bucket instead to see the storages.
 
 !!! warning "A rename changes the folder in your keys"
     An administrator can rename a storage. The name is the folder, not the bucket, so your bucket name does not change and your deployment needs no redeploy for it. The old folder fails at once, with no alias and no grace period, so update the keys in your code. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
 
 !!! note "A main storage move keeps your deployment running"
-    An administrator can also make another storage the main storage. That move changes no folder, so your running deployment keeps working. The shared bucket takes the bucket name of the promoted storage, and Quix writes that name into your deployment on its next deploy. Your service also stays on the storage that holds its data: Quix never moves a running service to a storage that holds none of its history. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
+    An administrator can also make another storage the main storage. That move changes no folder, so your running deployment keeps working. The connection bucket takes the bucket name of the promoted storage, and Quix writes that name into your deployment on its next deploy. Your service also stays on the storage that holds its data: Quix never moves a running service to a storage that holds none of its history. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
 
 !!! note "One copy cannot cross a storage"
     A copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Copy inside one storage, or read and write the object yourself.
@@ -102,7 +102,7 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 }
 ```
 
-`serviceUrl` points at the gateway endpoint, and `bucketName` is the shared bucket of the connection. Key names are case-insensitive, so `s3Compatible`, which Quix injects, and `S3Compatible` both parse.
+`serviceUrl` points at the gateway endpoint, and `bucketName` is the connection bucket. Key names are case-insensitive, so `s3Compatible`, which Quix injects, and `S3Compatible` both parse.
 
 The gateway is there for three reasons:
 

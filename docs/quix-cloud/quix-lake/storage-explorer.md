@@ -15,7 +15,7 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer opens the **shared bucket** of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
+The explorer opens the **connection bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
@@ -26,7 +26,7 @@ A storage you add never moves a storage that is already there. The paths you alr
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
-Switch between the **tree view** and the **file explorer view** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
+Switch between **Tree view** and **File explorer** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
 
 ## What you can do
 
@@ -39,7 +39,7 @@ Switch between the **tree view** and the **file explorer view** with the buttons
 | **Rename** | Renames a file or folder. Renaming moves the data to the new path. |
 | **Cut**, **Copy**, and paste | Moves or copies a file or folder into the folder you paste it in. A copy keeps the source. |
 | **Copy path** | Copies the full path of the entry, so you can use it in your code. |
-| **Delete** | Deletes a file or a folder. |
+| **Delete file** and **Delete folder** | Deletes a file or a folder. |
 | **Manage visibility** | Sets who in your organization can read or change a folder. |
 
 Search finds files by name from the folder you are in.
@@ -68,8 +68,8 @@ Every folder shows its visibility, and you change it from the row menu. A folder
 |---|---|
 | **User Permissions** | Members get the same read and write access they have in that environment |
 | **Private** | No one in your organization can access it, administrators only |
-| **Anyone can read** | Everyone in your organization can read it |
-| **Anyone can read & write** | Everyone in your organization can read and change it |
+| **Public - Anyone can read** | Everyone in your organization can read it |
+| **Public - Anyone can read & write** | Everyone in your organization can read and change it |
 
 Only Quix administrators, and users with organization write access, can change visibility. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
 
