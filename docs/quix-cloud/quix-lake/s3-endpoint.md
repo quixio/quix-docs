@@ -26,7 +26,7 @@ Quix issues the credentials for you. Bind a [Quix Lake storage](../deployments/b
 }
 ```
 
-Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the shared bucket of the connection. Quix scopes the key to what the deployment may reach. There is no separate place to create a key by hand, and the gateway never hands out your real bucket credentials.
+Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the connection bucket. Quix scopes the key to what the deployment may reach. There is no separate place to create a key by hand, and the gateway never hands out your real bucket credentials.
 
 ## Connect a client
 
@@ -51,10 +51,10 @@ The gateway refuses virtual-host-style addressing, such as `https://<your_bucket
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your client still addresses **one bucket**, the shared bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Put the folder first in every key:
+A connection can hold more than one storage. Your client still addresses **one bucket**, its bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Put the folder first in every key:
 
 ```text
-s3://<sharedBucket>/<storage>/<key>
+s3://<connectionBucket>/<storage>/<key>
 ```
 
 Take a connection whose main storage is the bucket `quixdevbucket`. An administrator adds a MinIO storage, names it `minio`, and points it at the real bucket `archive-bucket`:
@@ -71,7 +71,7 @@ Your client needs no extra configuration, no second bucket, and no second creden
 
 The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a PUT to `minio/reports/2026-08.csv` lands at `reports/2026-08.csv` in `archive-bucket`.
 
-The main storage may sit at the root of the shared bucket, or take a folder of its own. An administrator can change that later, and both addresses then reach the same objects:
+The main storage may sit at the root of the connection bucket, or take a folder of its own. An administrator can change that later, and both addresses then reach the same objects:
 
 ```python
 s3.get_object(Bucket="quixdevbucket", Key="principal/<workspaceId>/reports/day.csv")
@@ -98,7 +98,7 @@ The shortcut takes an environment ID only, and it always points at the current m
 
 ### See every storage with a root listing
 
-A LIST at the root of the shared bucket names every storage you may reach, as a folder. Ask for `delimiter="/"` and read the common prefixes:
+A LIST at the root of the connection bucket names every storage you may reach, as a folder. Ask for `delimiter="/"` and read the common prefixes:
 
 ```python
 answer = s3.list_objects_v2(Bucket="quixdevbucket", Delimiter="/")
@@ -111,11 +111,11 @@ The gateway returns only the storages your credential may reach. You can also br
 Drop the delimiter and the gateway merges the storages into **one** listing, in key order and with paging, so a listing can now cross storages. Pass the `NextContinuationToken` back as the gateway gave it to you.
 
 !!! warning "ListBuckets now answers one bucket"
-    **ListBuckets** used to answer one bucket for each storage. It now answers the **one** shared bucket, because a storage is no longer a bucket:
+    **ListBuckets** used to answer one bucket for each storage. It now answers the **one** connection bucket, because a storage is no longer a bucket:
 
     ```python
     for bucket in s3.list_buckets()["Buckets"]:
-        print(bucket["Name"])        # one name, the shared bucket
+        print(bucket["Name"])        # one name, the connection bucket
     ```
 
     Any tool you point at this endpoint sees that change. A tool that builds its storage list from `ListBuckets` shows one entry, so use the root listing above instead.
@@ -124,7 +124,7 @@ Drop the delimiter and the gateway merges the storages into **one** listing, in 
     An administrator can rename a storage. The name is the folder, so the old folder stops working at once. There is no alias and no grace period. The bucket name does not change, so a deployment needs no redeploy for it, but the folder in your keys does change. See [Rename a storage](./blob-storage.md#rename-a-storage).
 
 !!! note "A main storage move changes no folder"
-    An administrator can also make another storage the main storage. That move renames no folder, so every running client keeps working. The [environment shortcut](#the-environment-shortcut) moves, and the shared bucket takes the bucket name of the promoted storage on your next deploy. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
+    An administrator can also make another storage the main storage. That move renames no folder, so every running client keeps working. The [environment shortcut](#the-environment-shortcut) moves, and the connection bucket takes the bucket name of the promoted storage on your next deploy. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
 ## Supported operations
 
@@ -135,7 +135,7 @@ The gateway supports the operations an ordinary storage client needs:
 * **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`. A listing that covers more than one storage is merged for you.
 * **Multipart upload** — create, upload part, complete, and abort. The upload stays on the storage it started on.
 * **Batch delete** — up to 1000 keys per request, in one storage.
-* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. ListBuckets answers the one shared bucket. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`; use the full address.
+* **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. ListBuckets answers the one connection bucket. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`; use the full address.
 
 ## What the gateway refuses
 
@@ -153,7 +153,7 @@ The gateway refuses a cross-storage operation because it is a real transfer betw
 
 **A listing can cross storages, but an operation cannot.** The gateway merges a LIST across the storages the prefix reaches. A copy, a batch delete, and a multipart upload each stay inside one storage.
 
-**Storage discovery is a root listing.** `ListBuckets` answers the one shared bucket, so list the root of that bucket with `delimiter=/` to see the storages.
+**Storage discovery is a root listing.** `ListBuckets` answers the one connection bucket, so list the root of that bucket with `delimiter=/` to see the storages.
 
 **A rename breaks the old folder at once.** An administrator who renames a storage changes the folder every client uses. Update the keys in your code and in your saved paths.
 
