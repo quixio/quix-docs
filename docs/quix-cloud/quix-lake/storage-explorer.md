@@ -15,14 +15,14 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer shows every storage on the connection that you may reach. **Each storage is its own bucket**, so you browse one storage at a time. The bucket name is the name an administrator gave the storage. A storage with no name of its own keeps the bucket name of the bucket behind it.
+The explorer opens the **shared bucket** of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
-s3://minio/reports/                  a folder in the storage named minio
+s3://quixdevbucket/minio/reports/    a folder in the storage named minio
 ```
 
-A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working. Making another storage the main storage moves no path either, because it changes no bucket name.
+A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working. Making another storage the main storage moves no folder either.
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
@@ -47,14 +47,14 @@ Search finds files by name from the folder you are in.
 !!! note "A copy cannot cross a storage"
     A move or a copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Move or copy inside one storage. You can also download the file and upload it again.
 
-## A storage is not a folder
+## A storage folder is not an ordinary folder
 
-A storage is a bucket of its own, not an object in another bucket. The explorer turns off the actions that do not apply to it:
+A storage folder looks like a folder, but it is a whole storage with its own bucket and its own credentials behind it. The explorer turns off the actions that do not apply to it:
 
-* You cannot rename a storage here. Rename it from **Settings → Quix Lake** instead. A rename changes the bucket name every client uses, and it breaks every old address at once.
-* You cannot delete a storage. Delete it from **Settings → Quix Lake** instead.
-* You cannot cut or copy a storage.
-* You cannot set the visibility of a storage. The storage carries its own upstream access rules.
+* You cannot rename a storage folder here. Rename the storage from **Settings → Quix Lake** instead. A rename moves the folder every client uses, and it breaks every old path at once.
+* You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
+* You cannot cut or copy a storage folder.
+* You cannot set the visibility of a storage folder here. The storage carries its own upstream access rules.
 
 The explorer refuses these actions because they are connection-level facts, not files in your bucket.
 
