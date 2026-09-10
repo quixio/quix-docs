@@ -7,12 +7,12 @@ description: Explore, search, and manage persisted datasets in Quix Data Lake.
 
 The **Data Lake UI** lets you browse, search, and manage datasets persisted into [Data Lake](./overview.md). It surfaces raw Avro data segments and their Parquet index metadata, making datasets easy to discover and replay.
 
-You can open the catalog from any **environment** that has a blob storage connection. With permission, you can also explore catalogs from **other environments**.
+You can open the catalog from any **environment** that has a Quix Lake connection. With permission, you can also explore catalogs from **other environments**.
 
 ![Catalog main view](images/user-interface-main.png)
 
 !!! info "Prerequisites"
-    - A [blob storage connection](../blob-storage.md) is configured for at least one environment.
+    - A [Quix Lake connection](../blob-storage.md) is configured for at least one environment.
     - The **Data Lake services** are running.
 
 !!! tip "Looking for SQL?"
@@ -68,7 +68,7 @@ From the catalog you can:
 ## Use cases
 
 - Explore persisted datasets by **key** and **time range**
-- Verify ingestion from topics into blob storage
+- Verify ingestion from topics into object storage
 - Restore or permanently delete sessions
 - Prepare datasets for **Replay** in pipelines
 - Integrate with APIs for governance and lineage
@@ -78,5 +78,5 @@ From the catalog you can:
 - [Data Lake overview](./overview.md)
 - [Replay](./replay.md)
 - [Data Lake API](./api.md)
-- [Blob storage connections](../blob-storage.md)
+- [Quix Lake connections and storages](../blob-storage.md)
 - [Lakehouse UI](../lakehouse/ui.md) — query-first counterpart
