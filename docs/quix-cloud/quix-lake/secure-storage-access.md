@@ -26,7 +26,7 @@ The gateway routes each request on the folder at the front of the key. Each stor
 
 **The gateway takes the storage folder off the key and changes nothing else.** Everything after the folder travels unchanged, so an object you write lands at the same key it would land at if you wrote it to the bucket behind the storage directly.
 
-A LIST at the root of the connection bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing.
+A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing.
 
 ## The environment shortcut
 
