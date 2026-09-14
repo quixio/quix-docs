@@ -51,7 +51,7 @@ The gateway refuses virtual-host-style addressing, such as `https://<your_bucket
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your client still addresses **one bucket**, its bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Put the folder first in every key:
+A connection can hold more than one storage. Your client still addresses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. Put the folder first in every key:
 
 ```text
 s3://<connectionBucket>/<storage>/<key>
@@ -71,7 +71,7 @@ Your client needs no extra configuration, no second bucket, and no second creden
 
 The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a PUT to `minio/reports/2026-08.csv` lands at `reports/2026-08.csv` in `archive-bucket`.
 
-The main storage may sit at the root of the Quix Lake bucket, or take a folder of its own. An administrator can change that later, and both addresses then reach the same objects:
+The main storage may sit at the root of the Quix Lake bucket, or take a folder of its own. An administrator can give it a folder later, and both addresses then reach the same objects:
 
 ```python
 s3.get_object(Bucket="quixdevbucket", Key="principal/<workspaceId>/reports/day.csv")
@@ -123,8 +123,17 @@ Drop the delimiter and the gateway merges the storages into **one** listing, in 
 !!! warning "A rename moves the folder"
     An administrator can rename a storage. The name is the folder, so the old folder stops working at once. There is no alias and no grace period. The bucket name does not change, so a deployment needs no redeploy for it, but the folder in your keys does change. See [Rename a storage](./blob-storage.md#rename-a-storage).
 
-!!! note "A main storage move changes no folder"
-    An administrator can also make another storage the main storage. That move renames no folder, so every running client keeps working. The [environment shortcut](#the-environment-shortcut) moves, and the Quix Lake bucket takes the bucket name of the promoted storage on your next deploy. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
+!!! warning "A main storage move can move a folder"
+    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so its clients keep working. The [environment shortcut](#the-environment-shortcut) points at it from that moment, and the Quix Lake bucket takes its bucket name on your next deploy.
+
+    Only the main storage may sit at the bucket root. So the storage that steps down must leave the root, and the administrator names a folder for it in the promote dialog. Every key you read for that storage at the bucket root needs that folder in front of it from that moment:
+
+    ```text
+    s3://quixdevbucket/reports/day.csv            before the move
+    s3://quixdevbucket/principal/reports/day.csv  after the move
+    ```
+
+    When the storage that steps down already had a folder, nothing moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
 ## Supported operations
 
@@ -156,6 +165,8 @@ The gateway refuses a cross-storage operation because it is a real transfer betw
 **Storage discovery is a root listing.** `ListBuckets` answers the one Quix Lake bucket, so list the root of that bucket with `delimiter=/` to see the storages.
 
 **A rename breaks the old folder at once.** An administrator who renames a storage changes the folder every client uses. Update the keys in your code and in your saved paths.
+
+**A main storage move can move the old main storage.** A storage that steps down from the bucket root takes a folder. Its keys need that folder in front of them from that moment.
 
 **Every request is checked.** The gateway applies your folder permissions to each call. A key you may not read answers `403 AccessDenied`, and a listing hides what you may not see. See [Storage Access Gateway](./secure-storage-access.md).
 

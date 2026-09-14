@@ -15,14 +15,18 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
+The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
+
+Only the **main storage** may sit at the root of the bucket. When it does, its own folders show beside the storage folders. Every other storage has a folder of its own.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
 s3://quixdevbucket/minio/reports/    a folder in the storage named minio
 ```
 
-A storage you add never moves a storage that is already there. The paths you already copied from the main storage keep working. Making another storage the main storage moves no folder either.
+A storage you add never moves a storage that is already there, so the paths you already copied keep working.
+
+A main storage move is different. Only the main storage may sit at the bucket root, so the storage that steps down must take a folder, and its paths change. The Portal asks the administrator for that folder name before it moves anything. When the storage that steps down already has a folder, nothing moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
