@@ -15,7 +15,7 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer opens the **connection bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
+The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket, beside the folders of the main storage. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
