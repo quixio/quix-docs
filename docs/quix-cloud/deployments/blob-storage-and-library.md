@@ -28,7 +28,7 @@ Quix writes the variable at deploy time, so redeploy the service after you switc
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your code still uses **one bucket**, its bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. A new storage never moves the storages that are already there.
+A connection can hold more than one storage. Your code still uses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. A new storage never moves the storages that are already there.
 
 The injected document names the Quix Lake bucket. Put the folder first in the key to reach a second storage, on the same endpoint and with the same credential:
 
@@ -47,8 +47,19 @@ A listing at the root of the Quix Lake bucket names every storage you may reach,
 !!! warning "A rename changes the folder in your keys"
     An administrator can rename a storage. The name is the folder, not the bucket, so your bucket name does not change and your deployment needs no redeploy for it. The old folder fails at once, with no alias and no grace period, so update the keys in your code. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
 
-!!! note "A main storage move keeps your deployment running"
-    An administrator can also make another storage the main storage. That move changes no folder, so your running deployment keeps working. The Quix Lake bucket takes the bucket name of the promoted storage, and Quix writes that name into your deployment on its next deploy. Your service also stays on the storage that holds its data: Quix never moves a running service to a storage that holds none of its history. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
+!!! warning "A main storage move can change your keys"
+    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so code that reads it keeps working. The Quix Lake bucket takes the bucket name of the promoted storage, and Quix writes that name into your deployment on its next deploy.
+
+    Only the main storage may sit at the bucket root. So the storage that steps down must take a folder, and the administrator names that folder in the promote dialog. Put that folder in front of every key you read from that storage:
+
+    ```python
+    fs.open("<your_bucket>/reports/day.csv")            # before the move, at the bucket root
+    fs.open("<your_bucket>/principal/reports/day.csv")  # after the move, in the folder principal
+    ```
+
+    Quix restarts the deployments bound to that storage, so they take the new address. When the storage that steps down already has a folder, nothing moves.
+
+    Your service stays on the storage that holds its data either way: Quix never moves a running service to a storage that holds none of its history. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
 
 !!! note "One copy cannot cross a storage"
     A copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Copy inside one storage, or read and write the object yourself.

@@ -14,7 +14,9 @@ The gateway sits between the platform and your object storage. It checks every r
 
 ## Each storage is a folder of one bucket
 
-A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, its bucket, and **each storage is a folder** inside it. The name of a storage is that folder name. The main storage may sit at the root of the bucket, or take a folder of its own.
+A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name of a storage is that folder name.
+
+Only the **main storage** may sit at the **root** of the bucket. Every other storage has a folder. The main storage may take a folder of its own too.
 
 ```text
 s3://quixdevbucket/<workspaceId>/    an environment's data in the main storage
@@ -42,7 +44,11 @@ Every operation answers the same through either address, and a multipart upload 
 The shortcut takes an environment ID only. Any other bucket name that names no storage answers `404 NoSuchBucket`. An environment ID can never be a storage name, so the two never clash.
 
 !!! note "The shortcut follows the main storage"
-    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. No storage changes its folder, and no running client breaks. Quix copies no data, so the shortcut answers empty until someone copies the environment folders across.
+    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. The promoted storage keeps its folder.
+
+    Only the main storage may sit at the bucket root, so the storage that steps down must take a folder, and the administrator names that folder in the promote dialog. The paths of that storage change. When the storage that steps down already has a folder, nothing moves.
+
+    Quix copies no data either way, so the shortcut answers empty until someone copies the environment folders across.
 
 ## Two kinds of folders
 
@@ -68,6 +74,8 @@ You set a folder's visibility from the menu on its row in the **Default Permissi
 
 !!! note "A rename carries the permissions with it"
     When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder, in every store that holds them. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
+
+    A [main storage move](./blob-storage.md#make-a-storage-the-main-storage) does the same for the storage that steps down: its permissions move into the folder it gains, so you rebuild nothing.
 
 !!! note "Sharing stays within your organization"
     Sharing only ever opens a folder to people signed in to your Quix organization. Quix never exposes it to the public internet.
