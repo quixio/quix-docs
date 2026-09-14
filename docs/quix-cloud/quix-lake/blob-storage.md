@@ -9,6 +9,13 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 
 ![Connections list](../../images/blob-storage/connections-list-running.png)
 
+!!! important "One bucket, one root"
+    One connection holds **one Quix Lake bucket**. Every storage on the connection is a **folder** in that bucket.
+
+    Only the **main storage** may sit at the **root** of the bucket. A storage that is not the main storage always has a folder.
+
+    The main storage may take a folder of its own too. Then no storage sits at the root.
+
 !!! important "One connection per cluster and node group"
     Each **cluster and node group** pair supports **one** Quix Lake connection. The Portal names a connection by that pair.
     You can configure different connections for different pairs.
@@ -34,9 +41,9 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 
 The page lists every cluster in your organization. A cluster without a connection shows a **Not connected** badge, so you can see at a glance where Quix Lake is still to set up.
 
-The bucket you name here becomes the **main storage** of the connection. Its name becomes the **Quix Lake bucket**, the one bucket name your code uses. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
+The bucket you name here becomes the **main storage** of the connection. Its name becomes the **Quix Lake bucket**, the one bucket name your code uses. The main storage starts at the **root** of that bucket. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
 
-You can change both facts later. An administrator can [rename the storage](#rename-a-storage), and an administrator can [make another storage the main storage](#make-a-storage-the-main-storage). The two are separate: a rename moves the folder of one storage, and a main storage move changes no folder at all.
+You can change both facts later. An administrator can [rename the storage](#rename-a-storage), and an administrator can [make another storage the main storage](#make-a-storage-the-main-storage). A rename always moves the folder of one storage. A main storage move moves a folder only in one case: the storage that steps down sits at the root, so it must take a folder.
 
 ## Test before saving
 
@@ -167,13 +174,15 @@ The folder name sits at the root of the Quix Lake bucket, and Quix applies the b
 
 Quix also refuses a name when a folder of that name **already exists** in the main storage. The new storage would hide that folder, and the objects in it could no longer be reached. Pick another name, or move the folder first.
 
-The main storage may sit at the root of the Quix Lake bucket, or take a folder of its own. A connection starts with its main storage at the root, so an existing connection needs no change, and an administrator can give it a folder later.
+Only the **main storage** may sit at the root of the Quix Lake bucket. Every other storage has a folder. A connection starts with its main storage at the root, so an existing connection needs no change, and an administrator can give the main storage a folder later.
 
-Every storage may take a folder of its own, the main storage included. The Portal calls the field **Folder**, and the **Storages** tab shows a **Folder** column. The column shows where the storage sits in the Quix Lake bucket, as a path: `/` for a storage at the bucket root, and `/archive/` for a storage in the folder `archive`. A storage at the bucket root is not automatically the main storage: the **Main** badge marks the main storage, and nothing else does.
+The Portal calls the field **Folder**, and the **Storages** tab shows a **Folder** column. The column shows where the storage sits in the Quix Lake bucket, as a path: `/` for a storage at the bucket root, and `/archive/` for a storage in the folder `archive`. Only one storage can show `/`, and that storage is the main storage. It carries the **Main** badge.
 
 ### Rename a storage
 
 You can rename a storage after you create it. Open **Edit storage** from the `⋮` menu on the **Storages** tab. Change the **Folder** field. The **Name** is a label for the Portal only, so a change to it moves nothing.
+
+You cannot empty the **Folder** field of a storage that is not the main storage. Only the main storage may sit at the bucket root.
 
 !!! warning "A rename moves the folder every client uses"
     The name is the folder, so a rename moves the whole storage to another folder of the Quix Lake bucket. The bucket name does not change. The old folder stops working at once: there is no alias and no grace period.
@@ -191,14 +200,38 @@ You can rename a storage after you create it. Open **Edit storage** from the `�
 
 ### Make a storage the main storage
 
-Any storage on the connection can become the main storage. Open the `⋮` menu on the **Storages** tab and click **Make this the main storage**. Quix asks you to type a word to confirm.
+Any storage on the connection can become the main storage. Open the `⋮` menu on the **Storages** tab and click **Make this the main storage**.
 
-The move changes these things:
+#### What the dialog asks
 
-* **Every storage keeps its folder.** The promoted storage answers under the same folder name as before, and so does the old main storage. **No running client of either storage breaks.**
+Only the main storage may sit at the root of the Quix Lake bucket. The storage that steps down must therefore leave the root. The dialog has **two steps** when the current main storage sits at the root:
+
+1. **Name a folder for the current main storage.** That storage stops being the main storage, so it can no longer sit at the root. Type the folder name you want for it. The [folder name rules](#folder-name-rules) apply.
+2. **Confirm.** Quix shows what changes and asks you to type a word to confirm.
+
+Quix changes nothing until you finish both steps. You can close the dialog at step 1 and nothing happens.
+
+When the current main storage **already has a folder**, the dialog asks for no folder name. Every storage then keeps the folder it has, and no address changes.
+
+#### What the move changes
+
+* **The promoted storage keeps its folder.** It answers under the same folder as before, and it takes the **Main** badge. No running client of that storage breaks.
+* **The storage that steps down moves, if it sat at the root.** It leaves the bucket root and answers under the folder you named. Its address changes:
+
+    ```text
+    s3://quixdevbucket/reports/day.csv            before the move, at the bucket root
+    s3://quixdevbucket/principal/reports/day.csv  after the move, in the folder principal
+    ```
+
+    A client that addressed the bucket root for that storage's data must use the folder from that moment. Quix restarts the deployments bound to that storage, so they take the new address. Update your own code, your saved paths, and your sink configuration.
+
+    Quix moves the permissions of that storage into its new folder, the same way a [rename](#rename-a-storage) does, so nobody loses access and you rebuild nothing.
+
+* **Nothing moves, if the storage that steps down already had a folder.** Every path keeps working.
 * **The Quix Lake bucket changes its name.** It takes the name of the bucket or container behind the promoted storage. Quix writes that name into a deployment at deploy time, so a service picks it up on its next deploy.
 * **The environment path moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](#the-environment-shortcut) below.
 * **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables. Quix never moves a running service to a storage that holds none of its history.
+* **A folder is permanent.** A promote never clears a folder, so a storage that has a folder keeps it, main storage or not. Nothing ever puts a storage back at the bucket root.
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
 
@@ -207,11 +240,13 @@ Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you
 
     1. Announce the change and stop writes.
     2. Copy every environment folder from the old main storage to the new one. Check the file counts and the byte totals.
-    3. Move the main storage in the Portal.
-    4. Read, write, and list through `s3://<workspaceId>/` to confirm the new main storage answers.
-    5. Keep the old storage on the connection until every check passes.
+    3. Pick the folder name for the current main storage, if it sits at the root. Tell every team that reads that storage.
+    4. Move the main storage in the Portal.
+    5. Read, write, and list through `s3://<workspaceId>/` to confirm the new main storage answers.
+    6. Read the storage that stepped down through its new folder to confirm it answers.
+    7. Keep the old storage on the connection until every check passes.
 
-    To go back, make the old storage the main storage again. Quix has no undo button.
+    To go back, make the old storage the main storage again. Quix has no undo button, and a move back does not undo the folder: that storage stays in the folder you named, and only the **Main** badge and the Quix Lake bucket name move back.
 
 ### The environment shortcut
 
