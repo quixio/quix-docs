@@ -198,6 +198,9 @@ You cannot empty the **Folder** field of a storage that is not the main storage.
 
     A deployment needs no redeploy for the bucket name, because the bucket name does not change. It does need a code change, because the folder in its keys changes. Code that still addresses the storage by [its old bucket name](#the-old-per-storage-bucket-name) breaks at once and must redeploy.
 
+!!! warning "A rename breaks every Lakehouse table on this connection"
+    Lakehouse tables on this connection stop working after the rename, until the Lakehouse catalog updates its stored paths.
+
 ### Make a storage the main storage
 
 Any storage on the connection can become the main storage. Open the `⋮` menu on the **Storages** tab and click **Make this the main storage**.
@@ -234,6 +237,9 @@ When the current main storage **already has a folder**, the dialog asks for no f
 * **A folder is permanent.** A promote never clears a folder, so a storage that has a folder keeps it, main storage or not. Nothing ever puts a storage back at the bucket root.
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
+
+!!! warning "A main storage move breaks every Lakehouse table on this connection"
+    Lakehouse tables on this connection stop working after the move, until the Lakehouse catalog updates its stored paths.
 
 !!! warning "Copy the data before you rely on the new main storage"
     A main storage move is a two-part job, and Quix only does the first part. Before you move the main storage:
