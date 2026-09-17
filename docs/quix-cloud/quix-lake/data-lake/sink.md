@@ -5,7 +5,7 @@ description: Connector that persists Kafka data into Quix Data Lake as raw Avro 
 
 # Data Lake Sink
 
-The Data Lake Sink writes Kafka topic data to your blob storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **[Replay](./replay.md)**.
+The Data Lake Sink writes Kafka topic data to your object storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **[Replay](./replay.md)**.
 
 Identifier: `DataLake.Sink`
 
@@ -40,7 +40,7 @@ Metadata:
 
 ## Prerequisites
 
-* A **Blob storage connection** is configured for the cluster (one per cluster).
+* A **Quix Lake connection** is configured for the cluster (one per cluster).
   The sink uses this connection; you do not paste storage credentials into the sink.
 * The connection **passes the Test** (write, list, query, delete round-trip).
 
@@ -159,7 +159,7 @@ See [Open format](./open-format.md) for full schemas and layout.
 
 ## Security
 
-* Uses the **cluster’s** blob storage connection (scoped credentials; one bucket/container per connection)
+* Uses the **cluster’s** Quix Lake connection (scoped credentials; one bucket/container per connection)
 * Honor your cloud controls: IAM roles, key rotation, server-side encryption, access logs, retention
 * The sink does not delete raw data; deletion flows through **Data Lake API** with soft-delete and trash retention
 
@@ -182,4 +182,4 @@ See [Open format](./open-format.md) for full schemas and layout.
 * [Data Lake API](./api.md)
 * [Replay](./replay.md)
 * [Lakehouse Sink](../lakehouse/sink.md) — query-first alternative
-* [Blob storage connections](../blob-storage.md)
+* [Quix Lake connections and storages](../blob-storage.md)
