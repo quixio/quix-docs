@@ -62,6 +62,8 @@ Example:
   desiredStatus: Running
 ```
 
+`cpu` is in millicores and `memory` in MB. The `resources` block can also carry `requests` to reserve a share of each limit; see [deployment sizes and resources](./deployment-sizes.md#resources-in-quixyaml).
+
 Then use the following commands:
 
 - **Sync local changes**: Use the `quix local pipeline sync --update` command. This updates your pipeline in Quix Cloud based on your `quix.yaml` file.

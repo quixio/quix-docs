@@ -74,6 +74,7 @@ nav:
           - 'External destination': 'quix-cloud/applications/integrate-data/external-destination.md'
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
+      - 'Deployment sizes and resources': 'quix-cloud/deployments/deployment-sizes.md'
       - 'Variables':
         - 'Project variables': 'quix-cloud/deployments/project-variables.md'
         - 'Global variables': 'quix-cloud/deployments/global-variables.md'

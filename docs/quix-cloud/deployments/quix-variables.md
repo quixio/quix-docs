@@ -4,7 +4,7 @@
 These [environment variables](./environment-variables.md) are automatically injected by the Quix platform into your deployment's runtime environment.
 Use them to access deployment, application, and environment-specific metadata in your project code.
 
-State-related variables are only present when [state management](./state-management.md) is enabled, and `Quix__Deployment__Network__PublicUrl` is only present when [public access](./deploy-public-page.md) is enabled.
+State-related variables are only present when [state management](./state-management.md) is enabled, and `Quix__Deployment__Network__PublicUrl` is only present when [public access](./deploy-public-page.md) is enabled. The `Quix__Deployment__Limits__*` variables carry the deployment's limits; the resource requests are not exposed. See [deployment sizes and resources](./deployment-sizes.md#limits-and-requests) for the difference.
 
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|
