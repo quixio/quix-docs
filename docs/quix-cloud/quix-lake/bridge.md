@@ -52,6 +52,8 @@ Only the folders you shared are visible. A path between two shared folders answe
 6. Open the bridge console. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**.
 7. On the **Connection** tab, paste the pairing token, then click **Connect this bridge**.
 
+During the preview the builds are not signed. Both install scripts check the download against `SHA256SUMS` from the same release and stop on a mismatch.
+
 The install command carries no token. You paste the token into the console, so it never appears on a command line.
 
 ## Share a folder
