@@ -2,6 +2,14 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-09-quix-lake-bridge | PREVIEW
+
+`NEW FEATURES`
+
+- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens one outbound connection to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the Quix path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
+
+    See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge.html) for more details.
+
 ## 2026-08-multi-storage | 28 AUG 2026
 
 `NEW FEATURES`

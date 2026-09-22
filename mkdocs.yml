@@ -103,6 +103,7 @@ nav:
       - 'Storage explorer': 'quix-cloud/quix-lake/storage-explorer.md'
       - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'S3-compatible endpoint': 'quix-cloud/quix-lake/s3-endpoint.md'
+      - 'Quix Lake Bridge': 'quix-cloud/quix-lake/bridge.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
