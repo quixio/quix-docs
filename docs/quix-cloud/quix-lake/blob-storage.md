@@ -149,6 +149,8 @@ Each storage keeps its own bucket or container and its own credentials behind th
 
 Add a storage when you want data in a different bucket, region, or provider. You give your services no second connection to manage.
 
+A storage can also serve folders on a machine you own, such as a local disk or a network share, through the [Quix Lake Bridge](./bridge.md) (preview).
+
 To add one:
 
 1. Open **Settings → Quix Lake** and select the connection.
