@@ -11,7 +11,7 @@ Quotas are managed in one place: **Organization Settings > Project Quotas**. A p
 
 !!! info "Beta"
 
-    Project quotas are in Beta. The Portal marks the page with a Beta badge.
+    Project quotas are in Beta. The **Project Quotas** entry in the Organization Settings sidebar carries a Beta badge.
 
 !!! note "Project quotas are not organization resource limits"
 
@@ -23,7 +23,7 @@ Quotas are managed in one place: **Organization Settings > Project Quotas**. A p
 
 A quota has two independent axes, **CPU** (in cores) and **memory** (in GB). Each axis is either a pool size or **Unlimited**. You can cap CPU and leave memory unlimited, or the other way round.
 
-What counts against the pool is every deployment in the project's environments that is not stopped, summed as `resource limit × replicas`. That includes deployments that are building, queued, starting, stopping, or in a runtime error. Only stopped deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only.
+What counts against the pool is every deployment in the project's environments that is running or on its way to running, summed as `resource limit × replicas`. That includes deployments that are queued, building, deploying, starting, stopping, or in a runtime error. Stopped, completed, failed, and deleting deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only.
 
 ### There is no on/off switch
 
@@ -34,7 +34,7 @@ Enforcement follows the quota itself:
 
 There is no feature toggle to look for, and projects that have never had a quota are unlimited.
 
-Saving a smaller pool never stops anything that is already running. The project refuses the next increase or start until its usage falls back under the pool.
+Saving a smaller pool never stops anything that is already running. The project refuses the next increase, and the next start of a deployment that is not running, until its usage falls back under the pool.
 
 ### Environment caps
 
@@ -99,7 +99,7 @@ Saving fails, with the reason shown in the dialog, when:
 | A percentage is outside 1 to 100 | Outside the range a share can take |
 | A cap is larger than its pool | Bound 1 above |
 | The caps on an axis add up to more than the pool | Bound 2 above |
-| A cap refers to an environment that no longer belongs to the project | The environment was deleted after the cap was set |
+| A cap refers to an environment that no longer belongs to the project | The environment was deleted while you were editing the quota |
 
 ## Read the overview
 
@@ -115,10 +115,10 @@ Quotas are checked whenever a deployment would take more from the pool:
 
 - creating a deployment
 - editing a deployment's CPU, memory, or replicas
-- starting a stopped deployment
+- starting a deployment that is not running (stopped, completed, or failed)
 - syncing an environment, since a sync creates and updates deployments
 
-The check is on the increase. Lowering a deployment's CPU, memory, or replicas is always accepted, even if the project is already over its quota, so you can always work your way back under it.
+The check is on the increase. Lowering a deployment's CPU, memory, or replicas is never refused by a project or environment quota, even if the project is already over it, so you can always work your way back under it. Your subscription's organization limits are checked separately.
 
 A refused request reports which bound was hit and how much of it is left, in millicores (1 core = 1000 millicores) and MB (1 GB = 1024 MB):
 
@@ -147,6 +147,6 @@ To get a refused deployment running, do one of the following:
 
 ## Next steps
 
-- [Syncing an environment](syncing-environment.md): a sync that would exceed a quota is refused with the messages above.
+- [Syncing an environment](syncing-environment.md): a sync stops at the first deployment that would exceed a quota, with the messages above.
 - [Roles and permissions](../roles.md): who can manage organization settings.
 - [Deployments overview](../deployments/overview.md): where a deployment's CPU, memory, and replicas are set.
