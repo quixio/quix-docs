@@ -20,12 +20,14 @@ A deployment carries two numbers per resource. They mean different things at run
 | Aspect | Limit | Request |
 |---|---|---|
 | What it is | The most a single replica may use. | The amount reserved for the replica when it is scheduled. |
-| CPU at runtime | The replica is throttled when it reaches the limit. | The replica is guaranteed at least this much CPU when the node is under contention. |
-| Memory at runtime | A replica that exceeds the limit is terminated and restarted. | The replica is guaranteed at least this much memory. |
+| CPU at runtime | The replica cannot use more CPU than the limit. | When the node's CPU is contended, replicas with larger requests get more CPU time. |
+| Memory at runtime | A replica that uses more than the limit can be stopped by the kernel. A service replica is then restarted. A job is not restarted. | Used mainly for scheduling. Under node memory pressure, replicas using more than their request are the first candidates for eviction. |
 | Scheduling | Not used for placement. | The replica is only placed on a node with this much unallocated CPU and memory. |
 | Units | Millicores and MB. `1000` millicores is one core. | Millicores and MB. Always less than or equal to the limit. |
 
-The request is what the scheduler counts. A deployment with a `1000` millicore limit and a `100` millicore request occupies `100` millicores of the node's schedulable CPU, can burst to a full core when the node has spare capacity, and is the first to be throttled when it does not. Raising the request makes the replica's performance more predictable and lets fewer replicas fit on the cluster.
+The request is what the scheduler counts. A deployment with a `1000` millicore limit and a `100` millicore request occupies `100` millicores of the node's schedulable CPU and can burst to a full core when the node has spare capacity. When the node is busy, it gets CPU time in proportion to its small request. Raising the request makes the replica's performance more predictable and lets fewer replicas fit on the cluster.
+
+These are standard Kubernetes behaviors, described in [Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [Node-pressure Eviction](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/).
 
 In the portal a request is expressed as a **reservation**: a percentage of the limit. A `40%` CPU reservation on a `1000` millicore limit reserves `400` millicores. In `quix.yaml` the request is written as an absolute number of millicores or MB.
 
@@ -43,11 +45,11 @@ The page has three settings above the catalog:
 |---|---|
 | Default reservations | The organization-wide request percentages. See [Organization default reservations](#organization-default-reservations). |
 | Enable deployment sizes | When on, the deployment dialog shows a **Size** dropdown. When off, users enter CPU and memory directly and sizes are ignored, even if some are defined. |
-| Enforce deployment size limits | Only shown when sizes are enabled. When on, the **Custom** option disappears from the dialog and no deployment may exceed the largest CPU or memory of the sizes its user is allowed to pick. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes`. |
+| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and no deployment may exceed the largest CPU or memory among the sizes the user has access to. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
 
 ### The starter catalog
 
-The first time an organization with no sizes opens the catalog with sizes enabled, the platform seeds four:
+The first time the size list is requested for an organization that has sizes enabled and no sizes defined, the platform seeds four:
 
 | Size | CPU | Memory | Default |
 |---|---|---|---|
@@ -63,9 +65,9 @@ Edit, reorder, delete or add to these freely. The seed runs once per organizatio
 | Field | Notes |
 |---|---|
 | Name | Letters, digits and spaces, up to 25 characters in the dialog, unique within the organization. |
-| CPU (cores) and Memory (GB) | The limits every deployment on this size gets. Stored as millicores and MB. |
+| CPU (cores) and Memory (GB) | The size's CPU and memory limits. The dialog takes cores and GB, with 1 GB = 1024 MB, and stores millicores and MB. The seeded `S` size's 2000 MB therefore shows as 1.95 GB in the catalog. |
 | CPU/Memory reservation | Optional. When on, the size carries request percentages (`0` to `100` of each limit) that the deployment dialog shows read-only for deployments on this size. The platform does not currently use them when it schedules a deployment: the request resolves from the deployment's own explicit request or the [organization default reservations](#organization-default-reservations), as described in [How a request is resolved](#how-a-request-is-resolved). |
-| Restrict to specific users or groups | Optional. When on, only the selected users and [groups](../roles.md) can pick the size. Admins always see every size. |
+| Restrict to specific users or groups | Optional. When on, only the selected users and groups have access to the size, which sets their enforcement limit and what the API returns to them. Admins see every size in Organization Settings. In the deployment dialog, the Size dropdown offers unrestricted sizes and restricted sizes that select the user directly, so an admin or group member who is not selected individually does not see a restricted size there. |
 
 Two more properties are set from the catalog rather than the edit dialog:
 
@@ -81,8 +83,8 @@ The **Deployment resources** panel of the [deployment dialog](./overview.md#depl
 | Organization setting | What the user sees |
 |---|---|
 | Sizes disabled | CPU and memory sliders. The Size dropdown shows only **Custom** and an info icon pointing at Organization Settings. No reservation controls. |
-| Sizes enabled, limits not enforced | The Size dropdown lists the user's allowed sizes plus **Custom**. Picking a size locks the sliders to its values. Picking Custom unlocks them, bounded by your subscription's CPU and memory quota. |
-| Sizes enabled, limits enforced | The Size dropdown lists only the allowed sizes. Custom appears, disabled, only for an existing deployment whose CPU and memory match no size. |
+| Sizes enabled, limits not enforced | The Size dropdown lists the sizes offered to the user plus **Custom**. Picking a size locks the sliders to its values. Picking Custom unlocks them, bounded by your subscription's CPU and memory quota. |
+| Sizes enabled, limits enforced | The Size dropdown lists only the sizes offered to the user. Custom appears, disabled, only for an existing deployment whose CPU and memory match no size. |
 
 The **CPU/Memory reservation** toggle sits next to the dropdown whenever sizes are enabled:
 
@@ -90,7 +92,7 @@ The **CPU/Memory reservation** toggle sits next to the dropdown whenever sizes a
 - With **Custom** selected and limits not enforced, the toggle is the user's. Switching it on seeds the sliders with the organization defaults, and the values saved become an explicit request on the deployment. Switching it off clears any explicit request so the deployment inherits again.
 - With limits enforced, the toggle is locked and the organization defaults apply.
 
-The collapsed panel header summarizes the result, for example `Size: S (1 cores / 2 GB) | Reservation: 0.4 cores (40%) / 0.8 GB (40%) | Replicas: 1`.
+The collapsed panel header summarizes the result. With sizes enabled and **Custom** set to 1 core, 2 GB and a 40% reservation, it reads `Size: Custom (1 cores / 2 GB) | Reservation: 0.4 cores (40%) / 0.8 GB (40%) | Replicas: 1`. The reservation part appears only when the reservation toggle is on.
 
 ## How a request is resolved
 
@@ -146,9 +148,9 @@ deployments:
 
 - `limits.cpu` and `requests.cpu` are millicores. `limits.memory` and `requests.memory` are MB.
 - `requests` is optional, and each axis is optional inside it. An omitted axis inherits from the organization defaults described above. A present axis is an explicit request and must not exceed its limit.
-- `quix.yaml` does not name a size. A deployment picked from the catalog is written back as its CPU and memory numbers, and the dialog matches those numbers against the catalog when it is next opened.
+- `quix.yaml` has no size field. A deployment records only its CPU and memory numbers, never the name of the size it was created from.
 - On sync, the file is the source of truth for requests. If a deployment had an explicit request set from the portal and the file omits that axis, the sync clears it.
-- With **Enforce deployment size limits** on, a sync whose limits exceed the largest size the syncing user may pick fails validation.
+- With **Enforce deployment size limits** on, a sync whose limits exceed the largest size the syncing user has access to fails validation.
 
 The [YAML 2.0 reference](../projects/yaml-2-0.md) documents the rest of the deployment fields.
 
@@ -158,7 +160,7 @@ The [YAML 2.0 reference](../projects/yaml-2-0.md) documents the rest of the depl
 |---|---|---|---|
 | CPU and memory limits | Per size, in the catalog | Size dropdown, or the sliders with Custom | `resources.limits` |
 | Request percentages | The organization defaults. Per-size percentages can be set but are not applied today | Reservation toggle with Custom, saved as absolute values | `resources.requests`, absolute |
-| Which sizes exist and who may pick them | Catalog, restriction per size | Not editable | Not expressed |
+| Which sizes exist and who has access to them | Catalog, restriction per size | Not editable | Not expressed |
 | Enable sizes, enforce limits | Two toggles above the catalog | Not editable | Not expressed |
 | Replicas | Not expressed | Replicas field | `resources.replicas` |
 
