@@ -48,9 +48,9 @@ rm mkdocs-local.yml
 
 ## Accuracy
 
-- Document intended product behavior, confirmed against the Portal backend (`Quix.Portal.Backend`) or frontend (`Quix.Portal.Frontend`) source at `origin/master`.
-- Never document a known defect as behavior. File a ticket for it instead.
-- Evidence ledgers that cite internal code paths stay out of this repo (pages and commits) and out of PR text.
+- Document only shipped behavior, proven against the product source at its default branch. A ticket, PR, or another docs page is a lead, never proof.
+- Never document a known defect as design, and never document intended behavior that has not shipped. Scope each claim to the cases the code proves and report the defect for a ticket instead.
+- Evidence ledgers cite internal source paths, so they stay out of this repo (pages and commits) and out of PR text.
 
 ## Pull requests
 
