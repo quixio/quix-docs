@@ -87,7 +87,7 @@ Inheritance works the same way for a group's role assignments: set a base role f
 
 A user group is a named set of role assignments that applies to every member of the group. You assign roles to the group once, at the same [levels](#permission-levels) and with the same [inheritance](#inheritance) as for a single user, and add users as members. A user can be a member of one group at a time.
 
-Creating groups, managing members, the group's storage and Quix AI settings, and restricting deployment sizes to groups are covered in [User groups](./access-security/user-groups.md). This section explains how a group's roles combine with a user's own.
+Creating groups, managing members, and restricting deployment sizes to groups are covered in [User groups](./access-security/user-groups.md). This section explains how a group's roles combine with a user's own.
 
 ### How group roles and user roles combine
 
@@ -105,7 +105,7 @@ Other rules worth knowing:
 - Adding a user to a group does not turn the toggle on. Removing a user from their group turns it off, so their own assignments apply again. Moving a user to another group in the Quix Cloud UI removes them from their old group first, so the toggle is turned off; turn it on again for them to inherit the new group's roles.
 - If the toggle is on and the group grants no roles, the user has **no** permissions. Quix Cloud does not fall back to the user's own assignments.
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
-- Group membership still applies when the toggle is off: the member can use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups), can receive the group's storage permissions, and can inherit the group's Quix AI setting. Storage and Quix AI each have their own per-user setting that decides whether the group's value applies - see [What each group tab controls](./access-security/user-groups.md#what-each-group-tab-controls).
+- Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups).
 
 The Users list shows each user's role and, when it comes from a group, the group it is inherited from. A member with no role assignments of their own is also shown their group's role while **Inherit from group** is off, but they have no permissions until the toggle is turned on.
 
@@ -220,5 +220,4 @@ This means a PAT can only have equal or fewer permissions than the user who crea
 - [Personal Access Tokens](./access-security/personal-access-token.md) - Token-based authentication
 - [User groups](./access-security/user-groups.md) - Create groups, manage members, and restrict deployment sizes to groups
 - [Deployment sizes and resources](./deployments/deployment-sizes.md) - Defining sizes, requests and limits
-- [Storage Access Gateway](./quix-lake/secure-storage-access.md) - Folder-level storage permissions that groups can grant
 - [Quix CLI](../quix-cli/overview.md) - Command-line interface documentation
