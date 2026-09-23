@@ -45,7 +45,7 @@ The page has three settings above the catalog:
 |---|---|
 | Default reservations | The organization-wide request percentages. See [Organization default reservations](#organization-default-reservations). |
 | Enable deployment sizes | When on, the deployment dialog's **Size** dropdown lists the sizes offered to the user, as described in [Choosing resources in the deployment dialog](#choosing-resources-in-the-deployment-dialog). When off, it offers only **Custom**, users enter CPU and memory directly, and sizes are ignored, even if some are defined. |
-| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and creating or updating a deployment is rejected if its CPU or memory exceeds the largest among the sizes the user has access to. Turning it on does not change existing deployments. Creating a dev session with CPU or memory set, or changing a dev session's CPU or memory, is checked the same way. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
+| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and creating or updating a deployment is rejected if its CPU or memory exceeds the largest among the sizes the user has access to. Turning it on does not change existing deployments. Creating or changing a dev session is checked the same way, for each of CPU and memory that the request sets. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
 
 ### The starter catalog
 
@@ -71,7 +71,7 @@ Edit, reorder, delete or add to these freely. The seed runs once per organizatio
 
 Two more properties are set from the catalog rather than the edit dialog:
 
-- **Default.** At most one size can be the default. For a new deployment, the dialog first preselects an offered size that exactly matches its starting CPU and memory. When none matches, it preselects the default if that is offered to the user, otherwise the smallest offered size by CPU, then memory. An organization does not need a default: the last one can be unmarked or deleted.
+- **Default.** At most one size can be the default. For a new deployment, the dialog first preselects an offered size that equals the CPU and memory the dialog opens with, compared in cores and in GB of 1024 MB. When none matches, it preselects the default if that is offered to the user, otherwise the smallest offered size by CPU, then memory. An organization does not need a default: the last one can be unmarked or deleted.
 - **Order.** Drag rows to set the order the dropdown lists them in. Sizes with the same position sort by CPU, then memory.
 
 Deleting a size does not change the deployments that used it: they keep their CPU and memory.
