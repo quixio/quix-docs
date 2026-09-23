@@ -118,7 +118,7 @@ Quotas are checked whenever a deployment would take more from the pool:
 - starting a deployment that is not running (stopped, completed, or failed)
 - syncing an environment, since a sync creates and updates deployments
 
-The check is on the increase. Lowering a deployment's CPU, memory, or replicas is never refused by a project or environment quota, even if the project is already over it, so you can always work your way back under it. Your subscription's organization limits are checked separately.
+The check is on the increase. Lowering a running deployment's CPU, memory, or replicas is never refused by a project or environment quota, even if the project is already over it, so you can always work your way back under it. Your subscription's organization limits are checked separately.
 
 A refused request reports which bound was hit and how much of it is left, in millicores (1 core = 1000 millicores) and MB (1 GB = 1024 MB):
 
@@ -130,10 +130,10 @@ Exceeded project CPU quota. 100 millicores remaining of the 100 millicores proje
 Exceeded environment memory quota. 512 MB remaining of the 2048 MB environment quota.
 ```
 
-The same message reaches you wherever the request came from. The Portal shows it as the error for the action you attempted. The CLI prints it as the reason a sync failed:
+The Quix Cloud API returns this message for the refused request, and a sync records it as the error of the deployment it could not apply. The CLI prints one line for each deployment a sync could not apply:
 
 ```text
-✗ Sync failed: Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
+✗ Sync failed for deployment '<deployment>': Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
 ```
 
 The word after `Exceeded` names the scope: `project`, `environment`, or `organisation`. An `organisation` message comes from your subscription's resource limits, not from a project quota.
