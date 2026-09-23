@@ -86,6 +86,8 @@ You need to be an organization admin to open **Organization Settings** and to cr
 
 The dialog keeps a running total under each bar. If the caps on an axis add up to more than its pool, it reports **Over-allocated** and the save button stays disabled until you reduce the caps or grow the pool.
 
+![Edit resource quota dialog: a 1-core CPU pool, one environment capped at 50% of the pool, and one environment left uncapped](../../images/project-quotas/quota-dialog.png)
+
 To change a quota later, open the project row's menu and choose **Edit quota**. To lift the quota entirely, choose **Remove quota**; the project's deployments become unlimited immediately.
 
 ### Values that are rejected
@@ -106,6 +108,8 @@ A quota can't be saved, and the dialog shows why, when:
 The **Project Quotas** page lists only the projects that have a quota. Each project row shows, per axis, a meter of what is in use against the pool, for example `1.5 / 4 cores · 38%`, or the **∞ Unlimited** symbol with the current usage when that axis has no pool. The meter changes color at 80% and again at 90% of the pool.
 
 Expand a project to see its environments. A capped environment shows its cap and a meter against it, with a **near cap** marker at 90%. An uncapped environment shows **Shares pool** and its current usage.
+
+![Project Quotas page with one project expanded: 1-core and 2 GB pools, and two uncapped environments that share the pool](../../images/project-quotas/quota-overview.png)
 
 Usage is read when the page opens. Click the refresh button to read it again.
 
