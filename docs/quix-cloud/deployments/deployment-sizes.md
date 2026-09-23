@@ -39,6 +39,8 @@ The limits, but not the requests, are exposed to your code as the `Quix__Deploym
 
 A deployment size is a named CPU and memory pair, such as `S` = 1 core / 2000 MB, that users pick from a dropdown instead of typing numbers. Sizes are defined per organization in **Organization Settings > Deployment Sizes** and need the organization update permission, so in practice an [Admin](../roles.md).
 
+![The Deployment Sizes settings page: the default reservations row, the Enable deployment sizes and Enforce deployment size limits toggles, and a catalog of sizes with their CPU, memory, reservation and access](../../images/deploy/deployment-sizes-catalog.png){width=80%}
+
 The page has three settings above the catalog:
 
 | Setting | Effect |
@@ -61,6 +63,8 @@ The first time the size list is requested for an organization that has sizes ena
 Edit, reorder, delete or add to these freely. The seed runs once per organization, so deleting them all leaves an empty catalog.
 
 ### What a size defines
+
+![The Edit deployment size dialog: name, CPU and memory, the CPU/Memory reservation toggle with its CPU and memory percentage sliders, and the Restrict to specific users or groups toggle](../../images/deploy/deployment-size-edit-dialog.png){width=60%}
 
 | Field | Notes |
 |---|---|
@@ -112,6 +116,8 @@ A deployment size's own reservation percentages are displayed in the deployment 
 ## Organization default reservations
 
 The **Default reservations** row at the top of **Organization Settings > Deployment Sizes** holds the organization-wide request percentages. They apply to every deployment that has no explicit request of its own, including deployments created while sizes are disabled.
+
+![The Default reservations dialog: the CPU/Memory reservation toggle and the default CPU and memory reservation percentages](../../images/deploy/deployment-request-defaults-dialog.png){width=60%}
 
 The row shows where the current values come from:
 
