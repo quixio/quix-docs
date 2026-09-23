@@ -44,8 +44,8 @@ The page has three settings above the catalog:
 | Setting | Effect |
 |---|---|
 | Default reservations | The organization-wide request percentages. See [Organization default reservations](#organization-default-reservations). |
-| Enable deployment sizes | When on, the deployment dialog shows a **Size** dropdown. When off, users enter CPU and memory directly and sizes are ignored, even if some are defined. |
-| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and no deployment may exceed the largest CPU or memory among the sizes the user has access to. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
+| Enable deployment sizes | When on, the deployment dialog's **Size** dropdown lists the catalog sizes. When off, it offers only **Custom**, users enter CPU and memory directly, and sizes are ignored, even if some are defined. |
+| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and creating or updating a deployment is rejected if its CPU or memory exceeds the largest among the sizes the user has access to. Turning it on does not change existing deployments. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
 
 ### The starter catalog
 
@@ -67,14 +67,14 @@ Edit, reorder, delete or add to these freely. The seed runs once per organizatio
 | Name | Letters, digits and spaces, up to 25 characters in the dialog, unique within the organization. |
 | CPU (cores) and Memory (GB) | The size's CPU and memory limits. The dialog takes cores and GB, with 1 GB = 1024 MB, and stores millicores and MB. The seeded `S` size's 2000 MB therefore shows as 1.95 GB in the catalog. |
 | CPU/Memory reservation | Optional. When on, the size carries request percentages (`0` to `100` of each limit) that the deployment dialog shows read-only for deployments on this size. The platform does not currently use them when it schedules a deployment: the request resolves from the deployment's own explicit request or the [organization default reservations](#organization-default-reservations), as described in [How a request is resolved](#how-a-request-is-resolved). |
-| Restrict to specific users or groups | Optional. When on, only the selected users and groups have access to the size, which sets their enforcement limit and what the API returns to them. Admins see every size in Organization Settings. In the deployment dialog, the Size dropdown offers unrestricted sizes and restricted sizes that select the user directly, so an admin or group member who is not selected individually does not see a restricted size there. |
+| Restrict to specific users or groups | Optional. When on, the size is available only to the selected users, members of the selected groups, and anyone with the organization update permission, in practice Admins, who have access to every size. Access decides what the API returns to a user and the limit enforced for them. In the deployment dialog, the Size dropdown offers unrestricted sizes and restricted sizes that select the user directly, so an admin or group member who is not selected individually does not see a restricted size there. |
 
 Two more properties are set from the catalog rather than the edit dialog:
 
-- **Default.** At most one size can be the default. It is preselected for new deployments. Without a default, the smallest size by CPU, then memory, is preselected. An organization does not need a default: the last one can be unmarked or deleted.
+- **Default.** At most one size can be the default. It is preselected for new deployments when it is among the sizes offered to the user. Otherwise the smallest offered size by CPU, then memory, is preselected. An organization does not need a default: the last one can be unmarked or deleted.
 - **Order.** Drag rows to set the order the dropdown lists them in. Sizes with the same position sort by CPU, then memory.
 
-Deleting a size does not touch the deployments that used it. They keep their CPU and memory until someone edits them, at which point the dialog shows them as **Custom** and, if limits are enforced, requires a catalog size to be picked.
+Deleting a size does not change the deployments that used it: they keep their CPU and memory.
 
 ## Choosing resources in the deployment dialog
 
@@ -84,7 +84,7 @@ The **Deployment resources** panel of the [deployment dialog](./overview.md#depl
 |---|---|
 | Sizes disabled | CPU and memory sliders. The Size dropdown shows only **Custom** and an info icon pointing at Organization Settings. No reservation controls. |
 | Sizes enabled, limits not enforced | The Size dropdown lists the sizes offered to the user plus **Custom**. Picking a size locks the sliders to its values. Picking Custom unlocks them, bounded by your subscription's CPU and memory quota. |
-| Sizes enabled, limits enforced | The Size dropdown lists only the sizes offered to the user. Custom appears, disabled, only for an existing deployment whose CPU and memory match no size. |
+| Sizes enabled, limits enforced | The Size dropdown lists only the sizes offered to the user. When you edit an existing deployment, a disabled **Custom** entry can appear, and a size must be picked before saving. |
 
 The **CPU/Memory reservation** toggle sits next to the dropdown whenever sizes are enabled:
 
@@ -92,7 +92,7 @@ The **CPU/Memory reservation** toggle sits next to the dropdown whenever sizes a
 - With **Custom** selected and limits not enforced, the toggle is the user's. Switching it on seeds the sliders with the organization defaults, and the values saved become an explicit request on the deployment. Switching it off clears any explicit request so the deployment inherits again.
 - With limits enforced, the toggle is locked and the organization defaults apply.
 
-The collapsed panel header summarizes the result. With sizes enabled and **Custom** set to 1 core, 2 GB and a 40% reservation, it reads `Size: Custom (1 cores / 2 GB) | Reservation: 0.4 cores (40%) / 0.8 GB (40%) | Replicas: 1`. The reservation part appears only when the reservation toggle is on.
+The collapsed panel header summarizes the result. For a service with sizes enabled and **Custom** set to 1 core, 2 GB and a 40% reservation, it reads `Size: Custom (1 cores / 2 GB) | Reservation: 0.4 cores (40%) / 0.8 GB (40%) | Replicas: 1`. The reservation part appears only when the reservation toggle is on and reserves more than zero, and the replica count only for services.
 
 ## How a request is resolved
 
@@ -162,6 +162,6 @@ The [YAML 2.0 reference](../projects/yaml-2-0.md) documents the rest of the depl
 | Request percentages | The organization defaults. Per-size percentages can be set but are not applied today | Reservation toggle with Custom, saved as absolute values | `resources.requests`, absolute |
 | Which sizes exist and who has access to them | Catalog, restriction per size | Not editable | Not expressed |
 | Enable sizes, enforce limits | Two toggles above the catalog | Not editable | Not expressed |
-| Replicas | Not expressed | Replicas field | `resources.replicas` |
+| Replicas | Not expressed | Replicas field, services only | `resources.replicas` |
 
 Dev sessions have their own resource limits, documented with [VS Code dev sessions](../applications/dev-sessions/vscode-devsessions.md#resource-limits).
