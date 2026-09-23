@@ -91,23 +91,23 @@ Creating groups, managing members, the group's storage and Quix AI settings, and
 
 ### How group roles and user roles combine
 
-Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Permissions** tab. The toggle is only available for users who belong to a group.
+Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group.
 
 | Inherit from group | Effective role assignments |
 |--------------------|----------------------------|
 | **Off** (default) | The user's own assignments. The group's role assignments are ignored. |
-| **On** | The group's assignments **replace** the user's own assignments at every level. The user's own assignments are kept but ignored, and can't be edited while the toggle is on. |
+| **On** | The group's assignments **replace** the user's own assignments at every level. The user's own assignments are kept but ignored. They can't be edited in the Quix Cloud UI while the toggle is on; changes made with the CLI or API are stored but have no effect until the toggle is turned off. |
 
 The two sets are never merged. If a user's direct role and their group's role disagree at the same level - say the user is **Admin** on a project and the group is **Viewer** on it - the permission source decides: with the toggle off the user is Admin there, with it on they are Viewer. The same applies at every other level, including levels where only one of the two sets has an assignment.
 
 Other rules worth knowing:
 
-- Adding a user to a group does not turn the toggle on. Removing a user from their group turns it off, so their own assignments apply again. Moving a user to another group leaves the toggle as it is, so a user who inherits starts inheriting the new group's roles immediately.
+- Adding a user to a group does not turn the toggle on. Removing a user from their group turns it off, so their own assignments apply again. Moving a user to another group in the Quix Cloud UI removes them from their old group first, so the toggle is turned off; turn it on again for them to inherit the new group's roles.
 - If the toggle is on and the group grants no roles, the user has **no** permissions. Quix Cloud does not fall back to the user's own assignments.
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
-- Group membership still applies when the toggle is off: the member can use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups), receives the group's storage permissions, and is covered by the group's Quix AI setting.
+- Group membership still applies when the toggle is off: the member can use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups), can receive the group's storage permissions, and can inherit the group's Quix AI setting. Storage and Quix AI each have their own per-user setting that decides whether the group's value applies - see [What each group tab controls](./access-security/user-groups.md#what-each-group-tab-controls).
 
-The Users list shows each user's effective role and, when it comes from a group, the group it is inherited from.
+The Users list shows each user's role and, when it comes from a group, the group it is inherited from. A member with no role assignments of their own is also shown their group's role while **Inherit from group** is off, but they have no permissions until the toggle is turned on.
 
 ## Best practices
 
@@ -118,7 +118,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use groups for teams**: Put each team in a group, assign roles to the group, and turn on **Inherit from group** for its members so access changes in one place
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
 - **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
-- **Restrict large deployment sizes**: Limit expensive sizes to the groups that need them so a mistake in a deployment dialog can't consume them
+- **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes. The deployment dialog doesn't yet list sizes allowed only through a group - see [Restricting deployment sizes to users and groups](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups)
 
 ## Managing roles with the CLI
 
