@@ -127,6 +127,7 @@ nav:
       - 'Personal access token (PAT)': 'quix-cloud/access-security/personal-access-token.md'
       - 'Streaming token': 'quix-cloud/access-security/streaming-token.md'
       - 'Roles and permissions': 'quix-cloud/roles.md'
+      - 'User groups': 'quix-cloud/access-security/user-groups.md'
       - 'Security and compliance': 'quix-cloud/security.md'
     - 'APIs':
       - 'Overview': 'quix-cloud/apis/overview.md'
