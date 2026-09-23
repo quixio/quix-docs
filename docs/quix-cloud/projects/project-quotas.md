@@ -118,7 +118,7 @@ Quotas are checked whenever a deployment would take more from the pool:
 - starting a stopped deployment
 - syncing an environment, since a sync creates and updates deployments
 
-The check is on the increase. Lowering a running deployment's CPU, memory, or replicas is always accepted, even if the project is already over its quota, so you can always work your way back under it. A stopped deployment has nothing to lower from, so any edit to it is judged as a fresh request.
+The check is on the increase. Lowering a deployment's CPU, memory, or replicas is always accepted, even if the project is already over its quota, so you can always work your way back under it.
 
 A refused request reports which bound was hit and how much of it is left, in millicores (1 core = 1000 millicores) and MB (1 GB = 1024 MB):
 
