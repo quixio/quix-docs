@@ -207,7 +207,7 @@ It then looks at the three [permission levels](#permission-levels) from most spe
 
 When using [Personal Access Tokens](./access-security/personal-access-token.md) (PATs), the effective permissions are the **intersection** of:
 
-- The user's permissions (based on their role)
+- The user's permissions (based on their role, or their group's roles when **Inherit from group** is on)
 - The token's configured permissions
 
 This means a PAT can only have equal or fewer permissions than the user who created it. This is useful for creating tokens with limited scope, such as read-only tokens for monitoring.

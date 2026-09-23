@@ -1,3 +1,8 @@
+---
+title: User groups
+description: Assign roles to a group once instead of to each user, choose per user whether they inherit the group's roles, and restrict deployment sizes to specific users or groups.
+---
+
 # User groups
 
 A user group is a named set of role assignments that applies to every member of the group. Instead of assigning the same roles to each engineer on a team, you assign them once to the group and add the engineers as members. A group can also unlock restricted deployment sizes for its members.
