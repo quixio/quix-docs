@@ -120,7 +120,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use groups for teams**: Put each team in a group, assign roles to the group, and turn on **Inherit from group** for its members so access changes in one place
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
 - **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
-- **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes. The deployment dialog doesn't yet list sizes allowed only through a group - see [Restricting deployment sizes to users and groups](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups)
+- **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes - see [Restricting deployment sizes to users and groups](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups)
 
 ## Managing roles with the CLI
 

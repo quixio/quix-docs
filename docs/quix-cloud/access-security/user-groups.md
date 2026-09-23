@@ -68,9 +68,6 @@ Group membership alone is enough - the member's **Inherit from group** setting d
 
 The restriction is enforced on deployments only when your organisation has deployment sizes enabled and **enforces deployment size limits**. Then a deployment's CPU and memory limits are capped by the highest CPU and the highest memory among the sizes available to the user, and a user with no available sizes cannot deploy at all until an Admin allows them a size. Without enforcement, users can still enter custom CPU and memory.
 
-!!! warning "Sizes shown in the deployment dialog"
-    The deployment dialog currently lists unrestricted sizes and restricted sizes that name you directly in their allowed users. A restricted size that doesn't name you directly doesn't appear, even if a group allows you or you are an organisation Admin. When limits are enforced, the dialog's CPU and memory cap is also based only on the sizes it lists. Until this is fixed, add the users who need to pick a restricted size in the dialog to the size's allowed users.
-
 !!! note "An empty allow list is not a restriction"
     In the Quix Cloud UI, a restriction only takes effect when at least one user or group is selected. Turning the toggle on and saving without selecting anyone leaves the size available to all users. When you edit a size through the Portal API instead, sending an empty list of allowed users and groups restricts the size to organisation Admins only.
 
