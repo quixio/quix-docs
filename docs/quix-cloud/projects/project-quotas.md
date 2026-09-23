@@ -5,13 +5,13 @@ description: Cap the CPU and memory a Quix project can use, distribute the pool 
 
 # Project quotas
 
-A project quota caps the CPU and memory that one project's deployments can use in total. The quota is a pool for the whole project, and you can optionally distribute that pool across the project's environments so that, for example, production is guaranteed a share that development cannot eat into.
+A project quota caps the CPU and memory that one project's deployments can use in total. The quota is a pool for the whole project, and you can optionally cap individual environments within it so that, for example, a development environment can never take more than a fixed share of the pool.
 
 Quotas are managed in one place: **Organization Settings > Project Quotas**. A project without a quota is unlimited.
 
 !!! info "Beta"
 
-    Project quotas are in Beta, and the Portal labels the page accordingly. Behavior may change.
+    Project quotas are in Beta. The Portal marks the page with a Beta badge.
 
 !!! note "Project quotas are not organization resource limits"
 
@@ -76,7 +76,7 @@ Production can never run more than 2 cores or 4 GB, and staging never more than 
 
 ## Set a project quota
 
-You need to be an organization admin to create, edit, or remove quotas. Any member of the organization can view the page and its usage meters.
+You need to be an organization admin to open **Organization Settings** and to create, edit, or remove quotas.
 
 1. Open **Organization Settings > Project Quotas**.
 2. Click **New quota** (or **Add new quota** when the organization has none yet) and pick the project. Projects that already have a quota are edited from their own row instead.
@@ -130,7 +130,7 @@ Exceeded project CPU quota. 100 millicores remaining of the 100 millicores proje
 Exceeded environment memory quota. 512 MB remaining of the 2048 MB environment quota.
 ```
 
-The same message reaches you wherever the request came from. In the Portal it appears on the deployment or sync dialog. From the CLI, `quix pipeline sync` prints it as the reason for the failure:
+The same message reaches you wherever the request came from. The Portal shows it as the error for the action you attempted. The CLI prints it as the reason a sync failed:
 
 ```text
 ✗ Sync failed: Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
