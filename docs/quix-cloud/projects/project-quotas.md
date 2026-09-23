@@ -5,7 +5,7 @@ description: Cap the CPU and memory a Quix project can use, distribute the pool 
 
 # Project quotas
 
-A project quota caps the CPU and memory that one project's deployments can use in total. The quota is a pool for the whole project, and you can optionally cap individual environments within it so that, for example, a development environment can never take more than a fixed share of the pool.
+A project quota caps the CPU and memory that one project's deployments can use in total. The quota is a pool for the whole project, and you can optionally cap individual environments within it so that, for example, deployments in a development environment can't be created, resized, or started beyond a fixed share of the pool.
 
 Quotas are managed in one place: **Organization Settings > Project Quotas**. A project without a quota is unlimited.
 
@@ -15,7 +15,7 @@ Quotas are managed in one place: **Organization Settings > Project Quotas**. A p
 
 !!! note "Project quotas are not organization resource limits"
 
-    Your organization's subscription also carries resource limits: the largest CPU and memory a single deployment may request, and an organization-wide total. Those limits apply to every deployment regardless of project and are not configured on this page. A project quota is an additional, tighter bound that you set yourself, per project. A deployment has to fit both.
+    Your organization's subscription also carries resource limits: the largest CPU and memory limit a single deployment may set, and an organization-wide total. Those limits apply to every deployment regardless of project and are not configured on this page. A project quota is an additional, tighter bound that you set yourself, per project. A deployment has to fit both.
 
 ## How a quota works
 
@@ -34,7 +34,7 @@ Enforcement follows the quota itself:
 
 There is no feature toggle to look for, and projects that have never had a quota are unlimited.
 
-Saving a smaller pool never stops anything that is already running. The project refuses the next increase, and the next start of a deployment that is not running, until its usage falls back under the pool.
+Saving a quota never stops a deployment that is already running, whether you create the quota, shrink a pool, or lower an environment's cap. Quotas are checked only when a deployment is created, edited, or started, so running deployments can stay above the new limits. Until usage falls back under them, every start in the over-limit project or environment is refused, and so is every increase on the axis that is over its limit.
 
 ### Environment caps
 
@@ -58,7 +58,7 @@ When you save a quota, both of these must hold on each axis:
 1. **Each cap fits inside the pool.** No single environment can be promised more than the whole project has.
 2. **The caps together fit inside the pool.** Percentages are resolved to absolute amounts first, and the sum of every cap may not exceed the pool.
 
-Because the caps cannot add up to more than the pool, capped environments can never crowd each other out: each is guaranteed its share against its capped siblings.
+Because the caps cannot add up to more than the pool, one capped environment never takes another's share: a capped environment is admitted only up to its own cap. Deployments that were already running before a cap was set or lowered are the exception.
 
 Caps are ceilings, not reservations. An environment that has no cap may still use the whole pool. If every environment must be protected from every other, cap every environment; the dialog then reports the leftover pool as **unallocated**.
 
@@ -72,16 +72,16 @@ A project with a `4 cores` / `8 GB` quota and three environments:
 | staging | `1 core` | none | 1 core | up to 8 GB |
 | dev | none | none | up to 4 cores | up to 8 GB |
 
-Production can never run more than 2 cores or 4 GB, and staging never more than 1 core, whatever else is happening in the project. Together the CPU caps promise 3 of the 4 cores, which is allowed. Dev shares the pool: it can start a deployment as long as the project total, dev included, stays within 4 cores and 8 GB.
+The quota never lets production grow past 2 cores or 4 GB, or staging past 1 core, whatever else is happening in the project. Together the CPU caps promise 3 of the 4 cores, which is allowed. Dev shares the pool: it can start a deployment as long as the project total, dev included, stays within 4 cores and 8 GB.
 
 ## Set a project quota
 
 You need to be an organization admin to open **Organization Settings** and to create, edit, or remove quotas.
 
-1. Open **Organization Settings > Project Quotas**.
+1. Open **Settings** in the left navigation, then **Project Quotas**.
 2. Click **New quota** (or **Add new quota** when the organization has none yet) and pick the project. Projects that already have a quota are edited from their own row instead.
 3. For each of **CPU pool** and **Memory pool**, either switch on **Unlimited** or enter the pool size in cores or GB.
-4. To cap an environment on an axis, click its name in the environment list under that axis. The list reads **No caps yet — all environments share the pool** until you add the first cap, and **Uncapped · share whatever is left** after that. Enter the cap value and choose the unit, `cores` / `GB` for an absolute cap or `%` for a share of the pool. You can also drag the environment's handle on the allocation bar.
+4. To cap an environment on an axis, click its name in the environment list under that axis. The list reads **No caps yet — all environments share the pool** until you add the first cap, and **Uncapped · share whatever is left:** after that. Enter the cap value and choose the unit, `cores` / `GB` for an absolute cap or `%` for a share of the pool. You can also drag the environment's handle on the allocation bar.
 5. Click **Create quota**.
 
 The dialog keeps a running total under each bar. If the caps on an axis add up to more than its pool, it reports **Over-allocated** and the save button stays disabled until you reduce the caps or grow the pool.
@@ -90,7 +90,7 @@ To change a quota later, open the project row's menu and choose **Edit quota**. 
 
 ### Values that are rejected
 
-Saving fails, with the reason shown in the dialog, when:
+A quota can't be saved, and the dialog shows why, when:
 
 | Rule | Reason |
 |---|---|
@@ -107,7 +107,7 @@ The **Project Quotas** page lists only the projects that have a quota. Each proj
 
 Expand a project to see its environments. A capped environment shows its cap and a meter against it, with a **near cap** marker at 90%. An uncapped environment shows **Shares pool** and its current usage.
 
-The values are live: click the refresh button to re-read them.
+Usage is read when the page opens. Click the refresh button to read it again.
 
 ## When a quota is exceeded
 
@@ -130,7 +130,7 @@ Exceeded project CPU quota. 100 millicores remaining of the 100 millicores proje
 Exceeded environment memory quota. 512 MB remaining of the 2048 MB environment quota.
 ```
 
-The Quix Cloud API returns this message for the refused request, and a sync records it as the error of the deployment it could not apply. The CLI prints one line for each deployment a sync could not apply:
+The Quix Cloud API returns this message for the refused request, and a sync records it as the error of the deployment it stopped at. When `quix pipeline sync` stops at a deployment the quota refuses, it prints that deployment and the message:
 
 ```text
 ✗ Sync failed for deployment '<deployment>': Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
