@@ -76,6 +76,8 @@ Two more properties are set from the catalog rather than the edit dialog:
 
 Deleting a size does not change the deployments that used it: they keep their CPU and memory.
 
+Admins can also manage sizes through the Portal API, with the `/organisations/current/deployment-sizes` endpoints listed in the [Swagger reference](https://portal-api.cloud.quix.io/swagger/index.html){target=_blank}.
+
 ## Choosing resources in the deployment dialog
 
 The **Deployment resources** panel of the [deployment dialog](./overview.md#deployment-settings) adapts to the organization's settings:
