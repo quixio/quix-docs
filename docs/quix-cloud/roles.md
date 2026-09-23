@@ -93,6 +93,8 @@ Creating groups, managing members, and restricting deployment sizes to groups ar
 
 Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group.
 
+![The Inherit from group toggle on a user's Project permissions tab](../images/quix-cloud/user-groups-inherit-toggle.png)
+
 | Inherit from group | Effective role assignments |
 |--------------------|----------------------------|
 | **Off** (default) | The user's own assignments. The group's role assignments are ignored. |

@@ -21,6 +21,8 @@ Groups are managed in the Quix Cloud UI on the **Users** page in your organisati
 3. Enter a **name** (up to 64 characters, unique within the organisation) and an optional **description** (up to 200 characters), and optionally pick an icon.
 4. Click **Create group**.
 
+![The User Groups tab filtered to one group, showing its description and organisation role](../../images/quix-cloud/user-groups-list.png)
+
 The group list shows each group's members, a summary of its role in the **Organisation role** column, and when it was created and last modified. The role is shown with a **(Custom)** suffix - for example `Editor (Custom)` - when the group's assignments go beyond a single organisation-wide role.
 
 ## Give a group access
@@ -28,6 +30,8 @@ The group list shows each group's members, a summary of its role in the **Organi
 1. Open the group and select the **Project permissions** tab.
 2. Set a role at the organisation level, and override it for specific projects or environments where needed - exactly as you would for a single user.
 3. Click **Save changes**.
+
+![A group's Project permissions tab with Editor assigned at the organisation level and inherited by a project](../../images/quix-cloud/user-groups-permissions.png)
 
 **Example:** a `Data Engineering` group set to **Editor** at the organisation level, overridden with **Viewer** on the `production` environment of the `payments` project. Every member who inherits from the group can edit everywhere except that environment, where they can only view.
 
@@ -49,6 +53,8 @@ Open the group, click **Delete** in the **Delete this group** card, type the gro
 Organisation Admins define the **deployment sizes** (named CPU and memory presets) that users pick from when they deploy - see [Deployment sizes and resources](../deployments/deployment-sizes.md). By default every size is available to all users. A size can instead be **restricted** to specific users, specific groups, or a mix of both.
 
 To restrict a size, edit it in your organisation's **Deployment Sizes** settings, turn on **Restrict to specific users or groups**, and select the allowed users and groups. The sizes list then shows the size as **Restricted** with a summary of who can use it; unrestricted sizes show **All users**, and a size restricted through the API to nobody shows **-**.
+
+![The Add deployment size dialog with Restrict to specific users or groups turned on and one allowed group selected](../../images/quix-cloud/deployment-size-restrict.png)
 
 Which sizes the platform makes available to each user:
 
