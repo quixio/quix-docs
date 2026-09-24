@@ -109,7 +109,7 @@ Other rules worth knowing:
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
 - Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups).
 
-The Users list shows each user's role and, when it comes from a group, the group it is inherited from. A member with no role assignments of their own is also shown their group's role while **Inherit from group** is off, but they have no permissions until the toggle is turned on.
+The Users list shows each user's role and, when it comes from a group, the group it is inherited from.
 
 ## Best practices
 

@@ -5,7 +5,9 @@ description: Invite people to your Quix Cloud organisation, edit their details a
 
 # Users
 
-The **Users** page in your organisation's sidebar lists everyone in your organisation, with their organisation role and their [user group](user-groups.md). You need the Admin role at the organisation level to invite, edit or delete users. Other users can open their own entry to view their permissions.
+The **Users** page in your organisation's sidebar lists the people in your organisation, with their organisation role and their [user group](user-groups.md). Unless your organisation-level role is Admin, Manager, Editor or Viewer, it lists only you.
+
+You need the Admin role at the organisation level to invite and delete users, and to change another user's details, group or permissions. Without it, you can still open users in the list to view their permissions, and edit your own first and last name.
 
 ## Invite a user
 
@@ -17,13 +19,13 @@ The **Users** page in your organisation's sidebar lists everyone in your organis
 
 Quix Cloud emails them an invitation. Until they accept it, they appear in the list as **Pending**. To share the invitation yourself, choose **Copy invite link** from their menu in the list.
 
-You can't invite an email address that already belongs to a Quix Cloud user. If an invited user shows an error instead of **Pending**, delete them and invite them again.
+You can't invite someone who already belongs to, or is invited to, a Quix Cloud organisation.
 
 ## The users list
 
-The list shows each user's **Full name**, **Email**, **Organisation role** and **Group**. Use **Search by name or email…** to filter it, and click a user to open their page.
+The list shows each user's **Full name**, **Email**, **Organisation role** and **Group**, and more columns you can show or hide with the column picker. Use **Search by name or email…** to filter it, and click a user to open their page.
 
-The **Organisation role** column shows the role that applies to the user. It is shown with a **(Custom)** suffix - for example `Editor (Custom)` - when their assignments go beyond a single organisation-wide role, and with the group's name when the role comes from their group. See [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
+The **Organisation role** column summarises each user's roles. It shows a **(Custom)** suffix - for example `Editor (Custom)` - when their assignments go beyond a single organisation-wide role. When the user inherits from their group, it shows the group's role and the group's name. See [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
 
 ## Edit a user's details
 
@@ -37,7 +39,7 @@ A user can belong to one group at a time. After you change a user's **Group**, t
 2. Set a role at the organisation level, and override it for specific projects or environments where needed.
 3. Click **Save changes**.
 
-The tab is read-only for your own account, and while the user's **Inherit from group** toggle is on. The [roles](../roles.md#available-roles), [levels](../roles.md#permission-levels) and [inheritance rules](../roles.md#inheritance) are described in [Roles and permissions](../roles.md).
+Only an Admin can change permissions on this tab, and not their own. While the user's **Inherit from group** toggle is on, their roles come from the group and can't be edited here. The [roles](../roles.md#available-roles), [levels](../roles.md#permission-levels) and [inheritance rules](../roles.md#inheritance) are described in [Roles and permissions](../roles.md).
 
 ## Delete a user
 
