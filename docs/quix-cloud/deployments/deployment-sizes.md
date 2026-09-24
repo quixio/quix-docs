@@ -9,10 +9,6 @@ Every replica of a deployment runs with a **CPU limit** and a **memory limit**, 
 
 This page explains the resource model once. Other deployment pages, such as the [deployments overview](./overview.md), the [`quix.yaml` reference](../projects/project-structure.md) and [Quix variables](./quix-variables.md), link here rather than repeating it.
 
-!!! note
-
-    Deployment sizes are in beta. The **Deployment Sizes** entry in Organization Settings is marked Beta in the portal.
-
 ## Limits and requests
 
 A deployment carries two numbers per resource. They mean different things at runtime:
@@ -39,7 +35,7 @@ The limits, but not the requests, are exposed to your code as the `Quix__Deploym
 
 A deployment size is a named CPU and memory pair, such as `S` = 1 core / 2000 MB, that users pick from a dropdown instead of typing numbers. Sizes are defined per organization in **Organization Settings > Deployment Sizes** and need the organization update permission, so in practice an [Admin](../roles.md).
 
-![The Deployment Sizes settings page: the default reservations row, the Enable deployment sizes and Enforce deployment size limits toggles, and a catalog of sizes with their CPU, memory, reservation and access](../../images/deploy/deployment-sizes-catalog.png){width=80%}
+![The Deployment Sizes settings page: the default reservations row, the Enable deployment sizes and Enforce deployment size limits toggles, and an example catalog of sizes with their CPU, memory, reservation and access](../../images/deploy/deployment-sizes-catalog.png){width=80%}
 
 The page has three settings above the catalog:
 
