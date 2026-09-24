@@ -83,5 +83,6 @@ The Quix CLI manages a user's own role assignments only. To manage groups progra
 
 ## See also
 
+- [Users](users.md) - Invite users, edit their details and group, and delete them
 - [Roles and permissions](../roles.md) - Roles, levels, inheritance, and how group roles combine with a user's own
 - [Deployment sizes and resources](../deployments/deployment-sizes.md) - Defining sizes, requests and limits

@@ -124,6 +124,7 @@ nav:
         - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
     - 'Users and security':
+      - 'Users': 'quix-cloud/access-security/users.md'
       - 'User groups': 'quix-cloud/access-security/user-groups.md'
       - 'Personal access token (PAT)': 'quix-cloud/access-security/personal-access-token.md'
       - 'Streaming token': 'quix-cloud/access-security/streaming-token.md'

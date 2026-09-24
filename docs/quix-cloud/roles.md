@@ -220,6 +220,7 @@ This means a PAT can only have equal or fewer permissions than the user who crea
 - [Plugin system](./services/plugin.md) - Build embedded UIs with permission-aware authentication
 - [Security](./security.md) - Overview of Quix Cloud security
 - [Personal Access Tokens](./access-security/personal-access-token.md) - Token-based authentication
+- [Users](./access-security/users.md) - Invite users, edit their details and group, and delete them
 - [User groups](./access-security/user-groups.md) - Create groups, manage members, and restrict deployment sizes to groups
 - [Deployment sizes and resources](./deployments/deployment-sizes.md) - Defining sizes, requests and limits
 - [Quix CLI](../quix-cli/overview.md) - Command-line interface documentation
