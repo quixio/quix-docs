@@ -75,9 +75,10 @@ nav:
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
       - 'Variables':
+        - 'Overview': 'quix-cloud/deployments/variables-overview.md'
+        - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'
         - 'Project variables': 'quix-cloud/deployments/project-variables.md'
         - 'Global variables': 'quix-cloud/deployments/global-variables.md'
-        - 'Environment variables': 'quix-cloud/deployments/environment-variables.md'
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
