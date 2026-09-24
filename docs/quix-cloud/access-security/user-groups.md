@@ -35,7 +35,7 @@ The group list shows each group's members, a summary of its role in the **Organi
 
 **Example:** a `Data Engineering` group set to **Editor** at the organisation level, overridden with **Viewer** on the `production` environment of the `payments` project. Every member who inherits from the group can edit everywhere except that environment, where they can only view.
 
-## Add members
+## Add and remove members
 
 1. Open the group and select the **Users** tab.
 2. Click **Add users** and pick the users to add.
@@ -44,9 +44,15 @@ A user can only belong to one group. In **Add users**, people who are already in
 
 The **Project permissions** column on the Users tab shows, for each member, whether their permissions currently come from the **Group** or from their own **User** assignments. Adding a member does not switch them to group permissions. An organisation Admin does that per user with the **Inherit from group** toggle on the user's **Project permissions** tab, as described in [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
 
+To remove a member, open their menu on the group's **Users** tab and choose **Remove from group**. Their **Inherit from group** toggle turns off, so their own role assignments apply again.
+
+## Edit a group
+
+Open the group and click the pencil next to the name or description in the **Group details** panel, or choose **Edit details** from the group's menu in the list. In the **Edit group** dialog, change the name, description or icon, and click **Save**.
+
 ## Delete a group
 
-Open the group, click **Delete** in the **Delete this group** card, type the group name to confirm, and click **Delete group**. A group that still has members cannot be deleted - remove its members first.
+Open the group, click **Delete** in the **Delete this group** card, type the group name to confirm, and click **Delete group**. A group that still has members cannot be deleted - [remove its members](#add-and-remove-members) first.
 
 ## Restricting deployment sizes to users and groups
 
