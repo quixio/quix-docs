@@ -1,16 +1,25 @@
 ---
 title: User groups
-description: Assign roles to a group once instead of to each user, choose per user whether they inherit the group's roles, and restrict deployment sizes to specific users or groups.
+description: What a user group gives its members - project and storage permissions, Quix AI access, spaces and restricted deployment sizes - and how to create groups and manage their members.
 ---
 
 # User groups
 
-A user group is a named set of role assignments that its members can inherit. Instead of assigning the same roles to each engineer on a team, you assign them once to the group, add the engineers as members, and turn on **Inherit from group** for each of them. A group can also unlock restricted deployment sizes for all its members.
+A user group is a set of users in your organisation who share common settings. Instead of setting up the same things for each user, you set them up once on the group and add the users as members. Each setting reaches the members in its own way:
+
+| Setting | What members get | Which members get it |
+|---------|------------------|----------------------|
+| [Project permissions](#set-a-groups-project-permissions) | The group's roles | Members whose **Inherit from group** toggle on the **Project permissions** tab is on - see [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine) |
+| Storage permissions | Read, read-write or no access to folders in your Quix Lake storage, set on the group's **Storage permissions** tab. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for how storage access works | Every member, unless the member's or the group's **Storage permission source** is **Organization default** |
+| Quix AI | Access to Quix AI, turned on or off on the group's **Quix AI** tab, if Quix AI is available to your organisation | Members whose **Inherit from group** toggle on the **Quix AI** tab is on |
+| Spaces | Every space the group is added to. A space changes what members see, not what they can do | Every member |
+| Deployment sizes | The sizes [restricted to the group](../deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups) | Every member |
+
+The **Inherit from group** toggles on the **Project permissions** and **Quix AI** tabs are separate: a member can inherit one and not the other.
 
 - Groups belong to an organisation.
 - A user can be a member of **one group at a time**.
 - A group's role assignments use the same [roles](../roles.md#available-roles), [levels](../roles.md#permission-levels) and [inheritance rules](../roles.md#inheritance) as a user's own assignments.
-- Group membership does not change a user's roles by itself. Each user either keeps their own role assignments or inherits the group's - see [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
 
 Groups are managed in the Quix Cloud UI on the **Users** page in your organisation's sidebar, on the **User Groups** tab. You need the Admin role at the organisation level to create, edit or delete a group, or to change its members.
 
@@ -25,7 +34,7 @@ Groups are managed in the Quix Cloud UI on the **Users** page in your organisati
 
 The group list shows each group's members, a summary of its role in the **Organisation role** column, and when it was last modified. You can show a **Created** column with the column picker. The role is shown with a **(Custom)** suffix - for example `Editor (Custom)` - when the group's assignments go beyond a single organisation-wide role.
 
-## Give a group access
+## Set a group's project permissions
 
 1. Open the group and select the **Project permissions** tab.
 2. Set a role at the organisation level, and override it for specific projects or environments where needed - exactly as you would for a single user.
@@ -40,11 +49,11 @@ The group list shows each group's members, a summary of its role in the **Organi
 1. Open the group and select the **Users** tab.
 2. Click **Add users**, select the users to add, and click **Add**.
 
-A user can only belong to one group. In **Add users**, people who are already in another group are shown as **In *group name*** and can't be selected. To move a user to a different group, open the user's menu in the **Users** list, choose **Edit details**, and change **Group**. Moving turns their **Inherit from group** toggle off - see [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine). You cannot add or remove yourself, or change your own permission source.
+A user can only belong to one group. In **Add users**, people who are already in another group are shown as **In *group name*** and can't be selected. To move a user to a different group, open the user's menu in the **Users** list, choose **Edit details**, and change **Group**. Moving turns their **Inherit from group** toggle on the **Project permissions** tab off - see [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine). You cannot add or remove yourself, or change where your own project permissions come from.
 
-The **Project permissions** column on the Users tab shows, for each member, whether their permissions currently come from the **Group** or from their own **User** assignments. Adding a member does not switch them to group permissions. An organisation Admin does that per user with the **Inherit from group** toggle on the user's **Project permissions** tab, as described in [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
+The **Project permissions** column on the Users tab shows, for each member, whether their permissions currently come from the **Group** or from their own **User** assignments. Adding a member does not switch them to the group's roles. An organisation Admin does that per user with the **Inherit from group** toggle on the user's **Project permissions** tab, as described in [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine).
 
-To remove a member, open their menu on the group's **Users** tab and choose **Remove from group**. Their **Inherit from group** toggle turns off, so their own role assignments apply again.
+To remove a member, open their menu on the group's **Users** tab and choose **Remove from group**. Their **Inherit from group** toggle on the **Project permissions** tab turns off, so their own role assignments apply again.
 
 ## Edit a group
 
@@ -54,29 +63,6 @@ Open the group and click the pencil next to the name or description in the **Gro
 
 Open the group, click **Delete** in the **Delete this group** card, type the group name to confirm, and click **Delete group**. A group that still has members cannot be deleted - [remove its members](#add-and-remove-members) first.
 
-## Restricting deployment sizes to users and groups
-
-Organisation Admins define the **deployment sizes** (named CPU and memory presets) that users pick from when they deploy - see [Deployment sizes and resources](../deployments/deployment-sizes.md). By default every size is available to all users. A size can instead be **restricted** to specific users, specific groups, or a mix of both.
-
-To restrict a size, edit it in your organisation's **Deployment Sizes** settings, turn on **Restrict to specific users or groups**, and select the allowed users and groups. The sizes list then shows the size as **Restricted** with a summary of who can use it; unrestricted sizes show **All users**, and a size restricted through the API to nobody shows a dash.
-
-![The Add deployment size dialog with Restrict to specific users or groups turned on and one allowed group selected](../../images/quix-cloud/deployment-size-restrict.png)
-
-Which sizes a user may use, as returned by the [Portal API](../apis/portal-api/overview.md) and applied when deployment size limits are enforced:
-
-| User | Available sizes |
-|------|-----------------|
-| Admin at the organisation level | Every size, restricted or not |
-| A user in the size's allowed users, or a member of an allowed group | Unrestricted sizes plus that size |
-| Anyone else | Unrestricted sizes only |
-
-Group membership alone is enough - the member's **Inherit from group** setting does not matter here.
-
-The restriction is enforced on deployments only when your organisation has deployment sizes enabled, has at least one deployment size defined, and **enforces deployment size limits**. Then a deployment's CPU and memory limits are capped by the highest CPU and the highest memory among the sizes available to the user, and a user with no available sizes cannot create or update deployments until an Admin allows them a size. Without enforcement, users can still enter custom CPU and memory.
-
-!!! note "An empty allow list is not a restriction"
-    In the Quix Cloud UI, a restriction only takes effect when at least one user or group is selected. Turning the toggle on and saving without selecting anyone leaves the size available to all users. When you edit a size through the Portal API instead, sending an empty list of allowed users and groups restricts the size to organisation Admins only.
-
 ## Managing groups through the API
 
 The Quix CLI manages a user's own role assignments only. To manage groups programmatically, use the [Portal API](../apis/portal-api/overview.md) endpoints under `organisations/user-groups`.
@@ -85,4 +71,5 @@ The Quix CLI manages a user's own role assignments only. To manage groups progra
 
 - [Users](users.md) - Invite users, edit their details and group, and delete them
 - [Roles and permissions](../roles.md) - Roles, levels, inheritance, and how group roles combine with a user's own
-- [Deployment sizes and resources](../deployments/deployment-sizes.md) - Defining sizes, requests and limits
+- [Deployment sizes and resources](../deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups) - Restricting deployment sizes to users and groups
+- [Storage Access Gateway](../quix-lake/secure-storage-access.md) - How access to your Quix Lake storage works

@@ -59,7 +59,7 @@ A Manager or Editor who creates a variable group can also change it, including i
 
 The Plugins row is what the [permissions API](./services/plugin.md#checking-permissions-programmatically) reports to plugins. Creating, changing or deleting a plugin deployment follows the Deployments row, so Operators can view plugin deployments but not change them.
 
-Creating, editing and deleting user groups, managing their members, and [restricting deployment sizes](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups) are organisation-level settings, so they need the Admin role at the organisation level.
+Creating, editing and deleting user groups, managing their members, and [restricting deployment sizes](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups) are organisation-level settings, so they need the Admin role at the organisation level.
 
 !!! note
     The Operator role is designed for users who only need to manage plugins (e.g., external monitoring tools or dashboards). See the [Plugin system](./services/plugin.md) documentation for details.
@@ -99,9 +99,9 @@ Inheritance works the same way for a group's role assignments: set a base role f
 
 ## User groups
 
-A user group is a named set of role assignments that its members can inherit. You assign roles to the group once, at the same [levels](#permission-levels) and with the same [inheritance](#inheritance) as for a single user, and add users as members. A member gets the group's roles only while their **Inherit from group** toggle is on. A user can be a member of one group at a time.
+A [user group](./access-security/user-groups.md) can have its own role assignments, which its members can inherit. You assign roles to the group once, at the same [levels](#permission-levels) and with the same [inheritance](#inheritance) as for a single user, and add users as members. A member gets the group's roles only while their **Inherit from group** toggle is on. A user can be a member of one group at a time.
 
-Creating groups, managing members, and restricting deployment sizes to groups are covered in [User groups](./access-security/user-groups.md). This section explains how a group's roles combine with a user's own.
+Creating groups and managing members are covered in [User groups](./access-security/user-groups.md), and restricting deployment sizes to groups in [Deployment sizes and resources](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups). This section explains how a group's roles combine with a user's own.
 
 ### How group roles and user roles combine
 
@@ -121,7 +121,7 @@ Other rules worth knowing:
 - Adding a user to a group does not turn the toggle on. Removing a user from their group turns it off, so their own assignments apply again. Moving a user to another group in the Quix Cloud UI removes them from their old group first, so the toggle is turned off; turn it on again for them to inherit the new group's roles.
 - If the toggle is on and the group grants no roles, the user has **no** permissions. Quix Cloud does not fall back to the user's own assignments.
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
-- Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups).
+- Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups).
 
 See [The users list](./access-security/users.md#the-users-list) for how roles appear on the Users page.
 
@@ -134,7 +134,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use groups for teams**: Put each team in a group, assign roles to the group, and turn on **Inherit from group** for its members so access changes in one place
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
 - **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
-- **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes - see [Restricting deployment sizes to users and groups](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups)
+- **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes - see [Restrict a size to users and groups](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups)
 
 ## Managing roles with the CLI
 
