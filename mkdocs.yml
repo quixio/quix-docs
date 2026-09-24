@@ -123,6 +123,13 @@ nav:
         - 'Overview': 'quix-cloud/quix-lake/data-lake/replay.md'
         - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
+    - 'Spaces':
+      - 'Overview': 'quix-cloud/spaces/overview.md'
+      - 'Work in a space': 'quix-cloud/spaces/use-spaces.md'
+      - 'Create and manage spaces': 'quix-cloud/spaces/create-space.md'
+      - 'Design navigation': 'quix-cloud/spaces/navigation.md'
+      - 'Assign members': 'quix-cloud/spaces/membership.md'
+      - 'Reference': 'quix-cloud/spaces/reference.md'
     - 'Access and security':
       - 'Personal access token (PAT)': 'quix-cloud/access-security/personal-access-token.md'
       - 'Streaming token': 'quix-cloud/access-security/streaming-token.md'

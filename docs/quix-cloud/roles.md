@@ -55,6 +55,9 @@ Permissions are applied at three hierarchical levels, from broadest to most spec
 | Project | Role applies to all environments in that project | Give a developer access to a specific project |
 | Environment | Role applies only to that specific environment | Restrict production access to senior engineers |
 
+!!! note "Spaces don't change permissions"
+    A space changes only what people see in the portal. It never grants or removes access, so roles remain the way to control what each user can do. Only organization admins can create spaces and assign people to them. See [Spaces](./spaces/overview.md).
+
 ## Inheritance
 
 Roles cascade down the hierarchy, so you don't need to set permissions on every resource individually. When you set a role at a higher level, it automatically applies to everything below it. You can override this by setting a different role at a lower level.
@@ -173,5 +176,6 @@ This means a PAT can only have equal or fewer permissions than the user who crea
 - [Checking permissions programmatically](./services/plugin.md#checking-permissions-programmatically) - API endpoint to query permissions
 - [Plugin system](./services/plugin.md) - Build embedded UIs with permission-aware authentication
 - [Security](./security.md) - Overview of Quix Cloud security
+- [Spaces](./spaces/overview.md) - Shape what each audience sees in the portal, without changing permissions
 - [Personal Access Tokens](./access-security/personal-access-token.md) - Token-based authentication
 - [Quix CLI](../quix-cli/overview.md) - Command-line interface documentation

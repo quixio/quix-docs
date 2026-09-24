@@ -35,6 +35,7 @@ description: Uncover the streamlined features of Quix Cloud, designed for easy d
 4. **User Collaboration**
     - **Organization Management**: Invite users and manage their permissions within your organization.
     - **Project Visibility**: Assign visibility and permissions to projects and environments.
+    - **Spaces**: Give each team a portal shaped around its work, with its own sidebars, header apps, and landing page. See [Spaces](spaces/overview.md).
 
 5. **Development Tools**
     - **Online Code Editors**: Modify applications and YAML files directly in the cloud.
