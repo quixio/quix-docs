@@ -98,7 +98,7 @@ By default every size is available to every user. To make a size available only 
 
 The catalog then shows the size as **Restricted**, with a summary of who can use it. Unrestricted sizes show **All users**.
 
-Every member of an allowed group has access to the size, whether or not their **Inherit from group** toggle for [roles](../roles.md#how-group-roles-and-user-roles-combine) is on.
+Every member of an allowed group has access to the size, whether or not their **Inherit from group** toggle for [roles](../roles.md#how-group-roles-and-user-roles-combine) is on. The deployment dialog's **Size** dropdown lists a restricted size only for users selected individually, so members who have access only through a group can't pick it there. See [Choosing resources in the deployment dialog](#choosing-resources-in-the-deployment-dialog).
 
 !!! note "An empty allow list is not a restriction"
     In the dialog, a restriction only takes effect when at least one user or group is selected: saving with the toggle on and nobody selected leaves the size available to all users. Through the Portal API, sending empty lists of allowed users and groups restricts the size to Admins, and the catalog shows a dash for it.
