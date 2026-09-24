@@ -6,7 +6,7 @@ You can manage roles using the Quix Cloud UI or programmatically via the [Quix C
 
 ## Available roles
 
-Quix Cloud provides six roles, each granting different levels of access:
+Quix Cloud provides six roles, each granting different levels of access. The Operator role is deprecated.
 
 ![Role selection dropdown](../images/quix-cloud/roles-dropdown.png){width=50%}
 
@@ -16,14 +16,14 @@ Quix Cloud provides six roles, each granting different levels of access:
 | Manager | Manage resources, users, and global variables | Create, delete, edit, view resources within the scope |
 | Editor | Create and manage resources (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
-| Operator | Full plugin access only | Manage plugins with limited access to other resources |
+| Operator (deprecated) | Full plugin access only | Don't assign to new users. Use Viewer and a [space](./spaces/replace-operator-role.md) instead |
 | None | No permissions - blocks access at this scope | No permissions within the scope |
 
 ## Permissions matrix
 
 The following table shows what each role can do with different resource types:
 
-| Resource | Admin | Manager | Editor | Viewer | Operator |
+| Resource | Admin | Manager | Editor | Viewer | Operator (deprecated) |
 |----------|:-----:|:-------:|:------:|:------:|:--------:|
 | **Organisation** | ✅ | read | read | read | ❌ |
 | **Global Variables** | ✅ | ✅ | read/update | read | ❌ |
@@ -39,8 +39,9 @@ The following table shows what each role can do with different resource types:
 - ✅ Full access (create, read, update, delete)
 - ❌ No access
 
-!!! note
-    The Operator role is designed for users who only need to manage plugins (e.g., external monitoring tools or dashboards). See the [Plugin system](./services/plugin.md) documentation for details.
+!!! warning "The Operator role is deprecated"
+
+    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
 
 ??? info "Looking for Kafka access?"
     Roles control access to Quix Cloud features. For Kafka/streaming access in your applications, use a [Streaming Token](./access-security/streaming-token.md) instead.
@@ -57,6 +58,8 @@ Permissions are applied at three hierarchical levels, from broadest to most spec
 
 !!! note "Spaces don't change permissions"
     A space changes only what people see in the portal. It never grants or removes access, so roles remain the way to control what each user can do. Only organization admins can create spaces and assign people to them. See [Spaces](./spaces/overview.md).
+
+    To give users a plugin-only view, use a space with a role such as Viewer, not the deprecated Operator role. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
 
 ## Inheritance
 
@@ -82,6 +85,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use inheritance**: Set a base role at organisation level, override only where needed
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
 - **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
+- **Use spaces for plugin-only users**: Assign Viewer at the environment that runs the plugins, and a space that shows only the plugins, instead of the deprecated Operator role
 
 ## Managing roles with the CLI
 
@@ -113,7 +117,7 @@ quix cloud users permissions copy <source-user-id> --to <target-user-id>
 - Project: `Project:myorg-projectname`
 - Environment: `Workspace:myorg-projectname-environmentname`
 
-**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator`, `None`
+**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator` (deprecated), `None`
 
 For full CLI documentation, see the [Quix CLI reference](../quix-cli/cli-reference/cloud/users/permissions/index.md).
 

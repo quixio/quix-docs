@@ -46,7 +46,7 @@ flowchart LR
 
     The space designer opens on the `Identity` section, with a draft called `New space`.
 
-2. In `Name`, enter a name that tells members which view they're in, for example `Operators`. `Create space` stays disabled while `Name` is blank.
+2. In `Name`, enter a name that tells members which view they're in, for example `Line operations`. `Create space` stays disabled while `Name` is blank.
 3. Optionally, set the rest of the identity. See [Set the identity](#set-the-identity).
 4. Click `Create space`.
 
@@ -265,7 +265,7 @@ The new order is saved immediately. There is no separate save step. If the save 
 
 ### Duplicate a space
 
-Duplicating is the quickest way to build a variation of an existing space, for example a second operators' space for another site.
+Duplicating is the quickest way to build a variation of an existing space, for example a second line operations space for another site.
 
 The copy has the same description, icon, accent, theme, sidebars, header apps, custom sidebar entries, landing page and plugin toolbar setting as the original. Membership is copied only if you ask for it.
 

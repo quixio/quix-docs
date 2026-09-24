@@ -5,7 +5,7 @@ description: Choose the header apps, organization sidebar, environment modules a
 
 # Design navigation
 
-**Space navigation** decides what members of a space can reach and where they start. In four sections of the space designer you choose the apps pinned to the header, the entries in the organization sidebar, the modules inside every environment, and the landing page. You can go from a lightly trimmed platform for developers to a single app with no sidebar at all for operators.
+**Space navigation** decides what members of a space can reach and where they start. In four sections of the space designer you choose the apps pinned to the header, the entries in the organization sidebar, the modules inside every environment, and the landing page. You can go from a lightly trimmed platform for developers to a single app with no sidebar at all for line operators.
 
 Start with a space open in the designer: in the organization sidebar, select `Spaces`, then click the space's card. To create a space, see [Create a space](create-space.md#create-a-space).
 
@@ -156,7 +156,7 @@ A warning icon on a row explains what's wrong:
 
 ### Add an environment link
 
-An environment link is a shortcut from the organization sidebar straight into one environment of a project, for example the production pipeline an operator watches.
+An environment link is a shortcut from the organization sidebar straight into one environment of a project, for example the production pipeline a line operator watches.
 
 1. With the `Custom` tile selected, click `+ Environment`.
 

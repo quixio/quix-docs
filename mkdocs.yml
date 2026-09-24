@@ -129,6 +129,7 @@ nav:
       - 'Create and manage spaces': 'quix-cloud/spaces/create-space.md'
       - 'Design navigation': 'quix-cloud/spaces/navigation.md'
       - 'Assign members': 'quix-cloud/spaces/membership.md'
+      - 'Replace the Operator role': 'quix-cloud/spaces/replace-operator-role.md'
       - 'Reference': 'quix-cloud/spaces/reference.md'
     - 'Access and security':
       - 'Personal access token (PAT)': 'quix-cloud/access-security/personal-access-token.md'

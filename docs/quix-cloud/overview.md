@@ -107,6 +107,6 @@ Use the following tiles to easily jump to the relevant section of this documenta
 
 ## Access control
 
-Quix Cloud uses a role-based permission system (Admin, Manager, Editor, Viewer, Operator) that can be applied at the organisation, project, or environment level. See [Roles and permissions](roles.md) for the full guide, or [Security and compliance](security.md) for the broader security overview.
+Quix Cloud uses a role-based permission system (Admin, Manager, Editor, Viewer, and the deprecated Operator role) that can be applied at the organisation, project, or environment level. See [Roles and permissions](roles.md) for the full guide, or [Security and compliance](security.md) for the broader security overview.
 
-To shape what each audience sees in the portal, without changing their permissions, use [Spaces](spaces/overview.md).
+To shape what each audience sees in the portal, without changing their permissions, use [Spaces](spaces/overview.md). Spaces replace the Operator role for users who need only plugins. See [Replace the Operator role with a space](spaces/replace-operator-role.md).

@@ -18,6 +18,10 @@ A **permission group** is a named group of users that shares the same permission
 
     A space changes what people see in the portal, not what they can access. Only the portal's navigation is curated: when a space hides a page, the portal steers people away from it, but anyone whose role allows the page can still reach its data and actions through the Quix APIs and CLI. If spaces fail to load, no space is applied and nothing is blocked. To restrict access, assign [roles](../roles.md). See [What a space doesn't control](overview.md#what-a-space-doesnt-control).
 
+!!! note "Members with the Operator role"
+
+    The Operator role is deprecated, and it doesn't work well inside a space: users whose only role is Operator can't open the space's header apps or sidebar apps. Before you assign these users to a space, plan to give them a role such as `Viewer`. See [Replace the Operator role with a space](replace-operator-role.md).
+
 Each user belongs to one permission group. A user's spaces are therefore the spaces bound to their group, plus any spaces you added them to directly:
 
 ```mermaid
@@ -156,5 +160,6 @@ To check what members of a space see, [preview the space](create-space.md#previe
 * [Spaces overview](overview.md)
 * [Create and manage spaces](create-space.md)
 * [Work in a space](use-spaces.md)
+* [Replace the Operator role with a space](replace-operator-role.md)
 * [Spaces reference](reference.md)
 * [Roles and permissions](../roles.md)

@@ -15,16 +15,16 @@ Without spaces, everyone in an organization sees the same portal. Every sidebar 
 
 Different people use Quix Cloud for very different jobs:
 
-* **Operators** run a production line or a test rig. They need one or two plugin apps, and they don't need projects, topics or YAML.
+* **Line operators** run a production line or a test rig. They need one or two plugin apps, and they don't need projects, topics or YAML.
 * **Analysts** query and explore data. They need Query Data and File Explorer, and sometimes a reporting app.
 * **Developers** build and run pipelines. They need the full platform.
 
-A space gives each of these audiences its own view of the portal. Operators can open straight into their app with no sidebar at all, analysts see only the data tools, and developers keep the standard portal. Each space has its own name, icon and accent color, so people can always tell which view they're in.
+A space gives each of these audiences its own view of the portal. Line operators can open straight into their app with no sidebar at all, analysts see only the data tools, and developers keep the standard portal. Each space has its own name, icon and accent color, so people can always tell which view they're in.
 
 ```mermaid
 flowchart LR
     P["Quix Cloud portal<br/>every module"]
-    P --> O["Operators space<br/>two pinned apps,<br/>no sidebar"]
+    P --> O["Line operators space<br/>two pinned apps,<br/>no sidebar"]
     P --> A["Analysts space<br/>Query Data and<br/>File Explorer"]
     P --> D["Developers<br/>standard portal"]
 ```
@@ -34,6 +34,8 @@ flowchart LR
 Use a space when a group of people needs a narrower or different portal from the rest of the organization, or when you want plugin apps in the header. If everyone uses the full platform, you don't need one.
 
 Creating a space is safe. It changes nothing for anyone until you assign members to it, and users who belong to no space keep the standard portal.
+
+Spaces also replace the deprecated Operator role. To give people a plugin-only view of the portal, use a space and a role such as `Viewer`, not the Operator role. See [Replace the Operator role with a space](replace-operator-role.md).
 
 ## What a space controls
 
@@ -160,6 +162,14 @@ Organization admins are users with the `Admin` role at organization level. Admin
     Bind permission groups and add users to a space, from the designer or the Users pages.
 
     [Assign members :octicons-arrow-right-24:](membership.md)
+
+- __Replace the Operator role__
+
+    ---
+
+    Rebuild the plugin-only view of the deprecated Operator role as a space, and move users to a role such as Viewer.
+
+    [Replace the Operator role :octicons-arrow-right-24:](replace-operator-role.md)
 
 - __Reference__
 

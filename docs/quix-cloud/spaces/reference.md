@@ -232,6 +232,17 @@ To pick up new modules automatically instead, choose the `Stock` tile. In `Organ
 3. Choose another app in its settings, or remove the entry.
 4. Click `Save space`.
 
+### A header app opens a different plugin
+
+*(For organization admins.)*
+
+**Cause:** The member's only role is the deprecated Operator role. Inside a space, header apps, plugin apps in the sidebar and apps in the command palette open at an address that Operator-only users can't open, so the portal sends them to their first global plugin instead. The portal checks for the Operator role once per session, so a member whose role you just changed still sees this until they reload the page.
+
+**Fix:**
+
+1. Give the member a role such as `Viewer` at the environment that runs the plugins, and remove their `Operator` assignments. See [Replace the Operator role with a space](replace-operator-role.md).
+2. Ask the member to reload the page.
+
 ### A member can't see a space
 
 *(For organization admins.)*
@@ -267,6 +278,7 @@ The [Spaces overview](overview.md#key-concepts) introduces the core terms. This 
 | **Landing page** | Where members arrive when they sign in, and when they switch into the space. It can be an organization page or a plugin app. The default is `Home`. |
 | **Member** | A user who belongs to a space, through a permission group bound to the space or because an admin added them directly. A user can belong to several spaces. |
 | **None** | The default header apps source. No apps are pinned, so the header app strip is empty. |
+| **Operator-only user** | A user whose every role assignment is the deprecated Operator role. Inside a space, they can't open header apps or sidebar apps. See [Replace the Operator role with a space](replace-operator-role.md). |
 | **Permission group** | A named group of users that shares the same permissions. The portal lists groups on the `User Groups` tab of `Users`. Each user belongs to one group. |
 | **Plugin toolbar** | The floating button over an embedded plugin app, with portal shortcuts and a way out of the app. Each space decides whether it appears. |
 | **Preview** | An admin-only mode that shows the portal as a member of a space sees it. |
@@ -285,4 +297,5 @@ The [Spaces overview](overview.md#key-concepts) introduces the core terms. This 
 * [Design navigation](navigation.md)
 * [Assign members](membership.md)
 * [Work in a space](use-spaces.md)
+* [Replace the Operator role with a space](replace-operator-role.md)
 * [Roles and permissions](../roles.md)
