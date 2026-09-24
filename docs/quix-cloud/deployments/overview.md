@@ -16,9 +16,7 @@ To recap, your typical workflow is:
 3. Develop your application code.
 4. Deploy your application (as a service or job).
 
-When you deploy your application the dialog you see is the `New deployment` dialog:
-
-![New deployment](../../images/deploy/new-deployment-dialog.png){width=80%}
+When you deploy your application, you use the `New Deployment` dialog.
 
 ## Deployment version
 
@@ -42,10 +40,6 @@ If you're using a pinned (tagged or specified commit) you'll see the tag or comm
 
 ## Deployment settings
 
-The following screenshot shows the deployment settings panel:
-
-![Deployment settings](../../images/deploy/deployment-settings.png){width=80%}
-
 The main features are described in the following table:
 
 | Dialog Item | Description |
@@ -53,14 +47,15 @@ The main features are described in the following table:
 | Application | You can select the name of the application you are deploying from here. |
 | Version | The version of the code you are going to deploy. See [deployment version](#deployment-version) for further details. |
 | Environment variables | Any environment variables your application uses are shown here. Bind a variable to a [project variable](./project-variables.md) to vary its value per environment or to inject a secret. |
-| Deployment settings | Here you can select whether you want the application to run as a job or a service. You can also provide vertical scaling here by allocating more CPU and memory to the application. You can also provide some horizontal scaling by having more than one replica. A replica is an instance of the application running. When replicas are part of a consumer group, they can spread processing of streams across all replicas. |
+| Deployment type | Here you can select whether you want the application to run as a job or a service. |
+| Deployment resources | Here you set the CPU and memory for each replica and, except for jobs, the number of replicas. When your organization has [deployment sizes](./deployment-sizes.md) enabled, you can pick a size from its catalog. [Choosing resources in the deployment dialog](./deployment-sizes.md#choosing-resources-in-the-deployment-dialog) explains when you can also set the values directly and when you can reserve a share of them. More than one replica gives you some horizontal scaling. A replica is an instance of the application running. If the deployment has more replicas than an input topic has partitions, the dialog shows a warning icon next to **Replicas** whose tooltip reads `The input topic <topic> has <partitions> partitions. Some of the replicas will not receive data.` |
 | Public access | This is where you want to make the application accessible to the Internet. For example, if the service implements a UI it will usually be available through the web. |
 | State management | If you enable state, your application can preserve state between restarts. A `state` folder is created that is used for data structures and files you want to preserve in the event of service crashes or restarts. See also the [docs on state management](./state-management.md). |
 | Deployment name | You can change the name of the deployment. |
 
 ## Redeploying a service
 
-If you subsequently edit your service code (application) and then click `Redeploy`, you are presented with the `Edit deployment` dialog. The same options previously mentioned are displayed in the dialog. Change the deployment settings as required (perhaps to allocate more resources, or use the latest or a pinned version of the code), and then click `Redeploy`.
+If you subsequently edit your service code (application) and then click `Redeploy`, you are presented with the `Edit deployment` dialog. The same options previously mentioned are displayed in the dialog. Change the deployment settings as required (perhaps to pick a larger [deployment size](./deployment-sizes.md), or use the latest or a pinned version of the code), and then click `Redeploy`.
 
 ## Logs
 
@@ -88,4 +83,4 @@ This command also prompts you to include other applications that need to be sync
 
 To sync a remote (cloud-based) environment to its project repository, you can use the `quix envs sync` command. This syncs the environment in the current (default) selected context with its project repository.
 
-See the [CLI documentation](../quix-cli/overview.md) for more about working on the command line.
+See the [CLI documentation](../../quix-cli/overview.md) for more about working on the command line.

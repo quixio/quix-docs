@@ -149,7 +149,7 @@ When a config file changes (`app.yaml` or `quix.yaml`), a banner prompts you to 
 
 ### Resource limits
 
-Sessions default to **2000m CPU / 2048 MB memory**. The minimum is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session.
+Sessions default to **2000m CPU / 2048 MB memory**. The minimum is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session. If your organization enforces [deployment size limits](../../deployments/deployment-sizes.md), the CPU and memory you set are also checked against the largest CPU and memory among the sizes you have access to.
 
 ## Troubleshooting
 

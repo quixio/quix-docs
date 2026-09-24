@@ -49,7 +49,7 @@ topics:
       retentionInBytes: 262144000
 ```
 
-This defines one or more deployments and their allocated resources, along with other information such as the code commit version to use, here `ada522b`. The topics in the pipeline are also defined here. Note there is **no `variables:` block** on the deployment: under version 2.0 the deployment inherits its variables — such as the `Topic` output — from the application's `app.yaml`, so they are not repeated in `quix.yaml`. See [YAML 1.0 and 2.0](./yaml-2-0.md) for how inheritance works and how the versions differ.
+This defines one or more deployments and their allocated resources, along with other information such as the code commit version to use, here `ada522b`. The `resources` block holds the CPU and memory limits in millicores and MB, the replica count and, optionally, the CPU and memory requests; see [deployment sizes and resources](../deployments/deployment-sizes.md#resources-in-quixyaml) for what each value means and how a request is resolved when it is omitted. The topics in the pipeline are also defined here. Note there is **no `variables:` block** on the deployment: under version 2.0 the deployment inherits its variables — such as the `Topic` output — from the application's `app.yaml`, so they are not repeated in `quix.yaml`. See [YAML 1.0 and 2.0](./yaml-2-0.md) for how inheritance works and how the versions differ.
 
 ## Application
 
