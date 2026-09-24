@@ -144,31 +144,28 @@ You can manage user permissions using the Quix CLI. The following commands are a
 # List all users and their permissions
 quix cloud users permissions list
 
-# Get permissions for a specific user
+# Get a user's own role assignments
 quix cloud users permissions get <user-id>
 
 # Set a user's role at a specific scope
 quix cloud users permissions set <user-id> --scope <scope> --role <role>
 
-# Edit a single permission assignment
-quix cloud users permissions edit <user-id> --permission-assignments "[{Scope, Role}]"
-
-# Remove a permission
+# Remove a user's role at a specific scope
 quix cloud users permissions delete <user-id> --scope <scope>
 
-# Copy permissions from one user to another
+# Copy a user's role assignments to another user, replacing that user's own assignments
 quix cloud users permissions copy <source-user-id> --to <target-user-id>
 ```
 
 **Scope format:**
 
-- Organisation: `Organisation:myorg`
-- Project: `Project:myorg-projectname`
-- Environment: `Workspace:myorg-projectname-environmentname`
+- Organisation: `Organisation:<organisation-id>`, for example `Organisation:myorg`
+- Project: `Repository:<project-id>`, where the project ID is a GUID
+- Environment: `Workspace:<environment-id>`, for example `Workspace:myorg-projectname-environmentname`
 
 **Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator`, `None`
 
-These commands manage a user's **own** assignments. User groups are managed in the Quix Cloud UI, or through the [Portal API](./apis/portal-api/overview.md) - see [User groups](./access-security/user-groups.md).
+`get`, `set`, `delete` and `copy` read and change a user's **own** assignments. `list` shows each user's effective assignments, which are their group's when **Inherit from group** is on. User groups are managed in the Quix Cloud UI, or through the [Portal API](./apis/portal-api/overview.md) - see [User groups](./access-security/user-groups.md).
 
 For full CLI documentation, see the [Quix CLI reference](../quix-cli/cli-reference/cloud/users/permissions/index.md).
 
@@ -185,17 +182,17 @@ Each role grants a set of permissions. Permissions follow the format `resource:a
 | `resource:action` | `workspace:read` | Specific action on a resource |
 | `resource:*` | `workspace:*` | All actions on a resource |
 
-When you assign a role to a user, they receive all the permissions associated with that role.
+A role assignment gives every permission in that role, at the level where the role is assigned.
 
 ### Available resources
 
-| Resource | resourceId | Description |
+| Resource | Checked against | Description |
 |----------|------------|-------------|
 | `organisation` | organisation ID | Organisation-level settings, including user groups and deployment sizes |
 | `globalVariable` | organisation ID | Global variable management |
 | `user` | user ID | User account management |
 | `profile` | user ID | User profile information |
-| `repository` | repository ID | Git repository access |
+| `repository` | project ID | Projects |
 | `workspace` | workspace ID | Environment access |
 | `topic` | workspace ID | Kafka topic management |
 | `stream` | workspace ID | Data streaming operations |
@@ -217,16 +214,16 @@ When you assign a role to a user, they receive all the permissions associated wi
 
 The system first selects the user's permission source: their own role assignments, or their group's assignments when **Inherit from group** is on (see [How group roles and user roles combine](#how-group-roles-and-user-roles-combine)). Only that one set of assignments is used.
 
-It then looks at the three [permission levels](#permission-levels) from most specific to broadest: Environment → Project → Organisation. If a permission isn't found at the environment level, the system checks the project level, then the organisation level.
+It then uses the most specific of the three [permission levels](#permission-levels) at which that set assigns a role: the environment, then the environment's project, then the organisation. The role at that level decides on its own: if it doesn't include the permission, access is denied, even when a role at a broader level would allow it. This is how **None** blocks access. A broader level is checked only when no role is assigned at the more specific one.
 
 ### Personal Access Tokens
 
-When using [Personal Access Tokens](./access-security/personal-access-token.md) (PATs), the effective permissions are the **intersection** of:
+When you use a [Personal Access Token](./access-security/personal-access-token.md) (PAT), each permission check on an environment, project or the organisation must pass for both:
 
-- The user's permissions (based on their role, or their group's roles when **Inherit from group** is on)
-- The token's configured permissions
+- the user's current permissions (based on their role, or their group's roles when **Inherit from group** is on)
+- the permissions configured on the token
 
-This means a PAT can only have equal or fewer permissions than the user who created it. This is useful for creating tokens with limited scope, such as read-only tokens for monitoring.
+A PAT can therefore never do more than the user who created it. A token created in the Quix Cloud UI gets the role assignments the user has when they create it.
 
 ## See also
 
