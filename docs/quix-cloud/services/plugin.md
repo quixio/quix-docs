@@ -37,7 +37,7 @@ The embedded view opens at one of three portal URLs, depending on where you open
 |---|---|---|
 | `/pipeline/deployments/<deployment-id>/embedded?workspace=<environment-id>` | Inside the environment, with the environment sidebar | The environment sidebar, the pipeline view, the `Embedded view` toggle on Deployment details |
 | `/apps/<deployment-id>` | Inside the portal, with the organization sidebar | While you're in a space: a header app, an organization sidebar entry, the command palette, or the space's landing page when the space also lists the plugin in its organization sidebar |
-| `/plugins/details/<deployment-id>` | Full screen, with the top header and no sidebar | The command palette when you're not in a space, a space's landing page when the space doesn't list the plugin in its organization sidebar, and the page Operator-only users land on |
+| `/plugins/details/<deployment-id>` | Full screen, with the top header and no sidebar | The command palette when you're not in a space, a space's landing page when the space doesn't list the plugin in its organization sidebar, and the page that existing [Operator-only users](#what-operator-only-users-see) land on |
 
 Anything after the plugin's address in the portal URL is passed to the plugin as a path, so you can link straight to a page inside a plugin. For example, `/apps/<deployment-id>/alarms` opens the plugin's `/alarms` page. See [Embedded view URL](#embedded-view-url).
 
@@ -98,7 +98,7 @@ Each dialog control writes one YAML setting:
 | `Embedded View` › `Hide deployment title bar` | `embeddedView.hideHeader` | Off by default. |
 | `Embedded View` › `Use as default view` | `embeddedView.default` | On by default for a new deployment. |
 
-The dialog has no order field for `Organisation plugin`. It keeps an existing `globalItem.order`, and sets `0` when there isn't one. A global plugin saved from the dialog therefore sorts before plugins with a higher `order`, and can become the plugin that Operator-only users land on. See [What Operator-only users see](#what-operator-only-users-see). To set `globalItem.order`, use YAML.
+The dialog has no order field for `Organisation plugin`. It keeps an existing `globalItem.order`, and sets `0` when there isn't one. A global plugin saved from the dialog therefore sorts before plugins with a higher `order`. To set `globalItem.order`, use YAML. If your organization still has users with the deprecated Operator role, the plugin can also become the one they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see).
 
 <a id="yaml-configuration"></a>
 
@@ -237,28 +237,44 @@ The `globalItem` settings describe the plugin wherever it appears. A space contr
 | `label` | The app's name in the header, the command palette, the space designer and the plugin toolbar. If you don't set it, the deployment name is used. An organization admin can give a header pin a different label. An organization sidebar entry copies the name when the admin adds it. |
 | `icon` | The app's icon in the same places as `label`. If you don't set it, the `extension` icon is used. An organization admin can choose a different icon for a pin or a sidebar entry. |
 | `badge` | A short label shown next to the app's name in the header and the command palette, for example `Beta`. A space can't change it. |
-| `order` | Sorts global plugins in the command palette and in the space designer's app lists. Lower values come first, and plugins without `order` come last. It also decides which plugin Operator-only users land on. It doesn't set the order of the header: each space sets its own. |
+| `order` | Sorts global plugins in the command palette and in the space designer's app lists. Lower values come first, and plugins without `order` come last. It doesn't set the order of the header: each space sets its own. For existing Operator-only users, it also decides which plugin they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see). |
 
 ### Permissions and access control
 
 Access to global plugins works like this:
 
-* To see and open a global plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment.
-* The Operator role grants `plugin:*`. The Admin, Manager and Editor roles grant it too, and the Viewer role grants `plugin:read`.
-* A user doesn't need `workspace:read` in that environment. To give someone the plugins in an environment without access to its pipelines, topics or deployments, assign them the Operator role at the environment level. See [Permission levels](../roles.md#permission-levels).
+* To see and open a global plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment. A user doesn't need `workspace:read` in that environment.
+* The Admin, Manager and Editor roles grant `plugin:*`, and the Viewer role grants `plugin:read`. The deprecated Operator role grants `plugin:*` and nothing else.
+* To give someone access to the plugins in an environment, assign them a role that grants `plugin:read`. The narrowest choice is the Viewer role at the environment level. See [Permission levels](../roles.md#permission-levels). Don't assign the Operator role: it's deprecated. To show these users only the plugins, use a space. See [Operator-only users (deprecated)](#what-operator-only-users-see).
 
 Spaces don't change any of this. A space that pins a plugin doesn't give anyone access to it. Users without access to a plugin don't see it in the header or the command palette. If a space lists it in the organization sidebar, they see that entry disabled.
 
 For more information about roles and permissions, see [Roles and permissions](../roles.md).
 
-### What Operator-only users see
+<a id="what-operator-only-users-see"></a>
 
-An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. These users can't open projects, environments or deployments, so for them the portal works as a launcher for global plugins:
+### Operator-only users (deprecated)
 
-* When they open any other portal page, such as `Home` or a project, the portal opens their first global plugin full screen instead. The first plugin is the one with the lowest `globalItem.order`, so use `order` to choose where these users start.
+!!! warning "The Operator role is deprecated"
+
+    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Roles and permissions](../roles.md).
+
+An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. If your organization still has Operator-only users, this is how the portal behaves for them. They can't open projects, environments or deployments, so for them the portal works as a launcher for global plugins:
+
+* When they open any other portal page, such as `Home` or a project, the portal opens their first global plugin full screen instead. The first plugin is the one with the lowest `globalItem.order`.
 * If they have no global plugins, they see `No global plugins available`, with a request to contact an organization administrator.
 * The organization name in the header is disabled, with the tooltip `Your current permissions do not include Control Plane access`.
 * Without a space, they switch between global plugins with the command palette or `Search apps & pages` in the plugin toolbar. These open each plugin full screen at `/plugins/details/<deployment-id>`.
+* In a space, header apps, organization sidebar apps and the command palette open plugins at `/apps/<deployment-id>`. The portal blocks that page for Operator-only users and sends them back to their first global plugin, so these links don't take them to the plugin they chose.
+
+To give these users a plugin-only view that works in a space, move them off the Operator role:
+
+1. Create a space that shows only the plugins. For example, pin the plugins to `Header apps` and set the main plugin as the `Landing page`.
+2. Add the users' permission group to the space's `Membership`.
+3. Change their role from Operator to Viewer, assigned at the level of the environment that runs the plugins.
+4. Check the result with `Preview as member` on the spaces list.
+
+A space controls what users see, not what they can access. Unlike Operator, the Viewer role also lets users read the environment's other resources, such as its pipelines, topics and deployments, through the APIs and the CLI, so assign it only to the environment that runs the plugins.
 
 ### Configuration example
 
