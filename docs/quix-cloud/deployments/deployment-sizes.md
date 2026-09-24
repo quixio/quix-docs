@@ -75,7 +75,7 @@ Edit, reorder, delete or add to these freely. The seed runs once per organizatio
 | Name | Letters, digits and spaces, up to 25 characters in the dialog, unique within the organization. |
 | CPU (cores) and Memory (GB) | The size's CPU and memory limits. The dialog takes cores and GB, with 1 GB = 1024 MB, and stores millicores and MB. The seeded `S` size's 2000 MB therefore shows as 1.95 GB in the catalog. |
 | CPU/Memory reservation | Optional. When on, the size stores request percentages, `0` to `100` of each limit. The dialog shows the cores and GB each percentage corresponds to. |
-| Restrict to specific users or groups | Optional. When on with at least one user or group selected, only the selected users, members of the selected groups, and anyone with the organization update permission, in practice Admins, have access to the size. Access decides which sizes the Portal API returns to a user and the limit enforced for them. |
+| Restrict to specific users or groups | Optional. When on with at least one user or group selected, only the selected users, members of the selected groups, and anyone with the organization update permission, in practice Admins, have access to the size. Access decides which sizes the Portal API returns to a user and the limit enforced for them. See [Restrict a size to users and groups](#restrict-a-size-to-users-and-groups). |
 
 Two more properties are set from the catalog rather than the edit dialog:
 
@@ -85,6 +85,23 @@ Two more properties are set from the catalog rather than the edit dialog:
 Deleting a size does not change the deployments that used it: they keep their CPU and memory.
 
 Admins can also manage sizes through the Portal API, with the `/organisations/current/deployment-sizes` endpoints listed in the [Swagger reference](https://portal-api.cloud.quix.io/swagger/index.html){target=_blank}.
+
+### Restrict a size to users and groups
+
+By default every size is available to every user. To make a size available only to specific users, to the members of specific [user groups](../access-security/user-groups.md), or both:
+
+1. In **Organization Settings > Deployment Sizes**, choose **Edit size** from the size's menu, or add a size with **+ Add new deployment size**.
+2. Turn on **Restrict to specific users or groups**.
+3. Select users under **Allowed users**, groups under **Allowed groups**, or both, and click **Save**, or **Add size** for a new size.
+
+![The Add deployment size dialog with Restrict to specific users or groups turned on and the Data Engineering group selected under Allowed groups](../../images/deploy/deployment-size-restrict.png){width=60%}
+
+The catalog then shows the size as **Restricted**, with a summary of who can use it. Unrestricted sizes show **All users**.
+
+Every member of an allowed group has access to the size, whether or not their **Inherit from group** toggle for [roles](../roles.md#how-group-roles-and-user-roles-combine) is on. The deployment dialog's **Size** dropdown lists a restricted size only for users selected individually, so members who have access only through a group can't pick it there. See [Choosing resources in the deployment dialog](#choosing-resources-in-the-deployment-dialog).
+
+!!! note "An empty allow list is not a restriction"
+    In the dialog, a restriction only takes effect when at least one user or group is selected: saving with the toggle on and nobody selected leaves the size available to all users. Through the Portal API, sending empty lists of allowed users and groups restricts the size to Admins, and the catalog shows a dash for it.
 
 ## Choosing resources in the deployment dialog
 

@@ -12,16 +12,7 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 ## PAT permissions
 
-A PAT inherits permissions from the user who created it, but can be configured with more restricted access. The effective permissions are the **intersection** of:
-
-- The user's permissions (based on their [role](../roles.md))
-- The token's configured permissions
-
-This means a PAT can only have equal or fewer permissions than you have. This is useful for:
-
-- Creating read-only tokens for monitoring dashboards
-- Limiting tokens to specific environments
-- Reducing risk if a token is compromised
+A PAT can never do more than the user who created it. A token created in the Quix Cloud UI gets the permissions of the user's [role](../roles.md) assignments at that moment, or of their group's when **Inherit from group** is on.
 
 ## See also
 
