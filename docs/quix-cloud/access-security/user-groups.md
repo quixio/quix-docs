@@ -5,7 +5,7 @@ description: Assign roles to a group once instead of to each user, choose per us
 
 # User groups
 
-A user group is a named set of role assignments that applies to every member of the group. Instead of assigning the same roles to each engineer on a team, you assign them once to the group and add the engineers as members. A group can also unlock restricted deployment sizes for its members.
+A user group is a named set of role assignments that its members can inherit. Instead of assigning the same roles to each engineer on a team, you assign them once to the group, add the engineers as members, and turn on **Inherit from group** for each of them. A group can also unlock restricted deployment sizes for all its members.
 
 - Groups belong to an organisation.
 - A user can be a member of **one group at a time**.
@@ -17,13 +17,13 @@ Groups are managed in the Quix Cloud UI on the **Users** page in your organisati
 ## Create a group
 
 1. Open your organisation's **Users** page and select the **User Groups** tab.
-2. Click **New group**.
+2. Click **+ New group**.
 3. Enter a **name** (up to 64 characters, unique within the organisation) and an optional **description** (up to 200 characters), and optionally pick an icon.
 4. Click **Create group**.
 
 ![The User Groups tab filtered to one group, showing its description and organisation role](../../images/quix-cloud/user-groups-list.png)
 
-The group list shows each group's members, a summary of its role in the **Organisation role** column, and when it was created and last modified. The role is shown with a **(Custom)** suffix - for example `Editor (Custom)` - when the group's assignments go beyond a single organisation-wide role.
+The group list shows each group's members, a summary of its role in the **Organisation role** column, and when it was last modified. You can show a **Created** column with the column picker. The role is shown with a **(Custom)** suffix - for example `Editor (Custom)` - when the group's assignments go beyond a single organisation-wide role.
 
 ## Give a group access
 
@@ -33,12 +33,12 @@ The group list shows each group's members, a summary of its role in the **Organi
 
 ![A group's Project permissions tab with Editor assigned at the organisation level and inherited by a project](../../images/quix-cloud/user-groups-permissions.png)
 
-**Example:** a `Data Engineering` group set to **Editor** at the organisation level, overridden with **Viewer** on the `production` environment of the `payments` project. Every member who inherits from the group can edit everywhere except that environment, where they can only view.
+**Example:** a `Data Engineering` group set to **Editor** at the organisation level, overridden with **Viewer** on the `production` environment of the `payments` project. Every member who inherits from the group has Editor access everywhere except that environment, where they have Viewer access.
 
 ## Add and remove members
 
 1. Open the group and select the **Users** tab.
-2. Click **Add users** and pick the users to add.
+2. Click **Add users**, select the users to add, and click **Add**.
 
 A user can only belong to one group. In **Add users**, people who are already in another group are shown as **In *group name*** and can't be selected. To move a user to a different group, open the user's menu in the **Users** list, choose **Edit details**, and change **Group**. Moving turns their **Inherit from group** toggle off - see [How group roles and user roles combine](../roles.md#how-group-roles-and-user-roles-combine). You cannot add or remove yourself, or change your own permission source.
 
@@ -72,7 +72,7 @@ Which sizes a user may use, as returned by the [Portal API](../apis/portal-api/o
 
 Group membership alone is enough - the member's **Inherit from group** setting does not matter here.
 
-The restriction is enforced on deployments only when your organisation has deployment sizes enabled and **enforces deployment size limits**. Then a deployment's CPU and memory limits are capped by the highest CPU and the highest memory among the sizes available to the user, and a user with no available sizes cannot deploy at all until an Admin allows them a size. Without enforcement, users can still enter custom CPU and memory.
+The restriction is enforced on deployments only when your organisation has deployment sizes enabled and **enforces deployment size limits**. Then a deployment's CPU and memory limits are capped by the highest CPU and the highest memory among the sizes available to the user, and a user with no available sizes cannot create or update deployments until an Admin allows them a size. Without enforcement, users can still enter custom CPU and memory.
 
 !!! note "An empty allow list is not a restriction"
     In the Quix Cloud UI, a restriction only takes effect when at least one user or group is selected. Turning the toggle on and saving without selecting anyone leaves the size available to all users. When you edit a size through the Portal API instead, sending an empty list of allowed users and groups restricts the size to organisation Admins only.

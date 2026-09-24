@@ -7,7 +7,7 @@ description: The six Quix Cloud roles and what each can do, how roles apply at o
 
 Quix Cloud uses roles to control what users can do. You can assign different roles at different levels - organisation, project, or environment - giving you fine-grained control over access.
 
-A role can be assigned to a user directly, or to a [user group](#user-groups) so that every member of the group gets the same access.
+A role can be assigned to a user directly, or to a [user group](#user-groups). Members who have **Inherit from group** turned on get the group's roles in place of their own.
 
 You can manage roles using the Quix Cloud UI or programmatically via the [Quix CLI](#managing-roles-with-the-cli).
 
@@ -17,10 +17,10 @@ Quix Cloud provides six roles, each granting different levels of access:
 
 ![Role selection dropdown](../images/quix-cloud/roles-dropdown.png){width=50%}
 
-| Role | Description | Use when... |
+| Role | Description | Shown in the role picker |
 |------|-------------|-------------|
-| Admin | Full control including global variables, user and group management, and deployment sizes | All permissions within the scope including global variables and user management |
-| Manager | Manage resources, and create and view global variables (read-only user access) | Create, delete, edit, view resources within the scope |
+| Admin | Full control including global variables, user and group management, and deployment sizes | All permissions within the scope including billing and user management |
+| Manager | Manage resources, and create and view global variables (read-only user access) | Create, Delete, edit, view resources within the scope |
 | Editor | Edit projects and environments, and manage deployments (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
 | Operator | Plugin access, plus read-only access to global variables | Manage plugins with limited access to other resources |
@@ -99,7 +99,7 @@ Inheritance works the same way for a group's role assignments: set a base role f
 
 ## User groups
 
-A user group is a named set of role assignments that applies to every member of the group. You assign roles to the group once, at the same [levels](#permission-levels) and with the same [inheritance](#inheritance) as for a single user, and add users as members. A user can be a member of one group at a time.
+A user group is a named set of role assignments that its members can inherit. You assign roles to the group once, at the same [levels](#permission-levels) and with the same [inheritance](#inheritance) as for a single user, and add users as members. A member gets the group's roles only while their **Inherit from group** toggle is on. A user can be a member of one group at a time.
 
 Creating groups, managing members, and restricting deployment sizes to groups are covered in [User groups](./access-security/user-groups.md). This section explains how a group's roles combine with a user's own.
 
@@ -123,7 +123,7 @@ Other rules worth knowing:
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
 - Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups).
 
-The Users list shows each user's role and, when it comes from a group, the group it is inherited from.
+See [The users list](./access-security/users.md#the-users-list) for how roles appear on the Users page.
 
 ## Best practices
 
