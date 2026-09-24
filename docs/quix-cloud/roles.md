@@ -15,7 +15,7 @@ Quix Cloud provides six roles, each granting different levels of access:
 | Role | Description | Use when... |
 |------|-------------|-------------|
 | Admin | Full control including global variables, user and group management, and deployment sizes | All permissions within the scope including global variables and user management |
-| Manager | Manage resources, users, and global variables | Create, delete, edit, view resources within the scope |
+| Manager | Manage resources and global variables (read-only user access) | Create, delete, edit, view resources within the scope |
 | Editor | Create and manage resources (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
 | Operator | Full plugin access only | Manage plugins with limited access to other resources |
@@ -31,7 +31,7 @@ The following table shows what each role can do with different resource types:
 |----------|:-----:|:-------:|:------:|:------:|:--------:|
 | **Organisation** | ✅ | read | read | read | ❌ |
 | **Global Variables** | ✅ | ✅ | read/update | read | ❌ |
-| **Users** | ✅ | ✅ | read | ❌ | ❌ |
+| **Users** | ✅ | read | read | read | ❌ |
 | **User Groups** | ✅ | read | read | read | ❌ |
 | **Profile** | ✅ | ✅ | ✅ | read | read |
 | **Workspace** | ✅ | ✅ | ✅ | read | ❌ |
