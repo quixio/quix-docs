@@ -39,6 +39,7 @@ nav:
         - 'Protected environments': 'quix-cloud/projects/protected-environment.md'
         - 'Syncing an environment': 'quix-cloud/projects/syncing-environment.md'
         - 'Testing environments': 'quix-cloud/projects/testing-environments.md'
+      - 'Project quotas': 'quix-cloud/projects/project-quotas.md'
       - 'Project structure':
         - 'Overview': 'quix-cloud/projects/project-structure.md'
         - 'YAML 1.0 and 2.0': 'quix-cloud/projects/yaml-2-0.md'

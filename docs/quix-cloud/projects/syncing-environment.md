@@ -6,6 +6,8 @@ Sometimes you will need to sync your environments manually. For example, if you 
 
 You can always review the changes that will be made to your `quix.yaml` file, before you perform the synchronization.
 
+A sync stops at the first deployment that would exceed a [project quota](project-quotas.md): changes applied before it are kept, and the remaining ones are left pending. The error names the quota that was hit and how much of it is left.
+
 The rules around manual and automatic synchronization are:
 
 1. Operations performed in Quix should not cause "out of sync", as those operations are automatically saved to the Git repository. This is the case for both Quix-managed and third-party hosted Git.
