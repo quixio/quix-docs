@@ -96,9 +96,11 @@ The **Deployment resources** panel of the [deployment dialog](./overview.md#depl
 | Sizes enabled, limits not enforced | The Size dropdown lists the unrestricted sizes and each restricted size that selects the user individually, plus **Custom**. Picking a size locks the sliders to its values. Picking Custom unlocks them, bounded by your subscription's CPU and memory quota. |
 | Sizes enabled, limits enforced | The Size dropdown lists the same sizes, without **Custom** for a new deployment. When you edit an existing deployment, a disabled **Custom** entry can appear, and a size must be picked before saving. |
 
+![The Deployment resources panel with the Large size picked: CPU and memory locked at 2 cores and 4 GB, and the CPU/Memory reservation toggle locked on with the size's 2% reservations, which reserve 0.04 cores and 0.08 GB](../../images/deploy/deployment-resources-panel.png){width=80%}
+
 The **CPU/Memory reservation** toggle sits next to the dropdown whenever sizes are enabled:
 
-- Picking a named size locks the toggle.
+- Picking a named size locks the toggle and shows the note `Set by the <size> size and can't be changed here.` If the size has its own reservation, the toggle is on and the **CPU reserved (%)** and **Memory reserved (%)** sliders show its percentages, with the cores and GB they reserve. Otherwise the toggle is off.
 - With **Custom** selected and limits not enforced, the toggle is the user's. Switching it on seeds the sliders with the organization defaults, and the values saved become an explicit request on the deployment. Switching it off clears any explicit request so the deployment inherits again.
 - With limits enforced, the toggle is locked.
 
