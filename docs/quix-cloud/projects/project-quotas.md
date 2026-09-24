@@ -19,7 +19,7 @@ In the Portal, quotas are managed in one place: **Organization Settings > Projec
 
 A quota has two independent axes, **CPU** (in cores) and **memory** (in GB). Each axis is either a pool size or **Unlimited**. You can cap CPU and leave memory unlimited, or the other way round.
 
-What counts against the pool is every deployment in the project's environments that is running or on its way to running, summed as `resource limit × replicas`. That includes deployments that are queued, building, deploying, starting, stopping, or in a runtime error, and deployments whose build has succeeded. Stopped, completed, failed, and deleting deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only.
+What counts against the pool is every deployment in the project's environments that is running or on its way to running, summed as `resource limit × replicas`. That includes deployments that are queued, building, deploying, starting, stopping, or in a runtime error, and deployments whose build has succeeded. Stopped, completed, failed, and deleting deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only. Resource requests don't count against the pool either, only limits do. [Limits and requests](../deployments/deployment-sizes.md#limits-and-requests) explains the difference.
 
 ### There is no on/off switch
 
@@ -155,3 +155,4 @@ To get a refused deployment running, do one of the following:
 - [Syncing an environment](syncing-environment.md): a sync stops at the first deployment that would exceed a quota, with the messages above.
 - [Roles and permissions](../roles.md): who can manage organization settings.
 - [Deployments overview](../deployments/overview.md): where a deployment's CPU, memory, and replicas are set.
+- [Deployment sizes and resources](../deployments/deployment-sizes.md): how limits and requests differ, and where each value is set.
