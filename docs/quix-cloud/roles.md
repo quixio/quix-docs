@@ -20,10 +20,10 @@ Quix Cloud provides six roles, each granting different levels of access:
 | Role | Description | Use when... |
 |------|-------------|-------------|
 | Admin | Full control including global variables, user and group management, and deployment sizes | All permissions within the scope including global variables and user management |
-| Manager | Manage resources and global variables (read-only user access) | Create, delete, edit, view resources within the scope |
-| Editor | Create and manage resources (read-only user access) | Edit, view resources within the scope |
+| Manager | Manage resources, and create and view global variables (read-only user access) | Create, delete, edit, view resources within the scope |
+| Editor | Edit projects and environments, and manage deployments (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
-| Operator | Full plugin access only | Manage plugins with limited access to other resources |
+| Operator | Plugin access, plus read-only access to global variables | Manage plugins with limited access to other resources |
 | None | No permissions - blocks access at this scope | No permissions within the scope |
 
 The same six roles apply whether you assign them to a user or to a user group.
@@ -34,21 +34,30 @@ The following table shows what each role can do with different resource types:
 
 | Resource | Admin | Manager | Editor | Viewer | Operator |
 |----------|:-----:|:-------:|:------:|:------:|:--------:|
-| **Organisation** | ✅ | read | read | read | ❌ |
-| **Global Variables** | ✅ | ✅ | read/update | read | ❌ |
+| **Organisation** | read/update | read | read | read | ❌ |
+| **Global Variables** | ✅ | create/read | create/read | read | read |
 | **Users** | ✅ | read | read | read | ❌ |
 | **User Groups** | ✅ | read | read | read | ❌ |
-| **Profile** | ✅ | ✅ | ✅ | read | read |
-| **Workspace** | ✅ | ✅ | ✅ | read | ❌ |
-| **Repository** | ✅ | ✅ | ✅ | read | ❌ |
+| **Workspace** (environment) | ✅ | ✅ | read/update | read | ❌ |
+| **Repository** (project) | ✅ | ✅ | read/update | read | ❌ |
 | **Deployments** | ✅ | ✅ | ✅ | read | ❌ |
 | **Plugins** | ✅ | ✅ | ✅ | read | ✅ |
 
 **Legend:**
 
 - ✅ Full access (create, read, update, delete)
+- read/update: view and change existing items, but not create or delete them
+- create/read: create new items and view them
 - read: view only
 - ❌ No access
+
+Every user can view and update their own profile, whatever their role.
+
+Organisation, Global Variables, Users and User Groups use your role at the organisation level. Creating a project is checked against your organisation-level role, and creating an environment against your role on its project.
+
+A Manager or Editor who creates a variable group can also change it, including its variables, value sets and assignments. Changing a group someone else created, or deleting any group, needs Admin. See [Global variables](./deployments/global-variables.md).
+
+The Plugins row is what the [permissions API](./services/plugin.md#checking-permissions-programmatically) reports to plugins. Creating, changing or deleting a plugin deployment follows the Deployments row, so Operators can view plugin deployments but not change them.
 
 Creating, editing and deleting user groups, managing their members, and [restricting deployment sizes](./access-security/user-groups.md#restricting-deployment-sizes-to-users-and-groups) are organisation-level settings, so they need the Admin role at the organisation level.
 
@@ -174,7 +183,7 @@ Each role grants a set of permissions. Permissions follow the format `resource:a
 | Format | Example | Description |
 |--------|---------|-------------|
 | `resource:action` | `workspace:read` | Specific action on a resource |
-| `resource:*` | `deployment:*` | All actions on a resource |
+| `resource:*` | `workspace:*` | All actions on a resource |
 
 When you assign a role to a user, they receive all the permissions associated with that role.
 
