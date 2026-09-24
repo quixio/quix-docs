@@ -7,11 +7,7 @@ description: Cap the CPU and memory a Quix project can use, distribute the pool 
 
 A project quota caps the CPU and memory that one project's deployments can use in total. The quota is a pool for the whole project, and you can optionally cap individual environments within it so that, for example, deployments in a development environment can't be created, resized, or started beyond a fixed share of the pool.
 
-Quotas are managed in one place: **Organization Settings > Project Quotas**. A project without a quota is unlimited.
-
-!!! info "Beta"
-
-    Project quotas are in Beta. The **Project Quotas** entry in the Organization Settings sidebar carries a Beta badge.
+In the Portal, quotas are managed in one place: **Organization Settings > Project Quotas**. A project without a quota is unlimited.
 
 !!! note "Project quotas are not organization resource limits"
 
@@ -23,7 +19,7 @@ Quotas are managed in one place: **Organization Settings > Project Quotas**. A p
 
 A quota has two independent axes, **CPU** (in cores) and **memory** (in GB). Each axis is either a pool size or **Unlimited**. You can cap CPU and leave memory unlimited, or the other way round.
 
-What counts against the pool is every deployment in the project's environments that is running or on its way to running, summed as `resource limit × replicas`. That includes deployments that are queued, building, deploying, starting, stopping, or in a runtime error. Stopped, completed, failed, and deleting deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only.
+What counts against the pool is every deployment in the project's environments that is running or on its way to running, summed as `resource limit × replicas`. That includes deployments that are queued, building, deploying, starting, stopping, or in a runtime error, and deployments whose build has succeeded. Stopped, completed, failed, and deleting deployments count for nothing. Dev sessions are not counted: they are bounded by the organization's resource limits only.
 
 ### There is no on/off switch
 
@@ -79,7 +75,7 @@ The quota never lets production grow past 2 cores or 4 GB, or staging past 1 cor
 You need to be an organization admin to open **Organization Settings** and to create, edit, or remove quotas.
 
 1. Open **Settings** in the left navigation, then **Project Quotas**.
-2. Click **New quota** (or **Add new quota** when the organization has none yet) and pick the project. Projects that already have a quota are edited from their own row instead.
+2. Click **New quota** (or **Add new quota** when the organization has none yet), then pick the project in the **New resource quota** dialog. Projects that already have a quota are edited from their own row instead.
 3. For each of **CPU pool** and **Memory pool**, either switch on **Unlimited** or enter the pool size in cores or GB.
 4. To cap an environment on an axis, click its name in the environment list under that axis. The list reads **No caps yet — all environments share the pool** until you add the first cap, and **Uncapped · share whatever is left:** after that. Enter the cap value and choose the unit, `cores` / `GB` for an absolute cap or `%` for a share of the pool. You can also drag the environment's handle on the allocation bar.
 5. Click **Create quota**.
@@ -88,7 +84,7 @@ The dialog keeps a running total under each bar. If the caps on an axis add up t
 
 ![Edit resource quota dialog: a 1-core CPU pool, one environment capped at 50% of the pool, and one environment left uncapped](../../images/project-quotas/quota-dialog.png)
 
-To change a quota later, open the project row's menu and choose **Edit quota**. To lift the quota entirely, choose **Remove quota**; the project's deployments become unlimited immediately.
+To change a quota later, open the project row's menu and choose **Edit quota**, or click one of the project's environment rows. Both open the **Edit resource quota** dialog. To lift the quota entirely, choose **Remove quota**; the project's deployments become unlimited immediately.
 
 ### Values that are rejected
 
@@ -124,7 +120,7 @@ Quotas are checked whenever a deployment would take more from the pool:
 
 The check is on the increase. Lowering a running deployment's CPU, memory, or replicas is never refused by a project or environment quota, even if the project is already over it, so you can always work your way back under it. Your subscription's organization limits are checked separately.
 
-A refused request reports which bound was hit and how much of it is left, in millicores (1 core = 1000 millicores) and MB (1 GB = 1024 MB):
+A request that a project or environment quota refuses reports which bound was hit and how much of it is left, in millicores (1 core = 1000 millicores) and MB (1 GB = 1024 MB):
 
 ```text
 Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
@@ -134,11 +130,16 @@ Exceeded project CPU quota. 100 millicores remaining of the 100 millicores proje
 Exceeded environment memory quota. 512 MB remaining of the 2048 MB environment quota.
 ```
 
-The Quix Cloud API returns this message for the refused request, and a sync records it as the error of the deployment it stopped at. When `quix pipeline sync` stops at a deployment the quota refuses, it prints that deployment and the message:
+In the Portal, only organization admins can see quotas and usage. Anyone else learns about a quota from this message, which says how much of it is left. It appears word for word in these places:
 
-```text
-✗ Sync failed for deployment '<deployment>': Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
-```
+- **Deployment dialog**: when you create or edit a deployment, the message appears inside the dialog, which stays open so you can change the values and try again. It also appears as an error notification, prefixed with the environment name.
+- **Start**: starting a stopped deployment from the pipeline, the deployments list, or the deployment's page shows the message as an error notification.
+- **Sync in the Portal**: the sync dialog marks the change it stopped at with an error icon, marks later changes with a pending icon whose tooltip reads **Pending**, and shows the message below the list. **Rollback** is offered only when another change in the same sync was already applied.
+- **CLI**: when `quix pipeline sync` stops at a deployment the quota refuses, it prints that deployment and the message:
+
+    ```text
+    ✗ Sync failed for deployment '<deployment>': Exceeded project CPU quota. 100 millicores remaining of the 100 millicores project quota.
+    ```
 
 The word after `Exceeded` names the scope: `project`, `environment`, or `organisation`. An `organisation` message comes from your subscription's resource limits, not from a project quota.
 
