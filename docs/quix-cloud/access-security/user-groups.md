@@ -62,7 +62,7 @@ To restrict a size, edit it in your organisation's **Deployment Sizes** settings
 
 ![The Add deployment size dialog with Restrict to specific users or groups turned on and one allowed group selected](../../images/quix-cloud/deployment-size-restrict.png)
 
-Which sizes the platform makes available to each user:
+Which sizes a user may use, as returned by the [Portal API](../apis/portal-api/overview.md) and applied when deployment size limits are enforced:
 
 | User | Available sizes |
 |------|-----------------|
