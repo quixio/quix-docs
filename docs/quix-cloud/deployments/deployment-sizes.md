@@ -41,7 +41,7 @@ To set up deployment sizes:
 
 1. Open **Organization Settings > Deployment Sizes**.
 2. Turn on **Enable deployment sizes**. The catalog appears below the settings.
-3. Adjust the catalog. **+ Add new deployment size** adds a size, and each row's menu has **Make default**, **Edit size** and **Delete size**. Drag a row to change its position.
+3. Adjust the catalog. **+ Add new deployment size** adds a size, and each row's menu has **Make default** (**Remove default** on the current default), **Edit size** and **Delete size**. Drag a row to change its position.
 4. Optionally, set the organization's default reservations with **Set defaults**, or **Edit defaults** once they're set. See [Organization default reservations](#organization-default-reservations).
 5. Optionally, turn on **Enforce deployment size limits**, described in the table below.
 
