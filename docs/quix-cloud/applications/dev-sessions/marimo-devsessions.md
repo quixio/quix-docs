@@ -63,7 +63,7 @@ Stopping a session preserves your files. Terminating a session permanently delet
 
 ## Resource defaults
 
-Each Marimo session starts with **2000m CPU** and **4096 MB memory**. The minimum you can set is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session.
+Each Marimo session starts with **2000m CPU** and **4096 MB memory**. The minimum you can set is 50m CPU / 100 MB memory. Both are configurable when you create or edit the session. If your organization enforces [deployment size limits](../../deployments/deployment-sizes.md), the CPU and memory you set are also checked against the largest CPU and memory among the sizes you have access to.
 
 ## Troubleshooting
 

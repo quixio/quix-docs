@@ -39,6 +39,7 @@ nav:
         - 'Protected environments': 'quix-cloud/projects/protected-environment.md'
         - 'Syncing an environment': 'quix-cloud/projects/syncing-environment.md'
         - 'Testing environments': 'quix-cloud/projects/testing-environments.md'
+      - 'Project quotas': 'quix-cloud/projects/project-quotas.md'
       - 'Project structure':
         - 'Overview': 'quix-cloud/projects/project-structure.md'
         - 'YAML 1.0 and 2.0': 'quix-cloud/projects/yaml-2-0.md'
@@ -74,6 +75,7 @@ nav:
           - 'External destination': 'quix-cloud/applications/integrate-data/external-destination.md'
     - 'Deployments':
       - 'Overview': 'quix-cloud/deployments/overview.md'
+      - 'Deployment sizes and resources': 'quix-cloud/deployments/deployment-sizes.md'
       - 'Variables':
         - 'Project variables': 'quix-cloud/deployments/project-variables.md'
         - 'Global variables': 'quix-cloud/deployments/global-variables.md'
