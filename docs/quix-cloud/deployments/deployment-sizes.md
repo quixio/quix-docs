@@ -37,13 +37,21 @@ A deployment size is a named CPU and memory pair, such as `S` = 1 core / 2000 MB
 
 ![The Deployment Sizes settings page: the default reservations row, the Enable deployment sizes and Enforce deployment size limits toggles, and an example catalog of sizes with their CPU, memory, reservation and access](../../images/deploy/deployment-sizes-catalog.png){width=80%}
 
+To set up deployment sizes:
+
+1. Open **Organization Settings > Deployment Sizes**.
+2. Turn on **Enable deployment sizes**. The catalog appears below the settings.
+3. Adjust the catalog. **+ Add new deployment size** adds a size, and each row's menu has **Make default**, **Edit size** and **Delete size**. Drag a row to change its position.
+4. Optionally, set the organization's default reservations with **Set defaults**, or **Edit defaults** once they're set. See [Organization default reservations](#organization-default-reservations).
+5. Optionally, turn on **Enforce deployment size limits**, described in the table below.
+
 The page has three settings above the catalog:
 
 | Setting | Effect |
 |---|---|
 | Default reservations | The organization-wide request percentages. See [Organization default reservations](#organization-default-reservations). |
 | Enable deployment sizes | When on, the deployment dialog shows a **Size** dropdown, as described in [Choosing resources in the deployment dialog](#choosing-resources-in-the-deployment-dialog). When off, it offers only **Custom**, users enter CPU and memory directly, and sizes are ignored, even if some are defined. |
-| Enforce deployment size limits | Only shown when sizes are enabled. When on, users can no longer pick **Custom**, and creating or updating a deployment is rejected if its CPU or memory exceeds the largest among the sizes the user has access to. Turning it on does not change existing deployments. Creating or changing a dev session is checked the same way, for each of CPU and memory that the request sets. The check also applies to `quix.yaml` syncs and API calls, which are rejected with `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
+| Enforce deployment size limits | Only shown when sizes are enabled. When on, the deployment dialog no longer lets users pick **Custom**. Creating or updating a deployment by any route, including `quix.yaml` syncs and the API, is rejected if its CPU exceeds the largest CPU, or its memory the largest memory, among the sizes the user has access to. Through `quix.yaml` and the API, values within those limits don't have to match a size. Turning it on does not change existing deployments. Creating or changing a dev session is checked the same way, for each of CPU and memory that the request sets. Rejections read `CPU millicores must be no greater than <max> based on your allowed deployment sizes` or `Memory must be no greater than <max> MB based on your allowed deployment sizes`. A user with access to no size is rejected with `No deployment sizes are available for your user. Contact your organisation admin.` The check is skipped while the catalog is empty. |
 
 ### The starter catalog
 
