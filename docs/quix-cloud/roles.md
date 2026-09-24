@@ -1,3 +1,8 @@
+---
+title: Roles and permissions
+description: The six Quix Cloud roles and what each can do, how roles apply at organisation, project and environment level, how user group roles combine with a user's own, and how permissions are resolved.
+---
+
 # Roles and permissions
 
 Quix Cloud uses roles to control what users can do. You can assign different roles at different levels - organisation, project, or environment - giving you fine-grained control over access.

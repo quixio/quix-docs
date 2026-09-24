@@ -58,7 +58,7 @@ Open the group, click **Delete** in the **Delete this group** card, type the gro
 
 Organisation Admins define the **deployment sizes** (named CPU and memory presets) that users pick from when they deploy - see [Deployment sizes and resources](../deployments/deployment-sizes.md). By default every size is available to all users. A size can instead be **restricted** to specific users, specific groups, or a mix of both.
 
-To restrict a size, edit it in your organisation's **Deployment Sizes** settings, turn on **Restrict to specific users or groups**, and select the allowed users and groups. The sizes list then shows the size as **Restricted** with a summary of who can use it; unrestricted sizes show **All users**, and a size restricted through the API to nobody shows **-**.
+To restrict a size, edit it in your organisation's **Deployment Sizes** settings, turn on **Restrict to specific users or groups**, and select the allowed users and groups. The sizes list then shows the size as **Restricted** with a summary of who can use it; unrestricted sizes show **All users**, and a size restricted through the API to nobody shows a dash.
 
 ![The Add deployment size dialog with Restrict to specific users or groups turned on and one allowed group selected](../../images/quix-cloud/deployment-size-restrict.png)
 
