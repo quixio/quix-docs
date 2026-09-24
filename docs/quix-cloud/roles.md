@@ -218,12 +218,7 @@ It then uses the most specific of the three [permission levels](#permission-leve
 
 ### Personal Access Tokens
 
-When you use a [Personal Access Token](./access-security/personal-access-token.md) (PAT), each permission check on an environment, project or the organisation must pass for both:
-
-- the user's current permissions (based on their role, or their group's roles when **Inherit from group** is on)
-- the permissions configured on the token
-
-A PAT can therefore never do more than the user who created it. A token created in the Quix Cloud UI gets the role assignments the user has when they create it.
+A [Personal Access Token](./access-security/personal-access-token.md#pat-permissions) (PAT) can never do more than the user who created it.
 
 ## See also
 

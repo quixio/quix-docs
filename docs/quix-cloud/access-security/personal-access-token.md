@@ -12,12 +12,7 @@ In the `APIs and tokens` dialog, you can click `Personal Access Tokens` to gener
 
 ## PAT permissions
 
-A PAT can never do more than the user who created it. Each permission check on an environment, project or the organisation must pass for both:
-
-- the user's current permissions (based on their [role](../roles.md), or their group's roles when **Inherit from group** is on)
-- the permissions configured on the token
-
-A token created in the Quix Cloud UI gets the role assignments the user has when they create it.
+A PAT can never do more than the user who created it. A token created in the Quix Cloud UI gets the permissions of the user's [role](../roles.md) assignments at that moment, or of their group's when **Inherit from group** is on.
 
 ## See also
 
