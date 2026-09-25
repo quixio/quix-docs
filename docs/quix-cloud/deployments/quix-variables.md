@@ -35,14 +35,14 @@ State-related variables are only present when [state management](./state-managem
 
 The variables below are **conditional** — unlike the ones above, they are not always present:
 
-- **`Quix__BlobStorage__Connection__Json`** is injected only when the deployment has a [blob storage connection](../quix-lake/blob-storage.md) **bound**.
+- **`Quix__BlobStorage__Connection__Json`** is injected only when the deployment has a [Quix Lake storage](../quix-lake/blob-storage.md) **bound**.
 - The **`Quix__Lakehouse__*`** variables (and the `CATALOG_URL` / `QUIX_LAKE_URL` aliases) are injected only when that connection also has **[Quix Lake](../quix-lake/overview.md) enabled**.
 
 If neither condition is met, none of these variables are set, so guard for their absence in your code. The same variables are also injected into [dev sessions](../applications/dev-sessions/overview.md).
 
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `Quix__BlobStorage__Connection__Json` | The bound blob storage connection as a JSON document — provider plus credentials and bucket/container. Injected as a secret. |
+| `Quix__BlobStorage__Connection__Json` | The bound Quix Lake storage as a JSON document — the S3-compatible endpoint plus the credentials and the bucket. Injected as a secret. |
 | `Quix__Lakehouse__Catalog__Url`       | The Quix Lake Catalog URL (preferred name).                                                           |
 | `CATALOG_URL`                         | The Catalog URL — legacy / PyIceberg alias of `Quix__Lakehouse__Catalog__Url`.                        |
 | `QUIX_LAKE_URL`                       | The Catalog URL — QuixLake / QuixLab alias of `Quix__Lakehouse__Catalog__Url`.                        |

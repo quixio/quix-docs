@@ -5,7 +5,7 @@ description: Replay-first storage layer of Quix Lake. Persists Kafka topics as r
 
 # Data Lake overview
 
-**Data Lake** is the **replay-first** option in [Quix Lake](../overview.md). It captures Kafka topic data into your blob storage (Amazon S3, Azure Blob, Google Cloud Storage, or MinIO) as **raw Avro segments** alongside lightweight **Parquet index files** — so every message is preserved byte-for-byte and is discoverable without scanning the raw data.
+**Data Lake** is the **replay-first** option in [Quix Lake](../overview.md). It captures Kafka topic data into your object storage (Amazon S3, Azure Blob, Google Cloud Storage, or MinIO) as **raw Avro segments** alongside lightweight **Parquet index files** — so every message is preserved byte-for-byte and is discoverable without scanning the raw data.
 
 If you're looking for SQL-queryable, columnar storage instead, see **[Lakehouse](../lakehouse/overview.md)**. Not sure which to pick? Read [Choosing between them](../overview.md#choosing-between-them) in the Quix Lake overview.
 
@@ -18,7 +18,7 @@ If you're looking for SQL-queryable, columnar storage instead, see **[Lakehouse]
 * **Yours** — data lives in your bucket; you control IAM, keys, encryption, retention, and audit
 
 !!! info "Prerequisites"
-    A [blob storage connection](../blob-storage.md) must be configured for the cluster.
+    A [Quix Lake connection](../blob-storage.md) must be configured for the cluster.
 
 ## Storage layout
 
@@ -67,5 +67,5 @@ See **[Open format](./open-format.md)** for the full layout and schemas.
 * [Data Lake UI](./user-interface.md) — explore datasets in the portal
 * [Data Lake API](./api.md) — programmatic search, metadata, deletion
 * [Replay](./replay.md) — push persisted datasets back into Kafka
-* [Blob storage connections](../blob-storage.md) — connect your bucket or container
+* [Quix Lake connections and storages](../blob-storage.md) — connect your bucket or container
 * [Storage Access Gateway](../secure-storage-access.md): how private-by-default, per-team access works
