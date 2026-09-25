@@ -56,7 +56,7 @@ Multi-factor authentication splits channels of an authentication process, render
 
 ### Role-Based Access Control
 
-Quix Cloud implements a role-based access control (RBAC) system that allows you to manage what users can do within your organisation. Users are assigned roles at specific scopes (organisation, project, or environment level), providing granular control over access to resources.
+Quix Cloud implements a role-based access control (RBAC) system that allows you to manage what users can do within your organisation. Users are assigned roles at specific scopes (organisation, project, or environment level), either directly or through user groups, providing granular control over access to resources.
 
 For detailed information on user roles and permissions, see:
 

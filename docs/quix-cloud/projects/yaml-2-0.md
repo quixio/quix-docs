@@ -175,6 +175,8 @@ deployments:
       replicas: 1
 ```
 
+`resources` also accepts an optional `requests` block next to `limits`, with `cpu` in millicores and `memory` in MB, to reserve capacity explicitly; see [deployment sizes and resources](../deployments/deployment-sizes.md#resources-in-quixyaml).
+
 ### Version 2.0: what the platform computes
 
 When the platform reads the descriptor to deploy, it expands the minimal file by inheriting the application's variables. This resolved form is **virtual** — computed in memory at deploy time and never written to Git:
