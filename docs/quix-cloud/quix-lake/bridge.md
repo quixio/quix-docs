@@ -280,7 +280,7 @@ The service reads `config.yaml` only when it starts. After you add or remove a s
     sudo quix-bridge service start
     ```
 
-Run this as an administrator, or with `sudo`. Without it, `service stop` and `service start` fail on Linux, and some other commands, such as `share list` and `config show`, quietly print the wrong answer instead of failing.
+Run this as an administrator, or with `sudo`. Without it, every command that needs root, such as `service stop`, `service start`, `share list`, `config show` and `status`, stops with a sudo or administrator hint and a non-zero exit code.
 
 The stop and start make the service read the new token and the new shares. On Windows the service enrols at Portal at this start.
 
@@ -365,7 +365,9 @@ Every release ships three builds: `win-x64`, `win-arm64` and `linux-x64`.
 
 The tray refuses to start on any system other than Windows. On Linux, read the state with `quix-bridge status`.
 
-**A tar.gz install on a machine that also has `dpkg` does not update.** `update run` decides deb or rpm by looking for `dpkg` or `rpm` on the machine, not by looking at how the bridge itself was installed. On a Debian or Ubuntu machine, a tar.gz install with `update.channel: stable` either never updates, or installs a deb next to the tar.gz binary while the service keeps running the old one. Use the deb or the rpm road on a machine that has `dpkg` or `rpm`, and keep the tar.gz road for a machine that has neither.
+**A tar.gz install never auto-updates.** `update run` checks which package owns the running binary. A tar.gz install owns no package, so the run installs nothing: it reports `manual_install` and leaves the binary as it is, even with `update.channel: stable`. Update a tar.gz install by hand: download the new release and repeat the [tar.gz steps](#1-install-the-bridge).
+
+**On a Linux machine with no systemd**, such as a container, the deb or the rpm still installs, but it starts no service. Run the bridge in the foreground with `quix-bridge service run`. Automatic update needs a running service too, so on a machine like this, run `quix-bridge update run` yourself, on your own schedule.
 
 **macOS is not supported.** The release has no macOS build, and `install.sh` stops on a Mac. Run the bridge on Windows or Linux.
 
@@ -373,16 +375,11 @@ The tray refuses to start on any system other than Windows. On Linux, read the s
 
 ## Behind a proxy
 
-`network.proxy` and `network.caBundle` in `config.yaml` cover the data connection only, the one the bridge dials to move files. Enrolling the bridge and checking for an update do not use them yet.
+Since version 0.1.5, `network.proxy` and `network.caBundle` in `config.yaml` cover every outbound call the bridge makes: the data connection, enrolling the bridge, asking for an update plan and downloading an update. Set them once, restart the service, and every road works through the proxy.
 
-Until this is fixed, if the machine sits behind an HTTPS proxy with a private CA, set these two environment variables **for the service process**, not only your shell, then restart the service:
+Versions before 0.1.5 need the `https_proxy` and `SSL_CERT_FILE` environment variables for the service.
 
-```bash
-https_proxy=http://proxy.example.com:8080
-SSL_CERT_FILE=/path/to/your-ca-bundle.pem
-```
-
-On Linux, add an `Environment=` line to the systemd unit (for example with `systemctl edit quix-bridge`), because the unit file carries none by default. On Windows, set the variables as machine-wide environment variables before you start the service.
+**Behind a proxy, never pin a bridge below 0.1.5.** A version before 0.1.5 ignores `network.proxy` for the update plan ask, so a bridge pinned or rolled back below 0.1.5 cannot receive its next plan and stays stuck on that version. Clear the pin, or lift the proxy block, to bring it back.
 
 ## Share a folder in a user profile on Windows
 
