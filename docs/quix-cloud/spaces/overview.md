@@ -43,7 +43,7 @@ A space controls presentation. It decides:
 
 * Which items appear in the organization sidebar, including custom entries such as plugin apps, pages inside those apps, shortcuts into a project environment, and headings. The space can also hide the organization sidebar completely.
 * Which modules appear inside every environment, including the YAML sync button in the environment header and the `Settings` row at the foot of the environment sidebar.
-* Which [global plugins](../services/plugin.md#global-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, so a space is the only way to put plugin apps in the header.
+* Which [organization plugins](../services/plugin.md#organization-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, so a space is the only way to put plugin apps in the header.
 * Which page members land on after they sign in or switch into the space.
 * The accent color and icon that identify the space.
 * Whether members can choose their own light or dark theme, or the space sets it for them.
@@ -65,7 +65,7 @@ To control what people can do, assign roles.
 
 A space also leaves these parts of the portal alone:
 
-* Plugin apps listed in the `Plugins` section of the environment sidebar. The one exception is a space that hides every environment module, which removes the environment sidebar and its `Plugins` section.
+* Environment plugins: the plugin apps listed in the `Plugins` section of the environment sidebar. The one exception is a space that hides every environment module, which removes the environment sidebar and its `Plugins` section.
 * Panels that open from inside another page, such as the project variables panel.
 * Pages inside a visible module. They follow their parent module.
 
@@ -184,4 +184,4 @@ Organization admins are users with the `Admin` role at organization level. Admin
 ## See also
 
 * [Roles and permissions](../roles.md)
-* [Global plugins](../services/plugin.md#global-plugins)
+* [Organization plugins](../services/plugin.md#organization-plugins)

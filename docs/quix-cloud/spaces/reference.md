@@ -68,7 +68,7 @@ The first 12 modules are entries in the environment sidebar. `YAML` controls the
 
 A module that needs a Kafka broker appears only in environments that have one, even when the space shows it.
 
-A space doesn't control plugin apps listed in the `Plugins` section of the environment sidebar. If the space hides every environment module, though, the whole environment sidebar disappears, including that section.
+A space doesn't control environment plugins, the plugin apps listed in the `Plugins` section of the environment sidebar. If the space hides every environment module, though, the whole environment sidebar disappears, including that section.
 
 ## Accent colors
 
@@ -236,7 +236,7 @@ To pick up new modules automatically instead, choose the `Stock` tile. In `Organ
 
 *(For organization admins.)*
 
-**Cause:** The member's only role is the deprecated Operator role. Inside a space, header apps, plugin apps in the sidebar and apps in the command palette open at an address that Operator-only users can't open, so the portal sends them to their first global plugin instead. The portal checks for the Operator role once per session, so a member whose role you just changed still sees this until they reload the page.
+**Cause:** The member's only role is the deprecated Operator role. Inside a space, header apps, plugin apps in the sidebar and apps in the command palette open at an address that Operator-only users can't open, so the portal sends them to their first organization plugin instead. The portal checks for the Operator role once per session, so a member whose role you just changed still sees this until they reload the page.
 
 **Fix:**
 
@@ -273,12 +273,13 @@ The [Spaces overview](overview.md#key-concepts) introduces the core terms. This 
 | **Bind** | To assign a permission group to a space, so every user in the group becomes a member. |
 | **Custom** | A source that shows exactly the entries an admin chose, in the admin's order. A custom list is frozen: new Quix modules don't appear in it until an admin adds them. |
 | **Direct member** | A user added to a space individually, not through a permission group. |
-| **Global plugin** | A plugin deployment with the `Organisation plugin` setting on. Only global plugins can be pinned to the header, added to a sidebar or used as a landing page. See [Global plugins](../services/plugin.md#global-plugins). |
+| **Environment plugin** | A plugin deployment with the `Environment plugin` setting on. It appears in the `Plugins` section of the environment sidebar of the environment it runs in. A space doesn't control it, unless the space hides the whole environment sidebar. See [Environment plugins](../services/plugin.md#environment-plugins). |
 | **Hidden** | An organization sidebar source that removes the sidebar. Members get the header and the page content only. |
 | **Landing page** | Where members arrive when they sign in, and when they switch into the space. It can be an organization page or a plugin app. The default is `Home`. |
 | **Member** | A user who belongs to a space, through a permission group bound to the space or because an admin added them directly. A user can belong to several spaces. |
 | **None** | The default header apps source. No apps are pinned, so the header app strip is empty. |
 | **Operator-only user** | A user whose every role assignment is the deprecated Operator role. Inside a space, they can't open header apps or sidebar apps. See [Replace the Operator role with a space](replace-operator-role.md). |
+| **Organization plugin** | A plugin deployment with the `Organisation plugin` setting on, previously called a global plugin. Only organization plugins can be pinned to the header, added to a sidebar or used as a landing page. See [Organization plugins](../services/plugin.md#organization-plugins). |
 | **Permission group** | A named group of users that shares the same permissions. The portal lists groups on the `User Groups` tab of `Users`. Each user belongs to one group. |
 | **Plugin toolbar** | The floating button over an embedded plugin app, with portal shortcuts and a way out of the app. Each space decides whether it appears. |
 | **Preview** | An admin-only mode that shows the portal as a member of a space sees it. |

@@ -10,10 +10,10 @@ A **plugin** is a deployment whose web UI opens inside the portal, the Quix Clou
 The plugin system gives a deployment up to three ways to appear in the portal:
 
 * An **embedded view**: the deployment's web UI, shown in an iframe inside the portal.
-* An **environment sidebar item**: a shortcut to the plugin in the sidebar of the environment it runs in.
-* A **global plugin**: the plugin becomes available across the organization, so users can open it from outside its environment.
+* An **environment plugin**: the plugin appears in the `Plugins` section of the sidebar of the environment it runs in. Only users working in that environment see it.
+* An **organization plugin**: the plugin is available across the organization, so users can open it from outside its environment. The portal shows it as an app.
 
-Organization admins use [spaces](../spaces/overview.md) to decide where global plugins appear for each group of users. A **space** is an admin-curated view of the portal for a group of users that controls the sidebars and which apps are pinned to the header. Only users with access to a plugin see it. See [Global plugins](#global-plugins).
+Organization admins use [spaces](../spaces/overview.md) to decide where organization plugins appear for each group of users. A **space** is an admin-curated view of the portal for a group of users that controls the sidebars and which apps are pinned to the header. Only users with access to a plugin see it. See [Organization plugins](#organization-plugins).
 
 A plugin can also reuse Quix authentication. The portal hands your UI the signed-in user's token, and your backend can check that user's Quix permissions. See [Authentication and authorization](#authentication-and-authorization).
 
@@ -43,17 +43,19 @@ Anything after the plugin's address in the portal URL is passed to the plugin as
 
 When the embedded view is enabled and set as the default view (`embeddedView.default: true`), the plugin opens there when users open the deployment from the pipeline, from the environment sidebar or, when they're not in a space, from the command palette. Otherwise these open the Deployment details page. The expand button in the pipeline's side panel always opens Deployment details.
 
-### Environment sidebar
+<a id="environment-sidebar"></a>
 
-When at least one deployment in an environment has `sidebarItem.show: true`, the environment sidebar gets a `Plugins` section below its built-in items:
+### Environment plugins
+
+When at least one deployment in an environment is an environment plugin (`environmentItem.show: true`), the environment sidebar gets a `Plugins` section below its built-in items:
 
 ![An environment sidebar with plugin items](images/plugin-sidebar.png)
 
-Each item shows the plugin's icon and label, and its badge when the sidebar is expanded. When the sidebar is collapsed, hover over an icon to see the label. Items are sorted by `sidebarItem.order`, lowest first. The list updates when deployments are created or deleted.
+Each item shows the plugin's icon and label, and its badge when the sidebar is expanded. When the sidebar is collapsed, hover over an icon to see the label. Items are sorted by `environmentItem.order`, lowest first. The list updates when deployments are created or deleted.
 
 Clicking an item opens the plugin's embedded view if the embedded view is enabled and set as the default view. Otherwise it opens the Deployment details page.
 
-Sidebar items are scoped to their environment. Users working in other environments don't see them. To make a plugin available outside its environment, make it a [global plugin](#global-plugins).
+Environment plugins are scoped to their environment. Users working in other environments don't see them. To make a plugin available outside its environment, make it an [organization plugin](#organization-plugins).
 
 ## Configure a plugin
 
@@ -73,8 +75,8 @@ To configure a plugin in the deployment dialog:
 3. Select the `Advanced` tab. The `Plugin Settings` panel is expanded.
 4. Turn on the parts of the plugin you need, and fill in their fields:
 
-    * `Environment plugin` adds an item to this environment's sidebar.
-    * `Organisation plugin` makes the deployment a global plugin.
+    * `Environment plugin` makes the deployment an environment plugin, with an item in this environment's sidebar.
+    * `Organisation plugin` makes the deployment an organization plugin.
     * `Embedded View` turns on the embedded view.
 
 5. Click `Deploy` for a new deployment. For an existing deployment, click `Save`, or `Redeploy` if it's running.
@@ -85,20 +87,20 @@ Each dialog control writes one YAML setting:
 
 | Dialog control | YAML setting | Notes |
 |---|---|---|
-| `Environment plugin` | `sidebarItem.show` | Adds an item to this environment's sidebar only. |
-| `Environment plugin` › `Label` | `sidebarItem.label` | Up to 25 characters. |
-| `Environment plugin` › `Badge` | `sidebarItem.badge` | Up to 25 characters. |
-| `Environment plugin` › `Order` | `sidebarItem.order` | Lower numbers appear first. Minimum `0`, default `0`. |
-| `Environment plugin` › icon picker | `sidebarItem.icon` | Searchable list of Material icons, captioned `Icon shown in the sidebar`. |
-| `Organisation plugin` | `globalItem.show` | Makes the deployment available across the organization. |
-| `Organisation plugin` › `Label` | `globalItem.label` | Up to 25 characters. |
-| `Organisation plugin` › `Badge` | `globalItem.badge` | Up to 25 characters. |
-| `Organisation plugin` › icon picker | `globalItem.icon` | Captioned `Icon shown in the header`. |
+| `Environment plugin` | `environmentItem.show` | Adds an item to this environment's sidebar only. |
+| `Environment plugin` › `Label` | `environmentItem.label` | Up to 25 characters. |
+| `Environment plugin` › `Badge` | `environmentItem.badge` | Up to 25 characters. |
+| `Environment plugin` › `Order` | `environmentItem.order` | Lower numbers appear first. Minimum `0`, default `0`. |
+| `Environment plugin` › icon picker | `environmentItem.icon` | Searchable list of Material icons, captioned `Icon shown in the sidebar`. |
+| `Organisation plugin` | `organisationItem.show` | Makes the deployment available across the organization. |
+| `Organisation plugin` › `Label` | `organisationItem.label` | Up to 25 characters. |
+| `Organisation plugin` › `Badge` | `organisationItem.badge` | Up to 25 characters. |
+| `Organisation plugin` › icon picker | `organisationItem.icon` | Captioned `Icon shown in the header`. |
 | `Embedded View` | `embeddedView.enabled` | Turns on the embedded view. |
 | `Embedded View` › `Hide deployment title bar` | `embeddedView.hideHeader` | Off by default. |
 | `Embedded View` › `Use as default view` | `embeddedView.default` | On by default for a new deployment. |
 
-The dialog has no order field for `Organisation plugin`. It keeps an existing `globalItem.order`, and sets `0` when there isn't one. A global plugin saved from the dialog therefore sorts before plugins with a higher `order`. To set `globalItem.order`, use YAML. If your organization still has users with the deprecated Operator role, the plugin can also become the one they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see).
+The dialog has no order field for `Organisation plugin`. It keeps an existing `organisationItem.order`, and sets `0` when there isn't one. An organization plugin saved from the dialog therefore sorts before plugins with a higher `order`. To set `organisationItem.order`, use YAML. If your organization still has users with the deprecated Operator role, the plugin can also become the one they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see).
 
 <a id="yaml-configuration"></a>
 
@@ -120,14 +122,14 @@ deployments:
         enabled: true              # Show the deployment's web UI inside the portal
         hideHeader: false          # true hides the title bar above the plugin
         default: true              # Open the embedded view instead of Deployment details
-      sidebarItem:
-        show: true                 # Add an item to this environment's sidebar
+      environmentItem:
+        show: true                 # Make this an environment plugin
         label: "Configuration"
         icon: "tune"               # Google Material icon name
         order: 1                   # Lower values appear higher
         badge: "Alpha"
-      globalItem:
-        show: true                 # Make this a global plugin
+      organisationItem:
+        show: true                 # Make this an organization plugin
         label: "Configuration"
         icon: "tune"
         order: 1                   # Sorts the command palette and space designer lists
@@ -136,9 +138,15 @@ deployments:
 
 Every block is optional. Use only the ones you need. For the embedded view of a deployment that isn't a managed service, also set `publicAccess.enabled: true`.
 
+`organisationItem` is spelled with an "s", like the `Organisation plugin` label. Quix skips unknown keys under `plugin` without an error, so if the plugin doesn't appear, check the spelling of the key.
+
+!!! note "Renamed keys"
+
+    `environmentItem` and `organisationItem` replace the old keys `sidebarItem` and `globalItem`. Quix Cloud still reads the old keys, and writes the new keys the next time it saves `quix.yaml`. If a deployment has both, the new key wins. Tools built on older Quix packages, including older versions of the Quix CLI, ignore the new keys and lose these settings, so update the Quix CLI before you use them.
+
 !!! tip "Icons"
 
-    Sidebar and global plugin icons use [Google Material Icons](https://fonts.google.com/icons){target=_blank}. Use the icon code, such as `tune`, `settings` or `play_arrow`. If you don't set an icon, the `extension` icon is used.
+    Environment plugin and organization plugin icons use [Google Material Icons](https://fonts.google.com/icons){target=_blank}. Use the icon code, such as `tune`, `settings` or `play_arrow`. If you don't set an icon, the `extension` icon is used.
 
 `plugin.embeddedView` configures the embedded view:
 
@@ -148,21 +156,21 @@ Every block is optional. Use only the ones you need. For the embedded view of a 
 | `hideHeader` | boolean | `false` | Hides the title bar above the plugin: the deployment's icon and name and the `Embedded view` / `Details view` toggle. The plugin then fills the whole panel. |
 | `default` | boolean | `false` | Opens the embedded view instead of Deployment details. See [Embedded view](#embedded-view). |
 
-`plugin.sidebarItem` adds an item to the environment sidebar:
+`plugin.environmentItem` makes the deployment an environment plugin, with an item in the environment sidebar:
 
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `show` | boolean | `false` | Shows the item in the `Plugins` section of this environment's sidebar. |
 | `label` | string | The deployment name | The item's text. |
 | `icon` | string | `extension` | A Google Material icon code. |
-| `order` | integer | None | Lower values appear higher. Set `order` on every sidebar item: items without one don't sort in a predictable place. |
+| `order` | integer | None | Lower values appear higher. Set `order` on every environment plugin: items without one don't sort in a predictable place. |
 | `badge` | string | None | Short text shown next to the label, such as `Alpha`, `Beta` or `New`. Shown only when the sidebar is expanded. |
 
-`plugin.globalItem` makes the deployment a global plugin, available across the organization. For where each setting appears and what a space can change, see [How the globalItem settings are used](#how-the-globalitem-settings-are-used).
+`plugin.organisationItem` makes the deployment an organization plugin, available across the organization. For where each setting appears and what a space can change, see [How the organisationItem settings are used](#how-the-organisationitem-settings-are-used).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `show` | boolean | `false` | `true` makes the deployment a global plugin. |
+| `show` | boolean | `false` | `true` makes the deployment an organization plugin. |
 | `label` | string | The deployment name | The app's name. |
 | `icon` | string | `extension` | A Google Material icon code, such as `fact_check`. |
 | `order` | integer | None | Sort position, lowest first. |
@@ -176,74 +184,79 @@ When you deploy a managed service that Quix defines as a plugin, and you don't s
 
 ### Check a deployment's plugin settings
 
-The Deployment details page shows a `Plugin` section when any part of the plugin is turned on. It lists:
+The Deployment details page shows a `Plugin` section when any part of the plugin is turned on. It labels the two plugin types with their older names, `Sidebar item` and `Global item`. It lists:
 
-* `Sidebar item`: the sidebar label, when the environment sidebar item is on.
-* `Global item`: the global label, when the deployment is a global plugin.
+* `Sidebar item`: the environment plugin's label, when the deployment is an environment plugin.
+* `Global item`: the organization plugin's label, when the deployment is an organization plugin.
 * `Embedded view`: `Disabled`, `Enabled`, or `Enabled` followed by `default view`, `header hidden` or both.
 
 Click `Edit` in the section to change the settings in the deployment dialog.
 
 <a id="what-are-global-plugins"></a>
 <a id="when-to-use-global-plugins"></a>
+<a id="global-plugins"></a>
 
-## Global plugins
+## Organization plugins
 
-A **global plugin** is a deployment that users can reach from anywhere in the organization, not only from the environment it runs in. Use a global plugin for a tool that serves users outside its project, such as a test manager, a monitoring dashboard or an operations console.
+An **organization plugin** is a deployment that users can reach from anywhere in the organization, not only from the environment it runs in. Use an organization plugin for a tool that serves users outside its project, such as a test manager, a monitoring dashboard or an operations console. Organization plugins were previously called global plugins.
 
-In the portal, a global plugin is shown as an **app**. The header, the organization sidebar and the command palette list it by its app name.
+In the portal, an organization plugin is shown as an **app**. The header, the organization sidebar and the command palette list it by its app name.
 
-To make a deployment a global plugin, do one of the following:
+To make a deployment an organization plugin, do one of the following:
 
 * In the deployment dialog, on the `Advanced` tab, turn on `Organisation plugin` in `Plugin Settings`.
-* In YAML, set `plugin.globalItem.show` to `true`.
+* In YAML, set `plugin.organisationItem.show` to `true`.
 
 Also turn on the embedded view and make it the default view (`embeddedView.enabled` and `embeddedView.default`), so the plugin opens as an app wherever users reach it. Without `default: true`, the command palette opens the deployment's details page instead when you're not in a space. In a space, the header, the organization sidebar and the command palette always open the plugin at `/apps/<deployment-id>`. If its embedded view is off, that page is empty.
 
-!!! note "A global plugin doesn't appear in the header by itself"
+!!! note "An organization plugin doesn't appear in the header by itself"
 
-    Making a deployment a global plugin makes it *available* across the organization. To put it in the header, an organization admin pins it in a space's `Header apps`. See [Pin header apps](../spaces/navigation.md#pin-header-apps).
+    Making a deployment an organization plugin makes it *available* across the organization. To put it in the header, an organization admin pins it in a space's `Header apps`. See [Pin header apps](../spaces/navigation.md#pin-header-apps).
 
-### Where global plugins appear
+<a id="where-global-plugins-appear"></a>
 
-Where users find a global plugin depends on whether they're working in a space:
+### Where organization plugins appear
+
+Where users find an organization plugin depends on whether they're working in a space:
 
 | Place | In a space | Without a space |
 |---|---|---|
 | Header app strip | Only the apps the space pins, in the order the space sets. | Empty. |
 | Organization sidebar | Where the space adds the plugin as a plugin app. | Not listed. |
-| Command palette (++cmd+k++ on macOS, ++ctrl+k++ on Windows and Linux) | Only the apps the space pins or adds to its organization sidebar. | Every global plugin you have access to. |
+| Command palette (++cmd+k++ on macOS, ++ctrl+k++ on Windows and Linux) | Only the apps the space pins or adds to its organization sidebar. | Every organization plugin you have access to. |
 | Landing page | Where the space uses the plugin as its landing page. | Not used. |
 
 "Without a space" covers every organization that doesn't use spaces, users who don't belong to any space, and organization admins who switch to `Spaceless`.
 
 The header app strip is part of the organization header. Inside a project, the header shows the project and environment instead, so pinned apps appear on organization-level pages such as `Home` and `Projects`.
 
-In the command palette, global plugins are listed under `Apps`. Each row shows the app's label, icon and badge, how many instances it has, and its project.
+In the command palette, organization plugins are listed under `Apps`. Each row shows the app's label, icon and badge, how many instances it has, and its project.
 
-Whether a global plugin opens inside the portal, with the organization sidebar, or full screen depends on where it's opened from. See the portal URL table under [Embedded view](#embedded-view).
+Whether an organization plugin opens inside the portal, with the organization sidebar, or full screen depends on where it's opened from. See the portal URL table under [Embedded view](#embedded-view).
 
 ### Instances
 
-The portal groups global plugins that share a project and a deployment name into one app. Each deployment in the group, typically one per environment, is an **instance** of the app. The command palette shows how many instances an app has. When an app has more than one instance, the header pin and the [plugin toolbar](#plugin-toolbar) let users switch between them.
+The portal groups organization plugins that share a project and a deployment name into one app. Each deployment in the group, typically one per environment, is an **instance** of the app. The command palette shows how many instances an app has. When an app has more than one instance, the header pin and the [plugin toolbar](#plugin-toolbar) let users switch between them.
 
-### How the globalItem settings are used
+<a id="how-the-globalitem-settings-are-used"></a>
 
-The `globalItem` settings describe the plugin wherever it appears. A space controls *where* it appears.
+### How the organisationItem settings are used
+
+The `organisationItem` settings describe the plugin wherever it appears. A space controls *where* it appears.
 
 | Setting | Effect |
 |---|---|
-| `show` | `true` makes the deployment a global plugin. When it's `false` or missing, the deployment isn't a global plugin: a space's header pin for it disappears, and an organization sidebar entry for it is shown disabled, with the tooltip `This app is not available right now`. |
+| `show` | `true` makes the deployment an organization plugin. When it's `false` or missing, the deployment isn't an organization plugin: a space's header pin for it disappears, and an organization sidebar entry for it is shown disabled, with the tooltip `This app is not available right now`. |
 | `label` | The app's name in the header, the command palette, the space designer and the plugin toolbar. If you don't set it, the deployment name is used. An organization admin can give a header pin a different label. An organization sidebar entry copies the name when the admin adds it. |
 | `icon` | The app's icon in the same places as `label`. If you don't set it, the `extension` icon is used. An organization admin can choose a different icon for a pin or a sidebar entry. |
 | `badge` | A short label shown next to the app's name in the header and the command palette, for example `Beta`. A space can't change it. |
-| `order` | Sorts global plugins in the command palette and in the space designer's app lists. Lower values come first, and plugins without `order` come last. It doesn't set the order of the header: each space sets its own. For existing Operator-only users, it also decides which plugin they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see). |
+| `order` | Sorts organization plugins in the command palette and in the space designer's app lists. Lower values come first, and plugins without `order` come last. It doesn't set the order of the header: each space sets its own. For existing Operator-only users, it also decides which plugin they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see). |
 
 ### Permissions and access control
 
-Access to global plugins works like this:
+Access to organization plugins works like this:
 
-* To see and open a global plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment. A user doesn't need `workspace:read` in that environment.
+* To see and open an organization plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment. A user doesn't need `workspace:read` in that environment.
 * The Admin, Manager and Editor roles grant `plugin:*`, and the Viewer role grants `plugin:read`. The deprecated Operator role grants `plugin:*` and nothing else.
 * To give someone access to the plugins in an environment, assign them a role that grants `plugin:read`. The narrowest choice is the Viewer role at the environment level. See [Permission levels](../roles.md#permission-levels). Don't assign the Operator role: it's deprecated. To show these users only the plugins, use a space. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
 
@@ -259,13 +272,13 @@ For more information about roles and permissions, see [Roles and permissions](..
 
     Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
 
-An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. If your organization still has Operator-only users, this is how the portal behaves for them. They can't open projects, environments or deployments, so for them the portal works as a launcher for global plugins:
+An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. If your organization still has Operator-only users, this is how the portal behaves for them. They can't open projects, environments or deployments, so for them the portal works as a launcher for organization plugins:
 
-* When they open any other portal page, such as `Home` or a project, the portal opens their first global plugin full screen instead. The first plugin is the one with the lowest `globalItem.order`.
-* If they have no global plugins, they see `No global plugins available`, with a request to contact an organization administrator.
+* When they open any other portal page, such as `Home` or a project, the portal opens their first organization plugin full screen instead. The first plugin is the one with the lowest `organisationItem.order`.
+* If they have no organization plugins, they see `No global plugins available`, with a request to contact an organization administrator.
 * The organization name in the header is disabled, with the tooltip `Your current permissions do not include Control Plane access`.
-* Without a space, they switch between global plugins with the command palette or `Search apps & pages` in the plugin toolbar. These open each plugin full screen at `/plugins/details/<deployment-id>`.
-* In a space, header apps, organization sidebar apps and the command palette open plugins at `/apps/<deployment-id>`. The portal blocks that page for Operator-only users and sends them back to their first global plugin, so these links don't take them to the plugin they chose.
+* Without a space, they switch between organization plugins with the command palette or `Search apps & pages` in the plugin toolbar. These open each plugin full screen at `/plugins/details/<deployment-id>`.
+* In a space, header apps, organization sidebar apps and the command palette open plugins at `/apps/<deployment-id>`. The portal blocks that page for Operator-only users and sends them back to their first organization plugin, so these links don't take them to the plugin they chose.
 
 To give these users a plugin-only view that works in a space, move them off the Operator role. [Replace the Operator role with a space](../spaces/replace-operator-role.md) has the full steps. In short:
 
@@ -290,7 +303,7 @@ deployments:
       embeddedView:
         enabled: true
         default: true
-      globalItem:
+      organisationItem:
         show: true
         label: "Test Manager"
         icon: "fact_check"
@@ -300,7 +313,7 @@ deployments:
 
 This configuration:
 
-* Makes the deployment a global plugin, so organization admins can pin it to the header of a space or add it to a space's organization sidebar.
+* Makes the deployment an organization plugin, so organization admins can pin it to the header of a space or add it to a space's organization sidebar.
 * Enables the embedded view and makes it the default, so the plugin opens as an app.
 * Names the app `Test Manager` and gives it the `fact_check` icon, unless a space overrides them.
 * Sets `order` to `1`, so the app comes first in the command palette and the space designer's lists.
@@ -339,7 +352,7 @@ Some actions depend on the plugin's state and your access:
 * A space can hide `View environment`, `View deployment` and `Go to Projects` by hiding the pages they open.
 * `Exit to Home` is hidden when the space doesn't show `Home`, has no landing page and has no organization sidebar entries.
 
-The toolbar uses the plugin's `globalItem` label and icon, falling back to the deployment name and the `extension` icon. It uses them even when you open the plugin from the environment sidebar.
+The toolbar uses the plugin's `organisationItem` label and icon, falling back to the deployment name and the `extension` icon. It uses them even when you open the plugin from the environment sidebar.
 
 Users can drag the button to another position. The browser remembers the position. The toolbar can still cover part of your plugin, so keep essential controls away from the bottom-right corner. An organization admin can turn the toolbar off for everyone in a space with the `Plugin toolbar` setting in the space's `Dev tools`. See [Hide the plugin toolbar](../spaces/create-space.md#hide-the-plugin-toolbar).
 
@@ -360,6 +373,8 @@ When it opens the plugin, the portal also sends a `GET` request to the embedded 
 ## Embedded view URL
 
 The embedded view loads from a URL that Quix derives for the deployment. You don't set it in YAML. The Portal API returns it as `plugin.embeddedViewUrl` when the embedded view is enabled.
+
+The Portal API keeps the old names for the other plugin settings. Its JSON uses `plugin.sidebarItem` for `environmentItem` and `plugin.globalItem` for `organisationItem`. It lists environment plugins at `GET /workspaces/<environment-id>/plugins` and the organization plugins the signed-in user can access at `GET /plugins/global`.
 
 | Deployment | Embedded view URL |
 |---|---|
@@ -570,6 +585,6 @@ curl -H "Authorization: Bearer <token>" \
 * [Quix Plugin SDK](plugin-sdk.md): pass the token, navigation and theme between the portal and your plugin's UI.
 * [How the Quix Plugin SDK works](plugin-sdk-internals.md): security model, message protocol and version history.
 * [Roles and permissions](../roles.md): the roles that grant access to plugins.
-* [Spaces](../spaces/overview.md): choose which plugins each group of users sees in the header and sidebar.
+* [Spaces](../spaces/overview.md): choose which organization plugins each group of users sees in the header and sidebar.
 * [Personal access tokens](../access-security/personal-access-token.md): tokens for scripts and local development.
 * [Portal API](../apis/portal-api/overview.md): the API your plugin can call with the token.

@@ -5,7 +5,7 @@ description: The Operator role is deprecated. Rebuild the plugin-only view it ga
 
 # Replace the Operator role with a space
 
-The **Operator role** gave users a plugin-only view of Quix Cloud: they saw global plugins and nothing else. The role is deprecated. A space gives the same audience a plugin-only view that you design, and a standard role such as `Viewer` gives them access to the plugins.
+The **Operator role** gave users a plugin-only view of Quix Cloud: they saw organization plugins and nothing else. The role is deprecated. A space gives the same audience a plugin-only view that you design, and a standard role such as `Viewer` gives them access to the plugins.
 
 This page explains why to move users off the Operator role, what changes for them, and how to rebuild their view as a space.
 
@@ -15,7 +15,7 @@ This page explains why to move users off the Operator role, what changes for the
 
 ## Why replace the Operator role
 
-The Operator role combines two things: a permission, full access to plugins (`plugin:*`), and a fixed view of the portal. An **Operator-only user**, someone whose every role assignment is `Operator`, can't open any page except global plugins. The portal opens their first global plugin, and sends them back to it from any other page.
+The Operator role combines two things: a permission, full access to plugins (`plugin:*`), and a fixed view of the portal. An **Operator-only user**, someone whose every role assignment is `Operator`, can't open any page except organization plugins. The portal opens their first organization plugin, and sends them back to it from any other page.
 
 Spaces separate the view from the permission. With a space, you decide:
 
@@ -24,7 +24,7 @@ Spaces separate the view from the permission. With a space, you decide:
 * Whether members get a sidebar at all, and what it contains.
 * The space's name, icon and accent color, so members know which view they're in.
 
-Spaces and the Operator role don't combine well. Inside a space, header apps, plugin apps in the organization sidebar, and apps in the command palette open inside the portal, at an address that Operator-only users can't open. When an Operator-only user selects one, the portal sends them back to their first global plugin instead. To give these users a working space, give them a standard role as well.
+Spaces and the Operator role don't combine well. Inside a space, header apps, plugin apps in the organization sidebar, and apps in the command palette open inside the portal, at an address that Operator-only users can't open. When an Operator-only user selects one, the portal sends them back to their first organization plugin instead. To give these users a working space, give them a standard role as well.
 
 ## What changes for your users
 
@@ -32,8 +32,8 @@ After you follow the steps on this page, the users have a role such as `Viewer` 
 
 | | With the Operator role | With Viewer and a space |
 |---|---|---|
-| What they see | Global plugins only. Every other page sends them back to their first global plugin. | Only what the space shows: its header apps, landing page and, if you keep one, its sidebar. |
-| Where they start | Their first global plugin. | The space's landing page, which you choose. |
+| What they see | Organization plugins only. Every other page sends them back to their first organization plugin. | Only what the space shows: its header apps, landing page and, if you keep one, its sidebar. |
+| Where they start | Their first organization plugin. | The space's landing page, which you choose. |
 | Plugin access | Every plugin permission (`plugin:*`), wherever the role applies. | `plugin:read` in the environment where you assign `Viewer`. |
 | Access to other resources | None. | Read access to the environment's other resources, such as its deployments. |
 
@@ -48,7 +48,7 @@ Operator also allowed users to create, update and delete plugin resources, while
 ## Before you start
 
 * You need the `Admin` role at organization level. Only organization admins can manage spaces and edit other users' roles.
-* The plugins must be [global plugins](../services/plugin.md#global-plugins): deployments with the `Organisation plugin` setting turned on. Only global plugins can be pinned to the header or used as a landing page.
+* The plugins must be [organization plugins](../services/plugin.md#organization-plugins): deployments with the `Organisation plugin` setting turned on. Only organization plugins can be pinned to the header or used as a landing page.
 * Note which environment runs each plugin. You assign `Viewer` in those environments.
 * Note who has the `Operator` role. On a user's page, the `Project permissions` tab shows their role at each level. On a group's page, the `Project permissions` tab shows the roles the group grants.
 
@@ -153,7 +153,7 @@ On the Spaces page, the space's card also summarizes the result. `Landing` names
 
 Preview keeps your own role, so it shows what the space presents, not what the users' new role allows. To check the roles, open each user's page. The `Project permissions` tab should show `Viewer` on the environment that runs the plugins, and no `Operator` rows.
 
-If a user still gets sent back to their first global plugin when they select a header app, they still have only the `Operator` role, or they haven't reloaded the page since you changed it.
+If a user still gets sent back to their first organization plugin when they select a header app, they still have only the `Operator` role, or they haven't reloaded the page since you changed it.
 
 ## See also
 
@@ -161,4 +161,4 @@ If a user still gets sent back to their first global plugin when they select a h
 * [Create and manage spaces](create-space.md)
 * [Design navigation](navigation.md)
 * [Assign members](membership.md)
-* [Global plugins](../services/plugin.md#global-plugins)
+* [Organization plugins](../services/plugin.md#organization-plugins)

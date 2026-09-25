@@ -57,7 +57,7 @@ The header app strip is the row of plugin apps in the top bar of the portal. For
 
 The strip only ever shows apps a space pins. It starts as `None`, which pins nothing. What you pin also matters for search: inside a space, the command palette (++cmd+k++ on macOS, ++ctrl+k++ on Windows and Linux) lists only the apps the space pins or puts in its organization sidebar.
 
-You can pin only [global plugins](../services/plugin.md#global-plugins): deployments with the `Organisation plugin` setting turned on in the deployment dialog, which sets `plugin.globalItem.show: true` in YAML. If the `App` list shows `No plugin apps available yet`, no deployment in the organization is a global plugin yet.
+You can pin only [organization plugins](../services/plugin.md#organization-plugins): deployments with the `Organisation plugin` setting turned on in the deployment dialog, which sets `plugin.organisationItem.show: true` in YAML. If the `App` list shows `No plugin apps available yet`, no deployment in the organization is an organization plugin yet.
 
 1. In the section list, select `Header apps`.
 2. Select the `Custom` tile.
@@ -119,7 +119,7 @@ The designer limits how many entries and headings you can add. See [Limits](refe
 
 ### Add a plugin app
 
-A plugin app entry puts a global plugin in the sidebar, optionally with **pages**: links to specific places inside the app. Members open the app inside the portal, with the sidebar still visible.
+A plugin app entry puts an organization plugin in the sidebar, optionally with **pages**: links to specific places inside the app. Members open the app inside the portal, with the sidebar still visible.
 
 1. With the `Custom` tile selected, click `+ Plugin app`.
 
@@ -233,9 +233,9 @@ Members of the space see only the modules you selected, in every environment:
 
 `Topics`, `Connectors`, `Templates` and `Data Lake` still need a Kafka broker. A space can hide them, but it can't show them in an environment that has no broker.
 
-!!! note "Plugins in the environment sidebar aren't curated"
+!!! note "Environment plugins aren't curated"
 
-    Plugin apps that a deployment adds to the `Plugins` section of the environment sidebar appear whatever the space says, as long as the environment sidebar is shown. The `Environment` section controls only the built-in modules.
+    [Environment plugins](../services/plugin.md#environment-plugins), the plugin apps that a deployment adds to the `Plugins` section of the environment sidebar, appear whatever the space says, as long as the environment sidebar is shown. The `Environment` section controls only the built-in modules.
 
 ## Choose a landing page
 
@@ -247,7 +247,7 @@ The landing page is where members of the space arrive when they sign in and when
 2. Select one entry:
 
     * Under `Org pages`, one of the nine organization pages, such as `Projects` or `File Explorer`. Don't choose a page marked with a shield icon unless every member of the space is an admin. Other members can't open admin-only pages.
-    * Under `Plugins`, a global plugin. This list appears only when your organization has at least one.
+    * Under `Plugins`, an organization plugin. This list appears only when your organization has at least one.
 
     The selected entry shows a check mark.
 
