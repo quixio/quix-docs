@@ -84,9 +84,6 @@ nav:
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
-      - 'Plugins':
-        - 'Overview and configuration': 'quix-cloud/services/plugin.md'
-        - 'Quix Plugin SDK': 'quix-cloud/services/plugin-sdk.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
         - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
@@ -127,6 +124,9 @@ nav:
         - 'Overview': 'quix-cloud/quix-lake/data-lake/replay.md'
         - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
+    - 'Plugins':
+      - 'Overview and configuration': 'quix-cloud/services/plugin.md'
+      - 'Quix Plugin SDK': 'quix-cloud/services/plugin-sdk.md'
     - 'Spaces':
       - 'Overview': 'quix-cloud/spaces/overview.md'
       - 'Work in a space': 'quix-cloud/spaces/use-spaces.md'
