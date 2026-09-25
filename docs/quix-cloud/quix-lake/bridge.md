@@ -414,6 +414,7 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 
 ## Known limits
 
+- **No Lakehouse, Data Lake or Query on a bridge storage.** A Quix Lake Bridge storage cannot back a Quix Lake service in this version. Use a cloud storage for a Lakehouse, a Data Lake or Query.
 - **One storage per bridge.** A bridge serves one storage. To serve a second storage, pair a bridge on a second machine. Pairing again on the same machine reuses the same bridge id, so a second bridge from one machine is not supported today.
 - **A list page holds about 560 keys.** One list reply must fit in one message of 64 KB or less. So a client that asks for 1000 keys gets about 560 keys and a continuation token. Longer keys give fewer keys per page. The listing stays complete and correct, but a large folder takes about 2 times more calls than on S3.
 - **A copy needs 4 connections.** The bridge has no copy operation. Quix copies an object as one read and one write, so a copy holds 2 connections at the same time. The bridge also keeps 2 connections free for small calls. The default is 4 connections, and the pool grows to 8. At the default, a large read or write waits while a copy runs. A copy is as slow as a download plus an upload.
