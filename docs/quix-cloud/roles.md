@@ -13,7 +13,7 @@ You can manage roles using the Quix Cloud UI or programmatically via the [Quix C
 
 ## Available roles
 
-Quix Cloud provides six roles, each granting different levels of access. The Operator role is deprecated.
+Quix Cloud provides six roles, each granting different levels of access. The Operator role is deprecated: see [Replace the Operator role with a space](./spaces/replace-operator-role.md).
 
 ![Role selection dropdown](../images/quix-cloud/roles-dropdown.png){width=50%}
 
@@ -61,10 +61,6 @@ The Plugins row is what the [permissions API](./services/plugin.md#checking-perm
 
 Creating, editing and deleting user groups, managing their members, and [restricting deployment sizes](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups) are organisation-level settings, so they need the Admin role at the organisation level.
 
-!!! warning "The Operator role is deprecated"
-
-    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
-
 ??? info "Looking for Kafka access?"
     Roles control access to Quix Cloud features. For Kafka/streaming access in your applications, use a [Streaming Token](./access-security/streaming-token.md) instead.
 
@@ -81,9 +77,7 @@ Permissions are applied at three hierarchical levels, from broadest to most spec
 The same three levels are available when you assign roles to a user group.
 
 !!! note "Spaces don't change permissions"
-    A space changes only what people see in the portal. It never grants or removes access, so roles remain the way to control what each user can do. Only organization admins can create spaces and assign people to them. See [Spaces](./spaces/overview.md).
-
-    To give users a plugin-only view, use a space with a role such as Viewer, not the deprecated Operator role. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
+    A [space](./spaces/overview.md) changes only what people see in the portal. Roles still control what they can do.
 
 ## Inheritance
 
