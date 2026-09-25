@@ -6,7 +6,7 @@ description: Serve folders on a machine you own as a Quix Lake storage, over one
 # Quix Lake Bridge
 
 !!! warning "Preview"
-    The Quix Lake Bridge is in preview. The first release is not published yet.
+    The Quix Lake Bridge is in preview. Get the releases at [github.com/quixio/quix-lake-bridge](https://github.com/quixio/quix-lake-bridge/releases).
 
 The **Quix Lake Bridge** is a small service that you install on a machine you own. It lets Quix Cloud read and write folders on that machine, such as a local disk or a network share, as one more **storage** of a [Quix Lake connection](./blob-storage.md). Your services reach the files with the same S3 calls, the same endpoint, and the same credential they use for every other storage.
 
@@ -47,8 +47,11 @@ A bridge storage shows every folder that you share on the bridge. The Quix path 
 | `D:\data\runs\r1.csv` | `plant-fs/d/data/runs/r1.csv` |
 | `\\nas01\team\q3.csv` | `plant-fs/nas01/team/q3.csv` |
 | `D:\Test Runs\2026-08 (final)\a.csv` | `plant-fs/d/test-runs/2026-08-final/a.csv` |
+| `/srv/data/hello.txt` (Linux) | `plant-fs/srv/data/hello.txt` |
 
-The first name after the folder is the drive or the server. Every folder name turns into lower case, and each run of spaces or symbols turns into one hyphen. A folder you share later on the machine appears in Quix at once, at its own path. There is no step in Quix for it.
+On Linux there is no drive letter, so the first name after the folder is the first folder of the shared path, for example `srv` for a share under `/srv/data`.
+
+The first name after the folder is the drive or the server. Every folder name turns into lower case, and each run of spaces or symbols turns into one hyphen. There is no extra step in Quix for a new share: you add it on the machine only. But the bridge service reads its share list at start only, so a folder you share does not appear until you restart the service. See [Share a folder](#share-a-folder).
 
 Only the folders you shared are visible. A path between two shared folders answers **Access denied**.
 
@@ -56,11 +59,9 @@ Only the folders you shared are visible. A path between two shared folders answe
 
 The pairing creates the bridge only. It creates no storage.
 
-1. Open **Settings > Quix Lake** and select the connection.
-2. Open the **Quix Lake Bridges** tab.
-3. Click **Pair a bridge**.
-4. Type the **Bridge name**, then click **Get the install command**. Portal shows the install command and the **quick config**. The quick config holds the two Quix addresses and a pairing token. The token is valid for **15 minutes**, and Portal shows it one time.
-5. Run the install command on the machine, as an administrator:
+The pairing token lives **15 minutes** and Portal shows it one time, so install the bridge first. Mint the token right before you need it, in the last step.
+
+1. Install the bridge on the machine, as an administrator:
 
     === "Windows"
 
@@ -74,10 +75,16 @@ The pairing creates the bridge only. It creates no storage.
         curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sh
         ```
 
-6. Open the bridge console. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**.
-7. On the **Connection** tab, paste the quick config, then click **Connect this bridge**.
+    The install command carries no token, so this step needs no Portal visit.
 
-The install command carries no token. You paste the quick config into the console, so the token never appears on a command line. The quick config holds a live token. Do not paste it in a ticket or a chat.
+2. Open **Settings > Quix Lake** and select the connection.
+3. Open the **Quix Lake Bridges** tab.
+4. Click **Pair a bridge**.
+5. Type the **Bridge name**, then click **Get the install command**. Portal shows the install command again and the **quick config**. The quick config holds the two Quix addresses and a fresh pairing token.
+6. Open the bridge console right away. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**. If you do not see the icon, click the **^** arrow next to the clock to show hidden icons; Windows 11 hides a newly installed tray icon there by default. On any system, run `quix-bridge ui` to get the console address and a login code.
+7. On the **Connection** tab, paste the quick config, then click **Connect this bridge**, before the 15-minute token expires.
+
+You paste the quick config into the console, so the token never appears on a command line. The quick config holds a live token. Do not paste it in a ticket or a chat.
 
 During the preview the builds are not signed. Both install scripts check the download against `SHA256SUMS` from the same release and stop on a mismatch.
 
@@ -96,7 +103,7 @@ When the machine uses the token, Portal shows the **Bridge ready** dialog:
 6. Select the **Bridge**. The list shows only the bridges of this connection that no storage uses. To pair a new machine, select **Add bridge**. Portal opens the pairing, and after the pairing it brings you back to this panel with the new bridge picked.
 7. Click **Create**.
 
-A bridge storage has no bucket, no endpoint and no key, so there is no connection test. A bridge storage can never be the main storage, because the main storage must answer at all times.
+A bridge storage has no bucket, no endpoint and no key, so it skips the **Test connection** step that other providers show. Click **Create** directly. A bridge storage can never be the main storage, because the main storage must answer at all times.
 
 ## The bridge console
 
@@ -134,6 +141,8 @@ The bridge refuses a drive root, `C:\Windows`, `C:\Users`, and the administrativ
 
 The tree shows only the folders that the service account can read.
 
+The service reads `config.yaml` only when it starts. Restart the service after you add, edit or remove a share, so the change takes effect. Until you restart, the bridge still serves a removed share and still refuses a new one.
+
 ## Revoke and remove a bridge
 
 On the **Quix Lake Bridges** tab, open the menu of the bridge:
@@ -160,13 +169,13 @@ The pairing creates the bridge only. It creates no storage. You add the storage 
     To install one fixed version, set `QUIX_BRIDGE_VERSION`. The script accepts the version with or without a leading `v`:
 
     ```powershell
-    $env:QUIX_BRIDGE_VERSION = '0.1.0'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
+    $env:QUIX_BRIDGE_VERSION = '0.1.4'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
     When you run the script as a file, you can also give the version with `-Version`:
 
     ```powershell
-    .\install.ps1 -Version 0.1.0
+    .\install.ps1 -Version 0.1.4
     ```
 
     The MSI installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service, and it starts it. The MSI adds that folder to the system `PATH`, so `quix-bridge` works in a new shell. A shell that was open during the install keeps its old `PATH`, so open a new administrator shell for the next steps.
@@ -182,7 +191,7 @@ The pairing creates the bridge only. It creates no storage. You add the storage 
     To install one fixed version, set `QUIX_BRIDGE_VERSION`:
 
     ```bash
-    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.0 sh
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.4 sh
     ```
 
     On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs the service and starts it. On other machines the script copies the binary to `/usr/local/bin`. Then install the service yourself:
@@ -244,21 +253,34 @@ You can also give the quick config on the command line, as `quix-bridge connect 
     sudo quix-bridge share list
     ```
 
-A new share is read only. Add `--read-write` to let Quix write to the folder too. The command applies the same rules as the console, and it refuses the same folders. To stop sharing a folder, run `quix-bridge share remove <path>` with the path that `share list` prints.
+A new share is read only. Add `--read-write` to let Quix write to the folder too. The command applies the same rules as the console, and it refuses the same folders. `share add` does not check that the folder exists, so check the path yourself.
+
+`share list` prints two paths for each row: the path on the machine, and the **sag path**, the path inside the bridge. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**, not the sag path.
 
 Network folders:
 
 - On Windows, `share add` stores no credential, because a password on a command line goes to the shell history. Add a network server and its credential in the console. Run `quix-bridge ui` to get the console address and a login code. The console listens on this machine only, at `127.0.0.1`.
 - On Linux, the bridge accepts no `\\server\share` path. Mount the network share with the operating system, then share the folder where it is mounted.
 
-The service reads `config.yaml` only when it starts. After you add or remove a share, restart the service. The console also writes `config.yaml`, so change the shares in one place at a time.
+The service reads `config.yaml` only when it starts. After you add or remove a share, restart the service. The console also writes `config.yaml`, so change the shares in one place at a time. Removing a share does not stop the service serving it early: files stay reachable until the restart.
 
 ### 5. Start the service
 
-```bash
-quix-bridge service stop
-quix-bridge service start
-```
+=== "Windows"
+
+    ```powershell
+    quix-bridge service stop
+    quix-bridge service start
+    ```
+
+=== "Linux"
+
+    ```bash
+    sudo quix-bridge service stop
+    sudo quix-bridge service start
+    ```
+
+Run this as an administrator, or with `sudo`. Without it, `service stop` and `service start` fail on Linux, and some other commands, such as `share list` and `config show`, quietly print the wrong answer instead of failing.
 
 The stop and start make the service read the new token and the new shares. On Windows the service enrols at Portal at this start.
 
@@ -267,12 +289,12 @@ The stop and start make the service read the new token and the new shares. On Wi
 ### 6. Check the bridge
 
 ```bash
-quix-bridge status
-quix-bridge test
+sudo quix-bridge status
+sudo quix-bridge test
 ```
 
 - `status` shows the connection, the number of shares and the last error. It exits with code 0 when the service runs and the bridge is connected.
-- `test` checks that the service account can read every share, and that the bridge reaches Quix. It exits with code 0 when every check passed. The report names a check that failed.
+- `test` checks that the service account can read every share, and that the bridge can open a TCP connection to Quix on port 443. It exits with code 0 when every check passed, even while the service itself is stopped. The report names a check that failed.
 
 Then add the storage in Portal, as in [Add a storage for a bridge](#add-a-storage-for-a-bridge). On the **Quix Lake Bridges** tab, the new bridge shows **Not used by a storage** and a **Create storage** action. That action opens the same panel with the bridge picked.
 
@@ -285,7 +307,7 @@ The bridge keeps its settings in `config.yaml`:
 | Windows | `C:\ProgramData\Quix\bridge\config.yaml` |
 | Linux | `/etc/quix-bridge/config.yaml` |
 
-`quix-bridge config show` prints the file that the service uses. Two settings you can change by hand:
+`quix-bridge config show` prints the effective config the service uses. It does not show the `update` or `network` sections, so use the file itself to check those. Two settings you can change by hand:
 
 ```yaml
 update:
@@ -294,10 +316,14 @@ log:
   retainDays: 14
 ```
 
-- `update.channel`: set it to `stable` to turn on automatic updates. With no value, the bridge takes no automatic update. A daily task runs `quix-bridge update run`. On Windows it is the scheduled task `\Quix\Bridge Update`. On Linux it is `quix-bridge-update.timer`. Only the MSI, the deb and the rpm register this task.
+- `update.channel`: set it to `stable` to turn on automatic updates. With no value (the default), the bridge installs no update by itself. `stable` installs the latest release on GitHub.
 - `log.retainDays`: the number of days the bridge keeps its local log. The default is 30 days. The log also stays at 500 MB or less.
 
 Restart the service after you change `log.retainDays`. The update task reads `update.channel` at each run, so that change needs no restart.
+
+**How the update check runs.** A task checks for an update **every 5 minutes**, with a random delay of up to 60 seconds. On Windows it is the scheduled task `\Quix\Bridge Update`. On Linux it is the systemd timer `quix-bridge-update.timer`. Only the MSI, the deb and the rpm register this task; a zip or tar.gz install has none, so `update.channel` does nothing there. Between checks, an operator action in Portal, such as a version pin or a hold, reaches the bridge in seconds: Quix pushes a fresh plan, the bridge does not wait for the next 5-minute check.
+
+**How an update runs.** The bridge waits until no transfer is running, for up to 10 minutes, then tells the service to drain: finish the operations already running, up to `service.drainSeconds` (default 60 seconds), before it stops. Only then does it install the new version and start the service again. If an install fails, the next try waits longer each time: 15 minutes, then 1 hour, then 4 hours, then every 24 hours.
 
 ### 8. Uninstall
 
@@ -311,10 +337,12 @@ This stops and removes the service. It keeps `config.yaml` and the stored share 
 quix-bridge service uninstall --purge
 ```
 
+Even with `--purge`, the bridge keeps `/var/log/quix-bridge` (the log and the audit file) and `/var/lib/quix-bridge/update` on disk. Delete them by hand if you want a clean machine. If the deb or the rpm is still installed, `service uninstall --purge` also leaves the update timer enabled; remove the package to stop it.
+
 To remove the program too:
 
-- **Windows:** remove **Quix Bridge** in **Settings > Apps**. The MSI deletes the config and the stored credentials. To keep them, run `msiexec /x <msi-file> KEEPDATA=1`.
-- **Debian and Ubuntu:** `sudo apt remove quix-bridge` keeps `/etc/quix-bridge`. `sudo apt purge quix-bridge` deletes it.
+- **Windows:** remove **Quix Bridge** in **Settings > Apps** (this is the name Windows shows; the product is the Quix Lake Bridge). The MSI deletes the config and the stored credentials. To keep them, run `msiexec /x <msi-file> KEEPDATA=1`.
+- **Debian and Ubuntu:** `sudo apt remove quix-bridge` keeps `/etc/quix-bridge`. `sudo apt purge quix-bridge` deletes it, but still keeps `/var/log/quix-bridge` and `/var/lib/quix-bridge/update`.
 - **RHEL and Rocky:** run `sudo quix-bridge service uninstall --purge` first, then `sudo rpm -e quix-bridge`. The rpm has no purge step.
 - **Binary only:** run `sudo quix-bridge service uninstall --purge`, then delete `/usr/local/bin/quix-bridge`.
 
@@ -322,7 +350,7 @@ Uninstalling the bridge does not remove it from Quix. Revoke and remove it in Po
 
 ## Operating system support
 
-Version 0.1.0 ships three builds: `win-x64`, `win-arm64` and `linux-x64`.
+Every release ships three builds: `win-x64`, `win-arm64` and `linux-x64`.
 
 | Feature | Windows | Linux |
 |---|---|---|
@@ -337,9 +365,24 @@ Version 0.1.0 ships three builds: `win-x64`, `win-arm64` and `linux-x64`.
 
 The tray refuses to start on any system other than Windows. On Linux, read the state with `quix-bridge status`.
 
-**macOS is not supported in version 0.1.0.** The release has no macOS build, and `install.sh` stops on a Mac. Run the bridge on Windows or Linux.
+**A tar.gz install on a machine that also has `dpkg` does not update.** `update run` decides deb or rpm by looking for `dpkg` or `rpm` on the machine, not by looking at how the bridge itself was installed. On a Debian or Ubuntu machine, a tar.gz install with `update.channel: stable` either never updates, or installs a deb next to the tar.gz binary while the service keeps running the old one. Use the deb or the rpm road on a machine that has `dpkg` or `rpm`, and keep the tar.gz road for a machine that has neither.
+
+**macOS is not supported.** The release has no macOS build, and `install.sh` stops on a Mac. Run the bridge on Windows or Linux.
 
 **Linux arm64 is not shipped yet.** `install.sh` stops on an arm64 Linux machine. Use a Linux x64 machine.
+
+## Behind a proxy
+
+`network.proxy` and `network.caBundle` in `config.yaml` cover the data connection only, the one the bridge dials to move files. Enrolling the bridge and checking for an update do not use them yet.
+
+Until this is fixed, if the machine sits behind an HTTPS proxy with a private CA, set these two environment variables **for the service process**, not only your shell, then restart the service:
+
+```bash
+https_proxy=http://proxy.example.com:8080
+SSL_CERT_FILE=/path/to/your-ca-bundle.pem
+```
+
+On Linux, add an `Environment=` line to the systemd unit (for example with `systemctl edit quix-bridge`), because the unit file carries none by default. On Windows, set the variables as machine-wide environment variables before you start the service.
 
 ## Share a folder in a user profile on Windows
 
@@ -371,7 +414,7 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 
 ## Known limits
 
-- **One storage per bridge.** A bridge serves one storage. To serve two storages from one machine, pair a second bridge.
+- **One storage per bridge.** A bridge serves one storage. To serve a second storage, pair a bridge on a second machine. Pairing again on the same machine reuses the same bridge id, so a second bridge from one machine is not supported today.
 - **A list page holds about 560 keys.** One list reply must fit in one message of 64 KB or less. So a client that asks for 1000 keys gets about 560 keys and a continuation token. Longer keys give fewer keys per page. The listing stays complete and correct, but a large folder takes about 2 times more calls than on S3.
 - **A copy needs 4 connections.** The bridge has no copy operation. Quix copies an object as one read and one write, so a copy holds 2 connections at the same time. The bridge also keeps 2 connections free for small calls. The default is 4 connections, and the pool grows to 8. At the default, a large read or write waits while a copy runs. A copy is as slow as a download plus an upload.
 - **The bridge does not see a DNS alias of this machine.** The bridge knows that `localhost`, the computer name, the host name, the full DNS name and the local IP addresses point to this machine. It does not resolve other names. So if you share `C:\data` and also `\\my-alias\data`, where `my-alias` is a DNS alias (CNAME or hosts entry) of this machine, the bridge serves one folder under two shares with two sets of rules. Do not add a share through an alias of the same machine.
@@ -379,4 +422,4 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 - **User metadata keys can come back with capital letters.** Quix stores every `x-amz-meta-*` key in lower case, as S3 does. The Quix ingress writes header names in capital form over HTTP/1.1, so `x-amz-meta-color` reaches the client as `X-Amz-Meta-Color`. A client that keeps the header case, such as boto3, then shows the key as `Color`. This applies to every storage, not only to a bridge storage. Read user metadata keys without regard to case. Two keys that differ only by case are not supported.
 - **The Windows service cannot read a user profile folder** until you grant `NT SERVICE\quix-bridge` access to it. See [Share a folder in a user profile on Windows](#share-a-folder-in-a-user-profile-on-windows).
 - **You cannot share `C:\Users` or `C:\Windows` as a whole**, on any drive. Share a folder inside them.
-- **No macOS host and no Linux arm64 build** in version 0.1.0. See [Operating system support](#operating-system-support).
+- **No macOS host and no Linux arm64 build.** See [Operating system support](#operating-system-support).

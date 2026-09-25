@@ -157,7 +157,7 @@ To add one:
 2. Open the **Storages** tab.
 3. Click **Add storage**.
 4. Set a **Name**, a **Folder**, and the **Provider** with its credentials.
-5. Click **Test connection**, then **Create**.
+5. Click **Test connection**, then **Create**. A [Quix Lake Bridge](./bridge.md) storage has no connection to test, so this step goes straight to **Create**.
 
 The **Storages** tab lists every storage on the connection. Each row shows the **Folder** your clients use and the **Provider bucket** behind it. The main storage carries a **Main** badge. The `⋮` menu holds **Edit storage**. On a storage that is not the main storage, it also holds **Make this the main storage** and **Delete storage**.
 
