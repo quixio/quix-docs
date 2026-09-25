@@ -25,7 +25,6 @@ Before you start, check that:
 
 The plugin settings are on the `Advanced` tab of the deployment dialog, under `Plugin Settings`. What the dialog doesn't tell you:
 
-* There's no order field for `Organisation plugin`. The dialog keeps an existing `organisationItem.order` or writes `0`. To set the order, use YAML.
 * Turning off `Environment plugin`, `Organisation plugin` or `Embedded View` deletes that block's settings, such as its label and icon.
 * The `Plugin` section of Deployment details still uses the old names: `Sidebar item` is the environment plugin and `Global item` is the organization plugin.
 
@@ -60,7 +59,6 @@ deployments:
         show: true                 # Make this an organization plugin
         label: "Configuration"
         icon: "tune"
-        order: 1
         badge: "Alpha"
 ```
 
@@ -79,8 +77,7 @@ deployments:
 | `label` | The deployment name | The dialog allows up to 25 characters. |
 | `icon` | `extension` | A [Google Material icon](https://fonts.google.com/icons){target=_blank} code, such as `tune` or `fact_check`. |
 | `badge` | None | Short text next to the label, such as `Beta`. The environment sidebar shows it only when expanded. |
-| `environmentItem.order` | None | Lowest first. Set it on every environment plugin: items without one sort unpredictably. |
-| `organisationItem.order` | None | See [How the organisationItem settings are used](#how-the-globalitem-settings-are-used). |
+| `environmentItem.order` | None | Lowest first. Set it on every environment plugin: items without one sort unpredictably. `organisationItem` has no `order`: each space sets the order of its own header apps and sidebar entries. |
 
 ### Managed services
 
@@ -139,7 +136,6 @@ The portal groups organization plugins that share a project and a deployment nam
 The `organisationItem` settings describe the app wherever it appears:
 
 * A space can override `label` and `icon` for its pins and sidebar entries, but not `badge`.
-* `order` sorts the command palette and the space designer's app lists, lowest first, with unset values last. It never sets the header order: each space sets its own.
 * When `show` is `false` or missing, a space's pin for the plugin disappears, and its organization sidebar entry is shown disabled.
 
 <a id="permissions-and-access-control"></a>
@@ -150,7 +146,7 @@ Spaces don't grant access. A user without access to a plugin doesn't see it in t
 
 <a id="what-operator-only-users-see"></a>
 
-**Operator role (deprecated).** To give users a plugin-only view, use a space instead of the Operator role. See [Replace the Operator role with a space](../spaces/replace-operator-role.md). Existing Operator-only users land on their first organization plugin, the one with the lowest `organisationItem.order`. In a space, `/apps` links send them back to that plugin instead of the one they chose.
+**Operator role (deprecated).** To give users a plugin-only view, use a space instead of the Operator role. See [Replace the Operator role with a space](../spaces/replace-operator-role.md). Existing Operator-only users land on their first organization plugin. In a space, `/apps` links send them back to that plugin instead of the one they chose.
 
 ## Plugin toolbar
 
