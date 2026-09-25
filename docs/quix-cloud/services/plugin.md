@@ -13,7 +13,7 @@ The plugin system gives a deployment up to three ways to appear in the portal:
 * An **environment sidebar item**: a shortcut to the plugin in the sidebar of the environment it runs in.
 * A **global plugin**: the plugin becomes available across the organization, so users can open it from outside its environment.
 
-Organization admins use spaces to decide where global plugins appear for each group of users. A **space** is an admin-curated view of the portal for a group of users that controls the sidebars and which apps are pinned to the header. Only users with access to a plugin see it. See [Global plugins](#global-plugins).
+Organization admins use [spaces](../spaces/overview.md) to decide where global plugins appear for each group of users. A **space** is an admin-curated view of the portal for a group of users that controls the sidebars and which apps are pinned to the header. Only users with access to a plugin see it. See [Global plugins](#global-plugins).
 
 A plugin can also reuse Quix authentication. The portal hands your UI the signed-in user's token, and your backend can check that user's Quix permissions. See [Authentication and authorization](#authentication-and-authorization).
 
@@ -202,7 +202,7 @@ Also turn on the embedded view and make it the default view (`embeddedView.enabl
 
 !!! note "A global plugin doesn't appear in the header by itself"
 
-    Making a deployment a global plugin makes it *available* across the organization. To put it in the header, an organization admin pins it in a space's `Header apps`.
+    Making a deployment a global plugin makes it *available* across the organization. To put it in the header, an organization admin pins it in a space's `Header apps`. See [Pin header apps](../spaces/navigation.md#pin-header-apps).
 
 ### Where global plugins appear
 
@@ -245,7 +245,7 @@ Access to global plugins works like this:
 
 * To see and open a global plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment. A user doesn't need `workspace:read` in that environment.
 * The Admin, Manager and Editor roles grant `plugin:*`, and the Viewer role grants `plugin:read`. The deprecated Operator role grants `plugin:*` and nothing else.
-* To give someone access to the plugins in an environment, assign them a role that grants `plugin:read`. The narrowest choice is the Viewer role at the environment level. See [Permission levels](../roles.md#permission-levels). Don't assign the Operator role: it's deprecated. To show these users only the plugins, use a space. See [Operator-only users (deprecated)](#what-operator-only-users-see).
+* To give someone access to the plugins in an environment, assign them a role that grants `plugin:read`. The narrowest choice is the Viewer role at the environment level. See [Permission levels](../roles.md#permission-levels). Don't assign the Operator role: it's deprecated. To show these users only the plugins, use a space. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
 
 Spaces don't change any of this. A space that pins a plugin doesn't give anyone access to it. Users without access to a plugin don't see it in the header or the command palette. If a space lists it in the organization sidebar, they see that entry disabled.
 
@@ -257,7 +257,7 @@ For more information about roles and permissions, see [Roles and permissions](..
 
 !!! warning "The Operator role is deprecated"
 
-    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Roles and permissions](../roles.md).
+    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
 
 An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. If your organization still has Operator-only users, this is how the portal behaves for them. They can't open projects, environments or deployments, so for them the portal works as a launcher for global plugins:
 
@@ -267,7 +267,7 @@ An Operator-only user has the Operator role and no Admin, Manager, Editor or Vie
 * Without a space, they switch between global plugins with the command palette or `Search apps & pages` in the plugin toolbar. These open each plugin full screen at `/plugins/details/<deployment-id>`.
 * In a space, header apps, organization sidebar apps and the command palette open plugins at `/apps/<deployment-id>`. The portal blocks that page for Operator-only users and sends them back to their first global plugin, so these links don't take them to the plugin they chose.
 
-To give these users a plugin-only view that works in a space, move them off the Operator role:
+To give these users a plugin-only view that works in a space, move them off the Operator role. [Replace the Operator role with a space](../spaces/replace-operator-role.md) has the full steps. In short:
 
 1. Create a space that shows only the plugins. For example, pin the plugins to `Header apps` and set the main plugin as the `Landing page`.
 2. Add the users' permission group to the space's `Membership`.
@@ -341,7 +341,7 @@ Some actions depend on the plugin's state and your access:
 
 The toolbar uses the plugin's `globalItem` label and icon, falling back to the deployment name and the `extension` icon. It uses them even when you open the plugin from the environment sidebar.
 
-Users can drag the button to another position. The browser remembers the position. The toolbar can still cover part of your plugin, so keep essential controls away from the bottom-right corner. An organization admin can turn the toolbar off for everyone in a space with the `Plugin toolbar` setting in the space's `Dev tools`.
+Users can drag the button to another position. The browser remembers the position. The toolbar can still cover part of your plugin, so keep essential controls away from the bottom-right corner. An organization admin can turn the toolbar off for everyone in a space with the `Plugin toolbar` setting in the space's `Dev tools`. See [Hide the plugin toolbar](../spaces/create-space.md#hide-the-plugin-toolbar).
 
 ## Embedded view states
 
@@ -570,5 +570,6 @@ curl -H "Authorization: Bearer <token>" \
 * [Quix Plugin SDK](plugin-sdk.md): pass the token, navigation and theme between the portal and your plugin's UI.
 * [How the Quix Plugin SDK works](plugin-sdk-internals.md): security model, message protocol and version history.
 * [Roles and permissions](../roles.md): the roles that grant access to plugins.
+* [Spaces](../spaces/overview.md): choose which plugins each group of users sees in the header and sidebar.
 * [Personal access tokens](../access-security/personal-access-token.md): tokens for scripts and local development.
 * [Portal API](../apis/portal-api/overview.md): the API your plugin can call with the token.
