@@ -84,7 +84,6 @@ nav:
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
-      - 'Plugin system': 'quix-cloud/services/plugin.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
         - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
@@ -125,6 +124,15 @@ nav:
         - 'Overview': 'quix-cloud/quix-lake/data-lake/replay.md'
         - 'Message transformations': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
       - 'Lakehouse Sink': 'quix-cloud/quix-lake/lakehouse/sink.md'
+    - 'Plugins':
+      - 'Overview and configuration': 'quix-cloud/services/plugin.md'
+      - 'Quix Plugin SDK': 'quix-cloud/services/plugin-sdk.md'
+    - 'Spaces':
+      - 'Overview': 'quix-cloud/spaces/overview.md'
+      - 'Work in a space': 'quix-cloud/spaces/use-spaces.md'
+      - 'Create and design a space': 'quix-cloud/spaces/create-space.md'
+      - 'Assign members': 'quix-cloud/spaces/membership.md'
+      - 'Replace the Operator role': 'quix-cloud/spaces/replace-operator-role.md'
     - 'Users and security':
       - 'Users': 'quix-cloud/access-security/users.md'
       - 'User groups': 'quix-cloud/access-security/user-groups.md'
@@ -686,6 +694,8 @@ plugins:
         'index.md': 'get-started/welcome.md'
         'quix-cloud/managed-services/plugin.md': 'quix-cloud/services/plugin.md'
         'quix-cloud/permissions.md': 'quix-cloud/roles.md'
+        'quix-cloud/spaces/navigation.md': 'quix-cloud/spaces/create-space.md'
+        'quix-cloud/spaces/reference.md': 'quix-cloud/spaces/create-space.md'
         'contribute.md': 'kb/contribute.md'
         'platform/changes.md': 'get-started/welcome.md'
         'platform/ingest-data.md': 'quix-cloud/applications/overview.md'
