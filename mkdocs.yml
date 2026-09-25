@@ -84,7 +84,10 @@ nav:
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
       - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
-      - 'Plugin system': 'quix-cloud/services/plugin.md'
+      - 'Plugins':
+        - 'Overview and configuration': 'quix-cloud/services/plugin.md'
+        - 'Quix Plugin SDK': 'quix-cloud/services/plugin-sdk.md'
+        - 'How the SDK works': 'quix-cloud/services/plugin-sdk-internals.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
         - 'Deploy a public service': 'quix-cloud/deployments/deploy-public-page.md'
