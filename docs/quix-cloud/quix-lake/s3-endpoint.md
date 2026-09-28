@@ -26,7 +26,93 @@ Quix issues the credentials for you. Bind a [Quix Lake storage](../deployments/b
 }
 ```
 
-Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the Quix Lake bucket. Quix scopes the key to what the deployment may reach. There is no separate place to create a key by hand, and the gateway never hands out your real bucket credentials.
+Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the Quix Lake bucket. Quix scopes the key to what the deployment may reach, and the gateway never hands out your real bucket credentials.
+
+You can also find the endpoint and the bucket by hand. Open the **Connect to Quix Lake** dialog on the Quix Lake connection page in the Portal. The dialog shows both values.
+
+## Use a personal access token (PAT)
+
+Use a PAT to reach Quix Lake from your own machine or from a tool outside a deployment.
+
+Create a PAT in the Portal, under your user settings. Set a short expiry: a PAT is a full user token, so it carries all your rights, and you must keep it secret.
+
+Set these three fields on your S3 client:
+
+* **Access key** — your Quix user ID. This is the GUID the Portal shows for your user.
+* **Secret key** — your PAT.
+* **Session token** — the same PAT, again.
+
+The gateway reads the session token from the standard S3 field (`x-amz-security-token`, or `aws_session_token` in most SDKs). It uses the PAT there to check your identity, and it uses the same PAT as the secret key to check your request signature. Most S3 clients send the session token on their own once you set it, so you do not sign requests by hand.
+
+Every client below uses **path-style** addressing and the region `us-east-1`.
+
+**boto3:**
+
+```python
+import boto3
+
+s3 = boto3.client(
+    "s3",
+    endpoint_url="https://<ENDPOINT>",
+    aws_access_key_id="<USER_ID>",
+    aws_secret_access_key="<YOUR_PAT>",
+    aws_session_token="<YOUR_PAT>",
+    region_name="us-east-1",
+    config=boto3.session.Config(s3={"addressing_style": "path"}),
+)
+
+s3.list_objects_v2(Bucket="<BUCKET>")
+```
+
+**AWS CLI:**
+
+```bash
+export AWS_ACCESS_KEY_ID=<USER_ID>
+export AWS_SECRET_ACCESS_KEY=<YOUR_PAT>
+export AWS_SESSION_TOKEN=<YOUR_PAT>
+
+aws s3 ls s3://<BUCKET>/ \
+  --endpoint-url https://<ENDPOINT> \
+  --region us-east-1
+```
+
+Set `addressing_style = path` for the CLI too, in `~/.aws/config`:
+
+```ini
+[default]
+s3 =
+    addressing_style = path
+```
+
+**DuckDB:**
+
+```sql
+INSTALL httpfs;
+LOAD httpfs;
+
+SET s3_endpoint = '<ENDPOINT>';
+SET s3_region = 'us-east-1';
+SET s3_access_key_id = '<USER_ID>';
+SET s3_secret_access_key = '<YOUR_PAT>';
+SET s3_session_token = '<YOUR_PAT>';
+SET s3_url_style = 'path';
+
+SELECT * FROM read_parquet('s3://<BUCKET>/<key>');
+```
+
+**rclone:**
+
+```ini
+[quixlake]
+type = s3
+provider = Other
+endpoint = https://<ENDPOINT>
+access_key_id = <USER_ID>
+secret_access_key = <YOUR_PAT>
+session_token = <YOUR_PAT>
+region = us-east-1
+force_path_style = true
+```
 
 ## Connect a client
 
