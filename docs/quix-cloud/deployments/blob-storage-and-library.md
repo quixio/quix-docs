@@ -39,32 +39,20 @@ fs.ls("<your_bucket>/minio/<workspaceId>/")    # your environment folder in the 
 
 `fs` is the filesystem that [the quixportal library](#the-quixportal-library) gives you. Quix injects the environment ID as `Quix__Workspace__Id`.
 
-The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
+Quix takes the storage folder off the key before it calls the storage behind it, so a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
 
-A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
+The bind always goes to the **main storage** of the connection. A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it, and `ListBuckets` answers the one Quix Lake bucket. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
-!!! warning "ListBuckets now answers one bucket"
-    **ListBuckets** used to answer one bucket for each storage. It now answers the one Quix Lake bucket. List the root of that bucket instead to see the storages.
-
-!!! warning "A rename changes the folder in your keys"
-    An administrator can change the **Folder** of a storage. The folder is not the bucket, so your bucket name does not change. Quix restarts the deployments bound to that storage. The old folder fails at once, with no alias and no grace period, so update the keys in your code. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
-
-!!! warning "A main storage move can change your keys"
-    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so code that reads it keeps working. The Quix Lake bucket keeps its name.
-
-    Only the main storage may sit at the bucket root. So the storage that steps down must take a folder, and the administrator names that folder in the promote dialog. Put that folder in front of every key you read from that storage:
+!!! warning "An administrator can change the folder in your keys"
+    A [rename](../quix-lake/blob-storage.md#rename-a-storage) changes the **Folder** of a storage, and the old folder fails at once. A [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage) gives the storage that steps down a folder, when it sat at the bucket root. In both cases the bucket name stays, Quix restarts the deployments bound to that storage, and you update the keys in your code:
 
     ```python
     fs.open("<your_bucket>/<workspaceId>/reports/day.csv")            # before the move, at the bucket root
     fs.open("<your_bucket>/principal/<workspaceId>/reports/day.csv")  # after the move, in the folder principal
     ```
 
-    Quix restarts the deployments bound to that storage, so they take the new address. When the storage that steps down already has a folder, nothing moves.
-
-    Your service stays on the storage that holds its data either way: Quix never moves a running service to a storage that holds none of its history. See [Make a storage the main storage](../quix-lake/blob-storage.md#make-a-storage-the-main-storage).
-
 !!! note "One copy cannot cross a storage"
-    A copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Copy inside one storage, or read and write the object yourself.
+    A copy whose source and destination sit in different storages is refused. Copy inside one storage, or read and write the object yourself.
 
 ## The quixportal library
 
@@ -117,13 +105,7 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 `ServiceUrl` points at the gateway endpoint, and `BucketName` is the Quix Lake bucket. `Region` is the region of the storage, or `us-east-1` when the storage has none. Quix injects the keys in this PascalCase form, and `quixportal` reads them as they are.
 
-The gateway is there for three reasons:
-
-* **Security** — your real bucket credentials never leave it. Instead of handing storage keys to every deployment, the gateway checks each request and grants access scoped to the environment, so one environment cannot reach another's data although the whole organization shares a single connection.
-* **Abstraction** — whatever you connect from the Quix Portal, S3, Azure, GCS, or MinIO, your code reaches it through the same S3-compatible interface. The same code works regardless of the storage behind it.
-* **One endpoint** — every storage answers on the same endpoint, with the same credential, so adding a storage changes no client configuration.
-
-See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for how the gateway governs access, and [S3-compatible endpoint](../quix-lake/s3-endpoint.md) for the exact API surface.
+Your real bucket credentials never leave Quix. The key in this document reaches your environment's data only, and every storage of the connection answers on this one endpoint. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for who may read what, and [S3-compatible endpoint](../quix-lake/s3-endpoint.md) for the API surface.
 
 The library *can* also target Azure, GCS, and a local directory directly, which is useful for tests or running outside Quix. Those are configs you build yourself with the [helpers below](#generating-the-json-yourself), not something the platform injects.
 
