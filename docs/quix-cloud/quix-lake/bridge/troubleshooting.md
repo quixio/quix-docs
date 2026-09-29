@@ -29,11 +29,9 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 
 **The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows).
 
-**A share you removed from the command line is still served.** Before version 0.1.11, the service reads `config.yaml` only when it starts. Restart the service. See [Start the service](./command-line.md#step-5-start-the-service).
-
 **The pairing token expired.** The token lives 15 minutes. Click **Pair a bridge** again in the Portal to get a fresh quick config.
 
-**The bridge is stuck on an old version behind a proxy.** A version before 0.1.5 ignores `network.proxy` when it asks for an update. Clear the pin, or lift the proxy block. See [Behind a proxy](./command-line.md#behind-a-proxy).
+**The bridge cannot reach Quix behind a proxy.** Set `network.proxy` and `network.caBundle` in `config.yaml`, then restart the service. See [Behind a proxy](./command-line.md#behind-a-proxy).
 
 **The Portal refuses to make the bridge the main storage.** The bridge needs a bucket root first. See [The bucket root](./shared-folders.md#the-bucket-root).
 

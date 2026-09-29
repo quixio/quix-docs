@@ -48,7 +48,7 @@ The two have separate lifecycles:
 
 ## How paths work
 
-A bridge storage shows every folder that you share on the bridge, unless the bridge has a [bucket root](./shared-folders.md#the-bucket-root). The Quix path of a file is:
+A bridge storage shows every folder that you share on the bridge, unless the bridge has a [bucket root](./shared-folders.md#the-bucket-root). The console calls the address of a file in Quix its **SAG path**. The SAG path of a file is:
 
 ```text
 <folder>/<share>/<file>
@@ -90,7 +90,7 @@ To serve another connection, open the bridge on the **Quix Lake Bridges** tab an
 | Service | Windows service | systemd unit |
 | Tray icon | Yes | No. Read the state with `quix-bridge status`. |
 | Web console (`quix-bridge ui`) | Yes | Yes |
-| Automatic update | MSI only | deb, rpm, and tar.gz from 0.1.8 |
+| Automatic update | MSI only | deb, rpm and tar.gz |
 | Network folder (`\\server\share`) | Yes, from the console | No. Mount it, then share the mount folder. |
 
 **macOS is not supported.** `install.sh` stops on a Mac. **Linux arm64 is not shipped yet.** `install.sh` stops on an arm64 Linux machine.

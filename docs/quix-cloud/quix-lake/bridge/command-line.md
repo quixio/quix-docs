@@ -20,13 +20,13 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`, with or without a leading `v`:
 
     ```powershell
-    $env:QUIX_BRIDGE_VERSION = '0.1.4'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
+    $env:QUIX_BRIDGE_VERSION = '1.0.0'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
     The MSI installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it. It adds that folder to the system `PATH`. Open a new administrator shell for the next steps, so that it sees the new `PATH`.
 
     ??? info "Zip install"
-        When you run the script as a file, `.\install.ps1 -Version 0.1.4` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
+        When you run the script as a file, `.\install.ps1 -Version 1.0.0` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
 
 === "Linux"
 
@@ -37,7 +37,7 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`:
 
     ```bash
-    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.4 sh
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=1.0.0 sh
     ```
 
     On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs and starts the service. On other machines, the script copies the binary to `/usr/local/bin`. Then install the service yourself:
@@ -96,7 +96,7 @@ Run `connect` with no argument. The command asks for the quick config, and you p
 
 A new share is read and write. Add `--read-only` to stop Quix writing to the folder. The command applies the same rules as the console and refuses the same folders. It does not check that the folder exists. Check the path yourself.
 
-`share list` prints two paths for each row: the path on the machine and the Quix path. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**.
+`share list` prints two paths for each row: the path on the machine and the SAG path. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**.
 
 Network folders:
 
@@ -119,7 +119,7 @@ Network folders:
     sudo quix-bridge service start
     ```
 
-The stop and start make the service read the new token and the new shares. Before version 0.1.11, the service reads `config.yaml` only when it starts. So repeat this step after every `share` command. On Windows, the service enrols at the Portal at this start.
+The stop and start make the service read the new token. On Windows, the service enrols at the Portal at this start. The shares need no restart. The service applies a `share` command at once.
 
 Every command that needs root stops with a hint and a non-zero exit code when you run it without administrator rights or `sudo`. This applies to `service`, `share list`, `config show` and `status`.
 
@@ -153,23 +153,18 @@ log:
   retainDays: 14
 ```
 
-- `update.channel`: `stable` is the default from version **0.1.8**. Set it to `manual` to turn automatic updates off. The change needs no restart. See [Updates and uninstall](./updates.md).
+- `update.channel`: `stable` is the default. Set it to `manual` to turn automatic updates off. The change needs no restart. See [Updates and uninstall](./updates.md).
 - `log.retainDays`: the number of days the bridge keeps its audit log. The default is 30 days. The audit log stays at 500 MB or less. Restart the service after you change it.
 
 ## Behind a proxy
 
-From version 0.1.5, `network.proxy` and `network.caBundle` in `config.yaml` cover every outbound call the bridge makes. Set them once and restart the service:
+`network.proxy` and `network.caBundle` in `config.yaml` cover every outbound call the bridge makes. Set them once and restart the service:
 
 ```yaml
 network:
   proxy: http://proxy.example.com:3128
   caBundle: /etc/ssl/certs/corp-ca.pem
 ```
-
-Versions before 0.1.5 need the `https_proxy` and `SSL_CERT_FILE` environment variables for the service.
-
-!!! warning "Behind a proxy, never pin a bridge below 0.1.5"
-    A version before 0.1.5 ignores `network.proxy` when it asks for an update. So a bridge pinned or rolled back below 0.1.5 stays stuck on that version. To bring it back, clear the pin or lift the proxy block.
 
 ## Next steps
 

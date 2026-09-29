@@ -13,7 +13,7 @@ You share folders in the bridge console, on the **Folders** tab. Quix sees a sha
 2. Open the **Folders** tab.
 3. Find the folder in the tree and turn it to **Shared**.
 
-A new share is read and write. Click **Edit** on the shared row to make it read only. A share you add, edit or remove in the console takes effect at once.
+A new share is read and write. Click **Edit this share** on the shared row to make it read only. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
 
 The tree shows only the folders that the service account can read. Some folders show a state instead of a switch:
 
@@ -24,9 +24,6 @@ The tree shows only the folders that the service account can read. Some folders 
 | **N folders inside are shared** | The folder holds shared folders. Open the folder to reach the shares. |
 
 The bridge refuses `\Windows` on every drive, the administrative shares, and `/etc` on Linux. It shares a drive root, `\Users` on any drive, `/` and `/home` as read only. Share a folder inside them to allow writes.
-
-!!! note "Changes from the command line"
-    Before bridge version 0.1.11, a change from `quix-bridge share` or a hand edit of `config.yaml` needs a service restart. From 0.1.11, the bridge applies such a change at once.
 
 ## Share a network folder
 
@@ -58,16 +55,13 @@ A storage that maps **the whole machine**, not one shared folder, can use one wr
 
 A bridge needs a bucket root before it can be the [main storage](../blob-storage.md#make-a-storage-the-main-storage). It also needs one before the Portal creates a Lakehouse or a Data Lake service on it. Set the bucket root first, then create the service.
 
-Set it on the **Folders** tab of the bridge console:
+The bucket root is a **shared folder with an empty SAG path**. Set it on the **Folders** tab of the bridge console:
 
-1. With no bucket root set, the tab shows an amber warning: **No bucket root**. Click **Choose a folder**, then pick a folder in the tree.
-2. To use a path the tree does not show, click **or type a path**. Type the full path, for example `D:\QuixData` or `/srv/quix`. The bridge makes the folder if it is missing.
-3. The tree marks the chosen folder with a **Bucket root** chip. To change it, click **Change**. To remove it, click **Clear**.
+1. Share the folder, for example `D:\QuixData` or `/srv/quix`.
+2. Click **Edit this share** on its row.
+3. Clear the **SAG path** field, then save.
 
-The console refuses a bucket root that is a share, holds a share, or sits inside a share.
-
-!!! note "Changes in bridge version 0.1.11"
-    From 0.1.11, the bucket root is a **shared folder whose Quix path is empty**. To make a share the bucket root, click **Edit this share** on its row and clear the **SAG path** field. Only one folder can be the bucket root. The bucket root is always read and write. The tree marks it **Bucket root**, and the console opens on the **Folders** tab. Every change you make in the console goes to `config.yaml`. A change you make in the file applies without a restart.
+The tree marks the folder **Bucket root**. Only one folder can be the bucket root. The bucket root is always read and write. To move the bucket root, give this share a SAG path again, then clear the SAG path of another share.
 
 ## Next steps
 

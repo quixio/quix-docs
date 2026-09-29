@@ -5,7 +5,7 @@ description: How the bridge updates itself, how to bring an old bridge onto the 
 
 # Updates and uninstall
 
-From version **0.1.8**, the bridge installs the latest release by itself. The `update.channel` setting in `config.yaml` controls this. `stable` is the default. Set it to `manual` to turn automatic updates off. See [The config file](./command-line.md#the-config-file).
+The bridge installs the latest release by itself. The `update.channel` setting in `config.yaml` controls this. `stable` is the default. Set it to `manual` to turn automatic updates off. See [The config file](./command-line.md#the-config-file).
 
 ## Which installs update themselves
 
@@ -14,21 +14,13 @@ From version **0.1.8**, the bridge installs the latest release by itself. The `u
 | Windows MSI | Yes |
 | Windows zip | No. Install the new release by hand. |
 | Linux deb or rpm | Yes |
-| Linux tar.gz | Yes, from 0.1.8, with a running systemd service |
-
-A tar.gz install before 0.1.8 does not update. Install the new release by hand.
+| Linux tar.gz | Yes, with a running systemd service |
 
 On a Linux machine with no systemd, such as a container, the deb or the rpm installs but starts no service. Run the bridge in the foreground with `quix-bridge service run`. Run `quix-bridge update run` yourself, on your own schedule.
 
-!!! warning "A bridge before 0.1.8 does not update itself"
-    Versions before 0.1.8 read a missing channel as `manual`. To bring such a bridge onto `stable`, do one of these:
-
-    - Install the latest release once by hand, as in [Install the bridge](./command-line.md#step-1-install-the-bridge).
-    - Set `update: channel: stable` in `config.yaml` and restart the service.
-
 ## How an update runs
 
-The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. A tar.gz install from 0.1.8 checks through the running service.
+The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. A tar.gz install checks through the running service.
 
 Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. When an install fails, the bridge tries again later, with a longer wait after each failure.
 

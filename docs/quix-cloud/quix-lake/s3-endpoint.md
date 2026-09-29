@@ -136,8 +136,8 @@ s3.get_object(Bucket="quixdevbucket", Key="principal/<workspaceId>/reports/day.c
 s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 ```
 
-??? info "The old per-storage bucket name"
-    Before this change, each storage was a bucket of its own. A client addressed a storage by its name as a bucket name. `s3://minio/reports/2026-08.csv` still works today, so old code keeps running. Move your code to the folder address. Do not build new code on the old address. A rename breaks it at once.
+??? info "The storage name as a bucket name"
+    A client can also address a storage by its name as a bucket name, for example `s3://minio/reports/2026-08.csv`. This old address still works, so old code keeps running. Move your code to the folder address. Do not build new code on the old address. A rename breaks it at once.
 
 ### The environment shortcut
 

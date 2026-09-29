@@ -263,8 +263,8 @@ The shortcut always follows the main storage. It works only for an environment I
 
 A deployment binds the **main storage** of the connection, so its credential always reaches the shortcut, and it reaches the other storages by key. See [S3-compatible endpoint](./s3-endpoint.md#write-to-another-storage-by-key) for the client-side detail, and [Storage Access Gateway](./secure-storage-access.md) for who may see what.
 
-??? info "The old per-storage bucket name"
-    Before this change, each storage was a bucket of its own. Clients addressed a storage by its name as a bucket name. That address still works today, so old code keeps running.
+??? info "The storage name as a bucket name"
+    A client can also address a storage by its name as a bucket name. This old address still works, so old code keeps running.
 
     ```text
     s3://minio/reports/2026-08.csv                  the old address, still served
