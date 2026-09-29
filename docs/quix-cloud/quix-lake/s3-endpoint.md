@@ -5,7 +5,7 @@ description: Reach your Quix Lake data from any S3 client through the Storage Ac
 
 # S3-compatible endpoint
 
-The [Storage Access Gateway](./secure-storage-access.md) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. Any client that speaks Amazon S3 can read and write through it: the AWS SDKs, `boto3`, `s3fs`, DuckDB, Spark, and the AWS CLI.
+The [Storage Access Gateway](./secure-storage-access.md) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. S3 clients such as `boto3`, `s3fs` and DuckDB can read and write through it, with path-style addressing.
 
 The endpoint is the same whichever provider sits behind the connection. Your code targets S3 and Quix translates, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, or MinIO.
 
@@ -15,18 +15,18 @@ Quix issues the credentials for you. Bind a [Quix Lake storage](../deployments/b
 
 ```json
 {
-  "provider": "S3Compatible",
-  "s3Compatible": {
-    "bucketName": "<your_bucket>",
-    "accessKeyId": "<your_access_key_id>",
-    "secretAccessKey": "<your_secret_access_key>",
-    "region": "us-east-1",
-    "serviceUrl": "https://<your_storage_gateway_endpoint>"
+  "Provider": "S3Compatible",
+  "S3Compatible": {
+    "BucketName": "<your_bucket>",
+    "AccessKeyId": "<your_access_key_id>",
+    "SecretAccessKey": "<your_secret_access_key>",
+    "Region": "<region>",
+    "ServiceUrl": "https://<your_storage_gateway_endpoint>"
   }
 }
 ```
 
-Your code reads this from `Quix__BlobStorage__Connection__Json`. The `serviceUrl` field is the endpoint, and `bucketName` is the Quix Lake bucket. Quix scopes the key to what the deployment may reach, and the gateway never hands out your real bucket credentials.
+Your code reads this from `Quix__BlobStorage__Connection__Json`. The `ServiceUrl` field is the endpoint, and `BucketName` is the Quix Lake bucket. `Region` is the region of the storage, or `us-east-1` when the storage has none. Quix scopes the key to what the deployment may reach, and the gateway never hands out your real bucket credentials.
 
 You can also find the endpoint and the bucket by hand. Open the **Connect to Quix Lake** dialog on the Quix Lake connection page in the Portal. The dialog shows both values.
 
@@ -34,11 +34,11 @@ You can also find the endpoint and the bucket by hand. Open the **Connect to Qui
 
 Use a PAT to reach Quix Lake from your own machine or from a tool outside a deployment.
 
-Create a PAT in the Portal, under your user settings. Set a short expiry: a PAT is a full user token, so it carries all your rights, and you must keep it secret.
+Create a PAT in the Portal, under your user settings. A PAT acts as you. It never reaches more than you can reach, and a PAT with a smaller scope reaches less. Set a short expiry, and keep the PAT secret.
 
 Set these three fields on your S3 client:
 
-* **Access key** — your Quix user ID. This is the GUID the Portal shows for your user.
+* **Access key** — your Quix user ID. The **Connect to Quix Lake** dialog shows it as **Access key (your user id)**.
 * **Secret key** — your PAT.
 * **Session token** — the same PAT, again.
 
@@ -137,7 +137,7 @@ The gateway refuses virtual-host-style addressing, such as `https://<your_bucket
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your client still addresses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. Put the folder first in every key:
+A connection can hold more than one storage. Your client still addresses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The **Folder** an administrator sets on a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. Put the folder first in every key:
 
 ```text
 s3://<connectionBucket>/<storage>/<key>
@@ -165,7 +165,7 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 ```
 
 !!! note "The old per-storage bucket name"
-    Before this change each storage was a bucket of its own, and a client addressed a storage by its name as a bucket name. Quix keeps `s3://minio/reports/2026-08.csv` working for the change-over, so today's code keeps running. Move it to the folder address: the old address stays only for the change-over, and a rename breaks it at once.
+    Before this change each storage was a bucket of its own, and a client addressed a storage by its name as a bucket name. `s3://minio/reports/2026-08.csv` still works today, so old code keeps running. Move your code to the folder address. Do not build new code on the old address, and know that a rename breaks it at once.
 
 ### The environment shortcut
 
@@ -186,7 +186,7 @@ The shortcut takes an environment ID only, and it always points at the current m
 
 A deployment with `blobStorage: bind: true` gets one credential, scoped to its own environment. That credential still reaches every storage of the connection, through the key you write to:
 
-* `<storage>/<workspaceId>/...` writes to the storage named `<storage>`.
+* `<storage>/<workspaceId>/...` writes to the storage whose folder is `<storage>`.
 * `<workspaceId>/...`, with no storage name, writes to the main storage, as before.
 
 Your workspace folder stays in every case. The app never reaches another workspace: a key such as `<storage>/<otherWorkspaceId>/...` answers `403 AccessDenied`.
@@ -209,6 +209,8 @@ s3 = boto3.client(
     config=boto3.session.Config(s3={"addressing_style": "path"}),
 )
 
+data = b"day,value\n2026-08-01,42\n"
+
 # Writes to the main storage, in this environment's folder
 s3.put_object(Bucket="<your_bucket>", Key="<workspaceId>/reports/day.csv", Body=data)
 
@@ -216,24 +218,10 @@ s3.put_object(Bucket="<your_bucket>", Key="<workspaceId>/reports/day.csv", Body=
 s3.put_object(Bucket="<your_bucket>", Key="archive/<workspaceId>/reports/day.csv", Body=data)
 ```
 
-**Quix Streams Sink**, writing into the storage named `archive` instead of the main storage:
+Quix injects the environment ID into every deployment as `Quix__Workspace__Id`, so your code can build the key from it.
 
-```python
-from quixstreams.sinks.community.file import FileSink
-from quixstreams.sinks.community.file.destinations import S3Destination
-
-destination = S3Destination(
-    bucket="<your_bucket>",
-    aws_access_key_id="<your_access_key_id>",
-    aws_secret_access_key="<your_secret_access_key>",
-    endpoint_url="<your_storage_gateway_endpoint>",
-    key_prefix="archive",
-)
-
-sink = FileSink(destination=destination, format="csv")
-```
-
-Leave `key_prefix` unset to keep writing to the main storage. The sink adds `<workspaceId>/` under whatever prefix you give it, so the workspace folder always stays.
+!!! note "The Quix Streams file sink cannot write to another storage"
+    The Quix Streams `S3FileSink` builds each key as `<directory>/<topic>/<partition>/...`. Its `directory` accepts only letters, digits, spaces, dots, underscores and `/`. An environment ID always holds a hyphen, so the sink cannot put `<workspaceId>/` in the key, and the gateway refuses a key outside your environment folder. Write with boto3, as above, when you need another storage.
 
 ### See every storage with a root listing
 
@@ -246,6 +234,9 @@ for folder in answer.get("CommonPrefixes", []):
 ```
 
 The gateway returns only the storages your credential may reach. You can also browse them in the [storage explorer](./storage-explorer.md), or ask the Portal API.
+
+!!! warning "A deployment credential cannot list the bucket root"
+    A root LIST works with a personal access token, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only, so a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
 
 Drop the delimiter and the gateway merges the storages into **one** listing, in key order and with paging, so a listing can now cross storages. Pass the `NextContinuationToken` back as the gateway gave it to you.
 
@@ -260,10 +251,10 @@ Drop the delimiter and the gateway merges the storages into **one** listing, in 
     Any tool you point at this endpoint sees that change. A tool that builds its storage list from `ListBuckets` shows one entry, so use the root listing above instead.
 
 !!! warning "A rename moves the folder"
-    An administrator can rename a storage. The name is the folder, so the old folder stops working at once. There is no alias and no grace period. The bucket name does not change, so a deployment needs no redeploy for it, but the folder in your keys does change. See [Rename a storage](./blob-storage.md#rename-a-storage).
+    An administrator can change the **Folder** of a storage. The old folder stops working at once. There is no alias and no grace period. The bucket name does not change. Quix restarts the deployments bound to that storage, but the folder in your keys changes, so update your code. See [Rename a storage](./blob-storage.md#rename-a-storage).
 
 !!! warning "A main storage move can move a folder"
-    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so its clients keep working. The [environment shortcut](#the-environment-shortcut) points at it from that moment, and the Quix Lake bucket takes its bucket name on your next deploy.
+    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so its clients keep working. The [environment shortcut](#the-environment-shortcut) points at it from that moment. The Quix Lake bucket keeps its name.
 
     Only the main storage may sit at the bucket root. So the storage that steps down must leave the root, and the administrator names a folder for it in the promote dialog. Every key you read for that storage at the bucket root needs that folder in front of it from that moment:
 
@@ -293,7 +284,7 @@ The gateway supports the operations an ordinary storage client needs:
 | A batch delete whose body spans two storages | `501 NotImplemented` |
 | Virtual-host-style addressing | `400 InvalidRequest` |
 | A presigned URL | Rejected. Sign each request instead. |
-| Object tagging, ACLs, versioning, lifecycle, CORS, bucket policy, replication, encryption, notification, logging, object lock, legal hold, and retention | `501 NotImplemented` |
+| Object tagging, ACLs, versioning, lifecycle, CORS, bucket policy, replication, encryption, notification, logging, object lock, legal hold, and retention | Not supported. The gateway answers `501 NotImplemented` for most of these. On an S3 or MinIO storage it can pass the request to the provider. Do not depend on these features. |
 
 The gateway refuses a cross-storage operation because it is a real transfer between two backends, not a change of path. Two keys sit in one bucket and still sit in two storages, so read the folder at the front of each key before you plan the operation. A copy inside one storage keeps working.
 
@@ -307,7 +298,7 @@ The gateway refuses a cross-storage operation because it is a real transfer betw
 
 **A main storage move can move the old main storage.** A storage that steps down from the bucket root takes a folder. Its keys need that folder in front of them from that moment.
 
-**Every request is checked.** The gateway applies your folder permissions to each call. A key you may not read answers `403 AccessDenied`, and a listing hides what you may not see. See [Storage Access Gateway](./secure-storage-access.md).
+**Every request is checked.** The gateway applies your folder permissions to each call. A key you may not read answers `403 AccessDenied`, and a listing hides what you may not see. A credential of a storage that is not the main storage sees only its own storage, so a key of another storage answers `404` for it. See [Storage Access Gateway](./secure-storage-access.md).
 
 ## Next steps
 

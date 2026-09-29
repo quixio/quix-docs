@@ -40,7 +40,7 @@ Metadata:
 
 ## Prerequisites
 
-* A **Quix Lake connection** is configured for the cluster (one per cluster).
+* A **Quix Lake connection** is configured for the cluster (one per cluster and node group).
   The sink uses this connection; you do not paste storage credentials into the sink.
 * The connection **passes the Test** (write, list, query, delete round-trip).
 

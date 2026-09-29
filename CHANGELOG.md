@@ -6,7 +6,7 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
-- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens one outbound connection to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the Quix path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
+- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the Quix path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
 
     See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge.html) for more details.
 
@@ -14,11 +14,11 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
-- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. **Each storage is its own bucket.** The name you give a storage is the bucket name your clients use, on the same endpoint and with the same credential. A storage with no name of its own keeps the bucket name of the bucket behind it, which is how a connection starts. So a customer with one storage sees no change, and a new storage never moves a storage that is already there. An S3 LIST covers one bucket, so a client calls `ListBuckets` to see every storage it may reach. Add, rename, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
+- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. Your clients use **one bucket**, the Quix Lake bucket, and **each storage is a folder** in it, on the same endpoint and with the same credential. Only the main storage may sit at the root of the bucket. So a customer with one storage sees no change, and a new storage never moves a storage that is already there. `ListBuckets` answers the one Quix Lake bucket. A LIST of the bucket root shows the storages you may reach as folders. Add, rename, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
 
     See the [Quix Lake connections and storages documentation](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and the [S3-compatible endpoint documentation](https://quix.io/docs/quix-cloud/quix-lake/s3-endpoint.html) for more details.
 
-- **Rename a storage**: A storage name is no longer fixed at creation. The name is the bucket name every client uses, so a rename changes the address of the whole storage. The old bucket name stops working at once, and every deployment bound to that storage must redeploy before it works again. The Portal warns you before it saves the rename.
+- **Rename a storage**: A storage folder is no longer fixed at creation. The folder is the address every client uses, so a change moves the whole storage. The old folder stops working at once, and code that uses it must change its keys. The Portal warns you before it saves the rename.
 
 `ENHANCEMENTS`
 
