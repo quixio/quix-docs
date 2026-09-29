@@ -49,7 +49,7 @@ Switch between **Tree view** and **File explorer view** with the buttons in the 
 Search finds files whose path contains the text you type. It searches from the root of the Quix Lake bucket, not from the folder in view. On a large bucket it reads only part of the bucket, so the result can be incomplete.
 
 !!! note "A copy cannot cross a storage"
-    A move or a copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Move or copy inside one storage. You can also download the file and upload it again.
+    The explorer refuses a move or a copy whose source and destination sit in different storages. Move or copy inside one storage, or download the file and upload it again.
 
 ## A storage folder is not an ordinary folder
 
@@ -59,8 +59,6 @@ A storage folder looks like a folder, but it is a whole storage with its own buc
 * You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
 * You cannot cut or copy a storage folder.
 * You cannot set the visibility of a storage folder here. Set it on the storage's row in the **Default Permissions** tab of the connection.
-
-The explorer refuses these actions because they are connection-level facts, not files in your bucket.
 
 Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, copy, and visibility all work there.
 

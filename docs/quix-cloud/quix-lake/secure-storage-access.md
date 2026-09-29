@@ -24,9 +24,9 @@ s3://<workspaceId>/                  the same data, through the environment shor
 s3://quixdevbucket/minio/reports/    a folder in the storage named minio
 ```
 
-The gateway routes each request on the folder at the front of the key. Each storage keeps its own bucket and its own credentials behind the gateway, so one bucket name hides several backends. A new storage never moves a storage that is already there, so a customer with one storage sees no change. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
+Each storage keeps its own bucket and its own credentials behind the gateway, so one bucket name hides several providers. A new storage never moves a storage that is already there. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
 
-**The gateway takes the storage folder off the key and changes nothing else.** Everything after the folder travels unchanged, so an object you write lands at the same key it would land at if you wrote it to the bucket behind the storage directly.
+The gateway takes the storage folder off the key and changes nothing else, so an object you write lands at the same key it would land at in the bucket behind the storage.
 
 A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root: it gets `403 AccessDenied`.
 
@@ -73,7 +73,7 @@ You set a folder's visibility in the **Access** list on its row in the **Default
     Every storage is a folder of one bucket, so a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
 
 !!! note "A rename carries the permissions with it"
-    When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder, in every store that holds them. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
+    When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
 
     A [main storage move](./blob-storage.md#make-a-storage-the-main-storage) does the same for the storage that steps down: its permissions move into the folder it gains, so you rebuild nothing.
 
