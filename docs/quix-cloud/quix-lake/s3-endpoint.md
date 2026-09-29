@@ -7,7 +7,7 @@ description: Reach your Quix Lake data from an S3 client with one endpoint, one 
 
 The [Storage Access Gateway](./secure-storage-access.md) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. S3 clients such as boto3, the AWS CLI, `s3fs` and DuckDB read and write through it, with path-style addressing.
 
-The endpoint is the same whichever provider sits behind the connection. Your code targets S3, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, MinIO, or a [Quix Lake Bridge](./bridge.md).
+The endpoint is the same whichever provider sits behind the connection. Your code targets S3, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, MinIO, or a [Quix Lake Bridge](./bridge/overview.md).
 
 !!! tip "Reading files in Python?"
     Inside a deployment, the `quixportal` library reads the injected credentials for you and returns a filesystem. See [Quix Lake storage](../deployments/blob-storage-and-library.md).
@@ -137,7 +137,7 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 ```
 
 ??? info "The old per-storage bucket name"
-    Before this change each storage was a bucket of its own, and a client addressed a storage by its name as a bucket name. `s3://minio/reports/2026-08.csv` still works today, so old code keeps running. Move your code to the folder address. Do not build new code on the old address, and know that a rename breaks it at once.
+    Before this change, each storage was a bucket of its own. A client addressed a storage by its name as a bucket name. `s3://minio/reports/2026-08.csv` still works today, so old code keeps running. Move your code to the folder address. Do not build new code on the old address. A rename breaks it at once.
 
 ### The environment shortcut
 
@@ -148,7 +148,7 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 s3.get_object(Bucket="<workspaceId>",  Key="reports/day.csv")
 ```
 
-Every object and listing operation answers the same through either address. The shortcut serves objects, not bucket metadata: a request that names the shortcut and carries no key answers `501 NotImplemented` when it asks for `?acl`, `?location`, another bucket subresource, or a multipart create, complete or abort without a key. Use the full `s3://<mainBucket>/` address for those.
+Every object and listing operation answers the same through either address. The shortcut serves objects, not bucket metadata. A request that names the shortcut and carries no key answers `501 NotImplemented` when it asks for bucket metadata. This covers `?acl`, `?location`, another bucket subresource, and a multipart create, complete or abort without a key. Use the full `s3://<mainBucket>/` address for those.
 
 The shortcut takes an environment ID only, and it always points at the current main storage.
 
@@ -177,7 +177,7 @@ s3.put_object(Bucket="<your_bucket>", Key=f"archive/{workspace}/reports/day.csv"
 ```
 
 !!! note "A sink writes to the main storage"
-    The managed Data Lake Sink, the Lakehouse Sink, and the Quix Streams file sink write to the **main storage** of the connection. They cannot write to another storage by key today. To point a sink at a [Quix Lake Bridge](./bridge.md), make the bridge storage the main storage. See [Write to a bridge from a sink](./bridge.md#write-to-a-bridge-from-a-sink).
+    The managed Data Lake Sink, the Lakehouse Sink, and the Quix Streams file sink write to the **main storage** of the connection. They cannot write to another storage by key today. To point a sink at a [Quix Lake Bridge](./bridge/overview.md), make the bridge storage the main storage. See [Write to a bridge from a sink](./bridge/sinks.md).
 
 ### List the storages
 
@@ -192,9 +192,9 @@ for folder in answer.get("CommonPrefixes", []):
 Drop the delimiter, and Quix merges the storages into **one** listing, in key order and with paging. Pass the `NextContinuationToken` back as you got it.
 
 !!! warning "A deployment credential cannot list the bucket root"
-    A root LIST works with a PAT, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only, so a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
+    A root LIST works with a PAT, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only. So a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
 
-`ListBuckets` answers the **one** Quix Lake bucket. A tool that builds its storage list from `ListBuckets` shows one entry, so use the root listing instead, browse the [storage explorer](./storage-explorer.md), or ask the Portal API.
+`ListBuckets` answers the **one** Quix Lake bucket. A tool that builds its storage list from `ListBuckets` shows one entry. Use the root listing instead, browse the [storage explorer](./storage-explorer.md), or ask the Portal API.
 
 ### When an administrator changes a storage
 
@@ -230,4 +230,4 @@ User metadata keys (`x-amz-meta-*`) can come back with capital letters, so read 
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
 * [Quix Lake storage](../deployments/blob-storage-and-library.md) — bind a storage and read it in Python
 * [Quix Lake connections and storages](./blob-storage.md) — connect a bucket and add a storage
-* [Quix Lake Bridge](./bridge.md) — serve folders on your own machine as a storage
+* [Quix Lake Bridge](./bridge/overview.md) — serve folders on your own machine as a storage

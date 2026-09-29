@@ -39,7 +39,7 @@ fs.ls("<your_bucket>/minio/<workspaceId>/")    # your environment folder in the 
 
 `fs` is the filesystem that [the quixportal library](#the-quixportal-library) gives you. Quix injects the environment ID as `Quix__Workspace__Id`.
 
-Quix takes the storage folder off the key before it calls the storage behind it, so a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
+Quix takes the storage folder off the key before it calls the storage behind it. So a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
 
 The bind always goes to the **main storage** of the connection. A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it, and `ListBuckets` answers the one Quix Lake bucket. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
@@ -88,7 +88,7 @@ fs = factory.get_filesystem()                 # from the environment variable
 
 ### The connection JSON
 
-The bound deployment receives the connection in `Quix__BlobStorage__Connection__Json`. Quix serves all storage through the Storage Access Gateway, which presents an **S3-compatible** API, so the injected document always uses the `S3Compatible` provider, whatever the storage is behind the gateway. You do not need to handle other shapes:
+The bound deployment receives the connection in `Quix__BlobStorage__Connection__Json`. Quix serves all storage through the Storage Access Gateway, which presents an **S3-compatible** API. So the injected document always uses the `S3Compatible` provider, whatever the storage is behind the gateway. You do not need to handle other shapes:
 
 ```json
 {

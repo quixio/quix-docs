@@ -45,7 +45,7 @@ The page lists every cluster in your organization. A cluster without a connectio
 
 You type the **Quix Lake bucket** name yourself. It is the one bucket name your code uses, and it is separate from the **Provider bucket**. The first storage becomes the **main storage** of the connection. It sits at the **root** of the Quix Lake bucket, unless you fill in **Folder (optional)**. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
 
-You can change these facts later. An administrator can rename the Quix Lake bucket: open the connection and click the edit button on the **Quix Lake bucket** line. An administrator can also [rename a storage](#rename-a-storage), and [make another storage the main storage](#make-a-storage-the-main-storage). A storage rename always moves the folder of one storage. A main storage move moves a folder only in one case: the storage that steps down sits at the root, so it must take a folder.
+You can change these facts later. An administrator can rename the Quix Lake bucket: open the connection and click the edit button on the **Quix Lake bucket** line. An administrator can also [rename a storage](#rename-a-storage), and [make another storage the main storage](#make-a-storage-the-main-storage). A storage rename always moves the folder of one storage. A main storage move moves a folder only in one case. The storage that steps down sits at the root, so it must take a folder.
 
 ## Test before saving
 
@@ -141,7 +141,7 @@ s3://<connectionBucket>/<storage>/<key>
 
 Each storage keeps its own bucket or container and its own credentials. One bucket name in your code can therefore hide several providers. Add a storage when you want data in a different bucket, region, or provider, and give your services no second connection to manage.
 
-A storage can also serve folders on a machine you own, such as a local disk or a network share, through the [Quix Lake Bridge](./bridge.md) (preview).
+A storage can also serve folders on a machine you own, such as a local disk or a network share. See the [Quix Lake Bridge](./bridge/overview.md) (preview).
 
 To add one:
 
@@ -150,7 +150,7 @@ To add one:
 3. Click **Add storage**.
 4. Choose the **Provider**. Fill in the **Provider bucket** and the credentials.
 5. Set the **Folder**.
-6. Click **Test connection**, then **Create**. A [Quix Lake Bridge](./bridge.md) storage has no connection to test, so this step goes straight to **Create**.
+6. Click **Test connection**, then **Create**. A [Quix Lake Bridge](./bridge/overview.md) storage has no connection to test, so this step goes straight to **Create**.
 
 A cloud storage takes the name of its provider bucket. You can change the **Name** later in **Edit storage**. A Quix Lake Bridge storage also asks for a **Name**.
 
@@ -173,7 +173,7 @@ The folder name sits at the root of the Quix Lake bucket, and Quix applies the b
 
 Quix also refuses a name when a folder of that name **already exists** in the main storage. The new storage would hide that folder. Pick another name, or move the folder first.
 
-The **Folder** column on the **Storages** tab shows where the storage sits in the Quix Lake bucket, as a path: `/` for a storage at the bucket root, and `/archive/` for a storage in the folder `archive`. Only the main storage can show `/`.
+The **Folder** column on the **Storages** tab shows where the storage sits in the Quix Lake bucket, as a path. It shows `/` for a storage at the bucket root, and `/archive/` for a storage in the folder `archive`. Only the main storage can show `/`.
 
 ### Rename a storage
 
@@ -182,7 +182,7 @@ Open **Edit storage** from the `⋮` menu on the **Storages** tab and change the
 You cannot empty the **Folder** field of a storage that is not the main storage. Only the main storage may sit at the bucket root.
 
 !!! warning "A rename moves the folder every client uses"
-    The folder is the address of the storage, so a rename moves the whole storage to another folder of the Quix Lake bucket. The old folder stops working at once: there is no alias and no grace period.
+    The folder is the address of the storage. So a rename moves the whole storage to another folder of the Quix Lake bucket. The old folder stops working at once. There is no alias and no grace period.
 
     ```text
     s3://quixdevbucket/minio/reports/day.csv      before the rename
@@ -192,7 +192,7 @@ You cannot empty the **Folder** field of a storage that is not the main storage.
     Quix moves the permissions of the storage with it, so nobody loses access. Quix also restarts the deployments bound to the storage. Your code still needs a change, because the folder in its keys changes. Update your code, your saved paths, and your sink configuration before you rename. A multipart upload that uses the old folder fails after the rename. The Portal shows a warning before it saves the rename.
 
 !!! warning "A path change can break Lakehouse tables"
-    A Lakehouse table stores the full path of its files. If a rename or a main storage move changes the path of a storage that holds Lakehouse tables, those tables stop working until the Lakehouse catalog updates its stored paths.
+    A Lakehouse table stores the full path of its files. A rename or a main storage move can change the path of a storage that holds Lakehouse tables. Those tables then stop working until the Lakehouse catalog updates its stored paths.
 
 ### Make a storage the main storage
 
@@ -220,15 +220,15 @@ The move changes these things:
 * **The environment shortcut moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](#the-environment-shortcut).
 * **The Quix Lake bucket keeps its name.** The bucket belongs to the connection, not to the main storage.
 * **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables.
-* **A promote never clears a folder.** An administrator can still put the main storage back at the bucket root: empty its **Folder** field in **Edit storage**.
+* **A promote never clears a folder.** An administrator can still put the main storage back at the bucket root. To do so, empty its **Folder** field in **Edit storage**.
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
 
 !!! note "A Quix Lake Bridge storage needs a bucket root first"
-    The Portal refuses **Make this the main storage** on a bridge storage until the bridge has a bucket root. Set it in the bridge console first. See [The bucket root](./bridge.md#the-bucket-root).
+    The Portal refuses **Make this the main storage** on a bridge storage until the bridge has a bucket root. Set the bucket root in the bridge console first. See [The bucket root](./bridge/shared-folders.md#the-bucket-root).
 
 ??? info "Checklist: copy the data before you rely on the new main storage"
-    A main storage move is a two-part job, and Quix only does the first part. Before you move the main storage:
+    A main storage move is a two-part job. Quix only does the first part. Before you move the main storage:
 
     1. Announce the change and stop writes.
     2. Copy every environment folder from the old main storage to the new one. Check the file counts and the byte totals.
@@ -238,7 +238,7 @@ Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you
     6. Read the storage that stepped down through its new folder to confirm it answers.
     7. Keep the old storage on the connection until every check passes.
 
-    To go back, make the old storage the main storage again. A move back does not undo the folder: that storage stays in the folder you named, and only the **Main** badge and the environment shortcut move back.
+    To go back, make the old storage the main storage again. A move back does not undo the folder. That storage stays in the folder you named. Only the **Main** badge and the environment shortcut move back.
 
 ### The environment shortcut
 
@@ -264,14 +264,14 @@ The shortcut always follows the main storage. It works only for an environment I
 A deployment binds the **main storage** of the connection, so its credential always reaches the shortcut, and it reaches the other storages by key. See [S3-compatible endpoint](./s3-endpoint.md#write-to-another-storage-by-key) for the client-side detail, and [Storage Access Gateway](./secure-storage-access.md) for who may see what.
 
 ??? info "The old per-storage bucket name"
-    Before this change, each storage was a bucket of its own, and clients addressed a storage by its name as a bucket name. That address still works today, so old code keeps running.
+    Before this change, each storage was a bucket of its own. Clients addressed a storage by its name as a bucket name. That address still works today, so old code keeps running.
 
     ```text
     s3://minio/reports/2026-08.csv                  the old address, still served
     s3://quixdevbucket/minio/reports/2026-08.csv    the address to use
     ```
 
-    Move your code to the folder address. Do not build new code on the old address, and know that a [rename](#rename-a-storage) breaks it at once.
+    Move your code to the folder address. Do not build new code on the old address. A [rename](#rename-a-storage) breaks it at once.
 
 ### Delete a storage
 
@@ -295,7 +295,7 @@ The document keeps the shape it always had. A new storage does not change it, an
 
 Your code reads this one variable and deserializes it to connect to the storage. See [Quix Lake storage](../deployments/blob-storage-and-library.md) for how to read it in Python.
 
-When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too, so your code reaches the Catalog and Query services without hard-coded URLs:
+When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too. Your code then reaches the Catalog and Query services without hard-coded URLs:
 
 | Variable | Description |
 |----------|-------------|
@@ -318,6 +318,6 @@ See [Quix variables](../deployments/quix-variables.md) for the full list of vari
 * [Storage explorer](./storage-explorer.md) — browse and manage files in the Portal
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
 * [S3-compatible endpoint](./s3-endpoint.md) — reach the same data from your code
-* [Quix Lake Bridge](./bridge.md) — serve folders on your own machine as a storage
+* [Quix Lake Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
 * [Data Lake Sink](./data-lake/sink.md) — persist topics as Avro plus a Parquet index
 * [Lakehouse Sink](./lakehouse/sink.md) — persist topics as queryable Parquet tables
