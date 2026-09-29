@@ -126,6 +126,19 @@ The **Connection** tab also tells you where to get the quick config: in Portal, 
 
 An error in the status strip or on the **Activity** tab carries a **reference**, a correlation ID. Click the copy button beside it to copy the reference, the time and the error detail. Give this text to Quix support. Errors in Portal show a reference too.
 
+### Install the console as an app
+
+In Edge or Chrome, the console shows an **Install** bar. Click **Install**.
+
+- In Edge, tick **Pin to taskbar** in the install dialog.
+- In Chrome, right-click the app's taskbar button after install and pick **Pin to taskbar**.
+
+The app then has its own taskbar icon, apart from the browser. It opens straight into the console, with no login code, for 30 days after your last use. After 30 days, sign in again with the tray icon or a login code.
+
+When the bridge service is stopped, the app shows an offline page: "The bridge service is not running. Start it from the tray or Services."
+
+Windows 11 hides a newly installed tray icon behind the **^** arrow next to the clock. To keep the bridge icon visible, go to **Settings > Personalization > Taskbar > Other system tray icons** and turn it on there.
+
 ## Share a folder
 
 Share folders in the bridge console, on the **Folders** tab:
@@ -142,6 +155,20 @@ The bridge refuses a drive root, `C:\Windows`, `C:\Users`, and the administrativ
 The tree shows only the folders that the service account can read.
 
 The service reads `config.yaml` only when it starts. Restart the service after you add, edit or remove a share, so the change takes effect. Until you restart, the bridge still serves a removed share and still refuses a new one.
+
+## The bucket root
+
+A storage that maps **the whole machine**, not a set of shared folders, needs one writable folder to hold every key that names no share. This folder is the **bucket root**.
+
+Set it on the **Folders** tab of the bridge console:
+
+- With no bucket root set, the tab shows an amber warning: **No bucket root.** A storage that maps this whole machine needs one. Click **Choose a folder**, then pick a folder in the tree.
+- To use a path the tree does not show, such as a network path, click **or type a path** and type the full path, for example `D:\QuixData` or `/srv/quix`.
+- The bridge makes the folder if it is missing.
+- The tree marks the chosen folder with a **Bucket root** chip, and it opens every parent folder so you can see where it sits.
+- To change it, click **Change**. To remove it, click **Clear**.
+
+Portal refuses to create a Lakehouse or a Data Lake service on a whole-machine storage until the bridge reports a bucket root. Set the bucket root first, then create the service.
 
 ## Revoke and remove a bridge
 
@@ -316,10 +343,16 @@ log:
   retainDays: 14
 ```
 
-- `update.channel`: set it to `stable` to turn on automatic updates. With no value (the default), the bridge installs no update by itself. `stable` installs the latest release on GitHub.
+- `update.channel`: since bridge version **0.1.8**, `stable` is the **default**. With no value, the bridge still installs the latest release on GitHub by itself. Set it to `manual` to turn automatic updates off.
 - `log.retainDays`: the number of days the bridge keeps its local log. The default is 30 days. The log also stays at 500 MB or less.
 
 Restart the service after you change `log.retainDays`. The update task reads `update.channel` at each run, so that change needs no restart.
+
+!!! warning "A bridge on 0.1.5, 0.1.6 or 0.1.7 does not update itself"
+    These three versions still read a missing channel as "no update". Bring a bridge on one of them onto `stable` with either move:
+
+    - Install the latest release once by hand, as in [Install the bridge](#1-install-the-bridge). The new version reads a missing channel as `stable` and takes every update after that.
+    - Or set `update: channel: stable` in `config.yaml` by hand and restart the service.
 
 **How the update check runs.** A task checks for an update **every 5 minutes**, with a random delay of up to 60 seconds. On Windows it is the scheduled task `\Quix\Bridge Update`. On Linux it is the systemd timer `quix-bridge-update.timer`. Only the MSI, the deb and the rpm register this task; a zip or tar.gz install has none, so `update.channel` does nothing there. Between checks, an operator action in Portal, such as a version pin or a hold, reaches the bridge in seconds: Quix pushes a fresh plan, the bridge does not wait for the next 5-minute check.
 

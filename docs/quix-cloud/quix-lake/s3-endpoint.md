@@ -182,6 +182,59 @@ The second difference is that the shortcut serves objects, not bucket metadata. 
 
 The shortcut takes an environment ID only, and it always points at the current main storage. The gateway changes a key in two places, and only in these two: it drops the `<workspaceId>/` lead under the shortcut, and it drops the storage folder before it calls the storage behind it.
 
+### Write to another storage by key
+
+A deployment with `blobStorage: bind: true` gets one credential, scoped to its own environment. That credential still reaches every storage of the connection, through the key you write to:
+
+* `<storage>/<workspaceId>/...` writes to the storage named `<storage>`.
+* `<workspaceId>/...`, with no storage name, writes to the main storage, as before.
+
+Your workspace folder stays in every case. The app never reaches another workspace: a key such as `<storage>/<otherWorkspaceId>/...` answers `403 AccessDenied`.
+
+An unknown storage name also answers `403 AccessDenied`, and the gateway writes nothing to the main storage instead. So when an administrator renames a storage, every app that wrote to its old name starts to fail, and you must change the key prefix in the app.
+
+This reach comes from your workspace grant, and it works because the grant names your workspace, not a storage. A grant on a whole storage is different: it stays inside that one storage and gains no reach into a sibling storage.
+
+**boto3**, from a deployment bound to the connection:
+
+```python
+import boto3
+
+s3 = boto3.client(
+    "s3",
+    endpoint_url="https://<your_storage_gateway_endpoint>",
+    aws_access_key_id="<your_access_key_id>",
+    aws_secret_access_key="<your_secret_access_key>",
+    region_name="us-east-1",
+    config=boto3.session.Config(s3={"addressing_style": "path"}),
+)
+
+# Writes to the main storage, in this environment's folder
+s3.put_object(Bucket="<your_bucket>", Key="<workspaceId>/reports/day.csv", Body=data)
+
+# Writes to the storage named "archive", in this environment's folder
+s3.put_object(Bucket="<your_bucket>", Key="archive/<workspaceId>/reports/day.csv", Body=data)
+```
+
+**Quix Streams Sink**, writing into the storage named `archive` instead of the main storage:
+
+```python
+from quixstreams.sinks.community.file import FileSink
+from quixstreams.sinks.community.file.destinations import S3Destination
+
+destination = S3Destination(
+    bucket="<your_bucket>",
+    aws_access_key_id="<your_access_key_id>",
+    aws_secret_access_key="<your_secret_access_key>",
+    endpoint_url="<your_storage_gateway_endpoint>",
+    key_prefix="archive",
+)
+
+sink = FileSink(destination=destination, format="csv")
+```
+
+Leave `key_prefix` unset to keep writing to the main storage. The sink adds `<workspaceId>/` under whatever prefix you give it, so the workspace folder always stays.
+
 ### See every storage with a root listing
 
 A LIST at the root of the Quix Lake bucket names every storage you may reach, as a folder. Ask for `delimiter="/"` and read the common prefixes:
