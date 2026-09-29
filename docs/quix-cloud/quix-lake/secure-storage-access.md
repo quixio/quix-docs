@@ -26,9 +26,9 @@ s3://quixdevbucket/minio/reports/    a folder in the storage named minio
 
 Each storage keeps its own bucket and its own credentials behind the gateway, so one bucket name hides several providers. A new storage never moves a storage that is already there. See [Quix Lake connections and storages](./blob-storage.md) for how you add a storage.
 
-The gateway takes the storage folder off the key and changes nothing else, so an object you write lands at the same key it would land at in the bucket behind the storage.
+The gateway takes the storage folder off the key and changes nothing else. So an object you write lands at the same key in the bucket behind the storage.
 
-A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root: it gets `403 AccessDenied`.
+A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder. The gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root. It gets `403 AccessDenied`.
 
 ## The environment shortcut
 
@@ -46,7 +46,7 @@ The shortcut takes an environment ID only. Any other bucket name that names no s
 !!! note "The shortcut follows the main storage"
     When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. The promoted storage keeps its folder.
 
-    Only the main storage may sit at the bucket root, so the storage that steps down must take a folder, and the administrator names that folder in the promote dialog. The paths of that storage change. When the storage that steps down already has a folder, nothing moves.
+    Only the main storage may sit at the bucket root. So the storage that steps down must take a folder. The administrator names that folder in the promote dialog. The paths of that storage change. When the storage that steps down already has a folder, nothing moves.
 
     Quix copies no data either way, so the shortcut answers empty until someone copies the environment folders across.
 
@@ -70,7 +70,7 @@ You set a folder's visibility in the **Access** list on its row in the **Default
 | **Public - Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A permission on the bucket root reaches every storage"
-    Every storage is a folder of one bucket, so a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
+    Every storage is a folder of one bucket. So a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
 
 !!! note "A rename carries the permissions with it"
     When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.
