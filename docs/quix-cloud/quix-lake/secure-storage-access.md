@@ -14,7 +14,7 @@ The gateway sits between the platform and your object storage. It checks every r
 
 ## Each storage is a folder of one bucket
 
-A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name of a storage is that folder name.
+A connection holds one main storage and any number of extra storages that an administrator adds. Your clients address **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The **Folder** of a storage is that folder name.
 
 Only the **main storage** may sit at the **root** of the bucket. Every other storage has a folder. The main storage may take a folder of its own too.
 
@@ -28,7 +28,7 @@ The gateway routes each request on the folder at the front of the key. Each stor
 
 **The gateway takes the storage folder off the key and changes nothing else.** Everything after the folder travels unchanged, so an object you write lands at the same key it would land at if you wrote it to the bucket behind the storage directly.
 
-A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing.
+A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder, and the gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root: it gets `403 AccessDenied`.
 
 ## The environment shortcut
 
@@ -54,13 +54,13 @@ The shortcut takes an environment ID only. Any other bucket name that names no s
 
 How a folder behaves by default depends on its kind. You see and change this in the **Default Permissions** tab, where every folder shows its current visibility.
 
-**Environment folders.** Each environment keeps its lake data in its own folder, shown with a people icon. Its default visibility is **User Permissions**: members get the same read and write access they have in that environment. If you can view the environment you can read its data, and if you can edit the environment you can write to it. Other teams cannot see it unless someone shares it.
+**Environment folders.** Each environment keeps its lake data in its own folder, which carries the **Environment** badge. While it keeps its default, the **Effective access** column shows a people icon and **User Permissions**. Its default visibility is **User Permissions**: members get the same read and write access they have in that environment. If you can view the environment you can read its data, and if you can edit the environment you can write to it. Other teams cannot see it unless someone shares it.
 
-**Other folders.** Any folder that is not tied to an environment is shown with a lock icon. A folder you create yourself is one example. Its default visibility is **Private**: only organization administrators can reach it. It becomes available to others only when someone shares it.
+**Other folders.** Any folder that is not tied to an environment shows a lock icon and **Private** in the **Effective access** column while it keeps its default. A folder you create yourself is one example. Its default visibility is **Private**: only organization administrators can reach it. It becomes available to others only when someone shares it.
 
 ## Folder visibility
 
-You set a folder's visibility from the menu on its row in the **Default Permissions** tab. Opening a folder past its default is called *sharing*. There are two sharing levels: **Public - Anyone can read** and **Public - Anyone can read & write**. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.
+You set a folder's visibility in the **Access** list on its row in the **Default Permissions** tab, and then click **Save**. **Inherited** removes the folder's own setting, so the parent folder decides. Opening a folder past its default is called *sharing*. There are two sharing levels: **Public - Anyone can read** and **Public - Anyone can read & write**. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.
 
 | Visibility | What it means | Default for |
 |---|---|---|
@@ -70,7 +70,7 @@ You set a folder's visibility from the menu on its row in the **Default Permissi
 | **Public - Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A permission on the bucket root reaches every storage"
-    Every storage is a folder of one bucket, so a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead.
+    Every storage is a folder of one bucket, so a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
 
 !!! note "A rename carries the permissions with it"
     When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder, in every store that holds them. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.

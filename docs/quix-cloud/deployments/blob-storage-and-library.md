@@ -22,39 +22,41 @@ In the deployment dialog, open the **Advanced** tab and expand the **Blob Storag
 
 ### What you get
 
-With the toggle on, Quix injects the connection as a secret variable, `Quix__BlobStorage__Connection__Json`. It holds the endpoint plus the credentials and the bucket as a JSON document. If the connection also has [Quix Lake](../quix-lake/overview.md) enabled, Quix injects the Lakehouse Catalog and Query endpoints too. For the full list, see [Quix variables](./quix-variables.md) and [variables injected into bound deployments](../quix-lake/blob-storage.md#variables-injected-into-bound-deployments).
+With the toggle on, Quix injects the connection as a secret variable, `Quix__BlobStorage__Connection__Json`. It holds the endpoint plus the credentials and the bucket as a JSON document. If a [Lakehouse](../quix-lake/lakehouse/overview.md) runs on the bound storage, Quix injects the Lakehouse Catalog and Query endpoints too. For the full list, see [Quix variables](./quix-variables.md) and [variables injected into bound deployments](../quix-lake/blob-storage.md#variables-injected-into-bound-deployments).
 
 Quix writes the variable at deploy time, so redeploy the service after you switch the toggle on. You can read the variable yourself, but the easiest way to consume it is the `quixportal` library below.
 
 ## One bucket, several storages
 
-A connection can hold more than one storage. Your code still uses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The name an administrator gives a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. A new storage never moves the storages that are already there.
+A connection can hold more than one storage. Your code still uses **one bucket**, the Quix Lake bucket, and **each storage is a folder** inside it. The **Folder** an administrator sets on a storage is that folder name. Only the **main storage** may sit at the **root** of the bucket, so every other storage has a folder. A new storage never moves the storages that are already there.
 
 The injected document names the Quix Lake bucket. Put the folder first in the key to reach a second storage, on the same endpoint and with the same credential:
 
 ```python
-fs.ls("<your_bucket>/")            # the root of the Quix Lake bucket, one folder per storage
-fs.ls("<your_bucket>/minio/")      # the storage named minio
+fs.ls("<your_bucket>/<workspaceId>/")          # your environment folder in the main storage
+fs.ls("<your_bucket>/minio/<workspaceId>/")    # your environment folder in the storage named minio
 ```
+
+`fs` is the filesystem that [the quixportal library](#the-quixportal-library) gives you. Quix injects the environment ID as `Quix__Workspace__Id`.
 
 The gateway takes the storage folder off the key before it calls the storage behind it. Everything after the folder travels unchanged, so a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
 
-A listing at the root of the Quix Lake bucket names every storage you may reach, as a folder, and the gateway merges the answer across the storages behind it. Your access still follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it, so a storage you may not read never appears.
+A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
 !!! warning "ListBuckets now answers one bucket"
     **ListBuckets** used to answer one bucket for each storage. It now answers the one Quix Lake bucket. List the root of that bucket instead to see the storages.
 
 !!! warning "A rename changes the folder in your keys"
-    An administrator can rename a storage. The name is the folder, not the bucket, so your bucket name does not change and your deployment needs no redeploy for it. The old folder fails at once, with no alias and no grace period, so update the keys in your code. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
+    An administrator can change the **Folder** of a storage. The folder is not the bucket, so your bucket name does not change. Quix restarts the deployments bound to that storage. The old folder fails at once, with no alias and no grace period, so update the keys in your code. See [Rename a storage](../quix-lake/blob-storage.md#rename-a-storage).
 
 !!! warning "A main storage move can change your keys"
-    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so code that reads it keeps working. The Quix Lake bucket takes the bucket name of the promoted storage, and Quix writes that name into your deployment on its next deploy.
+    An administrator can also make another storage the main storage. The promoted storage keeps its folder, so code that reads it keeps working. The Quix Lake bucket keeps its name.
 
     Only the main storage may sit at the bucket root. So the storage that steps down must take a folder, and the administrator names that folder in the promote dialog. Put that folder in front of every key you read from that storage:
 
     ```python
-    fs.open("<your_bucket>/reports/day.csv")            # before the move, at the bucket root
-    fs.open("<your_bucket>/principal/reports/day.csv")  # after the move, in the folder principal
+    fs.open("<your_bucket>/<workspaceId>/reports/day.csv")            # before the move, at the bucket root
+    fs.open("<your_bucket>/principal/<workspaceId>/reports/day.csv")  # after the move, in the folder principal
     ```
 
     Quix restarts the deployments bound to that storage, so they take the new address. When the storage that steps down already has a folder, nothing moves.
@@ -80,8 +82,8 @@ Read a file with the convenience helper:
 from quixportal import get_filesystem
 
 fs = get_filesystem()          # reads Quix__BlobStorage__Connection__Json from the environment
-fs.ls("<your_bucket>/")
-with fs.open("<your_bucket>/file.txt") as f:
+fs.ls("<your_bucket>/<workspaceId>/")
+with fs.open("<your_bucket>/<workspaceId>/file.txt") as f:
     data = f.read()
 ```
 
@@ -102,18 +104,18 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 ```json
 {
-  "provider": "S3Compatible",
-  "s3Compatible": {
-    "bucketName": "<your_bucket>",
-    "accessKeyId": "<your_access_key_id>",
-    "secretAccessKey": "<your_secret_access_key>",
-    "region": "us-east-1",
-    "serviceUrl": "https://<your_storage_gateway_endpoint>"
+  "Provider": "S3Compatible",
+  "S3Compatible": {
+    "BucketName": "<your_bucket>",
+    "AccessKeyId": "<your_access_key_id>",
+    "SecretAccessKey": "<your_secret_access_key>",
+    "Region": "<region>",
+    "ServiceUrl": "https://<your_storage_gateway_endpoint>"
   }
 }
 ```
 
-`serviceUrl` points at the gateway endpoint, and `bucketName` is the Quix Lake bucket. Key names are case-insensitive, so `s3Compatible`, which Quix injects, and `S3Compatible` both parse.
+`ServiceUrl` points at the gateway endpoint, and `BucketName` is the Quix Lake bucket. `Region` is the region of the storage, or `us-east-1` when the storage has none. Quix injects the keys in this PascalCase form, and `quixportal` reads them as they are.
 
 The gateway is there for three reasons:
 

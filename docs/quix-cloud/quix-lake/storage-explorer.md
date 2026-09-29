@@ -5,9 +5,9 @@ description: Browse, search, upload, and manage the files in your Quix Lake stor
 
 # Storage explorer
 
-The **storage explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. It shows the storages your cluster connects to. You work with the files in them without leaving the Portal, and without any storage credentials of your own.
+The **storage explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. The Portal calls it **File Explorer**. It shows the storages your cluster connects to. You work with the files in them without leaving the Portal, and without any storage credentials of your own.
 
-Open it from the **Quix Lake** section of your environment.
+Open **File Explorer** from the **Quix Lake** section of your environment sidebar.
 
 !!! info "Prerequisites"
     - A [Quix Lake connection](./blob-storage.md) exists for the cluster.
@@ -15,7 +15,7 @@ Open it from the **Quix Lake** section of your environment.
 
 ## What you see
 
-The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the name an administrator gave the storage.
+The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the **Folder** an administrator set on the storage.
 
 Only the **main storage** may sit at the root of the bucket. When it does, its own folders show beside the storage folders. Every other storage has a folder of its own.
 
@@ -30,13 +30,13 @@ A main storage move is different. Only the main storage may sit at the bucket ro
 
 You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
-Switch between **Tree view** and **File explorer** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
+Switch between **Tree view** and **File explorer view** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
 
 ## What you can do
 
 | Action | What it does |
 |---|---|
-| **Upload** | Adds one or more files to the folder in view. Upload a zip file and Quix extracts it on the server. |
+| **Upload** | Adds one or more files to the folder in view. When you upload a zip file, Quix asks what to do. **Extract contents here** extracts the zip on the server and replaces files that have the same names. **Upload as .zip** stores the file as it is. |
 | **New folder** | Creates an empty folder in the folder in view. |
 | **New file** | Creates a file in the folder in view. |
 | **Download** | Downloads a file. Download a folder and Quix packs it as a zip. |
@@ -46,7 +46,7 @@ Switch between **Tree view** and **File explorer** with the buttons in the toolb
 | **Delete file** and **Delete folder** | Deletes a file or a folder. |
 | **Manage visibility** | Sets who in your organization can read or change a folder. |
 
-Search finds files by name from the folder you are in.
+Search finds files whose path contains the text you type. It searches from the root of the Quix Lake bucket, not from the folder in view. On a large bucket it reads only part of the bucket, so the result can be incomplete.
 
 !!! note "A copy cannot cross a storage"
     A move or a copy whose source and destination sit in different storages is a real transfer between two backends, so the gateway refuses it. Move or copy inside one storage. You can also download the file and upload it again.
@@ -58,7 +58,7 @@ A storage folder looks like a folder, but it is a whole storage with its own buc
 * You cannot rename a storage folder here. Rename the storage from **Settings → Quix Lake** instead. A rename moves the folder every client uses, and it breaks every old path at once.
 * You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
 * You cannot cut or copy a storage folder.
-* You cannot set the visibility of a storage folder here. The storage carries its own upstream access rules.
+* You cannot set the visibility of a storage folder here. Set it on the storage's row in the **Default Permissions** tab of the connection.
 
 The explorer refuses these actions because they are connection-level facts, not files in your bucket.
 

@@ -12,7 +12,7 @@ It is a separate connector from the [Data Lake Sink](../data-lake/sink.md). Choo
 ## Prerequisites
 
 * A [Quix Lake connection](../blob-storage.md) configured for the cluster
-* A [Lakehouse](./overview.md) provisioned for that connection
+* A [Lakehouse](./overview.md) provisioned for the main storage of that connection
 
 ## Configuration
 
