@@ -5,7 +5,7 @@ description: Open the bridge console, read the status strip and the tabs, and in
 
 # The bridge console
 
-The console is a web page on the machine. It listens on this machine only, at `127.0.0.1`.
+The console is a web page on the machine. It listens on this machine only, at `127.0.0.1`. It opens on the **Folders** tab.
 
 To open it:
 

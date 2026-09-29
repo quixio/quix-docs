@@ -86,7 +86,7 @@ A new share is read and write. The share takes effect at once.
 2. Open the folder of the storage, `plant-fs`.
 3. Open the share, `c/quix-share` or `srv/quix-share`. The file `hello.txt` is there.
 
-The Quix path of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the [S3-compatible endpoint](../s3-endpoint.md).
+The SAG path of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the [S3-compatible endpoint](../s3-endpoint.md).
 
 ## Next steps
 

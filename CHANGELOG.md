@@ -6,7 +6,7 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
-- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the Quix path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
+- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the SAG path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
 
     See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/overview.html) for more details.
 
