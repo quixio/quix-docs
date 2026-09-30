@@ -78,7 +78,7 @@ A bridge storage has no bucket, no endpoint and no key. So it skips the **Test c
 2. In the bridge console, open the **Folders** tab.
 3. Find the folder in the tree and turn it to **Shared**.
 
-A new share is read and write. The share takes effect at once.
+A new share is read only. Turn on **Allow write access** if Quix must write to the folder. The share takes effect at once.
 
 ## Step 6: See the file in the Portal
 

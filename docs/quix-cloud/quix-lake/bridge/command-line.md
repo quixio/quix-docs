@@ -83,22 +83,22 @@ Run `connect` with no argument. The command asks for the quick config, and you p
 === "Windows"
 
     ```powershell
-    quix-bridge share add "D:\data" --read-only
-    quix-bridge share add "D:\results"
+    quix-bridge share add "D:\data"
+    quix-bridge share add "D:\results" --read-write
     quix-bridge share list
     ```
 
 === "Linux"
 
     ```bash
-    sudo quix-bridge share add /srv/data --read-only
-    sudo quix-bridge share add /srv/results
+    sudo quix-bridge share add /srv/data
+    sudo quix-bridge share add /srv/results --read-write
     sudo quix-bridge share list
     ```
 
 On Linux, `share add` also grants the user `quix-bridge` the rights it needs, with ACLs, and prints what it granted. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
-A new share is read and write. Add `--read-only` to stop Quix writing to the folder. The command applies the same rules as the console and refuses the same folders. It does not check that the folder exists. Check the path yourself.
+A new share is read only. Add `--read-write` to let Quix write to the folder. `--read-only` is still accepted. `--bucket-root` means write access. The command applies the same rules as the console and refuses the same folders. It does not check that the folder exists. Check the path yourself.
 
 `share list` prints two paths for each row: the path on the machine and the SAG path. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**.
 

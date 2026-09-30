@@ -13,7 +13,7 @@ You share folders in the bridge console, on the **Folders** tab. Quix sees a sha
 2. Open the **Folders** tab.
 3. Find the folder in the tree and turn it to **Shared**.
 
-A new share is read and write. Click **Edit this share** on the shared row to make it read only. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
+A new share is read only. The **Allow write access** box starts off. Turn it on to let Quix write to the folder. Click **Edit this share** on the shared row to change it later. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
 
 The tree shows only the folders that the service account can read. Some folders show a state instead of a switch:
 
@@ -49,11 +49,13 @@ icacls "C:\Users\alice\data" /grant "NT SERVICE\quix-bridge:(OI)(CI)M"
 
 `(OI)(CI)` makes the files and folders inside inherit the grant. Then run `quix-bridge test` again.
 
+When you share the folder, the bridge tray does this for you. It grants the service account read access (`RX`) on a read only share, and `Modify` on a write share. Run `icacls` only if the tray cannot grant the access.
+
 ## Share a folder on Linux
 
 On Linux the service runs as the system user `quix-bridge`. It has no login. `sudo quix-bridge service install` creates it when it does not exist.
 
-`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a `--read-only` share. If a parent folder blocks the path, such as a private home folder, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed.
+`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, such as a private home folder, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed.
 
 A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
 
