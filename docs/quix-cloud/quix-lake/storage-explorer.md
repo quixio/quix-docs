@@ -69,7 +69,7 @@ Every folder shows its visibility, and you change it from the row menu. A folder
 | Visibility | What it means |
 |---|---|
 | **User Permissions** | Members get the same read and write access they have in that environment |
-| **Private** | No one in your organization can access it, administrators only |
+| **Private** | No one can access it without permission. Administrators can only list it. |
 | **Public - Anyone can read** | Everyone in your organization can read it |
 | **Public - Anyone can read & write** | Everyone in your organization can read and change it |
 

@@ -22,7 +22,11 @@ On a Linux machine with no systemd, such as a container, the deb or the rpm inst
 
 The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. For a tar.gz install, `sudo quix-bridge service install` registers the same 5-minute update timer. The update check runs as root. The SHA-256 checks are the same for all installs.
 
-Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. When an install fails, the bridge tries again later, with a longer wait after each failure.
+Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. The tray restarts by itself after an automatic update. You do not need to do anything. When an install fails, the bridge tries again later, with a longer wait after each failure.
+
+## Reinstall
+
+Run `install.ps1` again on the same version to repair the install.
 
 ## Uninstall
 
@@ -30,14 +34,14 @@ Before it updates, the bridge waits until no transfer is running, for up to 10 m
 quix-bridge service uninstall
 ```
 
-This stops and removes the service. It keeps `config.yaml` and the stored share credentials. Add `--purge` to delete them too.
+This stops and removes the service. It keeps `config.yaml` and the stored share credentials. Add `--purge` to delete them too. `--purge` refuses on an MSI install.
 
 On Linux, the uninstall keeps the system user `quix-bridge`, because the ACLs on your shared folders name it. `--purge` removes the user too. For a tar.gz install, the uninstall also removes the update timer that the install wrote.
 
 Uninstalling the bridge does not remove it from Quix. Revoke and remove it in the Portal. See [Revoke and remove a bridge](./overview.md#revoke-and-remove-a-bridge).
 
 ??? info "Remove the program"
-    - **Windows:** remove **Quix Bridge** in **Settings > Apps**. The MSI deletes the config and the stored credentials. To keep them, run `msiexec /x <msi-file> KEEPDATA=1`.
+    - **Windows:** uninstall **Quix Lake Bridge** in **Settings > Apps**. This is the way to remove a bridge that you installed with the MSI. The MSI deletes the config and the stored credentials. To keep them, run `msiexec /x <msi-file> KEEPDATA=1`.
     - **Debian and Ubuntu:** `sudo apt remove quix-bridge` keeps `/etc/quix-bridge`. `sudo apt purge quix-bridge` deletes it.
     - **RHEL and Rocky:** run `sudo quix-bridge service uninstall --purge` first, then `sudo rpm -e quix-bridge`.
     - **Binary only:** run `sudo quix-bridge service uninstall --purge`, then delete `/usr/local/bin/quix-bridge`.

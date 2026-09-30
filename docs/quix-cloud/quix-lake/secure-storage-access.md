@@ -56,7 +56,11 @@ How a folder behaves by default depends on its kind. You see and change this in 
 
 **Environment folders.** Each environment keeps its lake data in its own folder, which carries the **Environment** badge. While it keeps its default, the **Effective access** column shows a people icon and **User Permissions**. Its default visibility is **User Permissions**: members get the same read and write access they have in that environment. If you can view the environment you can read its data, and if you can edit the environment you can write to it. Other teams cannot see it unless someone shares it.
 
-**Other folders.** Any folder that is not tied to an environment shows a lock icon and **Private** in the **Effective access** column while it keeps its default. A folder you create yourself is one example. Its default visibility is **Private**: only organization administrators can reach it. It becomes available to others only when someone shares it.
+**Other folders.** Any folder that is not tied to an environment shows a lock icon and **Private** in the **Effective access** column while it keeps its default. A folder you create yourself is one example. Its default visibility is **Private**: only its members and the people you share it with can reach it. Organization administrators can list it, but they need permission to read or write it. It becomes available to others only when someone shares it.
+
+## What administrators can do
+
+An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Read, write, delete and create folder follow the storage permissions, like for any user. An administrator who is also a direct member keeps that member access.
 
 ## Folder visibility
 
@@ -65,7 +69,7 @@ You set a folder's visibility in the **Access** list on its row in the **Default
 | Visibility | What it means | Default for |
 |---|---|---|
 | **User Permissions** | Members get the same read and write access they have in that environment | Environment folders |
-| **Private** | No one in your organization can access it, administrators only | Other folders |
+| **Private** | No one can access it without permission. Administrators can only list it. | Other folders |
 | **Public - Anyone can read** | Everyone in your organization can read it | Opt-in |
 | **Public - Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
 
@@ -116,7 +120,7 @@ You work with the lake exactly as before. The gateway only determines what appea
 
 **Two environments.** An analytics team and an operations team work in separate environments in the same organization. By default, each team sees only its own environment's data, and neither sees the other's when browsing the lake. If the analytics team sets a folder of reference data to **Public - Anyone can read**, every team can then read it, but no one else can change it.
 
-**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, only administrators reach it. Set it to **Public - Anyone can read & write**, and anyone in the organization can read and write to it.
+**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, administrators can list it but cannot read or write it. Set it to **Public - Anyone can read & write**, and anyone in the organization can read and write to it.
 
 **A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the folder `archive/` of its bucket. A permission on that folder opens that storage alone. A permission on the bucket root opens every storage, the main storage included, so set it on the folder when you mean one storage.
 
