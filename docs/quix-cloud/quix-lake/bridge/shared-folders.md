@@ -31,7 +31,7 @@ The bridge refuses `\Windows` on every drive, the administrative shares, and `/e
 2. Name the server as `\\server\share`.
 3. Give the server credential in the console. The console never shows it again.
 
-The bridge runs as its own service account. So it cannot see a drive letter that you mapped. On Linux, the bridge accepts no `\\server\share` path. Mount the network share with the operating system, then share the folder where it is mounted.
+The bridge runs as its own service account. On Windows this is `NT SERVICE\quix-bridge`. On Linux it is the system user `quix-bridge`. So it cannot see a drive letter that you mapped. On Linux, the bridge accepts no `\\server\share` path. Mount the network share with the operating system, then share the folder where it is mounted.
 
 ## Share a folder in a user profile on Windows
 
@@ -48,6 +48,27 @@ icacls "C:\Users\alice\data" /grant "NT SERVICE\quix-bridge:(OI)(CI)M"
 ```
 
 `(OI)(CI)` makes the files and folders inside inherit the grant. Then run `quix-bridge test` again.
+
+## Share a folder on Linux
+
+On Linux the service runs as the system user `quix-bridge`. It has no login. `sudo quix-bridge service install` creates it when it does not exist.
+
+`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a `--read-only` share. If a parent folder blocks the path, such as a private home folder, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed.
+
+A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
+
+```bash
+sudo setfacl -R -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
+```
+
+A folder under a private home folder also needs traverse rights on the parent:
+
+```bash
+sudo setfacl -m u:quix-bridge:x /home/alice
+```
+
+!!! note
+    A network mount takes its rights from the mount options, not from ACLs. Set the mount options so that the user `quix-bridge` can read, and write if the share is read and write.
 
 ## The bucket root
 

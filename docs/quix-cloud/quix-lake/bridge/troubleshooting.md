@@ -27,7 +27,7 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 
 ## Common problems
 
-**The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows).
+**The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows). On Linux, the service runs as the system user `quix-bridge`. Run the `setfacl` command that the console shows. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
 **The pairing token expired.** The token lives 15 minutes. Click **Pair a bridge** again in the Portal to get a fresh quick config.
 

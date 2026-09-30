@@ -20,7 +20,7 @@ On a Linux machine with no systemd, such as a container, the deb or the rpm inst
 
 ## How an update runs
 
-The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. A tar.gz install checks through the running service.
+The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. For a tar.gz install, `sudo quix-bridge service install` registers the same 5-minute update timer. The update check runs as root. The SHA-256 checks are the same for all installs.
 
 Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. When an install fails, the bridge tries again later, with a longer wait after each failure.
 
@@ -31,6 +31,8 @@ quix-bridge service uninstall
 ```
 
 This stops and removes the service. It keeps `config.yaml` and the stored share credentials. Add `--purge` to delete them too.
+
+On Linux, the uninstall keeps the system user `quix-bridge`, because the ACLs on your shared folders name it. `--purge` removes the user too. For a tar.gz install, the uninstall also removes the update timer that the install wrote.
 
 Uninstalling the bridge does not remove it from Quix. Revoke and remove it in the Portal. See [Revoke and remove a bridge](./overview.md#revoke-and-remove-a-bridge).
 
