@@ -100,7 +100,7 @@ Each dialog control writes one YAML setting:
 | `Embedded View` › `Hide deployment title bar` | `embeddedView.hideHeader` | Off by default. |
 | `Embedded View` › `Use as default view` | `embeddedView.default` | On by default for a new deployment. |
 
-The dialog has no order field for `Organisation plugin`. It keeps an existing `organisationItem.order`, and sets `0` when there isn't one. An organization plugin saved from the dialog therefore sorts before plugins with a higher `order`. To set `organisationItem.order`, use YAML. If your organization still has users with the deprecated Operator role, the plugin can also become the one they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see).
+`Organisation plugin` has no order setting. Each space sets the order of its own header apps and sidebar entries.
 
 <a id="yaml-configuration"></a>
 
@@ -132,7 +132,6 @@ deployments:
         show: true                 # Make this an organization plugin
         label: "Configuration"
         icon: "tune"
-        order: 1                   # Sorts the command palette and space designer lists
         badge: "Alpha"
 ```
 
@@ -173,7 +172,6 @@ Every block is optional. Use only the ones you need. For the embedded view of a 
 | `show` | boolean | `false` | `true` makes the deployment an organization plugin. |
 | `label` | string | The deployment name | The app's name. |
 | `icon` | string | `extension` | A Google Material icon code, such as `fact_check`. |
-| `order` | integer | None | Sort position, lowest first. |
 | `badge` | string | None | Short text shown next to the app's name, such as `Beta` or `Preview`. |
 
 The deployment dialog limits labels and badges to 25 characters. Keep badges to a word or two: longer text is truncated in the sidebar and header, with the full text in a tooltip.
@@ -250,7 +248,6 @@ The `organisationItem` settings describe the plugin wherever it appears. A space
 | `label` | The app's name in the header, the command palette, the space designer and the plugin toolbar. If you don't set it, the deployment name is used. An organization admin can give a header pin a different label. An organization sidebar entry copies the name when the admin adds it. |
 | `icon` | The app's icon in the same places as `label`. If you don't set it, the `extension` icon is used. An organization admin can choose a different icon for a pin or a sidebar entry. |
 | `badge` | A short label shown next to the app's name in the header and the command palette, for example `Beta`. A space can't change it. |
-| `order` | Sorts organization plugins in the command palette and in the space designer's app lists. Lower values come first, and plugins without `order` come last. It doesn't set the order of the header: each space sets its own. For existing Operator-only users, it also decides which plugin they land on. See [Operator-only users (deprecated)](#what-operator-only-users-see). |
 
 ### Permissions and access control
 
@@ -274,7 +271,7 @@ For more information about roles and permissions, see [Roles and permissions](..
 
 An Operator-only user has the Operator role and no Admin, Manager, Editor or Viewer role. If your organization still has Operator-only users, this is how the portal behaves for them. They can't open projects, environments or deployments, so for them the portal works as a launcher for organization plugins:
 
-* When they open any other portal page, such as `Home` or a project, the portal opens their first organization plugin full screen instead. The first plugin is the one with the lowest `organisationItem.order`.
+* When they open any other portal page, such as `Home` or a project, the portal opens their first organization plugin full screen instead.
 * If they have no organization plugins, they see `No global plugins available`, with a request to contact an organization administrator.
 * The organization name in the header is disabled, with the tooltip `Your current permissions do not include Control Plane access`.
 * Without a space, they switch between organization plugins with the command palette or `Search apps & pages` in the plugin toolbar. These open each plugin full screen at `/plugins/details/<deployment-id>`.
@@ -307,7 +304,6 @@ deployments:
         show: true
         label: "Test Manager"
         icon: "fact_check"
-        order: 1
         badge: "Beta"
 ```
 
@@ -316,7 +312,6 @@ This configuration:
 * Makes the deployment an organization plugin, so organization admins can pin it to the header of a space or add it to a space's organization sidebar.
 * Enables the embedded view and makes it the default, so the plugin opens as an app.
 * Names the app `Test Manager` and gives it the `fact_check` icon, unless a space overrides them.
-* Sets `order` to `1`, so the app comes first in the command palette and the space designer's lists.
 * Adds a `Beta` badge next to the app's name.
 
 To show the app in the header, an organization admin pins it in a space.
