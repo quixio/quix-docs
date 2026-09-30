@@ -20,7 +20,7 @@ nav:
       - 'get-started/stream-processing.md'
       - 'get-started/stream-processing-pipelines.md'
 
-  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.26.0'
+  - 'Quix Streams': '!import https://github.com/quixio/quix-streams?branch=v3.27.0'
   - 'Quix Cloud':
     - 'Overview': 'quix-cloud/overview.md'
     - 'Quickstart': 'quix-cloud/quickstart.md'
@@ -183,6 +183,8 @@ nav:
         - InfluxDB v3 Source: 'quix-streams/connectors/sources/influxdb3-source.md'
         - Kafka Replicator Source: 'quix-streams/connectors/sources/kafka-source.md'
         - Local File Source: 'quix-streams/connectors/sources/local-file-source.md'
+        - MQTT Source: 'quix-streams/connectors/sources/mqtt-source.md'
+        - MySQL CDC Lite Source: 'quix-streams/connectors/sources/mysql-cdc-lite-source.md'
         - Pandas DataFrame Source: 'quix-streams/connectors/sources/pandas-source.md'
         - Quix Environment Source: 'quix-streams/connectors/sources/quix-source.md'
         - Creating a Custom Source: 'quix-streams/connectors/sources/custom-sources.md'
@@ -203,7 +205,9 @@ nav:
         - MQTT Sink: 'quix-streams/connectors/sinks/mqtt-sink.md'
         - Neo4j Sink: 'quix-streams/connectors/sinks/neo4j-sink.md'
         - PostgreSQL Sink: 'quix-streams/connectors/sinks/postgresql-sink.md'
+        - Quix TS DataLake Sink: 'quix-streams/connectors/sinks/quix-ts-datalake-sink.md'
         - Redis Sink: 'quix-streams/connectors/sinks/redis-sink.md'
+        - Stream Timeout Tracker: 'quix-streams/connectors/sinks/stream-timeout-tracker.md'
         - TDengine Sink: 'quix-streams/connectors/sinks/tdengine-sink.md'
         - Creating a Custom Sink: 'quix-streams/connectors/sinks/custom-sinks.md'
       - Contribution Guide: 'quix-streams/connectors/contribution-guide.md'
