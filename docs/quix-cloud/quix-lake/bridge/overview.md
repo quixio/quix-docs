@@ -9,8 +9,8 @@ search:
 
 The **Quix Lake Bridge** is a small service that you install on a machine you own. It lets Quix Cloud read and write folders on that machine as one more **storage** of a [Quix Lake connection](../blob-storage.md). The folders can be on a local disk or on a network share. Your services reach the files with the same S3 calls, the same endpoint and the same credential as every other storage.
 
-!!! warning "Preview"
-    The Quix Lake Bridge is in preview. Get the releases at [github.com/quixio/quix-lake-bridge](https://github.com/quixio/quix-lake-bridge/releases){target=_blank}. The builds are not signed yet. The install scripts check the download against `SHA256SUMS` from the same release. They stop on a mismatch.
+!!! info "Beta feature"
+    The Quix Lake Bridge is in beta. Portal labels it with a **Beta** badge. Get the releases at [github.com/quixio/quix-lake-bridge](https://github.com/quixio/quix-lake-bridge/releases){target=_blank}. The builds are not signed yet. The install scripts check the download against `SHA256SUMS` from the same release. They stop on a mismatch.
 
 - The bridge opens **only outbound connections** to Quix. You open **no inbound port**.
 - **You** choose the folders. The list of shared folders lives on your machine. Quix Cloud cannot add a folder to it.

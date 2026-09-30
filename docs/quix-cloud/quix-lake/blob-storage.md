@@ -141,7 +141,7 @@ s3://<connectionBucket>/<storage>/<key>
 
 Each storage keeps its own bucket or container and its own credentials. One bucket name in your code can therefore hide several providers. Add a storage when you want data in a different bucket, region, or provider, and give your services no second connection to manage.
 
-A storage can also serve folders on a machine you own, such as a local disk or a network share. See the [Quix Lake Bridge](./bridge/overview.md) (preview).
+A storage can also serve folders on a machine you own, such as a local disk or a network share. See the [Quix Lake Bridge](./bridge/overview.md) (beta).
 
 To add one:
 
