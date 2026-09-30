@@ -87,7 +87,7 @@ To serve another connection, open the bridge on the **Quix Lake Bridges** tab an
 |---|---|---|
 | Builds | `win-x64`, `win-arm64` | `linux-x64` only |
 | Install script | `install.ps1` (MSI or zip) | `install.sh` (deb, rpm or tar.gz) |
-| Service | Windows service | systemd unit |
+| Service | Windows service, runs as `NT SERVICE\quix-bridge` | systemd unit, runs as the system user `quix-bridge` |
 | Tray icon | Yes | No. Read the state with `quix-bridge status`. |
 | Web console (`quix-bridge ui`) | Yes | Yes |
 | Automatic update | MSI only | deb, rpm and tar.gz |

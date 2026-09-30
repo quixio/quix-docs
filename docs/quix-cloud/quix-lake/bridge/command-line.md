@@ -46,6 +46,8 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     sudo quix-bridge service install
     ```
 
+    This command creates the system user `quix-bridge` (no login) when it does not exist. The service runs as this user. An older install that ran as root moves to the new user by itself at the next install or update.
+
     The bridge has a Linux build for x64 only. On an arm64 machine, the script stops.
 
 ## Step 2: Get the quick config
@@ -93,6 +95,8 @@ Run `connect` with no argument. The command asks for the quick config, and you p
     sudo quix-bridge share add /srv/results
     sudo quix-bridge share list
     ```
+
+On Linux, `share add` also grants the user `quix-bridge` the rights it needs, with ACLs, and prints what it granted. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
 A new share is read and write. Add `--read-only` to stop Quix writing to the folder. The command applies the same rules as the console and refuses the same folders. It does not check that the folder exists. Check the path yourself.
 
