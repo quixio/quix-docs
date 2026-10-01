@@ -1,6 +1,6 @@
 ---
 title: Why use Quix Cloud
-description: Uncover the streamlined features of Quix Cloud, designed for easy deployment, collaboration, and monitoring of data pipelines.
+description: Discover the streamlined features of Quix Cloud, designed for easy deployment, collaboration, and monitoring of your real-time test-data pipelines.
 ---
 
 # Why use Quix Cloud
