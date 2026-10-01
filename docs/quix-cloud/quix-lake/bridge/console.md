@@ -22,11 +22,11 @@ An error in the status strip or on the **Activity** tab carries a **reference**.
 
 | Tab | What it shows |
 |---|---|
-| **Folders** | The folder tree of the machine. You [share folders and set the bucket root](./shared-folders.md) here. |
+| **Folders** | The folder tree of the machine, with the **Folder**, **SAG path**, **Status** and **State** columns. You [share folders and set the bucket root](./shared-folders.md) here. |
 | **Connection** | The connection to Quix. You paste the quick config here. |
 | **Activity** | The connection events, newest first. Each row says what happened and what to do. |
 | **Health** | Two checks that change nothing. **Run the folder check** reads each shared folder as the service account and checks that the bridge reaches Quix. **Run the reboot check** looks for anything that stops the bridge after a reboot. |
-| **Config** | The `config.yaml` file. A secret never appears in this file. |
+| **Config** | The `config.yaml` file. A secret never appears in this file. When the file changed on disk after you opened the tab, the console refuses your save and says "config.yaml changed since you opened it. Reload the Config tab, then save again." |
 | **Log** | Writes, deletes, copies and reads of files. The log holds no file content, no secret key and no token. |
 
 ## Install the console as an app

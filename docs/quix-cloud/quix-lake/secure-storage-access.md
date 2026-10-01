@@ -60,7 +60,34 @@ How a folder behaves by default depends on its kind. You see and change this in 
 
 ## What administrators can do
 
-An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Read, write, delete and create folder follow the storage permissions, like for any user. An administrator who is also a direct member keeps that member access.
+An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Open, download, upload, delete and new folder follow the storage permissions, like for any user. An administrator who has an explicit grant on a folder, or who meets a public folder, gets that access there. An administrator who is also a direct member of an environment keeps that member access.
+
+The File Explorer follows the same rule as the S3 endpoint. A folder an administrator can list but cannot read shows a lock and **No access**.
+
+## Set permissions for a user or a group
+
+Open the **Storage permissions** tab of a user or of a group. The tab shows a folder tree. Each folder has an **Access** list and an **Effective access** column.
+
+The **Storage permission source** banner says where a user gets storage permissions from:
+
+| Source | What it does |
+|---|---|
+| **User specific** | The folder permissions you set on this tab apply to the user. The permissions of the user's group also reach the user. On a group page, this reads **Group specific**. |
+| **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
+| **Organization default** | Only the [Default Permissions](#folder-visibility) of the organization apply. The folder permissions of the user and of the group stay suspended. |
+
+While the source is **Group** or **Organization default**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
+
+When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing changes until you click **Save changes**. Only administrators can edit permissions.
+
+### Effective access
+
+**Effective access** shows what the user gets on the folder. The labels are **No Access**, **Read Access**, **Write Access** and **Read-Write Access**. A pill says where the value comes from: **Assigned** (set on this folder), **Inherited (from ...)** or **Override**. A group page shows **Environment Access** on an environment folder, because the result differs for each member.
+
+A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
+
+!!! note "No Access wins over public visibility"
+    A **No Access** grant on a folder denies access, even when the folder is public. A read only grant does not block a public write.
 
 ## Folder visibility
 

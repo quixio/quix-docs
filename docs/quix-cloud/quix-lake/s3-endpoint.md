@@ -39,7 +39,7 @@ You need the endpoint, the Quix Lake bucket, and a credential. There are two way
 
     Use a personal access token (PAT) to reach Quix Lake from your own machine or from a tool outside a deployment.
 
-    1. In the Portal, open the Quix Lake connection page and click **Connect to Quix Lake**. The dialog shows the endpoint, the bucket, and your **Access key (your user id)**.
+    1. In the Portal, open the Quix Lake connection page and click the **Connect** row, or the **S3 endpoint** row on the **Quix Lake Services** tab. Both open the **Connect to Quix Lake** dialog. The **S3** tab shows the **Endpoint**, the **Bucket**, the **Region** and your **Access key (your user id)**. It also has snippets for boto3, aws-cli and duckdb. The **Query API** tab shows the query address.
     2. Create a PAT under your user settings. Set a short expiry, and keep the PAT secret. A PAT acts as you, and a PAT with a smaller scope reaches less.
     3. Set three fields on your S3 client:
 

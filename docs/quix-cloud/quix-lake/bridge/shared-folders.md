@@ -15,7 +15,18 @@ You share folders in the bridge console, on the **Folders** tab. Quix sees a sha
 
 A new share is read only. The **Allow write access** box starts off. Turn it on to let Quix write to the folder. Click **Edit this share** on the shared row to change it later. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
 
-The tree shows only the folders that the service account can read. Some folders show a state instead of a switch:
+The **Folders** tab has a **Status** column. It shows a badge when the service account has a problem with a folder:
+
+| Badge | Meaning |
+|---|---|
+| **Not readable** | The service account cannot read the folder. On a network server, the badge reads **No credential**. The **Fix access** button grants read access. |
+| **Can't write** | The share allows writes, but the service account cannot write. The **Fix write access** button grants write access. |
+
+On Windows, the tray grants this access for you when you share the folder. It grants read access (`RX`) on a read only share and `Modify` on a write share. If you own the folder, no prompt appears. If not, one administrator prompt appears. If you cancel the prompt, the share stays as it is and the console keeps the manual command. The tray tries each folder once for each tray run. It never grants access on a network server, on a drive root or on a system folder.
+
+A folder inside a share shows its access, for example **Read only, inside plant**. The folder follows the share that holds it.
+
+Some folders show a state instead of a switch:
 
 | State | Meaning |
 |---|---|

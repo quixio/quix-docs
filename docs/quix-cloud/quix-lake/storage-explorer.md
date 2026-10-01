@@ -62,6 +62,10 @@ A storage folder looks like a folder, but it is a whole storage with its own buc
 
 Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, copy, and visibility all work there.
 
+## Folders you cannot read
+
+When you can list a folder but cannot read it, the **Visibility** column shows a lock and **No access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. The explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
+
 ## Visibility
 
 Every folder shows its visibility, and you change it from the row menu. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.

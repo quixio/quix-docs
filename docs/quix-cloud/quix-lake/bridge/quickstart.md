@@ -30,7 +30,7 @@ Run the install script on the machine, as an administrator:
     irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
-    The script installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it.
+    The script installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it. It also starts the tray icon for your session. The tray starts again at every sign-in. Run the script again on the same version to repair a broken install.
 
 === "Linux"
 
