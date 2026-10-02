@@ -1,87 +1,76 @@
 ---
 title: How the Quix Plugin SDK works
-description: The security model, message protocol and version history of the Quix Plugin SDK, for developers who audit a plugin integration, debug it at the message level, or build their own.
+description: The security model, message protocol and version history of the Quix Plugin SDK, for developers who review the security of a plugin integration, debug it at the message level, or build their own.
 ---
 
 # How the Quix Plugin SDK works
 
-This page explains what passes between the Quix portal and the [Quix Plugin SDK](plugin-sdk.md) running in your plugin's iframe. You need it if you audit the security of a plugin, debug the integration at the message level, or build your own integration instead of using the SDK. To build a plugin UI, start with the [Quix Plugin SDK](plugin-sdk.md) guide.
+The [Quix Plugin SDK](plugin-sdk.md) runs in your plugin's iframe and talks to the Quix portal through [`window.postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage){target=_blank}. This page describes that conversation: who the SDK trusts and why, the messages both sides exchange, and how the protocol has changed between versions.
 
-The SDK and the portal talk through [`window.postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage){target=_blank}. Every message is an object with a `type` field.
+You need this page if you review the security of a plugin, debug the integration at the message level, or build your own integration instead of using the SDK. To build a plugin UI, start with the [Quix Plugin SDK](plugin-sdk.md) guide.
 
 ## Security model
 
-Any page can embed your plugin in an iframe and post messages to it. The SDK decides which messages to trust based on the **portal origin**: the scheme, host and port of the portal that embeds your plugin, for example `https://portal.example.com`.
+Any page can embed your plugin in an iframe and post messages to it. The SDK decides what to trust based on the **portal origin**: the scheme, host and port of the portal that embeds your plugin, for example `https://portal.example.com`. Messages that would change what your app shows are accepted only from that origin. When the SDK doesn't know the origin, it fails closed.
 
-### How the SDK learns the portal origin
+<a id="how-the-sdk-learns-the-portal-origin"></a>
 
-The portal adds a `portalOrigin` query parameter to your plugin's iframe URL. During `init()`, the SDK:
+### Where the portal origin comes from
 
-1. Reads `portalOrigin` from the current URL. It accepts the value only if it's a bare origin, with no path, query or fragment.
-2. Saves a valid value in `sessionStorage` under the key `quix.plugin.portalOrigin`. Session storage belongs to one tab and to your plugin's origin, so another site can't write to it.
-3. If the URL has no valid `portalOrigin`, for example because your app reloaded at a URL without the query string, uses the value saved in this tab, after checking it the same way. The console then shows `⚿ Portal origin restored from session cache`.
-4. If neither source has a valid origin, treats the portal origin as unknown. The console shows `⚿ No portalOrigin param — inbound navigation disabled`.
+The portal adds a `portalOrigin` query parameter to the iframe URL it builds for your plugin. During `init()`, the SDK reads it and saves it in `sessionStorage` under `quix.plugin.portalOrigin`. If your app later reloads at a URL without the query string, the SDK uses the saved value instead. Session storage belongs to one tab and to your plugin's origin, so another site can't seed it.
 
-A value in the URL always wins over the saved one. If `sessionStorage` isn't available, for example in some private browsing modes, the SDK works without the saved value.
+```mermaid
+flowchart TD
+    A["init()"] --> B{"portalOrigin in the URL<br/>is a bare origin?"}
+    B -->|Yes| C["Use it and save it<br/>for this tab"]
+    B -->|No| D{"Saved value<br/>is a bare origin?"}
+    D -->|Yes| E["Use the saved value"]
+    D -->|No| F["Origin unknown:<br/>NAVIGATE and THEME rejected"]
+```
 
-### Which messages the SDK accepts
+A bare origin has no path, query or fragment. The SDK applies the same check to the saved value, so a stale or edited entry can't become trusted. If `sessionStorage` isn't available, for example in some private browsing modes, the SDK relies on the URL alone.
 
-Every message must come from the window directly above your plugin, `window.parent`. The SDK ignores messages from any other window. It then checks each message type differently:
+<a id="which-messages-the-sdk-accepts"></a>
 
-| Message | Origin check |
-|---|---|
-| `AUTH_TOKEN` | None |
-| `NAVIGATE` | Must match the portal origin |
-| `THEME` | Must match the portal origin |
+### Which messages are origin-checked
 
-`AUTH_TOKEN` has no origin check because a token works only against the portal that issued it. An origin check could also reject valid tokens: when two portals, for example staging and production, embed the same plugin in one browser tab, the saved origin can belong to the other portal. As a result, any page that embeds your plugin can hand it a token. Your backend must validate every token it receives. See [How to handle the token in the backend](plugin.md#how-to-handle-the-token-in-the-backend).
+The SDK ignores every message that doesn't come from `window.parent`, the window directly above your plugin. It then checks each inbound type differently:
 
-A page that isn't the portal must never drive your app's router or repaint your plugin, so `NAVIGATE` and `THEME` **fail closed**. When the portal origin is unknown, the SDK accepts no `NAVIGATE` or `THEME` messages from any sender. Your plugin still receives tokens and still reports its route to the portal, but portal navigation and live mode changes stop working.
+| Message | Must match the portal origin | Why |
+|---|---|---|
+| `AUTH_TOKEN` | No | A token works only against the portal that issued it. An origin check would also drop valid tokens when two portals, for example staging and production, embed the same plugin in one tab and the saved origin belongs to the other one. |
+| `NAVIGATE` | Yes | A page that isn't the portal must never drive your app's router. |
+| `THEME` | Yes | A page that isn't the portal must never repaint your plugin, and there's no compatibility case to protect. |
 
-A token from an origin that doesn't match doesn't change or clear the saved portal origin. Otherwise any page that embeds your plugin could turn off, or take over, inbound navigation.
+When the portal origin is unknown, the SDK accepts no `NAVIGATE` or `THEME` from any sender. Tokens and outbound route reporting keep working, but portal navigation and live mode changes stop. A token from a mismatched origin never changes or clears the saved origin, so an embedding page can't use one to switch inbound navigation off or claim it.
 
-The SDK also checks message content:
+Because `AUTH_TOKEN` isn't origin-checked, any page that embeds your plugin can hand it a token. Your backend must validate every token it receives. See [How to handle the token in the backend](plugin.md#how-to-handle-the-token-in-the-backend).
 
-* A `NAVIGATE` path must start with `/`, must not start with `//`, and must not contain `..`. The SDK logs and ignores any other path.
-* A `THEME` value must be `light` or `dark`. The SDK logs and ignores any other value.
+The SDK also checks content. A `NAVIGATE` path must start with `/`, must not start with `//`, and must not contain `..`. A `THEME` value must be `light` or `dark`. The SDK logs and ignores anything else.
 
-### Where the SDK sends messages
+<a id="where-the-sdk-sends-messages"></a>
 
-The SDK posts its messages to the portal origin when it's known. When the portal origin is unknown, it posts with the target origin `*`, for compatibility with older portals. The outgoing messages hold only the handshake and your plugin's current path, query string and fragment. If the portal origin is unknown and a page other than the Quix portal embeds your plugin, that page can read those messages, so don't put secrets in your URLs.
+Outbound, the SDK posts to the portal origin when it knows it, and to `*` when it doesn't, for compatibility with older portals. Outbound messages carry only the handshake and your plugin's current path, query string and fragment. With an unknown origin, a page other than the portal can read them, so keep secrets out of your URLs.
 
 ### What the portal checks
 
-The portal accepts messages only from the origin of your plugin's embedded view URL. It checks the sender's origin, not which window sent the message, so any window on your plugin's origin that can reach the portal window, such as a popup your plugin opened, is treated as your plugin.
+The portal accepts messages only from the origin of your plugin's embedded view URL, and posts the token, navigation and mode only to that origin. The token never leaves the portal for another origin, even if your plugin navigates to another site. The portal checks the sender's origin, not the sending window, so any window on your plugin's origin that can reach the portal, such as a popup your plugin opened, counts as your plugin.
 
-The portal posts the token, navigation and mode only to that same origin. The token therefore never leaves the portal for any other origin, even if your plugin navigates to another site.
-
-The portal ignores a reported path that doesn't start with `/` or that contains `..`. It also removes the `isIframe`, `portalOrigin` and `theme` parameters from its own address bar, and adds them to the iframe URL again every time it builds it.
+The portal ignores a reported path that doesn't start with `/` or that contains `..`.
 
 ## Message protocol
 
-This section describes the messages the SDK exchanges with the portal. A hand-rolled integration must follow the same protocol.
+Every message is an object with a `type` field. The portal side is the same for the SDK and for a hand-rolled integration.
 
-### Messages
+<a id="messages"></a>
 
-| Type | Direction | Payload | When it's sent |
+| Type | Direction | Payload | Sent |
 |---|---|---|---|
-| `REQUEST_AUTH_TOKEN` | Plugin to portal | `version`: string, the SDK version. Sent by 1.2.1 and later. | At `init()` and on every token refresh |
-| `AUTH_TOKEN` | Portal to plugin | `token`: string, the user's current token | In reply to each `REQUEST_AUTH_TOKEN` |
-| `NAVIGATE` | Plugin to portal | `path`: string, the plugin's `pathname`, query string and fragment | At `init()` and on every `pushState`, `replaceState`, `popstate` and `hashchange`, except while the SDK applies portal navigation |
-| `NAVIGATE` | Portal to plugin | `path`: string, the sub-path and fragment, or `/` for the plugin root. Never a query string. | When a portal navigation changes only the page inside the same plugin and keeps the portal's query parameters, if the plugin reported version 1.2 or later |
-| `THEME` | Portal to plugin | `theme`: `'light'` or `'dark'` | After the first handshake from a page the portal loaded, and whenever the portal's mode changes, if the plugin reported version 1.3 or later. See [When the portal sends THEME](#when-the-portal-sends-theme). |
-
-Example payloads:
-
-```js
-{ type: 'REQUEST_AUTH_TOKEN', version: '1.3.0' }
-{ type: 'AUTH_TOKEN', token: '<jwt>' }
-{ type: 'NAVIGATE', path: '/runs?status=failed#latest' } // plugin to portal
-{ type: 'NAVIGATE', path: '/alarms' }                    // portal to plugin
-{ type: 'THEME', theme: 'light' }
-```
-
-This sequence shows a plugin page loading, and a later token refresh:
+| `REQUEST_AUTH_TOKEN` | Plugin to portal | `version`: the SDK version, from 1.2.1 | At `init()` and on every token refresh |
+| `AUTH_TOKEN` | Portal to plugin | `token`: the user's current token | In reply to each `REQUEST_AUTH_TOKEN` |
+| `NAVIGATE` | Plugin to portal | `path`: `pathname`, query string and fragment | At `init()` and on every route change |
+| `NAVIGATE` | Portal to plugin | `path`: sub-path and fragment, or `/` for the plugin root, never a query string | When a portal navigation stays inside the same plugin, if the plugin reported 1.2 or later |
+| `THEME` | Portal to plugin | `theme`: `light` or `dark` | After a handshake and when the portal's mode changes, if the plugin reported 1.3 or later |
 
 ```mermaid
 sequenceDiagram
@@ -91,110 +80,90 @@ sequenceDiagram
     Plugin->>Portal: NAVIGATE with the current path
     Plugin->>Portal: REQUEST_AUTH_TOKEN with version
     Portal->>Plugin: AUTH_TOKEN
-    Portal->>Plugin: THEME, if 1.3 or later and the portal loaded this page
+    Portal->>Plugin: THEME, if 1.3 or later
     Note over Portal,Plugin: AUTH_TOKEN and THEME can arrive in either order
     Note over Plugin: 60 seconds before the token expires
     Plugin->>Portal: REQUEST_AUTH_TOKEN with version
     Portal->>Plugin: AUTH_TOKEN
 ```
 
-### The version field
+The `version` in `REQUEST_AUTH_TOKEN` is the protocol's only capability negotiation. The portal reads its major and minor numbers from every handshake and decides what it may send to that page. See [Version history and compatibility](#version-history-and-compatibility).
 
-The `version` field of `REQUEST_AUTH_TOKEN` is the only version negotiation in the protocol. The portal reads its major and minor numbers and decides what to send to that plugin page:
+<a id="how-navigation-is-applied"></a>
 
-| Reported version | Portal navigation inside the plugin | `THEME` messages |
-|---|---|---|
-| None, older than 1.2, or not a valid version | Reloads the iframe at the new URL | Not sent |
-| 1.2.x | Sends `NAVIGATE`, no reload | Not sent |
-| 1.3 or later | Sends `NAVIGATE`, no reload | Sent |
+### Navigation in both directions
 
-The portal relies on the version rather than on whether a handshake arrives at all, because browsers can keep an old copy of the SDK file cached. It learns the version again from every handshake, and forgets it whenever it loads a new page into the iframe itself.
+From plugin to portal, the portal appends the reported path to the plugin's portal URL and merges the query parameters into its own, without removing any. A hash-routed app always reports a `pathname` of `/`, so the portal URL can't follow its route. The SDK warns about this in the console.
+
+From portal to plugin, the portal sends `NAVIGATE` only when the target is in the same plugin, the portal's own query parameters are unchanged, and the plugin has reported 1.2 or later. In every other case it reloads the iframe at the new URL. The SDK then hands the path to your `onNavigate` callbacks, and doesn't report route changes until the next task, so the navigation isn't echoed back. With no callback registered, it calls `history.pushState()` and dispatches `popstate`, or sets `location.hash` for a fragment-only change.
+
+A portal URL that points at the plugin root with only a fragment, such as `/apps/<deployment-id>#section`, arrives as `#section`. The SDK rejects it because it doesn't start with `/`, and the iframe doesn't reload, so nothing happens. Portal navigation into a hash-routed app therefore doesn't work.
 
 ### When the portal sends THEME
 
-The portal remembers the last mode it sent to the page in the iframe, and doesn't send the same mode again. It resets that memory only when it loads a new page into the iframe itself: on the first load, on `Reload app` in the plugin toolbar, when it switches to a different plugin, and when a portal navigation rewrites the iframe URL.
+The portal remembers the last mode it sent to the page in the iframe and doesn't repeat it. It forgets that mode only when it loads a new page into the iframe itself: on first load, on `Reload app`, when it switches plugin, and when a portal navigation rewrites the iframe URL.
 
-A page that your plugin loads on its own, for example through a plain link, `location.reload()`, a form post or a same-origin redirect, still handshakes, but the portal doesn't send `THEME` to it until the mode changes. That page uses the `theme` parameter in its own URL, or `dark` when there's none. See [Keep the mode after a full page load](plugin-sdk.md#keep-the-mode-after-a-full-page-load).
+A page that your plugin loads on its own, through a plain link, `location.reload()`, a form post or a redirect, still handshakes, but receives no `THEME` until the mode changes. That page takes its mode from the `theme` parameter in its own URL, or `dark` when there's none. See [Keep the mode after a full page load](plugin-sdk.md#keep-the-mode-after-a-full-page-load).
 
-### What init() does
+## What init() does
 
-`init()` runs these steps, in this order:
+`init()` runs once. Later calls do nothing. In order, it:
 
-1. Opens a collapsed console group headed `Quix Plugin SDK v<version>`.
-2. Reads the portal origin from the `portalOrigin` query parameter, or from the per-tab cache. See [How the SDK learns the portal origin](#how-the-sdk-learns-the-portal-origin).
-3. Reads the color mode from the `theme` query parameter, or uses `dark`, and, unless `applyTheme` is `false`, writes it to `<html>`. Callbacks registered with `onTheme` before `init()` receive the mode if it differs from `dark`.
-4. Wraps `history.pushState` and `history.replaceState`, starts listening for `popstate` and `hashchange`, and reports the current location to the portal with `NAVIGATE`.
+1. Opens a collapsed console group headed `Quix Plugin SDK v<version>`, which closes when the first token arrives.
+2. Resolves the portal origin, as described in [Where the portal origin comes from](#where-the-portal-origin-comes-from).
+3. Reads the mode from the `theme` query parameter, or uses `dark`, and writes it to `<html>` unless `applyTheme` is `false`. Callbacks registered with `onTheme` before `init()` receive the mode if it isn't `dark`.
+4. Wraps `history.pushState` and `history.replaceState`, listens for `popstate` and `hashchange`, and reports the current location with `NAVIGATE`.
 5. Starts listening for portal messages and sends `REQUEST_AUTH_TOKEN`.
 
-The console group closes when the first token arrives.
+## Token refresh schedule
 
-### Token refresh schedule
+Each time a token arrives, the SDK reads its `exp` claim and schedules the next `REQUEST_AUTH_TOKEN`. It keeps one timer, and each new token replaces it.
 
-When a token arrives, the SDK reads its expiry (`exp` claim) and schedules the next `REQUEST_AUTH_TOKEN`:
-
-| Situation | When the SDK requests the next token |
+| Token | Next request |
 |---|---|
-| The token has a readable `exp` claim | 60 seconds before `exp` |
-| The token isn't a JWT, or has no numeric `exp` claim | 4 minutes after the current token arrived |
-| `exp` is less than 65 seconds away, or already passed | After 5 seconds |
-| 60 seconds before `exp` is more than 24 hours away, for example for a long-lived token | After 24 hours, then the SDK checks again |
+| JWT with a numeric `exp` | 60 seconds before `exp` |
+| Not a JWT, or no numeric `exp` | 4 minutes after it arrived |
+| `exp` less than 65 seconds away, or passed | After 5 seconds |
+| 60 seconds before `exp` is more than 24 hours away | After 24 hours, then the SDK checks again |
 
-The SDK keeps only one refresh timer. Each new token replaces the pending timer. The portal replies with its own current token, so if that token is close to expiry, the SDK asks again every 5 seconds until the portal has renewed it.
-
-The 24-hour limit exists because browsers store a `setTimeout` delay as a 32-bit integer. A delay longer than about 24.8 days overflows and the timer fires at once, which turns the refresh into a tight request loop.
-
-### How navigation is applied
-
-From plugin to portal, the SDK sends your plugin's `pathname`, query string and fragment. The portal appends the path to the plugin's portal URL and merges the query parameters into its own, without ever removing one. A hash-routed app reports a `pathname` of `/`, so the portal mirrors its route as a fragment of the plugin's portal URL.
-
-From portal to plugin, the SDK first checks the path, then:
-
-* **With `onNavigate` callbacks registered**, calls each one with the path. While they run, and until the next task, the SDK doesn't report route changes to the portal, so a `pushState` or a `hashchange` that your callback causes isn't echoed back.
-* **With no callback registered**, calls `history.pushState()` with the path, keeping the current `history.state`, and dispatches a `popstate` event. For a fragment-only change on the current page, it sets `location.hash` instead. It also keeps the path and replays it to the first `onNavigate` callback registered later. That replay runs without echo suppression, so navigation it starts is reported to the portal, which does nothing when the URL doesn't change.
-
-The portal reloads the iframe instead of sending `NAVIGATE` when it switches to a different plugin, when the portal's query parameters change, when the plugin reported a version older than 1.2 or hasn't handshaken yet, and when the iframe isn't rendered.
-
-A portal URL that points to the plugin's root with only a fragment, such as `/apps/<deployment-id>#section`, is sent as the path `#section`. The SDK rejects it because it doesn't start with `/`, and the iframe doesn't reload, so nothing happens. The same applies to every portal navigation to a hash-routed app.
-
-### Requirements for a hand-rolled integration
-
-The portal side of the protocol is the same for the SDK and for a hand-rolled integration. If you keep your own `postMessage` code instead of the SDK, you must implement everything the SDK does for you:
-
-* **Refresh the token.** Decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` before it passes. When you schedule that with `setTimeout`, limit the delay to 24 hours and check again when it fires.
-* **Report a `version` only for what you handle.** Omitting `version` keeps you on the pre-1.2 behavior: every portal navigation inside your plugin reloads the iframe, and you receive no `THEME` messages. Reporting 1.2 or later tells the portal to stop reloading the iframe, so if you don't handle the inbound `NAVIGATE`, portal navigation inside your plugin does nothing. Reporting 1.3 or later also means you must handle `THEME`.
-* **Validate inbound messages.** Accept messages only when `event.source` is `window.parent`, and accept `NAVIGATE` and `THEME` only when `event.origin` matches the `portalOrigin` query parameter.
-* **Post to the portal origin** from `portalOrigin`, rather than to `*`.
-
-To replace a hand-rolled integration with the SDK, see [Migrate from a manual postMessage integration](plugin-sdk.md#migrate-from-a-manual-postmessage-integration).
+The portal replies with its own current token, so a token close to expiry makes the SDK ask every 5 seconds until the portal has renewed it. The 24-hour cap exists because browsers store a `setTimeout` delay as a 32-bit integer: a delay beyond about 24.8 days fires at once, which turns a long-lived token into a tight request loop.
 
 ## Version history and compatibility
 
-### Versions
+<a id="versions"></a>
 
-| Version | New in this version | What the portal does for this version |
-|---|---|---|
-| 1.3.0 | Theme support: reads `?theme=` for the first paint, applies `THEME` messages, and writes `data-quix-theme` and `color-scheme` to `<html>`. Adds `init({ applyTheme })`, `onTheme()`, `QuixPlugin.theme` and `QuixPlugin.version`. | Sends `NAVIGATE` without reloading the iframe, and sends `THEME`. |
-| 1.2.1 | Portal-to-plugin navigation: inbound `NAVIGATE` and `onNavigate()`, with the `pushState` fallback. Reads the portal origin from `?portalOrigin=` and saves it per tab. Accepts messages only from `window.parent`, and `NAVIGATE` only from the portal origin. Posts to the portal origin instead of `*` when it's known. Reports `version` in the handshake. Warns about hash routing. | Sends `NAVIGATE` without reloading the iframe. Doesn't send `THEME`. |
-| 1.1.0 | Token refresh before expiry. A callback that throws no longer stops other callbacks or the refresh. | Reloads the iframe for portal navigation inside the plugin. Doesn't send `THEME`. |
-| 1.0.0 | First release: `init()`, `onToken()`, the token handshake and plugin-to-portal URL sync. | Reloads the iframe for portal navigation inside the plugin. Doesn't send `THEME`. |
+| Version | Adds | Portal navigation inside the plugin | `THEME` |
+|---|---|---|---|
+| 1.3.0 | Theme support: `?theme=` for the first paint, `THEME` messages, `data-quix-theme` and `color-scheme` on `<html>`, `init({ applyTheme })`, `onTheme()`, `QuixPlugin.theme`, `QuixPlugin.version` | `NAVIGATE`, no reload | Sent |
+| 1.2.1 | Inbound `NAVIGATE` and `onNavigate()`. The portal origin from `?portalOrigin=`, saved per tab. The `window.parent` and origin checks. Posts to the portal origin. Reports `version`. Warns about hash routing. | `NAVIGATE`, no reload | Not sent |
+| 1.1.0 | Token refresh before expiry. A callback that throws no longer stops the others. | Iframe reload | Not sent |
+| 1.0.0 | `init()`, `onToken()`, the token handshake and plugin-to-portal route sync | Iframe reload | Not sent |
 
-Every version receives the token and keeps the portal URL in step with the plugin's route. Older SDKs keep working with the current portal. They ignore the extra `portalOrigin` and `theme` query parameters.
+The portal treats a missing or unreadable `version` like a version older than 1.2. Every version receives the token and keeps the portal URL in step with the plugin's route, and older SDKs ignore the `portalOrigin` and `theme` parameters, so they keep working with the current portal. To upgrade an existing plugin, see [Upgrade from an earlier SDK version](plugin-sdk.md#upgrade-from-an-earlier-sdk-version).
 
-For what changes for an existing plugin, see [Upgrade from an earlier SDK version](plugin-sdk.md#upgrade-from-an-earlier-sdk-version).
+<a id="old-cached-copies"></a>
 
-### Check which version is running
+The file name `quix-plugin.js` doesn't change between versions, and browsers can cache it for a long time. A cached old copy reports its old version, and the portal sends it only what that version supports, so newer features such as theme support silently disappear. This is why the portal relies on the reported version rather than on the handshake alone, and learns it again from every handshake.
 
-Look at the console group header, for example `Quix Plugin SDK v1.3.0`, or at the portal's `⟵ handshake — SDK <version>` line. From 1.3.0, you can also read `QuixPlugin.version` in code, or in the console with the plugin's frame selected.
+<a id="check-which-version-is-running"></a>
 
-### Old cached copies
+To see which version is running, look at the console group header, or read `QuixPlugin.version` from 1.3.0. If it's older than you expect, hard-refresh the page or clear the browser cache for your portal's domain.
 
-The file name `quix-plugin.js` doesn't change between versions, and browsers can cache it for a long time. A browser can therefore run an old SDK after the portal has been updated. Because the portal decides what to send based on the version the SDK reports, a cached old copy silently loses newer features, such as theme support.
+## Requirements for a hand-rolled integration
 
-If the console header shows an older version than you expect, do a hard refresh of the page, or clear the browser cache for your portal's domain.
+If you keep your own `postMessage` code instead of the SDK, you must do everything the SDK does for you:
+
+* **Refresh the token.** Decode `exp` and post a new `REQUEST_AUTH_TOKEN` before it passes. Cap any `setTimeout` delay at 24 hours and check again when it fires.
+* **Report a `version` only for what you handle.** With no `version`, every portal navigation inside your plugin reloads the iframe and you get no `THEME`. Reporting 1.2 or later stops those reloads, so you must handle inbound `NAVIGATE` or portal navigation does nothing. Reporting 1.3 or later means you must also handle `THEME`.
+* **Validate inbound messages.** Accept a message only when `event.source` is `window.parent`. Accept `NAVIGATE` and `THEME` only when `event.origin` equals the `portalOrigin` query parameter, and reject them when you don't know it.
+* **Validate content.** Reject `NAVIGATE` paths that don't start with `/`, start with `//`, or contain `..`, and `THEME` values other than `light` and `dark`.
+* **Post to the portal origin** from `portalOrigin`, not to `*`.
+* **Validate the token on your backend.** See [Authentication and authorization](plugin.md#authentication-and-authorization).
+
+To replace a hand-rolled integration with the SDK, see [Migrate from a manual postMessage integration](plugin-sdk.md#migrate-from-a-manual-postmessage-integration).
 
 ## See also
 
 * [Quix Plugin SDK](plugin-sdk.md): add the SDK to your plugin's UI.
 * [Plugin system](plugin.md): configure a deployment as a plugin and choose where it appears in the portal.
 * [What the portal adds to the URL](plugin.md#what-the-portal-adds-to-the-url): the parameters on your plugin's iframe URL.
-* [Authentication and authorization](plugin.md#authentication-and-authorization): validate the token on your backend.

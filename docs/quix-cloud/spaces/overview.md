@@ -43,7 +43,7 @@ A space controls presentation. It decides:
 
 * Which items appear in the organization sidebar, including custom entries such as plugin apps, pages inside those apps, shortcuts into a project environment, and headings. The space can also hide the organization sidebar completely.
 * Which modules appear inside every environment, including the YAML sync button in the environment header and the `Settings` row at the foot of the environment sidebar.
-* Which [organization plugins](../services/plugin.md#organization-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, so a space is the only way to put plugin apps in the header.
+* Which [organization plugins](../services/plugin.md#organization-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, except for users with only the deprecated Operator role, so a space is the only way to choose which plugin apps appear in the header.
 * Which page members land on after they sign in or switch into the space.
 * The accent color and icon that identify the space.
 * Whether members can choose their own light or dark theme, or the space sets it for them.
