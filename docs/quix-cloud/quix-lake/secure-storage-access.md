@@ -138,7 +138,7 @@ The same applies to things acting on your behalf:
 
 You work with the lake exactly as before. The gateway only determines what appears:
 
-* **[Storage explorer](./storage-explorer.md):** you see the storages, environments, and folders you are allowed to see.
+* **[File Explorer](./file-explorer.md):** you see the storages, environments, and folders you are allowed to see.
 * **[Data Lake](./data-lake/user-interface.md):** when you browse, you only see the environments and folders you are allowed to see.
 * **[Lakehouse](./lakehouse/overview.md):** SQL queries return results only from environments you belong to, or that someone shared with you.
 * **[S3-compatible endpoint](./s3-endpoint.md):** the gateway applies the same rules to every S3 request your code makes.
@@ -154,6 +154,6 @@ You work with the lake exactly as before. The gateway only determines what appea
 ## Next steps
 
 * [Quix Lake connections and storages](./blob-storage.md) — connect the bucket and add a storage
-* [Storage explorer](./storage-explorer.md) — browse and manage files in the Portal
+* [File Explorer](./file-explorer.md) — browse and manage files in the Portal
 * [S3-compatible endpoint](./s3-endpoint.md) — reach the same data from your code
 * [Quix Lake overview](./overview.md) — how the Data Lake and Lakehouse fit together

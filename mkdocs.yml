@@ -100,7 +100,7 @@ nav:
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
       - 'Connections and storages': 'quix-cloud/quix-lake/blob-storage.md'
-      - 'Storage explorer': 'quix-cloud/quix-lake/storage-explorer.md'
+      - 'File Explorer': 'quix-cloud/quix-lake/file-explorer.md'
       - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'S3-compatible endpoint': 'quix-cloud/quix-lake/s3-endpoint.md'
       - 'Quix Lake Bridge':
@@ -966,6 +966,7 @@ plugins:
         'quix-cloud/quix-lake/replay.md': 'quix-cloud/quix-lake/data-lake/replay.md'
         'quix-cloud/quix-lake/replay-transformations.md': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
         'quix-cloud/quix-lake/bridge.md': 'quix-cloud/quix-lake/bridge/overview.md'
+        'quix-cloud/quix-lake/storage-explorer.md': 'quix-cloud/quix-lake/file-explorer.md'
         'quix-cloud/managed-services/overview.md': 'quix-cloud/services/overview.md'
         'quix-cloud/managed-services/dynamic-configuration.md': 'quix-cloud/services/dynamic-configuration.md'
         'quix-cloud/plugin.md': 'quix-cloud/services/plugin.md'

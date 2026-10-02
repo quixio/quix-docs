@@ -194,7 +194,7 @@ Drop the delimiter, and Quix merges the storages into **one** listing, in key or
 !!! warning "A deployment credential cannot list the bucket root"
     A root LIST works with a PAT, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only. So a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
 
-`ListBuckets` answers the **one** Quix Lake bucket. A tool that builds its storage list from `ListBuckets` shows one entry. Use the root listing instead, browse the [storage explorer](./storage-explorer.md), or ask the Portal API.
+`ListBuckets` answers the **one** Quix Lake bucket. A tool that builds its storage list from `ListBuckets` shows one entry. Use the root listing instead, browse the [File Explorer](./file-explorer.md), or ask the Portal API.
 
 ### When an administrator changes a storage
 

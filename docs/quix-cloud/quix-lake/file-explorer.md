@@ -1,11 +1,11 @@
 ---
-title: Storage explorer
+title: File Explorer
 description: Browse, search, upload, and manage the files in your Quix Lake storage from the Quix Portal.
 ---
 
-# Storage explorer
+# File Explorer
 
-The **storage explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. The Portal calls it **File Explorer**. It shows the storages your cluster connects to. You work with the files in them without leaving the Portal, and without any storage credentials of your own.
+**File Explorer** is the file browser for [Quix Lake](./overview.md) inside the Quix Portal. It shows the storages your cluster connects to. You work with the files in them without leaving the Portal, and without any storage credentials of your own.
 
 Open **File Explorer** from the **Quix Lake** section of your environment sidebar.
 
@@ -15,7 +15,7 @@ Open **File Explorer** from the **Quix Lake** section of your environment sideba
 
 ## What you see
 
-The explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the **Folder** an administrator set on the storage.
+File Explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the **Folder** an administrator set on the storage.
 
 Only the **main storage** may sit at the root of the bucket. When it does, its own folders show beside the storage folders. Every other storage has a folder of its own.
 
@@ -49,11 +49,11 @@ Switch between **Tree view** and **File explorer view** with the buttons in the 
 Search finds files whose path contains the text you type. It searches from the root of the Quix Lake bucket, not from the folder in view. On a large bucket it reads only part of the bucket, so the result can be incomplete.
 
 !!! note "A copy cannot cross a storage"
-    The explorer refuses a move or a copy whose source and destination sit in different storages. Move or copy inside one storage, or download the file and upload it again.
+    File Explorer refuses a move or a copy whose source and destination sit in different storages. Move or copy inside one storage, or download the file and upload it again.
 
 ## A storage folder is not an ordinary folder
 
-A storage folder looks like a folder, but it is a whole storage with its own bucket and its own credentials behind it. The explorer turns off the actions that do not apply to it:
+A storage folder looks like a folder, but it is a whole storage with its own bucket and its own credentials behind it. File Explorer turns off the actions that do not apply to it:
 
 * You cannot rename a storage folder here. Rename the storage from **Settings → Quix Lake** instead. A rename moves the folder every client uses, and it breaks every old path at once.
 * You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
@@ -64,7 +64,7 @@ Everything **inside** a storage behaves like an ordinary folder. Rename, delete,
 
 ## Folders you cannot read
 
-When you can list a folder but cannot read it, the **Visibility** column shows a lock and **No access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. The explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
+When you can list a folder but cannot read it, the **Visibility** column shows a lock and **No access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. File Explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
 
 ## Visibility
 

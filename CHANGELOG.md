@@ -26,8 +26,8 @@ This is the Quix Cloud changelog for the current year.
     - **Renamed in settings** — the **Blob Storage** settings page is now **Quix Lake** at `org-settings/quix-lake`, and the old `org-settings/storage` address redirects to it. The storage permissions panel is now the **Default Permissions** tab.
     - **Every cluster listed** — the settings page now lists every cluster, and a cluster without a connection carries a **Not connected** badge.
     - **Simpler connection editing** — the access key and the secret are now optional when you edit a connection. Leave them empty to keep the stored keys. Quix asks you to test the connection again only when you change a field that reaches the storage, so a new display name saves at once.
-- Storage explorer:
-    - **Cut, copy, and paste** — move or copy a file or folder into another folder from the explorer.
+- File Explorer:
+    - **Cut, copy, and paste** — move or copy a file or folder into another folder from File Explorer.
     - **Copy path** — copy the full path of any file or folder to the clipboard.
 
 ## 2026-06-quix-lake-2 | 23 JUL 2026

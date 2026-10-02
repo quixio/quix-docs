@@ -315,7 +315,7 @@ See [Quix variables](../deployments/quix-variables.md) for the full list of vari
 
 ## Next steps
 
-* [Storage explorer](./storage-explorer.md) — browse and manage files in the Portal
+* [File Explorer](./file-explorer.md) — browse and manage files in the Portal
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
 * [S3-compatible endpoint](./s3-endpoint.md) — reach the same data from your code
 * [Quix Lake Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
