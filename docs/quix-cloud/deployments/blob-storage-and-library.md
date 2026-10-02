@@ -22,9 +22,22 @@ In the deployment dialog, open the **Advanced** tab and expand the **Blob Storag
 
 ### What you get
 
-With the toggle on, Quix injects the connection as a secret variable, `Quix__BlobStorage__Connection__Json`. It holds the endpoint plus the credentials and the bucket as a JSON document. If a [Lakehouse](../quix-lake/lakehouse/overview.md) runs on the bound storage, Quix injects the Lakehouse Catalog and Query endpoints too. For the full list, see [Quix variables](./quix-variables.md) and [variables injected into bound deployments](../quix-lake/blob-storage.md#variables-injected-into-bound-deployments).
+With the toggle on, Quix injects the connection as a secret variable, `Quix__BlobStorage__Connection__Json`. It holds the endpoint plus the credentials and the bucket as a JSON document. If a [Lakehouse](../quix-lake/lakehouse/overview.md) runs on the bound storage, Quix injects the Lakehouse Catalog and Query endpoints too. See [Lakehouse variables](#lakehouse-variables). For the full list of platform variables, see [Quix variables](./quix-variables.md).
 
 Quix writes the variable at deploy time, so redeploy the service after you switch the toggle on. You can read the variable yourself, but the easiest way to consume it is the `quixportal` library below.
+
+### Lakehouse variables
+
+When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too. Your code then reaches the Catalog and Query services without hard-coded URLs:
+
+| Variable | Description |
+|----------|-------------|
+| `Quix__Lakehouse__Catalog__Url` | The Catalog URL, the preferred name. Quix also injects it as `CATALOG_URL`, the legacy PyIceberg alias, and as `QUIX_LAKE_URL`, the QuixLake and QuixLab alias. |
+| `Quix__Lakehouse__Catalog__AuthToken` | Authenticates your code's requests to the Catalog. Pair it with `Quix__Lakehouse__Catalog__Url`. Quix injects it only under the `Quix__` name, as a secret. |
+| `Quix__Lakehouse__Query__Url` | The Query URL. |
+| `Quix__Lakehouse__Query__AuthToken` | Authenticates your code's requests to the Query service. Pair it with `Quix__Lakehouse__Query__Url`. Injected as a secret. |
+
+The connection document keeps its shape when you add a storage or make another storage the main storage. The bucket name in it changes only when an administrator renames the Quix Lake bucket. Quix then restarts the bound deployments, so they take the new name.
 
 ## One bucket, several storages
 

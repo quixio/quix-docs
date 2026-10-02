@@ -37,7 +37,7 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 1. Open **Settings → Quix Lake**. The page shows one row for each cluster.
 2. Click the row of a cluster that shows **Not connected**. The **Connect storage** panel opens, with the **Cluster** filled in.
 3. Type the **Quix Lake bucket**.
-4. Choose the **Provider**. Fill in the **Provider bucket** and the credentials.
+4. Choose the **Provider**. Fill in the **Provider bucket** and the credentials. See [Get provider credentials](#get-provider-credentials).
 5. Click **Test connection**, described below.
 6. Click **Create**.
 
@@ -47,27 +47,7 @@ You type the **Quix Lake bucket** name yourself. It is the one bucket name your 
 
 You can change these facts later. An administrator can rename the Quix Lake bucket: open the connection and click the edit button on the **Quix Lake bucket** line. An administrator can also [rename a storage](#rename-a-storage), and [make another storage the main storage](#make-a-storage-the-main-storage). A storage rename always moves the folder of one storage. A main storage move moves a folder only in one case. The storage that steps down sits at the root, so it must take a folder.
 
-## Test before saving
-
-![Testing connection](../../images/blob-storage/test-connecting.png)
-
-When you click **Test connection**, Quix runs a short round-trip check to confirm your details are correct and that the platform can both see and use your storage. Quix writes a small test file into your bucket, checks that it can list and read the file, and then deletes it.
-
-When the test passes, the panel shows **Tested connection** with a tick.
-
-When the test fails, the panel shows "Connection error. Check your settings and retry." and lists the steps with the reason. Use the reason to fix the permissions or correct your settings.
-
-![Access denied example](../../images/blob-storage/test-error.png)
-
-## Edit a connection
-
-Open the connection from **Settings → Quix Lake**. On the **Storages** tab, click the main storage row, or select **Edit storage** in its `⋮` menu.
-
-The **Access key ID** and the **Secret access key** are optional when you edit. Leave both empty and Quix keeps the keys it already holds. Fill them in only when you rotate the credentials.
-
-Quix asks you to test again only when you change a field that reaches the storage, such as the endpoint, the bucket, or the credentials. A change to the **Name** saves at once.
-
-## Providers
+## Get provider credentials
 
 === "Amazon S3"
 
@@ -131,6 +111,26 @@ Quix asks you to test again only when you change a field that reaches the storag
     6. Copy the information into the Quix MinIO connector form.  
     7. Click **Test connection**.  
 
+## Test before saving
+
+![Testing connection](../../images/blob-storage/test-connecting.png)
+
+When you click **Test connection**, Quix runs a short round-trip check to confirm your details are correct and that the platform can both see and use your storage. Quix writes a small test file into your bucket, checks that it can list and read the file, and then deletes it.
+
+When the test passes, the panel shows **Tested connection** with a tick.
+
+When the test fails, the panel shows "Connection error. Check your settings and retry." and lists the steps with the reason. Use the reason to fix the permissions or correct your settings.
+
+![Access denied example](../../images/blob-storage/test-error.png)
+
+## Edit a connection
+
+Open the connection from **Settings → Quix Lake**. On the **Storages** tab, click the main storage row, or select **Edit storage** in its `⋮` menu.
+
+The **Access key ID** and the **Secret access key** are optional when you edit. Leave both empty and Quix keeps the keys it already holds. Fill them in only when you rotate the credentials.
+
+Quix asks you to test again only when you change a field that reaches the storage, such as the endpoint, the bucket, or the credentials. A change to the **Name** saves at once.
+
 ## Add a storage
 
 A cluster still holds one connection, but that connection can serve more than one storage. Your clients keep addressing **one bucket**, the Quix Lake bucket, and each storage is a **folder** inside it. The **Folder** you set on a storage is that folder name. So a client reaches a second storage by putting the folder first in the key, on the same endpoint and with the same credential:
@@ -167,7 +167,7 @@ The folder name sits at the root of the Quix Lake bucket, and Quix applies the b
 * It starts and ends with a lowercase letter or a digit.
 * It holds only lowercase letters, digits, and `-`.
 * It is unique on the connection. Two storages cannot share one folder.
-* It cannot start with your organization ID and a hyphen. Every environment ID starts that way, and the [environment shortcut](#the-environment-shortcut) needs that shape.
+* It cannot start with your organization ID and a hyphen. Every environment ID starts that way, and the [environment shortcut](./s3-endpoint.md#the-environment-shortcut) needs that shape.
 * It cannot be your organization ID, and it cannot be the name of the Quix Lake bucket.
 * It cannot be `admin`, `explorer`, `internal`, `health` or `metrics`.
 
@@ -217,7 +217,7 @@ The move changes these things:
 
     Quix restarts the deployments bound to that storage and moves its permissions into the new folder. Update your own code, your saved paths, and your sink configuration.
 
-* **The environment shortcut moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](#the-environment-shortcut).
+* **The environment shortcut moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](./s3-endpoint.md#the-environment-shortcut).
 * **The Quix Lake bucket keeps its name.** The bucket belongs to the connection, not to the main storage.
 * **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables.
 * **A promote never clears a folder.** An administrator can still put the main storage back at the bucket root. To do so, empty its **Folder** field in **Edit storage**.
@@ -242,36 +242,7 @@ Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you
 
 ### The environment shortcut
 
-An environment's data lives in a folder named after the environment ID, inside the **main storage**:
-
-```text
-s3://quixdevbucket/<workspaceId>/    the real location, inside the main storage
-s3://<workspaceId>/                  the same data, addressed by the shortcut
-```
-
-Both addresses reach the same objects, and every operation answers the same through either one. A key you read through `s3://<workspaceId>/` drops its `<workspaceId>/` lead.
-
-If an administrator gives the main storage a folder of its own, the folder address works too, and all three reach the same objects:
-
-```text
-s3://quixdevbucket/principal/<workspaceId>/   the main storage in the folder principal
-s3://quixdevbucket/<workspaceId>/             the same data, without the folder
-s3://<workspaceId>/                           the same data, through the environment shortcut
-```
-
-The shortcut always follows the main storage. It works only for an environment ID. Any other bucket name that names no storage answers `404 NoSuchBucket`.
-
-A deployment binds the **main storage** of the connection, so its credential always reaches the shortcut, and it reaches the other storages by key. See [S3-compatible endpoint](./s3-endpoint.md#write-to-another-storage-by-key) for the client-side detail, and [Storage Access Gateway](./secure-storage-access.md) for who may see what.
-
-??? info "The storage name as a bucket name"
-    A client can also address a storage by its name as a bucket name. This old address still works, so old code keeps running.
-
-    ```text
-    s3://minio/reports/2026-08.csv                  the old address, still served
-    s3://quixdevbucket/minio/reports/2026-08.csv    the address to use
-    ```
-
-    Move your code to the folder address. Do not build new code on the old address. A [rename](#rename-a-storage) breaks it at once.
+`s3://<workspaceId>/` is a short address for the environment folder in the **main storage**. It always follows the main storage. See [The environment shortcut](./s3-endpoint.md#the-environment-shortcut).
 
 ### Delete a storage
 
@@ -283,28 +254,9 @@ Open **Delete storage** from the `⋮` menu on the **Storages** tab.
 
 Deleting a storage removes it from the connection. Your data stays in your own bucket.
 
-## Variables injected into bound deployments
+## Bind a storage to a deployment
 
-When a deployment — or a [dev session](../applications/dev-sessions/overview.md) — binds to this connection, Quix injects the connection as a secret:
-
-| Variable | Description |
-|----------|-------------|
-| `Quix__BlobStorage__Connection__Json` | The bound connection as a JSON document — the endpoint plus the credentials and the bucket. The bucket is the Quix Lake bucket. Injected as a secret, so values stay hidden in logs and the UI. |
-
-The document keeps the shape it always had. A new storage does not change it, and a [main storage move](#make-a-storage-the-main-storage) does not change the bucket name in it. The bucket name changes only when an administrator renames the Quix Lake bucket. Quix then restarts the bound deployments, so they take the new name.
-
-Your code reads this one variable and deserializes it to connect to the storage. See [Quix Lake storage](../deployments/blob-storage-and-library.md) for how to read it in Python.
-
-When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too. Your code then reaches the Catalog and Query services without hard-coded URLs:
-
-| Variable | Description |
-|----------|-------------|
-| `Quix__Lakehouse__Catalog__Url` | The Catalog URL, the preferred name. Quix also injects it as `CATALOG_URL`, the legacy PyIceberg alias, and as `QUIX_LAKE_URL`, the QuixLake and QuixLab alias. |
-| `Quix__Lakehouse__Catalog__AuthToken` | Authenticates your code's requests to the Catalog. Pair it with `Quix__Lakehouse__Catalog__Url`. Quix injects it only under the `Quix__` name, as a secret. |
-| `Quix__Lakehouse__Query__Url` | The Query URL. |
-| `Quix__Lakehouse__Query__AuthToken` | Authenticates your code's requests to the Query service. Pair it with `Quix__Lakehouse__Query__Url`. Injected as a secret. |
-
-See [Quix variables](../deployments/quix-variables.md) for the full list of variables the platform injects into deployments.
+A deployment or a [dev session](../applications/dev-sessions/overview.md) binds the **main storage** of the connection. Quix injects the connection as a secret variable. See [Quix Lake storage](../deployments/blob-storage-and-library.md) for the variables and how to read them in Python.
 
 ## Security and operations
 

@@ -32,23 +32,7 @@ A LIST at the root of the Quix Lake bucket names every storage the caller may re
 
 ## The environment shortcut
 
-`s3://<workspaceId>/` reaches that environment's folder inside the **main storage**. It is a shortcut to the real address, and both reach the same objects:
-
-```text
-s3://quixdevbucket/<workspaceId>/x   the real address, inside the main storage
-s3://<workspaceId>/x                 the shortcut — the same object
-```
-
-Every operation answers the same through either address, and a multipart upload you start at one address finishes at the other. The one difference you see is that a key read through the shortcut drops its `<workspaceId>/` lead.
-
-The shortcut takes an environment ID only. Any other bucket name that names no storage answers `404 NoSuchBucket`. An environment ID can never be a storage name, so the two never clash.
-
-!!! note "The shortcut follows the main storage"
-    When an administrator [makes another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage), the shortcut points at that storage from that moment. The promoted storage keeps its folder.
-
-    Only the main storage may sit at the bucket root. So the storage that steps down must take a folder. The administrator names that folder in the promote dialog. The paths of that storage change. When the storage that steps down already has a folder, nothing moves.
-
-    Quix copies no data either way, so the shortcut answers empty until someone copies the environment folders across.
+`s3://<workspaceId>/` reaches that environment's folder inside the **main storage**. It always follows the main storage, so a [main storage move](./blob-storage.md#make-a-storage-the-main-storage) points it at the new one. Quix copies no data, so the shortcut answers empty until someone copies the environment folders across. See [The environment shortcut](./s3-endpoint.md#the-environment-shortcut).
 
 ## Two kinds of folders
 
