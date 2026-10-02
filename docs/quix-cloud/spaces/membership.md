@@ -1,32 +1,32 @@
 ---
 title: Assign members
-description: Decide who works in each space by binding permission groups and adding individual users, from the space designer or from the Users pages.
+description: Decide who works in each space by binding user groups and adding individual users, from the space designer or from the Users pages.
 ---
 
 # Assign members
 
-**Space membership** decides who works in a space. You bind permission groups to a space, and add individual users where a whole group is too broad. Everyone you assign sees the portal the way the space presents it, and nobody gains or loses access to anything.
+**Space membership** decides who works in a space. You bind user groups to a space, and add individual users where a whole group is too broad. Everyone you assign sees the portal the way the space presents it, and nobody gains or loses access to anything.
 
 ## How membership works
 
-A **permission group** is a named group of users that shares the same permissions. The portal lists groups on the `User Groups` tab of `Users`. A user belongs to a space in one of two ways:
+A **user group** is a named group of users that shares the same permissions. The portal lists groups on the `User Groups` tab of `Users`. A user belongs to a space in one of two ways:
 
-* **Through a permission group.** When you bind a group to a space, every user in that group is a member. Users who join the group later become members too.
+* **Through a user group.** When you bind a group to a space, every user in that group is a member. Users who join the group later become members too.
 * **Directly.** You add a named user to the space. Use this for exceptions, such as one person from another team who needs the same view.
 
 !!! warning "Spaces aren't a security boundary"
 
-    A space changes what people see in the portal, not what they can access. Only the portal's navigation is curated: when a space hides a page, the portal steers people away from it, but anyone whose role allows the page can still reach its data and actions through the Quix APIs and CLI. If spaces fail to load, no space is applied and nothing is blocked. To restrict access, assign [roles](../roles.md). See [What a space doesn't control](overview.md#what-a-space-doesnt-control).
+    A space changes what people see in the portal, not what they can access. Only the portal's navigation is curated: when a space hides a page, the portal steers people away from it, but anyone whose role allows the page can still reach its data and actions through the Quix APIs and CLI. To restrict access, assign project permissions and [roles](../roles.md). See [What a space doesn't control](overview.md#what-a-space-doesnt-control).
 
 !!! note "Members with the Operator role"
 
     The Operator role is deprecated, and it doesn't work well inside a space: users whose only role is Operator can't open the space's header apps or sidebar apps. Before you assign these users to a space, plan to give them a role such as `Viewer`. See [Replace the Operator role with a space](replace-operator-role.md).
 
-Each user belongs to one permission group. A user's spaces are therefore the spaces bound to their group, plus any spaces you added them to directly:
+Each user belongs to one user group. A user's spaces are therefore the spaces bound to their group, plus any spaces you added them to directly:
 
 ```mermaid
 flowchart LR
-    G["Permission group<br/>Line operators"] --> S1["Space<br/>Operations"]
+    G["User group<br/>Line operators"] --> S1["Space<br/>Operations"]
     U1["User in the group"] -.-> G
     U2["User added directly"] --> S1
     G --> S2["Space<br/>Reporting"]
@@ -79,7 +79,7 @@ If a user you added directly is later deleted from the organization, they stay l
 
 Use this when you're working with one person, for example when someone changes role and needs a different view of the portal.
 
-On a user's page, the `Spaces` field shows a chip for each space the user belongs to. A chip marked `via group` means the user belongs through their permission group.
+On a user's page, the `Spaces` field shows a chip for each space the user belongs to. A chip marked `via group` means the user belongs through their user group.
 
 1. In the organization sidebar, select `Users`.
 2. On the `Users` tab, click the user's row. The user's page opens.
@@ -100,7 +100,7 @@ The `Manage spaces` dialog lists every space in the organization in three bands,
 | Element | What it means |
 |---|---|
 | `Search spaces...` | Filters the list by space name and description. If nothing matches, the dialog shows `No spaces matching your search.` |
-| A selected, locked row marked `Via {group}` | The user belongs to this space through their permission group. You can't remove it here. To remove it, unbind the group from the space. This removes the space for everyone in the group. |
+| A selected, locked row marked `Via {group}` | The user belongs to this space through their user group. You can't remove it here. To remove it, unbind the group from the space. This removes the space for everyone in the group. |
 | `Will be removed` | You cleared a space the user or group belongs to directly. Clicking `Save` removes it. |
 | The count in the footer | Summarizes your pending changes, for example `2 to add · 1 to remove`, or `No changes`. |
 | `Save` | Applies the changes. It's disabled until you change something. |
@@ -109,7 +109,7 @@ If a change fails, the dialog stays open and shows the error.
 
 !!! warning "Don't change groups just to change spaces"
 
-    A user's permission group also sets their permissions. Moving someone to another group changes what they can do, not just which spaces they see. To give one person a different set of spaces, add or remove them directly instead.
+    A user's user group also sets their permissions. Moving someone to another group changes what they can do, not just which spaces they see. To give one person a different set of spaces, add or remove them directly instead.
 
 ## Manage a group's spaces
 
@@ -161,5 +161,4 @@ To check what members of a space see, [preview the space](create-space.md#previe
 * [Create and manage spaces](create-space.md)
 * [Work in a space](use-spaces.md)
 * [Replace the Operator role with a space](replace-operator-role.md)
-* [Spaces reference](reference.md)
 * [Roles and permissions](../roles.md)

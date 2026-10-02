@@ -113,7 +113,7 @@ The summary line below the lists names who lands in the space. See [Assign membe
 
 ### Change the users' role
 
-Each user's roles come either from their permission group or from their own assignments. Change them where they're set.
+Each user's roles come either from their user group or from their own assignments. Change them where they're set.
 
 To change the roles of a group:
 

@@ -92,13 +92,13 @@ When the strip has 20 pins, `+ Plugin app` is disabled with the tooltip `The str
 
 The organization sidebar is the sidebar on organization-level pages such as `Home` and `Projects`. Choose `Stock`, `Custom` or `Hidden`. See [How section sources work](#how-section-sources-work).
 
-Modules marked with a shield icon are admin-only: `Spaces`, `Settings` and `Audit`. Non-admin members never see them, whatever the space says. A space can still hide them from admins.
+Modules marked with a shield icon are admin-only: `Users`, `Spaces`, `Settings` and `Audit`. Non-admin members never see them, whatever the space says. A space can still hide them from admins.
 
 ### Customize the organization sidebar
 
 !!! warning "Don't hide your own way back"
 
-    If you clear `Spaces`, `Settings` or `Audit` in a space you belong to, you lose those items yourself while you work in the space. To get them back, switch to Spaceless from the space chip. See [Switch to Spaceless](use-spaces.md#switch-to-spaceless).
+    If you clear `Users`, `Spaces`, `Settings` or `Audit` in a space you belong to, you lose those items yourself while you work in the space. To get them back, switch to Spaceless from the space chip. See [Switch to Spaceless](use-spaces.md#switch-to-spaceless).
 
 1. In the section list, select `Organization sidebar`.
 2. Select the `Custom` tile.
@@ -115,7 +115,7 @@ Modules marked with a shield icon are admin-only: `Spaces`, `Settings` and `Audi
 
 Members of the space see your sidebar, in your order. If you clear every module and remove every custom entry, the sidebar is hidden, and the designer selects the `Hidden` tile.
 
-The designer limits how many entries and headings you can add. See [Limits](reference.md#limits).
+The designer limits how many entries and headings you can add, and disables the add buttons when you reach a limit.
 
 ### Add a plugin app
 
@@ -193,7 +193,7 @@ A `Hidden` sidebar suits audiences who only use header apps and a landing page. 
 
 !!! warning "Hiding removes custom entries and admin items"
 
-    Saving with `Hidden` selected deletes the sidebar's custom plugin apps, environment links and headings. If you belong to this space, it also removes `Spaces`, `Settings` and `Audit` for you. To get them back, switch to Spaceless from the space chip.
+    Saving with `Hidden` selected deletes the sidebar's custom plugin apps, environment links and headings. If you belong to this space, it also removes `Users`, `Spaces`, `Settings` and `Audit` for you. To get them back, switch to Spaceless from the space chip.
 
 1. In the section list, select `Organization sidebar`.
 2. Select the `Hidden` tile.
@@ -312,12 +312,11 @@ The live preview in the middle of the designer is also an editor. It shows the o
 | Click a heading | Selects the heading's text in the inspector, ready to rename. On a `Stock` sidebar, this switches the sidebar to `Custom`. |
 | Click a module | The designer opens its section. In a `Custom` section, it also highlights the module's row. |
 | Drag a header app or sidebar row | The entry moves to the new position. This works only for a `Custom` section. |
-| Right-click an entry | A menu offers the actions for that entry. See [Live preview menu](reference.md#live-preview-menu). |
+| Right-click an entry | A menu offers the actions for that entry. |
 
 ## See also
 
 * [Create and manage spaces](create-space.md)
 * [Assign members](membership.md)
 * [Work in a space](use-spaces.md)
-* [Spaces reference](reference.md)
 * [Plugins](../services/plugin.md)

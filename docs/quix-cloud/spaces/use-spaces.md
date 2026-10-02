@@ -19,7 +19,7 @@ When a space is active, the **space chip** shows its icon and name. The chip app
 Hover over the chip to see why you're in the space:
 
 * `Assigned to you` means an admin added you to the space directly.
-* `Via your group` means you're in the space because of your permission group.
+* `Via your group` means you're in the space because of your user group.
 
 If the space has a description, the tooltip shows the description first, for example `Line operations tools — via your group`.
 
@@ -160,7 +160,7 @@ Admins belong to spaces just as other users do, and their active space shapes th
 
 Switch to Spaceless when:
 
-* Your active space hides `Spaces`, `Settings` or `Audit`, and you need them. While the space hides them, you have no sidebar item for them, and opening their address sends you to the landing page.
+* Your active space hides `Users`, `Spaces`, `Settings` or `Audit`, and you need them. While the space hides them, you have no sidebar item for them, and opening their address sends you to the landing page.
 * You want to see the portal as it looks without any space.
 
 To switch to Spaceless:
@@ -189,5 +189,4 @@ If you see a banner that reads `Previewing as member — this is what members of
 ## See also
 
 * [Spaces overview](overview.md)
-* [Spaces reference](reference.md#troubleshooting)
 * [Roles and permissions](../roles.md)

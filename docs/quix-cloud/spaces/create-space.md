@@ -75,7 +75,7 @@ A new space curates nothing. Its members see the same portal as Spaceless: the s
 ### Next steps
 
 1. [Design navigation](navigation.md): choose the header apps, sidebars and landing page.
-2. [Assign members](membership.md): bind permission groups and add users.
+2. [Assign members](membership.md): bind user groups and add users.
 3. [Preview the space as a member](#preview-a-space-as-a-member) to check what members see.
 
 ## Find your way around the designer
@@ -101,7 +101,7 @@ The sections appear in this order:
 | `Organization sidebar` | The modules, plugin apps, environment links and headings in the organization sidebar. | [Design the organization sidebar](navigation.md#design-the-organization-sidebar) |
 | `Environment` | The modules inside every environment, including the YAML sync button and the `Settings` row. | [Choose the environment modules](navigation.md#choose-the-environment-modules) |
 | `Landing page` | Where members arrive after they sign in. | [Choose a landing page](navigation.md#choose-a-landing-page) |
-| `Membership` | Which permission groups and users belong to the space. | [Assign members](membership.md) |
+| `Membership` | Which user groups and users belong to the space. | [Assign members](membership.md) |
 | `Dev tools` | Whether the floating plugin toolbar appears over embedded apps. | [Hide the plugin toolbar](#hide-the-plugin-toolbar) |
 
 ## Set the identity
@@ -122,7 +122,7 @@ The designer header, the section list and the live preview update as you type. M
 
 ### Choose an accent color
 
-The accent picker offers seven preset colors: Blue, Purple, Green, Amber, Orange, Pink and Aqua. Blue is the default. Hover over a preset to see its name. [Accent colors](reference.md#accent-colors) lists their hex values.
+The accent picker offers seven preset colors: Blue, Purple, Green, Amber, Orange, Pink and Aqua. Blue is the default. Hover over a preset to see its name.
 
 To use a custom color, do one of these in the picker:
 
@@ -219,7 +219,7 @@ Preview always shows the **saved** space. In the designer, `Preview` is disabled
 
 While you preview:
 
-* The admin-only `Spaces`, `Settings` and `Audit` items are hidden, as they are for members.
+* The admin-only `Users`, `Spaces`, `Settings` and `Audit` items are hidden, as they are for members.
 * Visiting a page the space doesn't include redirects you to its landing page, as it does for members.
 * The space's theme and plugin toolbar settings apply.
 * You keep your own role. Preview shows what the space presents, not what a particular member's role allows, so a page a member can't open may still open for you.
@@ -237,7 +237,7 @@ Each card on the Spaces page summarizes one space, so you can compare spaces at 
 | Part of the card | What it tells you |
 |---|---|
 | Icon, name and description | The space's identity. The icon tile uses the space's accent color. |
-| `Audience` | Who is in the space: the first bound permission group, the number of other groups, and the number of direct members. Hover to see every group with its number of users. `No audience yet — bind a group or add users` means nobody works in the space yet. |
+| `Audience` | Who is in the space: the first bound user group, the number of other groups, and the number of direct members. Hover to see every group with its number of users. `No audience yet — bind a group or add users` means nobody works in the space yet. |
 | `Shell` | The shape of the portal members get. `Platform default` means nothing is curated. `Portal mode — header apps only` means the space hides every built-in module in both the organization sidebar and the environment. `Custom` lists what is curated, such as `org 5/9 · env 14/14 · 3 pinned`. Hover for a line per section. |
 | `Landing` | Where members arrive. `Product home` means the landing page is `Home`, the default. A page or app name means you chose a landing page. `unavailable` in red means the landing app no longer exists, so members fall back to the home page. |
 | Footer | The member count, or `No audience`, and the date the space was last updated. |
@@ -300,4 +300,3 @@ The space is removed from the Spaces page. If the delete fails, the dialog stays
 * [Design navigation](navigation.md)
 * [Assign members](membership.md)
 * [Work in a space](use-spaces.md)
-* [Spaces reference](reference.md)

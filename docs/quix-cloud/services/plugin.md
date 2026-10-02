@@ -280,7 +280,7 @@ An Operator-only user has the Operator role and no Admin, Manager, Editor or Vie
 To give these users a plugin-only view that works in a space, move them off the Operator role. [Replace the Operator role with a space](../spaces/replace-operator-role.md) has the full steps. In short:
 
 1. Create a space that shows only the plugins. For example, pin the plugins to `Header apps` and set the main plugin as the `Landing page`.
-2. Add the users' permission group to the space's `Membership`.
+2. Add the users' user group to the space's `Membership`.
 3. Change their role from Operator to Viewer, assigned at the level of the environment that runs the plugins.
 4. Check the result with `Preview as member` on the spaces list.
 
