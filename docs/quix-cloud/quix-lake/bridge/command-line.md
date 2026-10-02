@@ -59,24 +59,23 @@ The pairing creates the bridge only. You add the storage in the Portal after the
 
 ## Step 3: Pair the bridge
 
-Run `connect` with no argument. The command asks for the quick config, and you paste it. So no shell history file holds the token.
+Run `connect` with no value. The command asks for the quick config, and you paste it. So no shell history file holds the token.
 
 === "Windows"
+
+    Run this command in an Administrator PowerShell:
 
     ```powershell
     quix-bridge connect
     ```
 
-    The service enrols at the Portal at its next start, in step 5. You do not run `enrol` on Windows.
-
 === "Linux"
 
     ```bash
     sudo quix-bridge connect
-    sudo quix-bridge enrol
     ```
 
-    `enrol` sends the pairing token to the Portal. It exits with code 0 when the Portal enrolled the bridge.
+The command stores the token for the service account. If the service runs, the command restarts it by itself. You do not run `enrol` after `connect`.
 
 ## Step 4: Share folders
 
@@ -107,25 +106,27 @@ Network folders:
 - On Windows, `share add` stores no credential. Add a network server and its credential in the [console](./shared-folders.md#share-a-network-folder).
 - On Linux, the bridge accepts no `\\server\share` path. Mount the network share with the operating system, then share the folder where it is mounted.
 
-## Step 5: Start the service
+## Step 5: Restart the service
+
+`connect` already restarts a running service. If the service does not run, start it. To make the service read a changed config, restart it:
 
 === "Windows"
 
     ```powershell
-    quix-bridge service stop
     quix-bridge service start
+    quix-bridge service restart
     ```
 
 === "Linux"
 
     ```bash
-    sudo quix-bridge service stop
     sudo quix-bridge service start
+    sudo quix-bridge service restart
     ```
 
-The stop and start make the service read the new token. On Windows, the service enrols at the Portal at this start. The shares need no restart. The service applies a `share` command at once.
+`service restart` needs root or Administrator rights. The shares need no restart. The service applies a `share` command at once.
 
-Every command that needs root stops with a hint and a non-zero exit code when you run it without administrator rights or `sudo`. This applies to `service`, `share list`, `config show` and `status`.
+Every command that needs root stops with a hint and a non-zero exit code when you run it without administrator rights or `sudo`. This applies to `service`, `share list`, `config show`, `logs` and `status`.
 
 ## Step 6: Check the bridge
 
@@ -136,6 +137,20 @@ sudo quix-bridge test
 
 - `status` shows the connection, the number of shares and the last error. It exits with code 0 when the service runs and the bridge is connected.
 - `test` checks that the service account can read every share, and that the bridge can reach Quix on port 443. It exits with code 0 when every check passed, even while the service is stopped. The report names a check that failed.
+
+To read the log, run `quix-bridge logs`:
+
+```bash
+sudo quix-bridge logs
+sudo quix-bridge logs --lines 500
+sudo quix-bridge logs -f
+```
+
+- By default, `logs` prints the last 100 lines of the machine log. On Linux, this is `/var/log/quix-bridge/bridge.log`.
+- `--lines N` sets the number of lines.
+- `-f` or `--follow` keeps the command open and prints new lines.
+- `--user` reads the log of your user account instead of the machine log.
+- A normal user gets a message to run `sudo quix-bridge logs`.
 
 Then add the storage in the Portal. On the **Quix Lake Bridges** tab, the menu of the new bridge has **Create storage**. It opens the **Add storage** panel with the bridge picked.
 
@@ -148,7 +163,13 @@ The bridge keeps its settings in `config.yaml`:
 | Windows | `C:\ProgramData\Quix\bridge\config.yaml` |
 | Linux | `/etc/quix-bridge/config.yaml` |
 
-`quix-bridge config show` prints the config the service uses, without the `update` and `network` sections. Two settings you can change by hand:
+`quix-bridge config show` prints the config the service uses, without the `update` and `network` sections. You can paste the output back into `config.yaml`. These rules apply to the output:
+
+- It leaves out a share key that has its default value.
+- A value that the bridge derived from `path` has the comment `# from path`.
+- A share with an error prints the error as a `# error:` line.
+
+Two settings you can change by hand:
 
 ```yaml
 update:
@@ -159,6 +180,37 @@ log:
 
 - `update.channel`: `stable` is the default. Set it to `manual` to turn automatic updates off. The change needs no restart. See [Updates and uninstall](./updates.md).
 - `log.retainDays`: the number of days the bridge keeps its audit log. The default is 30 days. The audit log stays at 500 MB or less. Restart the service after you change it.
+
+### Shares in config.yaml
+
+Each entry in `shares` has these keys. The keys can come in any order.
+
+| Key | Meaning |
+|---|---|
+| `path` | The absolute path of the folder on this machine. Required. |
+| `name` | The bucket in the SAG address. This is the drive letter on Windows, the first folder on Linux, or `/` for the root share. Optional. |
+| `prefix` | The folder inside that bucket. It ends with `/`. Optional. An empty `prefix:` means the default. |
+| `readOnly` | `true` by default. Set it to `false` to let Quix write to the folder. |
+
+The bridge takes `name` and `prefix` from `path` when you leave them out. This is the smallest share:
+
+```yaml
+shares:
+  - path: /srv/data
+    readOnly: true
+```
+
+This share sets `name` and `prefix` by hand:
+
+```yaml
+shares:
+  - path: /srv/results
+    name: srv
+    prefix: results/
+    readOnly: false
+```
+
+A bad share is skipped. The other shares still serve. The error shows in `quix-bridge status` and `quix-bridge config show`. If you swap `name` and `path`, the error is "name and path look swapped".
 
 ## Behind a proxy
 
@@ -173,5 +225,6 @@ network:
 ## Next steps
 
 * [Updates and uninstall](./updates.md) — how the bridge updates itself, and how you remove it
+* [The bridge console](./console.md) — open the console from another machine
 * [Shared folders and the bucket root](./shared-folders.md) — the same shares in the console
 * [Troubleshooting and limits](./troubleshooting.md) — exit codes, states and errors
