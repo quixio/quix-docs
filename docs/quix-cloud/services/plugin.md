@@ -1,357 +1,339 @@
-# Plugin System
+---
+title: Plugin system
+description: Turn any deployment into a plugin. Embed its web UI in the Quix Cloud portal, add it to an environment sidebar, or make it available across the organization, with Quix sign-in and permissions built in.
+---
 
-The plugin system enables services to expose an embedded UI inside Deployment Details (rendered as an iframe), and optionally add shortcuts in the environment's left sidebar or globally in the top header.
+# Plugin system
 
-Managed services may populate these plugin properties automatically via the Managed Framework, and you can always override them explicitly in YAML.
+A **plugin** is a deployment whose web UI opens inside the Quix Cloud portal. Plugins put tools such as configuration panels, dashboards, test managers and operations consoles next to the pipelines they belong to, so users don't switch to another site or sign in again.
 
-Non-managed services can also define these properties in YAML, making any deployment behave like a plugin without being a managed service.
+Any deployment that serves a web UI over HTTP can be a plugin. Its plugin settings live on the deployment and decide where it appears in the portal. Quix sign-in and permissions come with it: the portal passes the signed-in user's token to your UI, and your backend can check what that user is allowed to do in Quix. See [Authentication and authorization](#authentication-and-authorization).
 
-## What it does
+<a id="what-it-does"></a>
 
-* Embed a UI in Deployment Details when enabled
+## Where a plugin appears
 
-  ![Embedded View](images/dynamic-configuration-embedded-view.png){width=80%}
+A plugin has three parts. You turn on only the ones you need:
 
-* Optionally show a sidebar shortcut to the embedded view (environment-scoped)
+* The **embedded view** is the deployment's web UI, shown in an iframe inside the portal. Wherever users open the plugin from, this is what they see.
+* An **environment plugin** has an item in the sidebar of the environment it runs in. Only people working in that environment see it.
+* An **organization plugin** is available across the organization, outside its own environment. The portal shows it as an **app**. Users can always find it by searching, and [spaces](../spaces/overview.md) decide whether it also appears in the header or the organization sidebar.
 
-  ![Sidebar example](images/plugin-sidebar.png){height=50%}
-
-* Optionally show a global shortcut in the top header (organization-wide access)
-
-* Provide basic authentication integration with Quix Cloud so publicly exposed services don't require a separate login (recommended)
-
-!!! tip "Icons"
-    Sidebar icons use [Google Material Icons](https://fonts.google.com/icons). Use the icon code (e.g., `tune`, `settings`, `play_arrow`) in your YAML configuration.
-
-## YAML configuration
-
-In your deployment YAML, you can enable the embedded UI and, optionally, sidebar or global shortcuts:
-
-```yaml
-plugin:
-  embeddedView:                # Can be a boolean or object
-    enabled: true              # Enables embedded view
-    hideHeader: false          # Optional. If true, hides the header (deployment name + menu)
-    default: true              # Optional. If true, shows embedded view by default when opening deployment
-  sidebarItem:                 # Optional environment sidebar shortcut
-    show: true                 # Whether to display a shortcut in the sidebar
-    label: "Configuration"     # Text for the menu item
-    icon: "tune"               # Material icon name
-    order: 1                   # Ordering (lower = higher)
-    badge: "Alpha"             # Optional. Add a short label next to the sidebar item
-  globalItem:                  # Optional global header shortcut (organization-wide)
-    show: true                 # Whether to display in the global header
-    label: "Test Manager"      # Text for the menu item
-    order: 1                   # Ordering (lower = higher)
-    badge: "Beta"              # Optional. Add a short label next to the item
+```mermaid
+flowchart LR
+    D["Deployment<br/>with a web UI"] --> E["Environment plugin<br/>environment sidebar"]
+    D --> O["Organization plugin<br/>an app"]
+    O -->|"pinned or listed<br/>by a space"| H["Header app or<br/>organization sidebar"]
+    O --> C["Command palette<br/>and Home"]
+    E --> V["Embedded view<br/>the UI in the portal"]
+    H --> V
+    C --> V
 ```
 
-Configuration details
+Every route leads to the embedded view, so almost every plugin turns it on. Without it, an environment plugin opens the deployment's details page, and an organization plugin opened from a space shows an empty page.
 
-* `plugin.embeddedView`: object configuring the embedded view behavior.
-  * `enabled` (boolean, default = `false`): Enables the embedded view.
-  * `hideHeader` (boolean, default = `false`): If `true`, hides the deployment name and menu in the embedded view.
-  * `default` (boolean, default = `false`): If `true`, displays the embedded view by default when opening the deployment.
+### Embedded view
 
-* `plugin.sidebarItem`: optional object configuring the environment's left sidebar shortcut.
-  * `show`: boolean. Whether to display the shortcut.
-  * `label`: string. Text for the menu item.
-  * `icon`: string. Must be a [Google Material icon](https://fonts.google.com/icons) code (e.g., `tune`, `settings`, `play_arrow`).
-  * `order`: number. Lower values appear higher in the sidebar.
-  * `badge`: optional string (max 15 characters). Adds a short label next to the sidebar item (e.g., "Alpha", "Beta", "Experimental").
+![A plugin's embedded view inside an environment](images/dynamic-configuration-embedded-view.png){width=80%}
 
-* `plugin.globalItem`: optional object configuring a global shortcut in the top header (organization-wide access).
-  * `show`: boolean. Whether to display the global shortcut.
-  * `label`: string. Text for the menu item.
-  * `order`: number. Lower values appear first (left to right). Plugins with the same order are sorted by the default workspace order in the project.
-  * `badge`: optional string (max 15 characters). Adds a short label next to the item (e.g., "Beta", "Preview").
+Above the plugin, a title bar shows the deployment's icon and name. Inside the environment, users who can access the deployment's settings also get an `Embedded view` / `Details view` toggle there, to switch between the plugin and the deployment's details page. Hiding the title bar (`hideHeader`) lets the plugin fill the whole panel.
 
-## Global plugins
+Making the embedded view the default view (`default`) decides what opening the deployment does. When it's on, the pipeline, the environment sidebar and, outside a space, the command palette open the plugin. When it's off, they open Deployment details. The expand button in the pipeline's side panel always opens Deployment details.
 
-Global plugins appear in the top header of Quix Cloud and provide organization-wide access to a plugin's embedded UI, regardless of which environment or workspace is currently active.
+The same embedded view opens at one of two portal addresses, depending on where it's opened from:
 
-![Global plugin in header](../../images/quix-cloud/plugin-global-header.png)
+| Portal URL | Opened from | Layout |
+|---|---|---|
+| `/pipeline/deployments/<deployment-id>/embedded?workspace=<environment-id>` | The pipeline, the environment sidebar and Deployment details | Inside the environment, with the environment sidebar |
+| `/apps/<deployment-id>` | Header apps, organization sidebar entries, the command palette, the `Apps` list on `Home`, and a space's landing page | In a space, beside the organization sidebar, unless the space hides it. Outside a space, full screen with the header and no sidebar. |
 
-### What are global plugins?
+Anything after the plugin's address is passed to the plugin as a path, so `/apps/<deployment-id>/alarms` opens the plugin's `/alarms` page. See [Embedded view URL](#embedded-view-url). Older links in the form `/plugins/details/<deployment-id>` still work: the portal redirects them to `/apps/<deployment-id>`, keeping the path, query and fragment.
 
-Unlike environment-scoped `sidebarItem` shortcuts (which only appear within a specific environment), global plugins:
+While the deployment isn't running, the embedded view shows the deployment's state in place of the plugin: starting, deploying, failed, or stopped with a `Start` button.
 
-* Are accessible from anywhere in Quix Cloud via the top header.
-* Provide cross-workspace and cross-environment access to the plugin.
-* Are visible to all users in the organization who have the `plugins:read` permission for that deployment.
-* Appear in the order specified by the `order` field (lower values appear first, left to right).
-* When multiple plugins share the same `order` value, they are sorted by the default workspace order in the project.
+<a id="environment-sidebar"></a>
 
-### When to use global plugins
+### Environment plugins
 
-Use `globalItem` for plugins that:
+![An environment sidebar with plugin items](images/plugin-sidebar.png)
 
-* Provide organization-wide services or dashboards (e.g., test managers, monitoring tools, admin panels).
-* Need to be accessible regardless of the current environment context.
-* Serve multiple workspaces or projects.
+An environment plugin adds an item to a `Plugins` section of its environment's sidebar, below the built-in modules. Items are sorted by `environmentItem.order`, lowest first, and the list updates as deployments are created and deleted.
 
-### Permissions and access control
+Environment plugins are scoped to their environment: someone working in another environment doesn't see them. To reach users outside the environment, also make the deployment an [organization plugin](#organization-plugins). One deployment can be both.
 
-Global plugins use a specialized permission model:
+## Configure a plugin
 
-* Users need the `plugins:read` permission on the deployment to see and access the global plugin.
-* The Operator role automatically grants full plugin access (`plugin:*`).
-* Users can access a global plugin deployment even without `workspace:read` permissions on the workspace containing the deployment, as long as they have `plugins:read` on that specific deployment.
-* This allows you to expose specific tools organization-wide without granting full workspace access.
-
-For more information about roles and permissions, see the [Roles and Permissions](../roles.md) documentation.
-
-### Configuration example
-
-To create a global plugin for a test manager:
+Plugin settings belong to the deployment, under a `plugin` block with one optional sub-block per part. The deployment dialog and `quix.yaml` edit the same settings, so a change in one shows in the other.
 
 ```yaml
 deployments:
-  - name: Test Manager
-    application: TestManager
+  - name: Config Manager
+    application: config-manager
     version: latest
-    deploymentType: Managed
+    deploymentType: Service
+    publicAccess:
+      enabled: true                # Required for the embedded view of a non-managed deployment
+      urlPrefix: config-manager
     plugin:
       embeddedView:
-        enabled: true
-        default: true
-      globalItem:
-        show: true
-        label: "Test Manager"
-        order: 1
-        badge: "Beta"
+        enabled: true              # Show the web UI inside the portal
+        hideHeader: false          # true hides the title bar above the plugin
+        default: true              # Open the embedded view instead of Deployment details
+      environmentItem:
+        show: true                 # Make this an environment plugin
+        label: "Configuration"
+        icon: "tune"               # Google Material icon code
+        order: 1                   # Lower values appear higher
+        badge: "Alpha"
+      organisationItem:
+        show: true                 # Make this an organization plugin
+        label: "Configuration"
+        icon: "tune"
+        badge: "Alpha"
 ```
 
-This configuration:
+<a id="yaml-configuration"></a>
+<a id="configure-in-yaml"></a>
 
-* Enables the embedded view and makes it the default view when opening the deployment.
-* Creates a global shortcut labeled "Test Manager" in the top header.
-* Sets the display order to `1` (appears first).
-* Adds a "Beta" badge to indicate the feature status.
+### Plugin keys
+
+| Key | Default | What it does |
+|---|---|---|
+| `embeddedView.enabled` | `false` | Turns on the embedded view. |
+| `embeddedView.hideHeader` | `false` | Hides the title bar above the plugin. |
+| `embeddedView.default` | `false` | Opens the embedded view, not Deployment details, when users open the deployment. |
+| `environmentItem.show` | `false` | Makes the deployment an environment plugin. |
+| `environmentItem.order` | None | Position in the environment's `Plugins` section, lowest first. Set it on every environment plugin: items without one don't sort in a predictable place. |
+| `organisationItem.show` | `false` | Makes the deployment an organization plugin. |
+| `label` | The deployment name | Under either item: the name shown for the plugin. |
+| `icon` | `extension` | Under either item: a [Google Material Icons](https://fonts.google.com/icons){target=_blank} code, such as `tune` or `fact_check`. |
+| `badge` | None | Under either item: a short tag shown next to the name, such as `Beta`. |
+
+`organisationItem` has no `order`, because each space sets the order of its own header apps and sidebar entries. The key is spelled with an "s". Quix skips unknown keys under `plugin` without an error, so a misspelled key makes the plugin silently not appear.
+
+Keep labels and badges short. The deployment dialog limits them to 25 characters, and longer text is truncated in the sidebar and header.
+
+!!! note "Renamed keys"
+
+    `environmentItem` and `organisationItem` replace the old keys `sidebarItem` and `globalItem`. Quix Cloud still reads the old keys, and writes the new ones the next time it saves `quix.yaml`. If a deployment has both, the new key wins. Tools built on older Quix packages, including older versions of the Quix CLI, ignore the new keys and lose these settings, so update the Quix CLI first.
+
+    The old names survive in two places. The Portal API's JSON still uses `plugin.sidebarItem` and `plugin.globalItem`, and the `Plugin` section of the Deployment details page labels the two items `Sidebar item` and `Global item`.
+
+### Configure in the deployment dialog
+
+The deployment dialog has a toggle for each part in `Plugin Settings` on its `Advanced` tab, with the same fields as the YAML. A few things it doesn't make obvious:
+
+* **A deployment that isn't a managed service needs public access.** Its embedded view loads from its public URL, so without `Public access` in `Network settings` the embedded view has nothing to load. See [Deploy a public service](../deployments/deploy-public-page.md).
+* **Turning a part off deletes its settings.** The dialog saves only the parts that are on. Once you save with a part off, its label, icon, badge and order are gone from the deployment, not just hidden.
+* **The default view starts on.** For a new deployment, the dialog turns on `Use as default view` (`embeddedView.default`). In YAML it defaults to `false`.
+
+If you deploy from a code sample that includes plugin settings, the dialog starts with them.
+
+### Managed services
+
+When you deploy a managed service that Quix defines as a plugin, and you don't set `plugin` yourself, Quix enables its embedded view and makes it the default view. Your own `plugin` settings replace these defaults. If you later remove your plugin settings, Quix restores the defaults rather than removing the embedded view.
+
+<a id="what-are-global-plugins"></a>
+<a id="when-to-use-global-plugins"></a>
+<a id="global-plugins"></a>
+
+## Organization plugins
+
+An **organization plugin** is a deployment that users can reach from anywhere in the organization, not only from the environment it runs in. It suits a tool that serves people outside its project, such as a test manager, a monitoring dashboard or an operations console. Organization plugins were previously called global plugins.
+
+The portal shows an organization plugin as an app. Turn on its embedded view and make it the default view as well, so it opens as an app wherever users reach it.
+
+The portal groups organization plugins that share a project and a deployment name into one app. Each deployment in the group, typically one per environment, is an **instance** of the app. A header pin, sidebar entry or landing page opens the instance the space chose, and where an app has more than one instance, the [plugin toolbar](#plugin-toolbar) lets users switch between them.
+
+### Available is not pinned
+
+Making a deployment an organization plugin makes it *available* across the organization. It doesn't put the app anywhere on screen. Organization admins place it with [spaces](../spaces/overview.md): a space can pin it to the header, list it in the organization sidebar, or use it as the landing page. See [Pin header apps](../spaces/navigation.md#pin-header-apps).
+
+<a id="where-global-plugins-appear"></a>
+
+### Where organization plugins appear
+
+| Place | In a space | Without a space |
+|---|---|---|
+| Header app strip | Only the apps the space pins, in the order the space sets. | Empty, except for [Operator-only users](#operator-only-users-deprecated). |
+| Organization sidebar | Where the space lists the app. | Not listed. |
+| Landing page | When the space uses the app as its landing page. | Not used. |
+| Command palette, and the `Apps` list on `Home` | Every organization plugin the user has access to. | Every organization plugin the user has access to. |
+
+"Without a space" covers organizations that don't use spaces, users who belong to no space, and organization admins who switch to Spaceless. A space curates the header and the organization sidebar, but search always finds every app a user can open. The `Apps` list on `Home` is shown to users who aren't organization admins.
+
+The header app strip appears only on organization-level pages, such as `Home` and `Projects`. Inside a project, the header shows the project and environment instead.
+
+<a id="how-the-globalitem-settings-are-used"></a>
+<a id="how-the-organisationitem-settings-are-used"></a>
+
+The `organisationItem` settings describe the app wherever it appears, and a space decides where that is. An organization admin can give a header pin or sidebar entry its own label and icon, but the badge always comes from the deployment. If a deployment stops being an organization plugin, its header pins disappear and its sidebar entries show as disabled, with the tooltip `This app is not available right now`.
+
+### Permissions and access control
+
+Access to an organization plugin comes from roles, never from spaces:
+
+* To see and open an organization plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment, and the user doesn't need `workspace:read` there.
+* The Admin, Manager and Editor roles grant `plugin:*`, and the Viewer role grants `plugin:read`. The narrowest choice is the Viewer role assigned at the environment level. See [Permission levels](../roles.md#permission-levels).
+* A space that pins an app doesn't give anyone access to it. Users without access don't see the app in the header or the command palette, and see a sidebar entry for it as disabled.
+
+<a id="what-operator-only-users-see"></a>
+<a id="operator-only-users-deprecated"></a>
+
+!!! warning "The Operator role is deprecated"
+
+    The Operator role grants `plugin:*` and nothing else. Existing assignments still work. An Operator-only user, with no Admin, Manager, Editor or Viewer role, can open any app at `/apps/<deployment-id>`, including a space's header apps. Any other page sends them to their first organization plugin, and they always see plugins full screen, never beside the organization sidebar. Without a space, their header lists every app they can access. The portal checks the role once per session, so a role change applies after the user reloads the portal.
+
+    Don't assign the role to new users. To give users a plugin-only view, use a space and the Viewer role instead. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
+
+## Plugin toolbar
+
+Every embedded view has a floating button in its bottom-right corner, the **plugin toolbar**. It's the way back to the rest of the portal from a plugin that hides its title bar or opens full screen. Its menu also acts on the plugin itself: reload it, open it in a new tab, copy a link to the current page, switch instance, open or restart the deployment, and search the portal. Actions on the deployment need access to its settings, and pages a space hides drop out of the menu.
+
+The toolbar shows the plugin's `organisationItem` label and icon, even when the plugin is opened from the environment sidebar, and falls back to the deployment name and the `extension` icon.
+
+Users can drag the button, and the browser remembers where. It can still cover part of your plugin, so keep essential controls away from the bottom-right corner. A user can hide it until the page reloads, and an organization admin can turn it off for everyone in a space. See [Hide the plugin toolbar](../spaces/create-space.md#hide-the-plugin-toolbar).
 
 ## Embedded view URL
 
-When the plugin feature is enabled, the deployment exposes a public URL dedicated to the embedded UI. The Portal uses this URL to load the embedded view inside the iframe when `embeddedView` is enabled. This URL is not set in YAML; it's exposed by the API.
+The embedded view loads from a URL that Quix derives for the deployment. You don't set it in YAML.
 
-Population rules:
+| Deployment | Embedded view URL |
+|---|---|
+| Managed service | Set by Quix, from the deployment ID and the environment's public URL. |
+| Any other deployment | The deployment's public URL. Without public access (`publicAccess.enabled`), there's no URL to load. |
 
-* Managed service → Derived from Managed Services conventions.
-* Non-managed service → Requires `publicAccess` to be enabled; resolves from the deployment's public URL.
+The Portal API returns it as `plugin.embeddedViewUrl` when the embedded view is enabled. It lists environment plugins at `GET /workspaces/<environment-id>/plugins`, and the organization plugins the signed-in user can access at `GET /plugins/global`.
+
+Two server-side problems stop the plugin from loading:
+
+* **Frame headers.** If your server sends `X-Frame-Options`, or a `Content-Security-Policy` `frame-ancestors` directive that doesn't include the portal's origin, the browser shows a blank iframe or reports that the site refused to connect. Security middleware often sets these headers by default.
+* **A `404` at the root.** When it opens the plugin, the portal sends a `GET` request to the embedded view URL. If your server answers `404 Not Found`, the portal shows `Embedded service not available` in place of the iframe. Other errors don't block it.
+
+### What the portal adds to the URL
+
+The portal doesn't load the embedded view URL as it is. It builds the iframe address from:
+
+1. **The plugin path.** Anything after the plugin's portal URL is appended to the URL's path, and a `#fragment` is kept. For example, the portal URL `/apps/<deployment-id>/alarms` loads `<embedded-view-url>/alarms`.
+2. **The portal's query parameters.** Every query parameter on the portal URL is forwarded. In the environment, this includes `workspace=<environment-id>`. Query parameters that your plugin adds to its own URL through the SDK are merged into the portal URL, so they're forwarded again after a refresh. The portal never removes a parameter: one that your plugin drops from its URL stays in the portal URL and comes back on the next load. Treat parameters as additive, or set an explicit empty or default value instead of removing one.
+3. **Three parameters for the plugin.** The portal sets these last, so they override any parameter with the same name, and strips them from its own address bar:
+
+    | Parameter | Value | Purpose |
+    |---|---|---|
+    | `isIframe` | `true` | Marks the page as loaded inside the portal. |
+    | `portalOrigin` | The portal's origin, for example `https://<your-portal-domain>` | The only origin the Quix Plugin SDK accepts navigation and theme messages from. |
+    | `theme` | `light` or `dark` | The portal's color mode when the iframe loads, so the plugin can paint in the right mode from the start. Later changes arrive as messages, without a reload. The portal doesn't resend the mode to a page that your plugin loads itself, such as after a plain link or a reload. |
+
+For example, opening `/pipeline/deployments/<deployment-id>/embedded/runs/42?workspace=<environment-id>` in the portal loads this iframe address:
+
+```text
+<embedded-view-url>/runs/42?workspace=<environment-id>&isIframe=true&portalOrigin=https%3A%2F%2F<your-portal-domain>&theme=dark
+```
+
+The [Quix Plugin SDK](plugin-sdk.md) reads `portalOrigin` and `theme` for you. See [Theme](plugin-sdk.md#theme) and [Security model](plugin-sdk-internals.md#security-model).
+
+### Serve every path from your app
+
+A deep link or a browser refresh requests the plugin path from your server, such as `/runs/42`. Serve your plugin from the root of its origin, and answer every route with your entry page and a `200` status. For path routing, catch-all routes and asset URLs, see [Navigation](plugin-sdk.md#navigation).
+
+### Stay on the embedded view origin
+
+The portal exchanges messages only with the origin of the embedded view URL. If your plugin redirects the iframe to another origin, such as an external sign-in page, the portal ignores that page: it gets no token and its navigation isn't mirrored. Keep the pages that need the token on the embedded view origin.
+
+<a id="quick-start"></a>
+<a id="what-the-sdk-does"></a>
+<a id="auth-handshake"></a>
+<a id="url-synchronisation"></a>
+<a id="api-reference"></a>
+<a id="token-refresh-and-expiration"></a>
+<a id="verifying-the-sdk-is-loaded"></a>
+<a id="migrating-from-the-manual-postmessage-integration"></a>
 
 ## Quix Plugin SDK
 
-The **Quix Plugin SDK** is a small JavaScript library hosted by the Portal. It's the standard integration layer for any embedded plugin UI and we recommend including it in every plugin: it handles the auth handshake with the Portal, keeps the Portal URL in sync with your plugin's internal navigation, and is the place future cross-frame contracts will be added. Including it gets you all of these for free and keeps your plugin forward-compatible.
+To connect your plugin's UI to the portal, use the [Quix Plugin SDK](plugin-sdk.md), a small JavaScript library that the portal serves. It passes your UI the signed-in user's token and keeps it fresh, keeps the portal URL and your plugin's routes in step, and follows the portal's light or dark mode.
 
-### Quick start
+<a id="authentication-and-authorization-recommended"></a>
 
-!!! warning "Use your own Portal domain"
-    The SDK must be loaded from the **same Portal that hosts your plugin** — the auth and navigation contracts only line up between the SDK and the Portal it came from. Substitute `<your-portal-domain>` in the snippets below before copying:
+## Authentication and authorization
 
-    * **Quix Cloud:** `portal.cloud.quix.io`
-    * **Self-hosted / dedicated / custom domain:** the host you use to access your Portal (for example `portal.example.com`).
+Authentication is optional. Use it when you want your plugin to reuse Quix sign-in and permissions: users don't sign in to your plugin separately, and your plugin enforces the same user and environment permissions as the rest of Quix Cloud.
 
-Add the SDK script to your embedded UI's HTML, then call `init()` and (optionally) register a token callback:
+Your UI receives the user's token from the portal, but only your backend can trust it. The backend validates every request against the Portal API:
 
-```html
-<script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
-<script>
-  QuixPlugin
-    .init()
-    .onToken(function (token) {
-      // Fires with the initial token AND again on every silent refresh —
-      // always re-apply the latest token.
-      myApi.setAuthHeader('Bearer ' + token);
-    });
-</script>
+```mermaid
+sequenceDiagram
+    participant P as Portal
+    participant U as Plugin UI
+    participant B as Plugin backend
+    participant A as Portal API
+    U->>P: SDK asks for the user's token
+    P-->>U: Token, refreshed before it expires
+    U->>B: Request with the token as a Bearer header
+    B->>A: Validate the token and check a permission
+    A-->>B: Allowed or not
+    B-->>U: Response
 ```
 
-That's it. When the embedded view loads, the SDK requests the auth token from the Portal, and your `onToken` callback fires as soon as it arrives — and again each time the SDK silently refreshes the token before it expires (see [Token refresh and expiration](#token-refresh-and-expiration)). URL synchronisation is enabled at the same time — no extra code required.
+Your plugin's UI can get the token in two ways:
 
-### What the SDK does
+=== "SDK token (recommended)"
 
-Calling `QuixPlugin.init()` switches on the full set of plugin/Portal integrations. Today this covers two things; expect more to be layered on over time without requiring changes in your plugin.
-
-#### Auth handshake
-
-The SDK posts `REQUEST_AUTH_TOKEN` to the parent Portal, listens for the `AUTH_TOKEN` response, and caches the token internally. It also keeps the token fresh: it reads the token's expiry and requests a replacement from the Portal before the current one expires — see [Token refresh and expiration](#token-refresh-and-expiration). Any callback you register via `onToken(...)` receives every token — the initial one and each refreshed one — including callbacks registered *after* a token has already arrived (no race conditions on late registration).
-
-You only need this if your plugin makes authenticated calls to Quix APIs or to a backend that validates the Quix token. See [Authentication and authorization](#authentication-and-authorization-recommended) below for the auth options and [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) for backend validation.
-
-#### URL synchronisation
-
-The SDK keeps the Portal's browser URL in sync with your plugin's internal route. This means deep links into your plugin's UI just work:
-
-* When your plugin navigates internally (via `history.pushState`, `replaceState`, `popstate`, or `hashchange`), the SDK posts the new path to the Portal.
-* The Portal mirrors the path into its own URL bar — without reloading the iframe.
-* The full URL fragment is preserved: pathname, query string, and hash. So a plugin route like `/dashboard/items?filter=open#section` survives a refresh, a copy-paste, or a shared link.
-
-No code is required on your side for URL sync — `init()` enables it automatically. Just use normal browser navigation (or your framework's router) inside the plugin and the Portal URL will follow.
-
-### API reference
-
-The SDK exposes a single global, `QuixPlugin`, with two methods:
-
-**`QuixPlugin.init()`**
-
-Starts the SDK and enables all of the integrations described above. Returns the `QuixPlugin` object so calls can be chained.
-
-Calling `init()` more than once is a no-op — the SDK is idempotent and will not double-register listeners or fire duplicate messages.
-
-**`QuixPlugin.onToken(callback)`**
-
-Registers a function to receive the auth token. The callback is invoked with the token string as its only argument, and it fires **repeatedly** — once with the initial token, and again every time the SDK silently refreshes the token before it expires (see [Token refresh and expiration](#token-refresh-and-expiration)). Re-apply the token on every invocation — for example, update your API client's `Authorization` header each time — and don't cache the first token or assume it stays valid for the whole session:
-
-```js
-QuixPlugin.onToken(function (token) {
-  // Called with the initial token and again on every refresh.
-  // Always re-apply the latest token.
-  myApi.setAuthHeader('Bearer ' + token);
-});
-```
-
-You can register multiple callbacks; they all fire each time a token arrives.
-
-If a token has already been received before you register the callback (for example, you register it asynchronously after some other startup work), the callback is invoked **immediately** with the cached token. This means late registrations don't miss the token, and you don't need to track the SDK's lifecycle yourself.
-
-Returns the `QuixPlugin` object so calls can be chained.
-
-### Token refresh and expiration
-
-Auth tokens are JWTs with an expiry (`exp`) claim — they don't stay valid forever. The SDK handles this for you: after each token arrives, it decodes the expiry and proactively posts a new `REQUEST_AUTH_TOKEN` to the parent Portal before the current token expires. Each fresh token fires your `onToken` callbacks again.
-
-!!! note
-    Automatic token refresh requires **Quix Plugin SDK v1.1.0 or later** — if your browser has cached an older copy of `quix-plugin.js`, do a hard refresh to pick up the current version (check the version logged next to the `Quix` badge in the console).
-
-If you use `onToken` and re-apply the token on every invocation (as in the examples above), there is nothing else to do — your plugin keeps working across token expiries without any extra code.
-
-If you implement the `postMessage` handshake yourself instead of using the SDK, refresh is your responsibility: decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` to the parent Portal before it passes, otherwise your plugin's API calls will start failing once the token expires.
-
-### Verifying the SDK is loaded
-
-On a successful `init()`, the SDK logs a collapsed group to the browser console headed by a blue `Quix` badge and the SDK version. When the auth token arrives, a `✓ Auth token received` line is added. If you don't see that group, the SDK script either failed to load or `init()` was never called.
-
-### Migrating from the manual `postMessage` integration
-
-Earlier versions of this guide showed how to wire up `REQUEST_AUTH_TOKEN` and `AUTH_TOKEN` by hand. The SDK now wraps that protocol and adds [automatic token refresh](#token-refresh-and-expiration) and URL synchronisation on top. If your plugin still has a hand-rolled handshake, migrate it — hand-rolled integrations that never re-request the token stop working when it expires.
-
-To migrate:
-
-1. **Remove the hand-rolled handshake** — delete your `window.addEventListener('message', ...)` handler for `AUTH_TOKEN` and the code that posts `REQUEST_AUTH_TOKEN` to the parent window.
-2. **Load the SDK and register your token handler** — add the `quix-plugin.js` script tag and move the body of your old `AUTH_TOKEN` handler into `onToken`:
+    The [Quix Plugin SDK](plugin-sdk.md) asks the portal for the signed-in user's token, requests a new one before it expires, and passes each token to your `onToken` callback:
 
     ```html
     <script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
     <script>
+      let authToken = null;
+
       QuixPlugin
         .init()
-        .onToken(function (token) {
-          // Fires with the initial token and again on every refresh.
-          myApi.setAuthHeader('Bearer ' + token);
+        .onToken((token) => {
+          // Runs with the first token and again after every refresh.
+          authToken = token;
         });
     </script>
     ```
 
-3. **Make the handler re-entrant** — `onToken` fires again on every silent refresh, so re-apply the token each time rather than treating it as one-shot (see [`onToken`](#api-reference)).
+    Send the token as `Authorization: Bearer <token>` when you call Quix APIs, or to your own backend to validate there. To wait for the first token before your first request, see [Quick start](plugin-sdk.md#quick-start). For refresh, and what to do when no token arrives, see [Authentication token](plugin-sdk.md#authentication-token).
 
-That's the whole migration: the SDK posts `REQUEST_AUTH_TOKEN`, receives `AUTH_TOKEN`, and — because it decodes the token's `exp` claim and re-requests before expiry — gives you [automatic token refresh](#token-refresh-and-expiration) for free. The underlying message contract is unchanged, so existing Portal-side support continues to work; you're only replacing the iframe-side code.
+=== "Cookie"
 
-!!! warning "Keeping a bespoke handshake? Refresh is on you — and clamp your timer"
-    If you keep a hand-rolled `postMessage` integration instead of the SDK, you **must** implement expiry-based refresh yourself: decode the token's `exp` claim and post a new `REQUEST_AUTH_TOKEN` to the parent Portal before it passes. When scheduling that with `setTimeout`, **clamp the computed delay to at most 24 hours** and re-check on wake: browsers store the delay as a 32-bit integer, so any delay above ~24.8 days overflows and the timer fires **immediately**, which can turn your refresh into a hot request loop. The SDK applies this clamp for you — one more reason to migrate.
+    When a user is signed in, the portal also stores their access token, a JWT, in a cookie named `quix_access_token`. It's scoped to the Quix domain that the portal runs under and all its subdomains, which include the Portal API's host. If the portal's host isn't under that domain, the cookie is set for the portal's host only. It's set with `SameSite=Lax`, and with `Secure` over HTTPS.
 
-## Authentication and authorization (recommended)
+    A few Portal API endpoints accept the cookie in place of an `Authorization` header: workspace file content, such as Markdown, images, CSS and PDF files, and library template files. This is useful for files the browser loads directly. Every other endpoint requires the header.
 
-!!! note
-    Authentication is **not required**. If your frontend app doesn't need it, you can ignore this section.
-    The details below are only useful if you want your embedded app to reuse Quix's authentication and authorization system, so it follows the same user and environment permissions.
+    !!! warning "Any backend under the same domain receives the cookie"
 
-When used, the embedded view inherits authentication and authorization from the Quix platform: no separate login is required, and the same user/environment permissions apply.
+        The browser sends the cookie to every host under its domain. If your deployment's public URL is under that domain, your backend receives the user's token with every request, and so does any other backend there. Treat the cookie as a credential: don't log it, and validate the token on your server before you trust it.
 
-Quix supports two ways to deliver the auth token to your plugin:
+    !!! warning "The cookie stays current only while the portal is open"
 
-=== "SDK-based (recommended)"
+        The portal rewrites the cookie whenever it gets a new token for its own session. Nothing refreshes it for your plugin, so once the token expires, requests that rely on it fail with authentication errors. Handle `401` responses, for example by asking the user to reload the portal page, or use the SDK token instead.
 
-    Use the [Quix Plugin SDK](#quix-plugin-sdk) you've already included for URL synchronisation. The SDK performs the `REQUEST_AUTH_TOKEN` / `AUTH_TOKEN` handshake with the Portal, keeps the token fresh across expiries, and delivers every token via `onToken(callback)` — so re-apply it on each invocation:
-
-    ```html
-    <script src="https://<your-portal-domain>/static/sdk/quix-plugin.js"></script>
-    <script>
-      QuixPlugin
-        .init()
-        .onToken(function (token) {
-          // Fires with the initial token and again on every refresh.
-          myApi.setAuthHeader('Bearer ' + token);
-        });
-    </script>
-    ```
-
-    Replace `<your-portal-domain>` with the host of the Portal serving your plugin (for example `portal.cloud.quix.io` on Quix Cloud, or your custom domain). See the [Quick start](#quick-start) admonition for the full list.
-
-    Use the token as a Bearer credential when calling Quix APIs, or pass it to your own backend and validate it there — see [How to handle the token in the backend](#how-to-handle-the-token-in-the-backend) below.
-
-    For full SDK details (token refresh, console logging, idempotency, late registration), see the [Quix Plugin SDK](#quix-plugin-sdk) section above.
-
-=== "Cookie-based"
-
-    For simpler integrations, embedded plugins can use the Portal's `quix_access_token` cookie for authentication. When the user is logged into Quix Cloud, this cookie contains a Bearer token that is automatically sent with requests to same-domain endpoints.
-
-    !!! note
-        Cookie-based auth is an alternative for the **token delivery** step only. You should still include the [Quix Plugin SDK](#quix-plugin-sdk) so your plugin gets URL synchronisation and stays forward-compatible with future cross-frame contracts — even if you don't use `onToken`.
-
-    !!! warning "The cookie token expires — and is not refreshed"
-        The token inside `quix_access_token` is a JWT with an expiry, and unlike the SDK/`postMessage` path it is **not refreshed automatically**. Once it expires, requests relying on the cookie start failing with authentication errors. If you use cookie-based delivery, handle re-authentication yourself — detect `401` responses (or the token's `exp` claim passing) and obtain a fresh cookie, for example by prompting the user to reload the Portal page. If you need a token that stays valid without extra handling, use the [SDK-based delivery](#quix-plugin-sdk) instead.
-
-    **Cookie details:**
-
-    * **Cookie name:** `quix_access_token`
-    * **Contents:** Bearer token (same format as Authorization header)
-    * **Scope:** Same-domain requests only
-
-    **How it works:**
-
-    1. The user logs into Quix Cloud, which sets the `quix_access_token` cookie.
-    2. The embedded plugin iframe is loaded from a Quix-hosted URL.
-    3. The browser automatically includes the cookie with requests to Quix APIs.
-    4. Endpoints marked for cookie authentication extract and validate the token.
-
-    **When to use cookie-based auth:**
-
-    * Your plugin is hosted on the same domain as Quix Cloud
-    * You want simpler frontend code without postMessage handling
-    * You're accessing file content or static resources in iframes
-
-    **Supported endpoints:**
-
-    Cookie-based authentication is enabled for specific endpoints:
-
-    * Workspace file content (markdown, images, CSS, PDFs)
-    * Template files for embedded views
-
-    **Limitations:**
-
-    * Only works for same-origin deployments (cookie not sent cross-origin)
-    * Only specific endpoints marked for cookie auth accept it (listed above)
-    * Less flexible than token-based auth for cross-origin scenarios
-    * The token in the cookie expires and is **not** auto-refreshed — see the warning above
+    Even if you use the cookie, include the [Quix Plugin SDK](plugin-sdk.md) so that your plugin's routes and theme stay in step with the portal.
 
 ### How to handle the token in the backend
 
-If you want to validate and authorize requests against Quix, you can install the Quix Portal helper package from the public feed:
+Validate the token on your backend for every request. Don't trust a token only because your UI received it: the SDK accepts a token from whichever page embeds your plugin. See [Security model](plugin-sdk-internals.md#security-model).
+
+To validate and authorize requests against Quix, install the Quix Portal helper package, `quixportal`, from the public feed:
 
 ```bash
 pip install -i https://pkgs.dev.azure.com/quix-analytics/53f7fe95-59fe-4307-b479-2473b96de6d1/_packaging/public/pypi/simple/ quixportal
 ```
 
-Then, in the backend service, validate the token and enforce authorization for each request. For example:
+Then, in your backend service, validate the token and enforce authorization for each request. For example:
 
 ```python
 import os
 from quixportal.auth import Auth
 
-# Instantiate authentication client. By default it will read
-# the portal API url from the environment variable Quix__Portal__Api
+# Instantiate the authentication client. By default it reads
+# the Portal API URL from the environment variable Quix__Portal__Api
 auth = Auth()
 
-# Obtain the authorization token, traditionally passed as a header
+# The token arrives in the request header
 # Authorization: Bearer <token>
 token = ...
 
@@ -372,35 +354,45 @@ else:
     print("Bearer is not authorized to access the resource")
 ```
 
+Quix injects `Quix__Portal__Api` and `Quix__Workspace__Id` into your deployment as environment variables. See [Quix variables](../deployments/quix-variables.md).
+
 ## Checking permissions programmatically
 
-For developers building integrations, you can check [permissions](../roles.md) using the Portal API.
+Your backend can also check a user's [permissions](../roles.md) directly with the Portal API.
 
 ### API endpoint
 
-**Endpoint**: `GET /auth/permissions/query`
+**Endpoint:** `GET /auth/permissions/query`
+
+Send the user's token in the `Authorization: Bearer <token>` header.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `resourceType` | enum | The type of resource to check |
-| `resourceId` | string | The ID of the specific resource |
-| `permission` | enum | The permission type to check |
+| `resourceType` | enum | The type of resource to check. See [Resource types](#resource-types). |
+| `resourceId` | string | The ID of the specific resource. |
+| `permission` | enum | The permission to check. See [Permission types](#permission-types). |
 
-**Returns**: `true` if permission is granted, `false` otherwise.
+**Returns:** `true` if the user has the permission, `false` otherwise.
+
+For example, to check whether the user can read an environment, where `<portal-api-url>` is the value of `Quix__Portal__Api`:
+
+```bash
+curl -H "Authorization: Bearer <token>" \
+  "<portal-api-url>/auth/permissions/query?resourceType=Workspace&resourceId=<environment-id>&permission=Read"
+```
 
 ### Resource types
 
-| Resource Type | resourceId | Description |
+| Resource type | Resource ID | Description |
 |---------------|------------|-------------|
-| `Organisation` | organisation ID | Organisation-level settings |
-| `Repository` | repository ID | Git repository access |
-| `Workspace` | workspace ID | Environment access |
-| `Topic` | workspace ID | Topic management within an environment |
-| `Deployment` | workspace ID | Deployment access within an environment |
-| `User` | user ID | User management |
-| `Billing` | organisation ID | Billing information |
-| `Session` | session ID | IDE session access |
-| `Plugin` | workspace ID | Plugin access within an environment |
+| `Organisation` | Organization ID | Organization-level settings |
+| `Repository` | Repository ID | Git repository access |
+| `Workspace` | Workspace ID | Environment access |
+| `Topic` | Workspace ID | Topic management within an environment |
+| `Deployment` | Workspace ID | Deployment access within an environment |
+| `User` | User ID | User management |
+| `Session` | Session ID | IDE session access |
+| `Plugin` | Workspace ID | Plugin access within an environment |
 
 ### Permission types
 
@@ -411,9 +403,13 @@ For developers building integrations, you can check [permissions](../roles.md) u
 | `Update` | Modify resources |
 | `Delete` | Remove resources |
 | `Write` | Write data (streaming operations only) |
+| `All` | Every permission above |
 
 ## See also
 
-- [Roles and Permissions](../roles.md) - Understanding user roles and permissions
-- [Personal Access Tokens](../access-security/personal-access-token.md) - Token-based authentication
-- [Portal API](../apis/portal-api/overview.md) - Full API documentation
+* [Quix Plugin SDK](plugin-sdk.md): pass the token, navigation and theme between the portal and your plugin's UI.
+* [How the Quix Plugin SDK works](plugin-sdk-internals.md): security model, message protocol and version history.
+* [Roles and permissions](../roles.md): the roles that grant access to plugins.
+* [Spaces](../spaces/overview.md): choose which organization plugins each group of users sees in the header and sidebar.
+* [Personal access tokens](../access-security/personal-access-token.md): tokens for scripts and local development.
+* [Portal API](../apis/portal-api/overview.md): the API your plugin can call with the token.
