@@ -60,6 +60,15 @@ The migration needs the `Admin` role at organization level, because it touches b
 
 Order matters. Build the space and assign the users before you change their role. Assigning them early is safe: while they're still Operator-only, they can reach only plugins, whatever the space contains. When their role changes, they move straight from the Operator view into the space. Change the role first and they land in the standard portal, with every module their new role allows, until you assign them to the space.
 
+```mermaid
+flowchart LR
+    A["Create the space"] --> B["Pin plugins and<br/>set the landing page"]
+    B --> C["Hide the<br/>organization sidebar"]
+    C --> D["Assign the users<br/>in Membership"]
+    D --> E["Change Operator<br/>to Viewer"]
+    E --> F["Preview and<br/>check the roles"]
+```
+
 1. **A space shows only the plugins.** The plugins the users work with are [pinned as header apps](navigation.md#pin-header-apps), in the order they use them, and the main one is the [landing page](navigation.md#choose-a-landing-page). The organization sidebar is hidden, so the landing plugin fills the screen and members move between plugins from the header. Pin the apps and set the landing page before you hide the sidebar: a hidden sidebar with nothing pinned leaves members with only `Home` and the command palette. If members need a sidebar, [customize it](navigation.md#customize-the-organization-sidebar) to hold only the plugin apps.
 2. **The users are members of the space.** Bind the user group whose users had the Operator role, or add the users directly. A bound group also brings in everyone who joins it later, so if the group mixes audiences, add the users directly instead. See [Assign members](membership.md).
 3. **The users hold `Viewer`, not `Operator`.** Each user has `Viewer` at the environment that runs the plugins, and no `Operator` assignment anywhere. Wherever else the role was assigned, replace it with `None` or with the role the user needs there. Change roles where they're set: a user whose roles are inherited from their user group gets them from the group, so change the group's roles, and everyone in the group moves together.
