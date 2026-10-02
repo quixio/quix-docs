@@ -9,7 +9,7 @@ description: What the bridge states and errors mean, what to check first, and th
 
 1. Open the bridge console. The **status strip** names the cause, the next step and one action. See [The bridge console](./console.md).
 2. Open the **Health** tab. Click **Run the folder check** and **Run the reboot check**.
-3. On a server with no desktop, run `quix-bridge status` and `quix-bridge test`. See [Check the bridge](./command-line.md#step-6-check-the-bridge).
+3. On a server with no desktop, run `quix-bridge status` and `quix-bridge test`. Run `quix-bridge logs` to read the log. See [Check the bridge](./command-line.md#step-6-check-the-bridge).
 
 An error carries a **reference**. Copy it with the button beside it and give it to Quix support.
 

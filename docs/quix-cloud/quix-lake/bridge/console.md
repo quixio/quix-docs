@@ -5,12 +5,33 @@ description: Open the bridge console, read the status strip and the tabs, and in
 
 # The bridge console
 
-The console is a web page on the machine. It listens on this machine only, at `127.0.0.1`. It opens on the **Folders** tab.
+The console is a web page on the machine. By default, it listens on this machine only, at `127.0.0.1`. It opens on the **Folders** tab.
 
 To open it:
 
 - On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**.
 - On any system, run `quix-bridge ui` to get the console address and a login code.
+
+## Open the console from another machine
+
+To reach the console from another machine, set an address with `--listen` or with the `console.listen` key in `config.yaml`:
+
+```bash
+quix-bridge ui --listen 0.0.0.0:8330
+```
+
+```yaml
+console:
+  listen: 0.0.0.0:8330
+```
+
+The default stays on loopback only. An address that is not loopback serves plain HTTP. Use it only on a trusted network, or behind a TLS reverse proxy. After 5 wrong login codes, the login locks for 5 minutes.
+
+With a loopback address, `ui` prints an SSH tunnel hint. Run it on your own machine, then open `http://127.0.0.1:8330`:
+
+```bash
+ssh -L 8330:127.0.0.1:8330 <user>@<host>
+```
 
 ## The status strip
 

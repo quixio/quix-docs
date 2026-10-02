@@ -6,6 +6,10 @@ This is the Quix Cloud changelog for the current year.
 
 `NEW FEATURES`
 
+- **Quix Lake Bridge 0.1.23**: `quix-bridge connect` now asks for the quick config, stores the token, and restarts a running service. The Linux `enrol` step is gone. New commands are `quix-bridge service restart` and `quix-bridge logs`. Use `quix-bridge ui --listen` or `console.listen` to open the console from another machine. A bad share in `config.yaml` is now skipped, and the other shares still serve.
+
+    See the [Command line setup documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/command-line.html) for more details.
+
 - **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the SAG path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
 
     See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/overview.html) for more details.

@@ -66,6 +66,14 @@ When you share the folder, the bridge tray does this for you. It grants the serv
 
 On Linux the service runs as the system user `quix-bridge`. It has no login. `sudo quix-bridge service install` creates it when it does not exist.
 
+The account must read the share folder. For a read and write share, it must also write to the folder. Do not share a folder under `/root` or under a user home folder. Move the data to a folder such as `/srv/<name>` and give the account the folder:
+
+```bash
+sudo chown -R quix-bridge /srv/<name>
+```
+
+`sudo quix-bridge test` names the folder that blocks the service and gives the exact fix.
+
 `sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, such as a private home folder, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed.
 
 A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
