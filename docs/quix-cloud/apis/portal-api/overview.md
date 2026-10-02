@@ -19,11 +19,11 @@ Most endpoints scope themselves to an environment via a request parameter or bod
 
 The Portal API covers the same resource model as the portal. The main resource groups are:
 
-- **Organizations, workspaces (environments), and repositories** — the project / environment / Git layout.
+- **Organizations, environments, and repositories** — the project, environment, and Git layout.
 - **Applications and deployments** — create, configure, deploy, redeploy, scale, and inspect services and jobs.
 - **Topics, data tiers, and Quix Lake** — manage streams, tiered storage, and historic data access.
 - **Library, templates, and plugins** — the Code Samples catalog and reusable building blocks.
-- **Variables, secrets, container registries, blob storage** — pipeline configuration and supporting infrastructure.
+- **Variables, secrets, container registries, and Quix Lake storages** — pipeline configuration and supporting infrastructure.
 - **Users, profiles, sessions, and auth** — identity and access.
 - **Auditing and CLI analytics** — operational telemetry.
 

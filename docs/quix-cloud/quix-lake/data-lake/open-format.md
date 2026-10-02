@@ -5,7 +5,7 @@ description: How Quix Data Lake structures data in Avro and Parquet for portabil
 
 # Data Lake open format
 
-[Data Lake](./overview.md) stores Kafka messages and metadata as **open files** in your blob storage (S3, GCS, Azure Blob, MinIO). The layout favors portability, fast discovery, and full-fidelity replay.
+[Data Lake](./overview.md) stores Kafka messages and metadata as **open files** in your object storage (S3, GCS, Azure Blob, MinIO). The layout favors portability, fast discovery, and full-fidelity replay.
 
 !!! info "Lakehouse uses a different layout"
     This page describes the **Data Lake** layout: raw Avro segments plus Parquet index files. The [Lakehouse](../lakehouse/overview.md) writes columnar Parquet tables instead — see the Lakehouse Catalog for its schema.
@@ -106,8 +106,8 @@ description: How Quix Data Lake structures data in Avro and Parquet for portabil
 
 ## See also
 
-* [Data Lake Sink](./sink.md) — persist data from Kafka to your blob storage
+* [Data Lake Sink](./sink.md) — persist data from Kafka to your object storage
 * [Data Lake API](./api.md) — discover datasets programmatically
 * [Data Lake UI](./user-interface.md) — discover datasets in the portal
 * [Replay](./replay.md) — send datasets back to Kafka
-* [Blob storage connections](../blob-storage.md) — wire up your bucket or container
+* [Quix Lake connections and storages](../blob-storage.md) — wire up your bucket or container

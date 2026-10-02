@@ -83,7 +83,7 @@ nav:
         - 'Quix variables': 'quix-cloud/deployments/quix-variables.md'
       - 'Network ports': 'quix-cloud/deployments/ports.md'
       - 'State management': 'quix-cloud/deployments/state-management.md'
-      - 'Blob storage': 'quix-cloud/deployments/blob-storage-and-library.md'
+      - 'Quix Lake storage': 'quix-cloud/deployments/blob-storage-and-library.md'
       - 'Plugin system': 'quix-cloud/services/plugin.md'
       - 'External images':
         - 'Deploy an external image': 'quix-cloud/deployments/deploy-external-image.md'
@@ -99,8 +99,19 @@ nav:
         - 'Generating events': 'quix-cloud/topics/process/timeseries-events.md'
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
-      - 'Blob storage': 'quix-cloud/quix-lake/blob-storage.md'
+      - 'Connections and storages': 'quix-cloud/quix-lake/blob-storage.md'
       - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
+      - 'File Explorer': 'quix-cloud/quix-lake/file-explorer.md'
+      - 'S3-compatible endpoint': 'quix-cloud/quix-lake/s3-endpoint.md'
+      - 'Quix Lake Bridge':
+        - 'Overview': 'quix-cloud/quix-lake/bridge/overview.md'
+        - 'Quickstart': 'quix-cloud/quix-lake/bridge/quickstart.md'
+        - 'Shared folders and the bucket root': 'quix-cloud/quix-lake/bridge/shared-folders.md'
+        - 'The bridge console': 'quix-cloud/quix-lake/bridge/console.md'
+        - 'Write to a bridge from a sink': 'quix-cloud/quix-lake/bridge/sinks.md'
+        - 'Command line setup': 'quix-cloud/quix-lake/bridge/command-line.md'
+        - 'Updates and uninstall': 'quix-cloud/quix-lake/bridge/updates.md'
+        - 'Troubleshooting and limits': 'quix-cloud/quix-lake/bridge/troubleshooting.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
@@ -954,6 +965,8 @@ plugins:
         'quix-cloud/quix-lake/sink.md': 'quix-cloud/quix-lake/data-lake/sink.md'
         'quix-cloud/quix-lake/replay.md': 'quix-cloud/quix-lake/data-lake/replay.md'
         'quix-cloud/quix-lake/replay-transformations.md': 'quix-cloud/quix-lake/data-lake/replay-transformations.md'
+        'quix-cloud/quix-lake/bridge.md': 'quix-cloud/quix-lake/bridge/overview.md'
+        'quix-cloud/quix-lake/storage-explorer.md': 'quix-cloud/quix-lake/file-explorer.md'
         'quix-cloud/managed-services/overview.md': 'quix-cloud/services/overview.md'
         'quix-cloud/managed-services/dynamic-configuration.md': 'quix-cloud/services/dynamic-configuration.md'
         'quix-cloud/plugin.md': 'quix-cloud/services/plugin.md'
