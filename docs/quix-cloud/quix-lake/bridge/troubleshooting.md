@@ -31,11 +31,51 @@ A listing of the whole Quix Lake bucket, with no prefix, also answers 503 while 
 
 **The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows). On Linux, the service runs as the system user `quix-bridge`. Run the `setfacl` command that the console shows. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
+**"The command has no rights on a file it must read."** The command needs administrator rights. On Windows, run it in PowerShell as Administrator. On Linux, run it again with `sudo`. This applies to the read commands too, such as `status`, `share list`, `test`, `config show` and `ui`.
+
+**"The bridge that serves this storage is not reachable."** A client gets this text with a 503. The bridge machine is off, asleep or offline, or the service is stopped. On that machine, run `quix-bridge status`. See [When the machine is away](#when-the-machine-is-away).
+
+**"OS error 13 (Permission denied)" in the bridge log.** The disk refused a write. The service user cannot write to that folder. On Linux, run the write fix that `sudo quix-bridge status` or the console shows, for example:
+
+```bash
+sudo setfacl -R -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
+```
+
+On Windows, click **Fix write access** on the **Folders** tab of the console. The bridge gives no fix for `/` or a system folder. Share a data folder instead. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
+
+**The Linux service does not start.** An older version could crash in a loop under systemd. Update to version 0.1.25 or later. See [Updates and uninstall](./updates.md).
+
 **The pairing token expired.** The token lives 15 minutes. Click **Pair a bridge** again in the Portal to get a fresh quick config.
 
 **The bridge cannot reach Quix behind a proxy.** Set `network.proxy` and `network.caBundle` in `config.yaml`, then restart the service. See [Behind a proxy](./command-line.md#behind-a-proxy).
 
 **The Portal refuses to make the bridge the main storage.** The bridge needs a bucket root first. See [The bucket root](./shared-folders.md#the-bucket-root).
+
+## Check the version and the last update
+
+=== "Windows"
+
+    Run these commands in PowerShell as Administrator:
+
+    ```powershell
+    quix-bridge --version
+    quix-bridge status
+    quix-bridge logs
+    ```
+
+=== "Linux"
+
+    ```bash
+    quix-bridge --version
+    sudo quix-bridge status
+    sudo quix-bridge logs
+    ```
+
+- `--version` prints the installed version.
+- `status` shows the service state, the connection and the last error.
+- `logs` shows the log. After an automatic update, it holds a line such as "The bridge installed version 0.1.25 over version 0.1.24."
+
+The status strip of the [console](./console.md#the-status-strip) also shows the version.
 
 ## Known limits
 

@@ -26,6 +26,8 @@ Before it updates, the bridge waits until no transfer is running, for up to 10 m
 
 A new release reaches every bridge within about **10 minutes**. The service restarts by itself. In the first minutes after a release, `quix-bridge update run` can print `nothing to do`. Wait a few minutes, then run it again.
 
+To see the installed version and the last update, see [Check the version and the last update](./troubleshooting.md#check-the-version-and-the-last-update).
+
 ## Reinstall
 
 Run `install.ps1` again on the same version to repair the install. The repair puts back the files, the service, the config folder and the update task. It keeps `config.yaml`. The script refuses a version older than the one installed. Uninstall first, or pick the newest version.
