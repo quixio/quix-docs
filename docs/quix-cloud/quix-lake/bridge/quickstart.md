@@ -52,6 +52,9 @@ The install command carries no token. This step needs no Portal visit.
 !!! warning "The quick config holds a live token"
     Do not paste it in a ticket or a chat.
 
+!!! tip "No screen on the machine?"
+    Under the quick config, the Portal also shows **one command** for the selected system. It installs the bridge and connects it. On Linux, run it as a user who can use `sudo`. On Windows, run it in PowerShell as Administrator. The command holds the live token, so treat it like the quick config. After it runs, go to Step 4.
+
 ## Step 3: Connect the bridge
 
 1. Open the bridge console. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**. On any system, run `quix-bridge ui` to get the console address and a login code.
