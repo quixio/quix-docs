@@ -58,7 +58,7 @@ The **Storage permission source** banner says where a user gets storage permissi
 |---|---|
 | **User specific** | The folder permissions you set on this tab apply to the user. The permissions of the user's group also reach the user. On a group page, this reads **Group specific**. |
 | **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
-| **Organization default** | Only the [Default Permissions](#folder-visibility) of the organization apply. The folder permissions of the user and of the group stay suspended. |
+| **Organization default** | Only the [Default Permissions](#folder-visibility) of the organization and the environment role of the user apply. The folder permissions of the user and of the group stay suspended. |
 
 While the source is **Group** or **Organization default**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
 
@@ -70,8 +70,34 @@ When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing c
 
 A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
 
-!!! note "No Access wins over public visibility"
-    A **No Access** grant on a folder denies access, even when the folder is public. A read only grant does not block a public write.
+!!! note "A grant wins over public visibility"
+    A grant on a folder for a user or a group removes the public visibility for that user. **No Access** denies access, even when the folder is public. **Read Access** on a public read and write folder gives read access only.
+
+## How access is decided
+
+Quix checks these rules in order for each folder:
+
+1. A permission for the user or for the user's group on the folder decides alone. It is a ceiling: visibility and the environment role add nothing.
+2. With no such permission, the user gets the **higher** of the folder's visibility and the user's environment role.
+
+The environment role counts only in that environment's folder. **Viewer** gives read access. **Editor** and above give read-write access.
+
+**Inheritance.** A folder with no setting of its own takes the setting of the nearest parent folder. The deepest setting wins in both directions: a child folder can have less or more access than its parent. On the same folder, a user permission beats a group permission.
+
+**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Organization default** suspend the user's own permissions. Quix deletes nothing. **Organization default** also stops the group, so only visibility and the environment role apply.
+
+**Choosing Inherited.** On a user or group permission, **Inherited** suspends the permission. Quix keeps it stored, but it counts as nothing. On the **Default Permissions** tab, **Inherited** removes the folder's own visibility setting, so the parent folder decides.
+
+**Example.** The storage has the folder `ws-prod/` (an environment folder, **Private**), the folder `raw/` (**Private**) and the folder `shared/` (**Public - Anyone can read & write**). The group Analysts has **Read Access** on `raw/`. User A is a Viewer in the `ws-prod` environment, belongs to Analysts and uses the source **Group**. User B is an organization administrator with no environment role and a **Read-Write Access** permission on `raw/`.
+
+| Folder | User A | User B |
+|---|---|---|
+| `ws-prod/` | Read: the Viewer role | List only: an administrator can list, and has no permission |
+| `raw/` | Read: the group permission | Read-write: the own permission |
+| `shared/` | Read-write: public visibility | Read-write: public visibility |
+
+!!! tip "Share a private folder with one team"
+    Give the team a group permission on the folder. Do not set the folder to public visibility. Public visibility opens the folder to the whole organization.
 
 ## Folder visibility
 
