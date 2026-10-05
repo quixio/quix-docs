@@ -20,13 +20,13 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`, with or without a leading `v`:
 
     ```powershell
-    $env:QUIX_BRIDGE_VERSION = '0.1.23'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
+    $env:QUIX_BRIDGE_VERSION = '0.1.25'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
     The MSI installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it. It adds that folder to the system `PATH`. Open a new administrator shell for the next steps, so that it sees the new `PATH`.
 
     ??? info "Zip install"
-        When you run the script as a file, `.\install.ps1 -Version 0.1.23` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
+        When you run the script as a file, `.\install.ps1 -Version 0.1.25` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
 
 === "Linux"
 
@@ -37,7 +37,7 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`:
 
     ```bash
-    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.23 sh
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.25 sh
     ```
 
     On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs and starts the service. On other machines, the script copies the binary to `/usr/local/bin`. Then install the service yourself:
@@ -101,6 +101,8 @@ A new share is read only. Add `--read-write` to let Quix write to the folder. `-
 
 `share list` prints two paths for each row: the path on the machine and the SAG path. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**.
 
+On Linux, `sudo quix-bridge share remove <path>` also takes back the access that the bridge gave the user `quix-bridge` on that folder.
+
 Network folders:
 
 - On Windows, `share add` stores no credential. Add a network server and its credential in the [console](./shared-folders.md#share-a-network-folder).
@@ -127,6 +129,9 @@ Network folders:
 `service restart` needs root or Administrator rights. The shares need no restart. The service applies a `share` command at once.
 
 Every command that needs root stops with a hint and a non-zero exit code when you run it without administrator rights or `sudo`. This applies to `service`, `share list`, `config show`, `logs` and `status`.
+
+!!! warning "The read commands need administrator rights too"
+    On Windows, run `status`, `share list`, `test`, `config show` and `ui` in PowerShell as Administrator. Only an administrator can read the bridge config folder. On Linux, run them with `sudo`. Without these rights, the command says "The command has no rights on a file it must read."
 
 ## Step 6: Check the bridge
 

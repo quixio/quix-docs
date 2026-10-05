@@ -74,7 +74,10 @@ sudo chown -R quix-bridge /srv/<name>
 
 `sudo quix-bridge test` names the folder that blocks the service and gives the exact fix.
 
-`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, such as a private home folder, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed.
+`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed. `sudo quix-bridge share remove <folder>` takes these rights back.
+
+!!! warning "Share a data folder, not `/` or a system folder"
+    The bridge never gives the user `quix-bridge` access to `/` or to a system folder, such as `/etc`, `/usr`, `/var/lib`, `/root` or `/proc`. This also applies to a folder inside one, and to a folder that holds one. The share still works, but the bridge reads only the files that every user may read. Share a data folder instead, such as `/srv/data` or `/mnt/data`.
 
 A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
 
@@ -82,10 +85,10 @@ A share that you add in the web console cannot get the grant by itself. The cons
 sudo setfacl -R -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
 ```
 
-A folder under a private home folder also needs traverse rights on the parent:
+A folder under a parent that other users cannot pass also needs traverse rights on that parent:
 
 ```bash
-sudo setfacl -m u:quix-bridge:x /home/alice
+sudo setfacl -m u:quix-bridge:x /mnt/private
 ```
 
 !!! note
