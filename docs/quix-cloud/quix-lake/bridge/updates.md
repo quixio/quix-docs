@@ -24,6 +24,8 @@ The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rp
 
 Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. The tray restarts by itself after an automatic update. You do not need to do anything. The update task checks every 5 minutes. A failed update puts the old version back. When an install fails, the bridge tries again later, with a longer wait after each failure.
 
+A new release reaches every bridge within about **10 minutes**. The service restarts by itself. In the first minutes after a release, `quix-bridge update run` can print `nothing to do`. Wait a few minutes, then run it again.
+
 ## Reinstall
 
 Run `install.ps1` again on the same version to repair the install. The repair puts back the files, the service, the config folder and the update task. It keeps `config.yaml`. The script refuses a version older than the one installed. Uninstall first, or pick the newest version.

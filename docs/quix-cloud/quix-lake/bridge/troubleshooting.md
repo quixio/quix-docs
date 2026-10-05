@@ -25,6 +25,8 @@ An error carries a **reference**. Copy it with the button beside it and give it 
 
 When the machine is off or the bridge is stopped, every call to the storage answers **503 Service Unavailable**. It never answers "not found" and never an empty listing. So a sync tool that deletes what it cannot see does not delete your files. S3 clients retry a 503.
 
+A listing of the whole Quix Lake bucket, with no prefix, also answers 503 while the bridge is away, because it cannot be complete. List each storage folder with a prefix instead. See [List the storages](../s3-endpoint.md#list-the-storages).
+
 ## Common problems
 
 **The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows). On Linux, the service runs as the system user `quix-bridge`. Run the `setfacl` command that the console shows. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
@@ -41,6 +43,7 @@ When the machine is off or the bridge is stopped, every call to the storage answ
 - **One storage per bridge.** To serve a second storage, pair a bridge on a second machine. Pairing again on the same machine reuses the same bridge.
 - **A list page can hold fewer keys than you ask for.** A client that asks for 1000 keys can get fewer, often about 560, and a continuation token. The listing stays complete. A large folder takes about 2 times more calls than on S3.
 - **A copy is a download plus an upload.** The bridge has no copy operation. So a copy takes as long as both transfers.
+- **No copy and no batch delete across two storages.** Both answer `501 Not Implemented`. A copy inside one storage works. To move a file to another storage, download it and upload it. Send one batch delete for each storage.
 - **The bridge does not see a DNS alias of this machine.** If you share `C:\data` and also `\\my-alias\data`, where `my-alias` is an alias of this machine, the bridge serves one folder under two shares with two sets of rules. Do not add a share through an alias of the same machine.
 - **Empty folders disappear.** When you delete the last file in a folder, the bridge removes the folders the delete left empty. This is how S3 shows no empty prefix. A folder you make on the machine and never fill stays.
 - **Hidden helper files.** The bridge keeps small helper files next to your files. Their names contain `.sag-`. No listing shows them.

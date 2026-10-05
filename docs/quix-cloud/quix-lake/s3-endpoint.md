@@ -194,6 +194,9 @@ for folder in answer.get("CommonPrefixes", []):
 
 Drop the delimiter, and Quix merges the storages into **one** listing, in key order and with paging. Pass the `NextContinuationToken` back as you got it.
 
+!!! note "A whole-bucket listing needs every bridge online"
+    A LIST of the whole bucket, with no prefix and no delimiter, answers `503 Service Unavailable` while a [Quix Lake Bridge](./bridge/overview.md) that serves one of the storages is away. This is on purpose. A sync tool never takes a short listing as deleted files. List each storage folder with a prefix, such as `Prefix="minio/"`. The root listing with `Delimiter="/"` still works.
+
 !!! warning "A deployment credential cannot list the bucket root"
     A root LIST works with a PAT, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only. So a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
 
@@ -211,7 +214,7 @@ Drop the delimiter, and Quix merges the storages into **one** listing, in key or
 * **Objects** — GET, GET with a `Range` header, HEAD, PUT, and DELETE.
 * **Copy** — CopyObject inside one storage.
 * **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`. A listing that covers more than one storage is merged for you.
-* **Multipart upload** — create, upload part, complete, and abort. The upload stays on the storage it started on.
+* **Multipart upload** — create, upload part, complete, and abort. The upload stays on the storage it started on. Multipart uploads work on a bridge storage too. The AWS CLI and boto3 use them for files above 8 MB.
 * **Batch delete** — up to 1000 keys per request, in one storage.
 * **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`.
 
@@ -219,8 +222,8 @@ Drop the delimiter, and Quix merges the storages into **one** listing, in key or
 
 | Request | Answer |
 |---|---|
-| A copy whose source and destination sit in different storages | `501 NotImplemented`. Read and write the object yourself. |
-| A batch delete whose keys span two storages | `501 NotImplemented`. Send one request per storage. |
+| A copy whose source and destination sit in different storages | `501 NotImplemented`. Download the object, then upload it to the other storage. A copy inside one storage works. |
+| A batch delete whose keys span two storages | `501 NotImplemented`. Send one delete request per storage. |
 | Virtual-host-style addressing | `400 InvalidRequest` |
 | A presigned URL | Rejected. Sign each request instead. |
 | A key you may not read | `403 AccessDenied`. A listing hides what you may not see. A credential of a storage that is not the main storage sees only its own storage, so a key of another storage answers `404` for it. |
