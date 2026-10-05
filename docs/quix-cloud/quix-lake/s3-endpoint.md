@@ -51,6 +51,9 @@ You need the endpoint, the Quix Lake bucket, and a credential. There are two way
 
     Most S3 clients send the session token by themselves once you set it.
 
+    !!! warning "Set the session token too"
+        Without the session token, every call fails with `403 InvalidAccessKeyId`. Set the PAT as the secret key **and** as the session token. In boto3 this is `aws_session_token`. In the AWS CLI this is `AWS_SESSION_TOKEN`. See [Connect a client](#connect-a-client).
+
 ## Connect a client
 
 Every client needs **path-style** addressing. The examples use a PAT. In a deployment, use the injected key and leave the session token out.
@@ -63,9 +66,9 @@ Every client needs **path-style** addressing. The examples use a PAT. In a deplo
     s3 = boto3.client(
         "s3",
         endpoint_url="https://<ENDPOINT>",
-        aws_access_key_id="<USER_ID>",
-        aws_secret_access_key="<YOUR_PAT>",
-        aws_session_token="<YOUR_PAT>",
+        aws_access_key_id="<your-user-id>",
+        aws_secret_access_key="<your-pat>",
+        aws_session_token="<your-pat>",
         region_name="us-east-1",
         config=boto3.session.Config(s3={"addressing_style": "path"}),
     )
@@ -76,9 +79,9 @@ Every client needs **path-style** addressing. The examples use a PAT. In a deplo
 === "AWS CLI"
 
     ```bash
-    export AWS_ACCESS_KEY_ID=<USER_ID>
-    export AWS_SECRET_ACCESS_KEY=<YOUR_PAT>
-    export AWS_SESSION_TOKEN=<YOUR_PAT>
+    export AWS_ACCESS_KEY_ID=<your-user-id>
+    export AWS_SECRET_ACCESS_KEY=<your-pat>
+    export AWS_SESSION_TOKEN=<your-pat>
 
     aws s3 ls s3://<BUCKET>/<workspaceId>/ \
       --endpoint-url https://<ENDPOINT> \
@@ -101,9 +104,9 @@ Every client needs **path-style** addressing. The examples use a PAT. In a deplo
 
     SET s3_endpoint = '<ENDPOINT>';
     SET s3_region = 'us-east-1';
-    SET s3_access_key_id = '<USER_ID>';
-    SET s3_secret_access_key = '<YOUR_PAT>';
-    SET s3_session_token = '<YOUR_PAT>';
+    SET s3_access_key_id = '<your-user-id>';
+    SET s3_secret_access_key = '<your-pat>';
+    SET s3_session_token = '<your-pat>';
     SET s3_url_style = 'path';
 
     SELECT * FROM read_parquet('s3://<BUCKET>/<workspaceId>/<key>');
