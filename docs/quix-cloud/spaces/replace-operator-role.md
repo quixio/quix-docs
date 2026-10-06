@@ -70,7 +70,7 @@ flowchart LR
 ```
 
 1. **A space shows only the plugins.** The plugins the users work with are [pinned as header apps](navigation.md#pin-header-apps), in the order they use them, and the main one is the [landing page](navigation.md#choose-a-landing-page). The organization sidebar is hidden, so the landing plugin fills the screen and members move between plugins from the header. Pin the apps and set the landing page before you hide the sidebar: a hidden sidebar with nothing pinned leaves members with only `Home` and the command palette. If members need a sidebar, [customize it](navigation.md#customize-the-organization-sidebar) to hold only the plugin apps.
-2. **The users are members of the space.** Bind the user group whose users had the Operator role, or add the users directly. A bound group also brings in everyone who joins it later, so if the group mixes audiences, add the users directly instead. See [Assign members](membership.md).
+2. **The users are members of the space.** Bind the user group whose users had the Operator role, or add the users directly. A bound group also brings in everyone who joins it later, so if the group mixes audiences, add the users directly instead.
 3. **The users hold `Viewer`, not `Operator`.** Each user has `Viewer` at the environment that runs the plugins, and no `Operator` assignment anywhere. Wherever else the role was assigned, replace it with `None` or with the role the user needs there. Change roles where they're set: a user whose roles are inherited from their user group gets them from the group, so change the group's roles, and everyone in the group moves together.
 4. **Signed-in users reload the portal.** The portal checks for the Operator role once per session, so users who were signed in during the change keep the Operator view until they reload the page.
 
@@ -78,7 +78,7 @@ flowchart LR
 
 Two checks cover the two halves of the migration.
 
-**The view.** [Preview the space as a member](create-space.md#preview-a-space-as-a-member). The portal should open on the landing plugin, with the pinned plugins in the header in your order and no organization sidebar. On the Spaces page, the space's card also summarizes the result: `Landing` names the landing plugin and `Audience` names who is in the space. See [What each card shows](create-space.md#what-each-card-shows).
+**The view.** Preview the space as a member from the `Spaces` page. The portal should open on the landing plugin, with the pinned plugins in the header in your order and no organization sidebar. On the Spaces page, the space's card also summarizes the result: `Landing` names the landing plugin and `Audience` names who is in the space.
 
 **The access.** Preview keeps your own role, so it can't show what a user's new role allows. Check the roles on each user's or group's `Project permissions` tab instead: `Viewer` on the environment that runs the plugins, and no `Operator` rows.
 
@@ -88,5 +88,4 @@ If a user still lands back on their first organization plugin when they open a p
 
 * [Roles and permissions](../roles.md)
 * [Design navigation](navigation.md)
-* [Assign members](membership.md)
 * [Organization plugins](../services/plugin.md#organization-plugins)

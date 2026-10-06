@@ -192,7 +192,7 @@ Every embedded view has a floating button in its bottom-right corner, the **plug
 
 The toolbar shows the plugin's `organisationItem` label and icon, even when the plugin is opened from the environment sidebar, and falls back to the deployment name and the `extension` icon.
 
-Users can drag the button, and the browser remembers where. It can still cover part of your plugin, so keep essential controls away from the bottom-right corner. A user can hide it until the page reloads, and an organization admin can turn it off for everyone in a space. See [Hide the plugin toolbar](../spaces/create-space.md#hide-the-plugin-toolbar).
+Users can drag the button, and the browser remembers where. It can still cover part of your plugin, so keep essential controls away from the bottom-right corner. A user can hide it until the page reloads, and an organization admin can turn it off for everyone in a space.
 
 ## Embedded view URL
 

@@ -121,11 +121,10 @@ Spaceless is saved like any other choice, so you stay Spaceless until you pick a
 
 Two other admin controls show up in the space experience:
 
-* Each space in the `Switch space` menu has an edit button that opens it in the space designer without switching into it. The designer is part of the `Spaces` module, so if your active space hides `Spaces`, switch to Spaceless first. See [Create and manage spaces](create-space.md).
-* A `Previewing as member` banner means you're previewing a space rather than working in it. See [Preview a space as a member](create-space.md#preview-a-space-as-a-member).
+* Each space in the `Switch space` menu has an edit button that opens it in the space designer without switching into it. The designer is part of the `Spaces` module, so if your active space hides `Spaces`, switch to Spaceless first.
+* A `Previewing as member` banner means you're previewing a space rather than working in it.
 
 ## See also
 
 * [Spaces overview](overview.md)
-* [Assign members](membership.md)
 * [Roles and permissions](../roles.md)

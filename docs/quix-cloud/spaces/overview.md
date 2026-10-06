@@ -96,8 +96,8 @@ flowchart TD
     F --> D
 ```
 
-1. An organization admin creates a space and designs it in the space designer. See [Create and manage spaces](create-space.md) and [Design navigation](navigation.md).
-2. The admin binds user groups to the space, or adds individual users. See [Assign members](membership.md).
+1. An organization admin creates a space and designs it in the space designer. See [Design navigation](navigation.md).
+2. The admin binds user groups to the space, or adds individual users.
 3. A member opens the portal. It starts in their active space and takes them to the space's landing page. Links and bookmarks still open the page they point to, if the space includes it.
 4. The member sees the space's sidebars, header apps and accent. The space chip in the header shows which space they're in.
 5. A member who belongs to more than one space switches between them from the space chip. See [Work in a space](use-spaces.md).

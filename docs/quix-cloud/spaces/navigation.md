@@ -1,6 +1,6 @@
 ---
 title: Design navigation
-description: How a space shapes the portal's header apps, organization sidebar, environment modules and landing page, how section sources behave when you switch between them, and what copying a section from another space does.
+description: How a space shapes the portal's header apps, organization sidebar, environment modules and landing page, and what copying a section from another space does.
 ---
 
 # Design navigation
@@ -11,49 +11,9 @@ Navigation is presentation only. Hiding a page removes it from members' sidebars
 
 Everything you change in the space designer is a draft. Members see nothing until the space is saved.
 
-## How section sources work
-
-Three parts of the navigation have a **source**, which decides where that part of the portal comes from:
-
-| Section | Sources | Default |
-|---|---|---|
-| `Header apps` | `None`, `Custom` | `None` |
-| `Organization sidebar` | `Stock`, `Custom`, `Hidden` | `Stock` |
-| `Environment` | `Stock`, `Custom` | `Stock` |
-
-* **`None`** pins no apps, so the header app strip stays empty.
-* **`Stock`** is the platform's standard sidebar. It follows the platform: when Quix adds a module, `Stock` sidebars show it automatically.
-* **`Custom`** is exactly the entries you choose, in your order. A new `Custom` sidebar starts as a copy of the stock one, so choosing it changes nothing for members until you edit the list.
-* **`Hidden`** removes the organization sidebar. Members get the header and the page content only.
-
-The fourth option, `Copy`, isn't a source of its own. It replaces the section with the same section from another space, source included. See [Copy a section from another space](#copy-a-section-from-another-space).
-
+<a id="how-section-sources-work"></a>
 <a id="what-happens-when-you-switch-source"></a>
-
-### Switching source
-
-Switching source changes what the draft holds, and some switches throw away work. The organization sidebar has the most moving parts:
-
-```mermaid
-flowchart LR
-    S["Stock<br/>standard sidebar,<br/>gets new modules"]
-    C["Custom<br/>your entries,<br/>fixed list"]
-    H["Hidden<br/>no sidebar"]
-    S -->|"choose Custom, or edit<br/>it in the live preview"| C
-    C -->|"choose Stock<br/>custom entries cleared"| S
-    C -->|"choose Hidden, or<br/>clear every entry"| H
-    H -->|"choose Custom"| C
-```
-
-The rules behind the diagram:
-
-* **`Stock` and `Hidden` can't hold custom entries.** Switching to either clears the sidebar's plugin apps, environment links and headings from the draft. Switching back to `Custom` before you save restores them, unless you copied a section in between. Saving while the sidebar is `Stock` or `Hidden` deletes them for good. The designer warns you only on the switch to `Stock`.
-* **Editing a `Stock` sidebar makes it `Custom`.** Hiding a module or changing a heading in the live preview switches the sidebar to `Custom`, starting from a copy of the stock sidebar, so the only difference members see is your edit. Choose `Stock` again before saving to undo it. The same applies to the environment sidebar.
-* **An empty `Custom` sidebar becomes `Hidden`.** If you clear every module and remove every custom entry, there is nothing left to show, and the designer selects `Hidden`.
-
-!!! warning "A Custom list doesn't pick up new modules"
-
-    A `Custom` list changes only when an admin edits it. When Quix adds a new module to the portal, it appears in `Stock` sidebars but not in `Custom` ones, until an admin adds it to the space. Choose `Stock` for any audience that should always get the full, current platform.
+<a id="switching-source"></a>
 
 <a id="pin-header-apps"></a>
 
@@ -61,7 +21,7 @@ The rules behind the diagram:
 
 The header app strip is the row of plugin apps in the portal's top bar. For an audience that works in one or two apps, it is the main way around the portal. A pinned app opens inside the portal, with the organization sidebar still visible if the space shows one.
 
-Inside a space, the strip shows only the apps the space pins, so a space whose source is `None` shows none. Outside a space the strip is empty, except for users with only the deprecated [Operator role](replace-operator-role.md), so a space is the only way to choose which plugin apps appear in the header. Pinning doesn't affect search: the command palette offers every app the member can open, whatever the space pins.
+Inside a space, the strip shows only the apps the space pins, so a space that pins nothing shows none. Outside a space the strip is empty, except for users with only the deprecated [Operator role](replace-operator-role.md), so a space is the only way to choose which plugin apps appear in the header. Pinning doesn't affect search: the command palette offers every app the member can open, whatever the space pins.
 
 Only [organization plugins](../services/plugin.md#organization-plugins) can be pinned. These are deployments with the `Organisation plugin` setting turned on, which sets `plugin.organisationItem.show: true` in YAML. If no deployment in the organization is an organization plugin, there is nothing to pin.
 
@@ -73,7 +33,9 @@ When a plugin is deployed in more than one environment, a pin points at one of t
 
 ## Organization sidebar
 
-The organization sidebar is the sidebar on organization-level pages such as `Home` and `Projects`. It can be `Stock`, `Custom` or `Hidden`.
+The organization sidebar is the sidebar on organization-level pages such as `Home` and `Projects`. A space can keep the platform's standard sidebar (`Stock`), curate its own list (`Custom`) or remove it (`Hidden`).
+
+`Stock` follows the platform: when Quix adds a module, `Stock` sidebars show it automatically. A `Custom` list changes only when an admin edits it, so new modules don't appear in it until someone adds them. Choose `Stock` for any audience that should always get the full, current platform.
 
 `Users`, `Spaces`, `Settings` and `Audit` are admin-only. Non-admin members never see them, whatever the space says, but a space can hide them from admins. That includes you, if you belong to the space, so keep a way back. See [What a space doesn't control](overview.md#what-a-space-doesnt-control) and [Switch to Spaceless](use-spaces.md#switch-to-spaceless).
 
@@ -105,7 +67,7 @@ The designer caps how many entries and headings a sidebar can have.
 
 A `Hidden` sidebar suits audiences who live in header apps and a landing page. With no sidebar, those are the only ways around the portal, so pin at least one [header app](#header-apps) and set a [landing page](#landing-page) first. Without them, members can reach only `Home` and the command palette.
 
-Saving with `Hidden` deletes the sidebar's custom entries, as described in [Switching source](#switching-source). If you belong to the space, hiding the sidebar also hides `Users`, `Spaces`, `Settings` and `Audit` from you.
+Saving with `Hidden` deletes the sidebar's custom entries. If you belong to the space, hiding the sidebar also hides `Users`, `Spaces`, `Settings` and `Audit` from you.
 
 <a id="choose-the-environment-modules"></a>
 
@@ -113,7 +75,7 @@ Saving with `Hidden` deletes the sidebar's custom entries, as described in [Swit
 
 The `Environment` section controls what members see inside every environment of every project: the environment sidebar, the YAML sync button in the environment header, and the `Settings` row at the foot of the sidebar. A `Custom` list groups the modules under `Core`, `Library`, `Quix Lake` and `Environment`, where the `Environment` group holds `YAML` and `Settings`. Modules reorder only within their own group.
 
-There is no `Hidden` source, but clearing every module has the same effect. Members then get no environment sidebar at all, including its `Plugins` section, and no YAML sync button or `Settings` row.
+An environment can't be set to `Hidden`, but clearing every module has the same effect. Members then get no environment sidebar at all, including its `Plugins` section, and no YAML sync button or `Settings` row.
 
 When a space hides an environment module:
 
@@ -161,23 +123,19 @@ A landing page doesn't have to appear anywhere else in the space. Members still 
 
 ## Copy a section from another space
 
-`Header apps`, `Organization sidebar` and `Environment` can each be copied from another space. Copying replaces the whole section in your draft, including its source: copying from a space whose sidebar is `Stock` makes yours `Stock` too. Copying the organization sidebar brings its modules, plugin apps, environment links, headings and order together.
+`Header apps`, `Organization sidebar` and `Environment` can each be copied from another space. Copying replaces the whole section in your draft: copying from a space whose sidebar is `Stock` makes yours `Stock` too. Copying the organization sidebar brings its modules, plugin apps, environment links, headings and order together.
 
 Before you commit, the designer compares your section with the other space's and shows what would be added, removed and kept. A space whose section already matches yours can't be chosen, and the option is unavailable when there are no other spaces. As with any draft change, nothing reaches members until the space is saved.
 
 A copy replaces what you had. After copying, switching the organization sidebar back to `Custom` no longer restores the entries you had before the copy.
 
-To reuse a whole space, including its identity, landing page and plugin toolbar setting, duplicate it instead. See [Duplicate a space](create-space.md#duplicate-a-space).
-
 <a id="edit-in-the-live-preview"></a>
 
 ## Live preview
 
-The live preview in the middle of the designer shows the organization sidebar, or the environment sidebar while the `Environment` section is selected, and doubles as an editor. You can open an entry's settings beside it, drag entries to reorder a `Custom` section, and use an entry's context menu for the actions it supports. Editing a `Stock` sidebar here switches it to `Custom`, as described in [Switching source](#switching-source).
+The live preview in the middle of the designer shows the organization sidebar, or the environment sidebar while the `Environment` section is selected, and doubles as an editor. You can open an entry's settings beside it, drag entries to reorder a `Custom` section, and use an entry's context menu for the actions it supports. Editing a `Stock` sidebar here switches it to `Custom`.
 
 ## See also
 
-* [Create and manage spaces](create-space.md)
-* [Assign members](membership.md)
 * [Work in a space](use-spaces.md)
 * [Plugins](../services/plugin.md)
