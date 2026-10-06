@@ -58,8 +58,9 @@ The **Storage permission source** banner says where a user gets storage permissi
 |---|---|
 | **User specific** | The folder permissions you set on this tab apply to the user. The permissions of the user's group fill the folders the user did not set. On a group page, this reads **Group specific**. |
 | **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
+| **Organization default** | Only the [Default Permissions](#folder-visibility) of the organization and the project role of the user apply. The folder permissions of the user and of the group stay suspended. |
 
-While the source is **Group**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
+While the source is **Group** or **Organization default**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
 
 In the **Access** list of a user or a group, **Project permissions** saves no setting. The next step of [the rule](#how-access-is-decided) applies instead.
 
@@ -67,12 +68,16 @@ When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing c
 
 ### Effective access
 
-**Effective access** always shows the real access of the user on the folder. The labels are **No Access**, **Read Access**, **Write Access** and **Read-Write Access**. A tag says where the value comes from:
+What **Effective access** shows depends on the source:
+
+- **Group:** the **Access** and **Effective access** columns are an exact copy of the group's own **Storage permissions** page. The values, the tags and **Project permissions** are the same.
+- **Organization default:** the columns are an exact copy of the **Default Permissions** page.
+- **User specific:** **Effective access** shows the real access of the user, by the rule user, then group, then default. The labels are **No Access**, **Read Access**, **Write Access** and **Read-Write Access**. A tag says where the value comes from:
 
 | Tag | Meaning |
 |---|---|
 | **Assigned** | A setting on this folder |
-| **Inherited (from `<folder>`)** | The setting of a folder above |
+| **Inherited (from parent folder)** | The setting of a folder above |
 | **Inherited (from group)** | The setting of the user's group |
 | **Inherited (from default)** | The default permissions (folder sharing) |
 | **Inherited (from project role)** | The project role of the user |
@@ -97,7 +102,7 @@ A user or group setting is a ceiling: visibility and the project role add nothin
 
 The project role counts only in that environment's folder. **Viewer** gives read access. **Editor** and above give read-write access.
 
-**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** suspends the user's own permissions. Quix deletes nothing.
+**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Organization default** suspend the user's own permissions. Quix deletes nothing. **Organization default** also stops the group, so only the default permissions and the project role apply.
 
 **Choosing Inherited.** On a user or group permission, **Inherited** suspends the permission. Quix keeps it stored, but it counts as nothing, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own visibility setting, so the parent folder decides.
 
