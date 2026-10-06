@@ -62,7 +62,13 @@ The **Storage permission source** banner says where a user gets storage permissi
 
 While the source is **Group** or **Organization default**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
 
-In the **Access** list of a user or a group, **Project permissions** saves no setting. The next step of [the rule](#how-access-is-decided) applies instead.
+The **Access** list of a user or a group has the same choices as the **Default Permissions** page:
+
+- Environment folder: **Inherited**, **Project permissions**, **Read Access** and **Read-Write Access**. It has no **No Access**.
+- Other folders: **Inherited**, **No Access**, **Read Access** and **Read-Write Access**.
+- The bucket root has **Inherited** in these tables. It does not have it on the **Default Permissions** page.
+
+**Project permissions** saves the same value as on the **Default Permissions** page. The project role then decides.
 
 When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing changes until you click **Save changes**. Only administrators can edit permissions.
 
@@ -87,7 +93,7 @@ A group page shows **Environment Access** on an environment folder, because the 
 A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
 
 !!! note "A grant wins over public visibility"
-    A grant on a folder for a user or a group removes the public visibility for that user. **No Access** denies access, even when the folder is public. **Read Access** on a public read and write folder gives read access only.
+    A grant on a folder for a user or a group removes the public visibility for that user. **No Access** denies access, even when the folder is public. The exception is **Project permissions** on an environment folder: the project role decides there. **Read Access** on a public read and write folder gives read access only.
 
 ## How access is decided
 
@@ -104,7 +110,7 @@ The project role counts only in that environment's folder. **Viewer** gives read
 
 **Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Organization default** suspend the user's own permissions. Quix deletes nothing. **Organization default** also stops the group, so only the default permissions and the project role apply.
 
-**Choosing Inherited.** On a user or group permission, **Inherited** suspends the permission. Quix keeps it stored, but it counts as nothing, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own visibility setting, so the parent folder decides.
+**Choosing Inherited.** On a user or group permission, **Inherited** removes the setting on that folder, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own visibility setting, so the parent folder decides.
 
 **Example.** The user is in a group. The user has **No Access** on the root. The group has **Read Access** on `code/`.
 
