@@ -60,7 +60,7 @@ The **Storage permission source** banner says where a user gets storage permissi
 | **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
 | **Default Permissions** | Only the [Default Permissions](#default-permissions) and the project role of the user apply. The folder permissions of the user and of the group stay suspended. |
 
-While the source is **Group** or **Default Permissions**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
+While the source is **Group** or **Default Permissions**, the **Access** lists of the user are read only. A new source applies only after you click **Save changes**. Then it can take up to one minute to apply.
 
 The **Access** list of a user or a group has the same choices as the **Default Permissions** page:
 
@@ -95,7 +95,6 @@ A tag says where the value comes from. The user page and the group page show the
 | **Inherited (from group)** | The setting of the user's group |
 | **Inherited (from default)** | The **Default Permissions**, or nothing set |
 | **Inherited (from project permissions)** | The project role of the user in that environment |
-| **Inherited (from organization role)** | The organization role of the user |
 
 The tooltip of the **Effective access** cell names the folder, the group or the role.
 
