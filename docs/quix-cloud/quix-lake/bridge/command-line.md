@@ -53,7 +53,7 @@ The pairing creates the bridge only. You add the storage in the Portal after the
 ## Step 2: Get the quick config
 
 1. In the Portal, open **Settings → Quix Lake** and select your connection.
-2. Open the **Quix Lake Bridges** tab and click **Pair a bridge**.
+2. Open the **Bridges** tab and click **Pair a bridge**.
 3. Type the **Bridge name**, then click **Get the install command**.
 4. Copy the **quick config**. It expires after 15 minutes. Do not paste it in a ticket or a chat.
 
@@ -157,7 +157,7 @@ sudo quix-bridge logs -f
 - `--user` reads the log of your user account instead of the machine log.
 - A normal user gets a message to run `sudo quix-bridge logs`.
 
-Then add the storage in the Portal. On the **Quix Lake Bridges** tab, the menu of the new bridge has **Create storage**. It opens the **Add storage** panel with the bridge picked.
+Then add the storage in the Portal. On the **Bridges** tab, the menu of the new bridge has **Create storage**. It opens the **Add storage** panel with the bridge picked.
 
 ## The config file
 

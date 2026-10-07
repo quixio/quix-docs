@@ -17,7 +17,7 @@ An error carries a **reference**. Copy it with the button beside it and give it 
 
 | Where | State | Meaning |
 |---|---|---|
-| **Quix Lake Bridges** tab | **Not used by a storage** | The bridge is paired, but no storage uses it. Click **Assign storage**. |
+| **Bridges** tab | **Not used by a storage** | The bridge is paired, but no storage uses it. Click **Assign storage**. |
 | **Storages** tab | **Bridge revoked** | The bridge of this storage is revoked. The storage moves no data until you pick another bridge for it. |
 | Any client | **503 Service Unavailable** | The machine is off or the bridge is stopped. See below. |
 

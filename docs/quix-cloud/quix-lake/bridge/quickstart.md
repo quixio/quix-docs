@@ -45,7 +45,7 @@ The install command carries no token. This step needs no Portal visit.
 ## Step 2: Get the quick config
 
 1. In the Portal, open **Settings → Quix Lake** and select the connection.
-2. Open the **Quix Lake Bridges** tab and click **Pair a bridge**.
+2. Open the **Bridges** tab and click **Pair a bridge**.
 3. Type the **Bridge name**, then click **Get the install command**.
 4. Copy the **quick config**. It holds the two Quix addresses and a fresh pairing token.
 

@@ -44,7 +44,7 @@ Switch between **Tree view** and **File explorer view** with the buttons in the 
 | **Cut**, **Copy**, and paste | Moves or copies a file or folder into the folder you paste it in. A copy keeps the source. |
 | **Copy path** | Copies the full path of the entry, so you can use it in your code. |
 | **Delete file** and **Delete folder** | Deletes a file or a folder. |
-| **Manage visibility** | Sets who in your organization can read or change a folder. |
+| **Default Permissions** | Opens the **Default Permissions** tab of the connection. Only administrators and users with organization write access see this button. |
 
 Search finds files whose path contains the text you type. It searches from the root of the Quix Lake bucket, not from the folder in view. On a large bucket it reads only part of the bucket, so the result can be incomplete.
 
@@ -58,26 +58,30 @@ A storage folder looks like a folder, but it is a whole storage with its own buc
 * You cannot rename a storage folder here. Rename the storage from **Settings → Quix Lake** instead. A rename moves the folder every client uses, and it breaks every old path at once.
 * You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
 * You cannot cut or copy a storage folder.
-* You cannot set the visibility of a storage folder here. Set it on the storage's row in the **Default Permissions** tab of the connection.
+* You cannot set the **Default Permissions** of a storage folder here. Set them on the storage's row in the **Default Permissions** tab of the connection.
 
-Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, copy, and visibility all work there.
+Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, and copy all work there.
 
 ## Folders you cannot read
 
-When you can list a folder but cannot read it, the **Visibility** column shows a lock and **No access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. File Explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
+When you can list a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. File Explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
 
-## Visibility
+## Access
 
-Every folder shows its visibility, and you change it from the row menu. A folder's setting applies to everything beneath it, unless a deeper folder overrides it.
+<a id="visibility"></a>
 
-| Visibility | What it means |
+The **Access** column uses the same words as the **Storage permissions** tables:
+
+| Access | What it means |
 |---|---|
-| **Project permissions** | The project role decides: members get the same read and write access they have in that environment |
-| **Private** | No one can access it without permission. Administrators can only list it. |
-| **Public - Anyone can read** | Everyone in your organization can read it |
-| **Public - Anyone can read & write** | Everyone in your organization can read and change it |
+| **No Access** | You cannot read or change the folder |
+| **Read Access** | You can read the folder |
+| **Read-Write Access** | You can read and change the folder |
+| **Project permissions** | An environment folder. Your project role decides. |
 
-Only Quix administrators, and users with organization write access, can change visibility. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
+On a folder, the tooltip starts with **Your access:**, because the column shows what you can do. On a storage root, the column shows the **Default Permissions** of the storage, and the tooltip starts with **Default Permissions:**.
+
+Only Quix administrators, and users with organization write access, can change the **Default Permissions**. They use the **Default Permissions** button in the toolbar. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
 
 ## Next steps
 

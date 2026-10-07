@@ -36,17 +36,17 @@ A LIST at the root of the Quix Lake bucket names every storage the caller may re
 
 ## Two kinds of folders
 
-How a folder behaves by default depends on its kind. You see and change this in the **Default Permissions** tab, where every folder shows its current visibility.
+How a folder behaves by default depends on its kind. You see and change this in the **Default Permissions** tab, where every folder shows its current access.
 
-**Environment folders.** Each environment keeps its lake data in its own folder, which carries the **Environment** badge. While it keeps its default, the **Effective access** column shows a people icon and **Project permissions**. Its default visibility is **Project permissions**: members get the same read and write access they have in that environment. If you can view the environment you can read its data, and if you can edit the environment you can write to it. Other teams cannot see it unless someone shares it.
+**Environment folders.** Each environment keeps its lake data in its own folder, which carries the **Environment** badge. While it keeps its default, the **Effective access** column shows a people icon and **Project permissions**. Its default is **Project permissions**: members get the same read and write access they have in that environment. If you can view the environment you can read its data, and if you can edit the environment you can write to it. Other teams cannot see it unless someone shares it.
 
-**Other folders.** Any folder that is not tied to an environment shows a lock icon and **Private** in the **Effective access** column while it keeps its default. A folder you create yourself is one example. Its default visibility is **Private**: only its members and the people you share it with can reach it. Organization administrators can list it, but they need permission to read or write it. It becomes available to others only when someone shares it.
+**Other folders.** Any folder that is not tied to an environment shows a lock icon and **No Access** in the **Effective access** column while it keeps its default. A folder you create yourself is one example. Its default is **No Access**: only the people with a user or group permission on it can reach it. Organization administrators can list it, but they need permission to read or write it. It becomes available to others only when someone shares it.
 
 ## What administrators can do
 
-An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Open, download, upload, delete and new folder follow the storage permissions, like for any user. An administrator who has an explicit grant on a folder, or who meets a public folder, gets that access there. An administrator who is also a direct member of an environment keeps that member access.
+An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Open, download, upload, delete and new folder follow the storage permissions, like for any user. An administrator who has an explicit grant on a folder, or who meets a folder that the **Default Permissions** open, gets that access there. An administrator who is also a direct member of an environment keeps that member access.
 
-The File Explorer follows the same rule as the S3 endpoint. A folder an administrator can list but cannot read shows a lock and **No access**.
+The File Explorer follows the same rule as the S3 endpoint. A folder an administrator can list but cannot read shows a lock and **No Access**.
 
 ## Set permissions for a user or a group
 
@@ -58,9 +58,9 @@ The **Storage permission source** banner says where a user gets storage permissi
 |---|---|
 | **User specific** | The folder permissions you set on this tab apply to the user. The permissions of the user's group fill the folders the user did not set. On a group page, this reads **Group specific**. |
 | **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
-| **Organization default** | Only the [Default Permissions](#folder-visibility) of the organization and the project role of the user apply. The folder permissions of the user and of the group stay suspended. |
+| **Default Permissions** | Only the [Default Permissions](#default-permissions) and the project role of the user apply. The folder permissions of the user and of the group stay suspended. |
 
-While the source is **Group** or **Organization default**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
+While the source is **Group** or **Default Permissions**, the **Access** lists of the user are read only. A change of source can take up to one minute to apply.
 
 The **Access** list of a user or a group has the same choices as the **Default Permissions** page:
 
@@ -74,27 +74,37 @@ When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing c
 
 ### Effective access
 
-What **Effective access** shows depends on the source:
+What the **Access** column shows depends on the source:
 
-- **Group:** the **Access** and **Effective access** columns are an exact copy of the group's own **Storage permissions** page. The values, the tags and **Project permissions** are the same.
-- **Organization default:** the columns are an exact copy of the **Default Permissions** page.
-- **User specific:** **Effective access** shows the real access of the user, by the rule user, then group, then default. The labels are **No Access**, **Read Access**, **Write Access** and **Read-Write Access**. A tag says where the value comes from:
+- **User specific:** the settings of the user.
+- **Group:** an exact copy of the **Access** column of the group's own **Storage permissions** page.
+- **Default Permissions:** an exact copy of the **Access** column of the **Default Permissions** page.
+
+On a user page, **Effective access** always shows the real access of the user, by the rule user, then group, then default. The labels are **No Access**, **Read Access**, **Write Access** and **Read-Write Access**. Where the project role shapes the level, an icon shows it:
+
+- A yellow people icon: the project role decides the level, raises it, or gives the same level.
+- A red block icon: a user or group setting keeps the project role out.
+
+A tag says where the value comes from. The same tags show on the user page, the group page and the **Default Permissions** page:
 
 | Tag | Meaning |
 |---|---|
 | **Assigned** | A setting on this folder |
-| **Override** | A **No Access** on this folder that takes away a wider grant or a public visibility |
-| **Inherited (from parent folder)** | The setting of a folder above |
+| **Override** | A **No Access** on this folder that takes away a wider grant or the **Default Permissions** |
+| **Inherited (from parent folder)** | The setting of a folder above, the storage root included |
 | **Inherited (from group)** | The setting of the user's group |
-| **Inherited (from default)** | The default permissions (folder sharing) |
-| **Inherited (from project role)** | The project role of the user |
+| **Inherited (from default)** | The **Default Permissions**, or nothing set |
+| **Inherited (from project permissions)** | The project role of the user in that environment |
+| **Inherited (from organization role)** | The organization role of the user |
+
+The tooltip of a tag names the folder, the group or the role.
 
 A group page shows **Project permissions** on an environment folder, because the result differs for each member.
 
 A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
 
-!!! note "A grant wins over public visibility"
-    A grant on a folder for a user or a group removes the public visibility for that user. **No Access** denies access, even when the folder is public. The exception is **Project permissions** on an environment folder: the project role decides there. **Read Access** on a public read and write folder gives read access only.
+!!! note "A grant wins over the Default Permissions"
+    A grant on a folder for a user or a group removes the **Default Permissions** for that user. **No Access** denies access, even when the **Default Permissions** give access. The exception is **Project permissions** on an environment folder: the project role decides there. **Read Access** on a folder whose **Default Permissions** are **Read-Write Access** gives read access only.
 
 ## How access is decided
 
@@ -102,16 +112,16 @@ The rule is: user, then group, always wins. Quix checks these steps in order for
 
 1. **A user setting always wins.** The closest user setting applies. It can be on this folder or on a folder above.
 2. **No user setting?** A group setting always wins. The closest group setting applies.
-3. **No user or group setting?** The default permissions (folder sharing) and the project role both apply. The higher one wins.
+3. **No user or group setting?** The **Default Permissions** and the project role both apply. The higher one wins.
 4. **An organization administrator with no project role** sees the folder list only.
 
-A user or group setting is a ceiling: visibility and the project role add nothing. A group setting never beats a user setting, also when the group setting is closer to the folder.
+A user or group setting is a ceiling: the **Default Permissions** and the project role add nothing. A group setting never beats a user setting, also when the group setting is closer to the folder.
 
 The project role counts only in that environment's folder. **Viewer** gives read access. **Editor** and above give read-write access.
 
-**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Organization default** suspend the user's own permissions. Quix deletes nothing. **Organization default** also stops the group, so only the default permissions and the project role apply.
+**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Default Permissions** suspend the user's own permissions. Quix deletes nothing. **Default Permissions** also stops the group, so only the **Default Permissions** and the project role apply.
 
-**Choosing Inherited.** On a user or group permission, **Inherited** removes the setting on that folder, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own visibility setting, so the parent folder decides.
+**Choosing Inherited.** On a user or group permission, **Inherited** removes the setting on that folder, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own setting, so the parent folder decides.
 
 **Example.** The user is in a group. The user has **No Access** on the root. The group has **Read Access** on `code/`.
 
@@ -121,18 +131,20 @@ The project role counts only in that environment's folder. **Viewer** gives read
 | `code/` | none above or on it, except the root | Read Access | No Access: the user setting on the root wins over the group setting |
 
 !!! tip "Share a private folder with one team"
-    Give the team a group permission on the folder. Do not set the folder to public visibility. Public visibility opens the folder to the whole organization.
+    Give the team a group permission on the folder. Do not open the folder in **Default Permissions**. **Default Permissions** open the folder to the whole organization.
 
-## Folder visibility
+## Default Permissions
 
-You set a folder's visibility in the **Access** list on its row in the **Default Permissions** tab, and then click **Save**. **Inherited** removes the folder's own setting, so the parent folder decides. Opening a folder past its default is called *sharing*. There are two sharing levels: **Public - Anyone can read** and **Public - Anyone can read & write**. A folder's visibility applies to everything beneath it, unless a deeper folder sets its own visibility. User and group settings follow [the rule above](#how-access-is-decided).
+<a id="folder-visibility"></a>
 
-| Visibility | What it means | Default for |
+The **Default Permissions** tab of the connection sets what everyone in your organization can do with a folder. Set the **Access** list on the row of the folder, and then click **Save changes**. **Inherited** removes the folder's own setting, so the parent folder decides. Opening a folder past its default is called *sharing*. A folder's setting applies to everything beneath it, unless a deeper folder sets its own. User and group settings follow [the rule above](#how-access-is-decided).
+
+| Access | What it means | Default for |
 |---|---|---|
 | **Project permissions** | The project role decides: members get the same read and write access they have in that environment | Environment folders |
-| **Private** | No one can access it without permission. Administrators can only list it. | Other folders |
-| **Public - Anyone can read** | Everyone in your organization can read it | Opt-in |
-| **Public - Anyone can read & write** | Everyone in your organization can read and change it | Opt-in |
+| **No Access** | No one can access it without a user or group permission. Administrators can only list it. | Other folders |
+| **Read Access** | Everyone in your organization can read it | Opt-in |
+| **Read-Write Access** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A permission on the bucket root reaches every storage"
     Every storage is a folder of one bucket. So a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
@@ -179,9 +191,9 @@ You work with the lake exactly as before. The gateway only determines what appea
 
 ## Examples
 
-**Two environments.** An analytics team and an operations team work in separate environments in the same organization. By default, each team sees only its own environment's data, and neither sees the other's when browsing the lake. If the analytics team sets a folder of reference data to **Public - Anyone can read**, every team can then read it, but no one else can change it.
+**Two environments.** An analytics team and an operations team work in separate environments in the same organization. By default, each team sees only its own environment's data, and neither sees the other's when browsing the lake. If an administrator gives a folder of reference data **Read Access** in **Default Permissions**, every team can then read it, but no one else can change it.
 
-**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While it stays **Private**, administrators can list it but cannot read or write it. Set it to **Public - Anyone can read & write**, and anyone in the organization can read and write to it.
+**A shared working folder.** Someone creates a folder in the bucket that is not tied to any environment. While its **Default Permissions** stay **No Access**, administrators can list it but cannot read or write it. Give it **Read-Write Access** in **Default Permissions**, and anyone in the organization can read and write to it.
 
 **A second storage for archives.** An administrator adds a storage named `archive` to the connection. Clients then reach it as the folder `archive/` of its bucket. A permission on that folder opens that storage alone. A permission on the bucket root opens every storage, the main storage included, so set it on the folder when you mean one storage.
 

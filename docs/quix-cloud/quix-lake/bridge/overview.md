@@ -35,7 +35,7 @@ A bridge and a storage are two separate things:
 
 | | What it is | Where you manage it |
 |---|---|---|
-| **Bridge** | The machine, paired with the connection | **Quix Lake Bridges** tab of the connection |
+| **Bridge** | The machine, paired with the connection | **Bridges** tab of the connection |
 | **Storage** | The folder in the Quix Lake bucket that gives the files an address | **Storages** tab of the connection |
 
 One bridge serves one storage. A bridge that no storage uses reaches no client. The Portal marks it **Not used by a storage** and offers **Assign storage**.
@@ -72,14 +72,14 @@ Only the folders you share are visible. A path outside a share answers **Access 
 
 ## Revoke and remove a bridge
 
-On the **Quix Lake Bridges** tab, open the menu of the bridge:
+On the **Bridges** tab, open the menu of the bridge:
 
 - **Revoke bridge** cuts the bridge off. The machine must pair again to come back. The storage of the bridge stays. It shows **Bridge revoked** until you pick another bridge for it.
 - **Remove bridge** removes the record of a revoked bridge from the connection. The Portal refuses the remove while a storage uses the bridge. The machine can pair again later with a new token.
 
 To delete a storage, delete it on the **Storages** tab. The bridge stays and shows **Not used by a storage**.
 
-To serve another connection, open the bridge on the **Quix Lake Bridges** tab and move it. The move deletes its storage on the old connection, after you confirm.
+To serve another connection, open the bridge on the **Bridges** tab and move it. The move deletes its storage on the old connection, after you confirm.
 
 ## Operating system support
 
