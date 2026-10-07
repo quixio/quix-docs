@@ -45,6 +45,8 @@ Run the install script on the machine:
     curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sh
     ```
 
+    Run the script as a user who can use `sudo`. The script runs `sudo` itself for the install step.
+
     On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package creates the service and starts it.
 
 The install command carries no token. This step needs no Portal visit.

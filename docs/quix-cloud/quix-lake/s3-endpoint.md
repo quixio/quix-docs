@@ -150,7 +150,7 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 ```
 
 ??? info "The storage name as a bucket name"
-    The gateway also takes the name of a storage as a bucket name, for example `s3://minio/reports/2026-08.csv`. This address exists only so that running pods keep working until their next deploy. Quix will remove it. Do not use it. Use the folder address.
+    The gateway also takes the name of a storage as a bucket name, for example `s3://minio/reports/2026-08.csv`. This address exists only so that running pods keep working until their next deploy. A rename of the storage breaks this address at once. Quix will remove it. Do not use it. Use the folder address.
 
 ### The environment shortcut
 
@@ -200,7 +200,7 @@ s3.put_object(Bucket="<your_bucket>", Key=f"archive/{workspace}/reports/day.csv"
 
 ### List the storages
 
-A LIST at the root of the Quix Lake bucket names, as a folder, every storage that you may open. Inside a storage folder, the listing shows only what you may read. Ask for `delimiter="/"` and read the common prefixes:
+A LIST at the root of the Quix Lake bucket names every storage of the connection, as a folder. Inside a storage folder, the listing shows only what you may read. Ask for `delimiter="/"` and read the common prefixes:
 
 ```python
 answer = s3.list_objects_v2(Bucket="quixdevbucket", Delimiter="/")
