@@ -14,7 +14,7 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 
     Only the **main storage** may sit at the **root** of the bucket. A storage that is not the main storage always has a folder.
 
-    The main storage may take a folder of its own too. Then no storage sits at the root.
+    The main storage may take a folder of its own too. A listing of the bucket root then shows only folders. A key whose first segment names no storage still reaches the main storage.
 
 !!! important "One connection per cluster and node group"
     Each **cluster and node group** pair supports **one** Quix Lake connection. The Portal names a connection by that pair.
@@ -34,14 +34,14 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
 
 ## Create a connection
 
-1. Open **Settings → Quix Lake**. The page shows one row for each cluster.
+1. Open **Settings → Quix Lake**. The page shows one row for each cluster and node group.
 2. Click the row of a cluster that shows **Not connected**. The **Connect storage** panel opens, with the **Cluster** filled in.
 3. Type the **Quix Lake bucket**.
 4. Choose the **Provider**. Fill in the **Provider bucket** and the credentials. See [Get provider credentials](#get-provider-credentials).
 5. Click **Test connection**, described below.
 6. Click **Create**.
 
-The page lists every cluster in your organization. A cluster without a connection shows a **Not connected** badge, so you can see at a glance where Quix Lake is still to set up.
+The page lists every cluster and node group in your organization. A cluster without a connection shows a **Not connected** badge, so you can see at a glance where Quix Lake is still to set up.
 
 You type the **Quix Lake bucket** name yourself. It is the one bucket name your code uses, and it is separate from the **Provider bucket**. The first storage becomes the **main storage** of the connection. It sits at the **root** of the Quix Lake bucket, unless you fill in **Folder (optional)**. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
 
@@ -215,7 +215,9 @@ The move changes these things:
     s3://quixdevbucket/principal/reports/day.csv  after the move, in the folder principal
     ```
 
-    Quix restarts the deployments bound to that storage and moves its permissions into the new folder. Update your own code, your saved paths, and your sink configuration.
+    Quix moves its permissions into the new folder. Update your own code, your saved paths, and your sink configuration.
+
+* **Environment deployments follow the main storage.** Quix moves every environment deployment of the old main storage to the new main storage. Then Quix restarts the deployments of both storages and the dev sessions.
 
 * **The environment shortcut moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](./s3-endpoint.md#the-environment-shortcut).
 * **The Quix Lake bucket keeps its name.** The bucket belongs to the connection, not to the main storage.

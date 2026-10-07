@@ -28,7 +28,7 @@ Each storage keeps its own bucket and its own credentials behind the gateway, so
 
 The gateway takes the storage folder off the key and changes nothing else. So an object you write lands at the same key in the bucket behind the storage.
 
-A LIST at the root of the Quix Lake bucket names every storage the caller may reach, as a folder. The gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root. It gets `403 AccessDenied`.
+A LIST at the root of the Quix Lake bucket names every storage of the connection, as a folder. Inside each folder, the gateway shows only what the caller may read. The gateway merges the answer across the storages behind it. **ListBuckets** answers that one bucket, so a client discovers the storages with that root listing. A deployment credential that holds only its environment grant cannot list the root. It gets `403 AccessDenied`.
 
 ## The environment shortcut
 

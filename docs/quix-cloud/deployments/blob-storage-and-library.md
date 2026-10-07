@@ -57,7 +57,7 @@ Quix takes the storage folder off the key before it calls the storage behind it.
 The bind always goes to the **main storage** of the connection. A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it, and `ListBuckets` answers the one Quix Lake bucket. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
 !!! warning "An administrator can change the folder in your keys"
-    A [rename](../quix-lake/blob-storage.md#rename-a-storage) changes the **Folder** of a storage, and the old folder fails at once. A [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage) gives the storage that steps down a folder, when it sat at the bucket root. In both cases the bucket name stays, Quix restarts the deployments bound to that storage, and you update the keys in your code:
+    A [rename](../quix-lake/blob-storage.md#rename-a-storage) changes the **Folder** of a storage, and the old folder fails at once. Quix restarts the deployments bound to that storage. A [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage) moves your deployment to the new main storage, and Quix restarts it. `<your_bucket>/<workspaceId>/` then reaches the new main storage. The storage that steps down takes a folder when it sat at the bucket root. In both cases the bucket name stays. To reach the old data, update the keys in your code:
 
     ```python
     fs.open("<your_bucket>/<workspaceId>/reports/day.csv")            # before the move, at the bucket root

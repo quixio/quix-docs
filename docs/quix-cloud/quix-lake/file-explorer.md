@@ -15,7 +15,7 @@ Open **File Explorer** from the **Quix Lake** section of your environment sideba
 
 ## What you see
 
-File Explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage you may reach appears as a **folder** at the root of that bucket. Open a folder to browse the storage behind it. The folder name is the **Folder** an administrator set on the storage.
+File Explorer opens the **Quix Lake bucket**, the one bucket of the connection. Each storage of the connection appears as a **folder** at the root of that bucket. You see every storage folder, also one you cannot read. Open a folder to browse the storage behind it. The folder name is the **Folder** an administrator set on the storage.
 
 Only the **main storage** may sit at the root of the bucket. When it does, its own folders show beside the storage folders. Every other storage has a folder of its own.
 
@@ -28,7 +28,7 @@ A storage you add never moves a storage that is already there, so the paths you 
 
 A main storage move is different. Only the main storage may sit at the bucket root, so the storage that steps down must take a folder, and its paths change. The Portal asks the administrator for that folder name before it moves anything. When the storage that steps down already has a folder, nothing moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
-You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
+You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. A storage folder at the root is the one exception. It always appears, and its contents follow the permissions. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
 
 Switch between **Tree view** and **File explorer view** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
 
@@ -64,7 +64,7 @@ Everything **inside** a storage behaves like an ordinary folder. Rename, delete,
 
 ## Folders you cannot read
 
-When you can list a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator on a folder that is not an environment folder, where the administrator can only list. Open, download, upload, delete and new folder follow the storage permissions. File Explorer turns off the actions you cannot do, and the tooltip says why. The gateway also refuses a request that the permissions do not allow.
+When you can see a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator on a folder that is not an environment folder, where the administrator can only list. It also happens on a storage folder when no user, group or Default Permission opens that storage folder itself. Open, download, upload, delete and new folder follow the storage permissions. File Explorer turns off the actions you cannot do, and the tooltip says why. The gateway also refuses a request that the permissions do not allow.
 
 ## Access
 
@@ -79,7 +79,7 @@ The **Access** column uses the same words as the **Storage permissions** tables:
 | **Read-Write Access** | You can read and change the folder |
 | **Project permissions** | An environment folder. Your project role decides. |
 
-On a folder, the tooltip starts with **Your access:**, because the column shows what you can do. On a storage root, the column shows the **Default Permissions** of the storage, and the tooltip starts with **Default Permissions:**.
+The tooltip starts with **Your access:**, because the column shows what you can do. On a storage folder, it shows what you can do with a file directly inside that folder. A folder inside it can show more, for example your own environment folder.
 
 Organization administrators and Quix administrators open the **Default Permissions** tab with the **Default Permissions** button in the toolbar. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
 

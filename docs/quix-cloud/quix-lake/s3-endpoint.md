@@ -184,7 +184,7 @@ s3.put_object(Bucket="<your_bucket>", Key=f"archive/{workspace}/reports/day.csv"
 
 ### List the storages
 
-A LIST at the root of the Quix Lake bucket names every storage you may reach, as a folder. Ask for `delimiter="/"` and read the common prefixes:
+A LIST at the root of the Quix Lake bucket names every storage of the connection, as a folder. Inside a storage folder, the listing shows only what you may read. Ask for `delimiter="/"` and read the common prefixes:
 
 ```python
 answer = s3.list_objects_v2(Bucket="quixdevbucket", Delimiter="/")
