@@ -93,3 +93,7 @@ Both options require a **Quix Lake connection** configured for the cluster. See 
 - **[Data Lake overview](./data-lake/overview.md)** — replay-first storage, raw Kafka fidelity, open Avro/Parquet
 - **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Iceberg tables
 - **[Quix Lake connections and storages](./blob-storage.md)** — wire up the bucket or container that both use
+- **[Storage Access Gateway](./secure-storage-access.md)** — who can read and change each folder
+- **[How to connect](./s3-endpoint.md)** — reach the files from your own code with any S3 client
+- **[File Explorer](./file-explorer.md)** — browse, upload and download files in the Portal
+- **[Bridge](./bridge/overview.md)** — serve folders on a machine you own as a storage

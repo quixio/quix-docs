@@ -5,7 +5,7 @@ search:
   boost: 3
 ---
 
-# Overview - Bridge
+# Bridge overview
 
 The **Quix Lake Bridge** is a small service that you install on a machine you own. It lets Quix Cloud read and write folders on that machine as one more **storage** of a [Quix Lake connection](../blob-storage.md). The folders can be on a local disk or on a network share. Your services reach the files with the same S3 calls, the same endpoint and the same credential as every other storage.
 

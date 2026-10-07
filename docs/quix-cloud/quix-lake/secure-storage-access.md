@@ -5,7 +5,7 @@ description: How Quix keeps your Quix Lake data private by default, so each team
 
 # Storage Access Gateway
 
-Every cluster connects to object storage for [Quix Lake](./overview.md), and your whole organization shares that storage. The **Storage Access Gateway** controls who can see and change what inside it, so each team only works with the data it is meant to.
+Each cluster and node group connects to object storage for [Quix Lake](./overview.md), and your whole organization shares that storage. The **Storage Access Gateway** controls who can see and change what inside it, so each team only works with the data it is meant to.
 
 The gateway sits between the platform and your object storage. It checks every request. It confirms who is asking and which data the caller may reach, then passes through only what the caller may see.
 
@@ -72,7 +72,7 @@ The **Access** list of a user or a group has the same choices as the **Default P
 
 When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing changes until you click **Save changes**. Only administrators can edit permissions.
 
-### Effective access
+### Access and Effective access {#effective-access}
 
 What the **Access** column shows depends on the source:
 

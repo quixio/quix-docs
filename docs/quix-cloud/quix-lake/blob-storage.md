@@ -152,7 +152,7 @@ To add one:
 5. Set the **Folder**.
 6. Click **Test connection**, then **Create**. A [bridge](./bridge/overview.md) storage has no connection to test, so this step goes straight to **Create**.
 
-A cloud storage takes the name of its provider bucket. You can change the **Name** later in **Edit storage**. A Quix Lake Bridge storage also asks for a **Name**.
+A cloud storage takes the name of its provider bucket. You can change the **Name** later in **Edit storage**. A bridge storage also asks for a **Name**.
 
 The **Storages** tab lists every storage on the connection. Each row shows the **Folder** your clients use and the **Provider bucket** behind it. The main storage carries a **Main** badge. The `⋮` menu holds **Edit storage**. On a storage that is not the main storage, it also holds **Make this the main storage** and **Delete storage**.
 
@@ -224,7 +224,7 @@ The move changes these things:
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
 
-!!! note "A Quix Lake Bridge storage needs a bucket root first"
+!!! note "A bridge storage needs a bucket root first"
     The Portal refuses **Make this the main storage** on a bridge storage until the bridge has a bucket root. Set the bucket root in the bridge console first. See [The bucket root](./bridge/shared-folders.md#the-bucket-root).
 
 ??? info "Checklist: copy the data before you rely on the new main storage"
