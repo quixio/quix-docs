@@ -119,6 +119,11 @@ A user or group setting is a ceiling: the **Default Permissions** and the projec
 
 The project role counts only in that environment's folder. **Viewer** gives read access. **Editor** and above give read-write access.
 
+The same rule applies to things that act for you:
+
+* A **dev session** can do exactly what you can.
+* A **deployed application** acts as its own environment. It reads its own data and anything shared, and changes its own data. It does not see another team's private data.
+
 **Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Default Permissions** suspend the user's own permissions. Quix deletes nothing. **Default Permissions** also stops the group, so only the **Default Permissions** and the project role apply.
 
 **Choosing Inherited.** On a user or group permission, **Inherited** removes the setting on that folder, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own setting, so the parent folder decides.
@@ -164,21 +169,6 @@ The **Default Permissions** tab of the connection sets what everyone in your org
 **Keeps storage keys protected.** The credentials for your bucket stay inside the gateway. The gateway never hands them to the rest of the platform.
 
 **Leaves your data in place.** The gateway only governs access. Your files stay in your own object storage, untouched.
-
-## Who can read and write
-
-Your access to the data matches your access to the environment:
-
-| What you can do in the environment | What you can do with its data |
-|---|---|
-| **View** it | **Read** it |
-| **Edit** it | **Read and change** it |
-| **Nothing** | **Nothing**, unless someone has shared it |
-
-The same applies to things acting on your behalf:
-
-* A **dev session** can do exactly what you can.
-* A **deployed application** acts as its own environment. It reads its own data and anything shared, and changes its own data. It does not see another team's private data.
 
 ## Where it applies
 
