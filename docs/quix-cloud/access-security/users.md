@@ -41,6 +41,8 @@ A user can belong to one group at a time. After you change a user's **Group**, t
 
 Only an Admin can change permissions on this tab, and not their own. While the user's **Inherit from group** toggle is on, their roles come from the group and can't be edited here. The [roles](../roles.md#available-roles), [levels](../roles.md#permission-levels) and [inheritance rules](../roles.md#inheritance) are described in [Roles and permissions](../roles.md).
 
+The **Storage permissions** tab sets the user's access to folders in Quix Lake. See [Set permissions for a user or a group](../quix-lake/secure-storage-access.md#set-permissions-for-a-user-or-a-group) and [How access is decided](../quix-lake/secure-storage-access.md#how-access-is-decided).
+
 ## Delete a user
 
 Choose **Delete user** from the user's menu in the list, or open the user and click **Delete** in the **Delete this user** card. In the **Delete user?** dialog, type `DELETE` and click **Delete user**.

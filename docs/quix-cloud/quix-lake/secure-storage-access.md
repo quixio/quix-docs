@@ -83,12 +83,13 @@ What **Effective access** shows depends on the source:
 | Tag | Meaning |
 |---|---|
 | **Assigned** | A setting on this folder |
+| **Override** | A **No Access** on this folder that takes away a wider grant or a public visibility |
 | **Inherited (from parent folder)** | The setting of a folder above |
 | **Inherited (from group)** | The setting of the user's group |
 | **Inherited (from default)** | The default permissions (folder sharing) |
 | **Inherited (from project role)** | The project role of the user |
 
-A group page shows **Environment Access** on an environment folder, because the result differs for each member.
+A group page shows **Project permissions** on an environment folder, because the result differs for each member.
 
 A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
 
