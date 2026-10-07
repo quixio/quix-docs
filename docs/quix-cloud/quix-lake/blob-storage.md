@@ -141,7 +141,7 @@ s3://<connectionBucket>/<storage>/<key>
 
 Each storage keeps its own bucket or container and its own credentials. One bucket name in your code can therefore hide several providers. Add a storage when you want data in a different bucket, region, or provider, and give your services no second connection to manage.
 
-A storage can also serve folders on a machine you own, such as a local disk or a network share. See the [Quix Lake Bridge](./bridge/overview.md) (beta).
+A storage can also serve folders on a machine you own, such as a local disk or a network share. See [Bridge](./bridge/overview.md) (beta).
 
 To add one:
 
@@ -150,7 +150,7 @@ To add one:
 3. Click **Add storage**.
 4. Choose the **Provider**. Fill in the **Provider bucket** and the credentials.
 5. Set the **Folder**.
-6. Click **Test connection**, then **Create**. A [Quix Lake Bridge](./bridge/overview.md) storage has no connection to test, so this step goes straight to **Create**.
+6. Click **Test connection**, then **Create**. A [bridge](./bridge/overview.md) storage has no connection to test, so this step goes straight to **Create**.
 
 A cloud storage takes the name of its provider bucket. You can change the **Name** later in **Edit storage**. A Quix Lake Bridge storage also asks for a **Name**.
 
@@ -269,7 +269,7 @@ A deployment or a [dev session](../applications/dev-sessions/overview.md) binds 
 
 * [File Explorer](./file-explorer.md) — browse and manage files in the Portal
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
-* [S3-compatible endpoint](./s3-endpoint.md) — reach the same data from your code
-* [Quix Lake Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
+* [How to connect](./s3-endpoint.md) — reach the same data from your code
+* [Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
 * [Data Lake Sink](./data-lake/sink.md) — persist topics as Avro plus a Parquet index
 * [Lakehouse Sink](./lakehouse/sink.md) — persist topics as queryable Parquet tables

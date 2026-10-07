@@ -1,13 +1,13 @@
 ---
-title: S3-compatible endpoint
+title: How to connect
 description: Reach your Quix Lake data from an S3 client with one endpoint, one credential, and one bucket that holds every storage as a folder.
 ---
 
-# S3-compatible endpoint
+# How to connect
 
 The [Storage Access Gateway](./secure-storage-access.md) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. S3 clients such as boto3, the AWS CLI, `s3fs` and DuckDB read and write through it, with path-style addressing.
 
-The endpoint is the same whichever provider sits behind the connection. Your code targets S3, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, MinIO, or a [Quix Lake Bridge](./bridge/overview.md).
+The endpoint is the same whichever provider sits behind the connection. Your code targets S3, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, MinIO, or a [bridge](./bridge/overview.md).
 
 !!! tip "Reading files in Python?"
     Inside a deployment, the `quixportal` library reads the injected credentials for you and returns a filesystem. See [Quix Lake storage](../deployments/blob-storage-and-library.md).
@@ -180,7 +180,7 @@ s3.put_object(Bucket="<your_bucket>", Key=f"archive/{workspace}/reports/day.csv"
 ```
 
 !!! note "A sink writes to the main storage"
-    The managed Data Lake Sink, the Lakehouse Sink, and the Quix Streams file sink write to the **main storage** of the connection. They cannot write to another storage by key today. To point a sink at a [Quix Lake Bridge](./bridge/overview.md), make the bridge storage the main storage. See [Write to a bridge from a sink](./bridge/sinks.md).
+    The managed Data Lake Sink, the Lakehouse Sink, and the Quix Streams file sink write to the **main storage** of the connection. They cannot write to another storage by key today. To point a sink at a [bridge](./bridge/overview.md), make the bridge storage the main storage. See [Write to a bridge from a sink](./bridge/sinks.md).
 
 ### List the storages
 
@@ -195,7 +195,7 @@ for folder in answer.get("CommonPrefixes", []):
 Drop the delimiter, and Quix merges the storages into **one** listing, in key order and with paging. Pass the `NextContinuationToken` back as you got it.
 
 !!! note "A whole-bucket listing needs every bridge online"
-    A LIST of the whole bucket, with no prefix and no delimiter, answers `503 Service Unavailable` while a [Quix Lake Bridge](./bridge/overview.md) that serves one of the storages is away. This is on purpose. A sync tool never takes a short listing as deleted files. List each storage folder with a prefix, such as `Prefix="minio/"`. The root listing with `Delimiter="/"` still works.
+    A LIST of the whole bucket, with no prefix and no delimiter, answers `503 Service Unavailable` while a [bridge](./bridge/overview.md) that serves one of the storages is away. This is on purpose. A sync tool never takes a short listing as deleted files. List each storage folder with a prefix, such as `Prefix="minio/"`. The root listing with `Delimiter="/"` still works.
 
 !!! warning "A deployment credential cannot list the bucket root"
     A root LIST works with a PAT, in a dev session, and with a credential that holds a grant on the root. The credential of a bound deployment holds a grant on its own environment folder only. So a root LIST answers `403 AccessDenied`. List your own folder instead, such as `Prefix="<workspaceId>/"` or `Prefix="archive/<workspaceId>/"`.
@@ -236,4 +236,4 @@ User metadata keys (`x-amz-meta-*`) can come back with capital letters, so read 
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
 * [Quix Lake storage](../deployments/blob-storage-and-library.md) — bind a storage and read it in Python
 * [Quix Lake connections and storages](./blob-storage.md) — connect a bucket and add a storage
-* [Quix Lake Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
+* [Bridge](./bridge/overview.md) — serve folders on your own machine as a storage

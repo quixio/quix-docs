@@ -118,7 +118,7 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 `ServiceUrl` points at the gateway endpoint, and `BucketName` is the Quix Lake bucket. `Region` is the region of the storage, or `us-east-1` when the storage has none. Quix injects the keys in this PascalCase form, and `quixportal` reads them as they are.
 
-Your real bucket credentials never leave Quix. The key in this document reaches your environment's data only, and every storage of the connection answers on this one endpoint. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for who may read what, and [S3-compatible endpoint](../quix-lake/s3-endpoint.md) for the API surface.
+Your real bucket credentials never leave Quix. The key in this document reaches your environment's data only, and every storage of the connection answers on this one endpoint. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for who may read what, and [How to connect](../quix-lake/s3-endpoint.md) for the API surface.
 
 The library *can* also target Azure, GCS, and a local directory directly, which is useful for tests or running outside Quix. Those are configs you build yourself with the [helpers below](#generating-the-json-yourself), not something the platform injects.
 
@@ -144,5 +144,5 @@ Typed builders are also available — `create_s3_config()`, `create_minio_config
 
 * [Quix Lake connections and storages](../quix-lake/blob-storage.md) — connect a bucket and add a storage
 * [Storage Access Gateway](../quix-lake/secure-storage-access.md) — who can read and change what
-* [S3-compatible endpoint](../quix-lake/s3-endpoint.md) — the API surface your client may use
+* [How to connect](../quix-lake/s3-endpoint.md) — the API surface your client may use
 * [Quix variables](./quix-variables.md) — every variable the platform injects

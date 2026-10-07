@@ -1,11 +1,11 @@
 ---
-title: Quix Lake Bridge overview
+title: Bridge overview
 description: Serve folders on a machine you own as a Quix Lake storage, over outbound connections only, with no inbound port.
 search:
   boost: 3
 ---
 
-# Overview - Quix Lake Bridge
+# Overview - Bridge
 
 The **Quix Lake Bridge** is a small service that you install on a machine you own. It lets Quix Cloud read and write folders on that machine as one more **storage** of a [Quix Lake connection](../blob-storage.md). The folders can be on a local disk or on a network share. Your services reach the files with the same S3 calls, the same endpoint and the same credential as every other storage.
 

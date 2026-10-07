@@ -1,5 +1,5 @@
 ---
-title: Quix Lake Bridge quickstart
+title: Bridge quickstart
 description: Install the bridge, pair it, share a folder, and see the files in the Portal.
 search:
   boost: 3
@@ -89,7 +89,7 @@ A new share is read only. Turn on **Allow write access** if Quix must write to t
 2. Open the folder of the storage, `plant-fs`.
 3. Open the share, `c/quix-share` or `srv/quix-share`. The file `hello.txt` is there.
 
-The SAG path of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the [S3-compatible endpoint](../s3-endpoint.md).
+The SAG path of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the S3-compatible endpoint. See [How to connect](../s3-endpoint.md).
 
 ## Next steps
 

@@ -83,5 +83,5 @@ Only Quix administrators, and users with organization write access, can change v
 
 * [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
 * [Quix Lake connections and storages](./blob-storage.md) — connect a bucket and add a storage
-* [S3-compatible endpoint](./s3-endpoint.md) — reach the same files from your code
+* [How to connect](./s3-endpoint.md) — reach the same files from your code
 * [Data Lake UI](./data-lake/user-interface.md) — browse persisted Kafka datasets instead of raw files
