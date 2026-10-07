@@ -20,13 +20,13 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`, with or without a leading `v`:
 
     ```powershell
-    $env:QUIX_BRIDGE_VERSION = '0.1.25'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
+    $env:QUIX_BRIDGE_VERSION = '0.1.26'; irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
     The MSI installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it. It adds that folder to the system `PATH`. Open a new administrator shell for the next steps, so that it sees the new `PATH`.
 
     ??? info "Zip install"
-        When you run the script as a file, `.\install.ps1 -Version 0.1.25` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
+        When you run the script as a file, `.\install.ps1 -Version 0.1.26` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
 
 === "Linux"
 
@@ -37,7 +37,7 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     To install one fixed version, set `QUIX_BRIDGE_VERSION`:
 
     ```bash
-    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.25 sh
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.26 sh
     ```
 
     On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs and starts the service. On other machines, the script copies the binary to `/usr/local/bin`. Then install the service yourself:
@@ -141,7 +141,7 @@ sudo quix-bridge test
 ```
 
 - `status` shows the connection, the number of shares and the last error. It exits with code 0 when the service runs and the bridge is connected.
-- `test` checks that the service account can read every share, and that the bridge can reach Quix on port 443. It exits with code 0 when every check passed, even while the service is stopped. The report names a check that failed.
+- `test` checks that the service account can read every share, and that the bridge can reach Quix on port 443. On Linux, it exits with code 0 when every check passed, even while the service is stopped. On Windows, the service must run, or the folder check fails. The report names a check that failed.
 
 To read the log, run `quix-bridge logs`:
 
@@ -195,7 +195,7 @@ Each entry in `shares` has these keys. The keys can come in any order.
 | `path` | The absolute path of the folder on this machine. Required. |
 | `name` | The bucket in the SAG address. This is the drive letter on Windows, the first folder on Linux, or `/` for the root share. Optional. |
 | `prefix` | The folder inside that bucket. It ends with `/`. Optional. An empty `prefix:` means the default. |
-| `readOnly` | `true` by default. Set it to `false` to let Quix write to the folder. |
+| `readOnly` | `false` by default, so a share with no `readOnly` key is read and write. Set it to `true` to stop Quix from writing. `share add` and the console write `readOnly: true` for a new share. |
 
 The bridge takes `name` and `prefix` from `path` when you leave them out. This is the smallest share:
 

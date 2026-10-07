@@ -23,7 +23,7 @@ A sink binds the **main storage** of the connection. This applies to the managed
     ```
 
 !!! note "Where the data lands"
-    The sink writes into the bucket root folder on the bridge machine, under `<workspaceId>/`. For example, with the bucket root `D:\QuixData`, a Data Lake Sink writes to `D:\QuixData\<workspaceId>\Raw\...`.
+    The sink writes into the bucket root folder on the bridge machine, under `<workspaceId>/`. For example, with the bucket root `D:\QuixData`, a Data Lake Sink writes to `D:\QuixData\<workspaceId>\data-lake\raw\...`.
 
 The Portal refuses **Make this the main storage** on a bridge storage until the bridge has a bucket root. The main storage must answer at all times, so keep the bridge machine online. See [Make a storage the main storage](../blob-storage.md#make-a-storage-the-main-storage) for what the move changes.
 

@@ -44,7 +44,7 @@ Switch between **Tree view** and **File explorer view** with the buttons in the 
 | **Cut**, **Copy**, and paste | Moves or copies a file or folder into the folder you paste it in. A copy keeps the source. |
 | **Copy path** | Copies the full path of the entry, so you can use it in your code. |
 | **Delete file** and **Delete folder** | Deletes a file or a folder. |
-| **Default Permissions** | Opens the **Default Permissions** tab of the connection. Only administrators and users with organization write access see this button. |
+| **Default Permissions** | Opens the **Default Permissions** tab of the connection. Only organization administrators and Quix administrators see this button. |
 
 Search finds files whose path contains the text you type. It searches from the root of the Quix Lake bucket, not from the folder in view. On a large bucket it reads only part of the bucket, so the result can be incomplete.
 
@@ -58,13 +58,13 @@ A storage folder looks like a folder, but it is a whole storage with its own buc
 * You cannot rename a storage folder here. Rename the storage from **Settings → Quix Lake** instead. A rename moves the folder every client uses, and it breaks every old path at once.
 * You cannot delete a storage folder. Delete the storage from **Settings → Quix Lake** instead.
 * You cannot cut or copy a storage folder.
-* You cannot set the **Default Permissions** of a storage folder here. Set them on the storage's row in the **Default Permissions** tab of the connection.
+* You cannot set the **Default Permissions** of any folder here. Set them on the storage's row in the **Default Permissions** tab of the connection.
 
 Everything **inside** a storage behaves like an ordinary folder. Rename, delete, move, and copy all work there.
 
 ## Folders you cannot read
 
-When you can list a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator, who can only list folders. Open, download, upload, delete and new folder follow the storage permissions. File Explorer does not turn these actions off. The gateway refuses a request that the permissions do not allow.
+When you can list a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator on a folder that is not an environment folder, where the administrator can only list. Open, download, upload, delete and new folder follow the storage permissions. File Explorer turns off the actions you cannot do, and the tooltip says why. The gateway also refuses a request that the permissions do not allow.
 
 ## Access
 
@@ -81,7 +81,7 @@ The **Access** column uses the same words as the **Storage permissions** tables:
 
 On a folder, the tooltip starts with **Your access:**, because the column shows what you can do. On a storage root, the column shows the **Default Permissions** of the storage, and the tooltip starts with **Default Permissions:**.
 
-Only Quix administrators, and users with organization write access, can change the **Default Permissions**. They use the **Default Permissions** button in the toolbar. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
+Organization administrators and Quix administrators open the **Default Permissions** tab with the **Default Permissions** button in the toolbar. Sharing never reaches past your Quix organization, and Quix never exposes a folder to the public internet.
 
 ## Next steps
 

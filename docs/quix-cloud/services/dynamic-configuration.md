@@ -124,7 +124,7 @@ required by the managed image.
   `file`; default: `mongo`).
   - In **file mode**, the service stores content in object storage, such as S3,
       GCS, or Azure Blob.
-  - Provider-specific credentials are configured via Quix secrets.
+  - Quix binds the Quix Lake storage for you and injects its credentials as the secret `Quix__BlobStorage__Connection__Json`.
   - In **mongo mode**, only JSON configuration documents are supported and each configuration payload must be ≤ 16 MB. Use `file` mode for larger or non-JSON artifacts.
 
 ### Quix Lake storage
@@ -295,7 +295,7 @@ DELETE /api/v1/configurations/{id}
 - **Content Type**: Any binary data
 - **Size Limit**: Depends on the object storage provider
 - **Use Case**: Large files, firmware, binary data
-- **Setup**: Bind a Quix Lake storage to the deployment
+- **Setup**: Set `contentStore` to `file`. Quix binds the Quix Lake storage for you. A Quix Lake connection must exist for the cluster.
 
 To use file mode, set `contentStore: file` in your deployment configuration.
 

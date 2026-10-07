@@ -20,11 +20,11 @@ On a Linux machine with no systemd, such as a container, the deb or the rpm inst
 
 ## How an update runs
 
-The bridge checks for an update **every 5 minutes**. The MSI, the deb and the rpm register this check as a scheduled task. For a tar.gz install, `sudo quix-bridge service install` registers the same 5-minute update timer. The update check runs as root. The SHA-256 checks are the same for all installs.
+The bridge checks for an update **every 5 minutes**. The MSI registers this check as a scheduled task that runs as `SYSTEM`. The deb and the rpm enable the systemd timer `quix-bridge-update.timer`, which runs as root. For a tar.gz install, `sudo quix-bridge service install` registers the same 5-minute update timer. The SHA-256 checks are the same for all installs.
 
-Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then it lets the running operations finish. It installs the new version and starts the service again. The tray restarts by itself after an automatic update. You do not need to do anything. The update task checks every 5 minutes. A failed update puts the old version back. When an install fails, the bridge tries again later, with a longer wait after each failure.
+Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then the service stop gives the running operations up to 60 seconds (`service.drainSeconds`) to finish. It installs the new version and starts the service again. The tray restarts by itself after an automatic update. You do not need to do anything. The update task checks every 5 minutes. A failed update puts the old version back. When an install fails, the bridge tries again later, with a longer wait after each failure.
 
-A new release reaches every bridge within about **10 minutes**. The service restarts by itself. In the first minutes after a release, `quix-bridge update run` can print `nothing to do`. Wait a few minutes, then run it again.
+A new release reaches every bridge within about **10 minutes**. The service restarts by itself. In the first minutes after a release, `quix-bridge update run` can print `nothing to do` on Windows, or `no newer version` on Linux. Wait a few minutes, then run it again.
 
 To see the installed version and the last update, see [Check the version and the last update](./troubleshooting.md#check-the-version-and-the-last-update).
 

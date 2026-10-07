@@ -25,7 +25,7 @@ An error carries a **reference**. Copy it with the button beside it and give it 
 
 When the machine is off or the bridge is stopped, every call to the storage answers **503 Service Unavailable**. It never answers "not found" and never an empty listing. So a sync tool that deletes what it cannot see does not delete your files. S3 clients retry a 503.
 
-A listing of the whole Quix Lake bucket, with no prefix, also answers 503 while the bridge is away, because it cannot be complete. List each storage folder with a prefix instead. See [List the storages](../s3-endpoint.md#list-the-storages).
+A listing of the whole Quix Lake bucket, with no prefix and no delimiter, such as a recursive list or a sync, also answers 503 while the bridge is away, because it cannot be complete. A listing with the delimiter `/` still shows the storage folder. List each storage folder with a prefix instead. See [List the storages](../s3-endpoint.md#list-the-storages).
 
 ## Common problems
 
@@ -38,7 +38,7 @@ A listing of the whole Quix Lake bucket, with no prefix, also answers 503 while 
 **"OS error 13 (Permission denied)" in the bridge log.** The disk refused a write. The service user cannot write to that folder. On Linux, run the write fix that `sudo quix-bridge status` or the console shows, for example:
 
 ```bash
-sudo setfacl -R -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
+sudo setfacl -R -P -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
 ```
 
 On Windows, click **Fix write access** on the **Folders** tab of the console. The bridge gives no fix for `/` or a system folder. Share a data folder instead. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
@@ -81,7 +81,7 @@ The status strip of the [console](./console.md#the-status-strip) also shows the 
 
 - **Speed and uptime depend on the bridge machine.** A bridge storage works like any other storage for the Lakehouse, the Data Lake, and `blobStorage: bind`. The machine must stay online for any service that reads or writes through the storage.
 - **One storage per bridge.** To serve a second storage, pair a bridge on a second machine. Pairing again on the same machine reuses the same bridge.
-- **A list page can hold fewer keys than you ask for.** A client that asks for 1000 keys can get fewer, often about 560, and a continuation token. The listing stays complete. A large folder takes about 2 times more calls than on S3.
+- **A list page can hold fewer keys than you ask for.** A client that asks for 1000 keys can get fewer, often about 560, and a continuation token. The listing stays complete. A large folder takes about 1.8 times as many calls as on S3.
 - **A copy is a download plus an upload.** The bridge has no copy operation. So a copy takes as long as both transfers.
 - **No copy and no batch delete across two storages.** Both answer `501 Not Implemented`. A copy inside one storage works. To move a file to another storage, download it and upload it. Send one batch delete for each storage.
 - **The bridge does not see a DNS alias of this machine.** If you share `C:\data` and also `\\my-alias\data`, where `my-alias` is an alias of this machine, the bridge serves one folder under two shares with two sets of rules. Do not add a share through an alias of the same machine.

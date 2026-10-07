@@ -22,7 +22,7 @@ If you need byte-for-byte replay fidelity rather than query access, see **[Data 
 
 ## Components
 
-Quix provisions one Lakehouse per Quix Lake storage, and shares it across the environments that use that storage. Once it's set up, you interact with two surfaces:
+Quix provisions one Lakehouse per Quix Lake connection, for the main storage of that connection, and shares it across the environments on that connection. Once it's set up, you interact with two surfaces:
 
 | Surface | What it does |
 |---|---|
@@ -59,8 +59,8 @@ flowchart LR
 
 ## Sharing across environments
 
-* Quix provisions the Lakehouse backend **per Quix Lake storage**. Environments that share a storage share the Lakehouse and its tables.
-* You deploy sinks **per environment**. Each sink binds to the Lakehouse for that environment's storage automatically.
+* Quix provisions the Lakehouse backend **per Quix Lake connection**, for its main storage. Environments on the same connection share the Lakehouse and its tables.
+* You deploy sinks **per environment**. Each sink binds to the Lakehouse of the main storage of that environment's connection automatically.
 
 ## Operational behavior
 

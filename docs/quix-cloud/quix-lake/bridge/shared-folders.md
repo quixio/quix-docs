@@ -13,7 +13,7 @@ You share folders in the bridge console, on the **Folders** tab. Quix sees a sha
 2. Open the **Folders** tab.
 3. Find the folder in the tree and turn it to **Shared**.
 
-A new share is read only. The **Allow write access** box starts off. Turn it on to let Quix write to the folder. Click **Edit this share** on the shared row to change it later. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
+A new share is read only. Click the **Edit** (pencil) button on the shared row to open the **Edit this share** dialog. There, the **Allow write access** box starts off. Turn it on to let Quix write to the folder. A share you add, edit or remove in the console takes effect at once. The console saves every change to `config.yaml`. A change you make in the file applies without a restart. So does a change from `quix-bridge share`.
 
 The **Folders** tab has a **Status** column. It shows a badge when the service account has a problem with a folder:
 
@@ -74,7 +74,7 @@ sudo chown -R quix-bridge /srv/<name>
 
 `sudo quix-bridge test` names the folder that blocks the service and gives the exact fix.
 
-`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed. `sudo quix-bridge share remove <folder>` takes these rights back.
+`sudo quix-bridge share add <folder>` gives this user the rights it needs. It uses ACLs. It grants read and write for a read and write share, and read for a read only share. If a parent folder blocks the path, it also grants traverse rights on that parent. It never changes the owner or the mode of your folder. The `acl` package must be installed. `sudo quix-bridge share remove <folder>` takes the grant on the folder back. The traverse rights on the parent folders stay, because another share can need them.
 
 !!! warning "Share a data folder, not `/` or a system folder"
     The bridge never gives the user `quix-bridge` access to `/` or to a system folder, such as `/etc`, `/usr`, `/var/lib`, `/root` or `/proc`. This also applies to a folder inside one, and to a folder that holds one. The share still works, but the bridge reads only the files that every user may read. Share a data folder instead, such as `/srv/data` or `/mnt/data`.
@@ -82,7 +82,7 @@ sudo chown -R quix-bridge /srv/<name>
 A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
 
 ```bash
-sudo setfacl -R -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
+sudo setfacl -R -P -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
 ```
 
 A folder under a parent that other users cannot pass also needs traverse rights on that parent:
@@ -96,14 +96,14 @@ sudo setfacl -m u:quix-bridge:x /mnt/private
 
 ## The bucket root
 
-A storage that maps **the whole machine**, not one shared folder, can use one writable folder for all its data. This folder is the **bucket root**. When the bridge has a bucket root, every key of that storage lands in the bucket root. The storage then no longer shows the shared folders.
+A storage that maps **the whole machine**, not one shared folder, can use one writable folder for all its data. This folder is the **bucket root**. When the bridge has a bucket root, a key that no shared folder claims lands in the bucket root. A key under a shared folder still goes to that share. A listing shows the bucket root with every shared folder on top of it, at its own address.
 
 A bridge needs a bucket root before it can be the [main storage](../blob-storage.md#make-a-storage-the-main-storage). It also needs one before the Portal creates a Lakehouse or a Data Lake service on it. Set the bucket root first, then create the service.
 
 The bucket root is a **shared folder with an empty SAG path**. Set it on the **Folders** tab of the bridge console:
 
 1. Share the folder, for example `D:\QuixData` or `/srv/quix`.
-2. Click **Edit this share** on its row.
+2. Click the **Edit** (pencil) button on its row.
 3. Clear the **SAG path** field, then save.
 
 The tree marks the folder **Bucket root**. Only one folder can be the bucket root. The bucket root is always read and write. To move the bucket root, give this share a SAG path again, then clear the SAG path of another share.

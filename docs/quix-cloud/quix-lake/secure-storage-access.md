@@ -44,7 +44,7 @@ How a folder behaves by default depends on its kind. You see and change this in 
 
 ## What administrators can do
 
-An organization administrator can list every folder in every storage. This is the only permission an administrator bypasses. Open, download, upload, delete and new folder follow the storage permissions, like for any user. An administrator who has an explicit grant on a folder, or who meets a folder that the **Default Permissions** open, gets that access there. An administrator who is also a direct member of an environment keeps that member access.
+An organization administrator can list every folder in every storage. On an environment folder, and the folders below it, the Admin role counts like a project role, so an administrator can read and write there. On any other folder, an administrator can only list. Open, download, upload, delete and new folder follow the storage permissions there, like for any user. An administrator who has an explicit grant on such a folder, or who meets a folder that the **Default Permissions** open, gets that access there.
 
 The File Explorer follows the same rule as the S3 endpoint. A folder an administrator can list but cannot read shows a lock and **No Access**.
 
@@ -70,7 +70,7 @@ The **Access** list of a user or a group has the same choices as the **Default P
 
 **Project permissions** saves the same value as on the **Default Permissions** page. The project role then decides.
 
-When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing changes until you click **Save changes**. Only administrators can edit permissions.
+When you change a folder, a bar shows **Cancel** and **Save changes**. Nothing changes until you click **Save changes**. Only organization Admins, Managers and Editors can edit permissions.
 
 ### Access and Effective access {#effective-access}
 
@@ -85,21 +85,21 @@ On a user page, **Effective access** always shows the real access of the user, b
 - A yellow people icon: the project role decides the level, raises it, or gives the same level.
 - A red block icon: a user or group setting keeps the project role out.
 
-A tag says where the value comes from. The same tags show on the user page, the group page and the **Default Permissions** page:
+A tag says where the value comes from. The user page and the group page show these tags. The **Default Permissions** page shows only **Assigned**, **Inherited (from parent folder)**, **Inherited (from default)** and **Inherited (from project permissions)**:
 
 | Tag | Meaning |
 |---|---|
 | **Assigned** | A setting on this folder |
-| **Override** | A **No Access** on this folder that takes away a wider grant or the **Default Permissions** |
+| **Override** | A **No Access** on this folder that takes away a wider grant, the **Default Permissions** or the project role |
 | **Inherited (from parent folder)** | The setting of a folder above, the storage root included |
 | **Inherited (from group)** | The setting of the user's group |
 | **Inherited (from default)** | The **Default Permissions**, or nothing set |
 | **Inherited (from project permissions)** | The project role of the user in that environment |
 | **Inherited (from organization role)** | The organization role of the user |
 
-The tooltip of a tag names the folder, the group or the role.
+The tooltip of the **Effective access** cell names the folder, the group or the role.
 
-A group page shows **Project permissions** on an environment folder, because the result differs for each member.
+A group page shows **Project permissions** on an environment folder when no grant and no **Default Permissions** give access there, because the result differs for each member.
 
 A permission on a folder for a user or a group is a ceiling. For example, an editor with a **Read Access** grant gets read access only.
 
@@ -113,11 +113,11 @@ The rule is: user, then group, always wins. Quix checks these steps in order for
 1. **A user setting always wins.** The closest user setting applies. It can be on this folder or on a folder above.
 2. **No user setting?** A group setting always wins. The closest group setting applies.
 3. **No user or group setting?** The **Default Permissions** and the project role both apply. The higher one wins.
-4. **An organization administrator with no project role** sees the folder list only.
+4. **An organization administrator** gets read-write access on environment folders, and the folders below them, through the Admin role. On other folders, the administrator sees the folder list only.
 
 A user or group setting is a ceiling: the **Default Permissions** and the project role add nothing. A group setting never beats a user setting, also when the group setting is closer to the folder.
 
-The project role counts only in that environment's folder. **Viewer** gives read access. **Editor** and above give read-write access.
+The project role counts only in that environment's folder and the folders below it. **Viewer** gives read access. **Editor** and above give read-write access.
 
 The same rule applies to things that act for you:
 
@@ -152,7 +152,7 @@ The **Default Permissions** tab of the connection sets what everyone in your org
 | **Read-Write Access** | Everyone in your organization can read and change it | Opt-in |
 
 !!! warning "A permission on the bucket root reaches every storage"
-    Every storage is a folder of one bucket. So a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The tab shows a **Bucket root** row only while the main storage sits at the root of the bucket.
+    Every storage is a folder of one bucket. So a permission you set on the **bucket root** reaches every folder of every storage on the connection. To open one storage alone, set the permission on that storage's folder instead. The row of the main storage, with the **Main** badge, is the bucket root only while the main storage sits at the root of the bucket.
 
 !!! note "A rename carries the permissions with it"
     When an administrator [renames a storage](./blob-storage.md#rename-a-storage), Quix moves the permissions of that folder to the new folder. Nobody loses access, and no permission stays behind on the old folder for a later storage to inherit.

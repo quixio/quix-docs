@@ -81,7 +81,7 @@ A bridge storage has no bucket, no endpoint and no key. So it skips the **Test c
 2. In the bridge console, open the **Folders** tab.
 3. Find the folder in the tree and turn it to **Shared**.
 
-A new share is read only. Turn on **Allow write access** if Quix must write to the folder. The share takes effect at once.
+A new share is read only. To let Quix write to the folder, click the **Edit** (pencil) button on the row and turn on **Allow write access**. The share takes effect at once.
 
 ## Step 6: See the file in the Portal
 
@@ -89,7 +89,7 @@ A new share is read only. Turn on **Allow write access** if Quix must write to t
 2. Open the folder of the storage, `plant-fs`.
 3. Open the share, `c/quix-share` or `srv/quix-share`. The file `hello.txt` is there.
 
-The SAG path of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the S3-compatible endpoint. See [How to connect](../s3-endpoint.md).
+The key of the file is `plant-fs/c/quix-share/hello.txt`. Your code reads it with that key through the S3-compatible endpoint. See [How to connect](../s3-endpoint.md).
 
 ## Next steps
 

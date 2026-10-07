@@ -48,14 +48,14 @@ The two have separate lifecycles:
 
 ## How paths work
 
-A bridge storage shows every folder that you share on the bridge, unless the bridge has a [bucket root](./shared-folders.md#the-bucket-root). The console calls the address of a file in Quix its **SAG path**. The SAG path of a file is:
+A bridge storage shows every folder that you share on the bridge. With a [bucket root](./shared-folders.md#the-bucket-root), it also shows the files of the bucket root. The key of a file in Quix is:
 
 ```text
 <folder>/<share>/<file>
 ```
 
 - `<folder>` is the **Folder** of the storage, the storage root.
-- `<share>` is the address of the shared folder on the machine.
+- `<share>` is the address of the shared folder on the machine. The console calls it the **SAG path** of the share.
 - `<file>` is the path of the file inside the shared folder.
 
 | On the machine | In Quix, for a storage with the folder `plant-fs` |
