@@ -58,7 +58,9 @@ The **Storage permission source** banner says where a user gets storage permissi
 |---|---|
 | **User specific** | The folder permissions you set on this tab apply to the user. The permissions of the user's group fill the folders the user did not set. On a group page, this reads **Group specific**. |
 | **Group** | The permissions of the user's group apply. The folder permissions of the user stay suspended. The option is off when the user is not in a group. |
-| **Default Permissions** | Only the [Default Permissions](#default-permissions) and the project role of the user apply. The folder permissions of the user and of the group stay suspended. |
+| **Default Permissions** | Only the [Default Permissions](#default-permissions) and the project role of the user apply. The folder permissions of the user and of the group stay suspended. On a group page, it suspends the permissions of the group for all its members. |
+
+A user that has no picked source shows **Group** when the user is in a group, else **Default Permissions**. This is what applies to the user. Pick **User specific** to give the user folder permissions of their own.
 
 While the source is **Group** or **Default Permissions**, the **Access** lists of the user are read only. A new source applies only after you click **Save changes**. Then it can take up to one minute to apply.
 
@@ -123,7 +125,7 @@ The same rule applies to things that act for you:
 * A **dev session** can do exactly what you can.
 * A **deployed application** acts as its own environment. It reads its own data and anything shared, and changes its own data. It does not see another team's private data.
 
-**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Default Permissions** suspend the user's own permissions. Quix deletes nothing. **Default Permissions** also stops the group, so only the **Default Permissions** and the project role apply.
+**Storage permission source.** **User specific** keeps the user's own permissions, and the group fills the folders the user did not set. **Group** and **Default Permissions** suspend the user's own permissions. Quix deletes nothing. **Default Permissions** also stops the group, so only the **Default Permissions** and the project role apply. On a group page, **Default Permissions** suspends the permissions of the group for all its members.
 
 **Choosing Inherited.** On a user or group permission, **Inherited** removes the setting on that folder, so the next step of the rule applies. On the **Default Permissions** tab, **Inherited** removes the folder's own setting, so the parent folder decides.
 

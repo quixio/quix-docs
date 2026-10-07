@@ -111,7 +111,7 @@ Creating groups and managing members are covered in [User groups](./access-secur
 
 ### How group roles and user roles combine
 
-Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group.
+Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group. It does not change the [Storage permission source](quix-lake/secure-storage-access.md#set-permissions-for-a-user-or-a-group), which is a separate setting on the **Storage permissions** tab.
 
 ![The Inherit from group toggle on a user's Project permissions tab](../images/quix-cloud/user-groups-inherit-toggle.png)
 
