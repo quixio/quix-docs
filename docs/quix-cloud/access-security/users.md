@@ -7,7 +7,7 @@ description: Invite people to your Quix Cloud organisation, edit their details a
 
 The **Users** page in your organisation's sidebar lists the people in your organisation, with their organisation role and their [user group](user-groups.md). Unless your organisation-level role is Admin, Manager, Editor or Viewer, it lists only you.
 
-You need the Admin role at the organisation level to invite and delete users, and to change another user's details, group or permissions. Without it, you can still open users in the list to view their permissions, and edit your own first and last name.
+You need the Admin role at the organisation level to invite and delete users, and to change another user's details, group, project permissions or storage permissions. Without it, you can still open users in the list to view their permissions, and edit your own first and last name.
 
 ## Invite a user
 
@@ -41,7 +41,7 @@ A user can belong to one group at a time. After you change a user's **Group**, t
 
 Only an Admin can change permissions on this tab, and not their own. While the user's **Inherit from group** toggle is on, their roles come from the group and can't be edited here. The [roles](../roles.md#available-roles), [levels](../roles.md#permission-levels) and [inheritance rules](../roles.md#inheritance) are described in [Roles and permissions](../roles.md).
 
-The **Storage permissions** tab sets the user's access to folders in Quix Lake. See [Set permissions for a user or a group](../quix-lake/secure-storage-access.md#set-permissions-for-a-user-or-a-group) and [How access is decided](../quix-lake/secure-storage-access.md#how-access-is-decided).
+The **Storage permissions** tab sets the user's access to folders in Quix Lake. Only an organisation Admin can save storage permissions. A change of a role, of a group's roles, or of **Inherit from group** applies to storage access at once. See [Set permissions for a user or a group](../quix-lake/secure-storage-access.md#set-permissions-for-a-user-or-a-group) and [How access is decided](../quix-lake/secure-storage-access.md#how-access-is-decided).
 
 ## Delete a user
 

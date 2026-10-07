@@ -99,7 +99,7 @@ nav:
     - 'Quix Lake':
       - 'Overview': 'quix-cloud/quix-lake/overview.md'
       - 'Connections and storages': 'quix-cloud/quix-lake/blob-storage.md'
-      - 'Storage Access Gateway': 'quix-cloud/quix-lake/secure-storage-access.md'
+      - 'Storage permissions': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'How to connect': 'quix-cloud/quix-lake/s3-endpoint.md'
       - 'File Explorer': 'quix-cloud/quix-lake/file-explorer.md'
       - 'Data Lake':

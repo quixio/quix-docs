@@ -20,9 +20,22 @@ On a Linux machine with no systemd, such as a container, the deb or the rpm inst
 
 ## How an update runs
 
-The bridge checks for an update **every 5 minutes**. The MSI registers this check as a scheduled task that runs as `SYSTEM`. The deb and the rpm enable the systemd timer `quix-bridge-update.timer`, which runs as root. For a tar.gz install, `sudo quix-bridge service install` registers the same 5-minute update timer. The SHA-256 checks are the same for all installs.
+The bridge checks for an update **every 5 minutes**:
 
-Before it updates, the bridge waits until no transfer is running, for up to 10 minutes. Then the service stop gives the running operations up to 60 seconds (`service.drainSeconds`) to finish. It installs the new version and starts the service again. The tray restarts by itself after an automatic update. You do not need to do anything. The update task checks every 5 minutes. A failed update puts the old version back. When an install fails, the bridge tries again later, with a longer wait after each failure.
+- The MSI registers this check as a scheduled task that runs as `SYSTEM`.
+- The deb and the rpm enable the systemd timer `quix-bridge-update.timer`, which runs as root.
+- For a tar.gz install, `sudo /usr/local/bin/quix-bridge service install` registers the same 5-minute update timer.
+
+Before each update, the bridge compares the package with the SHA-256 that Quix sends. A tar.gz install compares the file with the `SHA256SUMS` file of the release. The bridge installs nothing on a mismatch.
+
+An update runs in these steps. You do not need to do anything.
+
+1. The bridge waits until no transfer is running. After 10 minutes, it continues even if a transfer still runs.
+2. The service stop gives the running operations up to 60 seconds (`service.drainSeconds`) to finish.
+3. The bridge installs the new version and starts the service again.
+4. On Windows, the tray restarts by itself.
+
+A failed update puts the old version back. When an install fails, the bridge tries again later, with a longer wait after each failure.
 
 A new release reaches every bridge within about **10 minutes**. The service restarts by itself. In the first minutes after a release, `quix-bridge update run` can print `nothing to do` on Windows, or `no newer version` on Linux. Wait a few minutes, then run it again.
 
@@ -34,9 +47,19 @@ Run `install.ps1` again on the same version to repair the install. The repair pu
 
 ## Uninstall
 
-```bash
-quix-bridge service uninstall
-```
+=== "Windows"
+
+    Run this command in PowerShell as Administrator:
+
+    ```powershell
+    quix-bridge service uninstall
+    ```
+
+=== "Linux"
+
+    ```bash
+    sudo quix-bridge service uninstall
+    ```
 
 This stops and removes the service. It keeps `config.yaml` and the stored share credentials. Add `--purge` to delete them too. `--purge` refuses on an MSI install and removes nothing. Uninstall the bridge in **Settings > Apps** instead.
 

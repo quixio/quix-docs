@@ -16,10 +16,7 @@ The **Quix Lake Bridge** is a small service that you install on a machine you ow
 - **You** choose the folders. The list of shared folders lives on your machine. Quix Cloud cannot add a folder to it.
 - A bridge serves **one** Quix Lake connection and **one** storage on it.
 
-<div>
-<a class="md-button md-button--primary" href="./quickstart.html" style="margin-right:.5rem;">Try the Quickstart</a>
-<br/>
-</div>
+[Try the Quickstart](./quickstart.md){ .md-button .md-button--primary }
 
 ## When to use it
 
@@ -79,7 +76,17 @@ On the **Bridges** tab, open the menu of the bridge:
 
 To delete a storage, delete it on the **Storages** tab. The bridge stays and shows **Not used by a storage**.
 
-To serve another connection, open the bridge on the **Bridges** tab and move it. The move deletes its storage on the old connection, after you confirm.
+## Move a bridge to another connection
+
+To serve another connection, move the bridge:
+
+1. On the **Bridges** tab, open the bridge.
+2. Beside the connection, click **Move to another connection** (the two arrows), and pick the new connection.
+3. The Portal lists the storages on the old connection that the move deletes. Each one stops working for every client.
+4. Type `MOVE`, then click **Move and delete**.
+5. The Portal then shows a new quick config. Pair the bridge again with it. See [Step 3 of the quickstart](./quickstart.md#step-3-connect-the-bridge).
+
+The move deletes no file on the machine. You cannot move a revoked bridge.
 
 ## Operating system support
 

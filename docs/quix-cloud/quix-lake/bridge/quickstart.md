@@ -13,7 +13,7 @@ This quickstart shows you the shortest path from an empty machine to a file you 
 
 To complete this quickstart you need:
 
-* Administrator rights on a Windows or Linux x64 machine.
+* Administrator rights on a Windows x64 or arm64 machine, or on a Linux x64 machine.
 * A [Quix Lake connection](../blob-storage.md) for your cluster.
 * The administrator role in your Quix organization.
 
@@ -22,7 +22,7 @@ To complete this quickstart you need:
 
 ## Step 1: Install the bridge
 
-Run the install script on the machine, as an administrator:
+Run the install script on the machine:
 
 === "Windows"
 
@@ -30,7 +30,14 @@ Run the install script on the machine, as an administrator:
     irm https://github.com/quixio/quix-lake-bridge/raw/main/install.ps1 | iex
     ```
 
-    The script installs the bridge in `C:\Program Files\Quix\Bridge`. It creates the service and starts it. It also starts the tray icon for your session. The tray starts again at every sign-in. Run the script again on the same version to repair a broken install.
+    The script asks for administrator rights itself if it needs them. Then:
+
+    - It installs the bridge in `C:\Program Files\Quix\Bridge`.
+    - It creates the service and starts it.
+    - It starts the tray icon for your session. The tray starts again at every sign-in.
+    - It opens the bridge console in your default browser.
+
+    Run the script again on the same version to repair a broken install.
 
 === "Linux"
 
@@ -53,7 +60,7 @@ The install command carries no token. This step needs no Portal visit.
     Do not paste it in a ticket or a chat.
 
 !!! tip "No screen on the machine?"
-    Under the quick config, the Portal also shows **one command** for the selected system. It installs the bridge and connects it. On Linux, run it as a user who can use `sudo`. On Windows, run it in PowerShell as Administrator. The command holds the live token, so treat it like the quick config. After it runs, go to Step 4.
+    Under the quick config, the Portal also shows **one command** for the selected system. It installs the bridge and connects it. On Linux, run it as a user who can use `sudo`. On Windows, run it in PowerShell as Administrator. The command holds the live token, so treat it like the quick config. The shell writes the command, with the token, to its history file. Use the command only on a machine where you trust that file. After it runs, go to Step 4.
 
 ## Step 3: Connect the bridge
 

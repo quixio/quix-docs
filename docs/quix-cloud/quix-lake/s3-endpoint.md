@@ -5,7 +5,7 @@ description: Reach your Quix Lake data from an S3 client with one endpoint, one 
 
 # How to connect
 
-The [Storage Access Gateway](./secure-storage-access.md) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. S3 clients such as boto3, the AWS CLI, `s3fs` and DuckDB read and write through it, with path-style addressing.
+The [Storage Access Gateway](./secure-storage-access.md#the-storage-access-gateway) presents your [Quix Lake](./overview.md) data as an **S3-compatible endpoint**. S3 clients such as boto3, the AWS CLI, `s3fs` and DuckDB read and write through it, with path-style addressing.
 
 The endpoint is the same whichever provider sits behind the connection. Your code targets S3, so the same code works against Amazon S3, Google Cloud Storage, Azure Blob Storage, MinIO, or a [bridge](./bridge/overview.md).
 
@@ -39,8 +39,15 @@ You need the endpoint, the Quix Lake bucket, and a credential. There are two way
 
     Use a personal access token (PAT) to reach Quix Lake from your own machine or from a tool outside a deployment.
 
-    1. In the Portal, open the Quix Lake connection page and click the **Connect** row, or the **S3 endpoint** row on the **Services** tab. Both open the **Connect to Quix Lake** dialog. The **S3** tab shows the **Endpoint**, the **Bucket**, the **Region** and your **Access key (your user id)**. It also has snippets for **boto3**, **AWS CLI** and **DuckDB**. The **Query API** tab shows the query address.
-    2. Create a PAT under your user settings. Set a short expiry, and keep the PAT secret. A PAT acts as you, and a PAT with a smaller scope reaches less.
+    1. In the Portal, open the Quix Lake connection page. Click the **Connect** row, or the **S3 endpoint** row on the **Services** tab. Both open the **Connect to Quix Lake** dialog:
+
+        * The **S3** tab shows the **Endpoint**, the **Bucket**, the **Region** and your **Access key (your user id)**. It also has snippets for **boto3**, **AWS CLI** and **DuckDB**.
+        * The **Query API** tab shows the query address.
+
+    2. Click **Create a token** in the dialog, or create a PAT under your user settings. Set a short expiry, and keep the PAT secret. A PAT acts as you, and a PAT with a smaller scope reaches less.
+
+        A revoked PAT can still reach Quix Lake for up to 60 seconds.
+
     3. Set three fields on your S3 client:
 
         | Field | Value |
@@ -112,7 +119,10 @@ Every client needs **path-style** addressing. The examples use a PAT. In a deplo
     SELECT * FROM read_parquet('s3://<BUCKET>/<workspaceId>/<key>');
     ```
 
-The gateway refuses virtual-host-style addressing, such as `https://<your_bucket>.<host>/<key>`, with `400 InvalidRequest`. Use `https://<host>/<your_bucket>/<key>`.
+The endpoint takes path-style addressing only: `https://<host>/<your_bucket>/<key>`. A virtual-host-style request, such as `https://<your_bucket>.<host>/<key>`, fails:
+
+* When the request gets to the gateway, the gateway answers `400 InvalidRequest`.
+* When the request does not get to the gateway, the ingress answers `404`.
 
 ## One bucket, several storages
 
@@ -140,7 +150,7 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 ```
 
 ??? info "The storage name as a bucket name"
-    A client can also address a storage by its name as a bucket name, for example `s3://minio/reports/2026-08.csv`. This old address still works, so old code keeps running. Move your code to the folder address. Do not build new code on the old address. A rename breaks it at once.
+    The gateway also takes the name of a storage as a bucket name, for example `s3://minio/reports/2026-08.csv`. This address exists only so that running pods keep working until their next deploy. Quix will remove it. Do not use it. Use the folder address.
 
 ### The environment shortcut
 
@@ -151,7 +161,13 @@ s3.get_object(Bucket="quixdevbucket", Key="<workspaceId>/reports/day.csv")
 s3.get_object(Bucket="<workspaceId>",  Key="reports/day.csv")
 ```
 
-Every object and listing operation answers the same through either address. The shortcut serves objects, not bucket metadata. A request that names the shortcut and carries no key answers `501 NotImplemented` when it asks for bucket metadata. This covers `?acl`, `?location`, another bucket subresource, and a multipart create, complete or abort without a key. Use the full `s3://<mainBucket>/` address for those.
+Every object and listing operation answers the same through either address. The shortcut serves objects, not bucket metadata. A request that names the shortcut, carries no key, and asks for bucket metadata answers `501 NotImplemented`. This covers these requests:
+
+* `?acl` and `?location`.
+* Another bucket subresource.
+* A multipart create, complete or abort without a key.
+
+Use the full `s3://<mainBucket>/` address for those.
 
 The shortcut takes an environment ID only, and it always points at the current main storage.
 
@@ -184,7 +200,7 @@ s3.put_object(Bucket="<your_bucket>", Key=f"archive/{workspace}/reports/day.csv"
 
 ### List the storages
 
-A LIST at the root of the Quix Lake bucket names every storage of the connection, as a folder. Inside a storage folder, the listing shows only what you may read. Ask for `delimiter="/"` and read the common prefixes:
+A LIST at the root of the Quix Lake bucket names, as a folder, every storage that you may open. Inside a storage folder, the listing shows only what you may read. Ask for `delimiter="/"` and read the common prefixes:
 
 ```python
 answer = s3.list_objects_v2(Bucket="quixdevbucket", Delimiter="/")
@@ -207,15 +223,16 @@ Drop the delimiter, and Quix merges the storages into **one** listing, in key or
 | Change | What your code sees |
 |---|---|
 | [Rename a storage](./blob-storage.md#rename-a-storage) | The **Folder** changes, and the old folder stops working at once. There is no alias. The bucket name does not change. Quix restarts the deployments bound to that storage, but the folder in your keys changes, so update your code. |
+| Rename the Quix Lake bucket | The keys keep their path. The old bucket name answers `404 NoSuchBucket` at once. Quix restarts the bound deployments, so they take the new name. Update the bucket name in your code. |
 | [Make another storage the main storage](./blob-storage.md#make-a-storage-the-main-storage) | The promoted storage keeps its folder, and the environment shortcut points at it from that moment. When the storage that steps down sat at the bucket root, it takes the folder the administrator names, so its keys need that folder in front of them: `reports/day.csv` becomes `principal/reports/day.csv`. When it already had a folder, nothing moves. |
 
 ## Supported operations
 
 * **Objects** — GET, GET with a `Range` header, HEAD, PUT, and DELETE.
 * **Copy** — CopyObject inside one storage.
-* **Listing** — ListObjectsV2, with `prefix`, `max-keys`, and `continuation-token`. A listing that covers more than one storage is merged for you.
+* **Listing** — ListObjectsV2 and ListObjects, with `prefix`, `delimiter`, `max-keys`, `continuation-token`, `start-after` and `marker`. A listing that covers more than one storage is merged for you.
 * **Multipart upload** — create, upload part, complete, and abort. The upload stays on the storage it started on. Multipart uploads work on a bridge storage too. The AWS CLI and boto3 use them for files above 8 MB.
-* **Batch delete** — up to 1000 keys per request, in one storage.
+* **Batch delete** — up to 1000 keys per request, in one storage. A batch delete is all or nothing. If you may not delete one key, the whole request answers `403 AccessDenied`, and Quix deletes no key.
 * **Buckets** — CreateBucket, HeadBucket, DeleteBucket, GetBucketLocation, and ListBuckets. Through the `s3://<workspaceId>/` shortcut, GetBucketLocation answers `501 NotImplemented`.
 
 ## What the endpoint refuses
@@ -224,16 +241,24 @@ Drop the delimiter, and Quix merges the storages into **one** listing, in key or
 |---|---|
 | A copy whose source and destination sit in different storages | `501 NotImplemented`. Download the object, then upload it to the other storage. A copy inside one storage works. |
 | A batch delete whose keys span two storages | `501 NotImplemented`. Send one delete request per storage. |
-| Virtual-host-style addressing | `400 InvalidRequest` |
-| A presigned URL | Rejected. Sign each request instead. |
-| A key you may not read | `403 AccessDenied`. A listing hides what you may not see. A credential of a storage that is not the main storage sees only its own storage, so a key of another storage answers `404` for it. |
+| A batch delete with one key that you may not delete | `403 AccessDenied` for the whole request. Quix deletes no key. |
+| Virtual-host-style addressing | `400 InvalidRequest` from the gateway, or `404` from the ingress. Use path-style addressing. |
+| A presigned URL | `400 InvalidRequest`. Sign each request instead. |
+| A bucket name that the gateway does not know | `404 NoSuchBucket` |
+| A key you may not read | `403 AccessDenied`. A listing hides what you may not see. |
+| A key of another storage, with the credential of a storage that is not the main storage | That credential reaches only its own storage. Every key that it sends stays inside that storage, so the request never reaches another storage. |
+| A key that is longer than 1024 bytes in UTF-8 | `400 KeyTooLongError` |
+| On a [bridge](./bridge/overview.md) storage, a key that starts with `/` or holds `//` | `400 InvalidArgument`. A folder on a disk cannot hold an empty name. A cloud storage keeps such a key. |
+| A request for a storage folder itself, such as a GET of `s3://<your_bucket>/minio` | `404 NoSuchKey`. A storage folder is not an object. |
+| A part, a complete or an abort of a multipart upload whose storage left the connection part way | `404 NoSuchUpload`. A multipart upload stays on the storage it started on. Start the upload again. |
+| Any request at a moment when the gateway cannot check your permissions | `503 Service Unavailable` with a `Retry-After` header. Retry the request. This answer is not a denial. |
 | Object tagging, ACLs, versioning, lifecycle, CORS, bucket policy, replication, encryption, notification, logging, object lock, legal hold, and retention | Not supported. Most answer `501 NotImplemented`. On an S3 or MinIO storage the request can pass through to the provider. Do not depend on these features. |
 
 User metadata keys (`x-amz-meta-*`) can come back with capital letters, so read them without regard to case. Two keys that differ only by case are not supported.
 
 ## Next steps
 
-* [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
+* [Storage permissions](./secure-storage-access.md) — who can read and change what
 * [Quix Lake storage](../deployments/blob-storage-and-library.md) — bind a storage and read it in Python
 * [Quix Lake connections and storages](./blob-storage.md) — connect a bucket and add a storage
 * [Bridge](./bridge/overview.md) — serve folders on your own machine as a storage

@@ -5,7 +5,15 @@ description: Install, pair and share folders with the quix-bridge command, on a 
 
 # Command line setup
 
-Use the command line on a server with no desktop, or in a script. Run every command in an administrator PowerShell on Windows, or with `sudo` on Linux.
+Use the command line on a server with no desktop, or in a script.
+
+!!! warning "Run the commands with administrator rights"
+    Run every command except `quix-bridge --version` in PowerShell as Administrator on Windows, or with `sudo` on Linux. This applies to:
+
+    - `status`, `test`, `share`, `config show`, `ui` and `logs`
+    - `connect`, `service` and `update run`
+
+    Only an administrator can read the bridge config folder. Without these rights, a command stops with a hint and a non-zero exit code. A read command says "The command has no rights on a file it must read."
 
 The pairing creates the bridge only. You add the storage in the Portal after the bridge connects. See [Step 4 of the quickstart](./quickstart.md#step-4-create-the-storage).
 
@@ -34,16 +42,28 @@ The pairing creates the bridge only. You add the storage in the Portal after the
     curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sh
     ```
 
-    To install one fixed version, set `QUIX_BRIDGE_VERSION`:
+    To install one fixed version, set `QUIX_BRIDGE_VERSION`, with or without a leading `v`:
 
     ```bash
     curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | QUIX_BRIDGE_VERSION=0.1.26 sh
     ```
 
-    On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs and starts the service. On other machines, the script copies the binary to `/usr/local/bin`. Then install the service yourself:
+    On a machine with `dpkg` or `rpm`, the script installs the deb or the rpm package. The package installs and starts the service.
+
+    On other machines, the script installs the tar.gz. It copies the binary to `/usr/local/bin`. A tar.gz install has no package manager, so you install three libraries yourself: ICU, OpenSSL and CA certificates.
 
     ```bash
-    sudo quix-bridge service install
+    # Debian family. Replace <N> with the version your system has.
+    sudo apt install libicu<N> libssl<N> ca-certificates
+
+    # RHEL family
+    sudo dnf install libicu openssl-libs ca-certificates
+    ```
+
+    `quix-bridge version` prints the version when all three are there. Then install the service yourself. Use the full path, because `sudo` can skip `/usr/local/bin`:
+
+    ```bash
+    sudo /usr/local/bin/quix-bridge service install
     ```
 
     This command creates the system user `quix-bridge` (no login) when it does not exist. The service runs as this user. An older install that ran as root moves to the new user by itself at the next install or update.
@@ -97,7 +117,12 @@ The command stores the token for the service account. If the service runs, the c
 
 On Linux, `share add` also grants the user `quix-bridge` the rights it needs, with ACLs, and prints what it granted. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
-A new share is read only. Add `--read-write` to let Quix write to the folder. `--read-only` is still accepted. `--bucket-root` means write access. The command applies the same rules as the console and refuses the same folders. It does not check that the folder exists. Check the path yourself.
+These rules apply to `share add`:
+
+- A new share is read only. Add `--read-write` to let Quix write to the folder. `--read-only` is still accepted.
+- `share add <folder> --bucket-root` makes the folder the [bucket root](./shared-folders.md#the-bucket-root). The bucket root always allows writes. A drive root, `\Users`, `/` and `/home` cannot be the bucket root.
+- The command applies the same rules as the console and refuses the same folders.
+- The command does not check that the folder exists. Check the path yourself.
 
 `share list` prints two paths for each row: the path on the machine and the SAG path. To stop sharing a folder, run `quix-bridge share remove <path>` with the path **on the machine**.
 
@@ -126,12 +151,7 @@ Network folders:
     sudo quix-bridge service restart
     ```
 
-`service restart` needs root or Administrator rights. The shares need no restart. The service applies a `share` command at once.
-
-Every command that needs root stops with a hint and a non-zero exit code when you run it without administrator rights or `sudo`. This applies to `service`, `share list`, `config show`, `logs` and `status`.
-
-!!! warning "The read commands need administrator rights too"
-    On Windows, run `status`, `share list`, `test`, `config show` and `ui` in PowerShell as Administrator. Only an administrator can read the bridge config folder. On Linux, run them with `sudo`. Without these rights, the command says "The command has no rights on a file it must read."
+The shares need no restart. The service applies a `share` command at once.
 
 ## Step 6: Check the bridge
 
@@ -151,7 +171,7 @@ sudo quix-bridge logs --lines 500
 sudo quix-bridge logs -f
 ```
 
-- By default, `logs` prints the last 100 lines of the machine log. On Linux, this is `/var/log/quix-bridge/bridge.log`.
+- By default, `logs` prints the last 100 lines of the machine log. On Windows, this is `C:\ProgramData\Quix\bridge\logs\bridge.log`. On Linux, this is `/var/log/quix-bridge/bridge.log`.
 - `--lines N` sets the number of lines.
 - `-f` or `--follow` keeps the command open and prints new lines.
 - `--user` reads the log of your user account instead of the machine log.
@@ -168,8 +188,11 @@ The bridge keeps its settings in `config.yaml`:
 | Windows | `C:\ProgramData\Quix\bridge\config.yaml` |
 | Linux | `/etc/quix-bridge/config.yaml` |
 
-`quix-bridge config show` prints the config the service uses, without the `update` and `network` sections. You can paste the output back into `config.yaml`. These rules apply to the output:
+`quix-bridge config show` prints the config the service uses. You can paste the output back into `config.yaml`. These rules apply to the output:
 
+- It leaves out the `update`, `network`, `limits` and `service` sections.
+- A value that came from no config file has the comment `# default`.
+- The `secrets` lines show `set` or `not set`. They never show a secret.
 - It leaves out a share key that has its default value.
 - A value that the bridge derived from `path` has the comment `# from path`.
 - A share with an error prints the error as a `# error:` line.
@@ -193,7 +216,7 @@ Each entry in `shares` has these keys. The keys can come in any order.
 | Key | Meaning |
 |---|---|
 | `path` | The absolute path of the folder on this machine. Required. |
-| `name` | The bucket in the SAG address. This is the drive letter on Windows, the first folder on Linux, or `/` for the root share. Optional. |
+| `name` | The bucket in the SAG address. This is the drive letter on Windows, or the first folder on Linux. For the Linux folder `/`, it is `root`. For the bucket root share, it is `/`. Optional. |
 | `prefix` | The folder inside that bucket. It ends with `/`. Optional. An empty `prefix:` means the default. |
 | `readOnly` | `false` by default, so a share with no `readOnly` key is read and write. Set it to `true` to stop Quix from writing. `share add` and the console write `readOnly: true` for a new share. |
 
@@ -215,7 +238,7 @@ shares:
     readOnly: false
 ```
 
-A bad share is skipped. The other shares still serve. The error shows in `quix-bridge status` and `quix-bridge config show`. If you swap `name` and `path`, the error is "name and path look swapped".
+The bridge skips a bad share. The other shares still serve. The error shows in `quix-bridge status` and `quix-bridge config show`. If you swap `name` and `path`, the error is "name and path look swapped".
 
 ## Behind a proxy
 
@@ -226,6 +249,31 @@ network:
   proxy: http://proxy.example.com:3128
   caBundle: /etc/ssl/certs/corp-ca.pem
 ```
+
+## Other settings
+
+These keys in `config.yaml` are optional. Restart the service after you change one.
+
+| Key | Meaning |
+|---|---|
+| `limits.maxFileSizeBytes` | The largest file one write can send. The default is 5 GiB. `0` turns the limit off. |
+| `limits.requestsPerSecond` | The number of requests per second that the bridge serves. The default is 500. `0` turns the limit off. |
+| `limits.bandwidthBytesPerSecond` | The number of bytes per second that the bridge moves. The default is 125 MB. `0` turns the limit off. |
+| `limits.connections` | The number of connections to Quix, from 1 to 8. The default is 8. |
+| `log.level` | The level of the bridge log. The default is `info`. |
+| `agent.name` | The name of the bridge. `connect` sets it from the quick config. |
+| `service.drainSeconds` | The time a service stop gives the running operations to finish, from 0 to 300 seconds. The default is 60. |
+
+Other commands:
+
+- `quix-bridge grant-read <folder>` and `quix-bridge grant-write <folder>` (Windows only) give the service account read access or write access to one share folder. The tray runs them for you. They never change a drive root or a system folder.
+- `quix-bridge preflight <path> [--sag <url>]` checks a folder before the install.
+
+Other facts:
+
+- The login code of the console expires after 5 minutes.
+- On Linux, the update timer runs 2 minutes after boot, then every 5 minutes. It adds a random delay of up to 60 seconds.
+- An update waits for running transfers. After 10 minutes, it installs even if a transfer still runs.
 
 ## Next steps
 

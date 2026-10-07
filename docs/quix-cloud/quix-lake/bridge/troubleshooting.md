@@ -20,6 +20,10 @@ An error carries a **reference**. Copy it with the button beside it and give it 
 | **Bridges** tab | **Not used by a storage** | The bridge is paired, but no storage uses it. Click **Assign storage**. |
 | **Storages** tab | **Bridge revoked** | The bridge of this storage is revoked. The storage moves no data until you pick another bridge for it. |
 | Any client | **503 Service Unavailable** | The machine is off or the bridge is stopped. See below. |
+| Any client | **503 Service Unavailable**, "The shared folder of this storage is missing on the bridge machine." | The bridge answers, but the shared folder is gone from the machine. Restore the folder, or share it again. |
+| Any client | **403 AccessDenied**, "Access Denied." | The bridge does not serve this connection. For example, it serves another connection, or no connection. The answer is never 404 and never 503. |
+| Any client | **403 AccessDenied**, "The bridge shares this folder read-only." | In the bridge console, turn on **Allow write access** for the share. See [Share a folder](./shared-folders.md#share-a-folder). |
+| Any client | **403 AccessDenied**, "The bridge machine refused the write." | The share allows writes, but the disk refused the write. Give the service account write access to the folder. See [Common problems](#common-problems). |
 
 ## When the machine is away
 
@@ -29,7 +33,10 @@ A listing of the whole Quix Lake bucket, with no prefix and no delimiter, such a
 
 ## Common problems
 
-**The service cannot read a share.** `quix-bridge test` and the folder check report it. On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows). On Linux, the service runs as the system user `quix-bridge`. Run the `setfacl` command that the console shows. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
+**The service cannot read a share.** `quix-bridge test` and the folder check report it.
+
+- On Windows, the service runs as `NT SERVICE\quix-bridge`, which cannot read a user profile folder. Grant it access. See [Share a folder in a user profile on Windows](./shared-folders.md#share-a-folder-in-a-user-profile-on-windows).
+- On Linux, the service runs as the system user `quix-bridge`. Run the `setfacl` command that the console shows. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
 **"The command has no rights on a file it must read."** The command needs administrator rights. On Windows, run it in PowerShell as Administrator. On Linux, run it again with `sudo`. This applies to the read commands too, such as `status`, `share list`, `test`, `config show` and `ui`.
 
@@ -73,7 +80,7 @@ On Windows, click **Fix write access** on the **Folders** tab of the console. Th
 
 - `--version` prints the installed version.
 - `status` shows the service state, the connection and the last error.
-- `logs` shows the log. After an automatic update, it holds a line such as "The bridge installed version 0.1.25 over version 0.1.24."
+- `logs` shows the log. After an automatic update, it holds a line such as "The bridge installed version 0.1.26 over version 0.1.25."
 
 The status strip of the [console](./console.md#the-status-strip) also shows the version.
 

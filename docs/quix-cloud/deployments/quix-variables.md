@@ -38,7 +38,12 @@ The variables below are **conditional** — unlike the ones above, they are not 
 - **`Quix__BlobStorage__Connection__Json`** is injected only when the deployment has a [Quix Lake storage](../quix-lake/blob-storage.md) **bound**.
 - The **`Quix__Lakehouse__*`** variables (and the `CATALOG_URL` / `QUIX_LAKE_URL` aliases) are injected only when a **[Lakehouse](../quix-lake/lakehouse/overview.md) runs on the bound storage**.
 
-If neither condition is met, none of these variables are set, so guard for their absence in your code. The same variables are also injected into [dev sessions](../applications/dev-sessions/overview.md).
+If neither condition is met, none of these variables are set, so guard for their absence in your code.
+
+[Dev sessions](../applications/dev-sessions/overview.md) get the same variables. A dev session also gets two more things that a deployment never gets:
+
+- `Quix__Lakehouse__Ui__Url`, the address of the Lakehouse UI.
+- The `Quix__Lakehouse__Database__*` variables, the credentials of the Lakehouse database.
 
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|

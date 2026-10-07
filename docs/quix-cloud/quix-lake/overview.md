@@ -86,14 +86,14 @@ flowchart TB
 
 ## Prerequisites
 
-Both options require a **Quix Lake connection** configured for the cluster. See [Quix Lake connections and storages](./blob-storage.md). The Lakehouse is then provisioned on top of that connection — see the [Lakehouse overview](./lakehouse/overview.md) for what gets set up.
+Both options require a **Quix Lake connection** configured for the cluster. See [Quix Lake connections and storages](./blob-storage.md). Quix then runs one Lakehouse for each storage that you deploy it on. See the [Lakehouse overview](./lakehouse/overview.md) for what gets set up.
 
 ## Where to next
 
 - **[Data Lake overview](./data-lake/overview.md)** — replay-first storage, raw Kafka fidelity, open Avro/Parquet
 - **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Iceberg tables
 - **[Quix Lake connections and storages](./blob-storage.md)** — wire up the bucket or container that both use
-- **[Storage Access Gateway](./secure-storage-access.md)** — who can read and change each folder
+- **[Storage permissions](./secure-storage-access.md)** — who can read and change each folder
 - **[How to connect](./s3-endpoint.md)** — reach the files from your own code with any S3 client
 - **[File Explorer](./file-explorer.md)** — browse, upload and download files in the Portal
 - **[Bridge](./bridge/overview.md)** — serve folders on a machine you own as a storage

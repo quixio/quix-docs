@@ -7,7 +7,7 @@ description: Connect your cluster to object storage (S3, GCS, Azure Blob, MinIO)
 
 Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](./overview.md)**, the Data Lake, the Lakehouse, or any other managed service that needs storage. One connection can then hold several storages. Your clients address **one bucket**, and each storage is a **folder** inside it.
 
-![Connections list](../../images/blob-storage/connections-list-running.png)
+![The Quix Lake connections list](../../images/blob-storage/connections-list-running.png)
 
 !!! important "One bucket, one root"
     One connection holds **one Quix Lake bucket**. Every storage on the connection is a **folder** in that bucket.
@@ -22,7 +22,7 @@ Connect your cluster to a bucket or container so Quix can enable **[Quix Lake](.
     One connection still holds as many storages as you need, so a second storage needs no second connection.
     Both the [Data Lake Sink](./data-lake/sink.md) and the [Lakehouse Sink](./lakehouse/sink.md) use this same connection.
 
-    One shared connection doesn't mean one shared view of the data: each team only sees its own data, and the bucket's keys stay locked away. See the [Storage Access Gateway](./secure-storage-access.md).
+    One shared connection doesn't mean one shared view of the data: each team only sees its own data, and the bucket's keys stay locked away. See the [Storage permissions](./secure-storage-access.md).
 
 ???+ info "Quix Lake at a glance"
     Quix Lake is the persistence layer of Quix Cloud. It ships in two flavors that share this connection:
@@ -45,7 +45,11 @@ The page lists every cluster and node group in your organization. A cluster with
 
 You type the **Quix Lake bucket** name yourself. It is the one bucket name your code uses, and it is separate from the **Provider bucket**. The first storage becomes the **main storage** of the connection. It sits at the **root** of the Quix Lake bucket, unless you fill in **Folder (optional)**. A storage you add later never moves it, because a new storage becomes a folder inside that same bucket.
 
-You can change these facts later. An administrator can rename the Quix Lake bucket: open the connection and click the edit button on the **Quix Lake bucket** line. An administrator can also [rename a storage](#rename-a-storage), and [make another storage the main storage](#make-a-storage-the-main-storage). A storage rename always moves the folder of one storage. A main storage move moves a folder only in one case. The storage that steps down sits at the root, so it must take a folder.
+An administrator can change these facts later:
+
+* **Rename the Quix Lake bucket.** Open the connection and click the edit button on the **Quix Lake bucket** line.
+* **[Rename a storage](#rename-a-storage).** A storage rename always moves the folder of one storage.
+* **[Make another storage the main storage](#make-a-storage-the-main-storage).** This move moves a folder only when the storage that steps down sits at the root. That storage must then take a folder.
 
 ## Get provider credentials
 
@@ -113,15 +117,15 @@ You can change these facts later. An administrator can rename the Quix Lake buck
 
 ## Test before saving
 
-![Testing connection](../../images/blob-storage/test-connecting.png)
+![The Edit storage panel with Test connection](../../images/blob-storage/test-connecting.png)
 
-When you click **Test connection**, Quix runs a short round-trip check to confirm your details are correct and that the platform can both see and use your storage. Quix writes a small test file into your bucket, checks that it can list and read the file, and then deletes it.
+When you click **Test connection**, Quix runs a short round-trip check to confirm your details are correct and that the platform can both see and use your storage. The check does four steps on a small test file in your bucket: write, list, read, delete.
 
 When the test passes, the panel shows **Tested connection** with a tick.
 
 When the test fails, the panel shows "Connection error. Check your settings and retry." and lists the steps with the reason. Use the reason to fix the permissions or correct your settings.
 
-![Access denied example](../../images/blob-storage/test-error.png)
+![A failed test: the bucket does not exist](../../images/blob-storage/test-error.png)
 
 ## Edit a connection
 
@@ -217,11 +221,11 @@ The move changes these things:
 
     Quix moves its permissions into the new folder. Update your own code, your saved paths, and your sink configuration.
 
-* **Environment deployments follow the main storage.** Quix moves every environment deployment of the old main storage to the new main storage. Then Quix restarts the deployments of both storages and the dev sessions.
+* **Environment deployments follow the main storage.** Quix moves every environment deployment of the old main storage to the new main storage. Then Quix restarts the deployments of both storages and the dev sessions. Each restarted deployment gets a new credential.
 
 * **The environment shortcut moves.** `s3://<workspaceId>/` reaches the promoted storage from that moment. See [The environment shortcut](./s3-endpoint.md#the-environment-shortcut).
 * **The Quix Lake bucket keeps its name.** The bucket belongs to the connection, not to the main storage.
-* **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables.
+* **Your services stay where their data is.** The Data Lake and the Lakehouse keep the storage that holds their tables. Deployments and sinks get the [Lakehouse variables](../deployments/blob-storage-and-library.md#lakehouse-variables) only from a Lakehouse on the new main storage. When no Lakehouse runs on the new main storage, they get no Lakehouse variables.
 * **A promote never clears a folder.** An administrator can still put the main storage back at the bucket root. To do so, empty its **Folder** field in **Edit storage**.
 
 Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you copy the environment folders into the new main storage yourself.
@@ -240,7 +244,11 @@ Quix copies **no** data. A read of `s3://<workspaceId>/` answers empty until you
     6. Read the storage that stepped down through its new folder to confirm it answers.
     7. Keep the old storage on the connection until every check passes.
 
-    To go back, make the old storage the main storage again. A move back does not undo the folder. That storage stays in the folder you named. Only the **Main** badge and the environment shortcut move back.
+    To go back, make the old storage the main storage again:
+
+    * The **Main** badge and the environment shortcut move back.
+    * The environment deployments move back too, and Quix restarts them again.
+    * The folder stays. That storage stays in the folder you named.
 
 ### The environment shortcut
 
@@ -270,7 +278,7 @@ A deployment or a [dev session](../applications/dev-sessions/overview.md) binds 
 ## Next steps
 
 * [File Explorer](./file-explorer.md) — browse and manage files in the Portal
-* [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
+* [Storage permissions](./secure-storage-access.md) — who can read and change what
 * [How to connect](./s3-endpoint.md) — reach the same data from your code
 * [Bridge](./bridge/overview.md) — serve folders on your own machine as a storage
 * [Data Lake Sink](./data-lake/sink.md) — persist topics as Avro plus a Parquet index

@@ -11,7 +11,7 @@ Open **File Explorer** from the **Quix Lake** section of your environment sideba
 
 !!! info "Prerequisites"
     - A [Quix Lake connection](./blob-storage.md) exists for the cluster.
-    - The [Storage Access Gateway](./secure-storage-access.md) is deployed for that connection.
+    - The [Storage Access Gateway](./secure-storage-access.md#the-storage-access-gateway) is deployed for that connection.
 
 ## What you see
 
@@ -28,7 +28,7 @@ A storage you add never moves a storage that is already there, so the paths you 
 
 A main storage move is different. Only the main storage may sit at the bucket root, so the storage that steps down must take a folder, and its paths change. The Portal asks the administrator for that folder name before it moves anything. When the storage that steps down already has a folder, nothing moves. See [Make a storage the main storage](./blob-storage.md#make-a-storage-the-main-storage).
 
-You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. A storage folder at the root is the one exception. It always appears, and its contents follow the permissions. See [Storage Access Gateway](./secure-storage-access.md) for the rules.
+You only see what you are allowed to see. The gateway filters every listing, so another team's private folder never appears. A storage folder at the root is the one exception. It always appears, and its contents follow the permissions. See [Storage permissions](./secure-storage-access.md) for the rules.
 
 Switch between **Tree view** and **File explorer view** with the buttons in the toolbar. Use **Back**, **Forward**, and **Up** to move through folders, and **Refresh** to re-read the current folder.
 
@@ -64,7 +64,18 @@ Everything **inside** a storage behaves like an ordinary folder. Rename, delete,
 
 ## Folders you cannot read
 
-When you can see a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens to an organization administrator on a folder that is not an environment folder, where the administrator can only list. It also happens on a storage folder when no user, group or Default Permission opens that storage folder itself. Open, download, upload, delete and new folder follow the storage permissions. File Explorer turns off the actions you cannot do, and the tooltip says why. The gateway also refuses a request that the permissions do not allow.
+When you can see a folder but cannot read it, the **Access** column shows a lock and **No Access**. This happens in these cases:
+
+- An organization administrator sees a folder that is not an environment folder. There, the administrator can only list.
+- No user, group or Default Permission opens a storage folder itself.
+
+Open, download, upload, delete and new folder follow the storage permissions. File Explorer turns off the actions that you cannot do:
+
+- Without write access, **Upload**, **New folder**, **New file** and the menu actions that write are off. The tooltip says **You can only read this folder.** or **You can only read this file.**
+- A file that you cannot read shows grey, and **Download** is off. The tooltip tells you how to get access: ask an administrator for a storage permission or for a role on the environment.
+- When a preview fails, File Explorer names the cause. The cause is one of these: you have no read access, the file is not found, the [bridge](./bridge/overview.md) did not answer, the server could not load the file, or there is no network.
+
+The gateway also refuses a request that the permissions do not allow.
 
 ## Access
 
@@ -77,7 +88,8 @@ The **Access** column uses the same words as the **Storage permissions** tables:
 | **No Access** | You cannot read or change the folder |
 | **Read Access** | You can read the folder |
 | **Read-Write Access** | You can read and change the folder |
-| **Project permissions** | An environment folder. Your project role decides. |
+
+An environment folder shows the access your [project role](./secure-storage-access.md#the-project-role) gives you.
 
 The tooltip starts with **Your access:**, because the column shows what you can do. On a storage folder, it shows what you can do with a file directly inside that folder. A folder inside it can show more, for example your own environment folder.
 
@@ -85,7 +97,7 @@ Organization administrators and Quix administrators open the **Default Permissio
 
 ## Next steps
 
-* [Storage Access Gateway](./secure-storage-access.md) — who can read and change what
+* [Storage permissions](./secure-storage-access.md) — who can read and change what
 * [Quix Lake connections and storages](./blob-storage.md) — connect a bucket and add a storage
 * [How to connect](./s3-endpoint.md) — reach the same files from your code
 * [Data Lake UI](./data-lake/user-interface.md) — browse persisted Kafka datasets instead of raw files

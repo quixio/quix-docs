@@ -21,7 +21,15 @@ console:
   listen: 0.0.0.0:8330
 ```
 
-`quix-bridge ui --listen <address>` only picks the address that the printed URL names. It does not change where the service listens. The default stays on loopback only. An address that is not loopback serves plain HTTP. Use it only on a trusted network, or behind a TLS reverse proxy. After 5 wrong login codes, the login locks for 5 minutes.
+These rules apply:
+
+- `console.port` sets the port. The default is `8330`.
+- A port in `console.listen` wins over `console.port`.
+- `console.listen` takes an IPv4 address, such as `0.0.0.0` or `10.0.0.5`. It does not take a host name.
+- The console always also listens on `127.0.0.1`.
+- `quix-bridge ui --listen <address>` only picks the address that the printed URL names. It does not change where the service listens.
+- An address that is not loopback serves plain HTTP. Use it only on a trusted network, or behind a TLS reverse proxy.
+- After 5 wrong login codes, the login locks for 5 minutes.
 
 With a loopback address, `ui` prints an SSH tunnel hint. Run it on your own machine, then open the URL that `ui` printed:
 

@@ -12,7 +12,7 @@ It is a separate connector from the [Data Lake Sink](../data-lake/sink.md). Choo
 ## Prerequisites
 
 * A [Quix Lake connection](../blob-storage.md) configured for the cluster
-* A [Lakehouse](./overview.md) provisioned for the main storage of that connection
+* A [Lakehouse](./overview.md) on the main storage of your environment. After a [main storage move](../blob-storage.md#make-a-storage-the-main-storage), the Lakehouse stays on its storage. The sink then gets the Lakehouse variables only from a Lakehouse on the new main storage.
 
 ## Configuration
 

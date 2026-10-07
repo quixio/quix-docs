@@ -17,6 +17,18 @@ In the deployment dialog, open the **Advanced** tab and expand the **Blob Storag
 
 ![Quix Lake bind toggle in the deployment Advanced tab](../../images/blob-storage/deployment-blob-storage-toggle.png){width=80%}
 
+In YAML, set the bind on the deployment in `quix.yaml`:
+
+```yaml
+deployments:
+  - name: my-service
+    application: my-service
+    blobStorage:
+      bind: true
+```
+
+The YAML is the source of truth. A sync of YAML whose deployment has no `blobStorage` block removes the bind. This rule does not apply to a managed service.
+
 !!! note "A connection must exist first"
     The toggle binds the connection already configured for your environment. If none exists, the deployment has nothing to bind to. Create one under **Settings → Quix Lake** first. See [Quix Lake connections and storages](../quix-lake/blob-storage.md).
 
@@ -28,7 +40,9 @@ Quix writes the variable at deploy time, so redeploy the service after you switc
 
 ### Lakehouse variables
 
-When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too. Your code then reaches the Catalog and Query services without hard-coded URLs:
+When a Lakehouse Catalog or Query service runs on the storage that the deployment binds, Quix injects the Lakehouse endpoints too. Your code then reaches the Catalog and Query services without hard-coded URLs.
+
+The bind always goes to the main storage, but a Lakehouse stays on the storage that you deployed it on. So after a [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage), a deployment gets these variables only from a Lakehouse on the new main storage:
 
 | Variable | Description |
 |----------|-------------|
@@ -54,10 +68,13 @@ fs.ls("<your_bucket>/minio/<workspaceId>/")    # your environment folder in the 
 
 Quix takes the storage folder off the key before it calls the storage behind it. So a write to `<your_bucket>/minio/reports/day.csv` lands at `reports/day.csv` in the bucket behind `minio`.
 
-The bind always goes to the **main storage** of the connection. A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it, and `ListBuckets` answers the one Quix Lake bucket. Your access follows the rules in [Storage Access Gateway](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
+The bind always goes to the **main storage** of the connection. A deployment credential holds a grant on its own environment folder, so it works inside `<workspaceId>/` of each storage. A LIST of the bucket root answers `403 AccessDenied` for it, and `ListBuckets` answers the one Quix Lake bucket. Your access follows the rules in [Storage permissions](../quix-lake/secure-storage-access.md): a deployment reads its own environment's data and anything shared with it.
 
 !!! warning "An administrator can change the folder in your keys"
-    A [rename](../quix-lake/blob-storage.md#rename-a-storage) changes the **Folder** of a storage, and the old folder fails at once. Quix restarts the deployments bound to that storage. A [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage) moves your deployment to the new main storage, and Quix restarts it. `<your_bucket>/<workspaceId>/` then reaches the new main storage. The storage that steps down takes a folder when it sat at the bucket root. In both cases the bucket name stays. To reach the old data, update the keys in your code:
+    * A [rename](../quix-lake/blob-storage.md#rename-a-storage) changes the **Folder** of a storage, and the old folder fails at once. Quix restarts the deployments bound to that storage.
+    * A [main storage move](../quix-lake/blob-storage.md#make-a-storage-the-main-storage) moves your deployment to the new main storage. Quix restarts it, and it gets a new credential. `<your_bucket>/<workspaceId>/` then reaches the new main storage. The storage that steps down takes a folder when it sat at the bucket root.
+
+    In both cases the bucket name stays. To reach the old data, update the keys in your code:
 
     ```python
     fs.open("<your_bucket>/<workspaceId>/reports/day.csv")            # before the move, at the bucket root
@@ -118,7 +135,7 @@ The bound deployment receives the connection in `Quix__BlobStorage__Connection__
 
 `ServiceUrl` points at the gateway endpoint, and `BucketName` is the Quix Lake bucket. `Region` is the region of the storage, or `us-east-1` when the storage has none. Quix injects the keys in this PascalCase form, and `quixportal` reads them as they are.
 
-Your real bucket credentials never leave Quix. The key in this document reaches your environment's data only, and every storage of the connection answers on this one endpoint. See [Storage Access Gateway](../quix-lake/secure-storage-access.md) for who may read what, and [How to connect](../quix-lake/s3-endpoint.md) for the API surface.
+Your real bucket credentials never leave Quix. The key in this document reaches your environment's data only, and every storage of the connection answers on this one endpoint. See [Storage permissions](../quix-lake/secure-storage-access.md) for who may read what, and [How to connect](../quix-lake/s3-endpoint.md) for the API surface.
 
 The library *can* also target Azure, GCS, and a local directory directly, which is useful for tests or running outside Quix. Those are configs you build yourself with the [helpers below](#generating-the-json-yourself), not something the platform injects.
 
@@ -143,6 +160,6 @@ Typed builders are also available — `create_s3_config()`, `create_minio_config
 ## Next steps
 
 * [Quix Lake connections and storages](../quix-lake/blob-storage.md) — connect a bucket and add a storage
-* [Storage Access Gateway](../quix-lake/secure-storage-access.md) — who can read and change what
+* [Storage permissions](../quix-lake/secure-storage-access.md) — who can read and change what
 * [How to connect](../quix-lake/s3-endpoint.md) — the API surface your client may use
 * [Quix variables](./quix-variables.md) — every variable the platform injects
