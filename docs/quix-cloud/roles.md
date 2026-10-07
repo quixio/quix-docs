@@ -1,6 +1,6 @@
 ---
 title: Roles and permissions
-description: The six Quix Cloud roles and what each can do, how roles apply at organisation, project and environment level, how user group roles combine with a user's own, and how permissions are resolved.
+description: The five Quix Cloud roles and what each can do, how roles apply at organisation, project and environment level, how user group roles combine with a user's own, and how permissions are resolved.
 ---
 
 # Roles and permissions
@@ -13,7 +13,7 @@ You can manage roles using the Quix Cloud UI or programmatically via the [Quix C
 
 ## Available roles
 
-Quix Cloud provides six roles, each granting different levels of access. The Operator role is deprecated.
+Quix Cloud provides five roles, each granting different levels of access. The Operator role is deprecated.
 
 ![Role selection dropdown](../images/quix-cloud/roles-dropdown.png){width=50%}
 
@@ -24,9 +24,8 @@ Quix Cloud provides six roles, each granting different levels of access. The Ope
 | Editor | Edit projects and environments, and manage deployments (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
 | Operator (deprecated) | Plugin access, plus read-only access to global variables | Don't assign to new users. Use Viewer and a [space](./spaces/replace-operator-role.md) instead |
-| None | No permissions - blocks access at this scope | No permissions within the scope |
 
-The same six roles apply whether you assign them to a user or to a user group.
+The same five roles apply whether you assign them to a user or to a user group.
 
 ## Permissions matrix
 
@@ -111,21 +110,21 @@ Creating groups and managing members are covered in [User groups](./access-secur
 
 ### How group roles and user roles combine
 
-Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group.
+Each user has a single **permission source**: either their own role assignments or their group's. An organisation Admin chooses the source per user with the **Inherit from group** toggle on the user's **Project permissions** tab. The toggle is only available for users who belong to a group. It does not change the [Storage permission source](quix-lake/secure-storage-access.md#set-permissions-for-a-user-or-a-group), which is a separate setting on the **Storage permissions** tab.
 
 ![The Inherit from group toggle on a user's Project permissions tab](../images/quix-cloud/user-groups-inherit-toggle.png)
 
 | Inherit from group | Effective role assignments |
 |--------------------|----------------------------|
 | **Off** (default) | The user's own assignments. The group's role assignments are ignored. |
-| **On** | The group's assignments **replace** the user's own assignments at every level. The user's own assignments are kept but ignored. They can't be edited in the Quix Cloud UI while the toggle is on; changes made with the CLI or API are stored but have no effect until the toggle is turned off. |
+| **On** | The group's assignments **replace** the user's own assignments at every level. The user's own assignments are kept but ignored. They can't be edited in the Quix Cloud UI while the toggle is on; changes made with the CLI or API are stored but have no effect until the toggle is turned off. Quix Lake [storage access](quix-lake/secure-storage-access.md#the-project-role) uses the same roles, and a change applies at once. |
 
 The two sets are never merged. If a user's direct role and their group's role disagree at the same level - say the user is **Admin** on a project and the group is **Viewer** on it - the permission source decides: with the toggle off the user is Admin there, with it on they are Viewer. The same applies at every other level, including levels where only one of the two sets has an assignment.
 
 Other rules worth knowing:
 
 - Adding a user to a group does not turn the toggle on. Removing a user from their group turns it off, so their own assignments apply again. Moving a user to another group in the Quix Cloud UI removes them from their old group first, so the toggle is turned off; turn it on again for them to inherit the new group's roles.
-- If the toggle is on and the group grants no roles, the user has **no** permissions. Quix Cloud does not fall back to the user's own assignments.
+- If the toggle is on and the group grants no roles, the user has **no** permissions. Quix Cloud does not fall back to the user's own assignments. The user also gets no role-based storage access in Quix Lake.
 - If you inherit your own permissions from a group, you cannot change that group's organisation-level role assignments. This mirrors the rule that stops you editing your own organisation-level role.
 - Group membership still applies when the toggle is off: the member can still use [deployment sizes restricted to the group](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups).
 
@@ -139,7 +138,6 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use inheritance**: Set a base role at organisation level, override only where needed
 - **Use groups for teams**: Put each team in a group, assign roles to the group, and turn on **Inherit from group** for its members so access changes in one place
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
-- **Use None to restrict**: If someone should see most projects but not a sensitive one, set None on that project
 - **Use spaces for plugin-only users**: Assign Viewer at the environment that runs the plugins, and a space that shows only the plugins, instead of the deprecated Operator role
 - **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes - see [Restrict a size to users and groups](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups)
 
@@ -170,7 +168,7 @@ quix cloud users permissions copy <source-user-id> --to <target-user-id>
 - Project: `Repository:<project-id>`, where the project ID is a GUID
 - Environment: `Workspace:<environment-id>`, for example `Workspace:myorg-projectname-environmentname`
 
-**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator` (deprecated), `None`
+**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator` (deprecated)
 
 `get`, `set`, `delete` and `copy` read and change a user's **own** assignments. `list` shows each user's effective assignments, which are their group's when **Inherit from group** is on. User groups are managed in the Quix Cloud UI, or through the [Portal API](./apis/portal-api/overview.md) - see [User groups](./access-security/user-groups.md).
 
@@ -221,7 +219,7 @@ A role assignment gives every permission in that role, at the level where the ro
 
 The system first selects the user's permission source: their own role assignments, or their group's assignments when **Inherit from group** is on (see [How group roles and user roles combine](#how-group-roles-and-user-roles-combine)). Only that one set of assignments is used.
 
-It then uses the most specific of the three [permission levels](#permission-levels) at which that set assigns a role: the environment, then the environment's project, then the organisation. The role at that level decides on its own: if it doesn't include the permission, access is denied, even when a role at a broader level would allow it. This is how **None** blocks access. A broader level is checked only when no role is assigned at the more specific one.
+It then uses the most specific of the three [permission levels](#permission-levels) at which that set assigns a role: the environment, then the environment's project, then the organisation. The role at that level decides on its own: if it doesn't include the permission, access is denied, even when a role at a broader level would allow it. A broader level is checked only when no role is assigned at the more specific one.
 
 ### Personal Access Tokens
 

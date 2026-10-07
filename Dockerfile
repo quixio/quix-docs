@@ -3,7 +3,7 @@ FROM python:3.11-slim
 WORKDIR /docs
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     libcairo2-dev \
     libgdk-pixbuf-2.0-dev \
@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip setuptools \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip uninstall -y pip
 
 # Copy the docs content
 COPY . .
