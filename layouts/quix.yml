@@ -1,9 +1,11 @@
 definitions:
 - &page_title >-
     {{ page.meta.get("title") or page.title }}
-  
+
+# Falls back to the site description so pages without a `description:` in their
+# frontmatter still get on-brand card copy instead of a blank lower half.
 - &page_description >-
-    {{ page.meta.get("description") or "" }}
+    {{ page.meta.get("description") or config.site_description }}
 
 - &page_title_with_site_name >-
   {%- if not page.is_homepage -%}
@@ -11,7 +13,7 @@ definitions:
   {%- else -%}
     {{ page.meta.get("title", page.title) }}
   {%- endif -%}
- 
+
 tags:
 
   og:type: website
@@ -31,48 +33,51 @@ tags:
 
 size: { width: 1200, height: 630 }
 layers:
-#Set background image
+
+# Brand surface — near-black (--almost-black, #0A0A0A). Dark-only theme.
   - background:
-      image: layouts/background.jpg
+      color: "#0A0A0A"
 
-#Docs URL text
-  - size: { width: 160, height: 36 }
-    offset: { x: 200, y: 64 }
-    typography:
-      content: quix.io/docs
-      overflow: shrink
-      align: start center
-      color: "#FFFFFF66"
-      font:
-        family: Inter
-        style: SemiBold
+# Quix wordmark (white/mono 2025 logo), top-left. Box matches the logo's
+# 3.32:1 aspect (438x132) so it scales without distortion. Copied to a
+# paren-free filename because parenthesised asset names 404 in the build.
+  - size: { width: 166, height: 50 }
+    offset: { x: 144, y: 64 }
+    background:
+      image: layouts/quix-logo-white.png
 
-#Page title text
-  - size: { width: 800, height: 240 }
-    offset: { x: 144, y: 136 }
+# Brand accent bar — orange (--orange, #FF8400).
+  - size: { width: 64, height: 6 }
+    offset: { x: 144, y: 138 }
+    background:
+      color: "#FF8400"
+
+# Page title
+  - size: { width: 912, height: 230 }
+    offset: { x: 144, y: 178 }
     typography:
       content: *page_title
       overflow: shrink
       align: start
-      color: white
+      color: "#FFFFFF"
       line:
         amount: 3
         height: 1.25
       font:
-        family: Inter
+        family: Geist
         style: SemiBold
 
-#Page description text
-  - size: { width: 800, height: 144 }
-    offset: { x: 144, y: 422 }
+# Page description — 72% white (brand body-text opacity).
+  - size: { width: 912, height: 140 }
+    offset: { x: 144, y: 438 }
     typography:
       content: *page_description
       overflow: truncate
       align: start bottom
-      color: white
+      color: "#FFFFFFB8"
       line:
         amount: 3
         height: 1.5
       font:
-        family: Inter
+        family: Geist
         style: Regular

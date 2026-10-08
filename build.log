@@ -1,0 +1,99 @@
+INFO    -  Multirepo plugin importing docs...
+🔳 quix-streams
+🔳 quix-cli
+Traceback (most recent call last):
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\commands\build.py", line 265, in build
+    config = config.plugins.on_config(config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\plugins.py", line 587, in on_config
+    return self.run_event('config', config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\plugins.py", line 566, in run_event
+    result = method(item, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\plugin.py", line 310, in on_config
+    config = self.handle_nav_import(config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\plugin.py", line 180, in handle_nav_import
+    asyncio_run(batch_import(repos, keep_docs_dir=keep_docs_dir))
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\util.py", line 145, in asyncio_run
+    asyncio.run(futures)
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\structure.py", line 427, in batch_import
+    await batch_execute(
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\structure.py", line 419, in batch_execute
+    repo = await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 615, in _wait_for_one
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\structure.py", line 391, in import_docs
+    await self.sparse_clone([self.docs_dir, self.config] + self.extra_imports)
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\structure.py", line 193, in sparse_clone
+    await execute_bash_script("sparse_clone.sh", args, self.temp_dir)
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\util.py", line 139, in execute_bash_script
+    raise BashException(f"\n{stderr_str}\n")
+mkdocs_multirepo_plugin.util.BashException: 
+/bin/bash: c:DataDriveCodeGitHubQuixquix-docsvenvLibsite-packagesmkdocs_multirepo_pluginscriptssparse_clone.sh: No such file or directory
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\__main__.py", line 370, in <module>
+    cli()
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\click\core.py", line 1406, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\__main__.py", line 288, in build_command
+    build.build(cfg, dirty=not clean)
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\commands\build.py", line 357, in build
+    config.plugins.on_build_error(error=e)
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\plugins.py", line 605, in on_build_error
+    return self.run_event('build_error', error=error)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs\plugins.py", line 568, in run_event
+    result = method(**kwargs)
+             ^^^^^^^^^^^^^^^^
+  File "c:\DataDrive\Code\GitHub\Quix\quix-docs\venv\Lib\site-packages\mkdocs_multirepo_plugin\plugin.py", line 361, in on_build_error
+    shutil.rmtree(str(self.temp_dir))
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 787, in rmtree
+    return _rmtree_unsafe(path, onerror)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 638, in _rmtree_unsafe
+    onerror(os.rmdir, path, sys.exc_info())
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 636, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\DataDrive\\Code\\GitHub\\Quix\\quix-docs\\temp_dir'
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x00000243CE153600>
+Traceback (most recent call last):
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_subprocess.py", line 126, in __del__
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_subprocess.py", line 104, in close
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\proactor_events.py", line 109, in close
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 762, in call_soon
+  File "C:\Users\Steve\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 520, in _check_closed
+RuntimeError: Event loop is closed
+EXIT_CODE=1
