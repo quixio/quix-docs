@@ -100,4 +100,4 @@ The status strip of the [console](./console.md#the-status-strip) also shows the 
 ## Next steps
 
 * [The bridge console](./console.md) — the status strip, the Activity tab and the Health tab
-* [Updates and uninstall](./updates.md) — bring an old bridge onto the stable channel
+* [Updates and uninstall](./updates.md) — how the bridge updates itself and how to uninstall it

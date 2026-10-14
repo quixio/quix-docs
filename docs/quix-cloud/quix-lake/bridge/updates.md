@@ -1,6 +1,6 @@
 ---
 title: Updates and uninstall
-description: How the bridge updates itself, how to bring an old bridge onto the stable channel, and how to uninstall it.
+description: How the bridge updates itself and how to uninstall it.
 ---
 
 # Updates and uninstall

@@ -31,6 +31,34 @@ State-related variables are only present when [state management](./state-managem
 | `Quix__Portal__Api`                   | The portal API endpoint, which depends on the environment.                                            |
 | `Quix__Sdk__Token`                    | SDK Token 1, as described [here](../access-security/streaming-token.md).                       |
 
+## Git variables
+
+A deployment with `gitCredentials: bind: true` also gets these variables. They come from the repository of the environment.
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__Git__RepoUrl`                  | The SSH URL of the repository.                                                                        |
+| `Quix__Git__Branch`                   | The branch of the environment (default: `main`).                                                      |
+| `Quix__Git__SshPrivateKey`            | The SSH private key of the repository. Injected as a secret.                                          |
+
+## Dev session variables
+
+A [dev session](../applications/dev-sessions/overview.md) also gets these variables:
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__DevSession__UserId`            | The id of the user who started the dev session.                                                       |
+| `Quix__DataCatalog__Api`              | The URL of the [Data Lake API](../quix-lake/data-lake/api.md).                                         |
+
+VS Code and Quix AI agent sessions also get the three [Git variables](#git-variables), and these:
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__Git__User`                     | The id of the user who started the dev session.                                                       |
+| `Quix__Git__UserName`                 | The name of that user.                                                                                |
+| `Quix__Git__UserEmail`                | The email address of that user.                                                                       |
+| `Quix__Git__Folder`                   | The application folder of the dev session. Present only when the session opens a folder.              |
+
 ## Storage and Quix Lake variables
 
 The variables below are **conditional** — unlike the ones above, they are not always present:
@@ -40,10 +68,11 @@ The variables below are **conditional** — unlike the ones above, they are not 
 
 If neither condition is met, none of these variables are set, so guard for their absence in your code.
 
-[Dev sessions](../applications/dev-sessions/overview.md) get the same variables. A dev session also gets two more things that a deployment never gets:
+[Dev sessions](../applications/dev-sessions/overview.md) get the same variables. Only QuixLab and Marimo sessions bind the storage by default. Another dev session gets `Quix__BlobStorage__Connection__Json` only when you turn on the storage for that session. A dev session also gets three more things that a deployment never gets:
 
 - `Quix__Lakehouse__Ui__Url`, the address of the Lakehouse UI.
 - The `Quix__Lakehouse__Database__*` variables, the credentials of the Lakehouse database.
+- `CATALOG_AUTH_TOKEN`, a second name for `Quix__Lakehouse__Catalog__AuthToken`. Injected as a secret.
 
 | Variable                              | Description                                                                                           |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------|

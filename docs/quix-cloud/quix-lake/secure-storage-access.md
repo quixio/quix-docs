@@ -125,6 +125,7 @@ A tag says where the value comes from. The user page and the group page show the
 | **Inherited (from parent folder)** | The setting of a folder above, the storage root included |
 | **Inherited (from group)** | The setting of the user's group |
 | **Inherited (from default)** | The **Default Permissions**, or nothing set |
+| **Inherited (from connection defaults)** | A default grant of the Quix Lake connection |
 | **Inherited (from project permissions)** | The project role of the user in that environment |
 
 The tooltip of the **Effective access** cell names the folder, the group or the role.

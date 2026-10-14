@@ -132,6 +132,10 @@ Per-file reads, computed waits, gap trimming, queue length, and throttling-usefu
 4. Produces records to the **destinationTopic** in Kafka.
 
 
+## Access
+
+To start, pause, stop, restart, or update a replay, you need **Update** permission on the destination workspace. On the source workspace, you need only **Read** permission. So a user with the **Viewer** role on the source workspace can replay into a workspace where they have **Update** permission.
+
 ## Configuration
 
 Managed services use simplified config. Quix maps these keys to underlying environment variables and wiring (including the **Data Lake API URL**, which is injected automatically).
@@ -162,6 +166,13 @@ Managed services use simplified config. Quix maps these keys to underlying envir
 
 * **replayedKeys**, **suffixReplayedKeysWithTimestamp**, **replayedKeysSuffix**, **replayedKeysSuffixSeparator**
 * **useOriginalMessagePartition** or **destinationPartition**
+
+### Optional (transformation cache)
+
+These settings apply only to JSON [transformations](./replay-transformations.md). The cache keeps the result for a repeated key, value, or header, so the service does not compute it again.
+
+* **enableKeyTransformationCache**, **enableValueTransformationCache**, **enableHeaderTransformationCache:**  `"true"` (default) or `"false"`
+* **keyTransformationCacheSize**, **valueTransformationCacheSize**, **headerTransformationCacheSize:**  maximum number of cached results (default `10000`). A higher value uses more memory.
 
 The **Basic configuration** panel lets you set the destination topic, timestamp mode, and speed:
 
@@ -198,6 +209,7 @@ deployments:
   - name: Data Lake - Replay
     application: DataLake.Replay
     configuration:
+      sourceWorkspaceId: your-source-workspace-id
       sourceTopic: source-topic
       destinationTopic: destination-topic
       transformations:

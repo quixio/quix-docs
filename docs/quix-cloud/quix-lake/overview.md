@@ -5,14 +5,14 @@ description: The storage layer of Quix Cloud. Choose between Data Lake (open-fil
 
 # Quix Lake overview
 
-**Quix Lake** is the persistence layer of **Quix Cloud**. It captures Kafka topic data into your own cloud storage (Amazon S3, Azure Blob, Google Cloud Storage, or MinIO) in open formats — so you keep full control of the bytes and can reuse them across replay, analytics, and ad-hoc query workloads.
+**Quix Lake** is the persistence layer of **Quix Cloud**. It captures Kafka topic data into your own storage (Amazon S3, Azure Blob, Google Cloud Storage, MinIO, or folders on a machine you own through the [Bridge](./bridge/overview.md)) in open formats — so you keep full control of the bytes and can reuse them across replay, analytics, and ad-hoc query workloads.
 
 Quix Lake ships **two complementary storage options**, each with its own managed sink:
 
 | Option | Writes | Best for |
 |---|---|---|
 | **[Data Lake](./data-lake/overview.md)** | Raw Kafka messages as **Avro segments + Parquet index** | High-fidelity **Replay**, audit/compliance, append-only forensic record |
-| **[Lakehouse](./lakehouse/overview.md)** | **Apache Iceberg tables** (Parquet + snapshots) registered in a Catalog | SQL analytics, dashboards, time-series queries |
+| **[Lakehouse](./lakehouse/overview.md)** | **Parquet tables** in Hive-style `key=value/` folders, indexed in a Catalog | SQL analytics, dashboards, time-series queries |
 
 You can run **either**, **both**, or fan a single topic out to both — they share the same Quix Lake connection but are independent connectors with independent consumer groups.
 
@@ -51,17 +51,17 @@ The two storage options have **separate connector applications** — they don't 
 
 | | [Data Lake Sink](./data-lake/sink.md) | [Lakehouse Sink](./lakehouse/sink.md) |
 |---|---|---|
-| **Output** | Raw Kafka messages as Avro + Parquet index | Apache Iceberg tables (Parquet + snapshots) |
+| **Output** | Raw Kafka messages as Avro + Parquet index | Parquet tables in `key=value/` folders, indexed in a Catalog |
 | **Schema-aware?** | No — bytes pass through | Yes — schema auto-discovered from messages |
-| **Iceberg support** | No | Yes |
 | **Primary consumer** | Replay, external tools | SQL via the Lakehouse Query engine |
 
 Both share these traits:
 
 - Consume from a **single Kafka topic** per deployment (run more than one for multiple topics).
 - Use the cluster's [Quix Lake connection](./blob-storage.md) — you don't paste credentials into the sink.
-- Are **managed services** — Quix hosts and updates them; you provide configuration only.
 - Honor your cloud's IAM, encryption, and retention controls.
+
+They differ in how you deploy them. The Data Lake Sink is a **managed service**: Quix hosts and updates it, and you provide configuration only. The Lakehouse Sink is a **library deployment**: open **Persist topic → Lakehouse** on the Topics page, or select **Quix Lakehouse Sink** in the **Connectors** library. See [Deploy the sink](./lakehouse/sink.md#deploy-the-sink).
 
 ## Architecture at a glance
 
@@ -69,8 +69,8 @@ Both share these traits:
 flowchart TB
     topic([Kafka topic])
     dlSink["DataLake.Sink<br/>Avro + Parquet index"]
-    lhSink["Lakehouse sink<br/>Iceberg tables"]
-    bucket[("Your object storage<br/>S3 / GCS / Azure / MinIO")]
+    lhSink["Lakehouse sink<br/>Parquet tables"]
+    bucket[("Your object storage<br/>S3 / GCS / Azure / MinIO / Bridge")]
     dlUi["Data Lake UI / API<br/>Replay → Kafka"]
     lhQuery["Lakehouse Query + UI<br/>SQL → dashboards"]
     external["External tools<br/>Spark, Trino, DuckDB, …"]
@@ -91,7 +91,7 @@ Both options require a **Quix Lake connection** configured for the cluster. See 
 ## Where to next
 
 - **[Data Lake overview](./data-lake/overview.md)** — replay-first storage, raw Kafka fidelity, open Avro/Parquet
-- **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Iceberg tables
+- **[Lakehouse overview](./lakehouse/overview.md)** — SQL via DuckDB over Parquet tables
 - **[Quix Lake connections and storages](./blob-storage.md)** — wire up the bucket or container that both use
 - **[Storage permissions](./secure-storage-access.md)** — who can read and change each folder
 - **[How to connect](./s3-endpoint.md)** — reach the files from your own code with any S3 client

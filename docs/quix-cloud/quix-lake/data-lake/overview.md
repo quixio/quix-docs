@@ -26,14 +26,16 @@ Data is written to your bucket in a predictable, Hive-style layout for easy disc
 
 ```text
 Raw Avro:
-<bucket>/<workspaceId>/Raw/Topic=csv-data/Key=B/Start=2025-08-21/
+<bucket>/<workspaceId>/data-lake/raw/Topic=csv-data/Key=B/Start=2025-08-21/
   ts_1755776884034_1755776886089_part_0_off_331135_331334.avro.snappy
 
 Parquet index and custom metadata:
-<bucket>/<workspaceId>/Metadata/Topic=data-source-json/Key=6/
+<bucket>/<workspaceId>/data-lake/metadata/Topic=data-source-json/Key=6/
   index_raw_0_129879.parquet
   metadata_<...>.parquet
 ```
+
+Data written by an earlier sink version sits under `<workspaceId>/Raw` and `<workspaceId>/Metadata`. The API still reads these legacy folders.
 
 See **[Open format](./open-format.md)** for the full layout and schemas.
 
@@ -57,7 +59,7 @@ See **[Open format](./open-format.md)** for the full layout and schemas.
 
 ## Operational behavior
 
-* **Soft deletion** — catalog deletions move items to Trash for a short retention window before permanent removal, with restore and delete-forever actions.
+* **Soft deletion** — catalog deletions move items to Trash. The API removes a soft-deleted item permanently 1 hour after the deletion. Until then, you can restore it or delete it forever.
 * **Security** — you control IAM, keys, encryption, retention, and audit in your own cloud account. Within Quix, each team only sees its own data by default. See the [Storage permissions](../secure-storage-access.md).
 
 ## See also
