@@ -18,18 +18,21 @@ description: How Quix Data Lake structures data in Avro and Parquet for portabil
 ```text
 <bucket>
   <workspaceId>
-    Raw
-      Topic=<topic>
-        Key=<stream-key>
-          Start=<yyyy-mm-dd>
-            ts_<startTs>_<endTs>_part_<p>_off_<first>_<last>.avro[.codec]
+    data-lake/
+      raw/
+        Topic=<topic>
+          Key=<stream-key>
+            Start=<yyyy-mm-dd>
+              ts_<startTs>_<endTs>_part_<p>_off_<first>_<last>.avro.<codec>
 
-    Metadata/
-      Topic=<topic>
-        Key=<stream-key>
-          index_raw_<partition>_<seq>.parquet   # index files
-          metadata_*.parquet                    # optional custom metadata
+      metadata/
+        Topic=<topic>
+          Key=<stream-key>
+            index_raw_<partition>_<offset>.parquet   # index files
+            metadata_*.parquet                       # optional custom metadata
 ```
+
+The codec is `snappy` or `gzip`, as set by `avroCompression`. Data written by an earlier sink version sits under `<workspaceId>/Raw` and `<workspaceId>/Metadata`. The API still reads these legacy folders.
 
 ## Schemas and formats
 

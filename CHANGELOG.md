@@ -2,19 +2,7 @@
 
 This is the Quix Cloud changelog for the current year.
 
-## 2026-09-quix-lake-bridge | PREVIEW
-
-`NEW FEATURES`
-
-- **Quix Lake Bridge 0.1.23**: `quix-bridge connect` now asks for the quick config, stores the token, and restarts a running service. The Linux `enrol` step is gone. New commands are `quix-bridge service restart` and `quix-bridge logs`. Use `quix-bridge ui --listen` or `console.listen` to open the console from another machine. A bad share in `config.yaml` is now skipped, and the other shares still serve.
-
-    See the [Command line setup documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/command-line.html) for more details.
-
-- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the SAG path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
-
-    See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/overview.html) for more details.
-
-## 2026-08-multi-storage | 28 AUG 2026
+## 2026-09-spaces | 07 OCT 2026
 
 `NEW FEATURES`
 
@@ -23,6 +11,14 @@ This is the Quix Cloud changelog for the current year.
     See the [Quix Lake connections and storages documentation](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and the [S3-compatible endpoint documentation](https://quix.io/docs/quix-cloud/quix-lake/s3-endpoint.html) for more details.
 
 - **Rename a storage**: A storage folder is no longer fixed at creation. The folder is the address every client uses, so a change moves the whole storage. The old folder stops working at once, and code that uses it must change its keys. The Portal warns you before it saves the rename.
+
+- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the SAG path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
+
+    See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/overview.html) for more details.
+
+- **Quix Lake Bridge 0.1.26 (preview)**: `quix-bridge connect` now asks for the quick config, stores the token, and restarts a running service. The Linux `enrol` step is gone. New commands are `quix-bridge service restart` and `quix-bridge logs`. Use `quix-bridge ui --listen` or `console.listen` to open the console from another machine. A bad share in `config.yaml` is now skipped, and the other shares still serve.
+
+    See the [Command line setup documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/command-line.html) for more details.
 
 `ENHANCEMENTS`
 
@@ -33,6 +29,21 @@ This is the Quix Cloud changelog for the current year.
 - File Explorer:
     - **Cut, copy, and paste** — move or copy a file or folder into another folder from File Explorer.
     - **Copy path** — copy the full path of any file or folder to the clipboard.
+- Lakehouse:
+    - **File statistics and zone-map pruning** — the Lakehouse keeps the minimum and maximum values of each column for each file. A query with a `WHERE` range skips the files that cannot match, and a `count(*)` over whole files reads the row counts from the catalog.
+    - **Portal theme and sign-in** — inside the Portal, the Lakehouse UI signs in and follows the Portal theme through the Quix Plugin SDK.
+    - **Arrow IPC on `POST /query`** — add `format=arrow` to get the query result as an Arrow IPC stream instead of CSV. Swagger now documents this format.
+- Data Lake:
+    - **.NET 10** — the Data Lake API now runs on .NET 10.
+
+`BUG FIXES`
+
+- Lakehouse:
+    - Fixed **Lakehouse catalog paths after a bucket rename** — when the Quix Lake bucket gets a new name, the catalog changes the stored file paths to the new bucket when it starts.
+    - Fixed the **Lakehouse UI losing its sign-in in the Portal** — the UI now asks the Portal for a new token 60 seconds before the old token expires.
+- Data Lake:
+    - Fixed the **soft-delete purge listing storage too often** — the purge now uses only the cached file index, so it no longer lists blob storage for each topic every 5 minutes. This lowers the storage transaction cost.
+    - Fixed **Data Lake stats and purge stopping when one storage folder fails** — the stats refresh and the purge now skip a folder that fails, for example a Bridge storage whose machine is away, and continue with the other folders.
 
 ## 2026-06-quix-lake-2 | 23 JUL 2026
 

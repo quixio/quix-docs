@@ -5,16 +5,16 @@ description: Internal storage that backs the Quix Lakehouse Catalog.
 
 # Lakehouse Database
 
-The **Database** is the Quix-managed storage that backs the [Catalog](./catalog.md). It holds the Iceberg metadata — tables, schemas, snapshots, file statistics — that the Catalog exposes to the rest of the Lakehouse.
+The **Database** is the Quix-managed Postgres database that backs the [Catalog](./catalog.md). It holds the file index — tables, schemas, files, and file statistics — that the Catalog exposes to the rest of the Lakehouse.
 
 You don't interact with the Database directly. It's listed here mostly so you know what it is when you see it alongside the other Lakehouse services. The [Catalog](./catalog.md) is the API surface; everything you need is documented there or on the [Query](./query.md) and [Sink](./sink.md) pages.
 
 ## What lives here
 
-* Iceberg table registry, schemas, partition specs
-* Snapshot history and the current snapshot pointer per table
-* Manifest pointers (paths to manifest files in your blob storage)
-* Per-file statistics used for query pruning
+* Table registry, schemas, partition specs, and table properties
+* One row for each Parquet file of each table: path, size, row count, and partition values
+* Per-file min/max statistics for numeric and timestamp columns, used for query pruning
+* Locks that stop two scheduled compactions of the same table at the same time
 
 ## What does *not* live here
 

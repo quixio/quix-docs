@@ -5,7 +5,7 @@ description: Programmatic access to Quix Data Lake for search, metadata, file di
 
 # Data Lake API
 
-The Data Lake API powers the **[[Data Lake UI](./user-interface.md)](./user-interface.md)** and also exposes a clean surface for your own applications to **tag datasets, search, discover files, and perform safe deletes/restores**.
+The Data Lake API powers the **[Data Lake UI](./user-interface.md)** and also exposes a clean surface for your own applications to **tag datasets, search, discover files, and perform safe deletes/restores**.
 
 !!! tip "Lakehouse SQL?"
     This API is for the **[Data Lake](./overview.md)** (raw Avro + Parquet index). For SQL queries over Lakehouse tables, see [Lakehouse Query](../lakehouse/query.md).
@@ -57,6 +57,11 @@ Refreshes caches scoped to a single topic. Useful after large backfills or when 
 `GET /{workspaceId}/{topic}/keys`
 Lists all keys for a topic (the same values used by the key filter).
 
+### Get data density
+
+`GET /{workspaceId}/{topic}/density`
+Returns a histogram of data over time for a topic. Optional query parameters: `bucketCount`, `fromTimestamp`, `toTimestamp`, `keys`, and `partitions`.
+
 ### List existing topics
 
 `GET /{workspaceId}/topics`
@@ -81,6 +86,15 @@ Returns all known metadata keys across all accessible workspaces.
 
 `GET /all-workspaces`
 Returns workspace identifiers that have discoverable data for the caller.
+
+### Consolidate metadata files
+
+`POST /{workspaceId}/consolidate`
+`POST /{workspaceId}/{topic}/consolidate`
+`POST /{workspaceId}/{topic}/{key}/consolidate`
+Queues a merge of the index and metadata Parquet files into one file per stream, for a workspace, a topic, or one key. The call returns `202 Accepted` and the work runs in the background. The API skips a key that has a file changed in the last 24 hours. Add `?force=true` to turn this check off.
+
+The API also consolidates every workspace each night at 02:30 UTC, with the same 24-hour check.
 
 !!! note
     The search response includes a total-count header so clients can page results consistently with the UI.
@@ -147,11 +161,14 @@ Clears the soft-delete marker for a single key.
 
 ### Batch restore soft-deleted streams
 
-`POST /data/{workspaceId}/{topic}/restore`
-Clears soft-delete markers for multiple keys.
+`POST /data/{workspaceId}/{topic}/restore/all`
+Restores every soft-deleted key of the topic. The call takes no body.
 
 !!! warning
     Use hard delete only when retention and compliance requirements allow it.
+
+!!! note "Soft-deleted items do not stay"
+    The API removes a soft-deleted item permanently 1 hour after the deletion. A scan for expired items runs every 5 minutes. Restore an item before the hour ends.
 
 
 
@@ -198,6 +215,23 @@ Removes only the listed property names.
 
 !!! tip
     When searching, you can request the full tag set per result to drive rules without extra reads.
+
+
+
+## Explorer endpoints
+
+The **Explorer** endpoints browse and change the files in your storage. Most routes take the file or folder in the `path` query parameter.
+
+* `GET /explorer/list` — lists the entries under `path`, one level at a time, with paging.
+* `GET /explorer/search` — searches file and folder names under `path` for the `query` text.
+* `GET /explorer/stat` — returns the details of one entry.
+* `GET /explorer/download` — downloads a file.
+* `GET /explorer/stream` — streams a file inline, so a browser can show an image, audio, or video.
+* `GET /explorer/download-folder` — downloads a folder as a zip file.
+* `POST /explorer/upload` — uploads a file. Add `overwrite=true` to replace a file that exists.
+* `POST /explorer/folder` — makes an empty folder.
+* `DELETE /explorer/entry` — deletes a file or folder. Add `recursive=true` to delete a folder that is not empty.
+* `POST /explorer/rename` — renames or moves an entry inside the same top-level folder. The body gives `from` and `to`.
 
 
 
