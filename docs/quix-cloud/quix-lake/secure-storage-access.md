@@ -89,7 +89,7 @@ The **Storage permission source** banner says where a user gets storage permissi
 
 A change of source deletes no permission.
 
-A user with no saved source and no folder permissions of their own shows **Group** when the user is in a group. Else, the user shows **Default Permissions**. This is the source that applies to the user. Pick **User specific** to give the user folder permissions of their own.
+A user with no saved source and no folder permissions of their own shows **User specific**. Every **Access** list then shows **Inherited**: the user gets the permissions of their group when they are in one, then the [Default Permissions](#default-permissions) and their project role. A group with no folder permissions of its own shows **Group specific**.
 
 While the source is **Group** or **Default Permissions**, the **Access** lists of the user are read only. A new source applies only after you click **Save changes**, and then it applies at once. If the gateway does not get the change notice, the change can take up to one minute to apply. If the save fails for one storage, a message names that storage. **Try again** retries only that storage.
 
