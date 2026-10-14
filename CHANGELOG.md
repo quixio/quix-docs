@@ -2,48 +2,118 @@
 
 This is the Quix Cloud changelog for the current year.
 
-## 2026-09-spaces | 07 OCT 2026
+## 2026-09-spaces | 14 OCT 2026
 
 `NEW FEATURES`
 
-- **Several storages behind one Quix Lake connection**: A cluster still holds one Quix Lake connection, but that connection can now serve more than one storage. Your clients use **one bucket**, the Quix Lake bucket, and **each storage is a folder** in it, on the same endpoint and with the same credential. Only the main storage may sit at the root of the bucket. So a customer with one storage sees no change, and a new storage never moves a storage that is already there. `ListBuckets` answers the one Quix Lake bucket. A LIST of the bucket root shows the storages you may reach as folders. Add, rename, and delete a storage from the new **Storages** tab under **Settings → Quix Lake**. Use this to keep data in a second bucket, region, or provider without giving your services a second connection to manage.
+- **Quix Spaces**: Give each team a version of Quix tailored to the way they work. Admins create a Space, assign it to the users or user groups who need it, and choose exactly what they see: the modules, the sidebar, pinned header apps, a landing page and an accent colour. An operations team, a data science team and platform engineers can each work in a focused view of the same platform. Plugins can be added to a Space's sidebar or set as its landing page, so a team can open straight into a custom app built on Quix without seeing the rest of the platform.
 
-    See the [Quix Lake connections and storages documentation](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and the [S3-compatible endpoint documentation](https://quix.io/docs/quix-cloud/quix-lake/s3-endpoint.html) for more details.
+    See the [Spaces documentation](https://quix.io/docs/quix-cloud/spaces/overview.html) for more details.
 
-- **Rename a storage**: A storage folder is no longer fixed at creation. The folder is the address every client uses, so a change moves the whole storage. The old folder stops working at once, and code that uses it must change its keys. The Portal warns you before it saves the rename.
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-quix-spaces.webp" alt="Quix Spaces" style="width:60%"></p>
 
-- **Quix Lake Bridge (preview)**: Serve folders on a machine you own, such as a local disk or a network share, as one more storage of a Quix Lake connection. The bridge opens only outbound connections to Quix, so you open no inbound port. You choose the folders on the machine, and Quix Cloud can never add one. A bridge serves one connection, and the SAG path of a file is its address on the machine, for example `plant-fs/c/quix-share/hello.txt`. When the machine is away, the storage answers 503, never "not found".
+- **User groups and permission groups**: Permissions can now be granted to a **user group** instead of one user at a time. A new management view lets admins create groups, manage their members and assign permissions in one place. User and group detail pages include new **Storage** and **Quix AI** tabs, so you can grant folder-level access to Quix Lake storage and control who can use Quix AI, either per user or inherited from their group.
+
+    See the [User groups documentation](https://quix.io/docs/quix-cloud/access-security/user-groups.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-user-groups.webp" alt="User groups and permission groups" style="width:60%"></p>
+
+- **Quix Lake storage governance**: Bring all your storage under one Quix Lake connection and control exactly who can reach what. Attach **secondary storages** alongside the main one — each appears as its own root folder in the File Explorer — and manage storages, Quix Lake services and permissions from a single detail page. Grant **access per folder** to users or user groups, run deployments as a group so they only reach that group's folders, and review every write and credential change in the new Storage tab of the **Audit** page.
+
+    See the [Connections and storages](https://quix.io/docs/quix-cloud/quix-lake/blob-storage.html) and [Storage permissions](https://quix.io/docs/quix-cloud/quix-lake/secure-storage-access.html) documentation for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-quix-lake-governance.webp" alt="Quix Lake storage governance" style="width:60%"></p>
+
+- **Quix Lake Bridge**: Make folders on your own machines and network drives available in Quix without copying them to the cloud. A lightweight Bridge installed in your network exposes the folders you choose as Quix Lake storage, so pipelines and apps can read them like any other bucket. It only dials out, needs no inbound firewall rules or secrets in your pipelines, and access to each folder is managed with Quix user and group permissions.
 
     See the [Quix Lake Bridge documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/overview.html) for more details.
 
-- **Quix Lake Bridge 0.1.26 (preview)**: `quix-bridge connect` now asks for the quick config, stores the token, and restarts a running service. The Linux `enrol` step is gone. New commands are `quix-bridge service restart` and `quix-bridge logs`. Use `quix-bridge ui --listen` or `console.listen` to open the console from another machine. A bad share in `config.yaml` is now skipped, and the other shares still serve.
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-quix-lake-bridge.webp" alt="Quix Lake Bridge" style="width:60%"></p>
 
-    See the [Command line setup documentation](https://quix.io/docs/quix-cloud/quix-lake/bridge/command-line.html) for more details.
+- **Deployment Sizes**: Admins can define a catalogue of predefined resource sizes (for example S, M, L, XL) at the organisation level. Instead of entering CPU and memory manually, users pick a size when creating or updating a deployment. Sizes can optionally be restricted to specific users or user groups.
+
+    See the [Deployment Sizes documentation](https://quix.io/docs/quix-cloud/deployments/deployment-sizes.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-deployment-sizes.webp" alt="Deployment Sizes" style="width:60%"></p>
+
+- **Project Quotas**: A new **Project Quotas** page in Organisation Settings lets admins set a shared CPU and memory pool per project and optionally cap individual environments, so a single project or noisy environment can't starve the cluster.
+
+    See the [Project Quotas documentation](https://quix.io/docs/quix-cloud/projects/project-quotas.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-project-quotas.webp" alt="Project Quotas" style="width:60%"></p>
+
+- **Light mode**: The Portal now supports **light**, **dark** and **system** colour modes. The whole interface — including code editors, charts and the AI panel — follows the selected mode, and embedded apps like plugins are told which mode the Portal is in so they switch with it.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-09-light-mode.webp" alt="Light mode" style="width:60%"></p>
+
 
 `ENHANCEMENTS`
 
-- Quix Lake:
-    - **Renamed in settings** — the **Blob Storage** settings page is now **Quix Lake** at `org-settings/quix-lake`, and the old `org-settings/storage` address redirects to it. The storage permissions panel is now the **Default Permissions** tab.
-    - **Every cluster listed** — the settings page now lists every cluster, and a cluster without a connection carries a **Not connected** badge.
-    - **Simpler connection editing** — the access key and the secret are now optional when you edit a connection. Leave them empty to keep the stored keys. Quix asks you to test the connection again only when you change a field that reaches the storage, so a new display name saves at once.
-- File Explorer:
-    - **Cut, copy, and paste** — move or copy a file or folder into another folder from File Explorer.
-    - **Copy path** — copy the full path of any file or folder to the clipboard.
-- Lakehouse:
-    - **File statistics and zone-map pruning** — the Lakehouse keeps the minimum and maximum values of each column for each file. A query with a `WHERE` range skips the files that cannot match, and a `count(*)` over whole files reads the row counts from the catalog.
-    - **Portal theme and sign-in** — inside the Portal, the Lakehouse UI signs in and follows the Portal theme through the Quix Plugin SDK.
-    - **Arrow IPC on `POST /query`** — add `format=arrow` to get the query result as an Arrow IPC stream instead of CSV. Swagger now documents this format.
-- Data Lake:
-    - **.NET 10** — the Data Lake API now runs on .NET 10.
+- Environments:
+    - **Environments without a Kafka broker** — you can now create environments with no Kafka broker, for workloads that don't need streaming topics.
+- Variables:
+    - **Global variables in quix.yaml** — reference members of a Global Variable Group directly in `quix.yaml` templates using `{{ groupId:variableKey }}`, with `VariableGroup` added to the YAML intellisense.
+    - Long values in variables tables now show a tooltip.
+- Deployments:
+    - **Restart** option added to the Deployments and Pipeline menus.
+    - Deployment status is now tracked from Kubernetes events instead of polling the whole cluster, so state changes show up faster and more reliably.
+- Pipeline:
+    - **Details side panel** — selecting an item in the pipeline opens a side panel with its details.
+    - **Auto-pan** — the canvas follows a node when you drag it near the edge, and panning stops at the layout boundary.
+- Quix Lake & Storage:
+    - **Connection switcher** — at organisation level, File Explorer and Query Data now let you switch between storage connections.
+    - **Faster lakehouse queries** — per-file statistics let queries skip irrelevant files, and `ORDER BY` and `LIMIT` queries stop early once they have enough rows.
+    - **S3-compatible storage** regions can now be configured in organisation settings.
+    - **File Explorer writes follow storage permissions** — users who aren't organisation admins can now upload, rename, copy and delete files wherever their folder permissions allow.
+    - **Lake Console** — a live lake tree that highlights tables receiving data, **data snippets** to save and share named queries over a table, per-table compaction and repartition settings with run history, and query statistics.
+- Quix AI:
+    - **Bring your own AI key** — Quix AI now supports **OpenAI** alongside Claude. Organisation admins can configure their own Claude or OpenAI keys from the organisation AI settings, and Insights can be configured independently from the main assistant.
+    - **New models** — Claude Sonnet 5.5, GPT-6 Sol and Luna, and GPT-6.1 Sol are now available.
+    - Clearer warnings when AI credits are low or exhausted.
+    - Better feedback and recovery when an AI provider stalls, and a loading indicator on every AI turn.
+    - Some slash commands can now be used while the agent is working.
+- Dynamic Configuration:
+    - Added a **refresh** button to the configuration details page.
+- Navigation & UI:
+    - **Restart Git Service** buttons in the environment danger zone and the git errors menu.
+
 
 `BUG FIXES`
 
-- Lakehouse:
-    - Fixed **Lakehouse catalog paths after a bucket rename** — when the Quix Lake bucket gets a new name, the catalog changes the stored file paths to the new bucket when it starts.
-    - Fixed the **Lakehouse UI losing its sign-in in the Portal** — the UI now asks the Portal for a new token 60 seconds before the old token expires.
-- Data Lake:
-    - Fixed the **soft-delete purge listing storage too often** — the purge now uses only the cached file index, so it no longer lists blob storage for each topic every 5 minutes. This lowers the storage transaction cost.
-    - Fixed **Data Lake stats and purge stopping when one storage folder fails** — the stats refresh and the purge now skip a folder that fails, for example a Bridge storage whose machine is away, and continue with the other folders.
+- Variables & Sync:
+    - Fixed **CPU/memory requests in quix.yaml** never being synced or applied at runtime.
+    - Fixed a false blocking **"out of sync"** state caused by a baseline recorded mid-build.
+    - Fixed the **Configuration Manager** appearing outdated when nothing had changed.
+    - Fixed Project Variables not being selected when editing a deployment.
+    - Fixed the **Variables** and **Environments** counts in the Global Variables list not being calculated correctly.
+- Deployments:
+    - Fixed deployments being **falsely marked as stopped** and not recovering.
+    - Fixed a blank **New Deployment** dialog after duplicating or uploading an application.
+    - Fixed deployment logs appearing in the wrong deployment's terminal.
+    - Fixed environments inconsistently copying registry pull secrets.
+    - Fixed deployment lineage rendering very small.
+    - Fixed redeploys dropping a deployment's **health checks** and its state volume settings.
+- Quix Lake & Storage:
+    - Fixed **Quix Lake services** not showing live metrics.
+    - Fixed a redeploy causing **403 errors** on running services because their storage credential was retired too early.
+    - Fixed the File Explorer keeping files that had been deleted outside the Portal.
+    - Fixed Viewers not being able to list folders in the Storage permissions tab.
+- Permissions:
+    - Fixed users with **Viewer-only** permissions not being able to read from topics.
+- Dev Sessions:
+    - Fixed the VS Code dev session looping on "Token received, authenticating...".
+    - Fixed embedded plugins losing their session when the token expired.
+- Quix AI:
+    - Fixed users still hitting daily limits when rate limiting was disabled.
+    - Fixed Bitbucket knowledge base repositories failing to connect.
+- Pipeline & UI:
+    - Fixed **project cards and environment tabs** opening settings instead of the pipeline.
+    - Fixed clicking a topic connection in the pipeline not opening the topic.
+    - Fixed the pipeline **(+)** buttons showing source and destination options the wrong way round.
+    - Fixed the custom environment tab order being reset on refresh.
+    - Fixed being unable to create an environment when the environment tabs collapse into a dropdown.
+    - Fixed Dynamic Configuration version history not scrolling.
+    - Fixed the knowledge base detail page not scrolling.
 
 ## 2026-06-quix-lake-2 | 23 JUL 2026
 
