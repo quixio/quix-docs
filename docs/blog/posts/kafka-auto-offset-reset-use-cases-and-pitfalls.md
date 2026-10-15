@@ -78,7 +78,7 @@ metadata. This way, if a consumer in the group crashes or restarts (or if a
 rebalancing takes place), the consumer knows where to resume reading from when
 it’s operational again.
 
-![](images/Last%20committed%20offset.png){width=60%}
+![](images/Last committed offset.png){width=60%}
 
 The key takeaway? Try to think of a topic as a human-friendly collection of
 partitions — each with its own offsets, which are referenced by consumer
@@ -123,7 +123,7 @@ Setting **"auto.offset.reset"** to **"earliest"** instructs consumers to begin
 reading from the earliest available offset in each topic partition. In other
 words, consumers will process messages from the very beginning of the log.
 
-![](images\Consumer%20auto%20offset%20reset%20earliest.png){width=60%}
+![](images/Consumer auto offset reset earliest.png){width=60%}
 
 In contrast, with **"auto.offset.reset"** set to **"latest"** (which is the
 default), consumers will ignore previously published messages. Instead, they
@@ -133,7 +133,7 @@ Since **"auto.offset.reset"** is configured to **"latest"** , the consumer
 ignores the existing messages and will start consuming from the message with
 offset 4 (which is not yet published).  
 
-![](images\Consumer%20auto%20offset%20reset%20latest.png){width=60%}
+![](images/Consumer auto offset reset latest.png){width=60%}
 
 Finally, when using the **"none"** option, if a consumer instance encounters a
 situation where there is no valid committed offset, it will throw an
@@ -204,7 +204,7 @@ published by the upstream producer. Now let’s assume the producer publishes a
 new message (offset 5), but the consumer crashes before it’s able to process
 it and commit its offset.
 
-![](images\Kafka%20consumer%20crash.png){width=60%}
+![](images/Kafka consumer crash.png){width=60%}
 
 You restart the consumer (or assign a new consumer to the partition). But in
 the meantime, the producer has published several new messages (offsets 6-10).
@@ -214,7 +214,7 @@ active. So what happens now? The consumer will wait for new messages (starting
 with offset 11) to be published before reading from the partition, while
 messages with offsets 5-10 will never be processed.
 
-![](images\Consumer%20messages%20skipped.png){width=60%}
+![](images/Consumer messages skipped.png){width=60%}
 
 This is a deal-breaker if your application relies on no new messages being
 skipped.

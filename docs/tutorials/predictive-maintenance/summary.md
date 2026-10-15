@@ -15,7 +15,7 @@ In addition, you have seen how in Quix you can:
 
 Here are some suggested next steps to continue on your Quix learning journey:
 
-* Build something with our [Code Samples](../../develop/code-samples.md).
+* Build something with our [Code Samples](../../quix-cloud/applications/code-samples.md).
 
 * Try another tutorial from our [tutorials overview](../overview.md).
 

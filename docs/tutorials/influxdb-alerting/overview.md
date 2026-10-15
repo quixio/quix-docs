@@ -31,7 +31,7 @@ To complete this tutorial you'll need to:
     
     We will create a time-limited free account for you, and our experts will help you get started with your specific use case. 
     
-* [Create a project in Quix Cloud](../../create/create-project.md)
+* [Create a project in Quix Cloud](../../quix-cloud/projects/create-project.md)
 * [Install Quix Streams](https://github.com/quixio/quix-streams?tab=readme-ov-file#install-quix-streams){target=_blank}
 * Optionally sign up for [PagerDuty](https://www.pagerduty.com/){target=_blank} (to send alerts)
 
@@ -39,7 +39,7 @@ To complete this tutorial you'll need to:
 
     Completing the [InfluxDB quickstart](../../integrations/databases/influxdb/quickstart.md) before embarking on this tutorial is not essential, but is highly recommended.
 
-Note, you obtain your [Streaming Token (SDK Token)](../../develop/authentication/streaming-token.md) once you have created an environment, as the token is specifically for use with that environment.
+Note, you obtain your [Streaming Token (SDK Token)](../../quix-cloud/access-security/streaming-token.md) once you have created an environment, as the token is specifically for use with that environment.
 
 ## The parts of the tutorial
 

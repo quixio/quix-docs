@@ -1,0 +1,177 @@
+---
+title: Data Lake Sink
+description: Connector that persists Kafka data into Quix Data Lake as raw Avro plus Parquet index files.
+---
+
+# Data Lake Sink
+
+The Data Lake Sink writes Kafka topic data to your object storage in **Avro** (raw messages) and **Parquet** (index and optional custom metadata), enabling fast discovery and high-fidelity **[Replay](./replay.md)**.
+
+Identifier: `DataLake.Sink`
+
+!!! tip "Looking for SQL-queryable storage?"
+    The Data Lake Sink preserves Kafka messages **byte-for-byte** for replay. If you want **columnar Parquet tables you can query with SQL**, use the **[Lakehouse Sink](../lakehouse/sink.md)** instead — or run both against the same topic for replay *and* analytics.
+
+## Purpose
+
+* Persist raw Kafka messages exactly as they arrive (timestamps, headers, partitions, offsets, and gaps)
+* Enable **[Replay](./replay.md)** and external query over open files (DuckDB, Spark, Trino, etc.)
+* Maintain a durable, auditable record of streams in your own storage
+
+## How it works
+
+* Consumes from a Kafka topic (single or many sinks per environment)
+* At each commit, writes **Avro** files under the `data-lake/raw` prefix in a stable, partitioned layout (topic, key, date)
+* Writes **Parquet** index files under the `data-lake/metadata` prefix so the **Quix Lake UI and API** can list and filter datasets without scanning Avro
+* Optionally accepts **custom metadata** you attach later via the Metadata API
+
+**Example object names**
+
+```text
+Raw:
+<bucket>/<workspaceId>/data-lake/raw/Topic=csv-data/Key=B/Start=2025-08-21/
+  ts_<startTs>_<endTs>_part_0_off_<first>_<last>.avro.snappy
+
+Metadata:
+<bucket>/<workspaceId>/data-lake/metadata/Topic=csv-data/Key=B/
+  index_raw_0_<offset>.parquet
+  metadata_<...>.parquet         # custom (optional)
+```
+
+## Prerequisites
+
+* A **Quix Lake connection** is configured for the cluster (one per cluster and node group).
+  The sink uses this connection; you do not paste storage credentials into the sink.
+* The storage passes **Test connection** (a round-trip check: write, list, read, delete).
+
+## How to run (UI)
+
+1. Create or log in to your Quix account.
+2. Go to **Connectors → Add connector → Data Lake - Sink**.
+3. Click **Set up connector**, fill the parameters below, then **Test connection & deploy**.
+
+!!! info "Managed service"
+    The image is hosted and operated by Quix. You provide configuration only. No Docker, servers, or manual updates required.
+
+## Configuration
+
+You can configure the sink in **YAML** or via the **Quix Cloud UI**.
+
+### Core settings
+
+* **Topic**: source Kafka topic to persist
+* **Consumer group**: isolates this sink’s consumption
+* **Compression**: Avro block compression (Snappy or GZip)
+* **Parallelism**: number of threads that upload files
+
+!!! tip "UI mapping"
+    The UI fields map to environment variables at deploy time. Names may differ from the examples below but behave equivalently.
+
+### Configuration reference
+
+#### Required
+
+* `topic` - Kafka topic to consume
+
+#### Quix Streams settings
+
+* `commitTimeInterval` - seconds between commits (default: `60`)
+* `commitMsgInterval` - messages between commits (default: `0`)
+* `consumerGroup` - Kafka consumer group ID (default: `quixstreams-default`)
+* `autoOffsetReset` - `latest` or `earliest` (default: `latest`)
+
+#### Sink settings
+
+* `avroCompression` - `snappy` or `gzip` (default: `snappy`)
+* `maxWorkers` - threads for uploading (default: `5`)
+* `indexRowCount` - checkpoints per index file (default: `1000`)
+* `datacatalogRequestTimeout` - seconds (default: `5`)
+* `logLevel` - `INFO` or `DEBUG` (default: `INFO`)
+
+### Example YAML (UI-equivalent)
+
+```yaml
+deployments:
+- name: Data Lake - Sink
+  application: DataLake.Sink
+  version: latest
+  deploymentType: Managed
+  resources:
+    limits:
+      cpu: 500
+      memory: 1024
+    replicas: 1
+  configuration:
+    # Source
+    topic: csv-data
+    consumerGroup: quixlake-sink-v1
+
+    # Quix Streams
+    commitTimeInterval: 60
+    commitMsgInterval: 0
+    autoOffsetReset: latest
+
+    # Write & index
+    avroCompression: snappy       # Avro block compression
+    maxWorkers: 5                 # threads for uploading
+    indexRowCount: 1000           # checkpoints per index file
+    datacatalogRequestTimeout: 5  # seconds
+    logLevel: INFO
+```
+
+## What it writes
+
+* **Avro (Raw)**
+  One record per Kafka message, with the fields `timestamp`, `key`, `headers`, `value`, `partition`, and `offset`.
+* **Parquet (Index)**
+  Compact descriptors with `Path`, `Topic`, `Key`, `Partition`, `TimestampStart`, `TimestampEnd`, `StartOffset`, `EndOffset`, `RecordCount`, `FileSizeBytes`, and `CreatedAt`.
+* **Parquet (Custom metadata, optional)**
+  Your key–value annotations (`Topic`, `Key`, `MetadataKey`, `MetadataValue`, `UpdatedUtc`) used for search and grouping in the UI.
+
+See [Open format](./open-format.md) for full schemas and layout.
+
+## Operational behavior
+
+* **Ordering**
+  Message order is preserved per key and partition. Segment boundaries do not affect replay order.
+* **Offset commits**
+  The sink commits consumption after data has been safely uploaded and indexed to reduce data loss on restarts.
+* **Throughput**
+  Upload threads (`maxWorkers`) and the commit interval control steady-state speed. A longer commit interval writes fewer, larger files, but new data appears later.
+* **Consolidation**
+  The sink never merges Avro files. Every night at 02:30 UTC, the [Data Lake API](./api.md) consolidates the index and metadata Parquet files. It skips a key that has a file changed in the last 24 hours. This reduces the file count and makes discovery faster.
+* **Scaling**
+  Increase **replicas** to parallelize by partitions and keys. Ordering is still preserved per key/partition.
+
+## Monitoring
+
+* **Logs**: per-file lifecycle (write, upload, index write), retries, and timings
+* **Metrics**: records persisted, bytes uploaded, active uploads, average upload speed
+* **[Data Lake UI](./user-interface.md)** — new datasets appear as index files land; use **Refresh** if you need to surface them sooner
+
+## Security
+
+* Uses the **cluster’s** Quix Lake connection (scoped credentials; one bucket/container per connection)
+* Honor your cloud controls: IAM roles, key rotation, server-side encryption, access logs, retention
+* The sink does not delete raw data; deletion flows through **Data Lake API** with soft-delete and trash retention
+
+## Troubleshooting
+
+* **Access denied**
+  Verify the blob connection’s permissions: list, read, write, and delete on the bucket/container.
+* **Nothing appears in Data Lake UI**
+  Check sink logs for successful index writes; click **Refresh** in the UI; ensure time filters include the new data.
+* **Small-file explosion**
+  Increase `commitTimeInterval`, so that each commit writes fewer, larger files.
+* **Slow uploads**
+  Increase `maxWorkers`, allocate more CPU/memory, and keep storage in the same region as Kafka.
+
+## See also
+
+* [Data Lake overview](./overview.md)
+* [Open format](./open-format.md)
+* [Data Lake UI](./user-interface.md)
+* [Data Lake API](./api.md)
+* [Replay](./replay.md)
+* [Lakehouse Sink](../lakehouse/sink.md) — query-first alternative
+* [Quix Lake connections and storages](../blob-storage.md)

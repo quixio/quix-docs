@@ -1,0 +1,85 @@
+
+# Quix Variables
+
+These [environment variables](./environment-variables.md) are automatically injected by the Quix platform into your deployment's runtime environment.
+Use them to access deployment, application, and environment-specific metadata in your project code.
+
+State-related variables are only present when [state management](./state-management.md) is enabled, and `Quix__Deployment__Network__PublicUrl` is only present when [public access](./deploy-public-page.md) is enabled. The `Quix__Deployment__Limits__*` variables carry the deployment's limits; the resource requests are not exposed. See [deployment sizes and resources](./deployment-sizes.md#limits-and-requests) for the difference.
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__Workspace__Id`                 | The id of the environment the deployment is running in.                                               |
+| `Quix__Environment`                   | The name of the environment the deployment is running in.                                             |
+| `Quix__Organisation__Id`              | The id of the organisation the deployment is running in.                                              |
+| `Quix__Deployment__Limits__Replica`   | The number of replicas the deployment is set to have.                                                 |
+| `Quix__Deployment__Limits__Memory`    | The amount of maximum memory a single replica of the deployment may use (in MB).                      |
+| `Quix__Deployment__Limits__Cpu`       | The amount of maximum cpu a single replica of the deployment may use (in Millicores).                 |
+| `Quix__Deployment__State__Enabled`    | Whether a storage for state is attached to the deployment. Used by the Quix streaming client when using state functionality. |
+| `Quix__Deployment__State__Size`       | State size limit (in GB).                                                                             |
+| `Quix__Deployment__State__Type`       | State storage type (Local / Shared).                                                                  |
+| `Quix__Deployment__State__Path`       | The mount path for the state volume (default: `/app/state`). Used by the Quix Streams client for state storage location. |
+| `Quix__Deployment__Network__PublicUrl`| The public URL of the deployment when public access is enabled.                                       |
+| `Quix__Deployment__Id`                | The unique Id of the deployment. Same for all replicas.                                               |
+| `Quix__Deployment__Type`              | Type of Deployment (Job / Service).                                                                   |
+| `Quix__Deployment__Name`              | The display name of the deployment.                                                                   |
+| `Quix__Deployment__ReplicaName`       | Replica name of the deployment.                                                                       |
+| `Quix__Application__Id`               | The application Id the deployment is built from.                                                      |
+| `Quix__Application__Name`             | The application name the deployment is built from.                                                    |
+| `Quix__Application__Git__CommitRef`   | The application's git commit reference the deployment is built from.                                  |
+| `Quix__Application__Git__Ref`         | The application's git reference (such as a tag) the deployment is built from.                         |
+| `Quix__Build__Id`                     | The build Id of the deployment. Multiple deployments will have the same build id if referencing the same commit of a application. |
+| `Quix__Portal__Api`                   | The portal API endpoint, which depends on the environment.                                            |
+| `Quix__Sdk__Token`                    | SDK Token 1, as described [here](../access-security/streaming-token.md).                       |
+
+## Git variables
+
+A deployment with `gitCredentials: bind: true` also gets these variables. They come from the repository of the environment.
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__Git__RepoUrl`                  | The SSH URL of the repository.                                                                        |
+| `Quix__Git__Branch`                   | The branch of the environment (default: `main`).                                                      |
+| `Quix__Git__SshPrivateKey`            | The SSH private key of the repository. Injected as a secret.                                          |
+
+## Dev session variables
+
+A [dev session](../applications/dev-sessions/overview.md) also gets these variables:
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__DevSession__UserId`            | The id of the user who started the dev session.                                                       |
+| `Quix__DataCatalog__Api`              | The URL of the [Data Lake API](../quix-lake/data-lake/api.md).                                         |
+
+VS Code and Quix AI agent sessions also get the three [Git variables](#git-variables), and these:
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__Git__User`                     | The id of the user who started the dev session.                                                       |
+| `Quix__Git__UserName`                 | The name of that user.                                                                                |
+| `Quix__Git__UserEmail`                | The email address of that user.                                                                       |
+| `Quix__Git__Folder`                   | The application folder of the dev session. Present only when the session opens a folder.              |
+
+## Storage and Quix Lake variables
+
+The variables below are **conditional** — unlike the ones above, they are not always present:
+
+- **`Quix__BlobStorage__Connection__Json`** is injected only when the deployment has a [Quix Lake storage](../quix-lake/blob-storage.md) **bound**.
+- The **`Quix__Lakehouse__*`** variables (and the `CATALOG_URL` / `QUIX_LAKE_URL` aliases) are injected only when a **[Lakehouse](../quix-lake/lakehouse/overview.md) runs on the bound storage**.
+
+If neither condition is met, none of these variables are set, so guard for their absence in your code.
+
+[Dev sessions](../applications/dev-sessions/overview.md) get the same variables. Only QuixLab and Marimo sessions bind the storage by default. Another dev session gets `Quix__BlobStorage__Connection__Json` only when you turn on the storage for that session. A dev session also gets three more things that a deployment never gets:
+
+- `Quix__Lakehouse__Ui__Url`, the address of the Lakehouse UI.
+- The `Quix__Lakehouse__Database__*` variables, the credentials of the Lakehouse database.
+- `CATALOG_AUTH_TOKEN`, a second name for `Quix__Lakehouse__Catalog__AuthToken`. Injected as a secret.
+
+| Variable                              | Description                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `Quix__BlobStorage__Connection__Json` | The bound Quix Lake storage as a JSON document — the S3-compatible endpoint plus the credentials and the bucket. Injected as a secret. |
+| `Quix__Lakehouse__Catalog__Url`       | The Quix Lake Catalog URL (preferred name).                                                           |
+| `CATALOG_URL`                         | The Catalog URL — legacy / PyIceberg alias of `Quix__Lakehouse__Catalog__Url`.                        |
+| `QUIX_LAKE_URL`                       | The Catalog URL — QuixLake / QuixLab alias of `Quix__Lakehouse__Catalog__Url`.                        |
+| `Quix__Lakehouse__Catalog__AuthToken` | Auth token your code sends to authenticate requests to the Catalog — use it together with `Quix__Lakehouse__Catalog__Url`. Injected as a secret. |
+| `Quix__Lakehouse__Query__Url`         | The Quix Lake Query URL.                                                                               |
+| `Quix__Lakehouse__Query__AuthToken`   | Auth token your code sends to authenticate requests to the Query service — use it together with `Quix__Lakehouse__Query__Url`. Injected as a secret. |

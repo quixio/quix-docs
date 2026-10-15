@@ -1,9 +1,9 @@
 ---
-title: Why Use Quix Cloud
+title: Why use Quix Cloud
 description: Uncover the streamlined features of Quix Cloud, designed for easy deployment, collaboration, and monitoring of data pipelines.
 ---
 
-# Why Use Quix Cloud
+# Why use Quix Cloud
 
 **Quix Cloud** is a comprehensive cloud-based platform designed for deploying, collaborating, and observing real-time data pipelines. It offers a wide range of features to manage the entire lifecycle, from development to monitoring and scaling. Here are some reasons why you should consider using Quix Cloud:
 
@@ -35,6 +35,7 @@ description: Uncover the streamlined features of Quix Cloud, designed for easy d
 4. **User Collaboration**
     - **Organization Management**: Invite users and manage their permissions within your organization.
     - **Project Visibility**: Assign visibility and permissions to projects and environments.
+    - **Spaces**: Give each team a portal shaped around its work, with its own sidebars, header apps, and landing page. See [Spaces](spaces/overview.md).
 
 5. **Development Tools**
     - **Online Code Editors**: Modify applications and YAML files directly in the cloud.
@@ -42,7 +43,7 @@ description: Uncover the streamlined features of Quix Cloud, designed for easy d
     - **Synchronization**: Sync changes to your pipeline with a single operation.
     - **Code Templates**: Access ready-made code samples and templates.
     - **Connectors**: Connect to relevant data sources and sinks.
-    - **Dev Containers Support**: (Coming soon) Support for development containers.
+    - **Dev Containers Support**: Customise your [dev session](applications/dev-sessions/overview.md) environment with a `devcontainer.json`.
 
 6. **Data Exploration**
     - **live data monitoring**: Query and explore data using waveform and table views.

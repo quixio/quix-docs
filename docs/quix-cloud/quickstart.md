@@ -112,7 +112,7 @@ Feel free to explore further.
 
     Continue exploring Quix Cloud features.
 
-    [Quix Cloud Tour :octicons-arrow-right-24:](../create/overview.md)
+    [Quix Cloud Tour :octicons-arrow-right-24:](projects/overview.md)
 
 - __Deploy a Connector__
 
@@ -120,6 +120,6 @@ Feel free to explore further.
 
     Deploy a connector to interface with an external system.
 
-    [Deploy a Connector :octicons-arrow-right-24:](../quix-cloud/deploying-connectors.md)
+    [Deploy a Connector :octicons-arrow-right-24:](./deployments/deploying-connectors.md)
 
 </div>

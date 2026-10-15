@@ -1,0 +1,160 @@
+---
+title: Shared folders and the bucket root
+description: Share a folder or a network server on the bridge, set it read only, and set the bucket root that a sink writes to.
+---
+
+# Shared folders and the bucket root
+
+You share folders in the bridge console, on the **Folders** tab. Quix sees a shared folder as a folder of the bridge storage. See [How paths work](./overview.md#how-paths-work) for the address of a file.
+
+## Share a folder
+
+1. Open the bridge console. See [The bridge console](./console.md).
+2. Open the **Folders** tab.
+3. Find the folder in the tree and turn it to **Shared**.
+
+A new share is read only. To let Quix write to the folder:
+
+1. Click the **Edit** (pencil) button on the shared row. The **Edit this share** dialog opens.
+2. Turn on **Allow write access**. The box starts off.
+
+A share change takes effect at once, with no restart:
+
+- A share you add, edit or remove in the console. The console saves every change to `config.yaml`.
+- A share change you make in `config.yaml` by hand.
+- A change from `quix-bridge share`.
+
+The **Folders** tab has a **Status** column. It shows a badge when the service account has a problem with a folder:
+
+| Badge | Meaning |
+|---|---|
+| **Not readable** | The service account cannot read the folder. On a network server, the badge reads **No credential**. The **Fix access** button grants read access. |
+| **Can't write** | The share allows writes, but the service account cannot write. The **Fix write access** button grants write access. |
+
+On Windows, the tray grants this access for you when you share the folder:
+
+- It grants read access (`RX`) on a read only share and `Modify` on a write share.
+- If you own the folder, no prompt appears. If not, one administrator prompt appears.
+- If you cancel the prompt, the share stays as it is and the console keeps the manual command.
+- The tray tries each folder once for each tray run.
+- It never grants access on a network server, on a drive root or on a system folder.
+
+A folder inside a share shows its access, for example **Read only, inside plant**. The folder follows the share that holds it.
+
+Some folders show a state instead of a switch:
+
+| State | Meaning |
+|---|---|
+| **Share a folder inside it** | The folder holds the operating system, such as `C:\Windows`. Open it and share a folder inside it. |
+| **Cannot be shared** | An administrative share, such as `\\server\C$`. You cannot share it or a folder inside it. |
+| **N folders inside are shared** | The folder holds shared folders. Open the folder to reach the shares. |
+
+The bridge applies these rules to a new share:
+
+- It refuses `\Windows` on every drive, the administrative shares, and `/etc` on Linux.
+- It shares a drive root, `\Users` on any drive, `/` and `/home` as read only. Share a folder inside them to allow writes.
+- A share of `/` or of a drive root hides the system folders inside it.
+- It refuses a share inside a share, and a share of a folder that holds a share.
+- Each folder name in the path needs at least one letter or digit, and 63 characters or less.
+
+## Share a network folder
+
+1. On the **Folders** tab, click **Add a network server**.
+2. Name the server as `\\server\share`.
+3. Give the server credential in the console. The console never shows it again.
+
+The bridge runs as its own service account. On Windows this is `NT SERVICE\quix-bridge`. On Linux it is the system user `quix-bridge`. So it cannot see a drive letter that you mapped. On Linux, the bridge accepts no `\\server\share` path. Mount the network share with the operating system, then share the folder where it is mounted.
+
+## Share a folder in a user profile on Windows
+
+On Windows the service runs as `NT SERVICE\quix-bridge`. That account cannot read a folder in a user profile, such as `C:\Users\<user>\data`. `quix-bridge test` and the folder check on the **Health** tab then report that the service cannot read the share.
+
+Give the service account access to that one folder, in an administrator prompt:
+
+```powershell
+# Read only share
+icacls "C:\Users\<user>\data" /grant "NT SERVICE\quix-bridge:(OI)(CI)RX"
+
+# Read and write share
+icacls "C:\Users\<user>\data" /grant "NT SERVICE\quix-bridge:(OI)(CI)M"
+```
+
+`(OI)(CI)` makes the files and folders inside inherit the grant. Then run `quix-bridge test` again.
+
+When you share the folder, the bridge tray does this for you. It grants the service account read access (`RX`) on a read only share, and `Modify` on a write share. Run `icacls` only if the tray cannot grant the access.
+
+## Share a folder on Linux
+
+On Linux the service runs as the system user `quix-bridge`. It has no login. `sudo quix-bridge service install` creates it when it does not exist.
+
+The account must read the share folder. For a read and write share, it must also write to the folder. Do not share a folder under `/root` or under a user home folder. Move the data to a folder such as `/srv/<name>` and give the account the folder:
+
+```bash
+sudo chown -R quix-bridge:quix-bridge /srv/<name>
+```
+
+`sudo quix-bridge test` names the folder that blocks the service and gives the exact fix.
+
+`sudo quix-bridge share add <folder>` gives this user the rights it needs, with ACLs:
+
+- It grants read and write for a read and write share, and read for a read only share.
+- If a parent folder blocks the path, it also grants traverse rights on that parent.
+- It never changes the owner or the mode of your folder.
+- The `acl` package must be installed.
+
+`sudo quix-bridge share remove <folder>` takes the grant on the folder back. From version 0.1.26:
+
+- It puts back the mode and the ACL mask that the folder had before the grant.
+- For `/`, a system folder or a bridge folder, it changes no rights. It prints the command to clean one data folder.
+- A symlink counts as the folder it points to.
+- The traverse rights on the parent folders stay, because another share can need them.
+
+!!! warning "Share a data folder, not `/` or a system folder"
+    The bridge never gives the user `quix-bridge` access to `/` or to a system folder, such as `/etc`, `/usr`, `/var/lib`, `/var/log`, `/home`, `/root` or `/proc`. This also applies to a folder inside one, and to a folder that holds one. The share still works, but the bridge reads only the files that every user may read. Share a data folder instead, such as `/srv/data` or `/mnt/data`.
+
+A share that you add in the web console cannot get the grant by itself. The console shows **Can't write** and the exact command to run. For example:
+
+```bash
+sudo setfacl -R -P -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
+```
+
+A folder under a parent that other users cannot pass also needs traverse rights on that parent:
+
+```bash
+sudo setfacl -m u:quix-bridge:x /mnt/private
+```
+
+!!! note
+    A network mount takes its rights from the mount options, not from ACLs. Set the mount options so that the user `quix-bridge` can read, and write if the share is read and write.
+
+## The bucket root
+
+A storage that maps **the whole machine**, not one shared folder, can use one writable folder for all its data. This folder is the **bucket root**. When the bridge has a bucket root:
+
+- A key that no shared folder claims lands in the bucket root.
+- A key under a shared folder still goes to that share.
+- A listing shows the bucket root with every shared folder on top of it, at its own address.
+
+A bridge needs a bucket root before it can be the [main storage](../blob-storage.md#make-a-storage-the-main-storage). It also needs one before the Portal creates a Lakehouse or a Data Lake service on it. Set the bucket root first, then create the service.
+
+The bucket root is a **shared folder with an empty SAG path**. Set it on the **Folders** tab of the bridge console:
+
+1. Share the folder, for example `D:\QuixData` or `/srv/quix`.
+2. Click the **Edit** (pencil) button on its row.
+3. Clear the **SAG path** field, then save.
+
+On the command line, run `quix-bridge share add <folder> --bucket-root`. It makes the folder the bucket root. See [Command line setup](./command-line.md#step-4-share-folders).
+
+These rules apply to the bucket root:
+
+- The tree marks the folder **Bucket root**.
+- Only one folder can be the bucket root.
+- The bucket root always allows writes.
+- A drive root, `\Users`, `/` and `/home` cannot be the bucket root. Pick a folder inside them.
+- To move the bucket root, give this share a SAG path again, then clear the SAG path of another share.
+
+## Next steps
+
+* [Write to a bridge from a sink](./sinks.md) — make the bridge the main storage
+* [The bridge console](./console.md) — the tabs, the health checks and the log
+* [Command line setup](./command-line.md) — share folders with `quix-bridge share`
