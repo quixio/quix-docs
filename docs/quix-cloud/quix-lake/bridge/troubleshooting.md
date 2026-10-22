@@ -50,6 +50,14 @@ sudo setfacl -R -P -m u:quix-bridge:rwX -m d:u:quix-bridge:rwX "/srv/data"
 
 On Windows, click **Fix write access** on the **Folders** tab of the console. The bridge gives no fix for `/` or a system folder. Share a data folder instead. See [Share a folder on Linux](./shared-folders.md#share-a-folder-on-linux).
 
+**The bridge shows offline on a Mac.** Click **Reconnect Now** in the menu bar item, or **Reconnect now** in the status line of the console. The bridge then dials Quix at once.
+
+**A share in Documents, Desktop, Downloads, iCloud Drive or a removable disk cannot be read.** The bridge has no Full Disk Access. See [Share a folder on macOS](./shared-folders.md#share-a-folder-on-macos). The access can also drop after an update.
+
+**The Full Disk Access entry stays after an uninstall.** The uninstall cannot change this setting. In **System Settings > Privacy & Security > Full Disk Access**, select `quix-bridge` and click the minus button.
+
+**The Mac refuses to open the bridge.** This happens when you download the bridge in a browser. Apple has not notarised the Quix macOS files, and the browser marks them. Install with the `install.sh` script instead. The script sets no mark, so macOS opens the files.
+
 **The Linux service does not start.** An older version could crash in a loop under systemd. Update to version 0.1.25 or later. See [Updates and uninstall](./updates.md).
 
 **The pairing token expired.** The token lives 15 minutes. Click **Pair a bridge** again in the Portal to get a fresh quick config.
@@ -68,6 +76,14 @@ On Windows, click **Fix write access** on the **Folders** tab of the console. Th
     quix-bridge --version
     quix-bridge status
     quix-bridge logs
+    ```
+
+=== "macOS"
+
+    ```bash
+    quix-bridge --version
+    sudo quix-bridge status
+    sudo quix-bridge logs
     ```
 
 === "Linux"
@@ -95,7 +111,7 @@ The status strip of the [console](./console.md#the-status-strip) also shows the 
 - **Empty folders disappear.** When you delete the last file in a folder, the bridge removes the folders the delete left empty. This is how S3 shows no empty prefix. A folder you make on the machine and never fill stays.
 - **Hidden helper files.** The bridge keeps small helper files next to your files. Their names contain `.sag-`. No listing shows them.
 - **You cannot share `\Windows` as a whole.** A drive root and `\Users` are read only as a whole. Share a folder inside them to allow writes.
-- **No macOS host and no Linux arm64 build.** See [Operating system support](./overview.md#operating-system-support).
+- **No Intel Mac build and no Linux arm64 build.** See [Operating system support](./overview.md#operating-system-support).
 
 ## Next steps
 

@@ -8,7 +8,7 @@ description: Install, pair and share folders with the quix-bridge command, on a 
 Use the command line on a server with no desktop, or in a script.
 
 !!! warning "Run the commands with administrator rights"
-    Run every command except `quix-bridge --version` in PowerShell as Administrator on Windows, or with `sudo` on Linux. This applies to:
+    Run every command except `quix-bridge --version` in PowerShell as Administrator on Windows, or with `sudo` on Linux and macOS. This applies to:
 
     - `status`, `test`, `share`, `config show`, `ui` and `logs`
     - `connect`, `service` and `update run`
@@ -35,6 +35,20 @@ The pairing creates the bridge only. You add the storage in the Portal after the
 
     ??? info "Zip install"
         When you run the script as a file, `.\install.ps1 -Version 0.1.26` also picks a version. With `-Zip`, the script copies the files to the same folder and installs no service. A zip install does not change the `PATH`, and it does not update itself. Run `& "C:\Program Files\Quix\Bridge\quix-bridge.exe" service install`. Use the full path for each command.
+
+=== "macOS"
+
+    ```bash
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sudo sh
+    ```
+
+    macOS needs `sudo`, because the service and the menu bar item serve every person on the Mac. To install one fixed version, set `QUIX_BRIDGE_VERSION` after `sudo`:
+
+    ```bash
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sudo QUIX_BRIDGE_VERSION=0.1.26 sh
+    ```
+
+    The bridge has a macOS build for Apple Silicon (`osx-arm64`) only. On an Intel Mac, the script stops. The binary is `/usr/local/bin/quix-bridge`. Install with the script, not with a browser download. See [Troubleshooting](./troubleshooting.md).
 
 === "Linux"
 
@@ -187,6 +201,7 @@ The bridge keeps its settings in `config.yaml`:
 |---|---|
 | Windows | `C:\ProgramData\Quix\bridge\config.yaml` |
 | Linux | `/etc/quix-bridge/config.yaml` |
+| macOS | `/Library/Application Support/Quix/Bridge/config.yaml` |
 
 `quix-bridge config show` prints the config the service uses. You can paste the output back into `config.yaml`. These rules apply to the output:
 

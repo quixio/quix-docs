@@ -55,6 +55,20 @@ Run `install.ps1` again on the same version to repair the install. The repair pu
     quix-bridge service uninstall
     ```
 
+=== "macOS"
+
+    ```bash
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sudo sh -s -- --uninstall
+    ```
+
+    This removes the service, the menu bar item and the bridge data. To keep the data, add `--keep-data`:
+
+    ```bash
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sudo sh -s -- --uninstall --keep-data
+    ```
+
+    The uninstall leaves the Full Disk Access entry. See [Troubleshooting](./troubleshooting.md).
+
 === "Linux"
 
     ```bash

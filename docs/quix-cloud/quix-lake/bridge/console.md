@@ -10,7 +10,20 @@ The console is a web page on the machine. By default, it listens on this machine
 To open it:
 
 - On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**.
+- On macOS, click the Quix Lake Bridge item in the menu bar and select **Open Console**. It asks for your password at most once.
 - On any system, run `quix-bridge ui` to get the console address and a login code.
+
+## The menu bar item on macOS
+
+The install adds a Quix Lake Bridge item to the menu bar. It starts again at every sign-in. Its menu has these entries:
+
+| Entry | What it does |
+|---|---|
+| **Open Console** | Opens the console in your browser. |
+| **Documentation** | Opens this documentation. |
+| **Reconnect Now** | Makes the bridge dial Quix at once. It is on only while the bridge cannot reach Quix. |
+| **Start Service** and **Stop Service** | Start or stop the bridge service. macOS can ask for your password. |
+| **Quit** | Closes the menu bar item. The service keeps running. |
 
 ## Open the console from another machine
 

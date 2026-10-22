@@ -13,7 +13,7 @@ This quickstart shows you the shortest path from an empty machine to a file you 
 
 To complete this quickstart you need:
 
-* Administrator rights on a Windows x64 or arm64 machine, or on a Linux x64 machine.
+* Administrator rights on a Windows x64 or arm64 machine, or on a Linux x64 machine, or `sudo` rights on an Apple Silicon Mac.
 * A [Quix Lake connection](../blob-storage.md) for your cluster.
 * The administrator role in your Quix organization.
 
@@ -39,6 +39,14 @@ Run the install script on the machine:
 
     Run the script again on the same version to repair a broken install.
 
+=== "macOS"
+
+    ```bash
+    curl -fsSL https://github.com/quixio/quix-lake-bridge/raw/main/install.sh | sudo sh
+    ```
+
+    On macOS the script needs `sudo`. It installs the bridge, starts the service, adds the Quix Lake Bridge item to the menu bar, and opens the console in your browser. Run the script again to repair a broken install. To share a folder in Desktop, Documents or Downloads, see [Share a folder on macOS](./shared-folders.md#share-a-folder-on-macos).
+
 === "Linux"
 
     ```bash
@@ -62,11 +70,11 @@ The install command carries no token. This step needs no Portal visit.
     Do not paste it in a ticket or a chat.
 
 !!! tip "No screen on the machine?"
-    Under the quick config, the Portal also shows **one command** for the selected system. It installs the bridge and connects it. On Linux, run it as a user who can use `sudo`. On Windows, run it in PowerShell as Administrator. The command holds the live token, so treat it like the quick config. The shell writes the command, with the token, to its history file. Use the command only on a machine where you trust that file. After it runs, go to Step 4.
+    Under the quick config, the Portal also shows **one command** for the selected system. It installs the bridge and connects it. On Linux and macOS, run it as a user who can use `sudo`. On Windows, run it in PowerShell as Administrator. The command holds the live token, so treat it like the quick config. The shell writes the command, with the token, to its history file. Use the command only on a machine where you trust that file. After it runs, go to Step 4.
 
 ## Step 3: Connect the bridge
 
-1. Open the bridge console. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**. On any system, run `quix-bridge ui` to get the console address and a login code.
+1. Open the bridge console. On Windows, click the Quix Lake Bridge icon in the taskbar and select **Open console...**. On macOS, click the Quix Lake Bridge item in the menu bar and select **Open Console**. On any system, run `quix-bridge ui` to get the console address and a login code.
 2. On the **Connection** tab, paste the quick config.
 3. Click **Connect this bridge**.
 
