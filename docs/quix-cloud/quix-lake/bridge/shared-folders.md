@@ -52,6 +52,7 @@ Some folders show a state instead of a switch:
 The bridge applies these rules to a new share:
 
 - It refuses `\Windows` on every drive, the administrative shares, and `/etc` on Linux.
+- On macOS, it refuses your home folder, `~/Library`, `~/.ssh`, `~/.aws` and `~/.gnupg`. It shares `/` and `/Users` as read only.
 - It shares a drive root, `\Users` on any drive, `/` and `/home` as read only. Share a folder inside them to allow writes.
 - A share of `/` or of a drive root hides the system folders inside it.
 - It refuses a share inside a share, and a share of a folder that holds a share.
@@ -82,6 +83,24 @@ icacls "C:\Users\<user>\data" /grant "NT SERVICE\quix-bridge:(OI)(CI)M"
 `(OI)(CI)` makes the files and folders inside inherit the grant. Then run `quix-bridge test` again.
 
 When you share the folder, the bridge tray does this for you. It grants the service account read access (`RX`) on a read only share, and `Modify` on a write share. Run `icacls` only if the tray cannot grant the access.
+
+## Share a folder on macOS
+
+On macOS the service runs as the system user `_quixbridge`. When you set a row to **Shared**, the menu bar item gives this user access to the folder. macOS can ask for your password. The console tree shows `/` and the disks under `/Volumes`. To share a folder in your home folder, click **Add a folder by path** and type the full path.
+
+macOS keeps some places private. For a share in one of these places, give the bridge **Full Disk Access**:
+
+- `~/Documents`, `~/Desktop` and `~/Downloads`
+- iCloud Drive
+- removable disks
+
+1. On the row of the share, click the **Full Disk Access** button in the console. It opens the pane in System Settings.
+2. Add `/usr/local/bin/quix-bridge` and turn it on.
+
+No script can grant this access. After an update, macOS can take the access back. The menu bar item, the console and `quix-bridge status` then tell you. Grant it again.
+
+??? info "Grant Full Disk Access with MDM"
+    A managed Mac takes a Privacy Preferences Policy Control (PPPC) profile with the service `SystemPolicyAllFiles` for `/usr/local/bin/quix-bridge`. macOS reads it only from a user-approved or supervised MDM enrolment. A profile that a person installs by hand does nothing. The profile must hold the code requirement (cdhash) of the binary. Each new version has a new cdhash, so push a new profile for each release.
 
 ## Share a folder on Linux
 
