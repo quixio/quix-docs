@@ -21,7 +21,7 @@ Everything you change in the space designer is a draft. Members see nothing unti
 
 The header app strip is the row of plugin apps in the portal's top bar. For an audience that works in one or two apps, it is the main way around the portal. A pinned app opens inside the portal, with the organization sidebar still visible if the space shows one.
 
-Inside a space, the strip shows only the apps the space pins, so a space that pins nothing shows none. Outside a space the strip is empty, except for users with only the deprecated [Operator role](replace-operator-role.md), so a space is the only way to choose which plugin apps appear in the header. Pinning doesn't affect search: the command palette offers every app the member can open, whatever the space pins.
+Inside a space, the strip shows only the apps the space pins, so a space that pins nothing shows none. Outside a space the strip is empty, except for users with only the [Operator role](../roles.md#the-operator-role), so a space is the only way to choose which plugin apps appear in the header. Pinning doesn't affect search: the command palette offers every app the member can open, whatever the space pins.
 
 Only [organization plugins](../services/plugin.md#organization-plugins) can be pinned. These are deployments with the `Organisation plugin` setting turned on, which sets `plugin.organisationItem.show: true` in YAML. If no deployment in the organization is an organization plugin, there is nothing to pin.
 
@@ -120,6 +120,16 @@ A plugin landing opens in the same place as any plugin app in the space. The spa
 A space that hides `Home` but leaves the landing as `Home` sends members to the first entry in its sidebar instead.
 
 A landing page doesn't have to appear anywhere else in the space. Members still land on it, but if it isn't in the sidebar or pinned in the header, they can't find their way back to it later. The designer flags this case.
+
+## Spaces for Operator-only users
+
+An Operator-only user, someone whose only role is [Operator](../roles.md#the-operator-role), can use a space like any other member: the same header apps, accent color, theme, plugin toolbar and space switcher. Their role decides the rest, because they can only open plugins:
+
+* **They see only plugin entries.** The organization sidebar shows the space's plugin apps, their pages, and the headings above them. Built-in modules and environment links are hidden, along with any app they have no access to. If nothing is left, they get no sidebar and the plugin fills the page.
+* **They land on a plugin.** They start on the space's landing page if it's a plugin, otherwise on the first app pinned to the header, then the first plugin app in the sidebar. If the space has none they can open, they start on their first organization plugin.
+* **They only reach plugins.** Any other page sends them to that same starting point, and the logo and organization button in the header go there too.
+
+When you design a space for Operator-only users, use a plugin as its landing page, and pin the apps they need or list them in the sidebar. Environment and module entries are hidden from them, so they cost nothing to leave in a space shared with other roles.
 
 ## Copy a section from another space
 

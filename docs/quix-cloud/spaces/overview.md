@@ -35,15 +35,13 @@ Use a space when a group of people needs a narrower or different portal from the
 
 Creating a space is safe. It changes nothing for anyone until you assign members to it, and users who belong to no space keep the standard portal.
 
-Spaces also replace the deprecated Operator role. To give people a plugin-only view of the portal, use a space and a role such as `Viewer`, not the Operator role. See [Replace the Operator role with a space](replace-operator-role.md).
-
 ## What a space controls
 
 A space controls presentation. It decides:
 
 * Which items appear in the organization sidebar, including custom entries such as plugin apps, pages inside those apps, shortcuts into a project environment, and headings. The space can also hide the organization sidebar completely.
 * Which modules appear inside every environment, including the YAML sync button in the environment header and the `Settings` row at the foot of the environment sidebar.
-* Which [organization plugins](../services/plugin.md#organization-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, except for users with only the deprecated Operator role, so a space is the only way to choose which plugin apps appear in the header.
+* Which [organization plugins](../services/plugin.md#organization-plugins) are pinned to the header as apps, and in what order. Outside a space, the header app strip is empty, except for [Operator-only users](../roles.md#the-operator-role), so a space is the only way to choose which plugin apps appear in the header.
 * Which page members land on after they sign in or switch into the space.
 * The accent color and icon that identify the space.
 * Whether members can choose their own light or dark theme, or the space sets it for them.
@@ -61,6 +59,8 @@ A space curates only the portal's navigation: its sidebars, header, command pale
 * **Showing a page doesn't grant access to it.** If a space shows a page that a member's role doesn't allow, the page's own permission check still applies.
 
 To control what people can access, assign project permissions and roles.
+
+Spaces work with the [Operator role](../roles.md#the-operator-role) too. An Operator-only user sees only the plugin entries of their space, and can only reach plugins, whatever else the space includes. See [Spaces for Operator-only users](navigation.md#spaces-for-operator-only-users).
 
 `Users`, `Spaces`, `Settings` and `Audit` in the organization sidebar appear only for organization admins, whatever a space says. A space can still hide them from admins.
 

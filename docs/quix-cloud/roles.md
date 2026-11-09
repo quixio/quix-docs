@@ -13,7 +13,7 @@ You can manage roles using the Quix Cloud UI or programmatically via the [Quix C
 
 ## Available roles
 
-Quix Cloud provides five roles, each granting different levels of access. The Operator role is deprecated.
+Quix Cloud provides five roles, each granting different levels of access.
 
 ![Role selection dropdown](../images/quix-cloud/roles-dropdown.png){width=50%}
 
@@ -23,7 +23,7 @@ Quix Cloud provides five roles, each granting different levels of access. The Op
 | Manager | Manage resources, and create and view global variables (read-only user access) | Create, Delete, edit, view resources within the scope |
 | Editor | Edit projects and environments, and manage deployments (read-only user access) | Edit, view resources within the scope |
 | Viewer | Read-only access to view resources | View resources within the scope |
-| Operator (deprecated) | Plugin access, plus read-only access to global variables | Don't assign to new users. Use Viewer and a [space](./spaces/replace-operator-role.md) instead |
+| Operator | Plugin access, plus read-only access to global variables | Use plugins, with no access to projects, environments or deployments. See [The Operator role](#the-operator-role) |
 
 The same five roles apply whether you assign them to a user or to a user group.
 
@@ -31,7 +31,7 @@ The same five roles apply whether you assign them to a user or to a user group.
 
 The following table shows what each role can do with different resource types:
 
-| Resource | Admin | Manager | Editor | Viewer | Operator (deprecated) |
+| Resource | Admin | Manager | Editor | Viewer | Operator |
 |----------|:-----:|:-------:|:------:|:------:|:--------:|
 | **Organisation** | read/update | read | read | read | ❌ |
 | **Global Variables** | ✅ | create/read | create/read | read | read |
@@ -60,9 +60,25 @@ The Plugins row is what the [permissions API](./services/plugin.md#checking-perm
 
 Creating, editing and deleting user groups, managing their members, and [restricting deployment sizes](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups) are organisation-level settings, so they need the Admin role at the organisation level.
 
-!!! warning "The Operator role is deprecated"
+## The Operator role
 
-    Use spaces instead of the Operator role to give users a plugin-only view of Quix Cloud. Existing Operator assignments still work, but don't assign the role to new users. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
+Operator is the most restricted role. It gives access to plugins and read-only access to global variables, and no access to projects, environments or deployments. Use it for people who only need to work in plugin apps, such as line operators.
+
+Viewer isn't a narrower version of the same thing. A Viewer can read an environment's pipelines, deployments and code through the portal, the API and the CLI. An Operator can't.
+
+An **Operator-only user** has at least one role assignment, and none of their assignments are Admin, Manager, Editor or Viewer. Someone with Operator in one place and Viewer or higher in another keeps the standard portal.
+
+What an Operator-only user sees depends on whether they belong to a [space](./spaces/overview.md):
+
+| | In a space | Without a space |
+|---|---|---|
+| Where they land | The space's landing page if it's a plugin, otherwise its first pinned or sidebar plugin. Their first organization plugin if the space has none they can open. | Their first organization plugin. |
+| Any page other than a plugin | Sends them back to that same place. | Sends them back to that same place. |
+| Header apps | The apps the space pins. | Every organization plugin they can access. |
+| Organization sidebar | The space's plugin apps and headings only. No sidebar if the space has none they can open. | None. Plugins open full screen. |
+| Command palette | Apps only. | Apps only. |
+
+A link to a plugin they have access to always opens that plugin, even if the space doesn't include it. See [Plugins](./services/plugin.md#operator-only-users).
 
 ??? info "Looking for Kafka access?"
     Roles control access to Quix Cloud features. For Kafka/streaming access in your applications, use a [Streaming Token](./access-security/streaming-token.md) instead.
@@ -81,8 +97,6 @@ The same three levels are available when you assign roles to a user group.
 
 !!! note "Spaces don't change permissions"
     A space changes only what people see in the portal. It never grants or removes access, so roles remain the way to control what each user can do. Only organization admins can create spaces and assign people to them. See [Spaces](./spaces/overview.md).
-
-    To give users a plugin-only view, use a space with a role such as Viewer, not the deprecated Operator role. See [Replace the Operator role with a space](./spaces/replace-operator-role.md).
 
 ## Inheritance
 
@@ -138,7 +152,7 @@ Follow these guidelines to maintain a secure and manageable permission structure
 - **Use inheritance**: Set a base role at organisation level, override only where needed
 - **Use groups for teams**: Put each team in a group, assign roles to the group, and turn on **Inherit from group** for its members so access changes in one place
 - **Limit Admin access**: Only give Admin to users who need global variables and user management
-- **Use spaces for plugin-only users**: Assign Viewer at the environment that runs the plugins, and a space that shows only the plugins, instead of the deprecated Operator role
+- **Use the Operator role for plugin-only users**: Viewer can also read an environment's pipelines, deployments and code through the portal, the API and the CLI. Operator can't, so use it when users must reach plugins and nothing else
 - **Restrict large deployment sizes**: Limit expensive sizes to the users or groups that need them, and turn on **Enforce deployment size limits** so deployments can't exceed the CPU and memory of a user's allowed sizes - see [Restrict a size to users and groups](./deployments/deployment-sizes.md#restrict-a-size-to-users-and-groups)
 
 ## Managing roles with the CLI
@@ -168,7 +182,7 @@ quix cloud users permissions copy <source-user-id> --to <target-user-id>
 - Project: `Repository:<project-id>`, where the project ID is a GUID
 - Environment: `Workspace:<environment-id>`, for example `Workspace:myorg-projectname-environmentname`
 
-**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator` (deprecated)
+**Available roles:** `Admin`, `Manager`, `Editor`, `Viewer`, `Operator`
 
 `get`, `set`, `delete` and `copy` read and change a user's **own** assignments. `list` shows each user's effective assignments, which are their group's when **Inherit from group** is on. User groups are managed in the Quix Cloud UI, or through the [Portal API](./apis/portal-api/overview.md) - see [User groups](./access-security/user-groups.md).
 

@@ -144,7 +144,6 @@ nav:
       - 'Overview': 'quix-cloud/spaces/overview.md'
       - 'Work in a space': 'quix-cloud/spaces/use-spaces.md'
       - 'Design navigation': 'quix-cloud/spaces/navigation.md'
-      - 'Replace the Operator role': 'quix-cloud/spaces/replace-operator-role.md'
     - 'Users and security':
       - 'Users': 'quix-cloud/access-security/users.md'
       - 'User groups': 'quix-cloud/access-security/user-groups.md'
@@ -857,6 +856,7 @@ plugins:
         'quix-cloud/plugin.md': 'quix-cloud/services/plugin.md'
         'quix-cloud/spaces/reference.md': 'quix-cloud/spaces/overview.md'
         'quix-cloud/spaces/create-space.md': 'quix-cloud/spaces/navigation.md'
+        'quix-cloud/spaces/replace-operator-role.md': 'quix-cloud/roles.md'
         'quix-cloud/spaces/membership.md': 'quix-cloud/spaces/overview.md'
         'quix-cloud/deploying-connectors.md': 'quix-cloud/deployments/deploying-connectors.md'
         'quix-cloud/services/deploying-connectors.md': 'quix-cloud/deployments/deploying-connectors.md'
