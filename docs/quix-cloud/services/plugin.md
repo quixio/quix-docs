@@ -155,7 +155,7 @@ Making a deployment an organization plugin makes it *available* across the organ
 
 | Place | In a space | Without a space |
 |---|---|---|
-| Header app strip | Only the apps the space pins, in the order the space sets. | Empty, except for [Operator-only users](#operator-only-users-deprecated). |
+| Header app strip | Only the apps the space pins, in the order the space sets. | Empty, except for [Operator-only users](#operator-only-users), who see every organization plugin they can access. |
 | Organization sidebar | Where the space lists the app. | Not listed. |
 | Landing page | When the space uses the app as its landing page. | Not used. |
 | Command palette, and the `Apps` list on `Home` | Every organization plugin the user has access to. | Every organization plugin the user has access to. |
@@ -174,17 +174,20 @@ The `organisationItem` settings describe the app wherever it appears, and a spac
 Access to an organization plugin comes from roles, never from spaces:
 
 * To see and open an organization plugin, a user needs `plugin:read` in the environment the plugin runs in. Plugin permissions apply per environment, not per deployment, and the user doesn't need `workspace:read` there.
-* The Admin, Manager and Editor roles grant `plugin:*`, and the Viewer role grants `plugin:read`. The narrowest choice is the Viewer role assigned at the environment level. See [Permission levels](../roles.md#permission-levels).
+* The Admin, Manager, Editor and Operator roles grant `plugin:*`, and the Viewer role grants `plugin:read`. See [Permission levels](../roles.md#permission-levels).
 * A space that pins an app doesn't give anyone access to it. Users without access don't see the app in the header or the command palette, and see a sidebar entry for it as disabled.
 
 <a id="what-operator-only-users-see"></a>
 <a id="operator-only-users-deprecated"></a>
 
-!!! warning "The Operator role is deprecated"
+### Operator-only users
 
-    The Operator role grants `plugin:*` and nothing else. Existing assignments still work. An Operator-only user, with no Admin, Manager, Editor or Viewer role, can open any app at `/apps/<deployment-id>`, including a space's header apps. Any other page sends them to their first organization plugin, and they always see plugins full screen, never beside the organization sidebar. Without a space, their header lists every app they can access. The portal checks the role once per session, so a role change applies after the user reloads the portal.
+The [Operator role](../roles.md#the-operator-role) grants `plugin:*` and read-only access to global variables. An Operator-only user, with no Admin, Manager, Editor or Viewer role, can open any app they have access to at `/apps/<deployment-id>`. They can't reach any other page.
 
-    Don't assign the role to new users. To give users a plugin-only view, use a space and the Viewer role instead. See [Replace the Operator role with a space](../spaces/replace-operator-role.md).
+* **In a space**, they land on the space's plugin landing page, or its first pinned or sidebar plugin, and any other page sends them back there. Their organization sidebar shows only the space's plugin entries, and an app they have no access to is hidden rather than disabled. See [Spaces for Operator-only users](../spaces/navigation.md#spaces-for-operator-only-users).
+* **Without a space**, they land on their first organization plugin, and any other page sends them back there. Their header lists every app they can access, and plugins open full screen.
+
+The portal checks the role once per session, so a role change applies after the user reloads the portal.
 
 ## Plugin toolbar
 
