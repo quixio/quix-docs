@@ -2,19 +2,6 @@
 
 This is the Quix Cloud changelog for the current year.
 
-## 2026-11-operator-role | 06 NOV 2026
-
-`ENHANCEMENTS`
-
-- **Operator role is no longer deprecated**: Operator stays the narrowest role: plugins and read-only global variables, with no access to projects, environments or deployments. The role picker no longer marks it as deprecated, and the page about replacing it with a space is gone.
-- **Spaces for Operator-only users**: An Operator-only user in a Space now lands on its plugin landing page or first plugin app, sees its header apps, and gets a sidebar with only its plugin entries. Operator-only users without a Space work as before.
-
-    See [The Operator role](https://quix.io/docs/quix-cloud/roles.html#the-operator-role) for more details.
-
-`FIXES`
-
-- **Plugin sidebar highlight**: The sidebar entry of a plugin now stays highlighted when a link opens another environment of the plugin, or a page the entry doesn't name.
-
 ## 2026-09-spaces | 14 OCT 2026
 
 `NEW FEATURES`
