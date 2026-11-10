@@ -2,6 +2,25 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-09-spaces-hotfix-3 | 10 NOV 2026
+
+`ENHANCEMENTS`
+
+- Security:
+    - **Certificate trust remediation** — rejected public certificate identities, including eMudhra, have been removed from the trust stores of the Quix service images updated in this release.
+    - **Dependency security updates** — platform services built on .NET now run on a patched servicing release, the Admin UI moves to Next.js 15.5.28, and vulnerable Python and Kafka dependencies have been updated in Quix Lake, Dynamic Configuration, Dev Sessions and Environments services.
+
+
+`BUG FIXES`
+
+- Navigation:
+    - Fixed opening a **Topics** or **Data** URL directly (a reload, bookmark, shared link or new tab) redirecting to the environments grid.
+    - Fixed loading or reloading **Knowledge Bases** and the Quix AI pages in Organisation Settings redirecting to a different settings page.
+- Kafka:
+    - Fixed apps using idempotent producers, including the Quix Streams default `at-least-once` guarantee, failing with `CLUSTER_AUTHORIZATION_FAILED` in scratchpads whose topics are all linked. Existing affected scratchpads need to be recreated.
+- Git:
+    - Fixed **GitHub rejecting new deploy keys**: generated repository SSH keys now use 3072-bit RSA. Existing keys are unchanged.
+
 ## 2026-09-spaces | 14 OCT 2026
 
 `NEW FEATURES`
