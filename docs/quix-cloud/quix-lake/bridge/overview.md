@@ -90,17 +90,17 @@ The move deletes no file on the machine. You cannot move a revoked bridge.
 
 ## Operating system support
 
-| Feature | Windows | Linux |
-|---|---|---|
-| Builds | `win-x64`, `win-arm64` | `linux-x64` only |
-| Install script | `install.ps1` (MSI or zip) | `install.sh` (deb, rpm or tar.gz) |
-| Service | Windows service, runs as `NT SERVICE\quix-bridge` | systemd unit, runs as the system user `quix-bridge` |
-| Tray icon | Yes | No. Read the state with `quix-bridge status`. |
-| Web console (`quix-bridge ui`) | Yes | Yes |
-| Automatic update | MSI only | deb, rpm and tar.gz |
-| Network folder (`\\server\share`) | Yes, from the console | No. Mount it, then share the mount folder. |
+| Feature | Windows | Linux | macOS |
+|---|---|---|---|
+| Builds | `win-x64`, `win-arm64` | `linux-x64` only | `osx-arm64` only (Apple Silicon). No Intel build yet. |
+| Install script | `install.ps1` (MSI or zip) | `install.sh` (deb, rpm or tar.gz) | `install.sh`, with `sudo` |
+| Service | Windows service, runs as `NT SERVICE\quix-bridge` | systemd unit, runs as the system user `quix-bridge` | launchd job, runs as the system user `_quixbridge` |
+| Tray icon | Yes | No. Read the state with `quix-bridge status`. | Yes, in the menu bar |
+| Web console (`quix-bridge ui`) | Yes | Yes | Yes |
+| Automatic update | MSI only | deb, rpm and tar.gz | Yes |
+| Network folder (`\\server\share`) | Yes, from the console | No. Mount it, then share the mount folder. | No. Mount it, then share the mount folder. |
 
-**macOS is not supported.** `install.sh` stops on a Mac. **Linux arm64 is not shipped yet.** `install.sh` stops on an arm64 Linux machine.
+**Intel Macs are not supported yet.** `install.sh` stops on an Intel Mac. **Linux arm64 is not shipped yet.** `install.sh` stops on an arm64 Linux machine.
 
 ## Next steps
 
