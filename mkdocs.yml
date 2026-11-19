@@ -103,6 +103,11 @@ nav:
       - 'Storage permissions': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'How to connect': 'quix-cloud/quix-lake/s3-endpoint.md'
       - 'File Explorer': 'quix-cloud/quix-lake/file-explorer.md'
+      - 'Notebooks':
+        - 'Overview': 'quix-cloud/quix-lake/notebooks/overview.md'
+        - 'Get started': 'quix-cloud/quix-lake/notebooks/get-started.md'
+        - 'Share and permissions': 'quix-cloud/quix-lake/notebooks/share-and-permissions.md'
+        - 'Workers and admin': 'quix-cloud/quix-lake/notebooks/workers-and-admin.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
