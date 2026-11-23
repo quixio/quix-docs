@@ -8,9 +8,9 @@ description: Create a notebook workspace, create your first notebook, and start 
 This page shows how to create a notebook workspace and your first notebook.
 
 !!! info "Prerequisites"
-    - The cluster has [blob storage](../blob-storage.md). Without it, you cannot create a notebook workspace on that cluster.
+    - The cluster has [blob storage](../quix-lake/blob-storage.md). Without it, you cannot create a notebook workspace on that cluster.
     - To create a notebook workspace, you need permission to create environments in your organization. Without it, the Portal shows **Ask an admin to create a notebook workspace.**
-    - To create a notebook, you need a role that can edit the notebook workspace: Editor, Manager or Admin. See [Roles](../../roles.md).
+    - To create a notebook, you need a role that can edit the notebook workspace: Editor, Manager or Admin. See [Roles](../roles.md).
 
 ## Create a notebook workspace
 
@@ -54,7 +54,7 @@ Quix also adds a Private notebook named **Welcome to Notebooks**, owned by you. 
 The notebook starts **Private**. When you add a share in step 7, it starts **Shared**. See [Share and permissions](./share-and-permissions.md).
 
 !!! note "An Operator as the owner"
-    When you select a user with the [Operator role](../../roles.md#the-operator-role) as the owner, that user can open and edit only this notebook. They never see the workspace. If you want to keep access, share the notebook with yourself.
+    When you select a user with the [Operator role](../roles.md#the-operator-role) as the owner, that user can open and edit only this notebook. They never see the workspace. If you want to keep access, share the notebook with yourself.
 
 You can also create a notebook workspace from the **Workspace** list of this dialog. Select **+ New notebook workspace**.
 

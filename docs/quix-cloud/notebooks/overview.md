@@ -12,7 +12,7 @@ Each notebook opens in **QuixLab**, the notebook editor of Quix. A notebook is a
 Open **Notebooks** from the sidebar of your organization.
 
 !!! info "Prerequisites"
-    - The cluster has a [Quix Lake connection](../blob-storage.md) with blob storage. Notebooks keep their files in blob storage.
+    - The cluster has a [Quix Lake connection](../quix-lake/blob-storage.md) with blob storage. Notebooks keep their files in blob storage.
     - You have a role on a notebook workspace, or somebody shared a notebook with you.
 
 ## Notebook workspaces
@@ -55,7 +55,7 @@ Quix keeps each notebook in its own folder in the blob storage of the cluster:
 <workspace id>/notebooks/<notebook id>/
 ```
 
-You can see these folders in [File Explorer](../file-explorer.md). The access setting of the notebook also controls the folder. See [Notebooks in File Explorer](./share-and-permissions.md#notebooks-in-file-explorer).
+You can see these folders in [File Explorer](../quix-lake/file-explorer.md). The access setting of the notebook also controls the folder. See [Notebooks in File Explorer](./share-and-permissions.md#notebooks-in-file-explorer).
 
 ## Next steps
 
