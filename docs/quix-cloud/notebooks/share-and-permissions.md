@@ -42,7 +42,7 @@ When you add a person to a Private notebook, the notebook becomes **Shared**. Wh
 **Who can be on the share list.** Any user of your organization, and any group. A user does not need a role on the notebook workspace:
 
 * A workspace Viewer on the share list gets the share role. With **Can edit**, a Viewer can edit and run that notebook.
-* A user with the [Operator role](../../roles.md#the-operator-role) gets this notebook only. They never see the workspace. Operators see the notebooks shared with them on their own **Notebooks** page.
+* A user with the [Operator role](../roles.md#the-operator-role) gets this notebook only. They never see the workspace. Operators see the notebooks shared with them on their own **Notebooks** page.
 
 A share works only inside your organization.
 
@@ -95,19 +95,19 @@ To change the role of a direct share, select **Can view** or **Can edit** in its
 
 ## Notebooks in File Explorer
 
-Each notebook has its own folder in the blob storage of the cluster: `<workspace id>/notebooks/<notebook id>/`. [File Explorer](../file-explorer.md) and the [storage permissions](../secure-storage-access.md) follow the access of the notebook:
+Each notebook has its own folder in the blob storage of the cluster: `<workspace id>/notebooks/<notebook id>/`. [File Explorer](../quix-lake/file-explorer.md) and the [storage permissions](../quix-lake/secure-storage-access.md) follow the access of the notebook:
 
 | Notebook access | Folder access |
 |---|---|
 | **Private** or **Shared** | The owner gets **Read-Write Access**. A **Can edit** share gives **Read-Write Access**. A **Can view** share gives **Read Access**. Everyone else gets **No Access**. |
-| **Public** | The [project role](../secure-storage-access.md#the-project-role) on the notebook workspace decides, as for any environment folder. |
+| **Public** | The [project role](../quix-lake/secure-storage-access.md#the-project-role) on the notebook workspace decides, as for any environment folder. |
 
 In the **Storage permissions** tab, notebook folders show **Inherited (from notebook permissions)**. You cannot change them there. Change the access or the share list of the notebook instead.
 
-An organization administrator can list every notebook folder, as in other folders. They cannot read, change or delete the files of a Private notebook folder that is not shared with them. See [What administrators can do](../secure-storage-access.md#what-administrators-can-do).
+An organization administrator can list every notebook folder, as in other folders. They cannot read, change or delete the files of a Private notebook folder that is not shared with them. See [What administrators can do](../quix-lake/secure-storage-access.md#what-administrators-can-do).
 
 ## Next steps
 
 * [Workers and admin](./workers-and-admin.md) — workers, QuixLab version, settings, logs and storage
-* [Storage permissions](../secure-storage-access.md) — the rules for every other folder
-* [Roles](../../roles.md) — the roles of Quix Cloud
+* [Storage permissions](../quix-lake/secure-storage-access.md) — the rules for every other folder
+* [Roles](../roles.md) — the roles of Quix Cloud

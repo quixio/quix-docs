@@ -103,11 +103,6 @@ nav:
       - 'Storage permissions': 'quix-cloud/quix-lake/secure-storage-access.md'
       - 'How to connect': 'quix-cloud/quix-lake/s3-endpoint.md'
       - 'File Explorer': 'quix-cloud/quix-lake/file-explorer.md'
-      - 'Notebooks':
-        - 'Overview': 'quix-cloud/quix-lake/notebooks/overview.md'
-        - 'Get started': 'quix-cloud/quix-lake/notebooks/get-started.md'
-        - 'Share and permissions': 'quix-cloud/quix-lake/notebooks/share-and-permissions.md'
-        - 'Workers and admin': 'quix-cloud/quix-lake/notebooks/workers-and-admin.md'
       - 'Data Lake':
         - 'Overview': 'quix-cloud/quix-lake/data-lake/overview.md'
         - 'Open format': 'quix-cloud/quix-lake/data-lake/open-format.md'
@@ -133,6 +128,11 @@ nav:
         - 'Command line setup': 'quix-cloud/quix-lake/bridge/command-line.md'
         - 'Updates and uninstall': 'quix-cloud/quix-lake/bridge/updates.md'
         - 'Troubleshooting and limits': 'quix-cloud/quix-lake/bridge/troubleshooting.md'
+    - 'Notebooks':
+      - 'Overview': 'quix-cloud/notebooks/overview.md'
+      - 'Get started': 'quix-cloud/notebooks/get-started.md'
+      - 'Share and permissions': 'quix-cloud/notebooks/share-and-permissions.md'
+      - 'Workers and admin': 'quix-cloud/notebooks/workers-and-admin.md'
     - 'Managed services':
       - 'Overview': 'quix-cloud/services/overview.md'
       - 'Dynamic configuration': 'quix-cloud/services/dynamic-configuration.md'
@@ -596,6 +596,10 @@ plugins:
         'platform/quickstart.md': 'quix-cloud/quickstart.md'
         'platform/what-is-quix.md': 'kb/what-is-quix.md'
         'platform/glossary.md': 'kb/glossary.md'
+        'quix-cloud/quix-lake/notebooks/overview.md': 'quix-cloud/notebooks/overview.md'
+        'quix-cloud/quix-lake/notebooks/get-started.md': 'quix-cloud/notebooks/get-started.md'
+        'quix-cloud/quix-lake/notebooks/share-and-permissions.md': 'quix-cloud/notebooks/share-and-permissions.md'
+        'quix-cloud/quix-lake/notebooks/workers-and-admin.md': 'quix-cloud/notebooks/workers-and-admin.md'
         'platform/quixtour/overview.md': 'quix-cloud/overview.md'
         'platform/tutorials/index.md': 'tutorials/overview.md'
         # Outdated tutorial redirects - All removed tutorials point to landing page

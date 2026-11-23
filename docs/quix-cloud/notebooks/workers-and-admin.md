@@ -89,7 +89,7 @@ When the workspace has no QuixLab, it shows **QuixLab is not installed in this n
 
 Notebooks keep their files in the blob storage of the cluster. Without blob storage, notebooks cannot open or save.
 
-* You cannot create a notebook workspace on a cluster without blob storage. See [Quix Lake connections and storages](../blob-storage.md).
+* You cannot create a notebook workspace on a cluster without blob storage. See [Quix Lake connections and storages](../quix-lake/blob-storage.md).
 * When the storage of a workspace is not available, the workspace shows **Storage unavailable**. An open notebook shows **Blob storage is not defined**. A workspace Admin can click **Connect blob storage**.
 * The Portal only warns. It does not stop or restart QuixLab or the workers.
 
@@ -111,4 +111,4 @@ This permanently deletes the workspace and all of its notebooks.
 
 * [Notebooks overview](./overview.md)
 * [Share and permissions](./share-and-permissions.md)
-* [File Explorer](../file-explorer.md) — see the notebook files in blob storage
+* [File Explorer](../quix-lake/file-explorer.md) — see the notebook files in blob storage
