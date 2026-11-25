@@ -11,7 +11,7 @@ This page covers:
 
 * [Enabling state](#enabling-state-management) and [choosing its storage](#choosing-the-storage): Files, Database or Advanced.
 * [Setting state in `quix.yaml`](#setting-state-in-quixyaml).
-* [Reading the State section](#reading-the-state-section) of a deployment: storage, size, path and usage.
+* [Viewing the state](#viewing-the-state) of a deployment: storage, size, path and usage.
 * [Clearing the state](#clearing-the-state), which is also how you change the storage of a deployment whose state has files.
 * [Using the state folder from your code](#reading-the-state-path-in-code) and [from Quix Streams](#using-state-from-quix-streams).
 
@@ -20,8 +20,8 @@ This page covers:
 Enable state when your code relies on state, or expects files to persist across restarts:
 
 1. In the deployment dialog, switch on **State Management**.
-2. If the dialog shows **Storage**, choose **Files**, **Database** or **Advanced**. See [Choosing the storage](#choosing-the-storage). When the cluster lists no storage classes, the dialog shows no **Storage** choice and the cluster's default storage is used.
-3. Set the **Size limit in GB**. On storage that doesn't enforce a size, the dialog shows **Limit not enforced** instead. See [Choosing the size](#choosing-the-size).
+2. Choose the storage, if the dialog offers a choice: **Files**, **Database** or **Advanced**. See [Choosing the storage](#choosing-the-storage).
+3. Set the size. See [Choosing the size](#choosing-the-size).
 
 ![The State Management panel of the New Deployment dialog with State on: the Storage choice of Files (selected, marked Default), Database and Advanced, then Size limit in GB and Path](../../images/state/state-storage-choice.png){width=80%}
 
@@ -29,21 +29,21 @@ A deployment has one state volume, and all its replicas mount that same volume. 
 
 ### Choosing the storage
 
-The storage options come from the cluster your environment runs on. Each option names a storage class, with its kind, its access mode and the sizes it allows.
+The storage options come from the cluster your environment runs on.
 
 | Storage | Use it for |
 |---|---|
-| **Files** | Files, checkpoints and Quix Streams state. It is marked **Default**. |
+| **Files** | Files, checkpoints and Quix Streams state. |
 | **Database** | Databases such as Postgres, MongoDB, InfluxDB and Redis, and embedded databases such as SQLite, LiteDB or DuckDB. |
-| **Advanced** | Any storage class the cluster offers, when you need a specific one. Pick it in the **Storage class** dropdown. |
+| **Advanced** | Any storage class the cluster offers, when you need a specific one. |
 
-Which options you can use depends on how the cluster's storage is set up, and on the deployment's replicas and type. When a card or a class can't be used, the dialog shows why, for example `Not set up on this cluster. Ask your admin to add file storage.`
+Which options you can use depends on how the cluster's storage is set up, and on the deployment's replicas and type. When an option can't be used, the dialog shows why.
 
 ### Choosing the size
 
-**Size limit in GB** runs from the storage class's minimum size, or 1 GB, up to your plan's state size limit, or the class's maximum when that is lower.
+The size runs from the storage class's minimum, or 1 GB, up to your plan's state size limit, or the class's maximum when that is lower.
 
-Some storage classes don't enforce a size for each deployment. On those, **Size** reads **Limit not enforced** instead of a slider, with the line `Uses the shared storage's free space. If it fills, writes fail for every deployment on it.` Quix doesn't count that state toward your plan's state size limits.
+Some storage classes don't enforce a size for each deployment. On those there is no size to set: the state uses the shared storage's free space, and if that fills, writes fail for every deployment on it. Quix doesn't count that state toward your plan's state size limits.
 
 While the deployment keeps its state volume, its size can grow but not shrink. On a storage class that can't be resized, the size can't change at all. To start again at a smaller size, [clear the state](#clearing-the-state).
 
@@ -64,7 +64,7 @@ deployments:
 
 `storageClass` is the name of a storage class the cluster offers:
 
-* To find the name, choose **Advanced** in the deployment dialog and pick the class in **Storage class**: the line under the field starts with the class name. When you create a deployment with State on in the dialog, Quix also writes the class you chose to `state.storageClass` in `quix.yaml`.
+* To find the name, choose **Advanced** in the deployment dialog and pick the class: its name is shown under the field. When you create a deployment with State on in the dialog, Quix also writes the class you chose to `state.storageClass` in `quix.yaml`.
 * A class the cluster doesn't offer fails the sync with `The storage class '<name>' is not available on node group '<node group>'`.
 * If you leave out `storageClass` for a new deployment, the cluster's default storage class is used. Leaving it out for an existing deployment keeps its current class.
 * While the deployment keeps a state volume, you can't change `storageClass`. With State on, the sync fails with `To change the storage class, clear the state first.` [Clear the state](#clearing-the-state), then change it.
@@ -85,50 +85,39 @@ A custom path is useful when:
 * You're deploying third-party containers with predefined data directories.
 * You want to align with existing application conventions.
 
-## Reading the State section
+## Viewing the state
 
-A deployment's page has a **State** section while state is on, or while the deployment keeps its state volume:
+The **State** section of a deployment's page shows the storage the state is on, its size, its path and how much of it is used:
 
 ![The State section of a deployment: Storage Standard shared (Shared, ReadWriteMany), Size 1 GB, Path /app/state, and Used 0.25 GB of 1 GB at 25%, with a Full in 17 days chip and the Clear state button](../../images/state/state-section.png){width=60%}
 
-| Row | What it shows |
-|---|---|
-| **Storage** | The storage class the state is on, with its kind and access mode. |
-| **Size** | The size limit, or **Limit not enforced** on a storage class that doesn't enforce one. |
-| **Path** | Where the storage is mounted in the container. |
-| **Used** | How much the state uses, and the bin button that clears the state. On storage with a size, a forecast chip can appear next to it, which opens the 7-day and 30-day forecasts. |
-
-What **Used** shows depends on the storage:
-
-* On storage with a size, **Used** reads against the size, for example `0.25 GB of 1 GB · 25%`.
-* On storage that doesn't enforce a size, the state shares the storage with other deployments, and **Used** shows this deployment's usage next to the other deployments' usage.
+On storage that doesn't enforce a size, the state shares the storage with other deployments, so **Used** shows this deployment's usage next to the other deployments' usage.
 
 ## Clearing the state
 
-Clear state deletes all the files in the deployment's state. You can't undo a clear. Depending on the deployment's status, the deployment either stops and starts again, or stays stopped. When you clear from the deployment's page, the **Clear state?** dialog tells you which before you confirm.
+Clear state deletes all the files in the deployment's state. You can't undo a clear. Depending on the deployment's status, the deployment either stops and starts again, or stays stopped.
 
-Clearing the state is also how you change the storage while the state has files. In the **Edit** dialog the **Storage** is then locked, with the hint `Locked while the state has files.`:
+Clearing the state is also how you change the storage of a deployment whose state has files. Until then, its storage is locked in the **Edit** dialog:
 
 ![The Edit dialog's State Management panel with locked storage: Standard shared, marked Files, with a lock and the hint "Locked while the state has files. To change it, clear the state.", then Size limit in GB, Path, and Used with a Clear state button](../../images/state/state-storage-locked.png){width=80%}
 
-When **Used** reads **Empty**, the **Edit** dialog doesn't lock the storage, so you can pick another storage without clearing first.
+When **Used** shows **Empty**, the storage isn't locked, so you can change it without clearing first.
 
 To clear the state from the deployment's page:
 
-1. In the **State** section, click the bin button next to **Used**.
-2. Read the **Clear state?** dialog. It says what happens to the deployment.
-3. Type `CLEAR`, then click **Clear state**.
+1. In the **State** section, click the bin button.
+2. Type `CLEAR`, then click **Clear state**.
 
 ![The Clear state? dialog for a running deployment: "This stops the deployment, deletes all 0.25 GB, and starts it again with an empty state. You can't undo this." with a field to type CLEAR](../../images/state/clear-state-dialog.png){width=50%}
 
 To clear the state and change its storage or size in one step:
 
 1. Open the deployment's **Edit** dialog.
-2. In **State Management**, click **Clear state** next to **Used**. Nothing is deleted yet: a line says what Save deletes, and **Undo** takes the clear back.
+2. Under **State Management**, click **Clear state**. Nothing is deleted until you save.
 3. Choose the new storage and size.
 4. Click **Save and clear state**.
 
-**Used** reads **Clearing…** while the clear runs. For a deployment that starts again, the new usage can take up to 10 minutes to show.
+After a clear, the new usage can take several minutes to show.
 
 On storage that doesn't enforce a size, a clear deletes only this deployment's files. Other deployments on the same storage keep their files.
 
