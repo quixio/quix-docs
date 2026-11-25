@@ -10,7 +10,7 @@ When you enable state for a deployment, Quix gives the deployment its own storag
 This page covers:
 
 * [Enabling state](#enabling-state-management) and [choosing its storage](#choosing-the-storage): Files, Database or Advanced.
-* [Setting state in `quix.yaml`](#setting-state-in-quixyaml) or [with the Portal API](#setting-state-with-the-portal-api).
+* [Setting state in `quix.yaml`](#setting-state-in-quixyaml).
 * [Reading the State section](#reading-the-state-section) of a deployment: storage, size, path and usage.
 * [Clearing the state](#clearing-the-state), which is also how you change the storage of a deployment whose state has files.
 * [Using the state folder from your code](#reading-the-state-path-in-code) and [from Quix Streams](#using-state-from-quix-streams).
@@ -31,13 +31,13 @@ A deployment has one state volume, and all its replicas mount that same volume. 
 
 The storage options come from the cluster your environment runs on. Each option names a storage class, with its kind, its access mode and the sizes it allows.
 
-| Storage | Use it for | Limits |
-|---|---|---|
-| **Files** | Files, checkpoints and Quix Streams state. It is marked **Default**. | Its storage class is always ReadWriteMany, so all replicas share one storage, and Jobs can use it. |
-| **Database** | Databases such as Postgres, MongoDB, InfluxDB and Redis, and embedded databases such as SQLite, LiteDB or DuckDB. Most databases let only one process write their files. | You can't choose **Database** while **Replicas** is above 1. A Job can't use it when its storage class is ReadWriteOnce. |
-| **Advanced** | Any storage class the cluster offers, when you need a specific one. Pick it in the **Storage class** dropdown. | A ReadWriteOnce class takes 1 replica only. A Job sees only ReadWriteMany classes. |
+| Storage | Use it for |
+|---|---|
+| **Files** | Files, checkpoints and Quix Streams state. It is marked **Default**. |
+| **Database** | Databases such as Postgres, MongoDB, InfluxDB and Redis, and embedded databases such as SQLite, LiteDB or DuckDB. |
+| **Advanced** | Any storage class the cluster offers, when you need a specific one. Pick it in the **Storage class** dropdown. |
 
-When a card or a class can't be used, the dialog shows why, for example `Not set up on this cluster. Ask your admin to add file storage.`
+Which options you can use depends on how the cluster's storage is set up, and on the deployment's replicas and type. When a card or a class can't be used, the dialog shows why, for example `Not set up on this cluster. Ask your admin to add file storage.`
 
 ### Choosing the size
 
@@ -84,13 +84,6 @@ A custom path is useful when:
 * Your application expects state at a specific location, for example `/var/lib/myapp`.
 * You're deploying third-party containers with predefined data directories.
 * You want to align with existing application conventions.
-
-## Setting state with the Portal API
-
-The [Portal API](../apis/portal-api/overview.md) takes the same values:
-
-* `POST /deployments` and `PATCH /deployments/{deploymentId}` accept `stateEnabled`, `stateSize` and `storageClass`.
-* `PATCH /deployments/{deploymentId}` also accepts `statePath`, and `clearState: true`, which [clears the state](#clearing-the-state). With `clearState: true`, the same request can set a different `storageClass`.
 
 ## Reading the State section
 
