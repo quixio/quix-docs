@@ -1,24 +1,55 @@
+---
+title: State management
+description: Keep a deployment's files and Quix Streams state across restarts, choose Files, Database or Advanced storage for it, read its usage, and clear it.
+---
+
 # State management
 
-When deploying a service, enabling state management enables the service to maintain its state between restarts by creating a storage area for data and files, ensuring persistence across service restarts.
+When you enable state for a deployment, Quix gives the deployment its own storage volume. Files your code writes there stay when the deployment restarts, so you can keep Quix Streams state, checkpoints, downloaded models and database files.
+
+This page covers:
+
+* [Enabling state](#enabling-state-management) and [choosing its storage](#choosing-the-storage): Files, Database or Advanced.
+* [Setting state in `quix.yaml`](#setting-state-in-quixyaml).
+* [Viewing the state](#viewing-the-state) of a deployment: storage, size, path and usage.
+* [Clearing the state](#clearing-the-state), which is also how you change the storage of a deployment whose state has files.
+* [Using the state folder from your code](#reading-the-state-path-in-code) and [from Quix Streams](#using-state-from-quix-streams).
 
 ## Enabling state management
 
-Enable state management during service deployment if your code relies on state or expects files to persist across restarts:
+Enable state when your code relies on state, or expects files to persist across restarts:
 
-![state management](../../images/state/state-management.png){width=80%}
+1. In the deployment dialog, switch on **State Management**.
+2. Choose the storage, if the dialog offers a choice: **Files**, **Database** or **Advanced**. See [Choosing the storage](#choosing-the-storage).
+3. Set the size. See [Choosing the size](#choosing-the-size).
 
-Enabling state creates a storage volume that can be accessed by your code. By default, this is mounted at `/app/state`, but you can configure a custom path in the deployment settings or via the `quix.yaml` file.
+![The State Management panel of the New Deployment dialog with State on: the Storage choice of Files (selected, marked Default), Database and Advanced, then Size limit in GB and Path](../../images/state/state-storage-choice.png){width=80%}
 
-The mount path is available to your code via the [`Quix__Deployment__State__Path`](./quix-variables.md) environment variable.
+A deployment has one state volume, and all its replicas mount that same volume. Other deployments don't mount it. By default the volume is mounted at `/app/state`. To mount it somewhere else, set `state.path` in [`quix.yaml`](#setting-a-custom-state-path), or change **Path** in the **Edit** dialog of an existing deployment. The mount path is available to your code in the [`Quix__Deployment__State__Path`](./quix-variables.md) environment variable.
 
-!!! important
+### Choosing the storage
 
-    Note that data stored in this area is retained between service restarts and is shared between all replicas of the service, but it is not available globally to other services.
+The storage options come from the cluster your environment runs on.
 
-## Configuring a custom state path
+| Storage | Use it for |
+|---|---|
+| **Files** | Files, checkpoints and Quix Streams state. |
+| **Database** | Databases such as Postgres, MongoDB, InfluxDB and Redis, and embedded databases such as SQLite, LiteDB or DuckDB. |
+| **Advanced** | Any storage class the cluster offers, when you need a specific one. |
 
-By default, state is mounted at `/app/state`. To specify a different path, configure it in your `quix.yaml`:
+Which options you can use depends on how the cluster's storage is set up, and on the deployment's replicas and type. When an option can't be used, the dialog shows why.
+
+### Choosing the size
+
+The size runs from the storage class's minimum, or 1 GB, up to your plan's state size limit, or the class's maximum when that is lower.
+
+Some storage classes don't enforce a size for each deployment. On those there is no size to set: the state uses the shared storage's free space, and if that fills, writes fail for every deployment on it. Quix doesn't count that state toward your plan's state size limits.
+
+While the deployment keeps its state volume, its size can grow but not shrink. On a storage class that can't be resized, the size can't change at all. To start again at a smaller size, [clear the state](#clearing-the-state).
+
+## Setting state in quix.yaml
+
+You can set state in your `quix.yaml` file:
 
 ```yaml
 deployments:
@@ -27,18 +58,76 @@ deployments:
     state:
       enabled: true
       size: 5
-      path: /data/state  # Custom mount path
+      storageClass: <storage-class-name> # Optional
+      path: /data/state # Optional
 ```
 
-This is useful when:
+`storageClass` is the name of a storage class the cluster offers:
 
-- Your application expects state at a specific location (e.g., `/var/lib/myapp`)
-- You're deploying third-party containers with predefined data directories
-- You want to align with existing application conventions
+* To find the name, choose **Advanced** in the deployment dialog and pick the class: its name is shown under the field. When you create a deployment with State on in the dialog, Quix also writes the class you chose to `state.storageClass` in `quix.yaml`.
+* A class the cluster doesn't offer fails the sync with `The storage class '<name>' is not available on node group '<node group>'`.
+* If you leave out `storageClass` for a new deployment, the cluster's default storage class is used. Leaving it out for an existing deployment keeps its current class.
+* While the deployment keeps a state volume, you can't change `storageClass`. With State on, the sync fails with `To change the storage class, clear the state first.` [Clear the state](#clearing-the-state), then change it.
+* On a storage class that doesn't enforce a size, Quix doesn't write `state.size` to `quix.yaml`, and ignores a `state.size` you add there.
 
-### Reading the state path in code
+### Setting a custom state path
 
-Use the `Quix__Deployment__State__Path` environment variable to dynamically resolve the state location:
+By default, state is mounted at `/app/state`. Set `state.path` to mount it somewhere else. The path must:
+
+* Start with `/`.
+* Not contain `..`.
+* Be at most 255 characters long.
+* Use only letters, digits, `/`, `-`, `_` and `.`.
+
+A custom path is useful when:
+
+* Your application expects state at a specific location, for example `/var/lib/myapp`.
+* You're deploying third-party containers with predefined data directories.
+* You want to align with existing application conventions.
+
+## Viewing the state
+
+The **State** section of a deployment's page shows the storage the state is on, its size, its path and how much of it is used:
+
+![The State section of a deployment: Storage Standard shared (Shared, ReadWriteMany), Size 1 GB, Path /app/state, and Used 0.25 GB of 1 GB at 25%, with a Full in 17 days chip and the Clear state button](../../images/state/state-section.png){width=60%}
+
+On storage that doesn't enforce a size, the state shares the storage with other deployments, so **Used** shows this deployment's usage next to the other deployments' usage.
+
+## Clearing the state
+
+Clear state deletes all the files in the deployment's state. You can't undo a clear. Depending on the deployment's status, the deployment either stops and starts again, or stays stopped.
+
+Clearing the state is also how you change the storage of a deployment whose state has files. Until then, its storage is locked in the **Edit** dialog:
+
+![The Edit dialog's State Management panel with locked storage: Standard shared, marked Files, with a lock and the hint "Locked while the state has files. To change it, clear the state.", then Size limit in GB, Path, and Used with a Clear state button](../../images/state/state-storage-locked.png){width=80%}
+
+When **Used** shows **Empty**, the storage isn't locked, so you can change it without clearing first.
+
+To clear the state from the deployment's page:
+
+1. In the **State** section, click the bin button.
+2. Type `CLEAR`, then click **Clear state**.
+
+![The Clear state? dialog for a running deployment: "This stops the deployment, deletes all 0.25 GB, and starts it again with an empty state. You can't undo this." with a field to type CLEAR](../../images/state/clear-state-dialog.png){width=50%}
+
+To clear the state and change its storage or size in one step:
+
+1. Open the deployment's **Edit** dialog.
+2. Under **State Management**, click **Clear state**. Nothing is deleted until you save.
+3. Choose the new storage and size.
+4. Click **Save and clear state**.
+
+After a clear, the new usage can take several minutes to show.
+
+On storage that doesn't enforce a size, a clear deletes only this deployment's files. Other deployments on the same storage keep their files.
+
+## Turning state off
+
+Switching State off doesn't delete the files. The deployment keeps its state volume, unmounted, and switching State back on uses the same files again. While the files are kept, on storage with a size the volume's size still counts toward your organization's state size limit. To delete the files, use [Clear state](#clearing-the-state).
+
+## Reading the state path in code
+
+Use the `Quix__Deployment__State__Path` environment variable to resolve the state location:
 
 ```python
 import os
@@ -47,21 +136,15 @@ state_path = os.environ.get("Quix__Deployment__State__Path", "/app/state")
 model_file = f"{state_path}/model.dat"
 ```
 
-This allows your code to work correctly regardless of the configured mount path.
+This lets your code work whatever mount path is configured.
 
 !!! warning "Deprecation notice"
 
-    The `Quix__State__Dir` environment variable is deprecated. Use `state.path` in your `quix.yaml` instead. The platform will set `Quix__Deployment__State__Path` automatically.
+    The `Quix__State__Dir` environment variable is deprecated. Use `state.path` in your `quix.yaml` instead. The platform sets `Quix__Deployment__State__Path` automatically.
 
 ## Storing files in the state folder
 
-You can use this `state` folder as a place to download and store model and other files. 
-
-!!! note
-
-    While the contents of the state folder are not browsable in the UI, the folder is available for use by your code.
-
-For example, the following code downloads a model file to the state folder. It subsequently loads the model file from the state folder when needed:
+You can use the `state` folder to download and store models and other files. For example, the following code downloads a model file to the state folder, then loads it from there when needed:
 
 ``` python
 import os
@@ -78,11 +161,7 @@ with open(f'{state_path}/model1.dat', 'rb') as f:
     model_data = f.read()
 ```
 
-The model can be modified at run time, and its state is preserved between service restarts.
-
-!!! note
-
-    There is a 100GB storage limit for the state management storage area.
+The model can be modified at runtime, and its state is preserved between service restarts.
 
 ## Using state from Quix Streams
 
