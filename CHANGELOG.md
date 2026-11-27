@@ -2,6 +2,93 @@
 
 This is the Quix Cloud changelog for the current year.
 
+## 2026-11-notebooks | 30 NOV 2026
+
+`NEW FEATURES`
+
+- **Notebooks**: Notebooks is the enterprise home for QuixLab in Quix, and now the main way to use QuixLab on the platform. Find all the notebooks you can open in one place, start one from scratch or from a template, and share it with exactly the people who need it: keep it private, share it with specific users or groups, or open it to your whole organisation. Everything you know from QuixLab is there, including the reactive canvas, Quix AI and direct access to Quix Lake, Kafka topics and your storage, with the governance and access control a team needs.
+
+    Everyone who works in a notebook workspace should be trusted with all of its notebooks. Use separate notebook workspaces for data that must be kept apart.
+
+    See the [Notebooks documentation](https://quix.io/docs/quix-cloud/notebooks/overview.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-11-notebooks.webp" alt="Notebooks" style="width:60%"></p>
+
+- **QuixLab canvas**: QuixLab has grown well beyond a notebook. The **AI chat can now build and edit the whole canvas** for you, including nested canvases, and you can pick the LLM model per AI cell. A gallery of **ready-made nodes** covers common jobs without code: a **Folder watcher** that re-runs readers when files arrive, an **MF4 decoder** that turns CAN recordings into tables using `.dbc`, `.arxml`, `.kcd` or `.sym` databases, and **Save to Lakehouse** with live progress. **Open a file from your computer** as a table in one step, read a **Kafka topic** straight from the broker, and save database connections with sealed secrets in the new **Connector Center**. Guided tutorials help new users get started.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-11-quixlab-canvas.webp" alt="QuixLab canvas" style="width:60%"></p>
+
+- **Agents in Quix AI**: Agents are now the entry point to Quix AI. Knowledge bases and MCP servers become capabilities you attach to an agent instead of separate things to wire up. Agents, knowledge bases and MCP servers have a real **owner** and a **personal scope**, so you can build your own agent privately and share it with the organisation when it's ready. Sharing shows a preflight of what the agent will be able to reach. A new **Agents** page and **Resources** area bring it all together, and you can choose the **LLM model per session**.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-11-agents.webp" alt="Agents in Quix AI" style="width:60%"></p>
+
+- **Deployment state storage**: Choose where a deployment's state lives. Pick **Files**, **Database** or an **Advanced** storage class from the options your administrator allows for the cluster, in the deployment dialog or in YAML (`state.storageClass`, `state.accessMode`). You can **clear a deployment's state** and move it to another storage class, keep the files when State is turned off, and see state usage against the real limit, including other deployments sharing the same storage. Quix Lake's Query and Database services can manage their state storage in the same way.
+
+    See the [State management documentation](https://quix.io/docs/quix-cloud/deployments/state-management.html) for more details.
+
+    <p align="center" style="margin: 1.5em 0;"><img src="./changelogs/images/2026-11-state-storage.webp" alt="Deployment state storage" style="width:60%"></p>
+
+
+`ENHANCEMENTS`
+
+- Spaces:
+    - **Spaces switcher search** — once you belong to more than 7 spaces, the switcher has a search field and a scrolling list.
+    - **Operator role in Spaces** — users with the Operator role can now work inside a Space.
+- Users & Groups:
+    - **Permission sources per group member** — a group's Users tab shows where each member's Project, Storage and Quix AI permissions come from, and you can edit them per member or in bulk.
+- Personal Access Tokens:
+    - **Expiry warnings** — a daily email lists your tokens that expire within 7 days or have just expired, and the Portal shows a badge and a banner on the Home page.
+- Deployments:
+    - **Custom size access** — admins can allow selected users or groups to use a Custom size while deployment size limits are enforced.
+    - **Out-of-memory indicator** — dev sessions show when they restarted because they ran out of memory, and their owner is notified.
+- Plugins:
+    - **Outdated plugin deployments** — the plugin view shows when its app's deployment is outdated and lets you update it in place.
+- Replay:
+    - **Loop playback** — a replay can restart on its own when it finishes, with an optional cooldown between runs and an optional limit on the number of runs.
+- Quix Lake:
+    - **Quix Lake Bridge on macOS** — the Bridge now runs on macOS, with a macOS pairing tab in the Portal and a polished local console.
+    - **Storage audit** — folder visibility and permission changes, and Bridge share, exposure and online/offline changes, now appear in the Storage tab of the Audit page with who made them and the old and new values.
+    - **Lakehouse reliability** — compaction only touches the files the catalog lists, DuckDB temporary files spill to local disk instead of the state volume, and a time column that mixes integer and timestamp files can now be read.
+- Security:
+    - **Certificate trust remediation** — the certificate trust remediation from `2026-09-spaces-hotfix-3` is carried into this release for every updated Quix service.
+    - **Dependency security updates** — platform services move to the latest patched .NET servicing release, and vulnerable dependencies have been updated across Deployments, Quix Lake, Dynamic Configuration, Dev Sessions, Environments and the Storage Access Gateway.
+    - **Quix AI access hardening** — personal API keys for the LLM proxy are switched off, LLM proxy calls are rate-limited like chat, and access checks on the Portal's Quix AI proxy have been tightened.
+
+
+`BUG FIXES`
+
+- Spaces:
+    - Fixed every **deep link and reload** inside a space with a landing page redirecting to the landing.
+    - Fixed non-admin members' tabs freezing in a navigation loop when a space's landing page is admin-only.
+    - Fixed sidebar apps opening a different environment from the one chosen in the Space designer.
+- Variables & Sync:
+    - Fixed **project variables opened from Project settings showing empty**, with Save wiping them.
+    - Fixed sync validation calling project variables undefined when they are only unset in the environment.
+    - Fixed **secret values** showing in plain text while typing in the variables grid.
+- Projects & Library:
+    - Fixed creating a project with an **existing SSH repository** creating a Quix-managed repository instead.
+    - Fixed library items hiding Deploy and Customize when their build fails.
+    - Fixed samples that can't be deployed appearing deployable in the pipeline library drawer.
+    - Fixed **Cancel** on the New scratchpad page freezing the tab.
+- Deployments:
+    - Fixed finished agent dev sessions staying **Running** after their pod exits.
+    - Fixed stale cluster data and silent storage cards when cluster requests fail.
+    - Fixed the Edit deployment size dialog overflowing its right edge.
+- Users:
+    - Fixed the **Users page** being slow to load, and its filter lagging, with many users.
+    - Fixed invited users seeing onboarding and getting a project created for them.
+    - Fixed the own-user avatar showing a broken image and missing last names showing "undefined".
+- Quix Lake:
+    - Fixed the File Explorer not following every page of a long folder listing.
+    - Fixed the lakehouse database connection failing when the catalog pool was full.
+- Quix AI & Git:
+    - Fixed the first message in a new Quix AI chat failing when no agent was picked.
+    - Fixed OpenAI-backed dev sessions failing on some conversations.
+    - Fixed token-based **Git access tests over `ssh://`** failing on the host key.
+- UI:
+    - Fixed Pull request panel cards being clipped when opened over the pipeline view.
+    - Fixed the icon picker offering icons that render blank.
+
 ## 2026-09-spaces-hotfix-3 | 10 NOV 2026
 
 `ENHANCEMENTS`
